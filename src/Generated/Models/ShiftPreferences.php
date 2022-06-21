@@ -6,15 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ShiftPreferences extends ChangeTrackedEntity implements Parsable 
+class ShiftPreferences extends ChangeTrackedEntity 
 {
-    /**
-     * @var array<ShiftAvailability>|null $availability Availability of the user to be scheduled for work and its recurrence pattern.
-    */
+    /** @var array<ShiftAvailability>|null $availability Availability of the user to be scheduled for work and its recurrence pattern. */
     private ?array $availability = null;
     
     /**
-     * Instantiates a new ShiftPreferences and sets the default values.
+     * Instantiates a new shiftPreferences and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +23,7 @@ class ShiftPreferences extends ChangeTrackedEntity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ShiftPreferences
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ShiftPreferences {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ShiftPreferences {
         return new ShiftPreferences();
     }
 
@@ -42,9 +40,8 @@ class ShiftPreferences extends ChangeTrackedEntity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'availability' => function (ParseNode $n) use ($o) { $o->setAvailability($n->getCollectionOfObjectValues(array(ShiftAvailability::class, 'createFromDiscriminatorValue'))); },
+            'availability' => function (self $o, ParseNode $n) { $o->setAvailability($n->getCollectionOfObjectValues(ShiftAvailability::class)); },
         ]);
     }
 

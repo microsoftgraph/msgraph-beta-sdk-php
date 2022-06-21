@@ -8,182 +8,112 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class SalesOrder extends Entity implements Parsable 
+class SalesOrder extends Entity 
 {
-    /**
-     * @var PostalAddressType|null $billingPostalAddress The billingPostalAddress property
-    */
+    /** @var PostalAddressType|null $billingPostalAddress The billingPostalAddress property */
     private ?PostalAddressType $billingPostalAddress = null;
     
-    /**
-     * @var string|null $billToCustomerId The billToCustomerId property
-    */
+    /** @var string|null $billToCustomerId The billToCustomerId property */
     private ?string $billToCustomerId = null;
     
-    /**
-     * @var string|null $billToCustomerNumber The billToCustomerNumber property
-    */
+    /** @var string|null $billToCustomerNumber The billToCustomerNumber property */
     private ?string $billToCustomerNumber = null;
     
-    /**
-     * @var string|null $billToName The billToName property
-    */
+    /** @var string|null $billToName The billToName property */
     private ?string $billToName = null;
     
-    /**
-     * @var Currency|null $currency The currency property
-    */
+    /** @var Currency|null $currency The currency property */
     private ?Currency $currency = null;
     
-    /**
-     * @var string|null $currencyCode The currencyCode property
-    */
+    /** @var string|null $currencyCode The currencyCode property */
     private ?string $currencyCode = null;
     
-    /**
-     * @var string|null $currencyId The currencyId property
-    */
+    /** @var string|null $currencyId The currencyId property */
     private ?string $currencyId = null;
     
-    /**
-     * @var Customer|null $customer The customer property
-    */
+    /** @var Customer|null $customer The customer property */
     private ?Customer $customer = null;
     
-    /**
-     * @var string|null $customerId The customerId property
-    */
+    /** @var string|null $customerId The customerId property */
     private ?string $customerId = null;
     
-    /**
-     * @var string|null $customerName The customerName property
-    */
+    /** @var string|null $customerName The customerName property */
     private ?string $customerName = null;
     
-    /**
-     * @var string|null $customerNumber The customerNumber property
-    */
+    /** @var string|null $customerNumber The customerNumber property */
     private ?string $customerNumber = null;
     
-    /**
-     * @var string|null $discountAmount The discountAmount property
-    */
-    private ?string $discountAmount = null;
+    /** @var float|null $discountAmount The discountAmount property */
+    private ?float $discountAmount = null;
     
-    /**
-     * @var bool|null $discountAppliedBeforeTax The discountAppliedBeforeTax property
-    */
+    /** @var bool|null $discountAppliedBeforeTax The discountAppliedBeforeTax property */
     private ?bool $discountAppliedBeforeTax = null;
     
-    /**
-     * @var string|null $email The email property
-    */
+    /** @var string|null $email The email property */
     private ?string $email = null;
     
-    /**
-     * @var string|null $externalDocumentNumber The externalDocumentNumber property
-    */
+    /** @var string|null $externalDocumentNumber The externalDocumentNumber property */
     private ?string $externalDocumentNumber = null;
     
-    /**
-     * @var bool|null $fullyShipped The fullyShipped property
-    */
+    /** @var bool|null $fullyShipped The fullyShipped property */
     private ?bool $fullyShipped = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $number The number property
-    */
+    /** @var string|null $number The number property */
     private ?string $number = null;
     
-    /**
-     * @var Date|null $orderDate The orderDate property
-    */
+    /** @var Date|null $orderDate The orderDate property */
     private ?Date $orderDate = null;
     
-    /**
-     * @var bool|null $partialShipping The partialShipping property
-    */
+    /** @var bool|null $partialShipping The partialShipping property */
     private ?bool $partialShipping = null;
     
-    /**
-     * @var PaymentTerm|null $paymentTerm The paymentTerm property
-    */
+    /** @var PaymentTerm|null $paymentTerm The paymentTerm property */
     private ?PaymentTerm $paymentTerm = null;
     
-    /**
-     * @var string|null $paymentTermsId The paymentTermsId property
-    */
+    /** @var string|null $paymentTermsId The paymentTermsId property */
     private ?string $paymentTermsId = null;
     
-    /**
-     * @var string|null $phoneNumber The phoneNumber property
-    */
+    /** @var string|null $phoneNumber The phoneNumber property */
     private ?string $phoneNumber = null;
     
-    /**
-     * @var bool|null $pricesIncludeTax The pricesIncludeTax property
-    */
+    /** @var bool|null $pricesIncludeTax The pricesIncludeTax property */
     private ?bool $pricesIncludeTax = null;
     
-    /**
-     * @var Date|null $requestedDeliveryDate The requestedDeliveryDate property
-    */
+    /** @var Date|null $requestedDeliveryDate The requestedDeliveryDate property */
     private ?Date $requestedDeliveryDate = null;
     
-    /**
-     * @var array<SalesOrderLine>|null $salesOrderLines The salesOrderLines property
-    */
+    /** @var array<SalesOrderLine>|null $salesOrderLines The salesOrderLines property */
     private ?array $salesOrderLines = null;
     
-    /**
-     * @var string|null $salesperson The salesperson property
-    */
+    /** @var string|null $salesperson The salesperson property */
     private ?string $salesperson = null;
     
-    /**
-     * @var PostalAddressType|null $sellingPostalAddress The sellingPostalAddress property
-    */
+    /** @var PostalAddressType|null $sellingPostalAddress The sellingPostalAddress property */
     private ?PostalAddressType $sellingPostalAddress = null;
     
-    /**
-     * @var PostalAddressType|null $shippingPostalAddress The shippingPostalAddress property
-    */
+    /** @var PostalAddressType|null $shippingPostalAddress The shippingPostalAddress property */
     private ?PostalAddressType $shippingPostalAddress = null;
     
-    /**
-     * @var string|null $shipToContact The shipToContact property
-    */
+    /** @var string|null $shipToContact The shipToContact property */
     private ?string $shipToContact = null;
     
-    /**
-     * @var string|null $shipToName The shipToName property
-    */
+    /** @var string|null $shipToName The shipToName property */
     private ?string $shipToName = null;
     
-    /**
-     * @var string|null $status The status property
-    */
+    /** @var string|null $status The status property */
     private ?string $status = null;
     
-    /**
-     * @var string|null $totalAmountExcludingTax The totalAmountExcludingTax property
-    */
-    private ?string $totalAmountExcludingTax = null;
+    /** @var float|null $totalAmountExcludingTax The totalAmountExcludingTax property */
+    private ?float $totalAmountExcludingTax = null;
     
-    /**
-     * @var string|null $totalAmountIncludingTax The totalAmountIncludingTax property
-    */
-    private ?string $totalAmountIncludingTax = null;
+    /** @var float|null $totalAmountIncludingTax The totalAmountIncludingTax property */
+    private ?float $totalAmountIncludingTax = null;
     
-    /**
-     * @var string|null $totalTaxAmount The totalTaxAmount property
-    */
-    private ?string $totalTaxAmount = null;
+    /** @var float|null $totalTaxAmount The totalTaxAmount property */
+    private ?float $totalTaxAmount = null;
     
     /**
      * Instantiates a new salesOrder and sets the default values.
@@ -197,7 +127,7 @@ class SalesOrder extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SalesOrder
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SalesOrder {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SalesOrder {
         return new SalesOrder();
     }
 
@@ -291,9 +221,9 @@ class SalesOrder extends Entity implements Parsable
 
     /**
      * Gets the discountAmount property value. The discountAmount property
-     * @return string|null
+     * @return float|null
     */
-    public function getDiscountAmount(): ?string {
+    public function getDiscountAmount(): ?float {
         return $this->discountAmount;
     }
 
@@ -326,43 +256,42 @@ class SalesOrder extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'billingPostalAddress' => function (ParseNode $n) use ($o) { $o->setBillingPostalAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
-            'billToCustomerId' => function (ParseNode $n) use ($o) { $o->setBillToCustomerId($n->getStringValue()); },
-            'billToCustomerNumber' => function (ParseNode $n) use ($o) { $o->setBillToCustomerNumber($n->getStringValue()); },
-            'billToName' => function (ParseNode $n) use ($o) { $o->setBillToName($n->getStringValue()); },
-            'currency' => function (ParseNode $n) use ($o) { $o->setCurrency($n->getObjectValue(array(Currency::class, 'createFromDiscriminatorValue'))); },
-            'currencyCode' => function (ParseNode $n) use ($o) { $o->setCurrencyCode($n->getStringValue()); },
-            'currencyId' => function (ParseNode $n) use ($o) { $o->setCurrencyId($n->getStringValue()); },
-            'customer' => function (ParseNode $n) use ($o) { $o->setCustomer($n->getObjectValue(array(Customer::class, 'createFromDiscriminatorValue'))); },
-            'customerId' => function (ParseNode $n) use ($o) { $o->setCustomerId($n->getStringValue()); },
-            'customerName' => function (ParseNode $n) use ($o) { $o->setCustomerName($n->getStringValue()); },
-            'customerNumber' => function (ParseNode $n) use ($o) { $o->setCustomerNumber($n->getStringValue()); },
-            'discountAmount' => function (ParseNode $n) use ($o) { $o->setDiscountAmount($n->getStringValue()); },
-            'discountAppliedBeforeTax' => function (ParseNode $n) use ($o) { $o->setDiscountAppliedBeforeTax($n->getBooleanValue()); },
-            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
-            'externalDocumentNumber' => function (ParseNode $n) use ($o) { $o->setExternalDocumentNumber($n->getStringValue()); },
-            'fullyShipped' => function (ParseNode $n) use ($o) { $o->setFullyShipped($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'number' => function (ParseNode $n) use ($o) { $o->setNumber($n->getStringValue()); },
-            'orderDate' => function (ParseNode $n) use ($o) { $o->setOrderDate($n->getDateValue()); },
-            'partialShipping' => function (ParseNode $n) use ($o) { $o->setPartialShipping($n->getBooleanValue()); },
-            'paymentTerm' => function (ParseNode $n) use ($o) { $o->setPaymentTerm($n->getObjectValue(array(PaymentTerm::class, 'createFromDiscriminatorValue'))); },
-            'paymentTermsId' => function (ParseNode $n) use ($o) { $o->setPaymentTermsId($n->getStringValue()); },
-            'phoneNumber' => function (ParseNode $n) use ($o) { $o->setPhoneNumber($n->getStringValue()); },
-            'pricesIncludeTax' => function (ParseNode $n) use ($o) { $o->setPricesIncludeTax($n->getBooleanValue()); },
-            'requestedDeliveryDate' => function (ParseNode $n) use ($o) { $o->setRequestedDeliveryDate($n->getDateValue()); },
-            'salesOrderLines' => function (ParseNode $n) use ($o) { $o->setSalesOrderLines($n->getCollectionOfObjectValues(array(SalesOrderLine::class, 'createFromDiscriminatorValue'))); },
-            'salesperson' => function (ParseNode $n) use ($o) { $o->setSalesperson($n->getStringValue()); },
-            'sellingPostalAddress' => function (ParseNode $n) use ($o) { $o->setSellingPostalAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
-            'shippingPostalAddress' => function (ParseNode $n) use ($o) { $o->setShippingPostalAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
-            'shipToContact' => function (ParseNode $n) use ($o) { $o->setShipToContact($n->getStringValue()); },
-            'shipToName' => function (ParseNode $n) use ($o) { $o->setShipToName($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'totalAmountExcludingTax' => function (ParseNode $n) use ($o) { $o->setTotalAmountExcludingTax($n->getStringValue()); },
-            'totalAmountIncludingTax' => function (ParseNode $n) use ($o) { $o->setTotalAmountIncludingTax($n->getStringValue()); },
-            'totalTaxAmount' => function (ParseNode $n) use ($o) { $o->setTotalTaxAmount($n->getStringValue()); },
+            'billingPostalAddress' => function (self $o, ParseNode $n) { $o->setBillingPostalAddress($n->getObjectValue(PostalAddressType::class)); },
+            'billToCustomerId' => function (self $o, ParseNode $n) { $o->setBillToCustomerId($n->getStringValue()); },
+            'billToCustomerNumber' => function (self $o, ParseNode $n) { $o->setBillToCustomerNumber($n->getStringValue()); },
+            'billToName' => function (self $o, ParseNode $n) { $o->setBillToName($n->getStringValue()); },
+            'currency' => function (self $o, ParseNode $n) { $o->setCurrency($n->getObjectValue(Currency::class)); },
+            'currencyCode' => function (self $o, ParseNode $n) { $o->setCurrencyCode($n->getStringValue()); },
+            'currencyId' => function (self $o, ParseNode $n) { $o->setCurrencyId($n->getStringValue()); },
+            'customer' => function (self $o, ParseNode $n) { $o->setCustomer($n->getObjectValue(Customer::class)); },
+            'customerId' => function (self $o, ParseNode $n) { $o->setCustomerId($n->getStringValue()); },
+            'customerName' => function (self $o, ParseNode $n) { $o->setCustomerName($n->getStringValue()); },
+            'customerNumber' => function (self $o, ParseNode $n) { $o->setCustomerNumber($n->getStringValue()); },
+            'discountAmount' => function (self $o, ParseNode $n) { $o->setDiscountAmount($n->getFloatValue()); },
+            'discountAppliedBeforeTax' => function (self $o, ParseNode $n) { $o->setDiscountAppliedBeforeTax($n->getBooleanValue()); },
+            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
+            'externalDocumentNumber' => function (self $o, ParseNode $n) { $o->setExternalDocumentNumber($n->getStringValue()); },
+            'fullyShipped' => function (self $o, ParseNode $n) { $o->setFullyShipped($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'number' => function (self $o, ParseNode $n) { $o->setNumber($n->getStringValue()); },
+            'orderDate' => function (self $o, ParseNode $n) { $o->setOrderDate($n->getDateValue()); },
+            'partialShipping' => function (self $o, ParseNode $n) { $o->setPartialShipping($n->getBooleanValue()); },
+            'paymentTerm' => function (self $o, ParseNode $n) { $o->setPaymentTerm($n->getObjectValue(PaymentTerm::class)); },
+            'paymentTermsId' => function (self $o, ParseNode $n) { $o->setPaymentTermsId($n->getStringValue()); },
+            'phoneNumber' => function (self $o, ParseNode $n) { $o->setPhoneNumber($n->getStringValue()); },
+            'pricesIncludeTax' => function (self $o, ParseNode $n) { $o->setPricesIncludeTax($n->getBooleanValue()); },
+            'requestedDeliveryDate' => function (self $o, ParseNode $n) { $o->setRequestedDeliveryDate($n->getDateValue()); },
+            'salesOrderLines' => function (self $o, ParseNode $n) { $o->setSalesOrderLines($n->getCollectionOfObjectValues(SalesOrderLine::class)); },
+            'salesperson' => function (self $o, ParseNode $n) { $o->setSalesperson($n->getStringValue()); },
+            'sellingPostalAddress' => function (self $o, ParseNode $n) { $o->setSellingPostalAddress($n->getObjectValue(PostalAddressType::class)); },
+            'shippingPostalAddress' => function (self $o, ParseNode $n) { $o->setShippingPostalAddress($n->getObjectValue(PostalAddressType::class)); },
+            'shipToContact' => function (self $o, ParseNode $n) { $o->setShipToContact($n->getStringValue()); },
+            'shipToName' => function (self $o, ParseNode $n) { $o->setShipToName($n->getStringValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
+            'totalAmountExcludingTax' => function (self $o, ParseNode $n) { $o->setTotalAmountExcludingTax($n->getFloatValue()); },
+            'totalAmountIncludingTax' => function (self $o, ParseNode $n) { $o->setTotalAmountIncludingTax($n->getFloatValue()); },
+            'totalTaxAmount' => function (self $o, ParseNode $n) { $o->setTotalTaxAmount($n->getFloatValue()); },
         ]);
     }
 
@@ -504,25 +433,25 @@ class SalesOrder extends Entity implements Parsable
 
     /**
      * Gets the totalAmountExcludingTax property value. The totalAmountExcludingTax property
-     * @return string|null
+     * @return float|null
     */
-    public function getTotalAmountExcludingTax(): ?string {
+    public function getTotalAmountExcludingTax(): ?float {
         return $this->totalAmountExcludingTax;
     }
 
     /**
      * Gets the totalAmountIncludingTax property value. The totalAmountIncludingTax property
-     * @return string|null
+     * @return float|null
     */
-    public function getTotalAmountIncludingTax(): ?string {
+    public function getTotalAmountIncludingTax(): ?float {
         return $this->totalAmountIncludingTax;
     }
 
     /**
      * Gets the totalTaxAmount property value. The totalTaxAmount property
-     * @return string|null
+     * @return float|null
     */
-    public function getTotalTaxAmount(): ?string {
+    public function getTotalTaxAmount(): ?float {
         return $this->totalTaxAmount;
     }
 
@@ -543,7 +472,7 @@ class SalesOrder extends Entity implements Parsable
         $writer->writeStringValue('customerId', $this->customerId);
         $writer->writeStringValue('customerName', $this->customerName);
         $writer->writeStringValue('customerNumber', $this->customerNumber);
-        $writer->writeStringValue('discountAmount', $this->discountAmount);
+        $writer->writeFloatValue('discountAmount', $this->discountAmount);
         $writer->writeBooleanValue('discountAppliedBeforeTax', $this->discountAppliedBeforeTax);
         $writer->writeStringValue('email', $this->email);
         $writer->writeStringValue('externalDocumentNumber', $this->externalDocumentNumber);
@@ -564,9 +493,9 @@ class SalesOrder extends Entity implements Parsable
         $writer->writeStringValue('shipToContact', $this->shipToContact);
         $writer->writeStringValue('shipToName', $this->shipToName);
         $writer->writeStringValue('status', $this->status);
-        $writer->writeStringValue('totalAmountExcludingTax', $this->totalAmountExcludingTax);
-        $writer->writeStringValue('totalAmountIncludingTax', $this->totalAmountIncludingTax);
-        $writer->writeStringValue('totalTaxAmount', $this->totalTaxAmount);
+        $writer->writeFloatValue('totalAmountExcludingTax', $this->totalAmountExcludingTax);
+        $writer->writeFloatValue('totalAmountIncludingTax', $this->totalAmountIncludingTax);
+        $writer->writeFloatValue('totalTaxAmount', $this->totalTaxAmount);
     }
 
     /**
@@ -659,9 +588,9 @@ class SalesOrder extends Entity implements Parsable
 
     /**
      * Sets the discountAmount property value. The discountAmount property
-     *  @param string|null $value Value to set for the discountAmount property.
+     *  @param float|null $value Value to set for the discountAmount property.
     */
-    public function setDiscountAmount(?string $value ): void {
+    public function setDiscountAmount(?float $value ): void {
         $this->discountAmount = $value;
     }
 
@@ -827,25 +756,25 @@ class SalesOrder extends Entity implements Parsable
 
     /**
      * Sets the totalAmountExcludingTax property value. The totalAmountExcludingTax property
-     *  @param string|null $value Value to set for the totalAmountExcludingTax property.
+     *  @param float|null $value Value to set for the totalAmountExcludingTax property.
     */
-    public function setTotalAmountExcludingTax(?string $value ): void {
+    public function setTotalAmountExcludingTax(?float $value ): void {
         $this->totalAmountExcludingTax = $value;
     }
 
     /**
      * Sets the totalAmountIncludingTax property value. The totalAmountIncludingTax property
-     *  @param string|null $value Value to set for the totalAmountIncludingTax property.
+     *  @param float|null $value Value to set for the totalAmountIncludingTax property.
     */
-    public function setTotalAmountIncludingTax(?string $value ): void {
+    public function setTotalAmountIncludingTax(?float $value ): void {
         $this->totalAmountIncludingTax = $value;
     }
 
     /**
      * Sets the totalTaxAmount property value. The totalTaxAmount property
-     *  @param string|null $value Value to set for the totalTaxAmount property.
+     *  @param float|null $value Value to set for the totalTaxAmount property.
     */
-    public function setTotalTaxAmount(?string $value ): void {
+    public function setTotalTaxAmount(?float $value ): void {
         $this->totalTaxAmount = $value;
     }
 

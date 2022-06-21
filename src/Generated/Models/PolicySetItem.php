@@ -7,46 +7,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PolicySetItem extends Entity implements Parsable 
+class PolicySetItem extends Entity 
 {
-    /**
-     * @var DateTime|null $createdDateTime Creation time of the PolicySetItem.
-    */
+    /** @var DateTime|null $createdDateTime Creation time of the PolicySetItem. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $displayName DisplayName of the PolicySetItem.
-    */
+    /** @var string|null $displayName DisplayName of the PolicySetItem. */
     private ?string $displayName = null;
     
-    /**
-     * @var ErrorCode|null $errorCode Error code if any occured. Possible values are: noError, unauthorized, notFound, deleted.
-    */
+    /** @var ErrorCode|null $errorCode Error code if any occured. Possible values are: noError, unauthorized, notFound, deleted. */
     private ?ErrorCode $errorCode = null;
     
-    /**
-     * @var array<string>|null $guidedDeploymentTags Tags of the guided deployment
-    */
+    /** @var array<string>|null $guidedDeploymentTags Tags of the guided deployment */
     private ?array $guidedDeploymentTags = null;
     
-    /**
-     * @var string|null $itemType policySetType of the PolicySetItem.
-    */
+    /** @var string|null $itemType policySetType of the PolicySetItem. */
     private ?string $itemType = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime Last modified time of the PolicySetItem.
-    */
+    /** @var DateTime|null $lastModifiedDateTime Last modified time of the PolicySetItem. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $payloadId PayloadId of the PolicySetItem.
-    */
+    /** @var string|null $payloadId PayloadId of the PolicySetItem. */
     private ?string $payloadId = null;
     
-    /**
-     * @var PolicySetStatus|null $status Status of the PolicySetItem. Possible values are: unknown, validating, partialSuccess, success, error, notAssigned.
-    */
+    /** @var PolicySetStatus|null $status Status of the PolicySetItem. Possible values are: unknown, validating, partialSuccess, success, error, notAssigned. */
     private ?PolicySetStatus $status = null;
     
     /**
@@ -61,26 +45,7 @@ class PolicySetItem extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PolicySetItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PolicySetItem {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.deviceCompliancePolicyPolicySetItem': return new DeviceCompliancePolicyPolicySetItem();
-                case '#microsoft.graph.deviceConfigurationPolicySetItem': return new DeviceConfigurationPolicySetItem();
-                case '#microsoft.graph.deviceManagementConfigurationPolicyPolicySetItem': return new DeviceManagementConfigurationPolicyPolicySetItem();
-                case '#microsoft.graph.deviceManagementScriptPolicySetItem': return new DeviceManagementScriptPolicySetItem();
-                case '#microsoft.graph.enrollmentRestrictionsConfigurationPolicySetItem': return new EnrollmentRestrictionsConfigurationPolicySetItem();
-                case '#microsoft.graph.iosLobAppProvisioningConfigurationPolicySetItem': return new IosLobAppProvisioningConfigurationPolicySetItem();
-                case '#microsoft.graph.managedAppProtectionPolicySetItem': return new ManagedAppProtectionPolicySetItem();
-                case '#microsoft.graph.managedDeviceMobileAppConfigurationPolicySetItem': return new ManagedDeviceMobileAppConfigurationPolicySetItem();
-                case '#microsoft.graph.mdmWindowsInformationProtectionPolicyPolicySetItem': return new MdmWindowsInformationProtectionPolicyPolicySetItem();
-                case '#microsoft.graph.mobileAppPolicySetItem': return new MobileAppPolicySetItem();
-                case '#microsoft.graph.targetedManagedAppConfigurationPolicySetItem': return new TargetedManagedAppConfigurationPolicySetItem();
-                case '#microsoft.graph.windows10EnrollmentCompletionPageConfigurationPolicySetItem': return new Windows10EnrollmentCompletionPageConfigurationPolicySetItem();
-                case '#microsoft.graph.windowsAutopilotDeploymentProfilePolicySetItem': return new WindowsAutopilotDeploymentProfilePolicySetItem();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PolicySetItem {
         return new PolicySetItem();
     }
 
@@ -113,16 +78,15 @@ class PolicySetItem extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getEnumValue(ErrorCode::class)); },
-            'guidedDeploymentTags' => function (ParseNode $n) use ($o) { $o->setGuidedDeploymentTags($n->getCollectionOfPrimitiveValues()); },
-            'itemType' => function (ParseNode $n) use ($o) { $o->setItemType($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'payloadId' => function (ParseNode $n) use ($o) { $o->setPayloadId($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(PolicySetStatus::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'errorCode' => function (self $o, ParseNode $n) { $o->setErrorCode($n->getEnumValue(ErrorCode::class)); },
+            'guidedDeploymentTags' => function (self $o, ParseNode $n) { $o->setGuidedDeploymentTags($n->getCollectionOfPrimitiveValues()); },
+            'itemType' => function (self $o, ParseNode $n) { $o->setItemType($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'payloadId' => function (self $o, ParseNode $n) { $o->setPayloadId($n->getStringValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(PolicySetStatus::class)); },
         ]);
     }
 

@@ -6,66 +6,42 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementConfigurationPolicyTemplate extends Entity implements Parsable 
+class DeviceManagementConfigurationPolicyTemplate extends Entity 
 {
-    /**
-     * @var bool|null $allowUnmanagedSettings Allow unmanaged setting templates
-    */
+    /** @var bool|null $allowUnmanagedSettings Allow unmanaged setting templates */
     private ?bool $allowUnmanagedSettings = null;
     
-    /**
-     * @var string|null $baseId Template base identifier
-    */
+    /** @var string|null $baseId Template base identifier */
     private ?string $baseId = null;
     
-    /**
-     * @var string|null $description Template description
-    */
+    /** @var string|null $description Template description */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Template display name
-    */
+    /** @var string|null $displayName Template display name */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $displayVersion Description of template version
-    */
+    /** @var string|null $displayVersion Description of template version */
     private ?string $displayVersion = null;
     
-    /**
-     * @var DeviceManagementTemplateLifecycleState|null $lifecycleState Indicate current lifecycle state of template. Possible values are: invalid, draft, active, superseded, deprecated, retired.
-    */
+    /** @var DeviceManagementTemplateLifecycleState|null $lifecycleState Indicate current lifecycle state of template. Possible values are: invalid, draft, active, superseded, deprecated, retired. */
     private ?DeviceManagementTemplateLifecycleState $lifecycleState = null;
     
-    /**
-     * @var DeviceManagementConfigurationPlatforms|null $platforms Platforms for this template. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
-    */
+    /** @var DeviceManagementConfigurationPlatforms|null $platforms Platforms for this template. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue. */
     private ?DeviceManagementConfigurationPlatforms $platforms = null;
     
-    /**
-     * @var int|null $settingTemplateCount Number of setting templates. Valid values 0 to 2147483647. This property is read-only.
-    */
+    /** @var int|null $settingTemplateCount Number of setting templates. Valid values 0 to 2147483647. This property is read-only. */
     private ?int $settingTemplateCount = null;
     
-    /**
-     * @var array<DeviceManagementConfigurationSettingTemplate>|null $settingTemplates Setting templates
-    */
+    /** @var array<DeviceManagementConfigurationSettingTemplate>|null $settingTemplates Setting templates */
     private ?array $settingTemplates = null;
     
-    /**
-     * @var DeviceManagementConfigurationTechnologies|null $technologies Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
-    */
+    /** @var DeviceManagementConfigurationTechnologies|null $technologies Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue. */
     private ?DeviceManagementConfigurationTechnologies $technologies = null;
     
-    /**
-     * @var DeviceManagementConfigurationTemplateFamily|null $templateFamily TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.
-    */
+    /** @var DeviceManagementConfigurationTemplateFamily|null $templateFamily TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline. */
     private ?DeviceManagementConfigurationTemplateFamily $templateFamily = null;
     
-    /**
-     * @var int|null $version Template version. Valid values 1 to 2147483647. This property is read-only.
-    */
+    /** @var int|null $version Template version. Valid values 1 to 2147483647. This property is read-only. */
     private ?int $version = null;
     
     /**
@@ -80,7 +56,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationPolicyTemplate
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationPolicyTemplate {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationPolicyTemplate {
         return new DeviceManagementConfigurationPolicyTemplate();
     }
 
@@ -129,20 +105,19 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowUnmanagedSettings' => function (ParseNode $n) use ($o) { $o->setAllowUnmanagedSettings($n->getBooleanValue()); },
-            'baseId' => function (ParseNode $n) use ($o) { $o->setBaseId($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'displayVersion' => function (ParseNode $n) use ($o) { $o->setDisplayVersion($n->getStringValue()); },
-            'lifecycleState' => function (ParseNode $n) use ($o) { $o->setLifecycleState($n->getEnumValue(DeviceManagementTemplateLifecycleState::class)); },
-            'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
-            'settingTemplateCount' => function (ParseNode $n) use ($o) { $o->setSettingTemplateCount($n->getIntegerValue()); },
-            'settingTemplates' => function (ParseNode $n) use ($o) { $o->setSettingTemplates($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingTemplate::class, 'createFromDiscriminatorValue'))); },
-            'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
-            'templateFamily' => function (ParseNode $n) use ($o) { $o->setTemplateFamily($n->getEnumValue(DeviceManagementConfigurationTemplateFamily::class)); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
+            'allowUnmanagedSettings' => function (self $o, ParseNode $n) { $o->setAllowUnmanagedSettings($n->getBooleanValue()); },
+            'baseId' => function (self $o, ParseNode $n) { $o->setBaseId($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'displayVersion' => function (self $o, ParseNode $n) { $o->setDisplayVersion($n->getStringValue()); },
+            'lifecycleState' => function (self $o, ParseNode $n) { $o->setLifecycleState($n->getEnumValue(DeviceManagementTemplateLifecycleState::class)); },
+            'platforms' => function (self $o, ParseNode $n) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
+            'settingTemplateCount' => function (self $o, ParseNode $n) { $o->setSettingTemplateCount($n->getIntegerValue()); },
+            'settingTemplates' => function (self $o, ParseNode $n) { $o->setSettingTemplates($n->getCollectionOfObjectValues(DeviceManagementConfigurationSettingTemplate::class)); },
+            'technologies' => function (self $o, ParseNode $n) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
+            'templateFamily' => function (self $o, ParseNode $n) { $o->setTemplateFamily($n->getEnumValue(DeviceManagementConfigurationTemplateFamily::class)); },
+            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getIntegerValue()); },
         ]);
     }
 
@@ -179,7 +154,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
-     * Gets the technologies property value. Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Gets the technologies property value. Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
@@ -295,7 +270,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
-     * Sets the technologies property value. Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Sets the technologies property value. Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
      *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value ): void {

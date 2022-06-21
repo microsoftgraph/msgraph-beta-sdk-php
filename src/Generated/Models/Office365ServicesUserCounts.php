@@ -7,86 +7,54 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Office365ServicesUserCounts extends Entity implements Parsable 
+class Office365ServicesUserCounts extends Entity 
 {
-    /**
-     * @var int|null $exchangeActive The number of active users on Exchange. Any user who can read and send email is considered an active user.
-    */
+    /** @var int|null $exchangeActive The number of active users on Exchange. Any user who can read and send email is considered an active user. */
     private ?int $exchangeActive = null;
     
-    /**
-     * @var int|null $exchangeInactive The number of inactive users on Exchange.
-    */
+    /** @var int|null $exchangeInactive The number of inactive users on Exchange. */
     private ?int $exchangeInactive = null;
     
-    /**
-     * @var int|null $office365Active The number of active users on Microsoft 365.
-    */
+    /** @var int|null $office365Active The number of active users on Microsoft 365. */
     private ?int $office365Active = null;
     
-    /**
-     * @var int|null $office365Inactive The number of inactive users on Microsoft 365.
-    */
+    /** @var int|null $office365Inactive The number of inactive users on Microsoft 365. */
     private ?int $office365Inactive = null;
     
-    /**
-     * @var int|null $oneDriveActive The number of active users on OneDrive. Any user who viewed or edited files, shared files internally or externally, or synced files is considered an active user.
-    */
+    /** @var int|null $oneDriveActive The number of active users on OneDrive. Any user who viewed or edited files, shared files internally or externally, or synced files is considered an active user. */
     private ?int $oneDriveActive = null;
     
-    /**
-     * @var int|null $oneDriveInactive The number of inactive users on OneDrive.
-    */
+    /** @var int|null $oneDriveInactive The number of inactive users on OneDrive. */
     private ?int $oneDriveInactive = null;
     
-    /**
-     * @var string|null $reportPeriod The number of days the report covers.
-    */
+    /** @var string|null $reportPeriod The number of days the report covers. */
     private ?string $reportPeriod = null;
     
-    /**
-     * @var Date|null $reportRefreshDate The latest date of the content.
-    */
+    /** @var Date|null $reportRefreshDate The latest date of the content. */
     private ?Date $reportRefreshDate = null;
     
-    /**
-     * @var int|null $sharePointActive The number of active users on SharePoint. Any user who viewed or edited files, shared files internally or externally, synced files, or viewed SharePoint pages is considered an active user.
-    */
+    /** @var int|null $sharePointActive The number of active users on SharePoint. Any user who viewed or edited files, shared files internally or externally, synced files, or viewed SharePoint pages is considered an active user. */
     private ?int $sharePointActive = null;
     
-    /**
-     * @var int|null $sharePointInactive The number of inactive users on SharePoint.
-    */
+    /** @var int|null $sharePointInactive The number of inactive users on SharePoint. */
     private ?int $sharePointInactive = null;
     
-    /**
-     * @var int|null $skypeForBusinessActive The number of active users on Skype For Business. Any user who organized or participated in conferences, or joined peer-to-peer sessions is considered an active user.
-    */
+    /** @var int|null $skypeForBusinessActive The number of active users on Skype For Business. Any user who organized or participated in conferences, or joined peer-to-peer sessions is considered an active user. */
     private ?int $skypeForBusinessActive = null;
     
-    /**
-     * @var int|null $skypeForBusinessInactive The number of inactive users on Skype For Business.
-    */
+    /** @var int|null $skypeForBusinessInactive The number of inactive users on Skype For Business. */
     private ?int $skypeForBusinessInactive = null;
     
-    /**
-     * @var int|null $teamsActive The number of active users on Microsoft Teams. Any user who posted messages in team channels, sent messages in private chat sessions, or participated in meetings or calls is considered an active user.
-    */
+    /** @var int|null $teamsActive The number of active users on Microsoft Teams. Any user who posted messages in team channels, sent messages in private chat sessions, or participated in meetings or calls is considered an active user. */
     private ?int $teamsActive = null;
     
-    /**
-     * @var int|null $teamsInactive The number of inactive users on Microsoft Teams.
-    */
+    /** @var int|null $teamsInactive The number of inactive users on Microsoft Teams. */
     private ?int $teamsInactive = null;
     
-    /**
-     * @var int|null $yammerActive The number of active users on Yammer. Any user who can post, read, or like messages is considered an active user.
-    */
+    /** @var int|null $yammerActive The number of active users on Yammer. Any user who can post, read, or like messages is considered an active user. */
     private ?int $yammerActive = null;
     
-    /**
-     * @var int|null $yammerInactive The number of inactive users on Yammer.
-    */
+    /** @var int|null $yammerInactive The number of inactive users on Yammer. */
     private ?int $yammerInactive = null;
     
     /**
@@ -101,7 +69,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Office365ServicesUserCounts
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Office365ServicesUserCounts {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Office365ServicesUserCounts {
         return new Office365ServicesUserCounts();
     }
 
@@ -126,24 +94,23 @@ class Office365ServicesUserCounts extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exchangeActive' => function (ParseNode $n) use ($o) { $o->setExchangeActive($n->getIntegerValue()); },
-            'exchangeInactive' => function (ParseNode $n) use ($o) { $o->setExchangeInactive($n->getIntegerValue()); },
-            'office365Active' => function (ParseNode $n) use ($o) { $o->setOffice365Active($n->getIntegerValue()); },
-            'office365Inactive' => function (ParseNode $n) use ($o) { $o->setOffice365Inactive($n->getIntegerValue()); },
-            'oneDriveActive' => function (ParseNode $n) use ($o) { $o->setOneDriveActive($n->getIntegerValue()); },
-            'oneDriveInactive' => function (ParseNode $n) use ($o) { $o->setOneDriveInactive($n->getIntegerValue()); },
-            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
-            'sharePointActive' => function (ParseNode $n) use ($o) { $o->setSharePointActive($n->getIntegerValue()); },
-            'sharePointInactive' => function (ParseNode $n) use ($o) { $o->setSharePointInactive($n->getIntegerValue()); },
-            'skypeForBusinessActive' => function (ParseNode $n) use ($o) { $o->setSkypeForBusinessActive($n->getIntegerValue()); },
-            'skypeForBusinessInactive' => function (ParseNode $n) use ($o) { $o->setSkypeForBusinessInactive($n->getIntegerValue()); },
-            'teamsActive' => function (ParseNode $n) use ($o) { $o->setTeamsActive($n->getIntegerValue()); },
-            'teamsInactive' => function (ParseNode $n) use ($o) { $o->setTeamsInactive($n->getIntegerValue()); },
-            'yammerActive' => function (ParseNode $n) use ($o) { $o->setYammerActive($n->getIntegerValue()); },
-            'yammerInactive' => function (ParseNode $n) use ($o) { $o->setYammerInactive($n->getIntegerValue()); },
+            'exchangeActive' => function (self $o, ParseNode $n) { $o->setExchangeActive($n->getIntegerValue()); },
+            'exchangeInactive' => function (self $o, ParseNode $n) { $o->setExchangeInactive($n->getIntegerValue()); },
+            'office365Active' => function (self $o, ParseNode $n) { $o->setOffice365Active($n->getIntegerValue()); },
+            'office365Inactive' => function (self $o, ParseNode $n) { $o->setOffice365Inactive($n->getIntegerValue()); },
+            'oneDriveActive' => function (self $o, ParseNode $n) { $o->setOneDriveActive($n->getIntegerValue()); },
+            'oneDriveInactive' => function (self $o, ParseNode $n) { $o->setOneDriveInactive($n->getIntegerValue()); },
+            'reportPeriod' => function (self $o, ParseNode $n) { $o->setReportPeriod($n->getStringValue()); },
+            'reportRefreshDate' => function (self $o, ParseNode $n) { $o->setReportRefreshDate($n->getDateValue()); },
+            'sharePointActive' => function (self $o, ParseNode $n) { $o->setSharePointActive($n->getIntegerValue()); },
+            'sharePointInactive' => function (self $o, ParseNode $n) { $o->setSharePointInactive($n->getIntegerValue()); },
+            'skypeForBusinessActive' => function (self $o, ParseNode $n) { $o->setSkypeForBusinessActive($n->getIntegerValue()); },
+            'skypeForBusinessInactive' => function (self $o, ParseNode $n) { $o->setSkypeForBusinessInactive($n->getIntegerValue()); },
+            'teamsActive' => function (self $o, ParseNode $n) { $o->setTeamsActive($n->getIntegerValue()); },
+            'teamsInactive' => function (self $o, ParseNode $n) { $o->setTeamsInactive($n->getIntegerValue()); },
+            'yammerActive' => function (self $o, ParseNode $n) { $o->setYammerActive($n->getIntegerValue()); },
+            'yammerInactive' => function (self $o, ParseNode $n) { $o->setYammerInactive($n->getIntegerValue()); },
         ]);
     }
 

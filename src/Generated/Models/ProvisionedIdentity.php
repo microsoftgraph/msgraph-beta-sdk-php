@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ProvisionedIdentity extends Identity implements Parsable 
+class ProvisionedIdentity extends Identity 
 {
-    /**
-     * @var DetailsInfo|null $details Details of the identity.
-    */
+    /** @var DetailsInfo|null $details Details of the identity. */
     private ?DetailsInfo $details = null;
     
-    /**
-     * @var string|null $identityType Type of identity that has been provisioned, such as 'user' or 'group'.
-    */
+    /** @var string|null $identityType Type of identity that has been provisioned, such as 'user' or 'group'. */
     private ?string $identityType = null;
     
     /**
@@ -30,7 +26,7 @@ class ProvisionedIdentity extends Identity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ProvisionedIdentity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ProvisionedIdentity {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ProvisionedIdentity {
         return new ProvisionedIdentity();
     }
 
@@ -47,10 +43,9 @@ class ProvisionedIdentity extends Identity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getObjectValue(array(DetailsInfo::class, 'createFromDiscriminatorValue'))); },
-            'identityType' => function (ParseNode $n) use ($o) { $o->setIdentityType($n->getStringValue()); },
+            'details' => function (self $o, ParseNode $n) { $o->setDetails($n->getObjectValue(DetailsInfo::class)); },
+            'identityType' => function (self $o, ParseNode $n) { $o->setIdentityType($n->getStringValue()); },
         ]);
     }
 

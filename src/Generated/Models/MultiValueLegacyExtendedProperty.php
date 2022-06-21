@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MultiValueLegacyExtendedProperty extends Entity implements Parsable 
+class MultiValueLegacyExtendedProperty extends Entity 
 {
-    /**
-     * @var array<string>|null $value A collection of property values.
-    */
+    /** @var array<string>|null $value A collection of property values. */
     private ?array $value = null;
     
     /**
@@ -25,7 +23,7 @@ class MultiValueLegacyExtendedProperty extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MultiValueLegacyExtendedProperty
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MultiValueLegacyExtendedProperty {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MultiValueLegacyExtendedProperty {
         return new MultiValueLegacyExtendedProperty();
     }
 
@@ -34,9 +32,8 @@ class MultiValueLegacyExtendedProperty extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfPrimitiveValues()); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

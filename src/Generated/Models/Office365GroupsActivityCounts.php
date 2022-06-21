@@ -7,41 +7,27 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Office365GroupsActivityCounts extends Entity implements Parsable 
+class Office365GroupsActivityCounts extends Entity 
 {
-    /**
-     * @var int|null $exchangeEmailsReceived The number of emails received by Group mailboxes.
-    */
+    /** @var int|null $exchangeEmailsReceived The number of emails received by Group mailboxes. */
     private ?int $exchangeEmailsReceived = null;
     
-    /**
-     * @var Date|null $reportDate The date on which a number of emails were sent to a group mailbox or a number of messages were posted, read, or liked in a Yammer group
-    */
+    /** @var Date|null $reportDate The date on which a number of emails were sent to a group mailbox or a number of messages were posted, read, or liked in a Yammer group */
     private ?Date $reportDate = null;
     
-    /**
-     * @var string|null $reportPeriod The number of days the report covers.
-    */
+    /** @var string|null $reportPeriod The number of days the report covers. */
     private ?string $reportPeriod = null;
     
-    /**
-     * @var Date|null $reportRefreshDate The latest date of the content.
-    */
+    /** @var Date|null $reportRefreshDate The latest date of the content. */
     private ?Date $reportRefreshDate = null;
     
-    /**
-     * @var int|null $yammerMessagesLiked The number of messages liked in Yammer groups.
-    */
+    /** @var int|null $yammerMessagesLiked The number of messages liked in Yammer groups. */
     private ?int $yammerMessagesLiked = null;
     
-    /**
-     * @var int|null $yammerMessagesPosted The number of messages posted to Yammer groups.
-    */
+    /** @var int|null $yammerMessagesPosted The number of messages posted to Yammer groups. */
     private ?int $yammerMessagesPosted = null;
     
-    /**
-     * @var int|null $yammerMessagesRead The number of messages read in Yammer groups.
-    */
+    /** @var int|null $yammerMessagesRead The number of messages read in Yammer groups. */
     private ?int $yammerMessagesRead = null;
     
     /**
@@ -56,7 +42,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Office365GroupsActivityCounts
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Office365GroupsActivityCounts {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Office365GroupsActivityCounts {
         return new Office365GroupsActivityCounts();
     }
 
@@ -73,15 +59,14 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exchangeEmailsReceived' => function (ParseNode $n) use ($o) { $o->setExchangeEmailsReceived($n->getIntegerValue()); },
-            'reportDate' => function (ParseNode $n) use ($o) { $o->setReportDate($n->getDateValue()); },
-            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
-            'yammerMessagesLiked' => function (ParseNode $n) use ($o) { $o->setYammerMessagesLiked($n->getIntegerValue()); },
-            'yammerMessagesPosted' => function (ParseNode $n) use ($o) { $o->setYammerMessagesPosted($n->getIntegerValue()); },
-            'yammerMessagesRead' => function (ParseNode $n) use ($o) { $o->setYammerMessagesRead($n->getIntegerValue()); },
+            'exchangeEmailsReceived' => function (self $o, ParseNode $n) { $o->setExchangeEmailsReceived($n->getIntegerValue()); },
+            'reportDate' => function (self $o, ParseNode $n) { $o->setReportDate($n->getDateValue()); },
+            'reportPeriod' => function (self $o, ParseNode $n) { $o->setReportPeriod($n->getStringValue()); },
+            'reportRefreshDate' => function (self $o, ParseNode $n) { $o->setReportRefreshDate($n->getDateValue()); },
+            'yammerMessagesLiked' => function (self $o, ParseNode $n) { $o->setYammerMessagesLiked($n->getIntegerValue()); },
+            'yammerMessagesPosted' => function (self $o, ParseNode $n) { $o->setYammerMessagesPosted($n->getIntegerValue()); },
+            'yammerMessagesRead' => function (self $o, ParseNode $n) { $o->setYammerMessagesRead($n->getIntegerValue()); },
         ]);
     }
 

@@ -7,81 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackage extends Entity implements Parsable 
+class AccessPackage extends Entity 
 {
-    /**
-     * @var array<AccessPackageAssignmentPolicy>|null $accessPackageAssignmentPolicies Read-only. Nullable. Supports $expand.
-    */
+    /** @var array<AccessPackageAssignmentPolicy>|null $accessPackageAssignmentPolicies Read-only. Nullable. Supports $expand. */
     private ?array $accessPackageAssignmentPolicies = null;
     
-    /**
-     * @var AccessPackageCatalog|null $accessPackageCatalog The accessPackageCatalog property
-    */
+    /** @var AccessPackageCatalog|null $accessPackageCatalog Read-only. Nullable. */
     private ?AccessPackageCatalog $accessPackageCatalog = null;
     
-    /**
-     * @var array<AccessPackageResourceRoleScope>|null $accessPackageResourceRoleScopes The accessPackageResourceRoleScopes property
-    */
+    /** @var array<AccessPackageResourceRoleScope>|null $accessPackageResourceRoleScopes Nullable. */
     private ?array $accessPackageResourceRoleScopes = null;
     
-    /**
-     * @var array<AccessPackage>|null $accessPackagesIncompatibleWith The access packages that are incompatible with this package. Read-only.
-    */
+    /** @var array<AccessPackage>|null $accessPackagesIncompatibleWith The access packages that are incompatible with this package. Read-only. */
     private ?array $accessPackagesIncompatibleWith = null;
     
-    /**
-     * @var string|null $catalogId Identifier of the access package catalog referencing this access package. Read-only.
-    */
+    /** @var string|null $catalogId Identifier of the access package catalog referencing this access package. Read-only. */
     private ?string $catalogId = null;
     
-    /**
-     * @var string|null $createdBy The userPrincipalName of the user or identity of the subject who created this resource. Read-only.
-    */
+    /** @var string|null $createdBy The userPrincipalName of the user or identity of the subject who created this resource. Read-only. */
     private ?string $createdBy = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    */
+    /** @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $description The description of the access package.
-    */
+    /** @var string|null $description The description of the access package. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The display name of the access package. Supports $filter (eq, contains).
-    */
+    /** @var string|null $displayName The display name of the access package. Supports $filter (eq, contains). */
     private ?string $displayName = null;
     
-    /**
-     * @var array<AccessPackage>|null $incompatibleAccessPackages The  access packages whose assigned users are ineligible to be assigned this access package.
-    */
+    /** @var array<AccessPackage>|null $incompatibleAccessPackages The  access packages whose assigned users are ineligible to be assigned this access package. */
     private ?array $incompatibleAccessPackages = null;
     
-    /**
-     * @var array<Group>|null $incompatibleGroups The groups whose members are ineligible to be assigned this access package.
-    */
+    /** @var array<Group>|null $incompatibleGroups The groups whose members are ineligible to be assigned this access package. */
     private ?array $incompatibleGroups = null;
     
-    /**
-     * @var bool|null $isHidden Whether the access package is hidden from the requestor.
-    */
+    /** @var bool|null $isHidden Whether the access package is hidden from the requestor. */
     private ?bool $isHidden = null;
     
-    /**
-     * @var bool|null $isRoleScopesVisible Indicates whether role scopes are visible.
-    */
+    /** @var bool|null $isRoleScopesVisible Indicates whether role scopes are visible. */
     private ?bool $isRoleScopesVisible = null;
     
-    /**
-     * @var string|null $modifiedBy The userPrincipalName of the user who last modified this resource. Read-only.
-    */
+    /** @var string|null $modifiedBy The userPrincipalName of the user who last modified this resource. Read-only. */
     private ?string $modifiedBy = null;
     
-    /**
-     * @var DateTime|null $modifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    */
+    /** @var DateTime|null $modifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private ?DateTime $modifiedDateTime = null;
     
     /**
@@ -96,7 +66,7 @@ class AccessPackage extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackage
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackage {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackage {
         return new AccessPackage();
     }
 
@@ -109,7 +79,7 @@ class AccessPackage extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessPackageCatalog property value. The accessPackageCatalog property
+     * Gets the accessPackageCatalog property value. Read-only. Nullable.
      * @return AccessPackageCatalog|null
     */
     public function getAccessPackageCatalog(): ?AccessPackageCatalog {
@@ -117,7 +87,7 @@ class AccessPackage extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessPackageResourceRoleScopes property value. The accessPackageResourceRoleScopes property
+     * Gets the accessPackageResourceRoleScopes property value. Nullable.
      * @return array<AccessPackageResourceRoleScope>|null
     */
     public function getAccessPackageResourceRoleScopes(): ?array {
@@ -177,23 +147,22 @@ class AccessPackage extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageAssignmentPolicies' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentPolicies($n->getCollectionOfObjectValues(array(AccessPackageAssignmentPolicy::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageCatalog' => function (ParseNode $n) use ($o) { $o->setAccessPackageCatalog($n->getObjectValue(array(AccessPackageCatalog::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceRoleScopes' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRoleScopes($n->getCollectionOfObjectValues(array(AccessPackageResourceRoleScope::class, 'createFromDiscriminatorValue'))); },
-            'accessPackagesIncompatibleWith' => function (ParseNode $n) use ($o) { $o->setAccessPackagesIncompatibleWith($n->getCollectionOfObjectValues(array(AccessPackage::class, 'createFromDiscriminatorValue'))); },
-            'catalogId' => function (ParseNode $n) use ($o) { $o->setCatalogId($n->getStringValue()); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'incompatibleAccessPackages' => function (ParseNode $n) use ($o) { $o->setIncompatibleAccessPackages($n->getCollectionOfObjectValues(array(AccessPackage::class, 'createFromDiscriminatorValue'))); },
-            'incompatibleGroups' => function (ParseNode $n) use ($o) { $o->setIncompatibleGroups($n->getCollectionOfObjectValues(array(Group::class, 'createFromDiscriminatorValue'))); },
-            'isHidden' => function (ParseNode $n) use ($o) { $o->setIsHidden($n->getBooleanValue()); },
-            'isRoleScopesVisible' => function (ParseNode $n) use ($o) { $o->setIsRoleScopesVisible($n->getBooleanValue()); },
-            'modifiedBy' => function (ParseNode $n) use ($o) { $o->setModifiedBy($n->getStringValue()); },
-            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
+            'accessPackageAssignmentPolicies' => function (self $o, ParseNode $n) { $o->setAccessPackageAssignmentPolicies($n->getCollectionOfObjectValues(AccessPackageAssignmentPolicy::class)); },
+            'accessPackageCatalog' => function (self $o, ParseNode $n) { $o->setAccessPackageCatalog($n->getObjectValue(AccessPackageCatalog::class)); },
+            'accessPackageResourceRoleScopes' => function (self $o, ParseNode $n) { $o->setAccessPackageResourceRoleScopes($n->getCollectionOfObjectValues(AccessPackageResourceRoleScope::class)); },
+            'accessPackagesIncompatibleWith' => function (self $o, ParseNode $n) { $o->setAccessPackagesIncompatibleWith($n->getCollectionOfObjectValues(AccessPackage::class)); },
+            'catalogId' => function (self $o, ParseNode $n) { $o->setCatalogId($n->getStringValue()); },
+            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'incompatibleAccessPackages' => function (self $o, ParseNode $n) { $o->setIncompatibleAccessPackages($n->getCollectionOfObjectValues(AccessPackage::class)); },
+            'incompatibleGroups' => function (self $o, ParseNode $n) { $o->setIncompatibleGroups($n->getCollectionOfObjectValues(Group::class)); },
+            'isHidden' => function (self $o, ParseNode $n) { $o->setIsHidden($n->getBooleanValue()); },
+            'isRoleScopesVisible' => function (self $o, ParseNode $n) { $o->setIsRoleScopesVisible($n->getBooleanValue()); },
+            'modifiedBy' => function (self $o, ParseNode $n) { $o->setModifiedBy($n->getStringValue()); },
+            'modifiedDateTime' => function (self $o, ParseNode $n) { $o->setModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 
@@ -277,7 +246,7 @@ class AccessPackage extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessPackageCatalog property value. The accessPackageCatalog property
+     * Sets the accessPackageCatalog property value. Read-only. Nullable.
      *  @param AccessPackageCatalog|null $value Value to set for the accessPackageCatalog property.
     */
     public function setAccessPackageCatalog(?AccessPackageCatalog $value ): void {
@@ -285,7 +254,7 @@ class AccessPackage extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessPackageResourceRoleScopes property value. The accessPackageResourceRoleScopes property
+     * Sets the accessPackageResourceRoleScopes property value. Nullable.
      *  @param array<AccessPackageResourceRoleScope>|null $value Value to set for the accessPackageResourceRoleScopes property.
     */
     public function setAccessPackageResourceRoleScopes(?array $value ): void {

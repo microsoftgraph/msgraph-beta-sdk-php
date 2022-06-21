@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsManagementApp extends Entity implements Parsable 
+class WindowsManagementApp extends Entity 
 {
-    /**
-     * @var string|null $availableVersion Windows management app available version.
-    */
+    /** @var string|null $availableVersion Windows management app available version. */
     private ?string $availableVersion = null;
     
-    /**
-     * @var array<WindowsManagementAppHealthState>|null $healthStates The list of health states for installed Windows management app.
-    */
+    /** @var array<WindowsManagementAppHealthState>|null $healthStates The list of health states for installed Windows management app. */
     private ?array $healthStates = null;
     
-    /**
-     * @var ManagedInstallerStatus|null $managedInstaller Managed Installer Status. Possible values are: disabled, enabled.
-    */
+    /** @var ManagedInstallerStatus|null $managedInstaller Managed Installer Status. Possible values are: disabled, enabled. */
     private ?ManagedInstallerStatus $managedInstaller = null;
     
-    /**
-     * @var string|null $managedInstallerConfiguredDateTime Managed Installer Configured Date Time
-    */
+    /** @var string|null $managedInstallerConfiguredDateTime Managed Installer Configured Date Time */
     private ?string $managedInstallerConfiguredDateTime = null;
     
     /**
@@ -40,7 +32,7 @@ class WindowsManagementApp extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsManagementApp
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsManagementApp {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsManagementApp {
         return new WindowsManagementApp();
     }
 
@@ -57,12 +49,11 @@ class WindowsManagementApp extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'availableVersion' => function (ParseNode $n) use ($o) { $o->setAvailableVersion($n->getStringValue()); },
-            'healthStates' => function (ParseNode $n) use ($o) { $o->setHealthStates($n->getCollectionOfObjectValues(array(WindowsManagementAppHealthState::class, 'createFromDiscriminatorValue'))); },
-            'managedInstaller' => function (ParseNode $n) use ($o) { $o->setManagedInstaller($n->getEnumValue(ManagedInstallerStatus::class)); },
-            'managedInstallerConfiguredDateTime' => function (ParseNode $n) use ($o) { $o->setManagedInstallerConfiguredDateTime($n->getStringValue()); },
+            'availableVersion' => function (self $o, ParseNode $n) { $o->setAvailableVersion($n->getStringValue()); },
+            'healthStates' => function (self $o, ParseNode $n) { $o->setHealthStates($n->getCollectionOfObjectValues(WindowsManagementAppHealthState::class)); },
+            'managedInstaller' => function (self $o, ParseNode $n) { $o->setManagedInstaller($n->getEnumValue(ManagedInstallerStatus::class)); },
+            'managedInstallerConfiguredDateTime' => function (self $o, ParseNode $n) { $o->setManagedInstallerConfiguredDateTime($n->getStringValue()); },
         ]);
     }
 

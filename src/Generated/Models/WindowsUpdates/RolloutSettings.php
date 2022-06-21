@@ -10,29 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RolloutSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $devicesPerOffer Specifies the number of devices that are offered at the same time. Has no effect when endDateTime is set. When endDateTime and devicesPerOffer are both not set, all devices in the deployment are offered content at the same time.
-    */
+    /** @var int|null $devicesPerOffer Specifies the number of devices that are offered at the same time. Has no effect when endDateTime is set. When endDateTime and devicesPerOffer are both not set, all devices in the deployment are offered content at the same time. */
     private ?int $devicesPerOffer = null;
     
-    /**
-     * @var string|null $durationBetweenOffers Specifies duration between each set of devices being offered the update. Has an effect when endDateTime or devicesPerOffer are defined. Default value is P1D (1 day).
-    */
+    /** @var string|null $durationBetweenOffers Specifies duration between each set of devices being offered the update. Has an effect when endDateTime or devicesPerOffer are defined. Default value is P1D (1 day). */
     private ?string $durationBetweenOffers = null;
     
-    /**
-     * @var DateTime|null $endDateTime Specifies the date before which all devices currently in the deployment are offered the update. Devices added after this date are offered immediately. When endDateTime and devicesPerOffer are both not set, all devices in the deployment are offered content at the same time.
-    */
+    /** @var DateTime|null $endDateTime Specifies the date before which all devices currently in the deployment are offered the update. Devices added after this date are offered immediately. When endDateTime and devicesPerOffer are both not set, all devices in the deployment are offered content at the same time. */
     private ?DateTime $endDateTime = null;
     
-    /**
-     * @var DateTime|null $startDateTime Date on which devices in the deployment start receiving the update. When not set, the deployment starts as soon as devices are assigned.
-    */
+    /** @var DateTime|null $startDateTime Date on which devices in the deployment start receiving the update. When not set, the deployment starts as soon as devices are assigned. */
     private ?DateTime $startDateTime = null;
     
     /**
@@ -47,7 +37,7 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RolloutSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RolloutSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RolloutSettings {
         return new RolloutSettings();
     }
 
@@ -88,12 +78,11 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'devicesPerOffer' => function (ParseNode $n) use ($o) { $o->setDevicesPerOffer($n->getIntegerValue()); },
-            'durationBetweenOffers' => function (ParseNode $n) use ($o) { $o->setDurationBetweenOffers($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'devicesPerOffer' => function (self $o, ParseNode $n) { $o->setDevicesPerOffer($n->getIntegerValue()); },
+            'durationBetweenOffers' => function (self $o, ParseNode $n) { $o->setDurationBetweenOffers($n->getStringValue()); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
         ];
     }
 

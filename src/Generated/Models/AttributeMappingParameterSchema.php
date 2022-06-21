@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $allowMultipleOccurrences The given parameter can be provided multiple times (for example, multiple input strings in the Concatenate(string,string,...) function).
-    */
+    /** @var bool|null $allowMultipleOccurrences The given parameter can be provided multiple times (for example, multiple input strings in the Concatenate(string,string,...) function). */
     private ?bool $allowMultipleOccurrences = null;
     
-    /**
-     * @var string|null $name Parameter name.
-    */
+    /** @var string|null $name Parameter name. */
     private ?string $name = null;
     
-    /**
-     * @var bool|null $required true if the parameter is required; otherwise false.
-    */
+    /** @var bool|null $required true if the parameter is required; otherwise false. */
     private ?bool $required = null;
     
-    /**
-     * @var AttributeType|null $type Possible values are: Boolean, Binary, Reference, Integer, String. Default is String.
-    */
+    /** @var AttributeType|null $type Possible values are: Boolean, Binary, Reference, Integer, String. Default is String. */
     private ?AttributeType $type = null;
     
     /**
@@ -46,7 +36,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AttributeMappingParameterSchema
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AttributeMappingParameterSchema {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AttributeMappingParameterSchema {
         return new AttributeMappingParameterSchema();
     }
 
@@ -71,12 +61,11 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'allowMultipleOccurrences' => function (ParseNode $n) use ($o) { $o->setAllowMultipleOccurrences($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(AttributeType::class)); },
+            'allowMultipleOccurrences' => function (self $o, ParseNode $n) { $o->setAllowMultipleOccurrences($n->getBooleanValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'required' => function (self $o, ParseNode $n) { $o->setRequired($n->getBooleanValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(AttributeType::class)); },
         ];
     }
 

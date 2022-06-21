@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OfficeClientConfigurationAssignment extends Entity implements Parsable 
+class OfficeClientConfigurationAssignment extends Entity 
 {
-    /**
-     * @var OfficeConfigurationAssignmentTarget|null $target The target assignment defined by the admin.
-    */
+    /** @var OfficeConfigurationAssignmentTarget|null $target The target assignment defined by the admin. */
     private ?OfficeConfigurationAssignmentTarget $target = null;
     
     /**
@@ -25,7 +23,7 @@ class OfficeClientConfigurationAssignment extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OfficeClientConfigurationAssignment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OfficeClientConfigurationAssignment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OfficeClientConfigurationAssignment {
         return new OfficeClientConfigurationAssignment();
     }
 
@@ -34,9 +32,8 @@ class OfficeClientConfigurationAssignment extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(OfficeConfigurationAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
+            'target' => function (self $o, ParseNode $n) { $o->setTarget($n->getObjectValue(OfficeConfigurationAssignmentTarget::class)); },
         ]);
     }
 

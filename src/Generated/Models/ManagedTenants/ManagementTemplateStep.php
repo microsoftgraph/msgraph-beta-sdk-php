@@ -9,66 +9,42 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagementTemplateStep extends Entity implements Parsable 
+class ManagementTemplateStep extends Entity 
 {
-    /**
-     * @var ManagementTemplateStepVersion|null $acceptedVersion The acceptedVersion property
-    */
+    /** @var ManagementTemplateStepVersion|null $acceptedVersion The acceptedVersion property */
     private ?ManagementTemplateStepVersion $acceptedVersion = null;
     
-    /**
-     * @var ManagementCategory|null $category The category property
-    */
+    /** @var ManagementCategory|null $category The category property */
     private ?ManagementCategory $category = null;
     
-    /**
-     * @var string|null $createdByUserId The createdByUserId property
-    */
+    /** @var string|null $createdByUserId The createdByUserId property */
     private ?string $createdByUserId = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
+    /** @var DateTime|null $createdDateTime The createdDateTime property */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $description The description property
-    */
+    /** @var string|null $description The description property */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $lastActionByUserId The lastActionByUserId property
-    */
+    /** @var string|null $lastActionByUserId The lastActionByUserId property */
     private ?string $lastActionByUserId = null;
     
-    /**
-     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
-    */
+    /** @var DateTime|null $lastActionDateTime The lastActionDateTime property */
     private ?DateTime $lastActionDateTime = null;
     
-    /**
-     * @var ManagementTemplate|null $managementTemplate The managementTemplate property
-    */
+    /** @var ManagementTemplate|null $managementTemplate The managementTemplate property */
     private ?ManagementTemplate $managementTemplate = null;
     
-    /**
-     * @var ActionUrl|null $portalLink The portalLink property
-    */
+    /** @var ActionUrl|null $portalLink The portalLink property */
     private ?ActionUrl $portalLink = null;
     
-    /**
-     * @var int|null $priority The priority property
-    */
+    /** @var int|null $priority The priority property */
     private ?int $priority = null;
     
-    /**
-     * @var array<ManagementTemplateStepVersion>|null $versions The versions property
-    */
+    /** @var array<ManagementTemplateStepVersion>|null $versions The versions property */
     private ?array $versions = null;
     
     /**
@@ -83,7 +59,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementTemplateStep
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementTemplateStep {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementTemplateStep {
         return new ManagementTemplateStep();
     }
 
@@ -140,20 +116,19 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'acceptedVersion' => function (ParseNode $n) use ($o) { $o->setAcceptedVersion($n->getObjectValue(array(ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'))); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
-            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'managementTemplate' => function (ParseNode $n) use ($o) { $o->setManagementTemplate($n->getObjectValue(array(ManagementTemplate::class, 'createFromDiscriminatorValue'))); },
-            'portalLink' => function (ParseNode $n) use ($o) { $o->setPortalLink($n->getObjectValue(array(ActionUrl::class, 'createFromDiscriminatorValue'))); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'versions' => function (ParseNode $n) use ($o) { $o->setVersions($n->getCollectionOfObjectValues(array(ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'))); },
+            'acceptedVersion' => function (self $o, ParseNode $n) { $o->setAcceptedVersion($n->getObjectValue(ManagementTemplateStepVersion::class)); },
+            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
+            'createdByUserId' => function (self $o, ParseNode $n) { $o->setCreatedByUserId($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastActionByUserId' => function (self $o, ParseNode $n) { $o->setLastActionByUserId($n->getStringValue()); },
+            'lastActionDateTime' => function (self $o, ParseNode $n) { $o->setLastActionDateTime($n->getDateTimeValue()); },
+            'managementTemplate' => function (self $o, ParseNode $n) { $o->setManagementTemplate($n->getObjectValue(ManagementTemplate::class)); },
+            'portalLink' => function (self $o, ParseNode $n) { $o->setPortalLink($n->getObjectValue(ActionUrl::class)); },
+            'priority' => function (self $o, ParseNode $n) { $o->setPriority($n->getIntegerValue()); },
+            'versions' => function (self $o, ParseNode $n) { $o->setVersions($n->getCollectionOfObjectValues(ManagementTemplateStepVersion::class)); },
         ]);
     }
 

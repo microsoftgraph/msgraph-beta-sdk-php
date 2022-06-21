@@ -9,64 +9,40 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceProtectionOverview implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $cleanDeviceCount Clean device count.
-    */
+    /** @var int|null $cleanDeviceCount Clean device count. */
     private ?int $cleanDeviceCount = null;
     
-    /**
-     * @var int|null $criticalFailuresDeviceCount Critical failures device count.
-    */
+    /** @var int|null $criticalFailuresDeviceCount Critical failures device count. */
     private ?int $criticalFailuresDeviceCount = null;
     
-    /**
-     * @var int|null $inactiveThreatAgentDeviceCount Device with inactive threat agent count
-    */
+    /** @var int|null $inactiveThreatAgentDeviceCount Device with inactive threat agent count */
     private ?int $inactiveThreatAgentDeviceCount = null;
     
-    /**
-     * @var int|null $pendingFullScanDeviceCount Pending full scan device count.
-    */
+    /** @var int|null $pendingFullScanDeviceCount Pending full scan device count. */
     private ?int $pendingFullScanDeviceCount = null;
     
-    /**
-     * @var int|null $pendingManualStepsDeviceCount Pending manual steps device count.
-    */
+    /** @var int|null $pendingManualStepsDeviceCount Pending manual steps device count. */
     private ?int $pendingManualStepsDeviceCount = null;
     
-    /**
-     * @var int|null $pendingOfflineScanDeviceCount Pending offline scan device count.
-    */
+    /** @var int|null $pendingOfflineScanDeviceCount Pending offline scan device count. */
     private ?int $pendingOfflineScanDeviceCount = null;
     
-    /**
-     * @var int|null $pendingQuickScanDeviceCount Pending quick scan device count. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $pendingQuickScanDeviceCount Pending quick scan device count. Valid values -2147483648 to 2147483647 */
     private ?int $pendingQuickScanDeviceCount = null;
     
-    /**
-     * @var int|null $pendingRestartDeviceCount Pending restart device count.
-    */
+    /** @var int|null $pendingRestartDeviceCount Pending restart device count. */
     private ?int $pendingRestartDeviceCount = null;
     
-    /**
-     * @var int|null $pendingSignatureUpdateDeviceCount Device with old signature count.
-    */
+    /** @var int|null $pendingSignatureUpdateDeviceCount Device with old signature count. */
     private ?int $pendingSignatureUpdateDeviceCount = null;
     
-    /**
-     * @var int|null $totalReportedDeviceCount Total device count.
-    */
+    /** @var int|null $totalReportedDeviceCount Total device count. */
     private ?int $totalReportedDeviceCount = null;
     
-    /**
-     * @var int|null $unknownStateThreatAgentDeviceCount Device with threat agent state as unknown count.
-    */
+    /** @var int|null $unknownStateThreatAgentDeviceCount Device with threat agent state as unknown count. */
     private ?int $unknownStateThreatAgentDeviceCount = null;
     
     /**
@@ -81,7 +57,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceProtectionOverview
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceProtectionOverview {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceProtectionOverview {
         return new DeviceProtectionOverview();
     }
 
@@ -114,19 +90,18 @@ class DeviceProtectionOverview implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'cleanDeviceCount' => function (ParseNode $n) use ($o) { $o->setCleanDeviceCount($n->getIntegerValue()); },
-            'criticalFailuresDeviceCount' => function (ParseNode $n) use ($o) { $o->setCriticalFailuresDeviceCount($n->getIntegerValue()); },
-            'inactiveThreatAgentDeviceCount' => function (ParseNode $n) use ($o) { $o->setInactiveThreatAgentDeviceCount($n->getIntegerValue()); },
-            'pendingFullScanDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingFullScanDeviceCount($n->getIntegerValue()); },
-            'pendingManualStepsDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingManualStepsDeviceCount($n->getIntegerValue()); },
-            'pendingOfflineScanDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingOfflineScanDeviceCount($n->getIntegerValue()); },
-            'pendingQuickScanDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingQuickScanDeviceCount($n->getIntegerValue()); },
-            'pendingRestartDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingRestartDeviceCount($n->getIntegerValue()); },
-            'pendingSignatureUpdateDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingSignatureUpdateDeviceCount($n->getIntegerValue()); },
-            'totalReportedDeviceCount' => function (ParseNode $n) use ($o) { $o->setTotalReportedDeviceCount($n->getIntegerValue()); },
-            'unknownStateThreatAgentDeviceCount' => function (ParseNode $n) use ($o) { $o->setUnknownStateThreatAgentDeviceCount($n->getIntegerValue()); },
+            'cleanDeviceCount' => function (self $o, ParseNode $n) { $o->setCleanDeviceCount($n->getIntegerValue()); },
+            'criticalFailuresDeviceCount' => function (self $o, ParseNode $n) { $o->setCriticalFailuresDeviceCount($n->getIntegerValue()); },
+            'inactiveThreatAgentDeviceCount' => function (self $o, ParseNode $n) { $o->setInactiveThreatAgentDeviceCount($n->getIntegerValue()); },
+            'pendingFullScanDeviceCount' => function (self $o, ParseNode $n) { $o->setPendingFullScanDeviceCount($n->getIntegerValue()); },
+            'pendingManualStepsDeviceCount' => function (self $o, ParseNode $n) { $o->setPendingManualStepsDeviceCount($n->getIntegerValue()); },
+            'pendingOfflineScanDeviceCount' => function (self $o, ParseNode $n) { $o->setPendingOfflineScanDeviceCount($n->getIntegerValue()); },
+            'pendingQuickScanDeviceCount' => function (self $o, ParseNode $n) { $o->setPendingQuickScanDeviceCount($n->getIntegerValue()); },
+            'pendingRestartDeviceCount' => function (self $o, ParseNode $n) { $o->setPendingRestartDeviceCount($n->getIntegerValue()); },
+            'pendingSignatureUpdateDeviceCount' => function (self $o, ParseNode $n) { $o->setPendingSignatureUpdateDeviceCount($n->getIntegerValue()); },
+            'totalReportedDeviceCount' => function (self $o, ParseNode $n) { $o->setTotalReportedDeviceCount($n->getIntegerValue()); },
+            'unknownStateThreatAgentDeviceCount' => function (self $o, ParseNode $n) { $o->setUnknownStateThreatAgentDeviceCount($n->getIntegerValue()); },
         ];
     }
 

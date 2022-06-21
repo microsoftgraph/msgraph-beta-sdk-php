@@ -8,131 +8,81 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsProtectionState extends Entity implements Parsable 
+class WindowsProtectionState extends Entity 
 {
-    /**
-     * @var string|null $antiMalwareVersion The anti-malware version for the managed device. Optional. Read-only.
-    */
+    /** @var string|null $antiMalwareVersion The anti-malware version for the managed device. Optional. Read-only. */
     private ?string $antiMalwareVersion = null;
     
-    /**
-     * @var bool|null $attentionRequired A flag indicating whether attention is required for the managed device. Optional. Read-only.
-    */
+    /** @var bool|null $attentionRequired A flag indicating whether attention is required for the managed device. Optional. Read-only. */
     private ?bool $attentionRequired = null;
     
-    /**
-     * @var bool|null $deviceDeleted A flag indicating whether the managed device has been deleted. Optional. Read-only.
-    */
+    /** @var bool|null $deviceDeleted A flag indicating whether the managed device has been deleted. Optional. Read-only. */
     private ?bool $deviceDeleted = null;
     
-    /**
-     * @var DateTime|null $devicePropertyRefreshDateTime The date and time the device property has been refreshed. Optional. Read-only.
-    */
+    /** @var DateTime|null $devicePropertyRefreshDateTime The date and time the device property has been refreshed. Optional. Read-only. */
     private ?DateTime $devicePropertyRefreshDateTime = null;
     
-    /**
-     * @var string|null $engineVersion The anti-virus engine version for the managed device. Optional. Read-only.
-    */
+    /** @var string|null $engineVersion The anti-virus engine version for the managed device. Optional. Read-only. */
     private ?string $engineVersion = null;
     
-    /**
-     * @var bool|null $fullScanOverdue A flag indicating whether quick scan is overdue for the managed device. Optional. Read-only.
-    */
+    /** @var bool|null $fullScanOverdue A flag indicating whether quick scan is overdue for the managed device. Optional. Read-only. */
     private ?bool $fullScanOverdue = null;
     
-    /**
-     * @var bool|null $fullScanRequired A flag indicating whether full scan is overdue for the managed device. Optional. Read-only.
-    */
+    /** @var bool|null $fullScanRequired A flag indicating whether full scan is overdue for the managed device. Optional. Read-only. */
     private ?bool $fullScanRequired = null;
     
-    /**
-     * @var DateTime|null $lastFullScanDateTime The date and time a full scan was completed. Optional. Read-only.
-    */
+    /** @var DateTime|null $lastFullScanDateTime The date and time a full scan was completed. Optional. Read-only. */
     private ?DateTime $lastFullScanDateTime = null;
     
-    /**
-     * @var string|null $lastFullScanSignatureVersion The version anti-malware version used to perform the last full scan. Optional. Read-only.
-    */
+    /** @var string|null $lastFullScanSignatureVersion The version anti-malware version used to perform the last full scan. Optional. Read-only. */
     private ?string $lastFullScanSignatureVersion = null;
     
-    /**
-     * @var DateTime|null $lastQuickScanDateTime The date and time a quick scan was completed. Optional. Read-only.
-    */
+    /** @var DateTime|null $lastQuickScanDateTime The date and time a quick scan was completed. Optional. Read-only. */
     private ?DateTime $lastQuickScanDateTime = null;
     
-    /**
-     * @var string|null $lastQuickScanSignatureVersion The version anti-malware version used to perform the last full scan. Optional. Read-only.
-    */
+    /** @var string|null $lastQuickScanSignatureVersion The version anti-malware version used to perform the last full scan. Optional. Read-only. */
     private ?string $lastQuickScanSignatureVersion = null;
     
-    /**
-     * @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
-    */
+    /** @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only. */
     private ?DateTime $lastRefreshedDateTime = null;
     
-    /**
-     * @var DateTime|null $lastReportedDateTime The date and time the protection state was last reported for the managed device. Optional. Read-only.
-    */
+    /** @var DateTime|null $lastReportedDateTime The date and time the protection state was last reported for the managed device. Optional. Read-only. */
     private ?DateTime $lastReportedDateTime = null;
     
-    /**
-     * @var bool|null $malwareProtectionEnabled A flag indicating whether malware protection is enabled for the managed device. Optional. Read-only.
-    */
+    /** @var bool|null $malwareProtectionEnabled A flag indicating whether malware protection is enabled for the managed device. Optional. Read-only. */
     private ?bool $malwareProtectionEnabled = null;
     
-    /**
-     * @var string|null $managedDeviceHealthState The health state for the managed device. Optional. Read-only.
-    */
+    /** @var string|null $managedDeviceHealthState The health state for the managed device. Optional. Read-only. */
     private ?string $managedDeviceHealthState = null;
     
-    /**
-     * @var string|null $managedDeviceId The unique identifier for the managed device. Optional. Read-only.
-    */
+    /** @var string|null $managedDeviceId The unique identifier for the managed device. Optional. Read-only. */
     private ?string $managedDeviceId = null;
     
-    /**
-     * @var string|null $managedDeviceName The display name for the managed device. Optional. Read-only.
-    */
+    /** @var string|null $managedDeviceName The display name for the managed device. Optional. Read-only. */
     private ?string $managedDeviceName = null;
     
-    /**
-     * @var bool|null $networkInspectionSystemEnabled A flag indicating whether the network inspection system is enabled. Optional. Read-only.
-    */
+    /** @var bool|null $networkInspectionSystemEnabled A flag indicating whether the network inspection system is enabled. Optional. Read-only. */
     private ?bool $networkInspectionSystemEnabled = null;
     
-    /**
-     * @var bool|null $quickScanOverdue A flag indicating weather a quick scan is overdue. Optional. Read-only.
-    */
+    /** @var bool|null $quickScanOverdue A flag indicating weather a quick scan is overdue. Optional. Read-only. */
     private ?bool $quickScanOverdue = null;
     
-    /**
-     * @var bool|null $realTimeProtectionEnabled A flag indicating whether real time protection is enabled. Optional. Read-only.
-    */
+    /** @var bool|null $realTimeProtectionEnabled A flag indicating whether real time protection is enabled. Optional. Read-only. */
     private ?bool $realTimeProtectionEnabled = null;
     
-    /**
-     * @var bool|null $rebootRequired A flag indicating whether a reboot is required. Optional. Read-only.
-    */
+    /** @var bool|null $rebootRequired A flag indicating whether a reboot is required. Optional. Read-only. */
     private ?bool $rebootRequired = null;
     
-    /**
-     * @var bool|null $signatureUpdateOverdue A flag indicating whether an signature update is overdue. Optional. Read-only.
-    */
+    /** @var bool|null $signatureUpdateOverdue A flag indicating whether an signature update is overdue. Optional. Read-only. */
     private ?bool $signatureUpdateOverdue = null;
     
-    /**
-     * @var string|null $signatureVersion The signature version for the managed device. Optional. Read-only.
-    */
+    /** @var string|null $signatureVersion The signature version for the managed device. Optional. Read-only. */
     private ?string $signatureVersion = null;
     
-    /**
-     * @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only.
-    */
+    /** @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only. */
     private ?string $tenantDisplayName = null;
     
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    */
+    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only. */
     private ?string $tenantId = null;
     
     /**
@@ -147,7 +97,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsProtectionState
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsProtectionState {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsProtectionState {
         return new WindowsProtectionState();
     }
 
@@ -196,33 +146,32 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'antiMalwareVersion' => function (ParseNode $n) use ($o) { $o->setAntiMalwareVersion($n->getStringValue()); },
-            'attentionRequired' => function (ParseNode $n) use ($o) { $o->setAttentionRequired($n->getBooleanValue()); },
-            'deviceDeleted' => function (ParseNode $n) use ($o) { $o->setDeviceDeleted($n->getBooleanValue()); },
-            'devicePropertyRefreshDateTime' => function (ParseNode $n) use ($o) { $o->setDevicePropertyRefreshDateTime($n->getDateTimeValue()); },
-            'engineVersion' => function (ParseNode $n) use ($o) { $o->setEngineVersion($n->getStringValue()); },
-            'fullScanOverdue' => function (ParseNode $n) use ($o) { $o->setFullScanOverdue($n->getBooleanValue()); },
-            'fullScanRequired' => function (ParseNode $n) use ($o) { $o->setFullScanRequired($n->getBooleanValue()); },
-            'lastFullScanDateTime' => function (ParseNode $n) use ($o) { $o->setLastFullScanDateTime($n->getDateTimeValue()); },
-            'lastFullScanSignatureVersion' => function (ParseNode $n) use ($o) { $o->setLastFullScanSignatureVersion($n->getStringValue()); },
-            'lastQuickScanDateTime' => function (ParseNode $n) use ($o) { $o->setLastQuickScanDateTime($n->getDateTimeValue()); },
-            'lastQuickScanSignatureVersion' => function (ParseNode $n) use ($o) { $o->setLastQuickScanSignatureVersion($n->getStringValue()); },
-            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'lastReportedDateTime' => function (ParseNode $n) use ($o) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
-            'malwareProtectionEnabled' => function (ParseNode $n) use ($o) { $o->setMalwareProtectionEnabled($n->getBooleanValue()); },
-            'managedDeviceHealthState' => function (ParseNode $n) use ($o) { $o->setManagedDeviceHealthState($n->getStringValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'managedDeviceName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceName($n->getStringValue()); },
-            'networkInspectionSystemEnabled' => function (ParseNode $n) use ($o) { $o->setNetworkInspectionSystemEnabled($n->getBooleanValue()); },
-            'quickScanOverdue' => function (ParseNode $n) use ($o) { $o->setQuickScanOverdue($n->getBooleanValue()); },
-            'realTimeProtectionEnabled' => function (ParseNode $n) use ($o) { $o->setRealTimeProtectionEnabled($n->getBooleanValue()); },
-            'rebootRequired' => function (ParseNode $n) use ($o) { $o->setRebootRequired($n->getBooleanValue()); },
-            'signatureUpdateOverdue' => function (ParseNode $n) use ($o) { $o->setSignatureUpdateOverdue($n->getBooleanValue()); },
-            'signatureVersion' => function (ParseNode $n) use ($o) { $o->setSignatureVersion($n->getStringValue()); },
-            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'antiMalwareVersion' => function (self $o, ParseNode $n) { $o->setAntiMalwareVersion($n->getStringValue()); },
+            'attentionRequired' => function (self $o, ParseNode $n) { $o->setAttentionRequired($n->getBooleanValue()); },
+            'deviceDeleted' => function (self $o, ParseNode $n) { $o->setDeviceDeleted($n->getBooleanValue()); },
+            'devicePropertyRefreshDateTime' => function (self $o, ParseNode $n) { $o->setDevicePropertyRefreshDateTime($n->getDateTimeValue()); },
+            'engineVersion' => function (self $o, ParseNode $n) { $o->setEngineVersion($n->getStringValue()); },
+            'fullScanOverdue' => function (self $o, ParseNode $n) { $o->setFullScanOverdue($n->getBooleanValue()); },
+            'fullScanRequired' => function (self $o, ParseNode $n) { $o->setFullScanRequired($n->getBooleanValue()); },
+            'lastFullScanDateTime' => function (self $o, ParseNode $n) { $o->setLastFullScanDateTime($n->getDateTimeValue()); },
+            'lastFullScanSignatureVersion' => function (self $o, ParseNode $n) { $o->setLastFullScanSignatureVersion($n->getStringValue()); },
+            'lastQuickScanDateTime' => function (self $o, ParseNode $n) { $o->setLastQuickScanDateTime($n->getDateTimeValue()); },
+            'lastQuickScanSignatureVersion' => function (self $o, ParseNode $n) { $o->setLastQuickScanSignatureVersion($n->getStringValue()); },
+            'lastRefreshedDateTime' => function (self $o, ParseNode $n) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
+            'lastReportedDateTime' => function (self $o, ParseNode $n) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
+            'malwareProtectionEnabled' => function (self $o, ParseNode $n) { $o->setMalwareProtectionEnabled($n->getBooleanValue()); },
+            'managedDeviceHealthState' => function (self $o, ParseNode $n) { $o->setManagedDeviceHealthState($n->getStringValue()); },
+            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
+            'managedDeviceName' => function (self $o, ParseNode $n) { $o->setManagedDeviceName($n->getStringValue()); },
+            'networkInspectionSystemEnabled' => function (self $o, ParseNode $n) { $o->setNetworkInspectionSystemEnabled($n->getBooleanValue()); },
+            'quickScanOverdue' => function (self $o, ParseNode $n) { $o->setQuickScanOverdue($n->getBooleanValue()); },
+            'realTimeProtectionEnabled' => function (self $o, ParseNode $n) { $o->setRealTimeProtectionEnabled($n->getBooleanValue()); },
+            'rebootRequired' => function (self $o, ParseNode $n) { $o->setRebootRequired($n->getBooleanValue()); },
+            'signatureUpdateOverdue' => function (self $o, ParseNode $n) { $o->setSignatureUpdateOverdue($n->getBooleanValue()); },
+            'signatureVersion' => function (self $o, ParseNode $n) { $o->setSignatureVersion($n->getStringValue()); },
+            'tenantDisplayName' => function (self $o, ParseNode $n) { $o->setTenantDisplayName($n->getStringValue()); },
+            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
         ]);
     }
 

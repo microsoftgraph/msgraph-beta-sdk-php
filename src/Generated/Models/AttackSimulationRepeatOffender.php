@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AttackSimulationRepeatOffender implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AttackSimulationUser|null $attackSimulationUser User in an attack simulation and training campaign.
-    */
+    /** @var AttackSimulationUser|null $attackSimulationUser User in an attack simulation and training campaign. */
     private ?AttackSimulationUser $attackSimulationUser = null;
     
-    /**
-     * @var int|null $repeatOffenceCount Number of repeat offences of the user in attack simulation and training campaigns.
-    */
+    /** @var int|null $repeatOffenceCount Number of repeat offences of the user in attack simulation and training campaigns. */
     private ?int $repeatOffenceCount = null;
     
     /**
@@ -36,7 +30,7 @@ class AttackSimulationRepeatOffender implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AttackSimulationRepeatOffender
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AttackSimulationRepeatOffender {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AttackSimulationRepeatOffender {
         return new AttackSimulationRepeatOffender();
     }
 
@@ -61,10 +55,9 @@ class AttackSimulationRepeatOffender implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'attackSimulationUser' => function (ParseNode $n) use ($o) { $o->setAttackSimulationUser($n->getObjectValue(array(AttackSimulationUser::class, 'createFromDiscriminatorValue'))); },
-            'repeatOffenceCount' => function (ParseNode $n) use ($o) { $o->setRepeatOffenceCount($n->getIntegerValue()); },
+            'attackSimulationUser' => function (self $o, ParseNode $n) { $o->setAttackSimulationUser($n->getObjectValue(AttackSimulationUser::class)); },
+            'repeatOffenceCount' => function (self $o, ParseNode $n) { $o->setRepeatOffenceCount($n->getIntegerValue()); },
         ];
     }
 

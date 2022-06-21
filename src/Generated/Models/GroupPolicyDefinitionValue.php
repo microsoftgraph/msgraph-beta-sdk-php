@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyDefinitionValue extends Entity implements Parsable 
+class GroupPolicyDefinitionValue extends Entity 
 {
-    /**
-     * @var GroupPolicyConfigurationType|null $configurationType Specifies how the value should be configured. This can be either as a Policy or as a Preference. Possible values are: policy, preference.
-    */
+    /** @var GroupPolicyConfigurationType|null $configurationType Specifies how the value should be configured. This can be either as a Policy or as a Preference. Possible values are: policy, preference. */
     private ?GroupPolicyConfigurationType $configurationType = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date and time the object was created.
-    */
+    /** @var DateTime|null $createdDateTime The date and time the object was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var GroupPolicyDefinition|null $definition The associated group policy definition with the value.
-    */
+    /** @var GroupPolicyDefinition|null $definition The associated group policy definition with the value. */
     private ?GroupPolicyDefinition $definition = null;
     
-    /**
-     * @var bool|null $enabled Enables or disables the associated group policy definition.
-    */
+    /** @var bool|null $enabled Enables or disables the associated group policy definition. */
     private ?bool $enabled = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var array<GroupPolicyPresentationValue>|null $presentationValues The associated group policy presentation values with the definition value.
-    */
+    /** @var array<GroupPolicyPresentationValue>|null $presentationValues The associated group policy presentation values with the definition value. */
     private ?array $presentationValues = null;
     
     /**
@@ -51,7 +39,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicyDefinitionValue
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyDefinitionValue {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyDefinitionValue {
         return new GroupPolicyDefinitionValue();
     }
 
@@ -92,14 +80,13 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurationType' => function (ParseNode $n) use ($o) { $o->setConfigurationType($n->getEnumValue(GroupPolicyConfigurationType::class)); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'definition' => function (ParseNode $n) use ($o) { $o->setDefinition($n->getObjectValue(array(GroupPolicyDefinition::class, 'createFromDiscriminatorValue'))); },
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'presentationValues' => function (ParseNode $n) use ($o) { $o->setPresentationValues($n->getCollectionOfObjectValues(array(GroupPolicyPresentationValue::class, 'createFromDiscriminatorValue'))); },
+            'configurationType' => function (self $o, ParseNode $n) { $o->setConfigurationType($n->getEnumValue(GroupPolicyConfigurationType::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'definition' => function (self $o, ParseNode $n) { $o->setDefinition($n->getObjectValue(GroupPolicyDefinition::class)); },
+            'enabled' => function (self $o, ParseNode $n) { $o->setEnabled($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'presentationValues' => function (self $o, ParseNode $n) { $o->setPresentationValues($n->getCollectionOfObjectValues(GroupPolicyPresentationValue::class)); },
         ]);
     }
 

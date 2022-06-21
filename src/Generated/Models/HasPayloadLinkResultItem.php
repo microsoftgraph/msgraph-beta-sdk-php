@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $error Exception information indicates if check for this item was successful or not.Empty string for no error.
-    */
+    /** @var string|null $error Exception information indicates if check for this item was successful or not.Empty string for no error. */
     private ?string $error = null;
     
-    /**
-     * @var bool|null $hasLink Indicate whether a payload has any link or not.
-    */
+    /** @var bool|null $hasLink Indicate whether a payload has any link or not. */
     private ?bool $hasLink = null;
     
-    /**
-     * @var string|null $payloadId Key of the Payload, In the format of Guid.
-    */
+    /** @var string|null $payloadId Key of the Payload, In the format of Guid. */
     private ?string $payloadId = null;
     
-    /**
-     * @var array<string>|null $sources The reason where the link comes from.
-    */
+    /** @var array<DeviceAndAppManagementAssignmentSource>|null $sources The reason where the link comes from. */
     private ?array $sources = null;
     
     /**
@@ -46,7 +36,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return HasPayloadLinkResultItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): HasPayloadLinkResultItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): HasPayloadLinkResultItem {
         return new HasPayloadLinkResultItem();
     }
 
@@ -71,12 +61,11 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getStringValue()); },
-            'hasLink' => function (ParseNode $n) use ($o) { $o->setHasLink($n->getBooleanValue()); },
-            'payloadId' => function (ParseNode $n) use ($o) { $o->setPayloadId($n->getStringValue()); },
-            'sources' => function (ParseNode $n) use ($o) { $o->setSources($n->getCollectionOfPrimitiveValues()); },
+            'error' => function (self $o, ParseNode $n) { $o->setError($n->getStringValue()); },
+            'hasLink' => function (self $o, ParseNode $n) { $o->setHasLink($n->getBooleanValue()); },
+            'payloadId' => function (self $o, ParseNode $n) { $o->setPayloadId($n->getStringValue()); },
+            'sources' => function (self $o, ParseNode $n) { $o->setSources($n->getCollectionOfEnumValues(DeviceAndAppManagementAssignmentSource::class)); },
         ];
     }
 
@@ -98,7 +87,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the sources property value. The reason where the link comes from.
-     * @return array<string>|null
+     * @return array<DeviceAndAppManagementAssignmentSource>|null
     */
     public function getSources(): ?array {
         return $this->sources;
@@ -112,7 +101,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('error', $this->error);
         $writer->writeBooleanValue('hasLink', $this->hasLink);
         $writer->writeStringValue('payloadId', $this->payloadId);
-        $writer->writeCollectionOfPrimitiveValues('sources', $this->sources);
+        $writer->writeCollectionOfEnumValues('sources', $this->sources);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -150,7 +139,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the sources property value. The reason where the link comes from.
-     *  @param array<string>|null $value Value to set for the sources property.
+     *  @param array<DeviceAndAppManagementAssignmentSource>|null $value Value to set for the sources property.
     */
     public function setSources(?array $value ): void {
         $this->sources = $value;

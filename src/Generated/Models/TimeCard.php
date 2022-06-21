@@ -6,50 +6,34 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TimeCard extends ChangeTrackedEntity implements Parsable 
+class TimeCard extends ChangeTrackedEntity 
 {
-    /**
-     * @var array<TimeCardBreak>|null $breaks The list of breaks associated with the timeCard.
-    */
+    /** @var array<TimeCardBreak>|null $breaks The list of breaks associated with the timeCard. */
     private ?array $breaks = null;
     
-    /**
-     * @var TimeCardEvent|null $clockInEvent The clock-in event of the timeCard.
-    */
+    /** @var TimeCardEvent|null $clockInEvent The clock-in event of the timeCard. */
     private ?TimeCardEvent $clockInEvent = null;
     
-    /**
-     * @var TimeCardEvent|null $clockOutEvent The clock-out event of the timeCard.
-    */
+    /** @var TimeCardEvent|null $clockOutEvent The clock-out event of the timeCard. */
     private ?TimeCardEvent $clockOutEvent = null;
     
-    /**
-     * @var ConfirmedBy|null $confirmedBy Indicate if this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
-    */
+    /** @var ConfirmedBy|null $confirmedBy Indicate if this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue. */
     private ?ConfirmedBy $confirmedBy = null;
     
-    /**
-     * @var ItemBody|null $notes Notes about the timeCard.
-    */
+    /** @var ItemBody|null $notes Notes about the timeCard. */
     private ?ItemBody $notes = null;
     
-    /**
-     * @var TimeCardEntry|null $originalEntry The original timeCardEntry of the timeCard, before user edits.
-    */
+    /** @var TimeCardEntry|null $originalEntry The original timeCardEntry of the timeCard, before user edits. */
     private ?TimeCardEntry $originalEntry = null;
     
-    /**
-     * @var TimeCardState|null $state The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.
-    */
+    /** @var TimeCardState|null $state The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue. */
     private ?TimeCardState $state = null;
     
-    /**
-     * @var string|null $userId User ID to which  the timeCard belongs.
-    */
+    /** @var string|null $userId User ID to which  the timeCard belongs. */
     private ?string $userId = null;
     
     /**
-     * Instantiates a new TimeCard and sets the default values.
+     * Instantiates a new timeCard and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -60,7 +44,7 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TimeCard
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeCard {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TimeCard {
         return new TimeCard();
     }
 
@@ -101,16 +85,15 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'breaks' => function (ParseNode $n) use ($o) { $o->setBreaks($n->getCollectionOfObjectValues(array(TimeCardBreak::class, 'createFromDiscriminatorValue'))); },
-            'clockInEvent' => function (ParseNode $n) use ($o) { $o->setClockInEvent($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
-            'clockOutEvent' => function (ParseNode $n) use ($o) { $o->setClockOutEvent($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
-            'confirmedBy' => function (ParseNode $n) use ($o) { $o->setConfirmedBy($n->getEnumValue(ConfirmedBy::class)); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
-            'originalEntry' => function (ParseNode $n) use ($o) { $o->setOriginalEntry($n->getObjectValue(array(TimeCardEntry::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(TimeCardState::class)); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'breaks' => function (self $o, ParseNode $n) { $o->setBreaks($n->getCollectionOfObjectValues(TimeCardBreak::class)); },
+            'clockInEvent' => function (self $o, ParseNode $n) { $o->setClockInEvent($n->getObjectValue(TimeCardEvent::class)); },
+            'clockOutEvent' => function (self $o, ParseNode $n) { $o->setClockOutEvent($n->getObjectValue(TimeCardEvent::class)); },
+            'confirmedBy' => function (self $o, ParseNode $n) { $o->setConfirmedBy($n->getEnumValue(ConfirmedBy::class)); },
+            'notes' => function (self $o, ParseNode $n) { $o->setNotes($n->getObjectValue(ItemBody::class)); },
+            'originalEntry' => function (self $o, ParseNode $n) { $o->setOriginalEntry($n->getObjectValue(TimeCardEntry::class)); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(TimeCardState::class)); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
         ]);
     }
 

@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrintTaskDefinition extends Entity implements Parsable 
+class PrintTaskDefinition extends Entity 
 {
-    /**
-     * @var AppIdentity|null $createdBy The createdBy property
-    */
+    /** @var AppIdentity|null $createdBy The createdBy property */
     private ?AppIdentity $createdBy = null;
     
-    /**
-     * @var string|null $displayName The name of the printTaskDefinition.
-    */
+    /** @var string|null $displayName The name of the printTaskDefinition. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<PrintTask>|null $tasks A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
-    */
+    /** @var array<PrintTask>|null $tasks A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only. */
     private ?array $tasks = null;
     
     /**
@@ -35,7 +29,7 @@ class PrintTaskDefinition extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrintTaskDefinition
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrintTaskDefinition {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrintTaskDefinition {
         return new PrintTaskDefinition();
     }
 
@@ -60,11 +54,10 @@ class PrintTaskDefinition extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(AppIdentity::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(PrintTask::class, 'createFromDiscriminatorValue'))); },
+            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(AppIdentity::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'tasks' => function (self $o, ParseNode $n) { $o->setTasks($n->getCollectionOfObjectValues(PrintTask::class)); },
         ]);
     }
 

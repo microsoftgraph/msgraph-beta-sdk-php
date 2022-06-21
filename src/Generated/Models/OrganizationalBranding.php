@@ -6,15 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OrganizationalBranding extends OrganizationalBrandingProperties implements Parsable 
+class OrganizationalBranding extends OrganizationalBrandingProperties 
 {
-    /**
-     * @var array<OrganizationalBrandingLocalization>|null $localizations Add different branding based on a locale.
-    */
+    /** @var array<OrganizationalBrandingLocalization>|null $localizations Add different branding based on a locale. */
     private ?array $localizations = null;
     
     /**
-     * Instantiates a new OrganizationalBranding and sets the default values.
+     * Instantiates a new organizationalBranding and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +23,7 @@ class OrganizationalBranding extends OrganizationalBrandingProperties implements
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OrganizationalBranding
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OrganizationalBranding {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OrganizationalBranding {
         return new OrganizationalBranding();
     }
 
@@ -34,9 +32,8 @@ class OrganizationalBranding extends OrganizationalBrandingProperties implements
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'localizations' => function (ParseNode $n) use ($o) { $o->setLocalizations($n->getCollectionOfObjectValues(array(OrganizationalBrandingLocalization::class, 'createFromDiscriminatorValue'))); },
+            'localizations' => function (self $o, ParseNode $n) { $o->setLocalizations($n->getCollectionOfObjectValues(OrganizationalBrandingLocalization::class)); },
         ]);
     }
 

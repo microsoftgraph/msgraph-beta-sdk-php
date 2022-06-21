@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookChartSeriesFormat extends Entity implements Parsable 
+class WorkbookChartSeriesFormat extends Entity 
 {
-    /**
-     * @var WorkbookChartFill|null $fill Represents the fill format of a chart series, which includes background formating information. Read-only.
-    */
+    /** @var WorkbookChartFill|null $fill Represents the fill format of a chart series, which includes background formating information. Read-only. */
     private ?WorkbookChartFill $fill = null;
     
-    /**
-     * @var WorkbookChartLineFormat|null $line Represents line formatting. Read-only.
-    */
+    /** @var WorkbookChartLineFormat|null $line Represents line formatting. Read-only. */
     private ?WorkbookChartLineFormat $line = null;
     
     /**
@@ -30,7 +26,7 @@ class WorkbookChartSeriesFormat extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookChartSeriesFormat
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartSeriesFormat {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartSeriesFormat {
         return new WorkbookChartSeriesFormat();
     }
 
@@ -39,10 +35,9 @@ class WorkbookChartSeriesFormat extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'fill' => function (ParseNode $n) use ($o) { $o->setFill($n->getObjectValue(array(WorkbookChartFill::class, 'createFromDiscriminatorValue'))); },
-            'line' => function (ParseNode $n) use ($o) { $o->setLine($n->getObjectValue(array(WorkbookChartLineFormat::class, 'createFromDiscriminatorValue'))); },
+            'fill' => function (self $o, ParseNode $n) { $o->setFill($n->getObjectValue(WorkbookChartFill::class)); },
+            'line' => function (self $o, ParseNode $n) { $o->setLine($n->getObjectValue(WorkbookChartLineFormat::class)); },
         ]);
     }
 

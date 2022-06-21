@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class WindowsInformationProtectionIPRangeCollection implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName Display name
-    */
+    /** @var string|null $displayName Display name */
     private ?string $displayName = null;
     
-    /**
-     * @var array<IpRange>|null $ranges Collection of ip ranges
-    */
+    /** @var array<IpRange>|null $ranges Collection of ip ranges */
     private ?array $ranges = null;
     
     /**
@@ -36,7 +30,7 @@ class WindowsInformationProtectionIPRangeCollection implements AdditionalDataHol
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsInformationProtectionIPRangeCollection
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionIPRangeCollection {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionIPRangeCollection {
         return new WindowsInformationProtectionIPRangeCollection();
     }
 
@@ -61,10 +55,9 @@ class WindowsInformationProtectionIPRangeCollection implements AdditionalDataHol
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'ranges' => function (ParseNode $n) use ($o) { $o->setRanges($n->getCollectionOfObjectValues(array(IpRange::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'ranges' => function (self $o, ParseNode $n) { $o->setRanges($n->getCollectionOfObjectValues(IpRange::class)); },
         ];
     }
 

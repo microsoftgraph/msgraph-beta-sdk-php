@@ -7,35 +7,25 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class EducationalActivity extends ItemFacet implements Parsable 
+class EducationalActivity extends ItemFacet 
 {
-    /**
-     * @var Date|null $completionMonthYear The month and year the user graduated or completed the activity.
-    */
+    /** @var Date|null $completionMonthYear The month and year the user graduated or completed the activity. */
     private ?Date $completionMonthYear = null;
     
-    /**
-     * @var Date|null $endMonthYear The month and year the user completed the educational activity referenced.
-    */
+    /** @var Date|null $endMonthYear The month and year the user completed the educational activity referenced. */
     private ?Date $endMonthYear = null;
     
-    /**
-     * @var InstitutionData|null $institution The institution property
-    */
+    /** @var InstitutionData|null $institution The institution property */
     private ?InstitutionData $institution = null;
     
-    /**
-     * @var EducationalActivityDetail|null $program The program property
-    */
+    /** @var EducationalActivityDetail|null $program The program property */
     private ?EducationalActivityDetail $program = null;
     
-    /**
-     * @var Date|null $startMonthYear The month and year the user commenced the activity referenced.
-    */
+    /** @var Date|null $startMonthYear The month and year the user commenced the activity referenced. */
     private ?Date $startMonthYear = null;
     
     /**
-     * Instantiates a new EducationalActivity and sets the default values.
+     * Instantiates a new educationalActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,7 +36,7 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EducationalActivity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationalActivity {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EducationalActivity {
         return new EducationalActivity();
     }
 
@@ -71,13 +61,12 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completionMonthYear' => function (ParseNode $n) use ($o) { $o->setCompletionMonthYear($n->getDateValue()); },
-            'endMonthYear' => function (ParseNode $n) use ($o) { $o->setEndMonthYear($n->getDateValue()); },
-            'institution' => function (ParseNode $n) use ($o) { $o->setInstitution($n->getObjectValue(array(InstitutionData::class, 'createFromDiscriminatorValue'))); },
-            'program' => function (ParseNode $n) use ($o) { $o->setProgram($n->getObjectValue(array(EducationalActivityDetail::class, 'createFromDiscriminatorValue'))); },
-            'startMonthYear' => function (ParseNode $n) use ($o) { $o->setStartMonthYear($n->getDateValue()); },
+            'completionMonthYear' => function (self $o, ParseNode $n) { $o->setCompletionMonthYear($n->getDateValue()); },
+            'endMonthYear' => function (self $o, ParseNode $n) { $o->setEndMonthYear($n->getDateValue()); },
+            'institution' => function (self $o, ParseNode $n) { $o->setInstitution($n->getObjectValue(InstitutionData::class)); },
+            'program' => function (self $o, ParseNode $n) { $o->setProgram($n->getObjectValue(EducationalActivityDetail::class)); },
+            'startMonthYear' => function (self $o, ParseNode $n) { $o->setStartMonthYear($n->getDateValue()); },
         ]);
     }
 

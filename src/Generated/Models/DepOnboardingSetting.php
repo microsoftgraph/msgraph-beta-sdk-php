@@ -7,86 +7,54 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DepOnboardingSetting extends Entity implements Parsable 
+class DepOnboardingSetting extends Entity 
 {
-    /**
-     * @var string|null $appleIdentifier The Apple ID used to obtain the current token.
-    */
+    /** @var string|null $appleIdentifier The Apple ID used to obtain the current token. */
     private ?string $appleIdentifier = null;
     
-    /**
-     * @var bool|null $dataSharingConsentGranted Consent granted for data sharing with Apple Dep Service
-    */
+    /** @var bool|null $dataSharingConsentGranted Consent granted for data sharing with Apple Dep Service */
     private ?bool $dataSharingConsentGranted = null;
     
-    /**
-     * @var DepIOSEnrollmentProfile|null $defaultIosEnrollmentProfile Default iOS Enrollment Profile
-    */
+    /** @var DepIOSEnrollmentProfile|null $defaultIosEnrollmentProfile Default iOS Enrollment Profile */
     private ?DepIOSEnrollmentProfile $defaultIosEnrollmentProfile = null;
     
-    /**
-     * @var DepMacOSEnrollmentProfile|null $defaultMacOsEnrollmentProfile Default MacOs Enrollment Profile
-    */
+    /** @var DepMacOSEnrollmentProfile|null $defaultMacOsEnrollmentProfile Default MacOs Enrollment Profile */
     private ?DepMacOSEnrollmentProfile $defaultMacOsEnrollmentProfile = null;
     
-    /**
-     * @var array<EnrollmentProfile>|null $enrollmentProfiles The enrollment profiles.
-    */
+    /** @var array<EnrollmentProfile>|null $enrollmentProfiles The enrollment profiles. */
     private ?array $enrollmentProfiles = null;
     
-    /**
-     * @var array<ImportedAppleDeviceIdentity>|null $importedAppleDeviceIdentities The imported Apple device identities.
-    */
+    /** @var array<ImportedAppleDeviceIdentity>|null $importedAppleDeviceIdentities The imported Apple device identities. */
     private ?array $importedAppleDeviceIdentities = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime When the service was onboarded.
-    */
+    /** @var DateTime|null $lastModifiedDateTime When the service was onboarded. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var DateTime|null $lastSuccessfulSyncDateTime When the service last syned with Intune
-    */
+    /** @var DateTime|null $lastSuccessfulSyncDateTime When the service last syned with Intune */
     private ?DateTime $lastSuccessfulSyncDateTime = null;
     
-    /**
-     * @var int|null $lastSyncErrorCode Error code reported by Apple during last dep sync.
-    */
+    /** @var int|null $lastSyncErrorCode Error code reported by Apple during last dep sync. */
     private ?int $lastSyncErrorCode = null;
     
-    /**
-     * @var DateTime|null $lastSyncTriggeredDateTime When Intune last requested a sync.
-    */
+    /** @var DateTime|null $lastSyncTriggeredDateTime When Intune last requested a sync. */
     private ?DateTime $lastSyncTriggeredDateTime = null;
     
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
-    */
+    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance. */
     private ?array $roleScopeTagIds = null;
     
-    /**
-     * @var bool|null $shareTokenWithSchoolDataSyncService Whether or not the Dep token sharing is enabled with the School Data Sync service.
-    */
+    /** @var bool|null $shareTokenWithSchoolDataSyncService Whether or not the Dep token sharing is enabled with the School Data Sync service. */
     private ?bool $shareTokenWithSchoolDataSyncService = null;
     
-    /**
-     * @var int|null $syncedDeviceCount Gets synced device count
-    */
+    /** @var int|null $syncedDeviceCount Gets synced device count */
     private ?int $syncedDeviceCount = null;
     
-    /**
-     * @var DateTime|null $tokenExpirationDateTime When the token will expire.
-    */
+    /** @var DateTime|null $tokenExpirationDateTime When the token will expire. */
     private ?DateTime $tokenExpirationDateTime = null;
     
-    /**
-     * @var string|null $tokenName Friendly Name for Dep Token
-    */
+    /** @var string|null $tokenName Friendly Name for Dep Token */
     private ?string $tokenName = null;
     
-    /**
-     * @var DepTokenType|null $tokenType Gets or sets the Dep Token Type. Possible values are: none, dep, appleSchoolManager.
-    */
+    /** @var DepTokenType|null $tokenType Gets or sets the Dep Token Type. Possible values are: none, dep, appleSchoolManager. */
     private ?DepTokenType $tokenType = null;
     
     /**
@@ -101,7 +69,7 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DepOnboardingSetting
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DepOnboardingSetting {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DepOnboardingSetting {
         return new DepOnboardingSetting();
     }
 
@@ -150,24 +118,23 @@ class DepOnboardingSetting extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appleIdentifier' => function (ParseNode $n) use ($o) { $o->setAppleIdentifier($n->getStringValue()); },
-            'dataSharingConsentGranted' => function (ParseNode $n) use ($o) { $o->setDataSharingConsentGranted($n->getBooleanValue()); },
-            'defaultIosEnrollmentProfile' => function (ParseNode $n) use ($o) { $o->setDefaultIosEnrollmentProfile($n->getObjectValue(array(DepIOSEnrollmentProfile::class, 'createFromDiscriminatorValue'))); },
-            'defaultMacOsEnrollmentProfile' => function (ParseNode $n) use ($o) { $o->setDefaultMacOsEnrollmentProfile($n->getObjectValue(array(DepMacOSEnrollmentProfile::class, 'createFromDiscriminatorValue'))); },
-            'enrollmentProfiles' => function (ParseNode $n) use ($o) { $o->setEnrollmentProfiles($n->getCollectionOfObjectValues(array(EnrollmentProfile::class, 'createFromDiscriminatorValue'))); },
-            'importedAppleDeviceIdentities' => function (ParseNode $n) use ($o) { $o->setImportedAppleDeviceIdentities($n->getCollectionOfObjectValues(array(ImportedAppleDeviceIdentity::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'lastSuccessfulSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSuccessfulSyncDateTime($n->getDateTimeValue()); },
-            'lastSyncErrorCode' => function (ParseNode $n) use ($o) { $o->setLastSyncErrorCode($n->getIntegerValue()); },
-            'lastSyncTriggeredDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncTriggeredDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'shareTokenWithSchoolDataSyncService' => function (ParseNode $n) use ($o) { $o->setShareTokenWithSchoolDataSyncService($n->getBooleanValue()); },
-            'syncedDeviceCount' => function (ParseNode $n) use ($o) { $o->setSyncedDeviceCount($n->getIntegerValue()); },
-            'tokenExpirationDateTime' => function (ParseNode $n) use ($o) { $o->setTokenExpirationDateTime($n->getDateTimeValue()); },
-            'tokenName' => function (ParseNode $n) use ($o) { $o->setTokenName($n->getStringValue()); },
-            'tokenType' => function (ParseNode $n) use ($o) { $o->setTokenType($n->getEnumValue(DepTokenType::class)); },
+            'appleIdentifier' => function (self $o, ParseNode $n) { $o->setAppleIdentifier($n->getStringValue()); },
+            'dataSharingConsentGranted' => function (self $o, ParseNode $n) { $o->setDataSharingConsentGranted($n->getBooleanValue()); },
+            'defaultIosEnrollmentProfile' => function (self $o, ParseNode $n) { $o->setDefaultIosEnrollmentProfile($n->getObjectValue(DepIOSEnrollmentProfile::class)); },
+            'defaultMacOsEnrollmentProfile' => function (self $o, ParseNode $n) { $o->setDefaultMacOsEnrollmentProfile($n->getObjectValue(DepMacOSEnrollmentProfile::class)); },
+            'enrollmentProfiles' => function (self $o, ParseNode $n) { $o->setEnrollmentProfiles($n->getCollectionOfObjectValues(EnrollmentProfile::class)); },
+            'importedAppleDeviceIdentities' => function (self $o, ParseNode $n) { $o->setImportedAppleDeviceIdentities($n->getCollectionOfObjectValues(ImportedAppleDeviceIdentity::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'lastSuccessfulSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastSuccessfulSyncDateTime($n->getDateTimeValue()); },
+            'lastSyncErrorCode' => function (self $o, ParseNode $n) { $o->setLastSyncErrorCode($n->getIntegerValue()); },
+            'lastSyncTriggeredDateTime' => function (self $o, ParseNode $n) { $o->setLastSyncTriggeredDateTime($n->getDateTimeValue()); },
+            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'shareTokenWithSchoolDataSyncService' => function (self $o, ParseNode $n) { $o->setShareTokenWithSchoolDataSyncService($n->getBooleanValue()); },
+            'syncedDeviceCount' => function (self $o, ParseNode $n) { $o->setSyncedDeviceCount($n->getIntegerValue()); },
+            'tokenExpirationDateTime' => function (self $o, ParseNode $n) { $o->setTokenExpirationDateTime($n->getDateTimeValue()); },
+            'tokenName' => function (self $o, ParseNode $n) { $o->setTokenName($n->getStringValue()); },
+            'tokenType' => function (self $o, ParseNode $n) { $o->setTokenType($n->getEnumValue(DepTokenType::class)); },
         ]);
     }
 

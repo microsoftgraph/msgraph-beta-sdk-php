@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable 
+class UserExperienceAnalyticsMetricHistory extends Entity 
 {
-    /**
-     * @var string|null $deviceId The user experience analytics device id.
-    */
+    /** @var string|null $deviceId The user experience analytics device id. */
     private ?string $deviceId = null;
     
-    /**
-     * @var DateTime|null $metricDateTime The user experience analytics metric date time.
-    */
+    /** @var DateTime|null $metricDateTime The user experience analytics metric date time. */
     private ?DateTime $metricDateTime = null;
     
-    /**
-     * @var string|null $metricType The user experience analytics metric type.
-    */
+    /** @var string|null $metricType The user experience analytics metric type. */
     private ?string $metricType = null;
     
     /**
@@ -36,7 +30,7 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsMetricHistory
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsMetricHistory {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsMetricHistory {
         return new UserExperienceAnalyticsMetricHistory();
     }
 
@@ -53,11 +47,10 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'metricDateTime' => function (ParseNode $n) use ($o) { $o->setMetricDateTime($n->getDateTimeValue()); },
-            'metricType' => function (ParseNode $n) use ($o) { $o->setMetricType($n->getStringValue()); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'metricDateTime' => function (self $o, ParseNode $n) { $o->setMetricDateTime($n->getDateTimeValue()); },
+            'metricType' => function (self $o, ParseNode $n) { $o->setMetricType($n->getStringValue()); },
         ]);
     }
 

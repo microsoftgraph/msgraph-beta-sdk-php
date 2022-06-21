@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceConfigurationGroupAssignment extends Entity implements Parsable 
+class DeviceConfigurationGroupAssignment extends Entity 
 {
-    /**
-     * @var DeviceConfiguration|null $deviceConfiguration The navigation link to the Device Configuration being targeted.
-    */
+    /** @var DeviceConfiguration|null $deviceConfiguration The navigation link to the Device Configuration being targeted. */
     private ?DeviceConfiguration $deviceConfiguration = null;
     
-    /**
-     * @var bool|null $excludeGroup Indicates if this group is should be excluded. Defaults that the group should be included
-    */
+    /** @var bool|null $excludeGroup Indicates if this group is should be excluded. Defaults that the group should be included */
     private ?bool $excludeGroup = null;
     
-    /**
-     * @var string|null $targetGroupId The Id of the AAD group we are targeting the device configuration to.
-    */
+    /** @var string|null $targetGroupId The Id of the AAD group we are targeting the device configuration to. */
     private ?string $targetGroupId = null;
     
     /**
@@ -35,7 +29,7 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceConfigurationGroupAssignment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfigurationGroupAssignment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfigurationGroupAssignment {
         return new DeviceConfigurationGroupAssignment();
     }
 
@@ -60,11 +54,10 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceConfiguration' => function (ParseNode $n) use ($o) { $o->setDeviceConfiguration($n->getObjectValue(array(DeviceConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'excludeGroup' => function (ParseNode $n) use ($o) { $o->setExcludeGroup($n->getBooleanValue()); },
-            'targetGroupId' => function (ParseNode $n) use ($o) { $o->setTargetGroupId($n->getStringValue()); },
+            'deviceConfiguration' => function (self $o, ParseNode $n) { $o->setDeviceConfiguration($n->getObjectValue(DeviceConfiguration::class)); },
+            'excludeGroup' => function (self $o, ParseNode $n) { $o->setExcludeGroup($n->getBooleanValue()); },
+            'targetGroupId' => function (self $o, ParseNode $n) { $o->setTargetGroupId($n->getStringValue()); },
         ]);
     }
 

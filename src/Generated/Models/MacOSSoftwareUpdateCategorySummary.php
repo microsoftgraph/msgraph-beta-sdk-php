@@ -7,51 +7,33 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable 
+class MacOSSoftwareUpdateCategorySummary extends Entity 
 {
-    /**
-     * @var string|null $deviceId The device ID.
-    */
+    /** @var string|null $deviceId The device ID. */
     private ?string $deviceId = null;
     
-    /**
-     * @var string|null $displayName The name of the report
-    */
+    /** @var string|null $displayName The name of the report */
     private ?string $displayName = null;
     
-    /**
-     * @var int|null $failedUpdateCount Number of failed updates on the device
-    */
+    /** @var int|null $failedUpdateCount Number of failed updates on the device */
     private ?int $failedUpdateCount = null;
     
-    /**
-     * @var DateTime|null $lastUpdatedDateTime Last date time the report for this device was updated.
-    */
+    /** @var DateTime|null $lastUpdatedDateTime Last date time the report for this device was updated. */
     private ?DateTime $lastUpdatedDateTime = null;
     
-    /**
-     * @var int|null $successfulUpdateCount Number of successful updates on the device
-    */
+    /** @var int|null $successfulUpdateCount Number of successful updates on the device */
     private ?int $successfulUpdateCount = null;
     
-    /**
-     * @var int|null $totalUpdateCount Number of total updates on the device
-    */
+    /** @var int|null $totalUpdateCount Number of total updates on the device */
     private ?int $totalUpdateCount = null;
     
-    /**
-     * @var MacOSSoftwareUpdateCategory|null $updateCategory Software update type. Possible values are: critical, configurationDataFile, firmware, other.
-    */
+    /** @var MacOSSoftwareUpdateCategory|null $updateCategory Software update type. Possible values are: critical, configurationDataFile, firmware, other. */
     private ?MacOSSoftwareUpdateCategory $updateCategory = null;
     
-    /**
-     * @var array<MacOSSoftwareUpdateStateSummary>|null $updateStateSummaries Summary of the update states.
-    */
+    /** @var array<MacOSSoftwareUpdateStateSummary>|null $updateStateSummaries Summary of the update states. */
     private ?array $updateStateSummaries = null;
     
-    /**
-     * @var string|null $userId The user ID.
-    */
+    /** @var string|null $userId The user ID. */
     private ?string $userId = null;
     
     /**
@@ -66,7 +48,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MacOSSoftwareUpdateCategorySummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MacOSSoftwareUpdateCategorySummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MacOSSoftwareUpdateCategorySummary {
         return new MacOSSoftwareUpdateCategorySummary();
     }
 
@@ -99,17 +81,16 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'failedUpdateCount' => function (ParseNode $n) use ($o) { $o->setFailedUpdateCount($n->getIntegerValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'successfulUpdateCount' => function (ParseNode $n) use ($o) { $o->setSuccessfulUpdateCount($n->getIntegerValue()); },
-            'totalUpdateCount' => function (ParseNode $n) use ($o) { $o->setTotalUpdateCount($n->getIntegerValue()); },
-            'updateCategory' => function (ParseNode $n) use ($o) { $o->setUpdateCategory($n->getEnumValue(MacOSSoftwareUpdateCategory::class)); },
-            'updateStateSummaries' => function (ParseNode $n) use ($o) { $o->setUpdateStateSummaries($n->getCollectionOfObjectValues(array(MacOSSoftwareUpdateStateSummary::class, 'createFromDiscriminatorValue'))); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'failedUpdateCount' => function (self $o, ParseNode $n) { $o->setFailedUpdateCount($n->getIntegerValue()); },
+            'lastUpdatedDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
+            'successfulUpdateCount' => function (self $o, ParseNode $n) { $o->setSuccessfulUpdateCount($n->getIntegerValue()); },
+            'totalUpdateCount' => function (self $o, ParseNode $n) { $o->setTotalUpdateCount($n->getIntegerValue()); },
+            'updateCategory' => function (self $o, ParseNode $n) { $o->setUpdateCategory($n->getEnumValue(MacOSSoftwareUpdateCategory::class)); },
+            'updateStateSummaries' => function (self $o, ParseNode $n) { $o->setUpdateStateSummaries($n->getCollectionOfObjectValues(MacOSSoftwareUpdateStateSummary::class)); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
         ]);
     }
 

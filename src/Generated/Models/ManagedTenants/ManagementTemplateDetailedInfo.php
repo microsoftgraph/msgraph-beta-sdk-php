@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var ManagementCategory|null $category The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
-    */
+    /** @var ManagementCategory|null $category The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only. */
     private ?ManagementCategory $category = null;
     
-    /**
-     * @var string|null $displayName The display name for the management template. Required. Read-only.
-    */
+    /** @var string|null $displayName The display name for the management template. Required. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $managementTemplateId The unique identifier for the management template. Required. Read-only.
-    */
+    /** @var string|null $managementTemplateId The unique identifier for the management template. Required. Read-only. */
     private ?string $managementTemplateId = null;
     
-    /**
-     * @var int|null $version The version property
-    */
+    /** @var int|null $version The version property */
     private ?int $version = null;
     
     /**
@@ -46,7 +36,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementTemplateDetailedInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementTemplateDetailedInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementTemplateDetailedInfo {
         return new ManagementTemplateDetailedInfo();
     }
 
@@ -79,12 +69,11 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'managementTemplateId' => function (ParseNode $n) use ($o) { $o->setManagementTemplateId($n->getStringValue()); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
+            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'managementTemplateId' => function (self $o, ParseNode $n) { $o->setManagementTemplateId($n->getStringValue()); },
+            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getIntegerValue()); },
         ];
     }
 

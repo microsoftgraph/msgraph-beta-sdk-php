@@ -7,56 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SensitivityLabel extends Entity implements Parsable 
+class SensitivityLabel extends Entity 
 {
-    /**
-     * @var string|null $color The color property
-    */
+    /** @var string|null $color The color property */
     private ?string $color = null;
     
-    /**
-     * @var array<string>|null $contentFormats The contentFormats property
-    */
+    /** @var array<string>|null $contentFormats The contentFormats property */
     private ?array $contentFormats = null;
     
-    /**
-     * @var string|null $description The description property
-    */
+    /** @var string|null $description The description property */
     private ?string $description = null;
     
-    /**
-     * @var bool|null $hasProtection The hasProtection property
-    */
+    /** @var bool|null $hasProtection The hasProtection property */
     private ?bool $hasProtection = null;
     
-    /**
-     * @var bool|null $isActive The isActive property
-    */
+    /** @var bool|null $isActive The isActive property */
     private ?bool $isActive = null;
     
-    /**
-     * @var bool|null $isAppliable The isAppliable property
-    */
+    /** @var bool|null $isAppliable The isAppliable property */
     private ?bool $isAppliable = null;
     
-    /**
-     * @var string|null $name The name property
-    */
+    /** @var string|null $name The name property */
     private ?string $name = null;
     
-    /**
-     * @var SensitivityLabel|null $parent The parent property
-    */
+    /** @var SensitivityLabel|null $parent The parent property */
     private ?SensitivityLabel $parent = null;
     
-    /**
-     * @var int|null $sensitivity The sensitivity property
-    */
+    /** @var int|null $sensitivity The sensitivity property */
     private ?int $sensitivity = null;
     
-    /**
-     * @var string|null $tooltip The tooltip property
-    */
+    /** @var string|null $tooltip The tooltip property */
     private ?string $tooltip = null;
     
     /**
@@ -71,7 +51,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SensitivityLabel
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SensitivityLabel {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SensitivityLabel {
         return new SensitivityLabel();
     }
 
@@ -104,18 +84,17 @@ class SensitivityLabel extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'color' => function (ParseNode $n) use ($o) { $o->setColor($n->getStringValue()); },
-            'contentFormats' => function (ParseNode $n) use ($o) { $o->setContentFormats($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'hasProtection' => function (ParseNode $n) use ($o) { $o->setHasProtection($n->getBooleanValue()); },
-            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
-            'isAppliable' => function (ParseNode $n) use ($o) { $o->setIsAppliable($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(SensitivityLabel::class, 'createFromDiscriminatorValue'))); },
-            'sensitivity' => function (ParseNode $n) use ($o) { $o->setSensitivity($n->getIntegerValue()); },
-            'tooltip' => function (ParseNode $n) use ($o) { $o->setTooltip($n->getStringValue()); },
+            'color' => function (self $o, ParseNode $n) { $o->setColor($n->getStringValue()); },
+            'contentFormats' => function (self $o, ParseNode $n) { $o->setContentFormats($n->getCollectionOfPrimitiveValues()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'hasProtection' => function (self $o, ParseNode $n) { $o->setHasProtection($n->getBooleanValue()); },
+            'isActive' => function (self $o, ParseNode $n) { $o->setIsActive($n->getBooleanValue()); },
+            'isAppliable' => function (self $o, ParseNode $n) { $o->setIsAppliable($n->getBooleanValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'parent' => function (self $o, ParseNode $n) { $o->setParent($n->getObjectValue(SensitivityLabel::class)); },
+            'sensitivity' => function (self $o, ParseNode $n) { $o->setSensitivity($n->getIntegerValue()); },
+            'tooltip' => function (self $o, ParseNode $n) { $o->setTooltip($n->getStringValue()); },
         ]);
     }
 

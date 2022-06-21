@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ChatMessageInfo extends Entity implements Parsable 
+class ChatMessageInfo extends Entity 
 {
-    /**
-     * @var ItemBody|null $body Body of the chatMessage. This will still contain markers for @mentions and attachments even though the object does not return @mentions and attachments.
-    */
+    /** @var ItemBody|null $body Body of the chatMessage. This will still contain markers for @mentions and attachments even though the object does not return @mentions and attachments. */
     private ?ItemBody $body = null;
     
-    /**
-     * @var DateTime|null $createdDateTime Date time object representing the time at which message was created.
-    */
+    /** @var DateTime|null $createdDateTime Date time object representing the time at which message was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var EventMessageDetail|null $eventDetail Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property will be set to systemEventMessage.
-    */
+    /** @var EventMessageDetail|null $eventDetail Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property will be set to systemEventMessage. */
     private ?EventMessageDetail $eventDetail = null;
     
-    /**
-     * @var ChatMessageFromIdentitySet|null $from Information about the sender of the message.
-    */
+    /** @var ChatMessageFromIdentitySet|null $from Information about the sender of the message. */
     private ?ChatMessageFromIdentitySet $from = null;
     
-    /**
-     * @var bool|null $isDeleted If set to true, the original message has been deleted.
-    */
+    /** @var bool|null $isDeleted If set to true, the original message has been deleted. */
     private ?bool $isDeleted = null;
     
-    /**
-     * @var ChatMessageType|null $messageType The type of chat message. The possible values are: message, unknownFutureValue, systemEventMessage.
-    */
+    /** @var ChatMessageType|null $messageType The type of chat message. The possible values are: message, unknownFutureValue, systemEventMessage. */
     private ?ChatMessageType $messageType = null;
     
     /**
@@ -51,7 +39,7 @@ class ChatMessageInfo extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ChatMessageInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ChatMessageInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ChatMessageInfo {
         return new ChatMessageInfo();
     }
 
@@ -84,14 +72,13 @@ class ChatMessageInfo extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'body' => function (ParseNode $n) use ($o) { $o->setBody($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'eventDetail' => function (ParseNode $n) use ($o) { $o->setEventDetail($n->getObjectValue(array(EventMessageDetail::class, 'createFromDiscriminatorValue'))); },
-            'from' => function (ParseNode $n) use ($o) { $o->setFrom($n->getObjectValue(array(ChatMessageFromIdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'isDeleted' => function (ParseNode $n) use ($o) { $o->setIsDeleted($n->getBooleanValue()); },
-            'messageType' => function (ParseNode $n) use ($o) { $o->setMessageType($n->getEnumValue(ChatMessageType::class)); },
+            'body' => function (self $o, ParseNode $n) { $o->setBody($n->getObjectValue(ItemBody::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'eventDetail' => function (self $o, ParseNode $n) { $o->setEventDetail($n->getObjectValue(EventMessageDetail::class)); },
+            'from' => function (self $o, ParseNode $n) { $o->setFrom($n->getObjectValue(ChatMessageFromIdentitySet::class)); },
+            'isDeleted' => function (self $o, ParseNode $n) { $o->setIsDeleted($n->getBooleanValue()); },
+            'messageType' => function (self $o, ParseNode $n) { $o->setMessageType($n->getEnumValue(ChatMessageType::class)); },
         ]);
     }
 

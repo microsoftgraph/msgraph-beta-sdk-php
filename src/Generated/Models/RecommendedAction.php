@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RecommendedAction implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var string|null $actionWebUrl Web URL to the recommended action.
-    */
+    /** @var string|null $actionWebUrl Web URL to the recommended action. */
     private ?string $actionWebUrl = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var float|null $potentialScoreImpact Potential improvement in security score of the tenant from the recommended action.
-    */
+    /** @var float|null $potentialScoreImpact Potential improvement in security score of the tenant from the recommended action. */
     private ?float $potentialScoreImpact = null;
     
-    /**
-     * @var string|null $title Title of the recommended action.
-    */
+    /** @var string|null $title Title of the recommended action. */
     private ?string $title = null;
     
     /**
@@ -41,7 +33,7 @@ class RecommendedAction implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RecommendedAction
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RecommendedAction {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RecommendedAction {
         return new RecommendedAction();
     }
 
@@ -66,11 +58,10 @@ class RecommendedAction implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'actionWebUrl' => function (ParseNode $n) use ($o) { $o->setActionWebUrl($n->getStringValue()); },
-            'potentialScoreImpact' => function (ParseNode $n) use ($o) { $o->setPotentialScoreImpact($n->getFloatValue()); },
-            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
+            'actionWebUrl' => function (self $o, ParseNode $n) { $o->setActionWebUrl($n->getStringValue()); },
+            'potentialScoreImpact' => function (self $o, ParseNode $n) { $o->setPotentialScoreImpact($n->getFloatValue()); },
+            'title' => function (self $o, ParseNode $n) { $o->setTitle($n->getStringValue()); },
         ];
     }
 

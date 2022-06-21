@@ -2,6 +2,9 @@
 
 namespace Microsoft\Graph\Beta\Generated;
 
+use Exception;
+use Http\Promise\Promise;
+use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\AccessReviewDecisions\AccessReviewDecisionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviewDecisions\Item\AccessReviewDecisionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AccessReviews\AccessReviewsRequestBuilder;
@@ -57,7 +60,6 @@ use Microsoft\Graph\Beta\Generated\DataPolicyOperations\DataPolicyOperationsRequ
 use Microsoft\Graph\Beta\Generated\DataPolicyOperations\Item\DataPolicyOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\DeviceAppManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceRegistrationPolicy\DeviceRegistrationPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\DeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DirectoryRequestBuilder;
@@ -173,7 +175,6 @@ use Microsoft\Graph\Beta\Generated\Shares\Item\SharedDriveItemItemRequestBuilder
 use Microsoft\Graph\Beta\Generated\Shares\SharesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\Item\SiteItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Sites\SitesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Storage\StorageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\SubscribedSkus\Item\SubscribedSkuItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\SubscribedSkus\SubscribedSkusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Subscriptions\Item\SubscriptionItemRequestBuilder;
@@ -191,11 +192,16 @@ use Microsoft\Graph\Beta\Generated\Users\UsersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Workbooks\Item\DriveItemItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Workbooks\WorkbooksRequestBuilder;
 use Microsoft\Kiota\Abstractions\ApiClientBuilder;
+use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
+use Microsoft\Kiota\Abstractions\RequestInformation;
+use Microsoft\Kiota\Abstractions\RequestOption;
+use Microsoft\Kiota\Abstractions\ResponseHandler;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 use Microsoft\Kiota\Serialization\Json\JsonParseNodeFactory;
 use Microsoft\Kiota\Serialization\Json\JsonSerializationWriterFactory;
-use Microsoft\Kiota\Serialization\Text\TextParseNodeFactory;
-use Microsoft\Kiota\Serialization\Text\TextSerializationWriterFactory;
+use Psr\Http\Message\StreamInterface;
 
 class BaseGraphClient 
 {
@@ -428,13 +434,6 @@ class BaseGraphClient
     */
     public function deviceManagement(): DeviceManagementRequestBuilder {
         return new DeviceManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * The deviceRegistrationPolicy property
-    */
-    public function deviceRegistrationPolicy(): DeviceRegistrationPolicyRequestBuilder {
-        return new DeviceRegistrationPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -710,9 +709,7 @@ class BaseGraphClient
         return new OrganizationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
+    /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
     /**
@@ -834,9 +831,7 @@ class BaseGraphClient
         return new ReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
+    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -917,13 +912,6 @@ class BaseGraphClient
     }
     
     /**
-     * The storage property
-    */
-    public function storage(): StorageRequestBuilder {
-        return new StorageRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * The subscribedSkus property
     */
     public function subscribedSkus(): SubscribedSkusRequestBuilder {
@@ -979,9 +967,7 @@ class BaseGraphClient
         return new TrustFrameworkRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
+    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
     /**
@@ -1005,7 +991,7 @@ class BaseGraphClient
     */
     public function accessReviewDecisionsById(string $id): AccessReviewDecisionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewDecision%2Did'] = $id;
+        $urlTplParams['accessReviewDecision_id'] = $id;
         return new AccessReviewDecisionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1016,7 +1002,7 @@ class BaseGraphClient
     */
     public function accessReviewsById(string $id): AccessReviewItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReview%2Did'] = $id;
+        $urlTplParams['accessReview_id'] = $id;
         return new AccessReviewItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1027,7 +1013,7 @@ class BaseGraphClient
     */
     public function activitystatisticsById(string $id): ActivityStatisticsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['activityStatistics%2Did'] = $id;
+        $urlTplParams['activityStatistics_id'] = $id;
         return new ActivityStatisticsItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1038,7 +1024,7 @@ class BaseGraphClient
     */
     public function administrativeUnitsById(string $id): AdministrativeUnitItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['administrativeUnit%2Did'] = $id;
+        $urlTplParams['administrativeUnit_id'] = $id;
         return new AdministrativeUnitItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1049,7 +1035,7 @@ class BaseGraphClient
     */
     public function agreementAcceptancesById(string $id): AgreementAcceptanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['agreementAcceptance%2Did'] = $id;
+        $urlTplParams['agreementAcceptance_id'] = $id;
         return new AgreementAcceptanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1060,7 +1046,7 @@ class BaseGraphClient
     */
     public function agreementsById(string $id): AgreementItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['agreement%2Did'] = $id;
+        $urlTplParams['agreement_id'] = $id;
         return new AgreementItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1071,7 +1057,7 @@ class BaseGraphClient
     */
     public function allowedDataLocationsById(string $id): AllowedDataLocationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['allowedDataLocation%2Did'] = $id;
+        $urlTplParams['allowedDataLocation_id'] = $id;
         return new AllowedDataLocationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1082,7 +1068,7 @@ class BaseGraphClient
     */
     public function applicationsById(string $id): ApplicationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['application%2Did'] = $id;
+        $urlTplParams['application_id'] = $id;
         return new ApplicationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1093,7 +1079,7 @@ class BaseGraphClient
     */
     public function applicationTemplatesById(string $id): ApplicationTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['applicationTemplate%2Did'] = $id;
+        $urlTplParams['applicationTemplate_id'] = $id;
         return new ApplicationTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1104,7 +1090,7 @@ class BaseGraphClient
     */
     public function appRoleAssignmentsById(string $id): AppRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['appRoleAssignment%2Did'] = $id;
+        $urlTplParams['appRoleAssignment_id'] = $id;
         return new AppRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1115,7 +1101,7 @@ class BaseGraphClient
     */
     public function approvalWorkflowProvidersById(string $id): ApprovalWorkflowProviderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['approvalWorkflowProvider%2Did'] = $id;
+        $urlTplParams['approvalWorkflowProvider_id'] = $id;
         return new ApprovalWorkflowProviderItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1126,7 +1112,7 @@ class BaseGraphClient
     */
     public function authenticationMethodConfigurationsById(string $id): AuthenticationMethodConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['authenticationMethodConfiguration%2Did'] = $id;
+        $urlTplParams['authenticationMethodConfiguration_id'] = $id;
         return new AuthenticationMethodConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1137,7 +1123,7 @@ class BaseGraphClient
     */
     public function bookingBusinessesById(string $id): BookingBusinessItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['bookingBusiness%2Did'] = $id;
+        $urlTplParams['bookingBusiness_id'] = $id;
         return new BookingBusinessItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1148,7 +1134,7 @@ class BaseGraphClient
     */
     public function bookingCurrenciesById(string $id): BookingCurrencyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['bookingCurrency%2Did'] = $id;
+        $urlTplParams['bookingCurrency_id'] = $id;
         return new BookingCurrencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1159,7 +1145,7 @@ class BaseGraphClient
     */
     public function businessFlowTemplatesById(string $id): BusinessFlowTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['businessFlowTemplate%2Did'] = $id;
+        $urlTplParams['businessFlowTemplate_id'] = $id;
         return new BusinessFlowTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1170,7 +1156,7 @@ class BaseGraphClient
     */
     public function certificateBasedAuthConfigurationById(string $id): CertificateBasedAuthConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['certificateBasedAuthConfiguration%2Did'] = $id;
+        $urlTplParams['certificateBasedAuthConfiguration_id'] = $id;
         return new CertificateBasedAuthConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1181,7 +1167,7 @@ class BaseGraphClient
     */
     public function chatsById(string $id): ChatItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['chat%2Did'] = $id;
+        $urlTplParams['chat_id'] = $id;
         return new ChatItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1192,7 +1178,7 @@ class BaseGraphClient
     */
     public function commandsById(string $id): CommandItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['command%2Did'] = $id;
+        $urlTplParams['command_id'] = $id;
         return new CommandItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1203,7 +1189,7 @@ class BaseGraphClient
     */
     public function connectionsById(string $id): ExternalConnectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['externalConnection%2Did'] = $id;
+        $urlTplParams['externalConnection_id'] = $id;
         return new ExternalConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1216,9 +1202,7 @@ class BaseGraphClient
         $this->urlTemplate = '{+baseurl}';
         $this->requestAdapter = $requestAdapter;
         ApiClientBuilder::registerDefaultSerializer(JsonSerializationWriterFactory::class);
-        ApiClientBuilder::registerDefaultSerializer(TextSerializationWriterFactory::class);
         ApiClientBuilder::registerDefaultDeserializer(JsonParseNodeFactory::class);
-        ApiClientBuilder::registerDefaultDeserializer(TextParseNodeFactory::class);
         if (empty($this->requestAdapter->getBaseUrl())) {
             $this->requestAdapter->setBaseUrl('https://graph.microsoft.com/beta');
         }
@@ -1231,7 +1215,7 @@ class BaseGraphClient
     */
     public function contactsById(string $id): OrgContactItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['orgContact%2Did'] = $id;
+        $urlTplParams['orgContact_id'] = $id;
         return new OrgContactItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1242,8 +1226,27 @@ class BaseGraphClient
     */
     public function contractsById(string $id): ContractItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['contract%2Did'] = $id;
+        $urlTplParams['contract_id'] = $id;
         return new ContractItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
+     * @return RequestInformation
+    */
+    public function createGetRequestInformation(?array $headers = null, ?array $options = null): RequestInformation {
+        $requestInfo = new RequestInformation();
+        $requestInfo->urlTemplate = $this->urlTemplate;
+        $requestInfo->pathParameters = $this->pathParameters;
+        $requestInfo->httpMethod = HttpMethod::GET;
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
+        }
+        return $requestInfo;
     }
 
     /**
@@ -1253,7 +1256,7 @@ class BaseGraphClient
     */
     public function dataPolicyOperationsById(string $id): DataPolicyOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['dataPolicyOperation%2Did'] = $id;
+        $urlTplParams['dataPolicyOperation_id'] = $id;
         return new DataPolicyOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1264,7 +1267,7 @@ class BaseGraphClient
     */
     public function devicesById(string $id): DeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['device%2Did'] = $id;
+        $urlTplParams['device_id'] = $id;
         return new DeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1275,7 +1278,7 @@ class BaseGraphClient
     */
     public function directoryObjectsById(string $id): DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1286,7 +1289,7 @@ class BaseGraphClient
     */
     public function directoryRolesById(string $id): DirectoryRoleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryRole%2Did'] = $id;
+        $urlTplParams['directoryRole_id'] = $id;
         return new DirectoryRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1297,7 +1300,7 @@ class BaseGraphClient
     */
     public function directoryRoleTemplatesById(string $id): DirectoryRoleTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryRoleTemplate%2Did'] = $id;
+        $urlTplParams['directoryRoleTemplate_id'] = $id;
         return new DirectoryRoleTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1308,7 +1311,7 @@ class BaseGraphClient
     */
     public function directorySettingTemplatesById(string $id): DirectorySettingTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directorySettingTemplate%2Did'] = $id;
+        $urlTplParams['directorySettingTemplate_id'] = $id;
         return new DirectorySettingTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1319,7 +1322,7 @@ class BaseGraphClient
     */
     public function domainDnsRecordsById(string $id): DomainDnsRecordItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['domainDnsRecord%2Did'] = $id;
+        $urlTplParams['domainDnsRecord_id'] = $id;
         return new DomainDnsRecordItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1330,7 +1333,7 @@ class BaseGraphClient
     */
     public function domainsById(string $id): DomainItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['domain%2Did'] = $id;
+        $urlTplParams['domain_id'] = $id;
         return new DomainItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1341,7 +1344,7 @@ class BaseGraphClient
     */
     public function drivesById(string $id): DriveItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['drive%2Did'] = $id;
+        $urlTplParams['drive_id'] = $id;
         return new DriveItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1352,7 +1355,7 @@ class BaseGraphClient
     */
     public function filterOperatorsById(string $id): FilterOperatorSchemaItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['filterOperatorSchema%2Did'] = $id;
+        $urlTplParams['filterOperatorSchema_id'] = $id;
         return new FilterOperatorSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1363,8 +1366,23 @@ class BaseGraphClient
     */
     public function functionsById(string $id): AttributeMappingFunctionSchemaItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['attributeMappingFunctionSchema%2Did'] = $id;
+        $urlTplParams['attributeMappingFunctionSchema_id'] = $id;
         return new AttributeMappingFunctionSchemaItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
+     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @return Promise
+    */
+    public function get(?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($headers, $options);
+        try {
+            return $this->requestAdapter->sendAsync($requestInfo, StreamInterface::class, $responseHandler);
+        } catch(Exception $ex) {
+            return new RejectedPromise($ex);
+        }
     }
 
     /**
@@ -1374,7 +1392,7 @@ class BaseGraphClient
     */
     public function governanceResourcesById(string $id): GovernanceResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceResource%2Did'] = $id;
+        $urlTplParams['governanceResource_id'] = $id;
         return new GovernanceResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1385,7 +1403,7 @@ class BaseGraphClient
     */
     public function governanceRoleAssignmentRequestsById(string $id): GovernanceRoleAssignmentRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleAssignmentRequest%2Did'] = $id;
+        $urlTplParams['governanceRoleAssignmentRequest_id'] = $id;
         return new GovernanceRoleAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1396,7 +1414,7 @@ class BaseGraphClient
     */
     public function governanceRoleAssignmentsById(string $id): GovernanceRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleAssignment%2Did'] = $id;
+        $urlTplParams['governanceRoleAssignment_id'] = $id;
         return new GovernanceRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1407,7 +1425,7 @@ class BaseGraphClient
     */
     public function governanceRoleDefinitionsById(string $id): GovernanceRoleDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleDefinition%2Did'] = $id;
+        $urlTplParams['governanceRoleDefinition_id'] = $id;
         return new GovernanceRoleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1418,7 +1436,7 @@ class BaseGraphClient
     */
     public function governanceRoleSettingsById(string $id): GovernanceRoleSettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceRoleSetting%2Did'] = $id;
+        $urlTplParams['governanceRoleSetting_id'] = $id;
         return new GovernanceRoleSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1429,7 +1447,7 @@ class BaseGraphClient
     */
     public function governanceSubjectsById(string $id): GovernanceSubjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['governanceSubject%2Did'] = $id;
+        $urlTplParams['governanceSubject_id'] = $id;
         return new GovernanceSubjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1440,7 +1458,7 @@ class BaseGraphClient
     */
     public function groupLifecyclePoliciesById(string $id): GroupLifecyclePolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['groupLifecyclePolicy%2Did'] = $id;
+        $urlTplParams['groupLifecyclePolicy_id'] = $id;
         return new GroupLifecyclePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1451,7 +1469,7 @@ class BaseGraphClient
     */
     public function groupsById(string $id): GroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['group%2Did'] = $id;
+        $urlTplParams['group_id'] = $id;
         return new GroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1462,7 +1480,7 @@ class BaseGraphClient
     */
     public function identityProvidersById(string $id): IdentityProviderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['identityProvider%2Did'] = $id;
+        $urlTplParams['identityProvider_id'] = $id;
         return new IdentityProviderItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1473,7 +1491,7 @@ class BaseGraphClient
     */
     public function invitationsById(string $id): InvitationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['invitation%2Did'] = $id;
+        $urlTplParams['invitation_id'] = $id;
         return new InvitationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1484,7 +1502,7 @@ class BaseGraphClient
     */
     public function messageEventsById(string $id): MessageEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['messageEvent%2Did'] = $id;
+        $urlTplParams['messageEvent_id'] = $id;
         return new MessageEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1495,7 +1513,7 @@ class BaseGraphClient
     */
     public function messageRecipientsById(string $id): MessageRecipientItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['messageRecipient%2Did'] = $id;
+        $urlTplParams['messageRecipient_id'] = $id;
         return new MessageRecipientItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1506,7 +1524,7 @@ class BaseGraphClient
     */
     public function messageTracesById(string $id): MessageTraceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['messageTrace%2Did'] = $id;
+        $urlTplParams['messageTrace_id'] = $id;
         return new MessageTraceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1517,7 +1535,7 @@ class BaseGraphClient
     */
     public function mobilityManagementPoliciesById(string $id): MobilityManagementPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['mobilityManagementPolicy%2Did'] = $id;
+        $urlTplParams['mobilityManagementPolicy_id'] = $id;
         return new MobilityManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1528,7 +1546,7 @@ class BaseGraphClient
     */
     public function oauth2PermissionGrantsById(string $id): OAuth2PermissionGrantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['oAuth2PermissionGrant%2Did'] = $id;
+        $urlTplParams['oAuth2PermissionGrant_id'] = $id;
         return new OAuth2PermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1539,7 +1557,7 @@ class BaseGraphClient
     */
     public function onPremisesPublishingProfilesById(string $id): OnPremisesPublishingProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['onPremisesPublishingProfile%2Did'] = $id;
+        $urlTplParams['onPremisesPublishingProfile_id'] = $id;
         return new OnPremisesPublishingProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1550,7 +1568,7 @@ class BaseGraphClient
     */
     public function organizationById(string $id): OrganizationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['organization%2Did'] = $id;
+        $urlTplParams['organization_id'] = $id;
         return new OrganizationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1561,7 +1579,7 @@ class BaseGraphClient
     */
     public function payloadResponseById(string $id): PayloadResponseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['payloadResponse%2Did'] = $id;
+        $urlTplParams['payloadResponse_id'] = $id;
         return new PayloadResponseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1572,7 +1590,7 @@ class BaseGraphClient
     */
     public function permissionGrantsById(string $id): ResourceSpecificPermissionGrantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['resourceSpecificPermissionGrant%2Did'] = $id;
+        $urlTplParams['resourceSpecificPermissionGrant_id'] = $id;
         return new ResourceSpecificPermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1583,7 +1601,7 @@ class BaseGraphClient
     */
     public function placesById(string $id): PlaceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['place%2Did'] = $id;
+        $urlTplParams['place_id'] = $id;
         return new PlaceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1594,7 +1612,7 @@ class BaseGraphClient
     */
     public function privilegedAccessById(string $id): PrivilegedAccessItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['privilegedAccess%2Did'] = $id;
+        $urlTplParams['privilegedAccess_id'] = $id;
         return new PrivilegedAccessItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1605,7 +1623,7 @@ class BaseGraphClient
     */
     public function privilegedApprovalById(string $id): PrivilegedApprovalItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['privilegedApproval%2Did'] = $id;
+        $urlTplParams['privilegedApproval_id'] = $id;
         return new PrivilegedApprovalItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1616,7 +1634,7 @@ class BaseGraphClient
     */
     public function privilegedOperationEventsById(string $id): PrivilegedOperationEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['privilegedOperationEvent%2Did'] = $id;
+        $urlTplParams['privilegedOperationEvent_id'] = $id;
         return new PrivilegedOperationEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1627,7 +1645,7 @@ class BaseGraphClient
     */
     public function privilegedRoleAssignmentRequestsById(string $id): PrivilegedRoleAssignmentRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['privilegedRoleAssignmentRequest%2Did'] = $id;
+        $urlTplParams['privilegedRoleAssignmentRequest_id'] = $id;
         return new PrivilegedRoleAssignmentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1638,7 +1656,7 @@ class BaseGraphClient
     */
     public function privilegedRoleAssignmentsById(string $id): PrivilegedRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['privilegedRoleAssignment%2Did'] = $id;
+        $urlTplParams['privilegedRoleAssignment_id'] = $id;
         return new PrivilegedRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1649,7 +1667,7 @@ class BaseGraphClient
     */
     public function privilegedRolesById(string $id): PrivilegedRoleItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['privilegedRole%2Did'] = $id;
+        $urlTplParams['privilegedRole_id'] = $id;
         return new PrivilegedRoleItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1660,7 +1678,7 @@ class BaseGraphClient
     */
     public function privilegedSignupStatusById(string $id): PrivilegedSignupStatusItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['privilegedSignupStatus%2Did'] = $id;
+        $urlTplParams['privilegedSignupStatus_id'] = $id;
         return new PrivilegedSignupStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1671,7 +1689,7 @@ class BaseGraphClient
     */
     public function programControlsById(string $id): ProgramControlItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['programControl%2Did'] = $id;
+        $urlTplParams['programControl_id'] = $id;
         return new ProgramControlItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1682,7 +1700,7 @@ class BaseGraphClient
     */
     public function programControlTypesById(string $id): ProgramControlTypeItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['programControlType%2Did'] = $id;
+        $urlTplParams['programControlType_id'] = $id;
         return new ProgramControlTypeItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1693,7 +1711,7 @@ class BaseGraphClient
     */
     public function programsById(string $id): ProgramItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['program%2Did'] = $id;
+        $urlTplParams['program_id'] = $id;
         return new ProgramItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1704,7 +1722,7 @@ class BaseGraphClient
     */
     public function riskDetectionsById(string $id): RiskDetectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['riskDetection%2Did'] = $id;
+        $urlTplParams['riskDetection_id'] = $id;
         return new RiskDetectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1715,7 +1733,7 @@ class BaseGraphClient
     */
     public function riskyUsersById(string $id): RiskyUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['riskyUser%2Did'] = $id;
+        $urlTplParams['riskyUser_id'] = $id;
         return new RiskyUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1726,7 +1744,7 @@ class BaseGraphClient
     */
     public function schemaExtensionsById(string $id): SchemaExtensionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['schemaExtension%2Did'] = $id;
+        $urlTplParams['schemaExtension_id'] = $id;
         return new SchemaExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1737,7 +1755,7 @@ class BaseGraphClient
     */
     public function scopedRoleMembershipsById(string $id): ScopedRoleMembershipItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['scopedRoleMembership%2Did'] = $id;
+        $urlTplParams['scopedRoleMembership_id'] = $id;
         return new ScopedRoleMembershipItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1748,7 +1766,7 @@ class BaseGraphClient
     */
     public function servicePrincipalsById(string $id): ServicePrincipalItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['servicePrincipal%2Did'] = $id;
+        $urlTplParams['servicePrincipal_id'] = $id;
         return new ServicePrincipalItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1759,7 +1777,7 @@ class BaseGraphClient
     */
     public function settingsById(string $id): DirectorySettingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directorySetting%2Did'] = $id;
+        $urlTplParams['directorySetting_id'] = $id;
         return new DirectorySettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1770,7 +1788,7 @@ class BaseGraphClient
     */
     public function sharesById(string $id): SharedDriveItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['sharedDriveItem%2Did'] = $id;
+        $urlTplParams['sharedDriveItem_id'] = $id;
         return new SharedDriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1781,7 +1799,7 @@ class BaseGraphClient
     */
     public function sitesById(string $id): SiteItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['site%2Did'] = $id;
+        $urlTplParams['site_id'] = $id;
         return new SiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1792,7 +1810,7 @@ class BaseGraphClient
     */
     public function subscribedSkusById(string $id): SubscribedSkuItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['subscribedSku%2Did'] = $id;
+        $urlTplParams['subscribedSku_id'] = $id;
         return new SubscribedSkuItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1803,7 +1821,7 @@ class BaseGraphClient
     */
     public function subscriptionsById(string $id): SubscriptionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['subscription%2Did'] = $id;
+        $urlTplParams['subscription_id'] = $id;
         return new SubscriptionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1814,7 +1832,7 @@ class BaseGraphClient
     */
     public function teamsById(string $id): TeamItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['team%2Did'] = $id;
+        $urlTplParams['team_id'] = $id;
         return new TeamItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1825,7 +1843,7 @@ class BaseGraphClient
     */
     public function teamsTemplatesById(string $id): TeamsTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamsTemplate%2Did'] = $id;
+        $urlTplParams['teamsTemplate_id'] = $id;
         return new TeamsTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1836,7 +1854,7 @@ class BaseGraphClient
     */
     public function usersById(string $id): UserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['user%2Did'] = $id;
+        $urlTplParams['user_id'] = $id;
         return new UserItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1847,7 +1865,7 @@ class BaseGraphClient
     */
     public function workbooksById(string $id): DriveItemItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['driveItem%2Did'] = $id;
+        $urlTplParams['driveItem_id'] = $id;
         return new DriveItemItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

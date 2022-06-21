@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CommsApplication implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<Call>|null $calls The calls property
-    */
+    /** @var array<Call>|null $calls The calls property */
     private ?array $calls = null;
     
-    /**
-     * @var array<OnlineMeeting>|null $onlineMeetings The onlineMeetings property
-    */
+    /** @var array<OnlineMeeting>|null $onlineMeetings The onlineMeetings property */
     private ?array $onlineMeetings = null;
     
     /**
@@ -36,7 +30,7 @@ class CommsApplication implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CommsApplication
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CommsApplication {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CommsApplication {
         return new CommsApplication();
     }
 
@@ -61,10 +55,9 @@ class CommsApplication implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'calls' => function (ParseNode $n) use ($o) { $o->setCalls($n->getCollectionOfObjectValues(array(Call::class, 'createFromDiscriminatorValue'))); },
-            'onlineMeetings' => function (ParseNode $n) use ($o) { $o->setOnlineMeetings($n->getCollectionOfObjectValues(array(OnlineMeeting::class, 'createFromDiscriminatorValue'))); },
+            'calls' => function (self $o, ParseNode $n) { $o->setCalls($n->getCollectionOfObjectValues(Call::class)); },
+            'onlineMeetings' => function (self $o, ParseNode $n) { $o->setOnlineMeetings($n->getCollectionOfObjectValues(OnlineMeeting::class)); },
         ];
     }
 

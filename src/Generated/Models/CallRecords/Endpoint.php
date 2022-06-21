@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Endpoint implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var UserAgent|null $userAgent User-agent reported by this endpoint.
-    */
+    /** @var UserAgent|null $userAgent User-agent reported by this endpoint. */
     private ?UserAgent $userAgent = null;
     
     /**
@@ -31,7 +27,7 @@ class Endpoint implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Endpoint
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Endpoint {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Endpoint {
         return new Endpoint();
     }
 
@@ -48,9 +44,8 @@ class Endpoint implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'userAgent' => function (ParseNode $n) use ($o) { $o->setUserAgent($n->getObjectValue(array(UserAgent::class, 'createFromDiscriminatorValue'))); },
+            'userAgent' => function (self $o, ParseNode $n) { $o->setUserAgent($n->getObjectValue(UserAgent::class)); },
         ];
     }
 

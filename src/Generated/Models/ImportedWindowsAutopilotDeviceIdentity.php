@@ -7,41 +7,27 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Parsable 
+class ImportedWindowsAutopilotDeviceIdentity extends Entity 
 {
-    /**
-     * @var string|null $assignedUserPrincipalName UPN of the user the device will be assigned
-    */
+    /** @var string|null $assignedUserPrincipalName UPN of the user the device will be assigned */
     private ?string $assignedUserPrincipalName = null;
     
-    /**
-     * @var string|null $groupTag Group Tag of the Windows autopilot device.
-    */
+    /** @var string|null $groupTag Group Tag of the Windows autopilot device. */
     private ?string $groupTag = null;
     
-    /**
-     * @var StreamInterface|null $hardwareIdentifier Hardware Blob of the Windows autopilot device.
-    */
+    /** @var StreamInterface|null $hardwareIdentifier Hardware Blob of the Windows autopilot device. */
     private ?StreamInterface $hardwareIdentifier = null;
     
-    /**
-     * @var string|null $importId The Import Id of the Windows autopilot device.
-    */
+    /** @var string|null $importId The Import Id of the Windows autopilot device. */
     private ?string $importId = null;
     
-    /**
-     * @var string|null $productKey Product Key of the Windows autopilot device.
-    */
+    /** @var string|null $productKey Product Key of the Windows autopilot device. */
     private ?string $productKey = null;
     
-    /**
-     * @var string|null $serialNumber Serial number of the Windows autopilot device.
-    */
+    /** @var string|null $serialNumber Serial number of the Windows autopilot device. */
     private ?string $serialNumber = null;
     
-    /**
-     * @var ImportedWindowsAutopilotDeviceIdentityState|null $state Current state of the imported device.
-    */
+    /** @var ImportedWindowsAutopilotDeviceIdentityState|null $state Current state of the imported device. */
     private ?ImportedWindowsAutopilotDeviceIdentityState $state = null;
     
     /**
@@ -56,7 +42,7 @@ class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ImportedWindowsAutopilotDeviceIdentity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ImportedWindowsAutopilotDeviceIdentity {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ImportedWindowsAutopilotDeviceIdentity {
         return new ImportedWindowsAutopilotDeviceIdentity();
     }
 
@@ -73,15 +59,14 @@ class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignedUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setAssignedUserPrincipalName($n->getStringValue()); },
-            'groupTag' => function (ParseNode $n) use ($o) { $o->setGroupTag($n->getStringValue()); },
-            'hardwareIdentifier' => function (ParseNode $n) use ($o) { $o->setHardwareIdentifier($n->getBinaryContent()); },
-            'importId' => function (ParseNode $n) use ($o) { $o->setImportId($n->getStringValue()); },
-            'productKey' => function (ParseNode $n) use ($o) { $o->setProductKey($n->getStringValue()); },
-            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getObjectValue(array(ImportedWindowsAutopilotDeviceIdentityState::class, 'createFromDiscriminatorValue'))); },
+            'assignedUserPrincipalName' => function (self $o, ParseNode $n) { $o->setAssignedUserPrincipalName($n->getStringValue()); },
+            'groupTag' => function (self $o, ParseNode $n) { $o->setGroupTag($n->getStringValue()); },
+            'hardwareIdentifier' => function (self $o, ParseNode $n) { $o->setHardwareIdentifier($n->getBinaryContent()); },
+            'importId' => function (self $o, ParseNode $n) { $o->setImportId($n->getStringValue()); },
+            'productKey' => function (self $o, ParseNode $n) { $o->setProductKey($n->getStringValue()); },
+            'serialNumber' => function (self $o, ParseNode $n) { $o->setSerialNumber($n->getStringValue()); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getObjectValue(ImportedWindowsAutopilotDeviceIdentityState::class)); },
         ]);
     }
 

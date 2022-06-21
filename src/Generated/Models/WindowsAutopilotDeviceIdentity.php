@@ -7,141 +7,81 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsAutopilotDeviceIdentity extends Entity implements Parsable 
+class WindowsAutopilotDeviceIdentity extends Entity 
 {
-    /**
-     * @var string|null $addressableUserName Addressable user name.
-    */
+    /** @var string|null $addressableUserName Addressable user name. */
     private ?string $addressableUserName = null;
     
-    /**
-     * @var string|null $azureActiveDirectoryDeviceId AAD Device ID - to be deprecated
-    */
+    /** @var string|null $azureActiveDirectoryDeviceId AAD Device ID - to be deprecated */
     private ?string $azureActiveDirectoryDeviceId = null;
     
-    /**
-     * @var string|null $azureAdDeviceId AAD Device ID
-    */
+    /** @var string|null $azureAdDeviceId AAD Device ID */
     private ?string $azureAdDeviceId = null;
     
-    /**
-     * @var WindowsAutopilotDeploymentProfile|null $deploymentProfile Deployment profile currently assigned to the Windows autopilot device.
-    */
+    /** @var WindowsAutopilotDeploymentProfile|null $deploymentProfile Deployment profile currently assigned to the Windows autopilot device. */
     private ?WindowsAutopilotDeploymentProfile $deploymentProfile = null;
     
-    /**
-     * @var DateTime|null $deploymentProfileAssignedDateTime Profile set time of the Windows autopilot device.
-    */
+    /** @var DateTime|null $deploymentProfileAssignedDateTime Profile set time of the Windows autopilot device. */
     private ?DateTime $deploymentProfileAssignedDateTime = null;
     
-    /**
-     * @var WindowsAutopilotProfileAssignmentDetailedStatus|null $deploymentProfileAssignmentDetailedStatus Profile assignment detailed status of the Windows autopilot device. Possible values are: none, hardwareRequirementsNotMet, surfaceHubProfileNotSupported, holoLensProfileNotSupported, windowsPcProfileNotSupported, surfaceHub2SProfileNotSupported, unknownFutureValue.
-    */
+    /** @var WindowsAutopilotProfileAssignmentDetailedStatus|null $deploymentProfileAssignmentDetailedStatus Profile assignment detailed status of the Windows autopilot device. Possible values are: none, hardwareRequirementsNotMet, surfaceHubProfileNotSupported, holoLensProfileNotSupported, windowsPcProfileNotSupported, surfaceHub2SProfileNotSupported, unknownFutureValue. */
     private ?WindowsAutopilotProfileAssignmentDetailedStatus $deploymentProfileAssignmentDetailedStatus = null;
     
-    /**
-     * @var WindowsAutopilotProfileAssignmentStatus|null $deploymentProfileAssignmentStatus Profile assignment status of the Windows autopilot device. Possible values are: unknown, assignedInSync, assignedOutOfSync, assignedUnkownSyncState, notAssigned, pending, failed.
-    */
+    /** @var WindowsAutopilotProfileAssignmentStatus|null $deploymentProfileAssignmentStatus Profile assignment status of the Windows autopilot device. Possible values are: unknown, assignedInSync, assignedOutOfSync, assignedUnkownSyncState, notAssigned, pending, failed. */
     private ?WindowsAutopilotProfileAssignmentStatus $deploymentProfileAssignmentStatus = null;
     
-    /**
-     * @var string|null $deviceAccountPassword Surface Hub Device Account Password
-    */
+    /** @var string|null $deviceAccountPassword Surface Hub Device Account Password */
     private ?string $deviceAccountPassword = null;
     
-    /**
-     * @var string|null $deviceAccountUpn Surface Hub Device Account Upn
-    */
+    /** @var string|null $deviceAccountUpn Surface Hub Device Account Upn */
     private ?string $deviceAccountUpn = null;
     
-    /**
-     * @var string|null $deviceFriendlyName Surface Hub Device Friendly Name
-    */
+    /** @var string|null $deviceFriendlyName Surface Hub Device Friendly Name */
     private ?string $deviceFriendlyName = null;
     
-    /**
-     * @var string|null $displayName Display Name
-    */
+    /** @var string|null $displayName Display Name */
     private ?string $displayName = null;
     
-    /**
-     * @var EnrollmentState|null $enrollmentState Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
-    */
+    /** @var EnrollmentState|null $enrollmentState Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted. */
     private ?EnrollmentState $enrollmentState = null;
     
-    /**
-     * @var string|null $groupTag Group Tag of the Windows autopilot device.
-    */
+    /** @var string|null $groupTag Group Tag of the Windows autopilot device. */
     private ?string $groupTag = null;
     
-    /**
-     * @var WindowsAutopilotDeploymentProfile|null $intendedDeploymentProfile Deployment profile intended to be assigned to the Windows autopilot device.
-    */
+    /** @var WindowsAutopilotDeploymentProfile|null $intendedDeploymentProfile Deployment profile intended to be assigned to the Windows autopilot device. */
     private ?WindowsAutopilotDeploymentProfile $intendedDeploymentProfile = null;
     
-    /**
-     * @var DateTime|null $lastContactedDateTime Intune Last Contacted Date Time of the Windows autopilot device.
-    */
+    /** @var DateTime|null $lastContactedDateTime Intune Last Contacted Date Time of the Windows autopilot device. */
     private ?DateTime $lastContactedDateTime = null;
     
-    /**
-     * @var string|null $managedDeviceId Managed Device ID
-    */
+    /** @var string|null $managedDeviceId Managed Device ID */
     private ?string $managedDeviceId = null;
     
-    /**
-     * @var string|null $manufacturer Oem manufacturer of the Windows autopilot device.
-    */
+    /** @var string|null $manufacturer Oem manufacturer of the Windows autopilot device. */
     private ?string $manufacturer = null;
     
-    /**
-     * @var string|null $model Model name of the Windows autopilot device.
-    */
+    /** @var string|null $model Model name of the Windows autopilot device. */
     private ?string $model = null;
     
-    /**
-     * @var string|null $productKey Product Key of the Windows autopilot device.
-    */
+    /** @var string|null $productKey Product Key of the Windows autopilot device. */
     private ?string $productKey = null;
     
-    /**
-     * @var string|null $purchaseOrderIdentifier Purchase Order Identifier of the Windows autopilot device.
-    */
+    /** @var string|null $purchaseOrderIdentifier Purchase Order Identifier of the Windows autopilot device. */
     private ?string $purchaseOrderIdentifier = null;
     
-    /**
-     * @var WindowsAutopilotDeviceRemediationState|null $remediationState Device Remediation State. Possible values are: unknown, noRemediationRequired, automaticRemediationRequired, manualRemediationRequired, unknownFutureValue.
-    */
-    private ?WindowsAutopilotDeviceRemediationState $remediationState = null;
-    
-    /**
-     * @var DateTime|null $remediationStateLastModifiedDateTime RemediationState set time of Autopilot device.
-    */
-    private ?DateTime $remediationStateLastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $resourceName Resource Name.
-    */
+    /** @var string|null $resourceName Resource Name. */
     private ?string $resourceName = null;
     
-    /**
-     * @var string|null $serialNumber Serial number of the Windows autopilot device.
-    */
+    /** @var string|null $serialNumber Serial number of the Windows autopilot device. */
     private ?string $serialNumber = null;
     
-    /**
-     * @var string|null $skuNumber SKU Number
-    */
+    /** @var string|null $skuNumber SKU Number */
     private ?string $skuNumber = null;
     
-    /**
-     * @var string|null $systemFamily System Family
-    */
+    /** @var string|null $systemFamily System Family */
     private ?string $systemFamily = null;
     
-    /**
-     * @var string|null $userPrincipalName User Principal Name.
-    */
+    /** @var string|null $userPrincipalName User Principal Name. */
     private ?string $userPrincipalName = null;
     
     /**
@@ -156,7 +96,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsAutopilotDeviceIdentity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsAutopilotDeviceIdentity {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsAutopilotDeviceIdentity {
         return new WindowsAutopilotDeviceIdentity();
     }
 
@@ -249,7 +189,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Gets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted.
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
@@ -261,35 +201,32 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'addressableUserName' => function (ParseNode $n) use ($o) { $o->setAddressableUserName($n->getStringValue()); },
-            'azureActiveDirectoryDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureActiveDirectoryDeviceId($n->getStringValue()); },
-            'azureAdDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureAdDeviceId($n->getStringValue()); },
-            'deploymentProfile' => function (ParseNode $n) use ($o) { $o->setDeploymentProfile($n->getObjectValue(array(WindowsAutopilotDeploymentProfile::class, 'createFromDiscriminatorValue'))); },
-            'deploymentProfileAssignedDateTime' => function (ParseNode $n) use ($o) { $o->setDeploymentProfileAssignedDateTime($n->getDateTimeValue()); },
-            'deploymentProfileAssignmentDetailedStatus' => function (ParseNode $n) use ($o) { $o->setDeploymentProfileAssignmentDetailedStatus($n->getEnumValue(WindowsAutopilotProfileAssignmentDetailedStatus::class)); },
-            'deploymentProfileAssignmentStatus' => function (ParseNode $n) use ($o) { $o->setDeploymentProfileAssignmentStatus($n->getEnumValue(WindowsAutopilotProfileAssignmentStatus::class)); },
-            'deviceAccountPassword' => function (ParseNode $n) use ($o) { $o->setDeviceAccountPassword($n->getStringValue()); },
-            'deviceAccountUpn' => function (ParseNode $n) use ($o) { $o->setDeviceAccountUpn($n->getStringValue()); },
-            'deviceFriendlyName' => function (ParseNode $n) use ($o) { $o->setDeviceFriendlyName($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enrollmentState' => function (ParseNode $n) use ($o) { $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)); },
-            'groupTag' => function (ParseNode $n) use ($o) { $o->setGroupTag($n->getStringValue()); },
-            'intendedDeploymentProfile' => function (ParseNode $n) use ($o) { $o->setIntendedDeploymentProfile($n->getObjectValue(array(WindowsAutopilotDeploymentProfile::class, 'createFromDiscriminatorValue'))); },
-            'lastContactedDateTime' => function (ParseNode $n) use ($o) { $o->setLastContactedDateTime($n->getDateTimeValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'productKey' => function (ParseNode $n) use ($o) { $o->setProductKey($n->getStringValue()); },
-            'purchaseOrderIdentifier' => function (ParseNode $n) use ($o) { $o->setPurchaseOrderIdentifier($n->getStringValue()); },
-            'remediationState' => function (ParseNode $n) use ($o) { $o->setRemediationState($n->getEnumValue(WindowsAutopilotDeviceRemediationState::class)); },
-            'remediationStateLastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setRemediationStateLastModifiedDateTime($n->getDateTimeValue()); },
-            'resourceName' => function (ParseNode $n) use ($o) { $o->setResourceName($n->getStringValue()); },
-            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
-            'skuNumber' => function (ParseNode $n) use ($o) { $o->setSkuNumber($n->getStringValue()); },
-            'systemFamily' => function (ParseNode $n) use ($o) { $o->setSystemFamily($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'addressableUserName' => function (self $o, ParseNode $n) { $o->setAddressableUserName($n->getStringValue()); },
+            'azureActiveDirectoryDeviceId' => function (self $o, ParseNode $n) { $o->setAzureActiveDirectoryDeviceId($n->getStringValue()); },
+            'azureAdDeviceId' => function (self $o, ParseNode $n) { $o->setAzureAdDeviceId($n->getStringValue()); },
+            'deploymentProfile' => function (self $o, ParseNode $n) { $o->setDeploymentProfile($n->getObjectValue(WindowsAutopilotDeploymentProfile::class)); },
+            'deploymentProfileAssignedDateTime' => function (self $o, ParseNode $n) { $o->setDeploymentProfileAssignedDateTime($n->getDateTimeValue()); },
+            'deploymentProfileAssignmentDetailedStatus' => function (self $o, ParseNode $n) { $o->setDeploymentProfileAssignmentDetailedStatus($n->getEnumValue(WindowsAutopilotProfileAssignmentDetailedStatus::class)); },
+            'deploymentProfileAssignmentStatus' => function (self $o, ParseNode $n) { $o->setDeploymentProfileAssignmentStatus($n->getEnumValue(WindowsAutopilotProfileAssignmentStatus::class)); },
+            'deviceAccountPassword' => function (self $o, ParseNode $n) { $o->setDeviceAccountPassword($n->getStringValue()); },
+            'deviceAccountUpn' => function (self $o, ParseNode $n) { $o->setDeviceAccountUpn($n->getStringValue()); },
+            'deviceFriendlyName' => function (self $o, ParseNode $n) { $o->setDeviceFriendlyName($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'enrollmentState' => function (self $o, ParseNode $n) { $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)); },
+            'groupTag' => function (self $o, ParseNode $n) { $o->setGroupTag($n->getStringValue()); },
+            'intendedDeploymentProfile' => function (self $o, ParseNode $n) { $o->setIntendedDeploymentProfile($n->getObjectValue(WindowsAutopilotDeploymentProfile::class)); },
+            'lastContactedDateTime' => function (self $o, ParseNode $n) { $o->setLastContactedDateTime($n->getDateTimeValue()); },
+            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
+            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
+            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
+            'productKey' => function (self $o, ParseNode $n) { $o->setProductKey($n->getStringValue()); },
+            'purchaseOrderIdentifier' => function (self $o, ParseNode $n) { $o->setPurchaseOrderIdentifier($n->getStringValue()); },
+            'resourceName' => function (self $o, ParseNode $n) { $o->setResourceName($n->getStringValue()); },
+            'serialNumber' => function (self $o, ParseNode $n) { $o->setSerialNumber($n->getStringValue()); },
+            'skuNumber' => function (self $o, ParseNode $n) { $o->setSkuNumber($n->getStringValue()); },
+            'systemFamily' => function (self $o, ParseNode $n) { $o->setSystemFamily($n->getStringValue()); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 
@@ -358,22 +295,6 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the remediationState property value. Device Remediation State. Possible values are: unknown, noRemediationRequired, automaticRemediationRequired, manualRemediationRequired, unknownFutureValue.
-     * @return WindowsAutopilotDeviceRemediationState|null
-    */
-    public function getRemediationState(): ?WindowsAutopilotDeviceRemediationState {
-        return $this->remediationState;
-    }
-
-    /**
-     * Gets the remediationStateLastModifiedDateTime property value. RemediationState set time of Autopilot device.
-     * @return DateTime|null
-    */
-    public function getRemediationStateLastModifiedDateTime(): ?DateTime {
-        return $this->remediationStateLastModifiedDateTime;
-    }
-
-    /**
      * Gets the resourceName property value. Resource Name.
      * @return string|null
     */
@@ -439,8 +360,6 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
         $writer->writeStringValue('model', $this->model);
         $writer->writeStringValue('productKey', $this->productKey);
         $writer->writeStringValue('purchaseOrderIdentifier', $this->purchaseOrderIdentifier);
-        $writer->writeEnumValue('remediationState', $this->remediationState);
-        $writer->writeDateTimeValue('remediationStateLastModifiedDateTime', $this->remediationStateLastModifiedDateTime);
         $writer->writeStringValue('resourceName', $this->resourceName);
         $writer->writeStringValue('serialNumber', $this->serialNumber);
         $writer->writeStringValue('skuNumber', $this->skuNumber);
@@ -537,7 +456,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Sets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted.
      *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
     public function setEnrollmentState(?EnrollmentState $value ): void {
@@ -606,22 +525,6 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     */
     public function setPurchaseOrderIdentifier(?string $value ): void {
         $this->purchaseOrderIdentifier = $value;
-    }
-
-    /**
-     * Sets the remediationState property value. Device Remediation State. Possible values are: unknown, noRemediationRequired, automaticRemediationRequired, manualRemediationRequired, unknownFutureValue.
-     *  @param WindowsAutopilotDeviceRemediationState|null $value Value to set for the remediationState property.
-    */
-    public function setRemediationState(?WindowsAutopilotDeviceRemediationState $value ): void {
-        $this->remediationState = $value;
-    }
-
-    /**
-     * Sets the remediationStateLastModifiedDateTime property value. RemediationState set time of Autopilot device.
-     *  @param DateTime|null $value Value to set for the remediationStateLastModifiedDateTime property.
-    */
-    public function setRemediationStateLastModifiedDateTime(?DateTime $value ): void {
-        $this->remediationStateLastModifiedDateTime = $value;
     }
 
     /**

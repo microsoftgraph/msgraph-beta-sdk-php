@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrivilegedRoleAssignment extends Entity implements Parsable 
+class PrivilegedRoleAssignment extends Entity 
 {
-    /**
-     * @var DateTime|null $expirationDateTime The UTC DateTime when the temporary privileged role assignment will be expired. For permanent role assignment, the value is null.
-    */
+    /** @var DateTime|null $expirationDateTime The UTC DateTime when the temporary privileged role assignment will be expired. For permanent role assignment, the value is null. */
     private ?DateTime $expirationDateTime = null;
     
-    /**
-     * @var bool|null $isElevated true if the role assignment is activated. false if the role assignment is deactivated.
-    */
+    /** @var bool|null $isElevated true if the role assignment is activated. false if the role assignment is deactivated. */
     private ?bool $isElevated = null;
     
-    /**
-     * @var string|null $resultMessage Result message set by the service.
-    */
+    /** @var string|null $resultMessage Result message set by the service. */
     private ?string $resultMessage = null;
     
-    /**
-     * @var string|null $roleId Role identifier. In GUID string format.
-    */
+    /** @var string|null $roleId Role identifier. In GUID string format. */
     private ?string $roleId = null;
     
-    /**
-     * @var PrivilegedRole|null $roleInfo Read-only. Nullable. The associated role information.
-    */
+    /** @var PrivilegedRole|null $roleInfo Read-only. Nullable. The associated role information. */
     private ?PrivilegedRole $roleInfo = null;
     
-    /**
-     * @var string|null $userId User identifier. In GUID string format.
-    */
+    /** @var string|null $userId User identifier. In GUID string format. */
     private ?string $userId = null;
     
     /**
@@ -51,7 +39,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrivilegedRoleAssignment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedRoleAssignment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedRoleAssignment {
         return new PrivilegedRoleAssignment();
     }
 
@@ -68,14 +56,13 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'isElevated' => function (ParseNode $n) use ($o) { $o->setIsElevated($n->getBooleanValue()); },
-            'resultMessage' => function (ParseNode $n) use ($o) { $o->setResultMessage($n->getStringValue()); },
-            'roleId' => function (ParseNode $n) use ($o) { $o->setRoleId($n->getStringValue()); },
-            'roleInfo' => function (ParseNode $n) use ($o) { $o->setRoleInfo($n->getObjectValue(array(PrivilegedRole::class, 'createFromDiscriminatorValue'))); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'isElevated' => function (self $o, ParseNode $n) { $o->setIsElevated($n->getBooleanValue()); },
+            'resultMessage' => function (self $o, ParseNode $n) { $o->setResultMessage($n->getStringValue()); },
+            'roleId' => function (self $o, ParseNode $n) { $o->setRoleId($n->getStringValue()); },
+            'roleInfo' => function (self $o, ParseNode $n) { $o->setRoleInfo($n->getObjectValue(PrivilegedRole::class)); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
         ]);
     }
 

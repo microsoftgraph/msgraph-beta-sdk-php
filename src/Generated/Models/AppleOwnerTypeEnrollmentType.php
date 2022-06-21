@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AppleOwnerTypeEnrollmentType implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AppleUserInitiatedEnrollmentType|null $enrollmentType The enrollment type. Possible values are: unknown, device, user.
-    */
+    /** @var AppleUserInitiatedEnrollmentType|null $enrollmentType The enrollment type. Possible values are: unknown, device, user. */
     private ?AppleUserInitiatedEnrollmentType $enrollmentType = null;
     
-    /**
-     * @var ManagedDeviceOwnerType|null $ownerType The owner type. Possible values are: unknown, company, personal.
-    */
+    /** @var ManagedDeviceOwnerType|null $ownerType The owner type. Possible values are: unknown, company, personal. */
     private ?ManagedDeviceOwnerType $ownerType = null;
     
     /**
@@ -36,7 +30,7 @@ class AppleOwnerTypeEnrollmentType implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AppleOwnerTypeEnrollmentType
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppleOwnerTypeEnrollmentType {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AppleOwnerTypeEnrollmentType {
         return new AppleOwnerTypeEnrollmentType();
     }
 
@@ -61,10 +55,9 @@ class AppleOwnerTypeEnrollmentType implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'enrollmentType' => function (ParseNode $n) use ($o) { $o->setEnrollmentType($n->getEnumValue(AppleUserInitiatedEnrollmentType::class)); },
-            'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getEnumValue(ManagedDeviceOwnerType::class)); },
+            'enrollmentType' => function (self $o, ParseNode $n) { $o->setEnrollmentType($n->getEnumValue(AppleUserInitiatedEnrollmentType::class)); },
+            'ownerType' => function (self $o, ParseNode $n) { $o->setOwnerType($n->getEnumValue(ManagedDeviceOwnerType::class)); },
         ];
     }
 

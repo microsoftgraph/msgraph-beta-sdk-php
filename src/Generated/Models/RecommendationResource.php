@@ -7,56 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RecommendationResource extends Entity implements Parsable 
+class RecommendationResource extends Entity 
 {
-    /**
-     * @var DateTime|null $addedDateTime The addedDateTime property
-    */
+    /** @var DateTime|null $addedDateTime The addedDateTime property */
     private ?DateTime $addedDateTime = null;
     
-    /**
-     * @var array<KeyValue>|null $additionalDetails The additionalDetails property
-    */
+    /** @var array<KeyValue>|null $additionalDetails The additionalDetails property */
     private ?array $additionalDetails = null;
     
-    /**
-     * @var string|null $apiUrl The apiUrl property
-    */
+    /** @var string|null $apiUrl The apiUrl property */
     private ?string $apiUrl = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $owner The owner property
-    */
+    /** @var string|null $owner The owner property */
     private ?string $owner = null;
     
-    /**
-     * @var string|null $portalUrl The portalUrl property
-    */
+    /** @var string|null $portalUrl The portalUrl property */
     private ?string $portalUrl = null;
     
-    /**
-     * @var int|null $rank The rank property
-    */
+    /** @var int|null $rank The rank property */
     private ?int $rank = null;
     
-    /**
-     * @var string|null $recommendationId The recommendationId property
-    */
+    /** @var string|null $recommendationId The recommendationId property */
     private ?string $recommendationId = null;
     
-    /**
-     * @var string|null $resourceType The resourceType property
-    */
+    /** @var string|null $resourceType The resourceType property */
     private ?string $resourceType = null;
     
-    /**
-     * @var RecommendationStatus|null $status The status property
-    */
+    /** @var RecommendationStatus|null $status The status property */
     private ?RecommendationStatus $status = null;
     
     /**
@@ -71,7 +51,7 @@ class RecommendationResource extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RecommendationResource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RecommendationResource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RecommendationResource {
         return new RecommendationResource();
     }
 
@@ -112,18 +92,17 @@ class RecommendationResource extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'addedDateTime' => function (ParseNode $n) use ($o) { $o->setAddedDateTime($n->getDateTimeValue()); },
-            'additionalDetails' => function (ParseNode $n) use ($o) { $o->setAdditionalDetails($n->getCollectionOfObjectValues(array(KeyValue::class, 'createFromDiscriminatorValue'))); },
-            'apiUrl' => function (ParseNode $n) use ($o) { $o->setApiUrl($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'owner' => function (ParseNode $n) use ($o) { $o->setOwner($n->getStringValue()); },
-            'portalUrl' => function (ParseNode $n) use ($o) { $o->setPortalUrl($n->getStringValue()); },
-            'rank' => function (ParseNode $n) use ($o) { $o->setRank($n->getIntegerValue()); },
-            'recommendationId' => function (ParseNode $n) use ($o) { $o->setRecommendationId($n->getStringValue()); },
-            'resourceType' => function (ParseNode $n) use ($o) { $o->setResourceType($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(RecommendationStatus::class)); },
+            'addedDateTime' => function (self $o, ParseNode $n) { $o->setAddedDateTime($n->getDateTimeValue()); },
+            'additionalDetails' => function (self $o, ParseNode $n) { $o->setAdditionalDetails($n->getCollectionOfObjectValues(KeyValue::class)); },
+            'apiUrl' => function (self $o, ParseNode $n) { $o->setApiUrl($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'owner' => function (self $o, ParseNode $n) { $o->setOwner($n->getStringValue()); },
+            'portalUrl' => function (self $o, ParseNode $n) { $o->setPortalUrl($n->getStringValue()); },
+            'rank' => function (self $o, ParseNode $n) { $o->setRank($n->getIntegerValue()); },
+            'recommendationId' => function (self $o, ParseNode $n) { $o->setRecommendationId($n->getStringValue()); },
+            'resourceType' => function (self $o, ParseNode $n) { $o->setResourceType($n->getStringValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(RecommendationStatus::class)); },
         ]);
     }
 

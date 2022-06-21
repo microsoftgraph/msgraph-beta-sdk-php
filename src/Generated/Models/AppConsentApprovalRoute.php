@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AppConsentApprovalRoute extends Entity implements Parsable 
+class AppConsentApprovalRoute extends Entity 
 {
-    /**
-     * @var array<AppConsentRequest>|null $appConsentRequests A collection of userConsentRequest objects for a specific application.
-    */
+    /** @var array<AppConsentRequest>|null $appConsentRequests A collection of userConsentRequest objects for a specific application. */
     private ?array $appConsentRequests = null;
     
     /**
@@ -25,7 +23,7 @@ class AppConsentApprovalRoute extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AppConsentApprovalRoute
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppConsentApprovalRoute {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AppConsentApprovalRoute {
         return new AppConsentApprovalRoute();
     }
 
@@ -42,9 +40,8 @@ class AppConsentApprovalRoute extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appConsentRequests' => function (ParseNode $n) use ($o) { $o->setAppConsentRequests($n->getCollectionOfObjectValues(array(AppConsentRequest::class, 'createFromDiscriminatorValue'))); },
+            'appConsentRequests' => function (self $o, ParseNode $n) { $o->setAppConsentRequests($n->getCollectionOfObjectValues(AppConsentRequest::class)); },
         ]);
     }
 

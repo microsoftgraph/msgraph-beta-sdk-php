@@ -146,7 +146,6 @@ use Microsoft\Graph\Beta\Generated\Me\WindowsInformationProtectionDeviceRegistra
 use Microsoft\Graph\Beta\Generated\Me\WindowsInformationProtectionDeviceRegistrations\WindowsInformationProtectionDeviceRegistrationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\WipeAndBlockManagedApps\WipeAndBlockManagedAppsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\WipeManagedAppRegistrationByDeviceTag\WipeManagedAppRegistrationByDeviceTagRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\WipeManagedAppRegistrationsByAzureAdDeviceId\WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\WipeManagedAppRegistrationsByDeviceTag\WipeManagedAppRegistrationsByDeviceTagRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\User;
@@ -559,9 +558,7 @@ class MeRequestBuilder
         return new OwnedObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
+    /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
     /**
@@ -634,9 +631,7 @@ class MeRequestBuilder
         return new ReprocessLicenseAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
+    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -730,9 +725,7 @@ class MeRequestBuilder
         return new UnblockManagedAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
+    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
     /**
@@ -764,13 +757,6 @@ class MeRequestBuilder
     }
     
     /**
-     * The wipeManagedAppRegistrationsByAzureAdDeviceId property
-    */
-    public function wipeManagedAppRegistrationsByAzureAdDeviceId(): WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder {
-        return new WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
      * The wipeManagedAppRegistrationsByDeviceTag property
     */
     public function wipeManagedAppRegistrationsByDeviceTag(): WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
@@ -784,7 +770,7 @@ class MeRequestBuilder
     */
     public function activitiesById(string $id): UserActivityItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['userActivity%2Did'] = $id;
+        $urlTplParams['userActivity_id'] = $id;
         return new UserActivityItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -795,7 +781,7 @@ class MeRequestBuilder
     */
     public function agreementAcceptancesById(string $id): AgreementAcceptanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['agreementAcceptance%2Did'] = $id;
+        $urlTplParams['agreementAcceptance_id'] = $id;
         return new AgreementAcceptanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -806,7 +792,7 @@ class MeRequestBuilder
     */
     public function appConsentRequestsForApprovalById(string $id): AppConsentRequestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['appConsentRequest%2Did'] = $id;
+        $urlTplParams['appConsentRequest_id'] = $id;
         return new AppConsentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -817,7 +803,7 @@ class MeRequestBuilder
     */
     public function appRoleAssignmentsById(string $id): AppRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['appRoleAssignment%2Did'] = $id;
+        $urlTplParams['appRoleAssignment_id'] = $id;
         return new AppRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -828,7 +814,7 @@ class MeRequestBuilder
     */
     public function approvalsById(string $id): ApprovalItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['approval%2Did'] = $id;
+        $urlTplParams['approval_id'] = $id;
         return new ApprovalItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -839,7 +825,7 @@ class MeRequestBuilder
     */
     public function calendarGroupsById(string $id): CalendarGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['calendarGroup%2Did'] = $id;
+        $urlTplParams['calendarGroup_id'] = $id;
         return new CalendarGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -850,7 +836,7 @@ class MeRequestBuilder
     */
     public function calendarsById(string $id): CalendarItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['calendar%2Did'] = $id;
+        $urlTplParams['calendar_id'] = $id;
         return new CalendarItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -861,7 +847,7 @@ class MeRequestBuilder
     */
     public function calendarViewById(string $id): MicrosoftGraphBetaGeneratedMeCalendarViewItemEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['event%2Did'] = $id;
+        $urlTplParams['event_id'] = $id;
         return new MicrosoftGraphBetaGeneratedMeCalendarViewItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -872,7 +858,7 @@ class MeRequestBuilder
     */
     public function chatsById(string $id): ChatItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['chat%2Did'] = $id;
+        $urlTplParams['chat_id'] = $id;
         return new ChatItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -883,7 +869,7 @@ class MeRequestBuilder
     */
     public function cloudPCsById(string $id): CloudPCItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['cloudPC%2Did'] = $id;
+        $urlTplParams['cloudPC_id'] = $id;
         return new CloudPCItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -893,7 +879,7 @@ class MeRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/me{?%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/me{?select,expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
@@ -905,7 +891,7 @@ class MeRequestBuilder
     */
     public function contactFoldersById(string $id): ContactFolderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['contactFolder%2Did'] = $id;
+        $urlTplParams['contactFolder_id'] = $id;
         return new ContactFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -916,7 +902,7 @@ class MeRequestBuilder
     */
     public function contactsById(string $id): ContactItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['contact%2Did'] = $id;
+        $urlTplParams['contact_id'] = $id;
         return new ContactItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -927,55 +913,53 @@ class MeRequestBuilder
     */
     public function createdObjectsById(string $id): MicrosoftGraphBetaGeneratedMeCreatedObjectsItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedMeCreatedObjectsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
-     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
-     * @param MeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get me
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?MeRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->queryParameters !== null) {
-                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($queryParameters !== null) {
+            $requestInfo->setQueryParameters($queryParameters);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
 
     /**
-     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
+     * Update me
      * @param User $body 
-     * @param MeRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(User $body, ?MeRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createPatchRequestInformation(User $body, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
+        }
         return $requestInfo;
     }
 
@@ -986,7 +970,7 @@ class MeRequestBuilder
     */
     public function deviceEnrollmentConfigurationsById(string $id): DeviceEnrollmentConfigurationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceEnrollmentConfiguration%2Did'] = $id;
+        $urlTplParams['deviceEnrollmentConfiguration_id'] = $id;
         return new DeviceEnrollmentConfigurationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -997,7 +981,7 @@ class MeRequestBuilder
     */
     public function deviceManagementTroubleshootingEventsById(string $id): DeviceManagementTroubleshootingEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceManagementTroubleshootingEvent%2Did'] = $id;
+        $urlTplParams['deviceManagementTroubleshootingEvent_id'] = $id;
         return new DeviceManagementTroubleshootingEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1008,7 +992,7 @@ class MeRequestBuilder
     */
     public function devicesById(string $id): DeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['device%2Did'] = $id;
+        $urlTplParams['device_id'] = $id;
         return new DeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1019,7 +1003,7 @@ class MeRequestBuilder
     */
     public function directReportsById(string $id): MicrosoftGraphBetaGeneratedMeDirectReportsItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedMeDirectReportsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1030,7 +1014,7 @@ class MeRequestBuilder
     */
     public function drivesById(string $id): DriveItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['drive%2Did'] = $id;
+        $urlTplParams['drive_id'] = $id;
         return new DriveItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1041,7 +1025,7 @@ class MeRequestBuilder
     */
     public function eventsById(string $id): MicrosoftGraphBetaGeneratedMeEventsItemEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['event%2Did'] = $id;
+        $urlTplParams['event_id'] = $id;
         return new MicrosoftGraphBetaGeneratedMeEventsItemEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1070,7 +1054,7 @@ class MeRequestBuilder
     */
     public function extensionsById(string $id): ExtensionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['extension%2Did'] = $id;
+        $urlTplParams['extension_id'] = $id;
         return new ExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1106,24 +1090,22 @@ class MeRequestBuilder
     */
     public function followedSitesById(string $id): SiteItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['site%2Did'] = $id;
+        $urlTplParams['site_id'] = $id;
         return new SiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
-     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
-     * @param MeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get me
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?MeRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
+    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(User::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, User::class, $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -1192,7 +1174,7 @@ class MeRequestBuilder
     */
     public function joinedTeamsById(string $id): TeamItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['team%2Did'] = $id;
+        $urlTplParams['team_id'] = $id;
         return new TeamItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1203,7 +1185,7 @@ class MeRequestBuilder
     */
     public function licenseDetailsById(string $id): LicenseDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['licenseDetails%2Did'] = $id;
+        $urlTplParams['licenseDetails_id'] = $id;
         return new LicenseDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1214,7 +1196,7 @@ class MeRequestBuilder
     */
     public function mailFoldersById(string $id): MailFolderItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['mailFolder%2Did'] = $id;
+        $urlTplParams['mailFolder_id'] = $id;
         return new MailFolderItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1225,7 +1207,7 @@ class MeRequestBuilder
     */
     public function managedAppRegistrationsById(string $id): ManagedAppRegistrationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedAppRegistration%2Did'] = $id;
+        $urlTplParams['managedAppRegistration_id'] = $id;
         return new ManagedAppRegistrationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1236,7 +1218,7 @@ class MeRequestBuilder
     */
     public function managedDevicesById(string $id): ManagedDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedDevice%2Did'] = $id;
+        $urlTplParams['managedDevice_id'] = $id;
         return new ManagedDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1247,7 +1229,7 @@ class MeRequestBuilder
     */
     public function memberOfById(string $id): MicrosoftGraphBetaGeneratedMeMemberOfItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedMeMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1258,7 +1240,7 @@ class MeRequestBuilder
     */
     public function messagesById(string $id): MessageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['message%2Did'] = $id;
+        $urlTplParams['message_id'] = $id;
         return new MessageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1269,7 +1251,7 @@ class MeRequestBuilder
     */
     public function mobileAppIntentAndStatesById(string $id): MobileAppIntentAndStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['mobileAppIntentAndState%2Did'] = $id;
+        $urlTplParams['mobileAppIntentAndState_id'] = $id;
         return new MobileAppIntentAndStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1280,7 +1262,7 @@ class MeRequestBuilder
     */
     public function mobileAppTroubleshootingEventsById(string $id): MobileAppTroubleshootingEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['mobileAppTroubleshootingEvent%2Did'] = $id;
+        $urlTplParams['mobileAppTroubleshootingEvent_id'] = $id;
         return new MobileAppTroubleshootingEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1291,7 +1273,7 @@ class MeRequestBuilder
     */
     public function notificationsById(string $id): NotificationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['notification%2Did'] = $id;
+        $urlTplParams['notification_id'] = $id;
         return new NotificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1302,7 +1284,7 @@ class MeRequestBuilder
     */
     public function oauth2PermissionGrantsById(string $id): OAuth2PermissionGrantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['oAuth2PermissionGrant%2Did'] = $id;
+        $urlTplParams['oAuth2PermissionGrant_id'] = $id;
         return new OAuth2PermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1313,7 +1295,7 @@ class MeRequestBuilder
     */
     public function onlineMeetingsById(string $id): OnlineMeetingItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['onlineMeeting%2Did'] = $id;
+        $urlTplParams['onlineMeeting_id'] = $id;
         return new OnlineMeetingItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1324,7 +1306,7 @@ class MeRequestBuilder
     */
     public function ownedDevicesById(string $id): MicrosoftGraphBetaGeneratedMeOwnedDevicesItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedMeOwnedDevicesItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1335,25 +1317,22 @@ class MeRequestBuilder
     */
     public function ownedObjectsById(string $id): MicrosoftGraphBetaGeneratedMeOwnedObjectsItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedMeOwnedObjectsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
-     * Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions without Administrator roles. Compare member and guest default permissions to see properties they can manage.
+     * Update me
      * @param User $body 
-     * @param MeRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(User $body, ?MeRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
+    public function patch(User $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -1366,7 +1345,7 @@ class MeRequestBuilder
     */
     public function pendingAccessReviewInstancesById(string $id): AccessReviewInstanceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['accessReviewInstance%2Did'] = $id;
+        $urlTplParams['accessReviewInstance_id'] = $id;
         return new AccessReviewInstanceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1377,7 +1356,7 @@ class MeRequestBuilder
     */
     public function peopleById(string $id): PersonItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['person%2Did'] = $id;
+        $urlTplParams['person_id'] = $id;
         return new PersonItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1388,7 +1367,7 @@ class MeRequestBuilder
     */
     public function photosById(string $id): ProfilePhotoItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['profilePhoto%2Did'] = $id;
+        $urlTplParams['profilePhoto_id'] = $id;
         return new ProfilePhotoItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1399,7 +1378,7 @@ class MeRequestBuilder
     */
     public function registeredDevicesById(string $id): MicrosoftGraphBetaGeneratedMeRegisteredDevicesItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedMeRegisteredDevicesItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1420,7 +1399,7 @@ class MeRequestBuilder
     */
     public function scopedRoleMemberOfById(string $id): ScopedRoleMembershipItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['scopedRoleMembership%2Did'] = $id;
+        $urlTplParams['scopedRoleMembership_id'] = $id;
         return new ScopedRoleMembershipItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1431,7 +1410,7 @@ class MeRequestBuilder
     */
     public function transitiveMemberOfById(string $id): MicrosoftGraphBetaGeneratedMeTransitiveMemberOfItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedMeTransitiveMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1442,7 +1421,7 @@ class MeRequestBuilder
     */
     public function transitiveReportsById(string $id): MicrosoftGraphBetaGeneratedMeTransitiveReportsItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedMeTransitiveReportsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1453,7 +1432,7 @@ class MeRequestBuilder
     */
     public function usageRightsById(string $id): UsageRightItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['usageRight%2Did'] = $id;
+        $urlTplParams['usageRight_id'] = $id;
         return new UsageRightItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1464,7 +1443,7 @@ class MeRequestBuilder
     */
     public function windowsInformationProtectionDeviceRegistrationsById(string $id): WindowsInformationProtectionDeviceRegistrationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['windowsInformationProtectionDeviceRegistration%2Did'] = $id;
+        $urlTplParams['windowsInformationProtectionDeviceRegistration_id'] = $id;
         return new WindowsInformationProtectionDeviceRegistrationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

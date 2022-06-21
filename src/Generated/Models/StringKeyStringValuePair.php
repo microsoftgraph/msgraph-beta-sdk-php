@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class StringKeyStringValuePair implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $key Key.
-    */
+    /** @var string|null $key Key. */
     private ?string $key = null;
     
-    /**
-     * @var string|null $value Value.
-    */
+    /** @var string|null $value Value. */
     private ?string $value = null;
     
     /**
@@ -36,7 +30,7 @@ class StringKeyStringValuePair implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return StringKeyStringValuePair
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): StringKeyStringValuePair {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): StringKeyStringValuePair {
         return new StringKeyStringValuePair();
     }
 
@@ -53,10 +47,9 @@ class StringKeyStringValuePair implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'key' => function (self $o, ParseNode $n) { $o->setKey($n->getStringValue()); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getStringValue()); },
         ];
     }
 

@@ -7,26 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementDomainJoinConnector extends Entity implements Parsable 
+class DeviceManagementDomainJoinConnector extends Entity 
 {
-    /**
-     * @var string|null $displayName The connector display name.
-    */
+    /** @var string|null $displayName The connector display name. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastConnectionDateTime Last time connector contacted Intune.
-    */
+    /** @var DateTime|null $lastConnectionDateTime Last time connector contacted Intune. */
     private ?DateTime $lastConnectionDateTime = null;
     
-    /**
-     * @var DeviceManagementDomainJoinConnectorState|null $state The connector state. Possible values are: active, error, inactive.
-    */
+    /** @var DeviceManagementDomainJoinConnectorState|null $state The connector state. Possible values are: active, error, inactive. */
     private ?DeviceManagementDomainJoinConnectorState $state = null;
     
-    /**
-     * @var string|null $version The version of the connector.
-    */
+    /** @var string|null $version The version of the connector. */
     private ?string $version = null;
     
     /**
@@ -41,7 +33,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementDomainJoinConnector
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementDomainJoinConnector {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementDomainJoinConnector {
         return new DeviceManagementDomainJoinConnector();
     }
 
@@ -58,12 +50,11 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastConnectionDateTime' => function (ParseNode $n) use ($o) { $o->setLastConnectionDateTime($n->getDateTimeValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(DeviceManagementDomainJoinConnectorState::class)); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastConnectionDateTime' => function (self $o, ParseNode $n) { $o->setLastConnectionDateTime($n->getDateTimeValue()); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(DeviceManagementDomainJoinConnectorState::class)); },
+            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 

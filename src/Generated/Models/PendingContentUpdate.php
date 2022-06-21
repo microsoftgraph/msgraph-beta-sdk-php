@@ -10,14 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PendingContentUpdate implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $queuedDateTime Date and time the pending binary operation was queued in UTC time. Read-only.
-    */
+    /** @var DateTime|null $queuedDateTime Date and time the pending binary operation was queued in UTC time. Read-only. */
     private ?DateTime $queuedDateTime = null;
     
     /**
@@ -32,7 +28,7 @@ class PendingContentUpdate implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PendingContentUpdate
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PendingContentUpdate {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PendingContentUpdate {
         return new PendingContentUpdate();
     }
 
@@ -49,9 +45,8 @@ class PendingContentUpdate implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'queuedDateTime' => function (ParseNode $n) use ($o) { $o->setQueuedDateTime($n->getDateTimeValue()); },
+            'queuedDateTime' => function (self $o, ParseNode $n) { $o->setQueuedDateTime($n->getDateTimeValue()); },
         ];
     }
 

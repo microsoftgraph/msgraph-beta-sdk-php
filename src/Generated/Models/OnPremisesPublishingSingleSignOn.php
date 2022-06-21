@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var KerberosSignOnSettings|null $kerberosSignOnSettings The Kerberos Constrained Delegation settings for applications that use Integrated Window Authentication.
-    */
+    /** @var KerberosSignOnSettings|null $kerberosSignOnSettings The Kerberos Constrained Delegation settings for applications that use Integrated Window Authentication. */
     private ?KerberosSignOnSettings $kerberosSignOnSettings = null;
     
-    /**
-     * @var SingleSignOnMode|null $singleSignOnMode The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased.
-    */
+    /** @var SingleSignOnMode|null $singleSignOnMode The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased. */
     private ?SingleSignOnMode $singleSignOnMode = null;
     
     /**
@@ -36,7 +30,7 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OnPremisesPublishingSingleSignOn
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesPublishingSingleSignOn {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesPublishingSingleSignOn {
         return new OnPremisesPublishingSingleSignOn();
     }
 
@@ -53,10 +47,9 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'kerberosSignOnSettings' => function (ParseNode $n) use ($o) { $o->setKerberosSignOnSettings($n->getObjectValue(array(KerberosSignOnSettings::class, 'createFromDiscriminatorValue'))); },
-            'singleSignOnMode' => function (ParseNode $n) use ($o) { $o->setSingleSignOnMode($n->getEnumValue(SingleSignOnMode::class)); },
+            'kerberosSignOnSettings' => function (self $o, ParseNode $n) { $o->setKerberosSignOnSettings($n->getObjectValue(KerberosSignOnSettings::class)); },
+            'singleSignOnMode' => function (self $o, ParseNode $n) { $o->setSingleSignOnMode($n->getEnumValue(SingleSignOnMode::class)); },
         ];
     }
 

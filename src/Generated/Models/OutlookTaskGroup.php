@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OutlookTaskGroup extends Entity implements Parsable 
+class OutlookTaskGroup extends Entity 
 {
-    /**
-     * @var string|null $changeKey The version of the task group.
-    */
+    /** @var string|null $changeKey The version of the task group. */
     private ?string $changeKey = null;
     
-    /**
-     * @var string|null $groupKey The unique GUID identifier for the task group.
-    */
+    /** @var string|null $groupKey The unique GUID identifier for the task group. */
     private ?string $groupKey = null;
     
-    /**
-     * @var bool|null $isDefaultGroup True if the task group is the default task group.
-    */
+    /** @var bool|null $isDefaultGroup True if the task group is the default task group. */
     private ?bool $isDefaultGroup = null;
     
-    /**
-     * @var string|null $name The name of the task group.
-    */
+    /** @var string|null $name The name of the task group. */
     private ?string $name = null;
     
-    /**
-     * @var array<OutlookTaskFolder>|null $taskFolders The collection of task folders in the task group. Read-only. Nullable.
-    */
+    /** @var array<OutlookTaskFolder>|null $taskFolders The collection of task folders in the task group. Read-only. Nullable. */
     private ?array $taskFolders = null;
     
     /**
@@ -45,7 +35,7 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OutlookTaskGroup
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OutlookTaskGroup {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OutlookTaskGroup {
         return new OutlookTaskGroup();
     }
 
@@ -62,13 +52,12 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'changeKey' => function (ParseNode $n) use ($o) { $o->setChangeKey($n->getStringValue()); },
-            'groupKey' => function (ParseNode $n) use ($o) { $o->setGroupKey($n->getStringValue()); },
-            'isDefaultGroup' => function (ParseNode $n) use ($o) { $o->setIsDefaultGroup($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'taskFolders' => function (ParseNode $n) use ($o) { $o->setTaskFolders($n->getCollectionOfObjectValues(array(OutlookTaskFolder::class, 'createFromDiscriminatorValue'))); },
+            'changeKey' => function (self $o, ParseNode $n) { $o->setChangeKey($n->getStringValue()); },
+            'groupKey' => function (self $o, ParseNode $n) { $o->setGroupKey($n->getStringValue()); },
+            'isDefaultGroup' => function (self $o, ParseNode $n) { $o->setIsDefaultGroup($n->getBooleanValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'taskFolders' => function (self $o, ParseNode $n) { $o->setTaskFolders($n->getCollectionOfObjectValues(OutlookTaskFolder::class)); },
         ]);
     }
 

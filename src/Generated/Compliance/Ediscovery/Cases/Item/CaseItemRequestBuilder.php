@@ -69,9 +69,7 @@ class CaseItemRequestBuilder
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
+    /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
     /**
@@ -81,9 +79,7 @@ class CaseItemRequestBuilder
         return new ReopenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
+    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -114,9 +110,7 @@ class CaseItemRequestBuilder
         return new TagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
+    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
     /**
@@ -125,53 +119,51 @@ class CaseItemRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case%2Did}{?%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case_id}{?select,expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Delete navigation property cases for compliance
-     * @param CaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createDeleteRequestInformation(?CaseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createDeleteRequestInformation(?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
 
     /**
      * Get cases from compliance
-     * @param CaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?CaseItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->queryParameters !== null) {
-                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($queryParameters !== null) {
+            $requestInfo->setQueryParameters($queryParameters);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
@@ -179,23 +171,22 @@ class CaseItemRequestBuilder
     /**
      * Update the navigation property cases in compliance
      * @param EscapedCase $body 
-     * @param CaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(EscapedCase $body, ?CaseItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createPatchRequestInformation(EscapedCase $body, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
+        }
         return $requestInfo;
     }
 
@@ -206,24 +197,21 @@ class CaseItemRequestBuilder
     */
     public function custodiansById(string $id): CustodianItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['custodian%2Did'] = $id;
+        $urlTplParams['custodian_id'] = $id;
         return new CustodianItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Delete navigation property cases for compliance
-     * @param CaseItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?CaseItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createDeleteRequestInformation($requestConfiguration);
+    public function delete(?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createDeleteRequestInformation($headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -231,18 +219,16 @@ class CaseItemRequestBuilder
 
     /**
      * Get cases from compliance
-     * @param CaseItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?CaseItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
+    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(EscapedCase::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, EscapedCase::class, $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -255,7 +241,7 @@ class CaseItemRequestBuilder
     */
     public function legalHoldsById(string $id): LegalHoldItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['legalHold%2Did'] = $id;
+        $urlTplParams['legalHold_id'] = $id;
         return new LegalHoldItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -266,7 +252,7 @@ class CaseItemRequestBuilder
     */
     public function noncustodialDataSourcesById(string $id): NoncustodialDataSourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['noncustodialDataSource%2Did'] = $id;
+        $urlTplParams['noncustodialDataSource_id'] = $id;
         return new NoncustodialDataSourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -277,25 +263,22 @@ class CaseItemRequestBuilder
     */
     public function operationsById(string $id): CaseOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['caseOperation%2Did'] = $id;
+        $urlTplParams['caseOperation_id'] = $id;
         return new CaseOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property cases in compliance
      * @param EscapedCase $body 
-     * @param CaseItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(EscapedCase $body, ?CaseItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
+    public function patch(EscapedCase $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -308,7 +291,7 @@ class CaseItemRequestBuilder
     */
     public function reviewSetsById(string $id): ReviewSetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['reviewSet%2Did'] = $id;
+        $urlTplParams['reviewSet_id'] = $id;
         return new ReviewSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -319,7 +302,7 @@ class CaseItemRequestBuilder
     */
     public function sourceCollectionsById(string $id): SourceCollectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['sourceCollection%2Did'] = $id;
+        $urlTplParams['sourceCollection_id'] = $id;
         return new SourceCollectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -330,7 +313,7 @@ class CaseItemRequestBuilder
     */
     public function tagsById(string $id): TagItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['tag%2Did'] = $id;
+        $urlTplParams['tag_id'] = $id;
         return new TagItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

@@ -7,66 +7,42 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamworkDeviceConfiguration extends Entity implements Parsable 
+class TeamworkDeviceConfiguration extends Entity 
 {
-    /**
-     * @var TeamworkCameraConfiguration|null $cameraConfiguration The camera configuration. Applicable only for Microsoft Teams Rooms-enabled devices.
-    */
+    /** @var TeamworkCameraConfiguration|null $cameraConfiguration The camera configuration. Applicable only for Microsoft Teams Rooms-enabled devices. */
     private ?TeamworkCameraConfiguration $cameraConfiguration = null;
     
-    /**
-     * @var IdentitySet|null $createdBy Identity of the user who created the device configuration document.
-    */
+    /** @var IdentitySet|null $createdBy Identity of the user who created the device configuration document. */
     private ?IdentitySet $createdBy = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The UTC date and time when the device configuration document was created.
-    */
+    /** @var DateTime|null $createdDateTime The UTC date and time when the device configuration document was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var TeamworkDisplayConfiguration|null $displayConfiguration The display configuration.
-    */
+    /** @var TeamworkDisplayConfiguration|null $displayConfiguration The display configuration. */
     private ?TeamworkDisplayConfiguration $displayConfiguration = null;
     
-    /**
-     * @var TeamworkHardwareConfiguration|null $hardwareConfiguration The hardware configuration. Applicable only for Teams Rooms-enabled devices.
-    */
+    /** @var TeamworkHardwareConfiguration|null $hardwareConfiguration The hardware configuration. Applicable only for Teams Rooms-enabled devices. */
     private ?TeamworkHardwareConfiguration $hardwareConfiguration = null;
     
-    /**
-     * @var IdentitySet|null $lastModifiedBy Identity of the user who last modified the device configuration.
-    */
+    /** @var IdentitySet|null $lastModifiedBy Identity of the user who last modified the device configuration. */
     private ?IdentitySet $lastModifiedBy = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The UTC date and time when the device configuration was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The UTC date and time when the device configuration was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var TeamworkMicrophoneConfiguration|null $microphoneConfiguration The microphone configuration. Applicable only for Teams Rooms-enabled devices.
-    */
+    /** @var TeamworkMicrophoneConfiguration|null $microphoneConfiguration The microphone configuration. Applicable only for Teams Rooms-enabled devices. */
     private ?TeamworkMicrophoneConfiguration $microphoneConfiguration = null;
     
-    /**
-     * @var TeamworkDeviceSoftwareVersions|null $softwareVersions Information related to software versions for the device, such as firmware, operating system, Teams client, and admin agent.
-    */
+    /** @var TeamworkDeviceSoftwareVersions|null $softwareVersions Information related to software versions for the device, such as firmware, operating system, Teams client, and admin agent. */
     private ?TeamworkDeviceSoftwareVersions $softwareVersions = null;
     
-    /**
-     * @var TeamworkSpeakerConfiguration|null $speakerConfiguration The speaker configuration. Applicable only for Teams Rooms-enabled devices.
-    */
+    /** @var TeamworkSpeakerConfiguration|null $speakerConfiguration The speaker configuration. Applicable only for Teams Rooms-enabled devices. */
     private ?TeamworkSpeakerConfiguration $speakerConfiguration = null;
     
-    /**
-     * @var TeamworkSystemConfiguration|null $systemConfiguration The system configuration. Not applicable for Teams Rooms-enabled devices.
-    */
+    /** @var TeamworkSystemConfiguration|null $systemConfiguration The system configuration. Not applicable for Teams Rooms-enabled devices. */
     private ?TeamworkSystemConfiguration $systemConfiguration = null;
     
-    /**
-     * @var TeamworkTeamsClientConfiguration|null $teamsClientConfiguration The Teams client configuration. Applicable only for Teams Rooms-enabled devices.
-    */
+    /** @var TeamworkTeamsClientConfiguration|null $teamsClientConfiguration The Teams client configuration. Applicable only for Teams Rooms-enabled devices. */
     private ?TeamworkTeamsClientConfiguration $teamsClientConfiguration = null;
     
     /**
@@ -81,7 +57,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkDeviceConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDeviceConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDeviceConfiguration {
         return new TeamworkDeviceConfiguration();
     }
 
@@ -122,20 +98,19 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cameraConfiguration' => function (ParseNode $n) use ($o) { $o->setCameraConfiguration($n->getObjectValue(array(TeamworkCameraConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayConfiguration' => function (ParseNode $n) use ($o) { $o->setDisplayConfiguration($n->getObjectValue(array(TeamworkDisplayConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'hardwareConfiguration' => function (ParseNode $n) use ($o) { $o->setHardwareConfiguration($n->getObjectValue(array(TeamworkHardwareConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'microphoneConfiguration' => function (ParseNode $n) use ($o) { $o->setMicrophoneConfiguration($n->getObjectValue(array(TeamworkMicrophoneConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'softwareVersions' => function (ParseNode $n) use ($o) { $o->setSoftwareVersions($n->getObjectValue(array(TeamworkDeviceSoftwareVersions::class, 'createFromDiscriminatorValue'))); },
-            'speakerConfiguration' => function (ParseNode $n) use ($o) { $o->setSpeakerConfiguration($n->getObjectValue(array(TeamworkSpeakerConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'systemConfiguration' => function (ParseNode $n) use ($o) { $o->setSystemConfiguration($n->getObjectValue(array(TeamworkSystemConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'teamsClientConfiguration' => function (ParseNode $n) use ($o) { $o->setTeamsClientConfiguration($n->getObjectValue(array(TeamworkTeamsClientConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'cameraConfiguration' => function (self $o, ParseNode $n) { $o->setCameraConfiguration($n->getObjectValue(TeamworkCameraConfiguration::class)); },
+            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayConfiguration' => function (self $o, ParseNode $n) { $o->setDisplayConfiguration($n->getObjectValue(TeamworkDisplayConfiguration::class)); },
+            'hardwareConfiguration' => function (self $o, ParseNode $n) { $o->setHardwareConfiguration($n->getObjectValue(TeamworkHardwareConfiguration::class)); },
+            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(IdentitySet::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'microphoneConfiguration' => function (self $o, ParseNode $n) { $o->setMicrophoneConfiguration($n->getObjectValue(TeamworkMicrophoneConfiguration::class)); },
+            'softwareVersions' => function (self $o, ParseNode $n) { $o->setSoftwareVersions($n->getObjectValue(TeamworkDeviceSoftwareVersions::class)); },
+            'speakerConfiguration' => function (self $o, ParseNode $n) { $o->setSpeakerConfiguration($n->getObjectValue(TeamworkSpeakerConfiguration::class)); },
+            'systemConfiguration' => function (self $o, ParseNode $n) { $o->setSystemConfiguration($n->getObjectValue(TeamworkSystemConfiguration::class)); },
+            'teamsClientConfiguration' => function (self $o, ParseNode $n) { $o->setTeamsClientConfiguration($n->getObjectValue(TeamworkTeamsClientConfiguration::class)); },
         ]);
     }
 

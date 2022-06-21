@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AuthenticationFlowsPolicy extends Entity implements Parsable 
+class AuthenticationFlowsPolicy extends Entity 
 {
-    /**
-     * @var string|null $description Inherited property. A description of the policy. This property is not a key. Optional. Read-only.
-    */
+    /** @var string|null $description Inherited property. A description of the policy. Optional. Read-only. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only.
-    */
+    /** @var string|null $displayName Inherited property. The human-readable name of the policy. Optional. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var SelfServiceSignUpAuthenticationFlowConfiguration|null $selfServiceSignUp Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only.
-    */
+    /** @var SelfServiceSignUpAuthenticationFlowConfiguration|null $selfServiceSignUp Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only. */
     private ?SelfServiceSignUpAuthenticationFlowConfiguration $selfServiceSignUp = null;
     
     /**
@@ -35,12 +29,12 @@ class AuthenticationFlowsPolicy extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuthenticationFlowsPolicy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationFlowsPolicy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationFlowsPolicy {
         return new AuthenticationFlowsPolicy();
     }
 
     /**
-     * Gets the description property value. Inherited property. A description of the policy. This property is not a key. Optional. Read-only.
+     * Gets the description property value. Inherited property. A description of the policy. Optional. Read-only.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -48,7 +42,7 @@ class AuthenticationFlowsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only.
+     * Gets the displayName property value. Inherited property. The human-readable name of the policy. Optional. Read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -60,16 +54,15 @@ class AuthenticationFlowsPolicy extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'selfServiceSignUp' => function (ParseNode $n) use ($o) { $o->setSelfServiceSignUp($n->getObjectValue(array(SelfServiceSignUpAuthenticationFlowConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'selfServiceSignUp' => function (self $o, ParseNode $n) { $o->setSelfServiceSignUp($n->getObjectValue(SelfServiceSignUpAuthenticationFlowConfiguration::class)); },
         ]);
     }
 
     /**
-     * Gets the selfServiceSignUp property value. Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only.
+     * Gets the selfServiceSignUp property value. Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.
      * @return SelfServiceSignUpAuthenticationFlowConfiguration|null
     */
     public function getSelfServiceSignUp(): ?SelfServiceSignUpAuthenticationFlowConfiguration {
@@ -88,7 +81,7 @@ class AuthenticationFlowsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. Inherited property. A description of the policy. This property is not a key. Optional. Read-only.
+     * Sets the description property value. Inherited property. A description of the policy. Optional. Read-only.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -96,7 +89,7 @@ class AuthenticationFlowsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only.
+     * Sets the displayName property value. Inherited property. The human-readable name of the policy. Optional. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -104,7 +97,7 @@ class AuthenticationFlowsPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the selfServiceSignUp property value. Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only.
+     * Sets the selfServiceSignUp property value. Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.
      *  @param SelfServiceSignUpAuthenticationFlowConfiguration|null $value Value to set for the selfServiceSignUp property.
     */
     public function setSelfServiceSignUp(?SelfServiceSignUpAuthenticationFlowConfiguration $value ): void {

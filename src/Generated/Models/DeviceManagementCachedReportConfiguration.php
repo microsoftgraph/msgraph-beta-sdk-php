@@ -7,46 +7,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementCachedReportConfiguration extends Entity implements Parsable 
+class DeviceManagementCachedReportConfiguration extends Entity 
 {
-    /**
-     * @var DateTime|null $expirationDateTime Time that the cached report expires
-    */
+    /** @var DateTime|null $expirationDateTime Time that the cached report expires */
     private ?DateTime $expirationDateTime = null;
     
-    /**
-     * @var string|null $filter Filters applied on report creation.
-    */
+    /** @var string|null $filter Filters applied on report creation. */
     private ?string $filter = null;
     
-    /**
-     * @var DateTime|null $lastRefreshDateTime Time that the cached report was last refreshed
-    */
+    /** @var DateTime|null $lastRefreshDateTime Time that the cached report was last refreshed */
     private ?DateTime $lastRefreshDateTime = null;
     
-    /**
-     * @var string|null $metadata Caller-managed metadata associated with the report
-    */
+    /** @var string|null $metadata Caller-managed metadata associated with the report */
     private ?string $metadata = null;
     
-    /**
-     * @var array<string>|null $orderBy Ordering of columns in the report
-    */
+    /** @var array<string>|null $orderBy Ordering of columns in the report */
     private ?array $orderBy = null;
     
-    /**
-     * @var string|null $reportName Name of the report
-    */
+    /** @var string|null $reportName Name of the report */
     private ?string $reportName = null;
     
-    /**
-     * @var array<string>|null $select Columns selected from the report
-    */
+    /** @var array<string>|null $select Columns selected from the report */
     private ?array $select = null;
     
-    /**
-     * @var DeviceManagementReportStatus|null $status Status of the cached report. Possible values are: unknown, notStarted, inProgress, completed, failed.
-    */
+    /** @var DeviceManagementReportStatus|null $status Status of the cached report. Possible values are: unknown, notStarted, inProgress, completed, failed. */
     private ?DeviceManagementReportStatus $status = null;
     
     /**
@@ -61,7 +45,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementCachedReportConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementCachedReportConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementCachedReportConfiguration {
         return new DeviceManagementCachedReportConfiguration();
     }
 
@@ -78,16 +62,15 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'filter' => function (ParseNode $n) use ($o) { $o->setFilter($n->getStringValue()); },
-            'lastRefreshDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshDateTime($n->getDateTimeValue()); },
-            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getStringValue()); },
-            'orderBy' => function (ParseNode $n) use ($o) { $o->setOrderBy($n->getCollectionOfPrimitiveValues()); },
-            'reportName' => function (ParseNode $n) use ($o) { $o->setReportName($n->getStringValue()); },
-            'select' => function (ParseNode $n) use ($o) { $o->setSelect($n->getCollectionOfPrimitiveValues()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DeviceManagementReportStatus::class)); },
+            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'filter' => function (self $o, ParseNode $n) { $o->setFilter($n->getStringValue()); },
+            'lastRefreshDateTime' => function (self $o, ParseNode $n) { $o->setLastRefreshDateTime($n->getDateTimeValue()); },
+            'metadata' => function (self $o, ParseNode $n) { $o->setMetadata($n->getStringValue()); },
+            'orderBy' => function (self $o, ParseNode $n) { $o->setOrderBy($n->getCollectionOfPrimitiveValues()); },
+            'reportName' => function (self $o, ParseNode $n) { $o->setReportName($n->getStringValue()); },
+            'select' => function (self $o, ParseNode $n) { $o->setSelect($n->getCollectionOfPrimitiveValues()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(DeviceManagementReportStatus::class)); },
         ]);
     }
 

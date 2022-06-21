@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class VisualProperties implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $body The body of a visual user notification. Body is optional.
-    */
+    /** @var string|null $body The body of a visual user notification. Body is optional. */
     private ?string $body = null;
     
-    /**
-     * @var string|null $title The title of a visual user notification. This field is required for visual notification payloads.
-    */
+    /** @var string|null $title The title of a visual user notification. This field is required for visual notification payloads. */
     private ?string $title = null;
     
     /**
@@ -36,7 +30,7 @@ class VisualProperties implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return VisualProperties
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): VisualProperties {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): VisualProperties {
         return new VisualProperties();
     }
 
@@ -61,10 +55,9 @@ class VisualProperties implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'body' => function (ParseNode $n) use ($o) { $o->setBody($n->getStringValue()); },
-            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
+            'body' => function (self $o, ParseNode $n) { $o->setBody($n->getStringValue()); },
+            'title' => function (self $o, ParseNode $n) { $o->setTitle($n->getStringValue()); },
         ];
     }
 

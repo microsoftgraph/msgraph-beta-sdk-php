@@ -6,15 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SoftwareOathAuthenticationMethod extends AuthenticationMethod implements Parsable 
+class SoftwareOathAuthenticationMethod extends AuthenticationMethod 
 {
-    /**
-     * @var string|null $secretKey The secret key of the method. Always returns null.
-    */
+    /** @var string|null $secretKey The secret key of the method. Always returns null. */
     private ?string $secretKey = null;
     
     /**
-     * Instantiates a new SoftwareOathAuthenticationMethod and sets the default values.
+     * Instantiates a new softwareOathAuthenticationMethod and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +23,7 @@ class SoftwareOathAuthenticationMethod extends AuthenticationMethod implements P
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SoftwareOathAuthenticationMethod
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SoftwareOathAuthenticationMethod {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SoftwareOathAuthenticationMethod {
         return new SoftwareOathAuthenticationMethod();
     }
 
@@ -34,9 +32,8 @@ class SoftwareOathAuthenticationMethod extends AuthenticationMethod implements P
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'secretKey' => function (ParseNode $n) use ($o) { $o->setSecretKey($n->getStringValue()); },
+            'secretKey' => function (self $o, ParseNode $n) { $o->setSecretKey($n->getStringValue()); },
         ]);
     }
 

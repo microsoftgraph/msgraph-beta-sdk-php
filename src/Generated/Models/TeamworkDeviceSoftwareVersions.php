@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $adminAgentSoftwareVersion The software version for the admin agent running on the device.
-    */
+    /** @var string|null $adminAgentSoftwareVersion The software version for the admin agent running on the device. */
     private ?string $adminAgentSoftwareVersion = null;
     
-    /**
-     * @var string|null $firmwareSoftwareVersion The software version for the firmware running on the device.
-    */
+    /** @var string|null $firmwareSoftwareVersion The software version for the firmware running on the device. */
     private ?string $firmwareSoftwareVersion = null;
     
-    /**
-     * @var string|null $operatingSystemSoftwareVersion The software version for the operating system on the device.
-    */
+    /** @var string|null $operatingSystemSoftwareVersion The software version for the operating system on the device. */
     private ?string $operatingSystemSoftwareVersion = null;
     
-    /**
-     * @var string|null $partnerAgentSoftwareVersion The software version for the partner agent running on the device.
-    */
+    /** @var string|null $partnerAgentSoftwareVersion The software version for the partner agent running on the device. */
     private ?string $partnerAgentSoftwareVersion = null;
     
-    /**
-     * @var string|null $teamsClientSoftwareVersion The software version for the Teams client running on the device.
-    */
+    /** @var string|null $teamsClientSoftwareVersion The software version for the Teams client running on the device. */
     private ?string $teamsClientSoftwareVersion = null;
     
     /**
@@ -51,7 +39,7 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkDeviceSoftwareVersions
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDeviceSoftwareVersions {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDeviceSoftwareVersions {
         return new TeamworkDeviceSoftwareVersions();
     }
 
@@ -76,13 +64,12 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'adminAgentSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setAdminAgentSoftwareVersion($n->getStringValue()); },
-            'firmwareSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setFirmwareSoftwareVersion($n->getStringValue()); },
-            'operatingSystemSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setOperatingSystemSoftwareVersion($n->getStringValue()); },
-            'partnerAgentSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setPartnerAgentSoftwareVersion($n->getStringValue()); },
-            'teamsClientSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setTeamsClientSoftwareVersion($n->getStringValue()); },
+            'adminAgentSoftwareVersion' => function (self $o, ParseNode $n) { $o->setAdminAgentSoftwareVersion($n->getStringValue()); },
+            'firmwareSoftwareVersion' => function (self $o, ParseNode $n) { $o->setFirmwareSoftwareVersion($n->getStringValue()); },
+            'operatingSystemSoftwareVersion' => function (self $o, ParseNode $n) { $o->setOperatingSystemSoftwareVersion($n->getStringValue()); },
+            'partnerAgentSoftwareVersion' => function (self $o, ParseNode $n) { $o->setPartnerAgentSoftwareVersion($n->getStringValue()); },
+            'teamsClientSoftwareVersion' => function (self $o, ParseNode $n) { $o->setTeamsClientSoftwareVersion($n->getStringValue()); },
         ];
     }
 

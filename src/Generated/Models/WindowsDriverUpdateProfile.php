@@ -7,66 +7,42 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsDriverUpdateProfile extends Entity implements Parsable 
+class WindowsDriverUpdateProfile extends Entity 
 {
-    /**
-     * @var DriverUpdateProfileApprovalType|null $approvalType Driver update profile approval type. For example, manual or automatic approval. Possible values are: manual, automatic.
-    */
+    /** @var DriverUpdateProfileApprovalType|null $approvalType Driver update profile approval type. For example, manual or automatic approval. Possible values are: manual, automatic. */
     private ?DriverUpdateProfileApprovalType $approvalType = null;
     
-    /**
-     * @var array<WindowsDriverUpdateProfileAssignment>|null $assignments The list of group assignments of the profile.
-    */
+    /** @var array<WindowsDriverUpdateProfileAssignment>|null $assignments The list of group assignments of the profile. */
     private ?array $assignments = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date time that the profile was created.
-    */
+    /** @var DateTime|null $createdDateTime The date time that the profile was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var int|null $deploymentDeferralInDays Deployment deferral settings in days, only applicable when ApprovalType is set to automatic approval.
-    */
+    /** @var int|null $deploymentDeferralInDays Deployment deferral settings in days, only applicable when ApprovalType is set to automatic approval. */
     private ?int $deploymentDeferralInDays = null;
     
-    /**
-     * @var string|null $description The description of the profile which is specified by the user.
-    */
+    /** @var string|null $description The description of the profile which is specified by the user. */
     private ?string $description = null;
     
-    /**
-     * @var int|null $deviceReporting Number of devices reporting for this profile
-    */
+    /** @var int|null $deviceReporting Number of devices reporting for this profile */
     private ?int $deviceReporting = null;
     
-    /**
-     * @var string|null $displayName The display name for the profile.
-    */
+    /** @var string|null $displayName The display name for the profile. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<WindowsDriverUpdateInventory>|null $driverInventories Driver inventories for this profile.
-    */
+    /** @var array<WindowsDriverUpdateInventory>|null $driverInventories Driver inventories for this profile. */
     private ?array $driverInventories = null;
     
-    /**
-     * @var WindowsDriverUpdateProfileInventorySyncStatus|null $inventorySyncStatus Driver inventory sync status for this profile.
-    */
+    /** @var WindowsDriverUpdateProfileInventorySyncStatus|null $inventorySyncStatus Driver inventory sync status for this profile. */
     private ?WindowsDriverUpdateProfileInventorySyncStatus $inventorySyncStatus = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date time that the profile was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date time that the profile was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var int|null $newUpdates Number of new driver updates available for this profile.
-    */
+    /** @var int|null $newUpdates Number of new driver updates available for this profile. */
     private ?int $newUpdates = null;
     
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Driver Update entity.
-    */
+    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Driver Update entity. */
     private ?array $roleScopeTagIds = null;
     
     /**
@@ -81,7 +57,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsDriverUpdateProfile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDriverUpdateProfile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDriverUpdateProfile {
         return new WindowsDriverUpdateProfile();
     }
 
@@ -154,20 +130,19 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'approvalType' => function (ParseNode $n) use ($o) { $o->setApprovalType($n->getEnumValue(DriverUpdateProfileApprovalType::class)); },
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(WindowsDriverUpdateProfileAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deploymentDeferralInDays' => function (ParseNode $n) use ($o) { $o->setDeploymentDeferralInDays($n->getIntegerValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'deviceReporting' => function (ParseNode $n) use ($o) { $o->setDeviceReporting($n->getIntegerValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'driverInventories' => function (ParseNode $n) use ($o) { $o->setDriverInventories($n->getCollectionOfObjectValues(array(WindowsDriverUpdateInventory::class, 'createFromDiscriminatorValue'))); },
-            'inventorySyncStatus' => function (ParseNode $n) use ($o) { $o->setInventorySyncStatus($n->getObjectValue(array(WindowsDriverUpdateProfileInventorySyncStatus::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'newUpdates' => function (ParseNode $n) use ($o) { $o->setNewUpdates($n->getIntegerValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'approvalType' => function (self $o, ParseNode $n) { $o->setApprovalType($n->getEnumValue(DriverUpdateProfileApprovalType::class)); },
+            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(WindowsDriverUpdateProfileAssignment::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'deploymentDeferralInDays' => function (self $o, ParseNode $n) { $o->setDeploymentDeferralInDays($n->getIntegerValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'deviceReporting' => function (self $o, ParseNode $n) { $o->setDeviceReporting($n->getIntegerValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'driverInventories' => function (self $o, ParseNode $n) { $o->setDriverInventories($n->getCollectionOfObjectValues(WindowsDriverUpdateInventory::class)); },
+            'inventorySyncStatus' => function (self $o, ParseNode $n) { $o->setInventorySyncStatus($n->getObjectValue(WindowsDriverUpdateProfileInventorySyncStatus::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'newUpdates' => function (self $o, ParseNode $n) { $o->setNewUpdates($n->getIntegerValue()); },
+            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

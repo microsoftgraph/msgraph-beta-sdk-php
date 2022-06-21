@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ModifiedProperty implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName Name of property that was modified.
-    */
+    /** @var string|null $displayName Indicates the property name of the target attribute that was changed. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $newValue New property value.
-    */
+    /** @var string|null $newValue Indicates the updated value for the propery. */
     private ?string $newValue = null;
     
-    /**
-     * @var string|null $oldValue Old property value.
-    */
+    /** @var string|null $oldValue Indicates the previous value (before the update) for the property. */
     private ?string $oldValue = null;
     
     /**
@@ -41,7 +33,7 @@ class ModifiedProperty implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ModifiedProperty
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ModifiedProperty {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ModifiedProperty {
         return new ModifiedProperty();
     }
 
@@ -54,7 +46,7 @@ class ModifiedProperty implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the displayName property value. Name of property that was modified.
+     * Gets the displayName property value. Indicates the property name of the target attribute that was changed.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -66,16 +58,15 @@ class ModifiedProperty implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'newValue' => function (ParseNode $n) use ($o) { $o->setNewValue($n->getStringValue()); },
-            'oldValue' => function (ParseNode $n) use ($o) { $o->setOldValue($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'newValue' => function (self $o, ParseNode $n) { $o->setNewValue($n->getStringValue()); },
+            'oldValue' => function (self $o, ParseNode $n) { $o->setOldValue($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the newValue property value. New property value.
+     * Gets the newValue property value. Indicates the updated value for the propery.
      * @return string|null
     */
     public function getNewValue(): ?string {
@@ -83,7 +74,7 @@ class ModifiedProperty implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the oldValue property value. Old property value.
+     * Gets the oldValue property value. Indicates the previous value (before the update) for the property.
      * @return string|null
     */
     public function getOldValue(): ?string {
@@ -110,7 +101,7 @@ class ModifiedProperty implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the displayName property value. Name of property that was modified.
+     * Sets the displayName property value. Indicates the property name of the target attribute that was changed.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -118,7 +109,7 @@ class ModifiedProperty implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the newValue property value. New property value.
+     * Sets the newValue property value. Indicates the updated value for the propery.
      *  @param string|null $value Value to set for the newValue property.
     */
     public function setNewValue(?string $value ): void {
@@ -126,7 +117,7 @@ class ModifiedProperty implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the oldValue property value. Old property value.
+     * Sets the oldValue property value. Indicates the previous value (before the update) for the property.
      *  @param string|null $value Value to set for the oldValue property.
     */
     public function setOldValue(?string $value ): void {

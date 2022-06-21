@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MicrosoftApplicationDataAccessSettings extends Entity implements Parsable 
+class MicrosoftApplicationDataAccessSettings extends Entity 
 {
-    /**
-     * @var string|null $disabledForGroup The ID of an Azure Active Directory (Azure AD) security group for which the members are allowed to access Microsoft 365 data using only Microsoft 365 apps, but not other Microsoft apps such as Edge.  This is only applicable if isEnabledForAllMicrosoftApplications is set to true.
-    */
+    /** @var string|null $disabledForGroup The ID of an Azure Active Directory (Azure AD) security group for which the members are allowed to access Microsoft 365 data using only Microsoft 365 apps, but not other Microsoft apps such as Edge.  This is only applicable if isEnabledForAllMicrosoftApplications is set to true. */
     private ?string $disabledForGroup = null;
     
-    /**
-     * @var bool|null $isEnabledForAllMicrosoftApplications When set to true, all users in the organization can access in a Microsoft app any Microsoft 365 data that the user has been authorized to access. The Microsoft app can be a Microsoft 365 app (for example, Excel, Outlook) or non-Microsoft 365 app (for example, Edge). The default is true.  It is possible to disable this access for a subset of users in an Azure AD security group, by specifying the group in the disabledForGroup property.  When set to false, all users can access authorized Microsoft 365 data only in a Microsoft 365 app.
-    */
+    /** @var bool|null $isEnabledForAllMicrosoftApplications When set to true, all users in the organization can access in a Microsoft app any Microsoft 365 data that the user has been authorized to access. The Microsoft app can be a Microsoft 365 app (for example, Excel, Outlook) or non-Microsoft 365 app (for example, Edge). The default is true.  It is possible to disable this access for a subset of users in an Azure AD security group, by specifying the group in the disabledForGroup property.  When set to false, all users can access authorized Microsoft 365 data only in a Microsoft 365 app. */
     private ?bool $isEnabledForAllMicrosoftApplications = null;
     
     /**
@@ -30,7 +26,7 @@ class MicrosoftApplicationDataAccessSettings extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MicrosoftApplicationDataAccessSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftApplicationDataAccessSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftApplicationDataAccessSettings {
         return new MicrosoftApplicationDataAccessSettings();
     }
 
@@ -47,10 +43,9 @@ class MicrosoftApplicationDataAccessSettings extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'disabledForGroup' => function (ParseNode $n) use ($o) { $o->setDisabledForGroup($n->getStringValue()); },
-            'isEnabledForAllMicrosoftApplications' => function (ParseNode $n) use ($o) { $o->setIsEnabledForAllMicrosoftApplications($n->getBooleanValue()); },
+            'disabledForGroup' => function (self $o, ParseNode $n) { $o->setDisabledForGroup($n->getStringValue()); },
+            'isEnabledForAllMicrosoftApplications' => function (self $o, ParseNode $n) { $o->setIsEnabledForAllMicrosoftApplications($n->getBooleanValue()); },
         ]);
     }
 

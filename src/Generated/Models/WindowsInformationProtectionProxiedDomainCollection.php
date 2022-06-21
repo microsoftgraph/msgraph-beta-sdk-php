@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class WindowsInformationProtectionProxiedDomainCollection implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName Display name
-    */
+    /** @var string|null $displayName Display name */
     private ?string $displayName = null;
     
-    /**
-     * @var array<ProxiedDomain>|null $proxiedDomains Collection of proxied domains
-    */
+    /** @var array<ProxiedDomain>|null $proxiedDomains Collection of proxied domains */
     private ?array $proxiedDomains = null;
     
     /**
@@ -36,7 +30,7 @@ class WindowsInformationProtectionProxiedDomainCollection implements AdditionalD
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsInformationProtectionProxiedDomainCollection
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionProxiedDomainCollection {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionProxiedDomainCollection {
         return new WindowsInformationProtectionProxiedDomainCollection();
     }
 
@@ -61,10 +55,9 @@ class WindowsInformationProtectionProxiedDomainCollection implements AdditionalD
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'proxiedDomains' => function (ParseNode $n) use ($o) { $o->setProxiedDomains($n->getCollectionOfObjectValues(array(ProxiedDomain::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'proxiedDomains' => function (self $o, ParseNode $n) { $o->setProxiedDomains($n->getCollectionOfObjectValues(ProxiedDomain::class)); },
         ];
     }
 

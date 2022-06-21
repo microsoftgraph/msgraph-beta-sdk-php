@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OutlookUser extends Entity implements Parsable 
+class OutlookUser extends Entity 
 {
-    /**
-     * @var array<OutlookCategory>|null $masterCategories A list of categories defined for the user.
-    */
+    /** @var array<OutlookCategory>|null $masterCategories A list of categories defined for the user. */
     private ?array $masterCategories = null;
     
-    /**
-     * @var array<OutlookTaskFolder>|null $taskFolders The taskFolders property
-    */
+    /** @var array<OutlookTaskFolder>|null $taskFolders The taskFolders property */
     private ?array $taskFolders = null;
     
-    /**
-     * @var array<OutlookTaskGroup>|null $taskGroups The taskGroups property
-    */
+    /** @var array<OutlookTaskGroup>|null $taskGroups The taskGroups property */
     private ?array $taskGroups = null;
     
-    /**
-     * @var array<OutlookTask>|null $tasks The tasks property
-    */
+    /** @var array<OutlookTask>|null $tasks The tasks property */
     private ?array $tasks = null;
     
     /**
@@ -40,7 +32,7 @@ class OutlookUser extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OutlookUser
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OutlookUser {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OutlookUser {
         return new OutlookUser();
     }
 
@@ -49,12 +41,11 @@ class OutlookUser extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'masterCategories' => function (ParseNode $n) use ($o) { $o->setMasterCategories($n->getCollectionOfObjectValues(array(OutlookCategory::class, 'createFromDiscriminatorValue'))); },
-            'taskFolders' => function (ParseNode $n) use ($o) { $o->setTaskFolders($n->getCollectionOfObjectValues(array(OutlookTaskFolder::class, 'createFromDiscriminatorValue'))); },
-            'taskGroups' => function (ParseNode $n) use ($o) { $o->setTaskGroups($n->getCollectionOfObjectValues(array(OutlookTaskGroup::class, 'createFromDiscriminatorValue'))); },
-            'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(OutlookTask::class, 'createFromDiscriminatorValue'))); },
+            'masterCategories' => function (self $o, ParseNode $n) { $o->setMasterCategories($n->getCollectionOfObjectValues(OutlookCategory::class)); },
+            'taskFolders' => function (self $o, ParseNode $n) { $o->setTaskFolders($n->getCollectionOfObjectValues(OutlookTaskFolder::class)); },
+            'taskGroups' => function (self $o, ParseNode $n) { $o->setTaskGroups($n->getCollectionOfObjectValues(OutlookTaskGroup::class)); },
+            'tasks' => function (self $o, ParseNode $n) { $o->setTasks($n->getCollectionOfObjectValues(OutlookTask::class)); },
         ]);
     }
 

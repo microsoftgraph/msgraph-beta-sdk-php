@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementConfigurationReferredSettingInformation implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $settingDefinitionId Setting definition id that is being referred to a setting. Applicable for reusable setting
-    */
+    /** @var string|null $settingDefinitionId Setting definition id that is being referred to a setting. Applicable for reusable setting */
     private ?string $settingDefinitionId = null;
     
     /**
@@ -31,7 +27,7 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationReferredSettingInformation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationReferredSettingInformation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationReferredSettingInformation {
         return new DeviceManagementConfigurationReferredSettingInformation();
     }
 
@@ -48,9 +44,8 @@ class DeviceManagementConfigurationReferredSettingInformation implements Additio
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'settingDefinitionId' => function (ParseNode $n) use ($o) { $o->setSettingDefinitionId($n->getStringValue()); },
+            'settingDefinitionId' => function (self $o, ParseNode $n) { $o->setSettingDefinitionId($n->getStringValue()); },
         ];
     }
 

@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsOverview extends Entity implements Parsable 
+class UserExperienceAnalyticsOverview extends Entity 
 {
-    /**
-     * @var array<UserExperienceAnalyticsInsight>|null $insights The user experience analytics insights.
-    */
+    /** @var array<UserExperienceAnalyticsInsight>|null $insights The user experience analytics insights. */
     private ?array $insights = null;
     
     /**
@@ -25,7 +23,7 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsOverview
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsOverview {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsOverview {
         return new UserExperienceAnalyticsOverview();
     }
 
@@ -34,9 +32,8 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'insights' => function (ParseNode $n) use ($o) { $o->setInsights($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsInsight::class, 'createFromDiscriminatorValue'))); },
+            'insights' => function (self $o, ParseNode $n) { $o->setInsights($n->getCollectionOfObjectValues(UserExperienceAnalyticsInsight::class)); },
         ]);
     }
 

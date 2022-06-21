@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeploymentStateReason implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DeploymentStateReasonValue|null $value Specifies a reason for the deployment state. Possible values are: scheduledByOfferWindow, offeringByRequest, pausedByRequest, pausedByMonitoring. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: faultedByContentOutdated. Read-only.
-    */
+    /** @var DeploymentStateReasonValue|null $value Specifies a reason for the deployment state. Possible values are: scheduledByOfferWindow, offeringByRequest, pausedByRequest, pausedByMonitoring. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: faultedByContentOutdated. Read-only. */
     private ?DeploymentStateReasonValue $value = null;
     
     /**
@@ -31,7 +27,7 @@ class DeploymentStateReason implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeploymentStateReason
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeploymentStateReason {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeploymentStateReason {
         return new DeploymentStateReason();
     }
 
@@ -48,9 +44,8 @@ class DeploymentStateReason implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getEnumValue(DeploymentStateReasonValue::class)); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getEnumValue(DeploymentStateReasonValue::class)); },
         ];
     }
 

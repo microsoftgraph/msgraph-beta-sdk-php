@@ -7,26 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SimulationAutomationRun extends Entity implements Parsable 
+class SimulationAutomationRun extends Entity 
 {
-    /**
-     * @var DateTime|null $endDateTime Date and time when the run ends in an attack simulation automation.
-    */
+    /** @var DateTime|null $endDateTime Date and time when the run ends in an attack simulation automation. */
     private ?DateTime $endDateTime = null;
     
-    /**
-     * @var string|null $simulationId Unique identifier for the attack simulation campaign initiated in the attack simulation automation run.
-    */
+    /** @var string|null $simulationId Unique identifier for the attack simulation campaign initiated in the attack simulation automation run. */
     private ?string $simulationId = null;
     
-    /**
-     * @var DateTime|null $startDateTime Date and time when the run starts in an attack simulation automation.
-    */
+    /** @var DateTime|null $startDateTime Date and time when the run starts in an attack simulation automation. */
     private ?DateTime $startDateTime = null;
     
-    /**
-     * @var SimulationAutomationRunStatus|null $status Status of the run of an attack simulation automation. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
-    */
+    /** @var SimulationAutomationRunStatus|null $status Status of the run of an attack simulation automation. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue. */
     private ?SimulationAutomationRunStatus $status = null;
     
     /**
@@ -41,7 +33,7 @@ class SimulationAutomationRun extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SimulationAutomationRun
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SimulationAutomationRun {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SimulationAutomationRun {
         return new SimulationAutomationRun();
     }
 
@@ -58,12 +50,11 @@ class SimulationAutomationRun extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'simulationId' => function (ParseNode $n) use ($o) { $o->setSimulationId($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(SimulationAutomationRunStatus::class)); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'simulationId' => function (self $o, ParseNode $n) { $o->setSimulationId($n->getStringValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(SimulationAutomationRunStatus::class)); },
         ]);
     }
 

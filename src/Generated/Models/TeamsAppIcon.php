@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamsAppIcon extends Entity implements Parsable 
+class TeamsAppIcon extends Entity 
 {
-    /**
-     * @var TeamworkHostedContent|null $hostedContent The contents of the app icon if the icon is hosted within the Teams infrastructure.
-    */
+    /** @var TeamworkHostedContent|null $hostedContent The contents of the app icon if the icon is hosted within the Teams infrastructure. */
     private ?TeamworkHostedContent $hostedContent = null;
     
-    /**
-     * @var string|null $webUrl The web URL that can be used for downloading the image.
-    */
+    /** @var string|null $webUrl The web URL that can be used for downloading the image. */
     private ?string $webUrl = null;
     
     /**
@@ -30,7 +26,7 @@ class TeamsAppIcon extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamsAppIcon
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamsAppIcon {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamsAppIcon {
         return new TeamsAppIcon();
     }
 
@@ -39,10 +35,9 @@ class TeamsAppIcon extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'hostedContent' => function (ParseNode $n) use ($o) { $o->setHostedContent($n->getObjectValue(array(TeamworkHostedContent::class, 'createFromDiscriminatorValue'))); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'hostedContent' => function (self $o, ParseNode $n) { $o->setHostedContent($n->getObjectValue(TeamworkHostedContent::class)); },
+            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 

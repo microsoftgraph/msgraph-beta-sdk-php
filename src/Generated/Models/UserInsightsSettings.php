@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserInsightsSettings extends Entity implements Parsable 
+class UserInsightsSettings extends Entity 
 {
-    /**
-     * @var bool|null $isEnabled true if user's itemInsights and meeting hours insights are enabled; false if user's itemInsights and meeting hours insights are disabled. Default is true. Optional.
-    */
+    /** @var bool|null $isEnabled true if user's itemInsights and meeting hours insights are enabled; false if user's itemInsights and meeting hours insights are disabled. Default is true. Optional. */
     private ?bool $isEnabled = null;
     
     /**
@@ -25,7 +23,7 @@ class UserInsightsSettings extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserInsightsSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserInsightsSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserInsightsSettings {
         return new UserInsightsSettings();
     }
 
@@ -34,9 +32,8 @@ class UserInsightsSettings extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
         ]);
     }
 

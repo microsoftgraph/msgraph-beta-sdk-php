@@ -10,14 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GetOffice365GroupsActivityGroupCountsWithPeriodResponse implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<Office365GroupsActivityGroupCounts>|null $value The value property
-    */
+    /** @var array<Office365GroupsActivityGroupCounts>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -32,7 +28,7 @@ class GetOffice365GroupsActivityGroupCountsWithPeriodResponse implements Additio
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GetOffice365GroupsActivityGroupCountsWithPeriodResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GetOffice365GroupsActivityGroupCountsWithPeriodResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GetOffice365GroupsActivityGroupCountsWithPeriodResponse {
         return new GetOffice365GroupsActivityGroupCountsWithPeriodResponse();
     }
 
@@ -49,9 +45,8 @@ class GetOffice365GroupsActivityGroupCountsWithPeriodResponse implements Additio
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(Office365GroupsActivityGroupCounts::class, 'createFromDiscriminatorValue'))); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfObjectValues(Office365GroupsActivityGroupCounts::class)); },
         ];
     }
 

@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserAgent implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $applicationVersion Identifies the version of application software used by this endpoint.
-    */
+    /** @var string|null $applicationVersion Identifies the version of application software used by this endpoint. */
     private ?string $applicationVersion = null;
     
-    /**
-     * @var string|null $headerValue User-agent header value reported by this endpoint.
-    */
+    /** @var string|null $headerValue User-agent header value reported by this endpoint. */
     private ?string $headerValue = null;
     
     /**
@@ -36,7 +30,7 @@ class UserAgent implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserAgent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserAgent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserAgent {
         return new UserAgent();
     }
 
@@ -61,10 +55,9 @@ class UserAgent implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'applicationVersion' => function (ParseNode $n) use ($o) { $o->setApplicationVersion($n->getStringValue()); },
-            'headerValue' => function (ParseNode $n) use ($o) { $o->setHeaderValue($n->getStringValue()); },
+            'applicationVersion' => function (self $o, ParseNode $n) { $o->setApplicationVersion($n->getStringValue()); },
+            'headerValue' => function (self $o, ParseNode $n) { $o->setHeaderValue($n->getStringValue()); },
         ];
     }
 

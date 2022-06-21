@@ -8,66 +8,42 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class UserPFXCertificate extends Entity implements Parsable 
+class UserPFXCertificate extends Entity 
 {
-    /**
-     * @var DateTime|null $createdDateTime Date/time when this PFX certificate was imported.
-    */
+    /** @var DateTime|null $createdDateTime Date/time when this PFX certificate was imported. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var StreamInterface|null $encryptedPfxBlob Encrypted PFX blob.
-    */
+    /** @var StreamInterface|null $encryptedPfxBlob Encrypted PFX blob. */
     private ?StreamInterface $encryptedPfxBlob = null;
     
-    /**
-     * @var string|null $encryptedPfxPassword Encrypted PFX password.
-    */
+    /** @var string|null $encryptedPfxPassword Encrypted PFX password. */
     private ?string $encryptedPfxPassword = null;
     
-    /**
-     * @var DateTime|null $expirationDateTime Certificate's validity expiration date/time.
-    */
+    /** @var DateTime|null $expirationDateTime Certificate's validity expiration date/time. */
     private ?DateTime $expirationDateTime = null;
     
-    /**
-     * @var UserPfxIntendedPurpose|null $intendedPurpose Certificate's intended purpose from the point-of-view of deployment. Possible values are: unassigned, smimeEncryption, smimeSigning, vpn, wifi.
-    */
+    /** @var UserPfxIntendedPurpose|null $intendedPurpose Certificate's intended purpose from the point-of-view of deployment. Possible values are: unassigned, smimeEncryption, smimeSigning, vpn, wifi. */
     private ?UserPfxIntendedPurpose $intendedPurpose = null;
     
-    /**
-     * @var string|null $keyName Name of the key (within the provider) used to encrypt the blob.
-    */
+    /** @var string|null $keyName Name of the key (within the provider) used to encrypt the blob. */
     private ?string $keyName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime Date/time when this PFX certificate was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime Date/time when this PFX certificate was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var UserPfxPaddingScheme|null $paddingScheme Padding scheme used by the provider during encryption/decryption. Possible values are: none, pkcs1, oaepSha1, oaepSha256, oaepSha384, oaepSha512.
-    */
+    /** @var UserPfxPaddingScheme|null $paddingScheme Padding scheme used by the provider during encryption/decryption. Possible values are: none, pkcs1, oaepSha1, oaepSha256, oaepSha384, oaepSha512. */
     private ?UserPfxPaddingScheme $paddingScheme = null;
     
-    /**
-     * @var string|null $providerName Crypto provider used to encrypt this blob.
-    */
+    /** @var string|null $providerName Crypto provider used to encrypt this blob. */
     private ?string $providerName = null;
     
-    /**
-     * @var DateTime|null $startDateTime Certificate's validity start date/time.
-    */
+    /** @var DateTime|null $startDateTime Certificate's validity start date/time. */
     private ?DateTime $startDateTime = null;
     
-    /**
-     * @var string|null $thumbprint SHA-1 thumbprint of the PFX certificate.
-    */
+    /** @var string|null $thumbprint SHA-1 thumbprint of the PFX certificate. */
     private ?string $thumbprint = null;
     
-    /**
-     * @var string|null $userPrincipalName User Principal Name of the PFX certificate.
-    */
+    /** @var string|null $userPrincipalName User Principal Name of the PFX certificate. */
     private ?string $userPrincipalName = null;
     
     /**
@@ -82,7 +58,7 @@ class UserPFXCertificate extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserPFXCertificate
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserPFXCertificate {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserPFXCertificate {
         return new UserPFXCertificate();
     }
 
@@ -123,20 +99,19 @@ class UserPFXCertificate extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'encryptedPfxBlob' => function (ParseNode $n) use ($o) { $o->setEncryptedPfxBlob($n->getBinaryContent()); },
-            'encryptedPfxPassword' => function (ParseNode $n) use ($o) { $o->setEncryptedPfxPassword($n->getStringValue()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'intendedPurpose' => function (ParseNode $n) use ($o) { $o->setIntendedPurpose($n->getEnumValue(UserPfxIntendedPurpose::class)); },
-            'keyName' => function (ParseNode $n) use ($o) { $o->setKeyName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'paddingScheme' => function (ParseNode $n) use ($o) { $o->setPaddingScheme($n->getEnumValue(UserPfxPaddingScheme::class)); },
-            'providerName' => function (ParseNode $n) use ($o) { $o->setProviderName($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'thumbprint' => function (ParseNode $n) use ($o) { $o->setThumbprint($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'encryptedPfxBlob' => function (self $o, ParseNode $n) { $o->setEncryptedPfxBlob($n->getBinaryContent()); },
+            'encryptedPfxPassword' => function (self $o, ParseNode $n) { $o->setEncryptedPfxPassword($n->getStringValue()); },
+            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'intendedPurpose' => function (self $o, ParseNode $n) { $o->setIntendedPurpose($n->getEnumValue(UserPfxIntendedPurpose::class)); },
+            'keyName' => function (self $o, ParseNode $n) { $o->setKeyName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'paddingScheme' => function (self $o, ParseNode $n) { $o->setPaddingScheme($n->getEnumValue(UserPfxPaddingScheme::class)); },
+            'providerName' => function (self $o, ParseNode $n) { $o->setProviderName($n->getStringValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'thumbprint' => function (self $o, ParseNode $n) { $o->setThumbprint($n->getStringValue()); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

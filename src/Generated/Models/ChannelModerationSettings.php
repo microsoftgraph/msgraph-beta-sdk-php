@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ChannelModerationSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $allowNewMessageFromBots Indicates whether bots are allowed to post messages.
-    */
+    /** @var bool|null $allowNewMessageFromBots Indicates whether bots are allowed to post messages. */
     private ?bool $allowNewMessageFromBots = null;
     
-    /**
-     * @var bool|null $allowNewMessageFromConnectors Indicates whether connectors are allowed to post messages.
-    */
+    /** @var bool|null $allowNewMessageFromConnectors Indicates whether connectors are allowed to post messages. */
     private ?bool $allowNewMessageFromConnectors = null;
     
-    /**
-     * @var ReplyRestriction|null $replyRestriction Indicates who is allowed to reply to the teams channel. Possible values are: everyone, authorAndModerators, unknownFutureValue.
-    */
+    /** @var ReplyRestriction|null $replyRestriction Indicates who is allowed to reply to the teams channel. Possible values are: everyone, authorAndModerators, unknownFutureValue. */
     private ?ReplyRestriction $replyRestriction = null;
     
-    /**
-     * @var UserNewMessageRestriction|null $userNewMessageRestriction Indicates who is allowed to post messages to teams channel. Possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue.
-    */
+    /** @var UserNewMessageRestriction|null $userNewMessageRestriction Indicates who is allowed to post messages to teams channel. Possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue. */
     private ?UserNewMessageRestriction $userNewMessageRestriction = null;
     
     /**
@@ -46,7 +36,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ChannelModerationSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ChannelModerationSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ChannelModerationSettings {
         return new ChannelModerationSettings();
     }
 
@@ -79,12 +69,11 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'allowNewMessageFromBots' => function (ParseNode $n) use ($o) { $o->setAllowNewMessageFromBots($n->getBooleanValue()); },
-            'allowNewMessageFromConnectors' => function (ParseNode $n) use ($o) { $o->setAllowNewMessageFromConnectors($n->getBooleanValue()); },
-            'replyRestriction' => function (ParseNode $n) use ($o) { $o->setReplyRestriction($n->getEnumValue(ReplyRestriction::class)); },
-            'userNewMessageRestriction' => function (ParseNode $n) use ($o) { $o->setUserNewMessageRestriction($n->getEnumValue(UserNewMessageRestriction::class)); },
+            'allowNewMessageFromBots' => function (self $o, ParseNode $n) { $o->setAllowNewMessageFromBots($n->getBooleanValue()); },
+            'allowNewMessageFromConnectors' => function (self $o, ParseNode $n) { $o->setAllowNewMessageFromConnectors($n->getBooleanValue()); },
+            'replyRestriction' => function (self $o, ParseNode $n) { $o->setReplyRestriction($n->getEnumValue(ReplyRestriction::class)); },
+            'userNewMessageRestriction' => function (self $o, ParseNode $n) { $o->setUserNewMessageRestriction($n->getEnumValue(UserNewMessageRestriction::class)); },
         ];
     }
 

@@ -9,7 +9,6 @@ class DeviceManagementConfigurationTechnologies extends Enum {
     public const MDM = 'mdm';
     public const WINDOWS10_X_MANAGEMENT = 'windows10XManagement';
     public const CONFIG_MANAGER = 'configManager';
-    public const APPLE_REMOTE_MANAGEMENT = 'appleRemoteManagement';
     public const MICROSOFT_SENSE = 'microsoftSense';
     public const EXCHANGE_ONLINE = 'exchangeOnline';
     public const LINUX_MDM = 'linuxMdm';

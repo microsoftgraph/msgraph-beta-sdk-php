@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class FederatedIdentityCredential extends Entity implements Parsable 
+class FederatedIdentityCredential extends Entity 
 {
-    /**
-     * @var array<string>|null $audiences Lists the audiences that can appear in the external token. This field is mandatory, and defaults to 'api://AzureADTokenExchange'. It says what Microsoft identity platform should accept in the aud claim in the incoming token. This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your identity provider to serve as the audience of this token. Required.
-    */
+    /** @var array<string>|null $audiences Lists the audiences that can appear in the external token. This field is mandatory, and defaults to 'api://AzureADTokenExchange'. It says what Microsoft identity platform should accept in the aud claim in the incoming token. This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your identity provider to serve as the audience of this token. Required. */
     private ?array $audiences = null;
     
-    /**
-     * @var string|null $description The un-validated, user-provided description of the federated identity credential. Optional.
-    */
+    /** @var string|null $description The un-validated, user-provided description of the federated identity credential. Optional. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $issuer The URL of the external identity provider and must match the issuer claim of the external token being exchanged. The combination of the values of issuer and subject must be unique on the app. Required.
-    */
+    /** @var string|null $issuer The URL of the external identity provider and must match the issuer claim of the external token being exchanged. The combination of the values of issuer and subject must be unique on the app. Required. */
     private ?string $issuer = null;
     
-    /**
-     * @var string|null $name is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created. Required. Not nullable. Supports $filter (eq).
-    */
+    /** @var string|null $name is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created. Required. Not nullable. Supports $filter (eq). */
     private ?string $name = null;
     
-    /**
-     * @var string|null $subject Required. The identifier of the external software workload within the external identity provider. Like the audience value, it has no fixed format, as each identity provider uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The value here must match the sub claim within the token presented to Azure AD. The combination of issuer and subject must be unique on the app. Supports $filter (eq).
-    */
+    /** @var string|null $subject Required. The identifier of the external software workload within the external identity provider. Like the audience value, it has no fixed format, as each identity provider uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The value here must match the sub claim within the token presented to Azure AD. The combination of issuer and subject must be unique on the app. Supports $filter (eq). */
     private ?string $subject = null;
     
     /**
@@ -45,7 +35,7 @@ class FederatedIdentityCredential extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return FederatedIdentityCredential
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): FederatedIdentityCredential {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): FederatedIdentityCredential {
         return new FederatedIdentityCredential();
     }
 
@@ -70,13 +60,12 @@ class FederatedIdentityCredential extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'audiences' => function (ParseNode $n) use ($o) { $o->setAudiences($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'issuer' => function (ParseNode $n) use ($o) { $o->setIssuer($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
+            'audiences' => function (self $o, ParseNode $n) { $o->setAudiences($n->getCollectionOfPrimitiveValues()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'issuer' => function (self $o, ParseNode $n) { $o->setIssuer($n->getStringValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'subject' => function (self $o, ParseNode $n) { $o->setSubject($n->getStringValue()); },
         ]);
     }
 

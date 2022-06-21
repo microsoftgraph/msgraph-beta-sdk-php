@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EducationSynchronizationError extends Entity implements Parsable 
+class EducationSynchronizationError extends Entity 
 {
-    /**
-     * @var string|null $entryType Represents the sync entity (school, section, student, teacher).
-    */
+    /** @var string|null $entryType Represents the sync entity (school, section, student, teacher). */
     private ?string $entryType = null;
     
-    /**
-     * @var string|null $errorCode Represents the error code for this error.
-    */
+    /** @var string|null $errorCode Represents the error code for this error. */
     private ?string $errorCode = null;
     
-    /**
-     * @var string|null $errorMessage Contains a description of the error.
-    */
+    /** @var string|null $errorMessage Contains a description of the error. */
     private ?string $errorMessage = null;
     
-    /**
-     * @var string|null $joiningValue The unique identifier for the entry.
-    */
+    /** @var string|null $joiningValue The unique identifier for the entry. */
     private ?string $joiningValue = null;
     
-    /**
-     * @var DateTime|null $recordedDateTime The time of occurrence of this error.
-    */
+    /** @var DateTime|null $recordedDateTime The time of occurrence of this error. */
     private ?DateTime $recordedDateTime = null;
     
-    /**
-     * @var string|null $reportableIdentifier The identifier of this error entry.
-    */
+    /** @var string|null $reportableIdentifier The identifier of this error entry. */
     private ?string $reportableIdentifier = null;
     
     /**
@@ -51,7 +39,7 @@ class EducationSynchronizationError extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EducationSynchronizationError
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationSynchronizationError {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EducationSynchronizationError {
         return new EducationSynchronizationError();
     }
 
@@ -84,14 +72,13 @@ class EducationSynchronizationError extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'entryType' => function (ParseNode $n) use ($o) { $o->setEntryType($n->getStringValue()); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getStringValue()); },
-            'errorMessage' => function (ParseNode $n) use ($o) { $o->setErrorMessage($n->getStringValue()); },
-            'joiningValue' => function (ParseNode $n) use ($o) { $o->setJoiningValue($n->getStringValue()); },
-            'recordedDateTime' => function (ParseNode $n) use ($o) { $o->setRecordedDateTime($n->getDateTimeValue()); },
-            'reportableIdentifier' => function (ParseNode $n) use ($o) { $o->setReportableIdentifier($n->getStringValue()); },
+            'entryType' => function (self $o, ParseNode $n) { $o->setEntryType($n->getStringValue()); },
+            'errorCode' => function (self $o, ParseNode $n) { $o->setErrorCode($n->getStringValue()); },
+            'errorMessage' => function (self $o, ParseNode $n) { $o->setErrorMessage($n->getStringValue()); },
+            'joiningValue' => function (self $o, ParseNode $n) { $o->setJoiningValue($n->getStringValue()); },
+            'recordedDateTime' => function (self $o, ParseNode $n) { $o->setRecordedDateTime($n->getDateTimeValue()); },
+            'reportableIdentifier' => function (self $o, ParseNode $n) { $o->setReportableIdentifier($n->getStringValue()); },
         ]);
     }
 

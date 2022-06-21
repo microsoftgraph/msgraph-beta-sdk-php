@@ -6,25 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ItemPhone extends ItemFacet implements Parsable 
+class ItemPhone extends ItemFacet 
 {
-    /**
-     * @var string|null $displayName Friendly name the user has assigned this phone number.
-    */
+    /** @var string|null $displayName Friendly name the user has assigned this phone number. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $number Phone number provided by the user.
-    */
+    /** @var string|null $number Phone number provided by the user. */
     private ?string $number = null;
     
-    /**
-     * @var PhoneType|null $type The type of phone number within the object. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
-    */
+    /** @var PhoneType|null $type The type of phone number within the object. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio. */
     private ?PhoneType $type = null;
     
     /**
-     * Instantiates a new ItemPhone and sets the default values.
+     * Instantiates a new itemPhone and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +29,7 @@ class ItemPhone extends ItemFacet implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ItemPhone
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ItemPhone {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ItemPhone {
         return new ItemPhone();
     }
 
@@ -52,11 +46,10 @@ class ItemPhone extends ItemFacet implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'number' => function (ParseNode $n) use ($o) { $o->setNumber($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(PhoneType::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'number' => function (self $o, ParseNode $n) { $o->setNumber($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(PhoneType::class)); },
         ]);
     }
 

@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ExternalItemContent implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var ExternalItemContentType|null $type The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required.
-    */
+    /** @var ExternalItemContentType|null $type The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed. */
     private ?ExternalItemContentType $type = null;
     
-    /**
-     * @var string|null $value The content for the externalItem. Required.
-    */
+    /** @var string|null $value The content for the externalItem. Required. */
     private ?string $value = null;
     
     /**
@@ -36,7 +30,7 @@ class ExternalItemContent implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExternalItemContent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExternalItemContent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ExternalItemContent {
         return new ExternalItemContent();
     }
 
@@ -53,15 +47,14 @@ class ExternalItemContent implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(ExternalItemContentType::class)); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(ExternalItemContentType::class)); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the type property value. The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required.
+     * Gets the type property value. The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.
      * @return ExternalItemContentType|null
     */
     public function getType(): ?ExternalItemContentType {
@@ -95,7 +88,7 @@ class ExternalItemContent implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the type property value. The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required.
+     * Sets the type property value. The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.
      *  @param ExternalItemContentType|null $value Value to set for the type property.
     */
     public function setType(?ExternalItemContentType $value ): void {

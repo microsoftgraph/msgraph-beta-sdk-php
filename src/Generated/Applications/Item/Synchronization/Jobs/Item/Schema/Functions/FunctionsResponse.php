@@ -10,14 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class FunctionsResponse implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<AttributeMappingFunctionSchema>|null $value The value property
-    */
+    /** @var array<AttributeMappingFunctionSchema>|null $value The value property */
     private ?array $value = null;
     
     /**
@@ -32,7 +28,7 @@ class FunctionsResponse implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return FunctionsResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): FunctionsResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): FunctionsResponse {
         return new FunctionsResponse();
     }
 
@@ -49,9 +45,8 @@ class FunctionsResponse implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(AttributeMappingFunctionSchema::class, 'createFromDiscriminatorValue'))); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfObjectValues(AttributeMappingFunctionSchema::class)); },
         ];
     }
 

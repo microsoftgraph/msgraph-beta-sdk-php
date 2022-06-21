@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SearchSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<DisplayTemplate>|null $searchResultTemplates Enables the developer to define the appearance of the content and configure conditions that dictate when the template should be displayed.
-    */
+    /** @var array<DisplayTemplate>|null $searchResultTemplates Enables the developer to define the appearance of the content and configure conditions that dictate when the template should be displayed. */
     private ?array $searchResultTemplates = null;
     
     /**
@@ -31,7 +27,7 @@ class SearchSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SearchSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SearchSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SearchSettings {
         return new SearchSettings();
     }
 
@@ -48,9 +44,8 @@ class SearchSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'searchResultTemplates' => function (ParseNode $n) use ($o) { $o->setSearchResultTemplates($n->getCollectionOfObjectValues(array(DisplayTemplate::class, 'createFromDiscriminatorValue'))); },
+            'searchResultTemplates' => function (self $o, ParseNode $n) { $o->setSearchResultTemplates($n->getCollectionOfObjectValues(DisplayTemplate::class)); },
         ];
     }
 

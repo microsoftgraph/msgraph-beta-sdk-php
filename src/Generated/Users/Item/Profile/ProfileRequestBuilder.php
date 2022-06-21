@@ -139,9 +139,7 @@ class ProfileRequestBuilder
         return new PatentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
+    /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
     /**
@@ -172,9 +170,7 @@ class ProfileRequestBuilder
         return new PublicationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
+    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -184,9 +180,7 @@ class ProfileRequestBuilder
         return new SkillsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
+    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
     /**
@@ -210,7 +204,7 @@ class ProfileRequestBuilder
     */
     public function accountById(string $id): UserAccountInformationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['userAccountInformation%2Did'] = $id;
+        $urlTplParams['userAccountInformation_id'] = $id;
         return new UserAccountInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -221,7 +215,7 @@ class ProfileRequestBuilder
     */
     public function addressesById(string $id): ItemAddressItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemAddress%2Did'] = $id;
+        $urlTplParams['itemAddress_id'] = $id;
         return new ItemAddressItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -232,7 +226,7 @@ class ProfileRequestBuilder
     */
     public function anniversariesById(string $id): PersonAnnualEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['personAnnualEvent%2Did'] = $id;
+        $urlTplParams['personAnnualEvent_id'] = $id;
         return new PersonAnnualEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -243,7 +237,7 @@ class ProfileRequestBuilder
     */
     public function awardsById(string $id): PersonAwardItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['personAward%2Did'] = $id;
+        $urlTplParams['personAward_id'] = $id;
         return new PersonAwardItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -254,7 +248,7 @@ class ProfileRequestBuilder
     */
     public function certificationsById(string $id): PersonCertificationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['personCertification%2Did'] = $id;
+        $urlTplParams['personCertification_id'] = $id;
         return new PersonCertificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -264,53 +258,51 @@ class ProfileRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/users/{user%2Did}/profile{?%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/users/{user_id}/profile{?select,expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Delete navigation property profile for users
-     * @param ProfileRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createDeleteRequestInformation(?ProfileRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createDeleteRequestInformation(?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
 
     /**
      * Represents properties that are descriptive of a user in a tenant.
-     * @param ProfileRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?ProfileRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->queryParameters !== null) {
-                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($queryParameters !== null) {
+            $requestInfo->setQueryParameters($queryParameters);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
@@ -318,40 +310,36 @@ class ProfileRequestBuilder
     /**
      * Update the navigation property profile in users
      * @param Profile $body 
-     * @param ProfileRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(Profile $body, ?ProfileRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createPatchRequestInformation(Profile $body, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
+        }
         return $requestInfo;
     }
 
     /**
      * Delete navigation property profile for users
-     * @param ProfileRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?ProfileRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createDeleteRequestInformation($requestConfiguration);
+    public function delete(?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createDeleteRequestInformation($headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -364,7 +352,7 @@ class ProfileRequestBuilder
     */
     public function educationalActivitiesById(string $id): EducationalActivityItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['educationalActivity%2Did'] = $id;
+        $urlTplParams['educationalActivity_id'] = $id;
         return new EducationalActivityItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -375,24 +363,22 @@ class ProfileRequestBuilder
     */
     public function emailsById(string $id): ItemEmailItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemEmail%2Did'] = $id;
+        $urlTplParams['itemEmail_id'] = $id;
         return new ItemEmailItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Represents properties that are descriptive of a user in a tenant.
-     * @param ProfileRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ProfileRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
+    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(Profile::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, Profile::class, $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -405,7 +391,7 @@ class ProfileRequestBuilder
     */
     public function interestsById(string $id): PersonInterestItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['personInterest%2Did'] = $id;
+        $urlTplParams['personInterest_id'] = $id;
         return new PersonInterestItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -416,7 +402,7 @@ class ProfileRequestBuilder
     */
     public function languagesById(string $id): LanguageProficiencyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['languageProficiency%2Did'] = $id;
+        $urlTplParams['languageProficiency_id'] = $id;
         return new LanguageProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -427,7 +413,7 @@ class ProfileRequestBuilder
     */
     public function namesById(string $id): PersonNameItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['personName%2Did'] = $id;
+        $urlTplParams['personName_id'] = $id;
         return new PersonNameItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -438,25 +424,22 @@ class ProfileRequestBuilder
     */
     public function notesById(string $id): PersonAnnotationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['personAnnotation%2Did'] = $id;
+        $urlTplParams['personAnnotation_id'] = $id;
         return new PersonAnnotationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property profile in users
      * @param Profile $body 
-     * @param ProfileRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Profile $body, ?ProfileRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
+    public function patch(Profile $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -469,7 +452,7 @@ class ProfileRequestBuilder
     */
     public function patentsById(string $id): ItemPatentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemPatent%2Did'] = $id;
+        $urlTplParams['itemPatent_id'] = $id;
         return new ItemPatentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -480,7 +463,7 @@ class ProfileRequestBuilder
     */
     public function phonesById(string $id): ItemPhoneItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemPhone%2Did'] = $id;
+        $urlTplParams['itemPhone_id'] = $id;
         return new ItemPhoneItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -491,7 +474,7 @@ class ProfileRequestBuilder
     */
     public function positionsById(string $id): WorkPositionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['workPosition%2Did'] = $id;
+        $urlTplParams['workPosition_id'] = $id;
         return new WorkPositionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -502,7 +485,7 @@ class ProfileRequestBuilder
     */
     public function projectsById(string $id): ProjectParticipationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['projectParticipation%2Did'] = $id;
+        $urlTplParams['projectParticipation_id'] = $id;
         return new ProjectParticipationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -513,7 +496,7 @@ class ProfileRequestBuilder
     */
     public function publicationsById(string $id): ItemPublicationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['itemPublication%2Did'] = $id;
+        $urlTplParams['itemPublication_id'] = $id;
         return new ItemPublicationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -524,7 +507,7 @@ class ProfileRequestBuilder
     */
     public function skillsById(string $id): SkillProficiencyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['skillProficiency%2Did'] = $id;
+        $urlTplParams['skillProficiency_id'] = $id;
         return new SkillProficiencyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -535,7 +518,7 @@ class ProfileRequestBuilder
     */
     public function webAccountsById(string $id): WebAccountItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['webAccount%2Did'] = $id;
+        $urlTplParams['webAccount_id'] = $id;
         return new WebAccountItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -546,7 +529,7 @@ class ProfileRequestBuilder
     */
     public function websitesById(string $id): PersonWebsiteItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['personWebsite%2Did'] = $id;
+        $urlTplParams['personWebsite_id'] = $id;
         return new PersonWebsiteItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

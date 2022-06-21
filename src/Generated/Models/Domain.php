@@ -6,86 +6,54 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Domain extends Entity implements Parsable 
+class Domain extends Entity 
 {
-    /**
-     * @var string|null $authenticationType Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable.
-    */
+    /** @var string|null $authenticationType Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable. */
     private ?string $authenticationType = null;
     
-    /**
-     * @var string|null $availabilityStatus This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled.
-    */
+    /** @var string|null $availabilityStatus This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled. */
     private ?string $availabilityStatus = null;
     
-    /**
-     * @var array<DirectoryObject>|null $domainNameReferences The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
-    */
+    /** @var array<DirectoryObject>|null $domainNameReferences Read-only, Nullable */
     private ?array $domainNameReferences = null;
     
-    /**
-     * @var array<InternalDomainFederation>|null $federationConfiguration Domain settings configured by customer when federated with Azure AD. Supports $expand.
-    */
+    /** @var array<InternalDomainFederation>|null $federationConfiguration The federationConfiguration property */
     private ?array $federationConfiguration = null;
     
-    /**
-     * @var bool|null $isAdminManaged The value of the property is false if the DNS record management of the domain has been delegated to Microsoft 365. Otherwise, the value is true. Not nullable
-    */
+    /** @var bool|null $isAdminManaged The value of the property is false if the DNS record management of the domain has been delegated to Microsoft 365. Otherwise, the value is true. Not nullable */
     private ?bool $isAdminManaged = null;
     
-    /**
-     * @var bool|null $isDefault true if this is the default domain that is used for user creation. There is only one default domain per company. Not nullable
-    */
+    /** @var bool|null $isDefault true if this is the default domain that is used for user creation. There is only one default domain per company. Not nullable */
     private ?bool $isDefault = null;
     
-    /**
-     * @var bool|null $isInitial true if this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company. Not nullable
-    */
+    /** @var bool|null $isInitial true if this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company. Not nullable */
     private ?bool $isInitial = null;
     
-    /**
-     * @var bool|null $isRoot true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable
-    */
+    /** @var bool|null $isRoot true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable */
     private ?bool $isRoot = null;
     
-    /**
-     * @var bool|null $isVerified true if the domain has completed domain ownership verification. Not nullable
-    */
+    /** @var bool|null $isVerified true if the domain has completed domain ownership verification. Not nullable */
     private ?bool $isVerified = null;
     
-    /**
-     * @var int|null $passwordNotificationWindowInDays Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used.
-    */
+    /** @var int|null $passwordNotificationWindowInDays Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used. */
     private ?int $passwordNotificationWindowInDays = null;
     
-    /**
-     * @var int|null $passwordValidityPeriodInDays Specifies the length of time that a password is valid before it must be changed. If the property is not set, a default value of 90 days will be used.
-    */
+    /** @var int|null $passwordValidityPeriodInDays Specifies the length of time that a password is valid before it must be changed. If the property is not set, a default value of 90 days will be used. */
     private ?int $passwordValidityPeriodInDays = null;
     
-    /**
-     * @var array<DomainDnsRecord>|null $serviceConfigurationRecords DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
-    */
+    /** @var array<DomainDnsRecord>|null $serviceConfigurationRecords DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable */
     private ?array $serviceConfigurationRecords = null;
     
-    /**
-     * @var array<SharedEmailDomainInvitation>|null $sharedEmailDomainInvitations The sharedEmailDomainInvitations property
-    */
+    /** @var array<SharedEmailDomainInvitation>|null $sharedEmailDomainInvitations The sharedEmailDomainInvitations property */
     private ?array $sharedEmailDomainInvitations = null;
     
-    /**
-     * @var DomainState|null $state Status of asynchronous operations scheduled for the domain.
-    */
+    /** @var DomainState|null $state Status of asynchronous operations scheduled for the domain. */
     private ?DomainState $state = null;
     
-    /**
-     * @var array<string>|null $supportedServices The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
-    */
+    /** @var array<string>|null $supportedServices The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable */
     private ?array $supportedServices = null;
     
-    /**
-     * @var array<DomainDnsRecord>|null $verificationDnsRecords DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand.
-    */
+    /** @var array<DomainDnsRecord>|null $verificationDnsRecords DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable */
     private ?array $verificationDnsRecords = null;
     
     /**
@@ -100,7 +68,7 @@ class Domain extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Domain
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Domain {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Domain {
         return new Domain();
     }
 
@@ -121,7 +89,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
+     * Gets the domainNameReferences property value. Read-only, Nullable
      * @return array<DirectoryObject>|null
     */
     public function getDomainNameReferences(): ?array {
@@ -129,7 +97,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the federationConfiguration property value. Domain settings configured by customer when federated with Azure AD. Supports $expand.
+     * Gets the federationConfiguration property value. The federationConfiguration property
      * @return array<InternalDomainFederation>|null
     */
     public function getFederationConfiguration(): ?array {
@@ -141,24 +109,23 @@ class Domain extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationType' => function (ParseNode $n) use ($o) { $o->setAuthenticationType($n->getStringValue()); },
-            'availabilityStatus' => function (ParseNode $n) use ($o) { $o->setAvailabilityStatus($n->getStringValue()); },
-            'domainNameReferences' => function (ParseNode $n) use ($o) { $o->setDomainNameReferences($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'federationConfiguration' => function (ParseNode $n) use ($o) { $o->setFederationConfiguration($n->getCollectionOfObjectValues(array(InternalDomainFederation::class, 'createFromDiscriminatorValue'))); },
-            'isAdminManaged' => function (ParseNode $n) use ($o) { $o->setIsAdminManaged($n->getBooleanValue()); },
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'isInitial' => function (ParseNode $n) use ($o) { $o->setIsInitial($n->getBooleanValue()); },
-            'isRoot' => function (ParseNode $n) use ($o) { $o->setIsRoot($n->getBooleanValue()); },
-            'isVerified' => function (ParseNode $n) use ($o) { $o->setIsVerified($n->getBooleanValue()); },
-            'passwordNotificationWindowInDays' => function (ParseNode $n) use ($o) { $o->setPasswordNotificationWindowInDays($n->getIntegerValue()); },
-            'passwordValidityPeriodInDays' => function (ParseNode $n) use ($o) { $o->setPasswordValidityPeriodInDays($n->getIntegerValue()); },
-            'serviceConfigurationRecords' => function (ParseNode $n) use ($o) { $o->setServiceConfigurationRecords($n->getCollectionOfObjectValues(array(DomainDnsRecord::class, 'createFromDiscriminatorValue'))); },
-            'sharedEmailDomainInvitations' => function (ParseNode $n) use ($o) { $o->setSharedEmailDomainInvitations($n->getCollectionOfObjectValues(array(SharedEmailDomainInvitation::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getObjectValue(array(DomainState::class, 'createFromDiscriminatorValue'))); },
-            'supportedServices' => function (ParseNode $n) use ($o) { $o->setSupportedServices($n->getCollectionOfPrimitiveValues()); },
-            'verificationDnsRecords' => function (ParseNode $n) use ($o) { $o->setVerificationDnsRecords($n->getCollectionOfObjectValues(array(DomainDnsRecord::class, 'createFromDiscriminatorValue'))); },
+            'authenticationType' => function (self $o, ParseNode $n) { $o->setAuthenticationType($n->getStringValue()); },
+            'availabilityStatus' => function (self $o, ParseNode $n) { $o->setAvailabilityStatus($n->getStringValue()); },
+            'domainNameReferences' => function (self $o, ParseNode $n) { $o->setDomainNameReferences($n->getCollectionOfObjectValues(DirectoryObject::class)); },
+            'federationConfiguration' => function (self $o, ParseNode $n) { $o->setFederationConfiguration($n->getCollectionOfObjectValues(InternalDomainFederation::class)); },
+            'isAdminManaged' => function (self $o, ParseNode $n) { $o->setIsAdminManaged($n->getBooleanValue()); },
+            'isDefault' => function (self $o, ParseNode $n) { $o->setIsDefault($n->getBooleanValue()); },
+            'isInitial' => function (self $o, ParseNode $n) { $o->setIsInitial($n->getBooleanValue()); },
+            'isRoot' => function (self $o, ParseNode $n) { $o->setIsRoot($n->getBooleanValue()); },
+            'isVerified' => function (self $o, ParseNode $n) { $o->setIsVerified($n->getBooleanValue()); },
+            'passwordNotificationWindowInDays' => function (self $o, ParseNode $n) { $o->setPasswordNotificationWindowInDays($n->getIntegerValue()); },
+            'passwordValidityPeriodInDays' => function (self $o, ParseNode $n) { $o->setPasswordValidityPeriodInDays($n->getIntegerValue()); },
+            'serviceConfigurationRecords' => function (self $o, ParseNode $n) { $o->setServiceConfigurationRecords($n->getCollectionOfObjectValues(DomainDnsRecord::class)); },
+            'sharedEmailDomainInvitations' => function (self $o, ParseNode $n) { $o->setSharedEmailDomainInvitations($n->getCollectionOfObjectValues(SharedEmailDomainInvitation::class)); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getObjectValue(DomainState::class)); },
+            'supportedServices' => function (self $o, ParseNode $n) { $o->setSupportedServices($n->getCollectionOfPrimitiveValues()); },
+            'verificationDnsRecords' => function (self $o, ParseNode $n) { $o->setVerificationDnsRecords($n->getCollectionOfObjectValues(DomainDnsRecord::class)); },
         ]);
     }
 
@@ -219,7 +186,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+     * Gets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable
      * @return array<DomainDnsRecord>|null
     */
     public function getServiceConfigurationRecords(): ?array {
@@ -243,7 +210,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
+     * Gets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
      * @return array<string>|null
     */
     public function getSupportedServices(): ?array {
@@ -251,7 +218,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Gets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand.
+     * Gets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable
      * @return array<DomainDnsRecord>|null
     */
     public function getVerificationDnsRecords(): ?array {
@@ -299,7 +266,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
+     * Sets the domainNameReferences property value. Read-only, Nullable
      *  @param array<DirectoryObject>|null $value Value to set for the domainNameReferences property.
     */
     public function setDomainNameReferences(?array $value ): void {
@@ -307,7 +274,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the federationConfiguration property value. Domain settings configured by customer when federated with Azure AD. Supports $expand.
+     * Sets the federationConfiguration property value. The federationConfiguration property
      *  @param array<InternalDomainFederation>|null $value Value to set for the federationConfiguration property.
     */
     public function setFederationConfiguration(?array $value ): void {
@@ -371,7 +338,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+     * Sets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable
      *  @param array<DomainDnsRecord>|null $value Value to set for the serviceConfigurationRecords property.
     */
     public function setServiceConfigurationRecords(?array $value ): void {
@@ -395,7 +362,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
+     * Sets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
      *  @param array<string>|null $value Value to set for the supportedServices property.
     */
     public function setSupportedServices(?array $value ): void {
@@ -403,7 +370,7 @@ class Domain extends Entity implements Parsable
     }
 
     /**
-     * Sets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand.
+     * Sets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable
      *  @param array<DomainDnsRecord>|null $value Value to set for the verificationDnsRecords property.
     */
     public function setVerificationDnsRecords(?array $value ): void {

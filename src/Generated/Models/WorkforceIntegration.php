@@ -6,50 +6,34 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkforceIntegration extends ChangeTrackedEntity implements Parsable 
+class WorkforceIntegration extends ChangeTrackedEntity 
 {
-    /**
-     * @var int|null $apiVersion API version for the call back URL. Start with 1.
-    */
+    /** @var int|null $apiVersion API version for the call back URL. Start with 1. */
     private ?int $apiVersion = null;
     
-    /**
-     * @var string|null $displayName Name of the workforce integration.
-    */
+    /** @var string|null $displayName Name of the workforce integration. */
     private ?string $displayName = null;
     
-    /**
-     * @var EligibilityFilteringEnabledEntities|null $eligibilityFilteringEnabledEntities The eligibilityFilteringEnabledEntities property
-    */
+    /** @var EligibilityFilteringEnabledEntities|null $eligibilityFilteringEnabledEntities The eligibilityFilteringEnabledEntities property */
     private ?EligibilityFilteringEnabledEntities $eligibilityFilteringEnabledEntities = null;
     
-    /**
-     * @var WorkforceIntegrationEncryption|null $encryption The workforce integration encryption resource.
-    */
+    /** @var WorkforceIntegrationEncryption|null $encryption The workforce integration encryption resource. */
     private ?WorkforceIntegrationEncryption $encryption = null;
     
-    /**
-     * @var bool|null $isActive Indicates whether this workforce integration is currently active and available.
-    */
+    /** @var bool|null $isActive Indicates whether this workforce integration is currently active and available. */
     private ?bool $isActive = null;
     
-    /**
-     * @var WorkforceIntegrationSupportedEntities|null $supportedEntities This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
-    */
+    /** @var WorkforceIntegrationSupportedEntities|null $supportedEntities The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue. */
     private ?WorkforceIntegrationSupportedEntities $supportedEntities = null;
     
-    /**
-     * @var WorkforceIntegrationSupportedEntities|null $supports The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
-    */
+    /** @var WorkforceIntegrationSupportedEntities|null $supports The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase. */
     private ?WorkforceIntegrationSupportedEntities $supports = null;
     
-    /**
-     * @var string|null $url Workforce Integration URL for callbacks from the Shifts service.
-    */
+    /** @var string|null $url Workforce Integration URL for callbacks from the Shifts service. */
     private ?string $url = null;
     
     /**
-     * Instantiates a new WorkforceIntegration and sets the default values.
+     * Instantiates a new workforceIntegration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -60,7 +44,7 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkforceIntegration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkforceIntegration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkforceIntegration {
         return new WorkforceIntegration();
     }
 
@@ -101,16 +85,15 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'apiVersion' => function (ParseNode $n) use ($o) { $o->setApiVersion($n->getIntegerValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'eligibilityFilteringEnabledEntities' => function (ParseNode $n) use ($o) { $o->setEligibilityFilteringEnabledEntities($n->getEnumValue(EligibilityFilteringEnabledEntities::class)); },
-            'encryption' => function (ParseNode $n) use ($o) { $o->setEncryption($n->getObjectValue(array(WorkforceIntegrationEncryption::class, 'createFromDiscriminatorValue'))); },
-            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
-            'supportedEntities' => function (ParseNode $n) use ($o) { $o->setSupportedEntities($n->getEnumValue(WorkforceIntegrationSupportedEntities::class)); },
-            'supports' => function (ParseNode $n) use ($o) { $o->setSupports($n->getEnumValue(WorkforceIntegrationSupportedEntities::class)); },
-            'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
+            'apiVersion' => function (self $o, ParseNode $n) { $o->setApiVersion($n->getIntegerValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'eligibilityFilteringEnabledEntities' => function (self $o, ParseNode $n) { $o->setEligibilityFilteringEnabledEntities($n->getEnumValue(EligibilityFilteringEnabledEntities::class)); },
+            'encryption' => function (self $o, ParseNode $n) { $o->setEncryption($n->getObjectValue(WorkforceIntegrationEncryption::class)); },
+            'isActive' => function (self $o, ParseNode $n) { $o->setIsActive($n->getBooleanValue()); },
+            'supportedEntities' => function (self $o, ParseNode $n) { $o->setSupportedEntities($n->getEnumValue(WorkforceIntegrationSupportedEntities::class)); },
+            'supports' => function (self $o, ParseNode $n) { $o->setSupports($n->getEnumValue(WorkforceIntegrationSupportedEntities::class)); },
+            'url' => function (self $o, ParseNode $n) { $o->setUrl($n->getStringValue()); },
         ]);
     }
 
@@ -123,7 +106,7 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the supportedEntities property value. This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
+     * Gets the supportedEntities property value. The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue.
      * @return WorkforceIntegrationSupportedEntities|null
     */
     public function getSupportedEntities(): ?WorkforceIntegrationSupportedEntities {
@@ -203,7 +186,7 @@ class WorkforceIntegration extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the supportedEntities property value. This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
+     * Sets the supportedEntities property value. The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue.
      *  @param WorkforceIntegrationSupportedEntities|null $value Value to set for the supportedEntities property.
     */
     public function setSupportedEntities(?WorkforceIntegrationSupportedEntities $value ): void {

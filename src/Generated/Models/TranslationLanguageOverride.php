@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TranslationLanguageOverride implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $languageTag The language to apply the override.Returned by default. Not nullable.
-    */
+    /** @var string|null $languageTag The language to apply the override.Returned by default. Not nullable. */
     private ?string $languageTag = null;
     
-    /**
-     * @var TranslationBehavior|null $translationBehavior The translation override behavior for the language, if any.Returned by default. Not nullable.
-    */
+    /** @var TranslationBehavior|null $translationBehavior The translation override behavior for the language, if any.Returned by default. Not nullable. */
     private ?TranslationBehavior $translationBehavior = null;
     
     /**
@@ -36,7 +30,7 @@ class TranslationLanguageOverride implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TranslationLanguageOverride
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TranslationLanguageOverride {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TranslationLanguageOverride {
         return new TranslationLanguageOverride();
     }
 
@@ -53,10 +47,9 @@ class TranslationLanguageOverride implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'languageTag' => function (ParseNode $n) use ($o) { $o->setLanguageTag($n->getStringValue()); },
-            'translationBehavior' => function (ParseNode $n) use ($o) { $o->setTranslationBehavior($n->getEnumValue(TranslationBehavior::class)); },
+            'languageTag' => function (self $o, ParseNode $n) { $o->setLanguageTag($n->getStringValue()); },
+            'translationBehavior' => function (self $o, ParseNode $n) { $o->setTranslationBehavior($n->getEnumValue(TranslationBehavior::class)); },
         ];
     }
 

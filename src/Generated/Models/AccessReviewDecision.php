@@ -7,51 +7,33 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessReviewDecision extends Entity implements Parsable 
+class AccessReviewDecision extends Entity 
 {
-    /**
-     * @var string|null $accessRecommendation The feature- generated recommendation shown to the reviewer, one of Approve, Deny or NotAvailable.
-    */
+    /** @var string|null $accessRecommendation The feature- generated recommendation shown to the reviewer, one of Approve, Deny or NotAvailable. */
     private ?string $accessRecommendation = null;
     
-    /**
-     * @var string|null $accessReviewId The feature-generated id of the access review.
-    */
+    /** @var string|null $accessReviewId The feature-generated id of the access review. */
     private ?string $accessReviewId = null;
     
-    /**
-     * @var UserIdentity|null $appliedBy When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was auto-applied, the userPrincipalName is empty.
-    */
+    /** @var UserIdentity|null $appliedBy When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was auto-applied, the userPrincipalName is empty. */
     private ?UserIdentity $appliedBy = null;
     
-    /**
-     * @var DateTime|null $appliedDateTime The date and time when the review decision was applied.
-    */
+    /** @var DateTime|null $appliedDateTime The date and time when the review decision was applied. */
     private ?DateTime $appliedDateTime = null;
     
-    /**
-     * @var string|null $applyResult The outcome of applying the decision, one of NotApplied, Success, Failed, NotFound or NotSupported.
-    */
+    /** @var string|null $applyResult The outcome of applying the decision, one of NotApplied, Success, Failed, NotFound or NotSupported. */
     private ?string $applyResult = null;
     
-    /**
-     * @var string|null $justification The reviewer's business justification, if supplied.
-    */
+    /** @var string|null $justification The reviewer's business justification, if supplied. */
     private ?string $justification = null;
     
-    /**
-     * @var UserIdentity|null $reviewedBy The identity of the reviewer. If the recommendation was used as the review, the userPrincipalName is empty.
-    */
+    /** @var UserIdentity|null $reviewedBy The identity of the reviewer. If the recommendation was used as the review, the userPrincipalName is empty. */
     private ?UserIdentity $reviewedBy = null;
     
-    /**
-     * @var DateTime|null $reviewedDateTime The reviewedDateTime property
-    */
+    /** @var DateTime|null $reviewedDateTime The reviewedDateTime property */
     private ?DateTime $reviewedDateTime = null;
     
-    /**
-     * @var string|null $reviewResult The result of the review, one of NotReviewed, Deny, DontKnow or Approve.
-    */
+    /** @var string|null $reviewResult The result of the review, one of NotReviewed, Deny, DontKnow or Approve. */
     private ?string $reviewResult = null;
     
     /**
@@ -66,7 +48,7 @@ class AccessReviewDecision extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessReviewDecision
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewDecision {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewDecision {
         return new AccessReviewDecision();
     }
 
@@ -115,17 +97,16 @@ class AccessReviewDecision extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessRecommendation' => function (ParseNode $n) use ($o) { $o->setAccessRecommendation($n->getStringValue()); },
-            'accessReviewId' => function (ParseNode $n) use ($o) { $o->setAccessReviewId($n->getStringValue()); },
-            'appliedBy' => function (ParseNode $n) use ($o) { $o->setAppliedBy($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
-            'appliedDateTime' => function (ParseNode $n) use ($o) { $o->setAppliedDateTime($n->getDateTimeValue()); },
-            'applyResult' => function (ParseNode $n) use ($o) { $o->setApplyResult($n->getStringValue()); },
-            'justification' => function (ParseNode $n) use ($o) { $o->setJustification($n->getStringValue()); },
-            'reviewedBy' => function (ParseNode $n) use ($o) { $o->setReviewedBy($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
-            'reviewedDateTime' => function (ParseNode $n) use ($o) { $o->setReviewedDateTime($n->getDateTimeValue()); },
-            'reviewResult' => function (ParseNode $n) use ($o) { $o->setReviewResult($n->getStringValue()); },
+            'accessRecommendation' => function (self $o, ParseNode $n) { $o->setAccessRecommendation($n->getStringValue()); },
+            'accessReviewId' => function (self $o, ParseNode $n) { $o->setAccessReviewId($n->getStringValue()); },
+            'appliedBy' => function (self $o, ParseNode $n) { $o->setAppliedBy($n->getObjectValue(UserIdentity::class)); },
+            'appliedDateTime' => function (self $o, ParseNode $n) { $o->setAppliedDateTime($n->getDateTimeValue()); },
+            'applyResult' => function (self $o, ParseNode $n) { $o->setApplyResult($n->getStringValue()); },
+            'justification' => function (self $o, ParseNode $n) { $o->setJustification($n->getStringValue()); },
+            'reviewedBy' => function (self $o, ParseNode $n) { $o->setReviewedBy($n->getObjectValue(UserIdentity::class)); },
+            'reviewedDateTime' => function (self $o, ParseNode $n) { $o->setReviewedDateTime($n->getDateTimeValue()); },
+            'reviewResult' => function (self $o, ParseNode $n) { $o->setReviewResult($n->getStringValue()); },
         ]);
     }
 

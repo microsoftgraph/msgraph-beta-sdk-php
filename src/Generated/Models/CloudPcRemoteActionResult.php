@@ -10,44 +10,28 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var string|null $actionName The specified action. Supported values in the Microsoft Endpoint Manager portal are: Reprovision, Resize, Restore. Supported values in enterprise Cloud PC devices are: Reboot, Rename, Reprovision, Troubleshoot.
-    */
+    /** @var string|null $actionName The specified action. Supported values in the Microsoft Endpoint Manager portal are: Reprovision, Resize, Restore. Supported values in enterprise Cloud PC devices are: Reboot, Rename, Reprovision, Troubleshoot. */
     private ?string $actionName = null;
     
-    /**
-     * @var ActionState|null $actionState State of the action. Possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only.
-    */
+    /** @var ActionState|null $actionState State of the action. Possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only. */
     private ?ActionState $actionState = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $cloudPcId The ID of the Cloud PC device on which the remote action is performed. Read-only.
-    */
+    /** @var string|null $cloudPcId The ID of the Cloud PC device on which the remote action is performed. Read-only. */
     private ?string $cloudPcId = null;
     
-    /**
-     * @var DateTime|null $lastUpdatedDateTime Last update time for action. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
-    */
+    /** @var DateTime|null $lastUpdatedDateTime Last update time for action. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'. */
     private ?DateTime $lastUpdatedDateTime = null;
     
-    /**
-     * @var string|null $managedDeviceId The ID of the Intune managed device on which the remote action is performed. Read-only.
-    */
+    /** @var string|null $managedDeviceId The ID of the Intune managed device on which the remote action is performed. Read-only. */
     private ?string $managedDeviceId = null;
     
-    /**
-     * @var DateTime|null $startDateTime Time the action was initiated. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
-    */
+    /** @var DateTime|null $startDateTime Time the action was initiated. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'. */
     private ?DateTime $startDateTime = null;
     
-    /**
-     * @var CloudPcStatusDetails|null $statusDetails The details of the Cloud PC status.
-    */
+    /** @var CloudPcStatusDetails|null $statusDetails The details of the Cloud PC status. */
     private ?CloudPcStatusDetails $statusDetails = null;
     
     /**
@@ -62,7 +46,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcRemoteActionResult
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcRemoteActionResult {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcRemoteActionResult {
         return new CloudPcRemoteActionResult();
     }
 
@@ -103,15 +87,14 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'actionName' => function (ParseNode $n) use ($o) { $o->setActionName($n->getStringValue()); },
-            'actionState' => function (ParseNode $n) use ($o) { $o->setActionState($n->getEnumValue(ActionState::class)); },
-            'cloudPcId' => function (ParseNode $n) use ($o) { $o->setCloudPcId($n->getStringValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'statusDetails' => function (ParseNode $n) use ($o) { $o->setStatusDetails($n->getObjectValue(array(CloudPcStatusDetails::class, 'createFromDiscriminatorValue'))); },
+            'actionName' => function (self $o, ParseNode $n) { $o->setActionName($n->getStringValue()); },
+            'actionState' => function (self $o, ParseNode $n) { $o->setActionState($n->getEnumValue(ActionState::class)); },
+            'cloudPcId' => function (self $o, ParseNode $n) { $o->setCloudPcId($n->getStringValue()); },
+            'lastUpdatedDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
+            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'statusDetails' => function (self $o, ParseNode $n) { $o->setStatusDetails($n->getObjectValue(CloudPcStatusDetails::class)); },
         ];
     }
 

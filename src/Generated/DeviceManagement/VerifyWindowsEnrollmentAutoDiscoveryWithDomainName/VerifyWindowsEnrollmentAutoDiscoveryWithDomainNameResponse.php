@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $value The value property
-    */
+    /** @var bool|null $value The value property */
     private ?bool $value = null;
     
     /**
@@ -31,7 +27,7 @@ class VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse implements Addi
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse {
         return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse();
     }
 
@@ -48,9 +44,8 @@ class VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse implements Addi
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getBooleanValue()); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getBooleanValue()); },
         ];
     }
 

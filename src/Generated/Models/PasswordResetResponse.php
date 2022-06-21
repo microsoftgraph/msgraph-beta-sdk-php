@@ -9,18 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PasswordResetResponse implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $newPassword The newPassword property
-    */
+    /** @var string|null $newPassword The newPassword property */
     private ?string $newPassword = null;
     
     /**
-     * Instantiates a new PasswordResetResponse and sets the default values.
+     * Instantiates a new passwordResetResponse and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -31,7 +27,7 @@ class PasswordResetResponse implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PasswordResetResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PasswordResetResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PasswordResetResponse {
         return new PasswordResetResponse();
     }
 
@@ -48,9 +44,8 @@ class PasswordResetResponse implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'newPassword' => function (ParseNode $n) use ($o) { $o->setNewPassword($n->getStringValue()); },
+            'newPassword' => function (self $o, ParseNode $n) { $o->setNewPassword($n->getStringValue()); },
         ];
     }
 

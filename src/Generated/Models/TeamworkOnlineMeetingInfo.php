@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $calendarEventId The identifier of the calendar event associated with the meeting.
-    */
+    /** @var string|null $calendarEventId The identifier of the calendar event associated with the meeting. */
     private ?string $calendarEventId = null;
     
-    /**
-     * @var string|null $joinWebUrl The URL which can be clicked on to join or uniquely identify the meeting.
-    */
+    /** @var string|null $joinWebUrl The URL that users click to join or uniquely identify the meeting. */
     private ?string $joinWebUrl = null;
     
-    /**
-     * @var TeamworkUserIdentity|null $organizer The organizer of the meeting.
-    */
+    /** @var TeamworkUserIdentity|null $organizer The organizer of the meeting. */
     private ?TeamworkUserIdentity $organizer = null;
     
     /**
@@ -41,7 +33,7 @@ class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkOnlineMeetingInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkOnlineMeetingInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkOnlineMeetingInfo {
         return new TeamworkOnlineMeetingInfo();
     }
 
@@ -66,16 +58,15 @@ class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'calendarEventId' => function (ParseNode $n) use ($o) { $o->setCalendarEventId($n->getStringValue()); },
-            'joinWebUrl' => function (ParseNode $n) use ($o) { $o->setJoinWebUrl($n->getStringValue()); },
-            'organizer' => function (ParseNode $n) use ($o) { $o->setOrganizer($n->getObjectValue(array(TeamworkUserIdentity::class, 'createFromDiscriminatorValue'))); },
+            'calendarEventId' => function (self $o, ParseNode $n) { $o->setCalendarEventId($n->getStringValue()); },
+            'joinWebUrl' => function (self $o, ParseNode $n) { $o->setJoinWebUrl($n->getStringValue()); },
+            'organizer' => function (self $o, ParseNode $n) { $o->setOrganizer($n->getObjectValue(TeamworkUserIdentity::class)); },
         ];
     }
 
     /**
-     * Gets the joinWebUrl property value. The URL which can be clicked on to join or uniquely identify the meeting.
+     * Gets the joinWebUrl property value. The URL that users click to join or uniquely identify the meeting.
      * @return string|null
     */
     public function getJoinWebUrl(): ?string {
@@ -118,7 +109,7 @@ class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the joinWebUrl property value. The URL which can be clicked on to join or uniquely identify the meeting.
+     * Sets the joinWebUrl property value. The URL that users click to join or uniquely identify the meeting.
      *  @param string|null $value Value to set for the joinWebUrl property.
     */
     public function setJoinWebUrl(?string $value ): void {

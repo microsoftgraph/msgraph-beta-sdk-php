@@ -6,100 +6,64 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IosManagedAppProtection extends TargetedManagedAppProtection implements Parsable 
+class IosManagedAppProtection extends TargetedManagedAppProtection 
 {
-    /**
-     * @var string|null $allowedIosDeviceModels Semicolon seperated list of device models allowed, as a string, for the managed app to work.
-    */
+    /** @var string|null $allowedIosDeviceModels Semicolon seperated list of device models allowed, as a string, for the managed app to work. */
     private ?string $allowedIosDeviceModels = null;
     
-    /**
-     * @var ManagedAppRemediationAction|null $appActionIfIosDeviceModelNotAllowed Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. Possible values are: block, wipe, warn.
-    */
+    /** @var ManagedAppRemediationAction|null $appActionIfIosDeviceModelNotAllowed Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. Possible values are: block, wipe, warn. */
     private ?ManagedAppRemediationAction $appActionIfIosDeviceModelNotAllowed = null;
     
-    /**
-     * @var ManagedAppDataEncryptionType|null $appDataEncryptionType Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
-    */
+    /** @var ManagedAppDataEncryptionType|null $appDataEncryptionType Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
     private ?ManagedAppDataEncryptionType $appDataEncryptionType = null;
     
-    /**
-     * @var array<ManagedMobileApp>|null $apps List of apps to which the policy is deployed.
-    */
+    /** @var array<ManagedMobileApp>|null $apps List of apps to which the policy is deployed. */
     private ?array $apps = null;
     
-    /**
-     * @var string|null $customBrowserProtocol A custom browser protocol to open weblink on iOS.
-    */
+    /** @var string|null $customBrowserProtocol A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. */
     private ?string $customBrowserProtocol = null;
     
-    /**
-     * @var string|null $customDialerAppProtocol Protocol of a custom dialer app to click-to-open a phone number on iOS, for example, skype:.
-    */
+    /** @var string|null $customDialerAppProtocol Protocol of a custom dialer app to click-to-open a phone number on iOS, for example, skype:. */
     private ?string $customDialerAppProtocol = null;
     
-    /**
-     * @var int|null $deployedAppCount Count of apps to which the current policy is deployed.
-    */
+    /** @var int|null $deployedAppCount Count of apps to which the current policy is deployed. */
     private ?int $deployedAppCount = null;
     
-    /**
-     * @var ManagedAppPolicyDeploymentSummary|null $deploymentSummary Navigation property to deployment summary of the configuration.
-    */
+    /** @var ManagedAppPolicyDeploymentSummary|null $deploymentSummary Navigation property to deployment summary of the configuration. */
     private ?ManagedAppPolicyDeploymentSummary $deploymentSummary = null;
     
-    /**
-     * @var bool|null $disableProtectionOfManagedOutboundOpenInData Disable protection of data transferred to other apps through IOS OpenIn option. This setting is only allowed to be True when AllowedOutboundDataTransferDestinations is set to ManagedApps.
-    */
+    /** @var bool|null $disableProtectionOfManagedOutboundOpenInData Disable protection of data transferred to other apps through IOS OpenIn option. This setting is only allowed to be True when AllowedOutboundDataTransferDestinations is set to ManagedApps. */
     private ?bool $disableProtectionOfManagedOutboundOpenInData = null;
     
-    /**
-     * @var array<KeyValuePair>|null $exemptedAppProtocols Apps in this list will be exempt from the policy and will be able to receive data from managed apps.
-    */
+    /** @var array<KeyValuePair>|null $exemptedAppProtocols Apps in this list will be exempt from the policy and will be able to receive data from managed apps. */
     private ?array $exemptedAppProtocols = null;
     
-    /**
-     * @var array<string>|null $exemptedUniversalLinks A list of custom urls that are allowed to invocate an unmanaged app
-    */
+    /** @var array<string>|null $exemptedUniversalLinks A list of custom urls that are allowed to invocate an unmanaged app */
     private ?array $exemptedUniversalLinks = null;
     
-    /**
-     * @var bool|null $faceIdBlocked Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.
-    */
+    /** @var bool|null $faceIdBlocked Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. */
     private ?bool $faceIdBlocked = null;
     
-    /**
-     * @var bool|null $filterOpenInToOnlyManagedApps Defines if open-in operation is supported from the managed app to the filesharing locations selected. This setting only applies when AllowedOutboundDataTransferDestinations is set to ManagedApps and DisableProtectionOfManagedOutboundOpenInData is set to False.
-    */
+    /** @var bool|null $filterOpenInToOnlyManagedApps Defines if open-in operation is supported from the managed app to the filesharing locations selected. This setting only applies when AllowedOutboundDataTransferDestinations is set to ManagedApps and DisableProtectionOfManagedOutboundOpenInData is set to False. */
     private ?bool $filterOpenInToOnlyManagedApps = null;
     
-    /**
-     * @var array<string>|null $managedUniversalLinks A list of custom urls that are allowed to invocate a managed app
-    */
+    /** @var array<string>|null $managedUniversalLinks A list of custom urls that are allowed to invocate a managed app */
     private ?array $managedUniversalLinks = null;
     
-    /**
-     * @var string|null $minimumRequiredSdkVersion Versions less than the specified version will block the managed app from accessing company data.
-    */
+    /** @var string|null $minimumRequiredSdkVersion Versions less than the specified version will block the managed app from accessing company data. */
     private ?string $minimumRequiredSdkVersion = null;
     
-    /**
-     * @var string|null $minimumWipeSdkVersion Versions less than the specified version will block the managed app from accessing company data.
-    */
+    /** @var string|null $minimumWipeSdkVersion Versions less than the specified version will block the managed app from accessing company data. */
     private ?string $minimumWipeSdkVersion = null;
     
-    /**
-     * @var bool|null $protectInboundDataFromUnknownSources Protect incoming data from unknown source. This setting is only allowed to be True when AllowedInboundDataTransferSources is set to AllApps.
-    */
+    /** @var bool|null $protectInboundDataFromUnknownSources Protect incoming data from unknown source. This setting is only allowed to be True when AllowedInboundDataTransferSources is set to AllApps. */
     private ?bool $protectInboundDataFromUnknownSources = null;
     
-    /**
-     * @var bool|null $thirdPartyKeyboardsBlocked Defines if third party keyboards are allowed while accessing a managed app
-    */
+    /** @var bool|null $thirdPartyKeyboardsBlocked Defines if third party keyboards are allowed while accessing a managed app */
     private ?bool $thirdPartyKeyboardsBlocked = null;
     
     /**
-     * Instantiates a new IosManagedAppProtection and sets the default values.
+     * Instantiates a new iosManagedAppProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -110,7 +74,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return IosManagedAppProtection
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): IosManagedAppProtection {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): IosManagedAppProtection {
         return new IosManagedAppProtection();
     }
 
@@ -147,7 +111,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
+     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
      * @return string|null
     */
     public function getCustomBrowserProtocol(): ?string {
@@ -215,26 +179,25 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedIosDeviceModels' => function (ParseNode $n) use ($o) { $o->setAllowedIosDeviceModels($n->getStringValue()); },
-            'appActionIfIosDeviceModelNotAllowed' => function (ParseNode $n) use ($o) { $o->setAppActionIfIosDeviceModelNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)); },
-            'appDataEncryptionType' => function (ParseNode $n) use ($o) { $o->setAppDataEncryptionType($n->getEnumValue(ManagedAppDataEncryptionType::class)); },
-            'apps' => function (ParseNode $n) use ($o) { $o->setApps($n->getCollectionOfObjectValues(array(ManagedMobileApp::class, 'createFromDiscriminatorValue'))); },
-            'customBrowserProtocol' => function (ParseNode $n) use ($o) { $o->setCustomBrowserProtocol($n->getStringValue()); },
-            'customDialerAppProtocol' => function (ParseNode $n) use ($o) { $o->setCustomDialerAppProtocol($n->getStringValue()); },
-            'deployedAppCount' => function (ParseNode $n) use ($o) { $o->setDeployedAppCount($n->getIntegerValue()); },
-            'deploymentSummary' => function (ParseNode $n) use ($o) { $o->setDeploymentSummary($n->getObjectValue(array(ManagedAppPolicyDeploymentSummary::class, 'createFromDiscriminatorValue'))); },
-            'disableProtectionOfManagedOutboundOpenInData' => function (ParseNode $n) use ($o) { $o->setDisableProtectionOfManagedOutboundOpenInData($n->getBooleanValue()); },
-            'exemptedAppProtocols' => function (ParseNode $n) use ($o) { $o->setExemptedAppProtocols($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'exemptedUniversalLinks' => function (ParseNode $n) use ($o) { $o->setExemptedUniversalLinks($n->getCollectionOfPrimitiveValues()); },
-            'faceIdBlocked' => function (ParseNode $n) use ($o) { $o->setFaceIdBlocked($n->getBooleanValue()); },
-            'filterOpenInToOnlyManagedApps' => function (ParseNode $n) use ($o) { $o->setFilterOpenInToOnlyManagedApps($n->getBooleanValue()); },
-            'managedUniversalLinks' => function (ParseNode $n) use ($o) { $o->setManagedUniversalLinks($n->getCollectionOfPrimitiveValues()); },
-            'minimumRequiredSdkVersion' => function (ParseNode $n) use ($o) { $o->setMinimumRequiredSdkVersion($n->getStringValue()); },
-            'minimumWipeSdkVersion' => function (ParseNode $n) use ($o) { $o->setMinimumWipeSdkVersion($n->getStringValue()); },
-            'protectInboundDataFromUnknownSources' => function (ParseNode $n) use ($o) { $o->setProtectInboundDataFromUnknownSources($n->getBooleanValue()); },
-            'thirdPartyKeyboardsBlocked' => function (ParseNode $n) use ($o) { $o->setThirdPartyKeyboardsBlocked($n->getBooleanValue()); },
+            'allowedIosDeviceModels' => function (self $o, ParseNode $n) { $o->setAllowedIosDeviceModels($n->getStringValue()); },
+            'appActionIfIosDeviceModelNotAllowed' => function (self $o, ParseNode $n) { $o->setAppActionIfIosDeviceModelNotAllowed($n->getEnumValue(ManagedAppRemediationAction::class)); },
+            'appDataEncryptionType' => function (self $o, ParseNode $n) { $o->setAppDataEncryptionType($n->getEnumValue(ManagedAppDataEncryptionType::class)); },
+            'apps' => function (self $o, ParseNode $n) { $o->setApps($n->getCollectionOfObjectValues(ManagedMobileApp::class)); },
+            'customBrowserProtocol' => function (self $o, ParseNode $n) { $o->setCustomBrowserProtocol($n->getStringValue()); },
+            'customDialerAppProtocol' => function (self $o, ParseNode $n) { $o->setCustomDialerAppProtocol($n->getStringValue()); },
+            'deployedAppCount' => function (self $o, ParseNode $n) { $o->setDeployedAppCount($n->getIntegerValue()); },
+            'deploymentSummary' => function (self $o, ParseNode $n) { $o->setDeploymentSummary($n->getObjectValue(ManagedAppPolicyDeploymentSummary::class)); },
+            'disableProtectionOfManagedOutboundOpenInData' => function (self $o, ParseNode $n) { $o->setDisableProtectionOfManagedOutboundOpenInData($n->getBooleanValue()); },
+            'exemptedAppProtocols' => function (self $o, ParseNode $n) { $o->setExemptedAppProtocols($n->getCollectionOfObjectValues(KeyValuePair::class)); },
+            'exemptedUniversalLinks' => function (self $o, ParseNode $n) { $o->setExemptedUniversalLinks($n->getCollectionOfPrimitiveValues()); },
+            'faceIdBlocked' => function (self $o, ParseNode $n) { $o->setFaceIdBlocked($n->getBooleanValue()); },
+            'filterOpenInToOnlyManagedApps' => function (self $o, ParseNode $n) { $o->setFilterOpenInToOnlyManagedApps($n->getBooleanValue()); },
+            'managedUniversalLinks' => function (self $o, ParseNode $n) { $o->setManagedUniversalLinks($n->getCollectionOfPrimitiveValues()); },
+            'minimumRequiredSdkVersion' => function (self $o, ParseNode $n) { $o->setMinimumRequiredSdkVersion($n->getStringValue()); },
+            'minimumWipeSdkVersion' => function (self $o, ParseNode $n) { $o->setMinimumWipeSdkVersion($n->getStringValue()); },
+            'protectInboundDataFromUnknownSources' => function (self $o, ParseNode $n) { $o->setProtectInboundDataFromUnknownSources($n->getBooleanValue()); },
+            'thirdPartyKeyboardsBlocked' => function (self $o, ParseNode $n) { $o->setThirdPartyKeyboardsBlocked($n->getBooleanValue()); },
         ]);
     }
 
@@ -345,7 +308,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
+     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
      *  @param string|null $value Value to set for the customBrowserProtocol property.
     */
     public function setCustomBrowserProtocol(?string $value ): void {

@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsable 
+class AndroidManagedStoreAppConfigurationSchema extends Entity 
 {
-    /**
-     * @var StreamInterface|null $exampleJson UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
-    */
+    /** @var StreamInterface|null $exampleJson UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app */
     private ?StreamInterface $exampleJson = null;
     
-    /**
-     * @var array<AndroidManagedStoreAppConfigurationSchemaItem>|null $nestedSchemaItems Collection of items each representing a named configuration option in the schema. It contains a flat list of all configuration.
-    */
+    /** @var array<AndroidManagedStoreAppConfigurationSchemaItem>|null $nestedSchemaItems Collection of items each representing a named configuration option in the schema. It contains a flat list of all configuration. */
     private ?array $nestedSchemaItems = null;
     
-    /**
-     * @var array<AndroidManagedStoreAppConfigurationSchemaItem>|null $schemaItems Collection of items each representing a named configuration option in the schema. It only contains the root-level configuration.
-    */
+    /** @var array<AndroidManagedStoreAppConfigurationSchemaItem>|null $schemaItems Collection of items each representing a named configuration option in the schema. It only contains the root-level configuration. */
     private ?array $schemaItems = null;
     
     /**
@@ -36,7 +30,7 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AndroidManagedStoreAppConfigurationSchema
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidManagedStoreAppConfigurationSchema {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AndroidManagedStoreAppConfigurationSchema {
         return new AndroidManagedStoreAppConfigurationSchema();
     }
 
@@ -53,11 +47,10 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exampleJson' => function (ParseNode $n) use ($o) { $o->setExampleJson($n->getBinaryContent()); },
-            'nestedSchemaItems' => function (ParseNode $n) use ($o) { $o->setNestedSchemaItems($n->getCollectionOfObjectValues(array(AndroidManagedStoreAppConfigurationSchemaItem::class, 'createFromDiscriminatorValue'))); },
-            'schemaItems' => function (ParseNode $n) use ($o) { $o->setSchemaItems($n->getCollectionOfObjectValues(array(AndroidManagedStoreAppConfigurationSchemaItem::class, 'createFromDiscriminatorValue'))); },
+            'exampleJson' => function (self $o, ParseNode $n) { $o->setExampleJson($n->getBinaryContent()); },
+            'nestedSchemaItems' => function (self $o, ParseNode $n) { $o->setNestedSchemaItems($n->getCollectionOfObjectValues(AndroidManagedStoreAppConfigurationSchemaItem::class)); },
+            'schemaItems' => function (self $o, ParseNode $n) { $o->setSchemaItems($n->getCollectionOfObjectValues(AndroidManagedStoreAppConfigurationSchemaItem::class)); },
         ]);
     }
 

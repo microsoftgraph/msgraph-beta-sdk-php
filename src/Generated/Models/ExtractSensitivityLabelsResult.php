@@ -9,18 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ExtractSensitivityLabelsResult implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<SensitivityLabelAssignment>|null $labels List of sensitivity labels assigned to a file.
-    */
+    /** @var array<SensitivityLabelAssignment>|null $labels The labels property */
     private ?array $labels = null;
     
     /**
-     * Instantiates a new ExtractSensitivityLabelsResult and sets the default values.
+     * Instantiates a new extractSensitivityLabelsResult and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -31,7 +27,7 @@ class ExtractSensitivityLabelsResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExtractSensitivityLabelsResult
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExtractSensitivityLabelsResult {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ExtractSensitivityLabelsResult {
         return new ExtractSensitivityLabelsResult();
     }
 
@@ -48,14 +44,13 @@ class ExtractSensitivityLabelsResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'labels' => function (ParseNode $n) use ($o) { $o->setLabels($n->getCollectionOfObjectValues(array(SensitivityLabelAssignment::class, 'createFromDiscriminatorValue'))); },
+            'labels' => function (self $o, ParseNode $n) { $o->setLabels($n->getCollectionOfObjectValues(SensitivityLabelAssignment::class)); },
         ];
     }
 
     /**
-     * Gets the labels property value. List of sensitivity labels assigned to a file.
+     * Gets the labels property value. The labels property
      * @return array<SensitivityLabelAssignment>|null
     */
     public function getLabels(): ?array {
@@ -80,7 +75,7 @@ class ExtractSensitivityLabelsResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the labels property value. List of sensitivity labels assigned to a file.
+     * Sets the labels property value. The labels property
      *  @param array<SensitivityLabelAssignment>|null $value Value to set for the labels property.
     */
     public function setLabels(?array $value ): void {

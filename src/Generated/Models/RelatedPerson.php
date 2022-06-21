@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RelatedPerson implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName Name of the person.
-    */
+    /** @var string|null $displayName Name of the person. */
     private ?string $displayName = null;
     
-    /**
-     * @var PersonRelationship|null $relationship Possible values are: manager, colleague, directReport, dotLineReport, assistant, dotLineManager, alternateContact, friend, spouse, sibling, child, parent, sponsor, emergencyContact, other, unknownFutureValue.
-    */
+    /** @var PersonRelationship|null $relationship Possible values are: manager, colleague, directReport, dotLineReport, assistant, dotLineManager, alternateContact, friend, spouse, sibling, child, parent, sponsor, emergencyContact, other, unknownFutureValue. */
     private ?PersonRelationship $relationship = null;
     
-    /**
-     * @var string|null $userPrincipalName Email address or reference to person within organization.
-    */
+    /** @var string|null $userPrincipalName Email address or reference to person within organization. */
     private ?string $userPrincipalName = null;
     
     /**
@@ -41,7 +33,7 @@ class RelatedPerson implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RelatedPerson
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RelatedPerson {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RelatedPerson {
         return new RelatedPerson();
     }
 
@@ -66,11 +58,10 @@ class RelatedPerson implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'relationship' => function (ParseNode $n) use ($o) { $o->setRelationship($n->getEnumValue(PersonRelationship::class)); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'relationship' => function (self $o, ParseNode $n) { $o->setRelationship($n->getEnumValue(PersonRelationship::class)); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
         ];
     }
 

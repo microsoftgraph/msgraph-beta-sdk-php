@@ -7,56 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyDefinitionFile extends Entity implements Parsable 
+class GroupPolicyDefinitionFile extends Entity 
 {
-    /**
-     * @var array<GroupPolicyDefinition>|null $definitions The group policy definitions associated with the file.
-    */
+    /** @var array<GroupPolicyDefinition>|null $definitions The group policy definitions associated with the file. */
     private ?array $definitions = null;
     
-    /**
-     * @var string|null $description The localized description of the policy settings in the ADMX file. The default value is empty.
-    */
+    /** @var string|null $description The localized description of the policy settings in the ADMX file. The default value is empty. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The localized friendly name of the ADMX file.
-    */
+    /** @var string|null $displayName The localized friendly name of the ADMX file. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $fileName The file name of the ADMX file without the path. For example: edge.admx
-    */
+    /** @var string|null $fileName The file name of the ADMX file without the path. For example: edge.admx */
     private ?string $fileName = null;
     
-    /**
-     * @var array<string>|null $languageCodes The supported language codes for the ADMX file.
-    */
+    /** @var array<string>|null $languageCodes The supported language codes for the ADMX file. */
     private ?array $languageCodes = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var GroupPolicyType|null $policyType Specifies the type of group policy. Possible values are: admxBacked, admxIngested.
-    */
+    /** @var GroupPolicyType|null $policyType Specifies the type of group policy. Possible values are: admxBacked, admxIngested. */
     private ?GroupPolicyType $policyType = null;
     
-    /**
-     * @var string|null $revision The revision version associated with the file.
-    */
+    /** @var string|null $revision The revision version associated with the file. */
     private ?string $revision = null;
     
-    /**
-     * @var string|null $targetNamespace Specifies the URI used to identify the namespace within the ADMX file.
-    */
+    /** @var string|null $targetNamespace Specifies the URI used to identify the namespace within the ADMX file. */
     private ?string $targetNamespace = null;
     
-    /**
-     * @var string|null $targetPrefix Specifies the logical name that refers to the namespace within the ADMX file.
-    */
+    /** @var string|null $targetPrefix Specifies the logical name that refers to the namespace within the ADMX file. */
     private ?string $targetPrefix = null;
     
     /**
@@ -71,14 +51,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicyDefinitionFile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyDefinitionFile {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.groupPolicyUploadedDefinitionFile': return new GroupPolicyUploadedDefinitionFile();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyDefinitionFile {
         return new GroupPolicyDefinitionFile();
     }
 
@@ -111,18 +84,17 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'definitions' => function (ParseNode $n) use ($o) { $o->setDefinitions($n->getCollectionOfObjectValues(array(GroupPolicyDefinition::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
-            'languageCodes' => function (ParseNode $n) use ($o) { $o->setLanguageCodes($n->getCollectionOfPrimitiveValues()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'policyType' => function (ParseNode $n) use ($o) { $o->setPolicyType($n->getEnumValue(GroupPolicyType::class)); },
-            'revision' => function (ParseNode $n) use ($o) { $o->setRevision($n->getStringValue()); },
-            'targetNamespace' => function (ParseNode $n) use ($o) { $o->setTargetNamespace($n->getStringValue()); },
-            'targetPrefix' => function (ParseNode $n) use ($o) { $o->setTargetPrefix($n->getStringValue()); },
+            'definitions' => function (self $o, ParseNode $n) { $o->setDefinitions($n->getCollectionOfObjectValues(GroupPolicyDefinition::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'fileName' => function (self $o, ParseNode $n) { $o->setFileName($n->getStringValue()); },
+            'languageCodes' => function (self $o, ParseNode $n) { $o->setLanguageCodes($n->getCollectionOfPrimitiveValues()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'policyType' => function (self $o, ParseNode $n) { $o->setPolicyType($n->getEnumValue(GroupPolicyType::class)); },
+            'revision' => function (self $o, ParseNode $n) { $o->setRevision($n->getStringValue()); },
+            'targetNamespace' => function (self $o, ParseNode $n) { $o->setTargetNamespace($n->getStringValue()); },
+            'targetPrefix' => function (self $o, ParseNode $n) { $o->setTargetPrefix($n->getStringValue()); },
         ]);
     }
 

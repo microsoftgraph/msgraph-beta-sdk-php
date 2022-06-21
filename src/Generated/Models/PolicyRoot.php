@@ -9,139 +9,82 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PolicyRoot implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var AccessReviewPolicy|null $accessReviewPolicy The policy that contains directory-level access review settings.
-    */
+    /** @var AccessReviewPolicy|null $accessReviewPolicy The policy that contains directory-level access review settings. */
     private ?AccessReviewPolicy $accessReviewPolicy = null;
     
-    /**
-     * @var array<ActivityBasedTimeoutPolicy>|null $activityBasedTimeoutPolicies The policy that controls the idle time out for web sessions for applications.
-    */
+    /** @var array<ActivityBasedTimeoutPolicy>|null $activityBasedTimeoutPolicies The policy that controls the idle time out for web sessions for applications. */
     private ?array $activityBasedTimeoutPolicies = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AdminConsentRequestPolicy|null $adminConsentRequestPolicy The policy by which consent requests are created and managed for the entire tenant.
-    */
+    /** @var AdminConsentRequestPolicy|null $adminConsentRequestPolicy The policy by which consent requests are created and managed for the entire tenant. */
     private ?AdminConsentRequestPolicy $adminConsentRequestPolicy = null;
     
-    /**
-     * @var array<AppManagementPolicy>|null $appManagementPolicies The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
-    */
+    /** @var array<AppManagementPolicy>|null $appManagementPolicies The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy. */
     private ?array $appManagementPolicies = null;
     
-    /**
-     * @var AuthenticationFlowsPolicy|null $authenticationFlowsPolicy The policy configuration of the self-service sign-up experience of external users.
-    */
+    /** @var AuthenticationFlowsPolicy|null $authenticationFlowsPolicy The policy configuration of the self-service sign-up experience of external users. */
     private ?AuthenticationFlowsPolicy $authenticationFlowsPolicy = null;
     
-    /**
-     * @var AuthenticationMethodsPolicy|null $authenticationMethodsPolicy The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
-    */
+    /** @var AuthenticationMethodsPolicy|null $authenticationMethodsPolicy The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD). */
     private ?AuthenticationMethodsPolicy $authenticationMethodsPolicy = null;
     
-    /**
-     * @var array<AuthorizationPolicy>|null $authorizationPolicy The policy that controls Azure AD authorization settings.
-    */
+    /** @var array<AuthorizationPolicy>|null $authorizationPolicy The policy that controls Azure AD authorization settings. */
     private ?array $authorizationPolicy = null;
     
-    /**
-     * @var B2cAuthenticationMethodsPolicy|null $b2cAuthenticationMethodsPolicy The Azure AD B2C policies that define how end users register via local accounts.
-    */
+    /** @var B2cAuthenticationMethodsPolicy|null $b2cAuthenticationMethodsPolicy The Azure AD B2C policies that define how end users register via local accounts. */
     private ?B2cAuthenticationMethodsPolicy $b2cAuthenticationMethodsPolicy = null;
     
-    /**
-     * @var array<ClaimsMappingPolicy>|null $claimsMappingPolicies The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
-    */
+    /** @var array<ClaimsMappingPolicy>|null $claimsMappingPolicies The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application. */
     private ?array $claimsMappingPolicies = null;
     
-    /**
-     * @var array<ConditionalAccessPolicy>|null $conditionalAccessPolicies The custom rules that define an access scenario.
-    */
+    /** @var array<ConditionalAccessPolicy>|null $conditionalAccessPolicies The custom rules that define an access scenario. */
     private ?array $conditionalAccessPolicies = null;
     
-    /**
-     * @var CrossTenantAccessPolicy|null $crossTenantAccessPolicy The custom rules that define an access scenario when interacting with external Azure AD tenants.
-    */
+    /** @var CrossTenantAccessPolicy|null $crossTenantAccessPolicy The custom rules that define an access scenario when interacting with external Azure AD tenants. */
     private ?CrossTenantAccessPolicy $crossTenantAccessPolicy = null;
     
-    /**
-     * @var TenantAppManagementPolicy|null $defaultAppManagementPolicy The tenant-wide policy that enforces app management restrictions for all applications and service principals.
-    */
+    /** @var TenantAppManagementPolicy|null $defaultAppManagementPolicy The tenant-wide policy that enforces app management restrictions for all applications and service principals. */
     private ?TenantAppManagementPolicy $defaultAppManagementPolicy = null;
     
-    /**
-     * @var DeviceRegistrationPolicy|null $deviceRegistrationPolicy The deviceRegistrationPolicy property
-    */
-    private ?DeviceRegistrationPolicy $deviceRegistrationPolicy = null;
-    
-    /**
-     * @var DirectoryRoleAccessReviewPolicy|null $directoryRoleAccessReviewPolicy The directoryRoleAccessReviewPolicy property
-    */
+    /** @var DirectoryRoleAccessReviewPolicy|null $directoryRoleAccessReviewPolicy The directoryRoleAccessReviewPolicy property */
     private ?DirectoryRoleAccessReviewPolicy $directoryRoleAccessReviewPolicy = null;
     
-    /**
-     * @var ExternalIdentitiesPolicy|null $externalIdentitiesPolicy The externalIdentitiesPolicy property
-    */
+    /** @var ExternalIdentitiesPolicy|null $externalIdentitiesPolicy The externalIdentitiesPolicy property */
     private ?ExternalIdentitiesPolicy $externalIdentitiesPolicy = null;
     
-    /**
-     * @var array<FeatureRolloutPolicy>|null $featureRolloutPolicies The feature rollout policy associated with a directory object.
-    */
+    /** @var array<FeatureRolloutPolicy>|null $featureRolloutPolicies The feature rollout policy associated with a directory object. */
     private ?array $featureRolloutPolicies = null;
     
-    /**
-     * @var array<HomeRealmDiscoveryPolicy>|null $homeRealmDiscoveryPolicies The policy to control Azure AD authentication behavior for federated users.
-    */
+    /** @var array<HomeRealmDiscoveryPolicy>|null $homeRealmDiscoveryPolicies The policy to control Azure AD authentication behavior for federated users. */
     private ?array $homeRealmDiscoveryPolicies = null;
     
-    /**
-     * @var IdentitySecurityDefaultsEnforcementPolicy|null $identitySecurityDefaultsEnforcementPolicy The policy that represents the security defaults that protect against common attacks.
-    */
+    /** @var IdentitySecurityDefaultsEnforcementPolicy|null $identitySecurityDefaultsEnforcementPolicy The policy that represents the security defaults that protect against common attacks. */
     private ?IdentitySecurityDefaultsEnforcementPolicy $identitySecurityDefaultsEnforcementPolicy = null;
     
-    /**
-     * @var array<MobilityManagementPolicy>|null $mobileAppManagementPolicies The policy that defines auto-enrollment configuration for a mobility management (MDM or MAM) application.
-    */
+    /** @var array<MobilityManagementPolicy>|null $mobileAppManagementPolicies The policy that defines auto-enrollment configuration for a mobility management (MDM or MAM) application. */
     private ?array $mobileAppManagementPolicies = null;
     
-    /**
-     * @var array<MobilityManagementPolicy>|null $mobileDeviceManagementPolicies The mobileDeviceManagementPolicies property
-    */
+    /** @var array<MobilityManagementPolicy>|null $mobileDeviceManagementPolicies The mobileDeviceManagementPolicies property */
     private ?array $mobileDeviceManagementPolicies = null;
     
-    /**
-     * @var array<PermissionGrantPolicy>|null $permissionGrantPolicies The policy that specifies the conditions under which consent can be granted.
-    */
+    /** @var array<PermissionGrantPolicy>|null $permissionGrantPolicies The policy that specifies the conditions under which consent can be granted. */
     private ?array $permissionGrantPolicies = null;
     
-    /**
-     * @var array<UnifiedRoleManagementPolicy>|null $roleManagementPolicies Represents the role management policies.
-    */
+    /** @var array<UnifiedRoleManagementPolicy>|null $roleManagementPolicies Represents the role management policies. */
     private ?array $roleManagementPolicies = null;
     
-    /**
-     * @var array<UnifiedRoleManagementPolicyAssignment>|null $roleManagementPolicyAssignments Represents the role management policy assignments.
-    */
+    /** @var array<UnifiedRoleManagementPolicyAssignment>|null $roleManagementPolicyAssignments Represents the role management policy assignments. */
     private ?array $roleManagementPolicyAssignments = null;
     
-    /**
-     * @var array<ServicePrincipalCreationPolicy>|null $servicePrincipalCreationPolicies The servicePrincipalCreationPolicies property
-    */
+    /** @var array<ServicePrincipalCreationPolicy>|null $servicePrincipalCreationPolicies The servicePrincipalCreationPolicies property */
     private ?array $servicePrincipalCreationPolicies = null;
     
-    /**
-     * @var array<TokenIssuancePolicy>|null $tokenIssuancePolicies The policy that specifies the characteristics of SAML tokens issued by Azure AD.
-    */
+    /** @var array<TokenIssuancePolicy>|null $tokenIssuancePolicies The policy that specifies the characteristics of SAML tokens issued by Azure AD. */
     private ?array $tokenIssuancePolicies = null;
     
-    /**
-     * @var array<TokenLifetimePolicy>|null $tokenLifetimePolicies The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.
-    */
+    /** @var array<TokenLifetimePolicy>|null $tokenLifetimePolicies The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD. */
     private ?array $tokenLifetimePolicies = null;
     
     /**
@@ -156,7 +99,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PolicyRoot
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PolicyRoot {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PolicyRoot {
         return new PolicyRoot();
     }
 
@@ -265,14 +208,6 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceRegistrationPolicy property value. The deviceRegistrationPolicy property
-     * @return DeviceRegistrationPolicy|null
-    */
-    public function getDeviceRegistrationPolicy(): ?DeviceRegistrationPolicy {
-        return $this->deviceRegistrationPolicy;
-    }
-
-    /**
      * Gets the directoryRoleAccessReviewPolicy property value. The directoryRoleAccessReviewPolicy property
      * @return DirectoryRoleAccessReviewPolicy|null
     */
@@ -301,34 +236,32 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'accessReviewPolicy' => function (ParseNode $n) use ($o) { $o->setAccessReviewPolicy($n->getObjectValue(array(AccessReviewPolicy::class, 'createFromDiscriminatorValue'))); },
-            'activityBasedTimeoutPolicies' => function (ParseNode $n) use ($o) { $o->setActivityBasedTimeoutPolicies($n->getCollectionOfObjectValues(array(ActivityBasedTimeoutPolicy::class, 'createFromDiscriminatorValue'))); },
-            'adminConsentRequestPolicy' => function (ParseNode $n) use ($o) { $o->setAdminConsentRequestPolicy($n->getObjectValue(array(AdminConsentRequestPolicy::class, 'createFromDiscriminatorValue'))); },
-            'appManagementPolicies' => function (ParseNode $n) use ($o) { $o->setAppManagementPolicies($n->getCollectionOfObjectValues(array(AppManagementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'authenticationFlowsPolicy' => function (ParseNode $n) use ($o) { $o->setAuthenticationFlowsPolicy($n->getObjectValue(array(AuthenticationFlowsPolicy::class, 'createFromDiscriminatorValue'))); },
-            'authenticationMethodsPolicy' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethodsPolicy($n->getObjectValue(array(AuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'))); },
-            'authorizationPolicy' => function (ParseNode $n) use ($o) { $o->setAuthorizationPolicy($n->getCollectionOfObjectValues(array(AuthorizationPolicy::class, 'createFromDiscriminatorValue'))); },
-            'b2cAuthenticationMethodsPolicy' => function (ParseNode $n) use ($o) { $o->setB2cAuthenticationMethodsPolicy($n->getObjectValue(array(B2cAuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'))); },
-            'claimsMappingPolicies' => function (ParseNode $n) use ($o) { $o->setClaimsMappingPolicies($n->getCollectionOfObjectValues(array(ClaimsMappingPolicy::class, 'createFromDiscriminatorValue'))); },
-            'conditionalAccessPolicies' => function (ParseNode $n) use ($o) { $o->setConditionalAccessPolicies($n->getCollectionOfObjectValues(array(ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'))); },
-            'crossTenantAccessPolicy' => function (ParseNode $n) use ($o) { $o->setCrossTenantAccessPolicy($n->getObjectValue(array(CrossTenantAccessPolicy::class, 'createFromDiscriminatorValue'))); },
-            'defaultAppManagementPolicy' => function (ParseNode $n) use ($o) { $o->setDefaultAppManagementPolicy($n->getObjectValue(array(TenantAppManagementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'deviceRegistrationPolicy' => function (ParseNode $n) use ($o) { $o->setDeviceRegistrationPolicy($n->getObjectValue(array(DeviceRegistrationPolicy::class, 'createFromDiscriminatorValue'))); },
-            'directoryRoleAccessReviewPolicy' => function (ParseNode $n) use ($o) { $o->setDirectoryRoleAccessReviewPolicy($n->getObjectValue(array(DirectoryRoleAccessReviewPolicy::class, 'createFromDiscriminatorValue'))); },
-            'externalIdentitiesPolicy' => function (ParseNode $n) use ($o) { $o->setExternalIdentitiesPolicy($n->getObjectValue(array(ExternalIdentitiesPolicy::class, 'createFromDiscriminatorValue'))); },
-            'featureRolloutPolicies' => function (ParseNode $n) use ($o) { $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues(array(FeatureRolloutPolicy::class, 'createFromDiscriminatorValue'))); },
-            'homeRealmDiscoveryPolicies' => function (ParseNode $n) use ($o) { $o->setHomeRealmDiscoveryPolicies($n->getCollectionOfObjectValues(array(HomeRealmDiscoveryPolicy::class, 'createFromDiscriminatorValue'))); },
-            'identitySecurityDefaultsEnforcementPolicy' => function (ParseNode $n) use ($o) { $o->setIdentitySecurityDefaultsEnforcementPolicy($n->getObjectValue(array(IdentitySecurityDefaultsEnforcementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'mobileAppManagementPolicies' => function (ParseNode $n) use ($o) { $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues(array(MobilityManagementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'mobileDeviceManagementPolicies' => function (ParseNode $n) use ($o) { $o->setMobileDeviceManagementPolicies($n->getCollectionOfObjectValues(array(MobilityManagementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'permissionGrantPolicies' => function (ParseNode $n) use ($o) { $o->setPermissionGrantPolicies($n->getCollectionOfObjectValues(array(PermissionGrantPolicy::class, 'createFromDiscriminatorValue'))); },
-            'roleManagementPolicies' => function (ParseNode $n) use ($o) { $o->setRoleManagementPolicies($n->getCollectionOfObjectValues(array(UnifiedRoleManagementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'roleManagementPolicyAssignments' => function (ParseNode $n) use ($o) { $o->setRoleManagementPolicyAssignments($n->getCollectionOfObjectValues(array(UnifiedRoleManagementPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
-            'servicePrincipalCreationPolicies' => function (ParseNode $n) use ($o) { $o->setServicePrincipalCreationPolicies($n->getCollectionOfObjectValues(array(ServicePrincipalCreationPolicy::class, 'createFromDiscriminatorValue'))); },
-            'tokenIssuancePolicies' => function (ParseNode $n) use ($o) { $o->setTokenIssuancePolicies($n->getCollectionOfObjectValues(array(TokenIssuancePolicy::class, 'createFromDiscriminatorValue'))); },
-            'tokenLifetimePolicies' => function (ParseNode $n) use ($o) { $o->setTokenLifetimePolicies($n->getCollectionOfObjectValues(array(TokenLifetimePolicy::class, 'createFromDiscriminatorValue'))); },
+            'accessReviewPolicy' => function (self $o, ParseNode $n) { $o->setAccessReviewPolicy($n->getObjectValue(AccessReviewPolicy::class)); },
+            'activityBasedTimeoutPolicies' => function (self $o, ParseNode $n) { $o->setActivityBasedTimeoutPolicies($n->getCollectionOfObjectValues(ActivityBasedTimeoutPolicy::class)); },
+            'adminConsentRequestPolicy' => function (self $o, ParseNode $n) { $o->setAdminConsentRequestPolicy($n->getObjectValue(AdminConsentRequestPolicy::class)); },
+            'appManagementPolicies' => function (self $o, ParseNode $n) { $o->setAppManagementPolicies($n->getCollectionOfObjectValues(AppManagementPolicy::class)); },
+            'authenticationFlowsPolicy' => function (self $o, ParseNode $n) { $o->setAuthenticationFlowsPolicy($n->getObjectValue(AuthenticationFlowsPolicy::class)); },
+            'authenticationMethodsPolicy' => function (self $o, ParseNode $n) { $o->setAuthenticationMethodsPolicy($n->getObjectValue(AuthenticationMethodsPolicy::class)); },
+            'authorizationPolicy' => function (self $o, ParseNode $n) { $o->setAuthorizationPolicy($n->getCollectionOfObjectValues(AuthorizationPolicy::class)); },
+            'b2cAuthenticationMethodsPolicy' => function (self $o, ParseNode $n) { $o->setB2cAuthenticationMethodsPolicy($n->getObjectValue(B2cAuthenticationMethodsPolicy::class)); },
+            'claimsMappingPolicies' => function (self $o, ParseNode $n) { $o->setClaimsMappingPolicies($n->getCollectionOfObjectValues(ClaimsMappingPolicy::class)); },
+            'conditionalAccessPolicies' => function (self $o, ParseNode $n) { $o->setConditionalAccessPolicies($n->getCollectionOfObjectValues(ConditionalAccessPolicy::class)); },
+            'crossTenantAccessPolicy' => function (self $o, ParseNode $n) { $o->setCrossTenantAccessPolicy($n->getObjectValue(CrossTenantAccessPolicy::class)); },
+            'defaultAppManagementPolicy' => function (self $o, ParseNode $n) { $o->setDefaultAppManagementPolicy($n->getObjectValue(TenantAppManagementPolicy::class)); },
+            'directoryRoleAccessReviewPolicy' => function (self $o, ParseNode $n) { $o->setDirectoryRoleAccessReviewPolicy($n->getObjectValue(DirectoryRoleAccessReviewPolicy::class)); },
+            'externalIdentitiesPolicy' => function (self $o, ParseNode $n) { $o->setExternalIdentitiesPolicy($n->getObjectValue(ExternalIdentitiesPolicy::class)); },
+            'featureRolloutPolicies' => function (self $o, ParseNode $n) { $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues(FeatureRolloutPolicy::class)); },
+            'homeRealmDiscoveryPolicies' => function (self $o, ParseNode $n) { $o->setHomeRealmDiscoveryPolicies($n->getCollectionOfObjectValues(HomeRealmDiscoveryPolicy::class)); },
+            'identitySecurityDefaultsEnforcementPolicy' => function (self $o, ParseNode $n) { $o->setIdentitySecurityDefaultsEnforcementPolicy($n->getObjectValue(IdentitySecurityDefaultsEnforcementPolicy::class)); },
+            'mobileAppManagementPolicies' => function (self $o, ParseNode $n) { $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues(MobilityManagementPolicy::class)); },
+            'mobileDeviceManagementPolicies' => function (self $o, ParseNode $n) { $o->setMobileDeviceManagementPolicies($n->getCollectionOfObjectValues(MobilityManagementPolicy::class)); },
+            'permissionGrantPolicies' => function (self $o, ParseNode $n) { $o->setPermissionGrantPolicies($n->getCollectionOfObjectValues(PermissionGrantPolicy::class)); },
+            'roleManagementPolicies' => function (self $o, ParseNode $n) { $o->setRoleManagementPolicies($n->getCollectionOfObjectValues(UnifiedRoleManagementPolicy::class)); },
+            'roleManagementPolicyAssignments' => function (self $o, ParseNode $n) { $o->setRoleManagementPolicyAssignments($n->getCollectionOfObjectValues(UnifiedRoleManagementPolicyAssignment::class)); },
+            'servicePrincipalCreationPolicies' => function (self $o, ParseNode $n) { $o->setServicePrincipalCreationPolicies($n->getCollectionOfObjectValues(ServicePrincipalCreationPolicy::class)); },
+            'tokenIssuancePolicies' => function (self $o, ParseNode $n) { $o->setTokenIssuancePolicies($n->getCollectionOfObjectValues(TokenIssuancePolicy::class)); },
+            'tokenLifetimePolicies' => function (self $o, ParseNode $n) { $o->setTokenLifetimePolicies($n->getCollectionOfObjectValues(TokenLifetimePolicy::class)); },
         ];
     }
 
@@ -429,7 +362,6 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfObjectValues('conditionalAccessPolicies', $this->conditionalAccessPolicies);
         $writer->writeObjectValue('crossTenantAccessPolicy', $this->crossTenantAccessPolicy);
         $writer->writeObjectValue('defaultAppManagementPolicy', $this->defaultAppManagementPolicy);
-        $writer->writeObjectValue('deviceRegistrationPolicy', $this->deviceRegistrationPolicy);
         $writer->writeObjectValue('directoryRoleAccessReviewPolicy', $this->directoryRoleAccessReviewPolicy);
         $writer->writeObjectValue('externalIdentitiesPolicy', $this->externalIdentitiesPolicy);
         $writer->writeCollectionOfObjectValues('featureRolloutPolicies', $this->featureRolloutPolicies);
@@ -548,14 +480,6 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     */
     public function setDefaultAppManagementPolicy(?TenantAppManagementPolicy $value ): void {
         $this->defaultAppManagementPolicy = $value;
-    }
-
-    /**
-     * Sets the deviceRegistrationPolicy property value. The deviceRegistrationPolicy property
-     *  @param DeviceRegistrationPolicy|null $value Value to set for the deviceRegistrationPolicy property.
-    */
-    public function setDeviceRegistrationPolicy(?DeviceRegistrationPolicy $value ): void {
-        $this->deviceRegistrationPolicy = $value;
     }
 
     /**

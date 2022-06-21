@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRbacResourceAction extends Entity implements Parsable 
+class UnifiedRbacResourceAction extends Entity 
 {
-    /**
-     * @var string|null $actionVerb HTTP method for the action, such as DELETE, GET, PATCH, POST, PUT, or null. Supports $filter (eq) but not for null values.
-    */
+    /** @var string|null $actionVerb HTTP method for the action, such as DELETE, GET, PATCH, POST, PUT, or null. Supports $filter (eq) but not for null values. */
     private ?string $actionVerb = null;
     
-    /**
-     * @var string|null $description Description for the action. Supports $filter (eq).
-    */
+    /** @var string|null $description Description for the action. Supports $filter (eq). */
     private ?string $description = null;
     
-    /**
-     * @var string|null $name Name for the action within the resource namespace, such as microsoft.insights/programs/update. Can include slash character (/). Case insensitive. Required. Supports $filter (eq).
-    */
+    /** @var string|null $name Name for the action within the resource namespace, such as microsoft.insights/programs/update. Can include slash character (/). Case insensitive. Required. Supports $filter (eq). */
     private ?string $name = null;
     
-    /**
-     * @var UnifiedRbacResourceScope|null $resourceScope The resourceScope property
-    */
+    /** @var UnifiedRbacResourceScope|null $resourceScope The resourceScope property */
     private ?UnifiedRbacResourceScope $resourceScope = null;
     
-    /**
-     * @var string|null $resourceScopeId Not implemented.
-    */
+    /** @var string|null $resourceScopeId Not implemented. */
     private ?string $resourceScopeId = null;
     
     /**
@@ -45,7 +35,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRbacResourceAction
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRbacResourceAction {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRbacResourceAction {
         return new UnifiedRbacResourceAction();
     }
 
@@ -70,13 +60,12 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionVerb' => function (ParseNode $n) use ($o) { $o->setActionVerb($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'resourceScope' => function (ParseNode $n) use ($o) { $o->setResourceScope($n->getObjectValue(array(UnifiedRbacResourceScope::class, 'createFromDiscriminatorValue'))); },
-            'resourceScopeId' => function (ParseNode $n) use ($o) { $o->setResourceScopeId($n->getStringValue()); },
+            'actionVerb' => function (self $o, ParseNode $n) { $o->setActionVerb($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'resourceScope' => function (self $o, ParseNode $n) { $o->setResourceScope($n->getObjectValue(UnifiedRbacResourceScope::class)); },
+            'resourceScopeId' => function (self $o, ParseNode $n) { $o->setResourceScopeId($n->getStringValue()); },
         ]);
     }
 

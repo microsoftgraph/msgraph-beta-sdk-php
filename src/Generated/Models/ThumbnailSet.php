@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ThumbnailSet extends Entity implements Parsable 
+class ThumbnailSet extends Entity 
 {
-    /**
-     * @var Thumbnail|null $large A 1920x1920 scaled thumbnail.
-    */
+    /** @var Thumbnail|null $large A 1920x1920 scaled thumbnail. */
     private ?Thumbnail $large = null;
     
-    /**
-     * @var Thumbnail|null $medium A 176x176 scaled thumbnail.
-    */
+    /** @var Thumbnail|null $medium A 176x176 scaled thumbnail. */
     private ?Thumbnail $medium = null;
     
-    /**
-     * @var Thumbnail|null $small A 48x48 cropped thumbnail.
-    */
+    /** @var Thumbnail|null $small A 48x48 cropped thumbnail. */
     private ?Thumbnail $small = null;
     
-    /**
-     * @var Thumbnail|null $source A custom thumbnail image or the original image used to generate other thumbnails.
-    */
+    /** @var Thumbnail|null $source A custom thumbnail image or the original image used to generate other thumbnails. */
     private ?Thumbnail $source = null;
     
     /**
@@ -40,7 +32,7 @@ class ThumbnailSet extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ThumbnailSet
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ThumbnailSet {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ThumbnailSet {
         return new ThumbnailSet();
     }
 
@@ -49,12 +41,11 @@ class ThumbnailSet extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'large' => function (ParseNode $n) use ($o) { $o->setLarge($n->getObjectValue(array(Thumbnail::class, 'createFromDiscriminatorValue'))); },
-            'medium' => function (ParseNode $n) use ($o) { $o->setMedium($n->getObjectValue(array(Thumbnail::class, 'createFromDiscriminatorValue'))); },
-            'small' => function (ParseNode $n) use ($o) { $o->setSmall($n->getObjectValue(array(Thumbnail::class, 'createFromDiscriminatorValue'))); },
-            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getObjectValue(array(Thumbnail::class, 'createFromDiscriminatorValue'))); },
+            'large' => function (self $o, ParseNode $n) { $o->setLarge($n->getObjectValue(Thumbnail::class)); },
+            'medium' => function (self $o, ParseNode $n) { $o->setMedium($n->getObjectValue(Thumbnail::class)); },
+            'small' => function (self $o, ParseNode $n) { $o->setSmall($n->getObjectValue(Thumbnail::class)); },
+            'source' => function (self $o, ParseNode $n) { $o->setSource($n->getObjectValue(Thumbnail::class)); },
         ]);
     }
 

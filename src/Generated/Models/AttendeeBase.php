@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AttendeeBase extends Recipient implements Parsable 
+class AttendeeBase extends Recipient 
 {
-    /**
-     * @var AttendeeType|null $type The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
-    */
+    /** @var AttendeeType|null $type The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type. */
     private ?AttendeeType $type = null;
     
     /**
@@ -25,7 +23,7 @@ class AttendeeBase extends Recipient implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AttendeeBase
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AttendeeBase {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AttendeeBase {
         return new AttendeeBase();
     }
 
@@ -34,14 +32,13 @@ class AttendeeBase extends Recipient implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(AttendeeType::class)); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(AttendeeType::class)); },
         ]);
     }
 
     /**
-     * Gets the type property value. The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
+     * Gets the type property value. The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
      * @return AttendeeType|null
     */
     public function getType(): ?AttendeeType {
@@ -58,7 +55,7 @@ class AttendeeBase extends Recipient implements Parsable
     }
 
     /**
-     * Sets the type property value. The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
+     * Sets the type property value. The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
      *  @param AttendeeType|null $value Value to set for the type property.
     */
     public function setType(?AttendeeType $value ): void {

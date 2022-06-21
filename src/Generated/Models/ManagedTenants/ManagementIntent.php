@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagementIntent extends Entity implements Parsable 
+class ManagementIntent extends Entity 
 {
-    /**
-     * @var string|null $displayName The display name for the management intent. Optional. Read-only.
-    */
+    /** @var string|null $displayName The display name for the management intent. Optional. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isGlobal A flag indicating whether the management intent is global. Required. Read-only.
-    */
+    /** @var bool|null $isGlobal A flag indicating whether the management intent is global. Required. Read-only. */
     private ?bool $isGlobal = null;
     
-    /**
-     * @var array<ManagementTemplateDetailedInfo>|null $managementTemplates The collection of management templates associated with the management intent. Optional. Read-only.
-    */
+    /** @var array<ManagementTemplateDetailedInfo>|null $managementTemplates The collection of management templates associated with the management intent. Optional. Read-only. */
     private ?array $managementTemplates = null;
     
     /**
@@ -36,7 +30,7 @@ class ManagementIntent extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementIntent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementIntent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementIntent {
         return new ManagementIntent();
     }
 
@@ -53,11 +47,10 @@ class ManagementIntent extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isGlobal' => function (ParseNode $n) use ($o) { $o->setIsGlobal($n->getBooleanValue()); },
-            'managementTemplates' => function (ParseNode $n) use ($o) { $o->setManagementTemplates($n->getCollectionOfObjectValues(array(ManagementTemplateDetailedInfo::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isGlobal' => function (self $o, ParseNode $n) { $o->setIsGlobal($n->getBooleanValue()); },
+            'managementTemplates' => function (self $o, ParseNode $n) { $o->setManagementTemplates($n->getCollectionOfObjectValues(ManagementTemplateDetailedInfo::class)); },
         ]);
     }
 

@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var SensitivityLabelAssignmentMethod|null $assignmentMethod Indicates whether the label assignment is done automatically, as a standard, or a privileged operation. The possible values are: standard, privileged, auto, unknownFutureValue.
-    */
+    /** @var SensitivityLabelAssignmentMethod|null $assignmentMethod The assignmentMethod property */
     private ?SensitivityLabelAssignmentMethod $assignmentMethod = null;
     
-    /**
-     * @var string|null $sensitivityLabelId The unique identifier for the sensitivity label assigned to the file.
-    */
+    /** @var string|null $sensitivityLabelId The sensitivityLabelId property */
     private ?string $sensitivityLabelId = null;
     
-    /**
-     * @var string|null $tenantId The unique identifier for the tenant that hosts the file when this label is applied.
-    */
+    /** @var string|null $tenantId The tenantId property */
     private ?string $tenantId = null;
     
     /**
@@ -41,7 +33,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SensitivityLabelAssignment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SensitivityLabelAssignment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SensitivityLabelAssignment {
         return new SensitivityLabelAssignment();
     }
 
@@ -54,7 +46,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assignmentMethod property value. Indicates whether the label assignment is done automatically, as a standard, or a privileged operation. The possible values are: standard, privileged, auto, unknownFutureValue.
+     * Gets the assignmentMethod property value. The assignmentMethod property
      * @return SensitivityLabelAssignmentMethod|null
     */
     public function getAssignmentMethod(): ?SensitivityLabelAssignmentMethod {
@@ -66,16 +58,15 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'assignmentMethod' => function (ParseNode $n) use ($o) { $o->setAssignmentMethod($n->getEnumValue(SensitivityLabelAssignmentMethod::class)); },
-            'sensitivityLabelId' => function (ParseNode $n) use ($o) { $o->setSensitivityLabelId($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'assignmentMethod' => function (self $o, ParseNode $n) { $o->setAssignmentMethod($n->getEnumValue(SensitivityLabelAssignmentMethod::class)); },
+            'sensitivityLabelId' => function (self $o, ParseNode $n) { $o->setSensitivityLabelId($n->getStringValue()); },
+            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the sensitivityLabelId property value. The unique identifier for the sensitivity label assigned to the file.
+     * Gets the sensitivityLabelId property value. The sensitivityLabelId property
      * @return string|null
     */
     public function getSensitivityLabelId(): ?string {
@@ -83,7 +74,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tenantId property value. The unique identifier for the tenant that hosts the file when this label is applied.
+     * Gets the tenantId property value. The tenantId property
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -110,7 +101,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assignmentMethod property value. Indicates whether the label assignment is done automatically, as a standard, or a privileged operation. The possible values are: standard, privileged, auto, unknownFutureValue.
+     * Sets the assignmentMethod property value. The assignmentMethod property
      *  @param SensitivityLabelAssignmentMethod|null $value Value to set for the assignmentMethod property.
     */
     public function setAssignmentMethod(?SensitivityLabelAssignmentMethod $value ): void {
@@ -118,7 +109,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sensitivityLabelId property value. The unique identifier for the sensitivity label assigned to the file.
+     * Sets the sensitivityLabelId property value. The sensitivityLabelId property
      *  @param string|null $value Value to set for the sensitivityLabelId property.
     */
     public function setSensitivityLabelId(?string $value ): void {
@@ -126,7 +117,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tenantId property value. The unique identifier for the tenant that hosts the file when this label is applied.
+     * Sets the tenantId property value. The tenantId property
      *  @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value ): void {

@@ -6,25 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RiskyUserHistoryItem extends RiskyUser implements Parsable 
+class RiskyUserHistoryItem extends RiskyUser 
 {
-    /**
-     * @var RiskUserActivity|null $activity The activity related to user risk level change.
-    */
+    /** @var RiskUserActivity|null $activity The activity related to user risk level change. */
     private ?RiskUserActivity $activity = null;
     
-    /**
-     * @var string|null $initiatedBy The id of actor that does the operation.
-    */
+    /** @var string|null $initiatedBy The id of actor that does the operation. */
     private ?string $initiatedBy = null;
     
-    /**
-     * @var string|null $userId The id of the user.
-    */
+    /** @var string|null $userId The id of the user. */
     private ?string $userId = null;
     
     /**
-     * Instantiates a new RiskyUserHistoryItem and sets the default values.
+     * Instantiates a new riskyUserHistoryItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +29,7 @@ class RiskyUserHistoryItem extends RiskyUser implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RiskyUserHistoryItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RiskyUserHistoryItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RiskyUserHistoryItem {
         return new RiskyUserHistoryItem();
     }
 
@@ -52,11 +46,10 @@ class RiskyUserHistoryItem extends RiskyUser implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getObjectValue(array(RiskUserActivity::class, 'createFromDiscriminatorValue'))); },
-            'initiatedBy' => function (ParseNode $n) use ($o) { $o->setInitiatedBy($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'activity' => function (self $o, ParseNode $n) { $o->setActivity($n->getObjectValue(RiskUserActivity::class)); },
+            'initiatedBy' => function (self $o, ParseNode $n) { $o->setInitiatedBy($n->getStringValue()); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
         ]);
     }
 

@@ -6,15 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ListItemVersion extends BaseItemVersion implements Parsable 
+class ListItemVersion extends BaseItemVersion 
 {
-    /**
-     * @var FieldValueSet|null $fields A collection of the fields and values for this version of the list item.
-    */
+    /** @var FieldValueSet|null $fields A collection of the fields and values for this version of the list item. */
     private ?FieldValueSet $fields = null;
     
     /**
-     * Instantiates a new ListItemVersion and sets the default values.
+     * Instantiates a new listItemVersion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,14 +23,7 @@ class ListItemVersion extends BaseItemVersion implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ListItemVersion
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ListItemVersion {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.documentSetVersion': return new DocumentSetVersion();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ListItemVersion {
         return new ListItemVersion();
     }
 
@@ -41,9 +32,8 @@ class ListItemVersion extends BaseItemVersion implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'fields' => function (ParseNode $n) use ($o) { $o->setFields($n->getObjectValue(array(FieldValueSet::class, 'createFromDiscriminatorValue'))); },
+            'fields' => function (self $o, ParseNode $n) { $o->setFields($n->getObjectValue(FieldValueSet::class)); },
         ]);
     }
 

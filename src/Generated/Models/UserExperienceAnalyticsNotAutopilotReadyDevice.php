@@ -6,51 +6,33 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements Parsable 
+class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity 
 {
-    /**
-     * @var bool|null $autoPilotProfileAssigned The intune device's autopilotProfileAssigned.
-    */
+    /** @var bool|null $autoPilotProfileAssigned The intune device's autopilotProfileAssigned. */
     private ?bool $autoPilotProfileAssigned = null;
     
-    /**
-     * @var bool|null $autoPilotRegistered The intune device's autopilotRegistered.
-    */
+    /** @var bool|null $autoPilotRegistered The intune device's autopilotRegistered. */
     private ?bool $autoPilotRegistered = null;
     
-    /**
-     * @var string|null $azureAdJoinType The intune device's azure Ad joinType.
-    */
+    /** @var string|null $azureAdJoinType The intune device's azure Ad joinType. */
     private ?string $azureAdJoinType = null;
     
-    /**
-     * @var bool|null $azureAdRegistered The intune device's azureAdRegistered.
-    */
+    /** @var bool|null $azureAdRegistered The intune device's azureAdRegistered. */
     private ?bool $azureAdRegistered = null;
     
-    /**
-     * @var string|null $deviceName The intune device's name.
-    */
+    /** @var string|null $deviceName The intune device's name. */
     private ?string $deviceName = null;
     
-    /**
-     * @var string|null $managedBy The intune device's managed by.
-    */
+    /** @var string|null $managedBy The intune device's managed by. */
     private ?string $managedBy = null;
     
-    /**
-     * @var string|null $manufacturer The intune device's manufacturer.
-    */
+    /** @var string|null $manufacturer The intune device's manufacturer. */
     private ?string $manufacturer = null;
     
-    /**
-     * @var string|null $model The intune device's model.
-    */
+    /** @var string|null $model The intune device's model. */
     private ?string $model = null;
     
-    /**
-     * @var string|null $serialNumber The intune device's serial number.
-    */
+    /** @var string|null $serialNumber The intune device's serial number. */
     private ?string $serialNumber = null;
     
     /**
@@ -65,7 +47,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsNotAutopilotReadyDevice
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsNotAutopilotReadyDevice {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsNotAutopilotReadyDevice {
         return new UserExperienceAnalyticsNotAutopilotReadyDevice();
     }
 
@@ -114,17 +96,16 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'autoPilotProfileAssigned' => function (ParseNode $n) use ($o) { $o->setAutoPilotProfileAssigned($n->getBooleanValue()); },
-            'autoPilotRegistered' => function (ParseNode $n) use ($o) { $o->setAutoPilotRegistered($n->getBooleanValue()); },
-            'azureAdJoinType' => function (ParseNode $n) use ($o) { $o->setAzureAdJoinType($n->getStringValue()); },
-            'azureAdRegistered' => function (ParseNode $n) use ($o) { $o->setAzureAdRegistered($n->getBooleanValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'managedBy' => function (ParseNode $n) use ($o) { $o->setManagedBy($n->getStringValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
+            'autoPilotProfileAssigned' => function (self $o, ParseNode $n) { $o->setAutoPilotProfileAssigned($n->getBooleanValue()); },
+            'autoPilotRegistered' => function (self $o, ParseNode $n) { $o->setAutoPilotRegistered($n->getBooleanValue()); },
+            'azureAdJoinType' => function (self $o, ParseNode $n) { $o->setAzureAdJoinType($n->getStringValue()); },
+            'azureAdRegistered' => function (self $o, ParseNode $n) { $o->setAzureAdRegistered($n->getBooleanValue()); },
+            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
+            'managedBy' => function (self $o, ParseNode $n) { $o->setManagedBy($n->getStringValue()); },
+            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
+            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
+            'serialNumber' => function (self $o, ParseNode $n) { $o->setSerialNumber($n->getStringValue()); },
         ]);
     }
 

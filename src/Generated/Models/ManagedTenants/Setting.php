@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Setting implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName The display name for the setting. Required. Read-only.
-    */
+    /** @var string|null $displayName The display name for the setting. Required. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $jsonValue The value for the setting serialized as string of JSON. Required. Read-only.
-    */
+    /** @var string|null $jsonValue The value for the setting serialized as string of JSON. Required. Read-only. */
     private ?string $jsonValue = null;
     
-    /**
-     * @var bool|null $overwriteAllowed A flag indicating whether the setting can be override existing configurations when applied. Required. Read-only.
-    */
+    /** @var bool|null $overwriteAllowed A flag indicating whether the setting can be override existing configurations when applied. Required. Read-only. */
     private ?bool $overwriteAllowed = null;
     
-    /**
-     * @var string|null $settingId The settingId property
-    */
+    /** @var string|null $settingId The settingId property */
     private ?string $settingId = null;
     
-    /**
-     * @var ManagementParameterValueType|null $valueType The data type for the setting. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only.
-    */
+    /** @var ManagementParameterValueType|null $valueType The data type for the setting. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only. */
     private ?ManagementParameterValueType $valueType = null;
     
     /**
@@ -51,7 +39,7 @@ class Setting implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Setting
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Setting {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Setting {
         return new Setting();
     }
 
@@ -76,13 +64,12 @@ class Setting implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'jsonValue' => function (ParseNode $n) use ($o) { $o->setJsonValue($n->getStringValue()); },
-            'overwriteAllowed' => function (ParseNode $n) use ($o) { $o->setOverwriteAllowed($n->getBooleanValue()); },
-            'settingId' => function (ParseNode $n) use ($o) { $o->setSettingId($n->getStringValue()); },
-            'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getEnumValue(ManagementParameterValueType::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'jsonValue' => function (self $o, ParseNode $n) { $o->setJsonValue($n->getStringValue()); },
+            'overwriteAllowed' => function (self $o, ParseNode $n) { $o->setOverwriteAllowed($n->getBooleanValue()); },
+            'settingId' => function (self $o, ParseNode $n) { $o->setSettingId($n->getStringValue()); },
+            'valueType' => function (self $o, ParseNode $n) { $o->setValueType($n->getEnumValue(ManagementParameterValueType::class)); },
         ];
     }
 

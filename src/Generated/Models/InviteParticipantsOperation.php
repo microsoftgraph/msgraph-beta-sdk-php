@@ -6,15 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class InviteParticipantsOperation extends CommsOperation implements Parsable 
+class InviteParticipantsOperation extends CommsOperation 
 {
-    /**
-     * @var array<InvitationParticipantInfo>|null $participants The participants to invite.
-    */
+    /** @var array<InvitationParticipantInfo>|null $participants The participants to invite. */
     private ?array $participants = null;
     
     /**
-     * Instantiates a new InviteParticipantsOperation and sets the default values.
+     * Instantiates a new inviteParticipantsOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +23,7 @@ class InviteParticipantsOperation extends CommsOperation implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return InviteParticipantsOperation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): InviteParticipantsOperation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): InviteParticipantsOperation {
         return new InviteParticipantsOperation();
     }
 
@@ -34,9 +32,8 @@ class InviteParticipantsOperation extends CommsOperation implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'participants' => function (ParseNode $n) use ($o) { $o->setParticipants($n->getCollectionOfObjectValues(array(InvitationParticipantInfo::class, 'createFromDiscriminatorValue'))); },
+            'participants' => function (self $o, ParseNode $n) { $o->setParticipants($n->getCollectionOfObjectValues(InvitationParticipantInfo::class)); },
         ]);
     }
 

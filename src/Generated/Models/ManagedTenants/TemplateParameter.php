@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TemplateParameter implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $description The description for the template parameter. Optional. Read-only.
-    */
+    /** @var string|null $description The description for the template parameter. Optional. Read-only. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The display name for the template parameter. Required. Read-only.
-    */
+    /** @var string|null $displayName The display name for the template parameter. Required. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $jsonAllowedValues The allowed values for the template parameter represented by a serialized string of JSON. Optional. Read-only.
-    */
+    /** @var string|null $jsonAllowedValues The allowed values for the template parameter represented by a serialized string of JSON. Optional. Read-only. */
     private ?string $jsonAllowedValues = null;
     
-    /**
-     * @var string|null $jsonDefaultValue The default value for the template parameter represented by a serialized string of JSON. Required. Read-only.
-    */
+    /** @var string|null $jsonDefaultValue The default value for the template parameter represented by a serialized string of JSON. Required. Read-only. */
     private ?string $jsonDefaultValue = null;
     
-    /**
-     * @var ManagementParameterValueType|null $valueType The data type for the template parameter.. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only.
-    */
+    /** @var ManagementParameterValueType|null $valueType The data type for the template parameter.. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only. */
     private ?ManagementParameterValueType $valueType = null;
     
     /**
@@ -51,7 +39,7 @@ class TemplateParameter implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TemplateParameter
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TemplateParameter {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TemplateParameter {
         return new TemplateParameter();
     }
 
@@ -84,13 +72,12 @@ class TemplateParameter implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'jsonAllowedValues' => function (ParseNode $n) use ($o) { $o->setJsonAllowedValues($n->getStringValue()); },
-            'jsonDefaultValue' => function (ParseNode $n) use ($o) { $o->setJsonDefaultValue($n->getStringValue()); },
-            'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getEnumValue(ManagementParameterValueType::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'jsonAllowedValues' => function (self $o, ParseNode $n) { $o->setJsonAllowedValues($n->getStringValue()); },
+            'jsonDefaultValue' => function (self $o, ParseNode $n) { $o->setJsonDefaultValue($n->getStringValue()); },
+            'valueType' => function (self $o, ParseNode $n) { $o->setValueType($n->getEnumValue(ManagementParameterValueType::class)); },
         ];
     }
 

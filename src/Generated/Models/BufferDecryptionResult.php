@@ -10,18 +10,14 @@ use Psr\Http\Message\StreamInterface;
 
 class BufferDecryptionResult implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var StreamInterface|null $decryptedBuffer The decryptedBuffer property
-    */
+    /** @var StreamInterface|null $decryptedBuffer The decryptedBuffer property */
     private ?StreamInterface $decryptedBuffer = null;
     
     /**
-     * Instantiates a new BufferDecryptionResult and sets the default values.
+     * Instantiates a new bufferDecryptionResult and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -32,7 +28,7 @@ class BufferDecryptionResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BufferDecryptionResult
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): BufferDecryptionResult {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): BufferDecryptionResult {
         return new BufferDecryptionResult();
     }
 
@@ -57,9 +53,8 @@ class BufferDecryptionResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'decryptedBuffer' => function (ParseNode $n) use ($o) { $o->setDecryptedBuffer($n->getBinaryContent()); },
+            'decryptedBuffer' => function (self $o, ParseNode $n) { $o->setDecryptedBuffer($n->getBinaryContent()); },
         ];
     }
 

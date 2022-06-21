@@ -7,46 +7,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EmbeddedSIMDeviceState extends Entity implements Parsable 
+class EmbeddedSIMDeviceState extends Entity 
 {
-    /**
-     * @var DateTime|null $createdDateTime The time the embedded SIM device status was created. Generated service side.
-    */
+    /** @var DateTime|null $createdDateTime The time the embedded SIM device status was created. Generated service side. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $deviceName Device name to which the subscription was provisioned e.g. DESKTOP-JOE
-    */
+    /** @var string|null $deviceName Device name to which the subscription was provisioned e.g. DESKTOP-JOE */
     private ?string $deviceName = null;
     
-    /**
-     * @var DateTime|null $lastSyncDateTime The time the embedded SIM device last checked in. Updated service side.
-    */
+    /** @var DateTime|null $lastSyncDateTime The time the embedded SIM device last checked in. Updated service side. */
     private ?DateTime $lastSyncDateTime = null;
     
-    /**
-     * @var DateTime|null $modifiedDateTime The time the embedded SIM device status was last modified. Updated service side.
-    */
+    /** @var DateTime|null $modifiedDateTime The time the embedded SIM device status was last modified. Updated service side. */
     private ?DateTime $modifiedDateTime = null;
     
-    /**
-     * @var EmbeddedSIMDeviceStateValue|null $state The state of the profile operation applied to the device. Possible values are: notEvaluated, failed, installing, installed, deleting, error, deleted, removedByUser.
-    */
+    /** @var EmbeddedSIMDeviceStateValue|null $state The state of the profile operation applied to the device. Possible values are: notEvaluated, failed, installing, installed, deleting, error, deleted, removedByUser. */
     private ?EmbeddedSIMDeviceStateValue $state = null;
     
-    /**
-     * @var string|null $stateDetails String description of the provisioning state.
-    */
+    /** @var string|null $stateDetails String description of the provisioning state. */
     private ?string $stateDetails = null;
     
-    /**
-     * @var string|null $universalIntegratedCircuitCardIdentifier The Universal Integrated Circuit Card Identifier (UICCID) identifying the hardware onto which a profile is to be deployed.
-    */
+    /** @var string|null $universalIntegratedCircuitCardIdentifier The Universal Integrated Circuit Card Identifier (UICCID) identifying the hardware onto which a profile is to be deployed. */
     private ?string $universalIntegratedCircuitCardIdentifier = null;
     
-    /**
-     * @var string|null $userName Username which the subscription was provisioned to e.g. joe@contoso.com
-    */
+    /** @var string|null $userName Username which the subscription was provisioned to e.g. joe@contoso.com */
     private ?string $userName = null;
     
     /**
@@ -61,7 +45,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EmbeddedSIMDeviceState
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EmbeddedSIMDeviceState {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EmbeddedSIMDeviceState {
         return new EmbeddedSIMDeviceState();
     }
 
@@ -86,16 +70,15 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(EmbeddedSIMDeviceStateValue::class)); },
-            'stateDetails' => function (ParseNode $n) use ($o) { $o->setStateDetails($n->getStringValue()); },
-            'universalIntegratedCircuitCardIdentifier' => function (ParseNode $n) use ($o) { $o->setUniversalIntegratedCircuitCardIdentifier($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
+            'lastSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
+            'modifiedDateTime' => function (self $o, ParseNode $n) { $o->setModifiedDateTime($n->getDateTimeValue()); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(EmbeddedSIMDeviceStateValue::class)); },
+            'stateDetails' => function (self $o, ParseNode $n) { $o->setStateDetails($n->getStringValue()); },
+            'universalIntegratedCircuitCardIdentifier' => function (self $o, ParseNode $n) { $o->setUniversalIntegratedCircuitCardIdentifier($n->getStringValue()); },
+            'userName' => function (self $o, ParseNode $n) { $o->setUserName($n->getStringValue()); },
         ]);
     }
 

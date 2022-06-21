@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var TeamworkAccountConfiguration|null $accountConfiguration The configuration of the Microsoft Teams client user account for a device.
-    */
+    /** @var TeamworkAccountConfiguration|null $accountConfiguration The configuration of the Microsoft Teams client user account for a device. */
     private ?TeamworkAccountConfiguration $accountConfiguration = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var TeamworkFeaturesConfiguration|null $featuresConfiguration The configuration of Microsoft Teams client features for a device.
-    */
+    /** @var TeamworkFeaturesConfiguration|null $featuresConfiguration The configuration of Microsoft Teams client features for a device. */
     private ?TeamworkFeaturesConfiguration $featuresConfiguration = null;
     
     /**
@@ -36,7 +30,7 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkTeamsClientConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkTeamsClientConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkTeamsClientConfiguration {
         return new TeamworkTeamsClientConfiguration();
     }
 
@@ -69,10 +63,9 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'accountConfiguration' => function (ParseNode $n) use ($o) { $o->setAccountConfiguration($n->getObjectValue(array(TeamworkAccountConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'featuresConfiguration' => function (ParseNode $n) use ($o) { $o->setFeaturesConfiguration($n->getObjectValue(array(TeamworkFeaturesConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'accountConfiguration' => function (self $o, ParseNode $n) { $o->setAccountConfiguration($n->getObjectValue(TeamworkAccountConfiguration::class)); },
+            'featuresConfiguration' => function (self $o, ParseNode $n) { $o->setFeaturesConfiguration($n->getObjectValue(TeamworkFeaturesConfiguration::class)); },
         ];
     }
 

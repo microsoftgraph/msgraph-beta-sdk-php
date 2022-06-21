@@ -6,51 +6,33 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageSubject extends Entity implements Parsable 
+class AccessPackageSubject extends Entity 
 {
-    /**
-     * @var string|null $altSecId The altSecId property
-    */
+    /** @var string|null $altSecId The altSecId property */
     private ?string $altSecId = null;
     
-    /**
-     * @var ConnectedOrganization|null $connectedOrganization The connected organization of the subject. Read-only. Nullable.
-    */
+    /** @var ConnectedOrganization|null $connectedOrganization The connected organization of the subject. Read-only. Nullable. */
     private ?ConnectedOrganization $connectedOrganization = null;
     
-    /**
-     * @var string|null $connectedOrganizationId The identifier of the connected organization of the subject.
-    */
+    /** @var string|null $connectedOrganizationId The identifier of the connected organization of the subject. */
     private ?string $connectedOrganizationId = null;
     
-    /**
-     * @var string|null $displayName The display name of the subject.
-    */
+    /** @var string|null $displayName The display name of the subject. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $email The email address of the subject.
-    */
+    /** @var string|null $email The email address of the subject. */
     private ?string $email = null;
     
-    /**
-     * @var string|null $objectId The object identifier of the subject. null if the subject is not yet a user in the tenant.
-    */
+    /** @var string|null $objectId The object identifier of the subject. null if the subject is not yet a user in the tenant. */
     private ?string $objectId = null;
     
-    /**
-     * @var string|null $onPremisesSecurityIdentifier A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier.
-    */
+    /** @var string|null $onPremisesSecurityIdentifier A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier. */
     private ?string $onPremisesSecurityIdentifier = null;
     
-    /**
-     * @var string|null $principalName The principal name, if known, of the subject.
-    */
+    /** @var string|null $principalName The principal name, if known, of the subject. */
     private ?string $principalName = null;
     
-    /**
-     * @var string|null $type The resource type of the subject.
-    */
+    /** @var string|null $type The resource type of the subject. */
     private ?string $type = null;
     
     /**
@@ -65,7 +47,7 @@ class AccessPackageSubject extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageSubject
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageSubject {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageSubject {
         return new AccessPackageSubject();
     }
 
@@ -114,17 +96,16 @@ class AccessPackageSubject extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'altSecId' => function (ParseNode $n) use ($o) { $o->setAltSecId($n->getStringValue()); },
-            'connectedOrganization' => function (ParseNode $n) use ($o) { $o->setConnectedOrganization($n->getObjectValue(array(ConnectedOrganization::class, 'createFromDiscriminatorValue'))); },
-            'connectedOrganizationId' => function (ParseNode $n) use ($o) { $o->setConnectedOrganizationId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
-            'objectId' => function (ParseNode $n) use ($o) { $o->setObjectId($n->getStringValue()); },
-            'onPremisesSecurityIdentifier' => function (ParseNode $n) use ($o) { $o->setOnPremisesSecurityIdentifier($n->getStringValue()); },
-            'principalName' => function (ParseNode $n) use ($o) { $o->setPrincipalName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'altSecId' => function (self $o, ParseNode $n) { $o->setAltSecId($n->getStringValue()); },
+            'connectedOrganization' => function (self $o, ParseNode $n) { $o->setConnectedOrganization($n->getObjectValue(ConnectedOrganization::class)); },
+            'connectedOrganizationId' => function (self $o, ParseNode $n) { $o->setConnectedOrganizationId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
+            'objectId' => function (self $o, ParseNode $n) { $o->setObjectId($n->getStringValue()); },
+            'onPremisesSecurityIdentifier' => function (self $o, ParseNode $n) { $o->setOnPremisesSecurityIdentifier($n->getStringValue()); },
+            'principalName' => function (self $o, ParseNode $n) { $o->setPrincipalName($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
         ]);
     }
 

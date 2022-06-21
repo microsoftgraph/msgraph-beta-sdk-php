@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AllowedDataLocation extends Entity implements Parsable 
+class AllowedDataLocation extends Entity 
 {
-    /**
-     * @var string|null $appId The appId property
-    */
+    /** @var string|null $appId The appId property */
     private ?string $appId = null;
     
-    /**
-     * @var string|null $domain The domain property
-    */
+    /** @var string|null $domain The domain property */
     private ?string $domain = null;
     
-    /**
-     * @var bool|null $isDefault The isDefault property
-    */
+    /** @var bool|null $isDefault The isDefault property */
     private ?bool $isDefault = null;
     
-    /**
-     * @var string|null $location The location property
-    */
+    /** @var string|null $location The location property */
     private ?string $location = null;
     
     /**
@@ -40,7 +32,7 @@ class AllowedDataLocation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AllowedDataLocation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AllowedDataLocation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AllowedDataLocation {
         return new AllowedDataLocation();
     }
 
@@ -65,12 +57,11 @@ class AllowedDataLocation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'domain' => function (ParseNode $n) use ($o) { $o->setDomain($n->getStringValue()); },
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getStringValue()); },
+            'appId' => function (self $o, ParseNode $n) { $o->setAppId($n->getStringValue()); },
+            'domain' => function (self $o, ParseNode $n) { $o->setDomain($n->getStringValue()); },
+            'isDefault' => function (self $o, ParseNode $n) { $o->setIsDefault($n->getBooleanValue()); },
+            'location' => function (self $o, ParseNode $n) { $o->setLocation($n->getStringValue()); },
         ]);
     }
 

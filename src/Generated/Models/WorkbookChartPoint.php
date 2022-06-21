@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookChartPoint extends Entity implements Parsable 
+class WorkbookChartPoint extends Entity 
 {
-    /**
-     * @var WorkbookChartPointFormat|null $format Encapsulates the format properties chart point. Read-only.
-    */
+    /** @var WorkbookChartPointFormat|null $format Encapsulates the format properties chart point. Read-only. */
     private ?WorkbookChartPointFormat $format = null;
     
-    /**
-     * @var Json|null $value Returns the value of a chart point. Read-only.
-    */
+    /** @var Json|null $value Returns the value of a chart point. Read-only. */
     private ?Json $value = null;
     
     /**
@@ -30,7 +26,7 @@ class WorkbookChartPoint extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookChartPoint
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartPoint {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartPoint {
         return new WorkbookChartPoint();
     }
 
@@ -39,10 +35,9 @@ class WorkbookChartPoint extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getObjectValue(array(WorkbookChartPointFormat::class, 'createFromDiscriminatorValue'))); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getObjectValue(array(Json::class, 'createFromDiscriminatorValue'))); },
+            'format' => function (self $o, ParseNode $n) { $o->setFormat($n->getObjectValue(WorkbookChartPointFormat::class)); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getObjectValue(Json::class)); },
         ]);
     }
 

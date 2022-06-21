@@ -6,66 +6,42 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ReportRoot extends Entity implements Parsable 
+class ReportRoot extends Entity 
 {
-    /**
-     * @var array<ApplicationSignInDetailedSummary>|null $applicationSignInDetailedSummary Represents a detailed summary of an application sign-in.
-    */
+    /** @var array<ApplicationSignInDetailedSummary>|null $applicationSignInDetailedSummary Represents a detailed summary of an application sign-in. */
     private ?array $applicationSignInDetailedSummary = null;
     
-    /**
-     * @var AuthenticationMethodsRoot|null $authenticationMethods Container for navigation properties for Azure AD authentication methods resources.
-    */
+    /** @var AuthenticationMethodsRoot|null $authenticationMethods Container for navigation properties for Azure AD authentication methods resources. */
     private ?AuthenticationMethodsRoot $authenticationMethods = null;
     
-    /**
-     * @var array<CredentialUserRegistrationDetails>|null $credentialUserRegistrationDetails Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users.
-    */
+    /** @var array<CredentialUserRegistrationDetails>|null $credentialUserRegistrationDetails Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users. */
     private ?array $credentialUserRegistrationDetails = null;
     
-    /**
-     * @var array<PrintUsageByPrinter>|null $dailyPrintUsageByPrinter The dailyPrintUsageByPrinter property
-    */
+    /** @var array<PrintUsageByPrinter>|null $dailyPrintUsageByPrinter The dailyPrintUsageByPrinter property */
     private ?array $dailyPrintUsageByPrinter = null;
     
-    /**
-     * @var array<PrintUsageByUser>|null $dailyPrintUsageByUser The dailyPrintUsageByUser property
-    */
+    /** @var array<PrintUsageByUser>|null $dailyPrintUsageByUser The dailyPrintUsageByUser property */
     private ?array $dailyPrintUsageByUser = null;
     
-    /**
-     * @var array<PrintUsageByPrinter>|null $dailyPrintUsageSummariesByPrinter The dailyPrintUsageSummariesByPrinter property
-    */
+    /** @var array<PrintUsageByPrinter>|null $dailyPrintUsageSummariesByPrinter The dailyPrintUsageSummariesByPrinter property */
     private ?array $dailyPrintUsageSummariesByPrinter = null;
     
-    /**
-     * @var array<PrintUsageByUser>|null $dailyPrintUsageSummariesByUser The dailyPrintUsageSummariesByUser property
-    */
+    /** @var array<PrintUsageByUser>|null $dailyPrintUsageSummariesByUser The dailyPrintUsageSummariesByUser property */
     private ?array $dailyPrintUsageSummariesByUser = null;
     
-    /**
-     * @var array<PrintUsageByPrinter>|null $monthlyPrintUsageByPrinter The monthlyPrintUsageByPrinter property
-    */
+    /** @var array<PrintUsageByPrinter>|null $monthlyPrintUsageByPrinter The monthlyPrintUsageByPrinter property */
     private ?array $monthlyPrintUsageByPrinter = null;
     
-    /**
-     * @var array<PrintUsageByUser>|null $monthlyPrintUsageByUser The monthlyPrintUsageByUser property
-    */
+    /** @var array<PrintUsageByUser>|null $monthlyPrintUsageByUser The monthlyPrintUsageByUser property */
     private ?array $monthlyPrintUsageByUser = null;
     
-    /**
-     * @var array<PrintUsageByPrinter>|null $monthlyPrintUsageSummariesByPrinter The monthlyPrintUsageSummariesByPrinter property
-    */
+    /** @var array<PrintUsageByPrinter>|null $monthlyPrintUsageSummariesByPrinter The monthlyPrintUsageSummariesByPrinter property */
     private ?array $monthlyPrintUsageSummariesByPrinter = null;
     
-    /**
-     * @var array<PrintUsageByUser>|null $monthlyPrintUsageSummariesByUser The monthlyPrintUsageSummariesByUser property
-    */
+    /** @var array<PrintUsageByUser>|null $monthlyPrintUsageSummariesByUser The monthlyPrintUsageSummariesByUser property */
     private ?array $monthlyPrintUsageSummariesByUser = null;
     
-    /**
-     * @var array<UserCredentialUsageDetails>|null $userCredentialUsageDetails Represents the self-service password reset (SSPR) usage for a given tenant.
-    */
+    /** @var array<UserCredentialUsageDetails>|null $userCredentialUsageDetails Represents the self-service password reset (SSPR) usage for a given tenant. */
     private ?array $userCredentialUsageDetails = null;
     
     /**
@@ -80,7 +56,7 @@ class ReportRoot extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ReportRoot
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ReportRoot {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ReportRoot {
         return new ReportRoot();
     }
 
@@ -145,20 +121,19 @@ class ReportRoot extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationSignInDetailedSummary' => function (ParseNode $n) use ($o) { $o->setApplicationSignInDetailedSummary($n->getCollectionOfObjectValues(array(ApplicationSignInDetailedSummary::class, 'createFromDiscriminatorValue'))); },
-            'authenticationMethods' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethods($n->getObjectValue(array(AuthenticationMethodsRoot::class, 'createFromDiscriminatorValue'))); },
-            'credentialUserRegistrationDetails' => function (ParseNode $n) use ($o) { $o->setCredentialUserRegistrationDetails($n->getCollectionOfObjectValues(array(CredentialUserRegistrationDetails::class, 'createFromDiscriminatorValue'))); },
-            'dailyPrintUsageByPrinter' => function (ParseNode $n) use ($o) { $o->setDailyPrintUsageByPrinter($n->getCollectionOfObjectValues(array(PrintUsageByPrinter::class, 'createFromDiscriminatorValue'))); },
-            'dailyPrintUsageByUser' => function (ParseNode $n) use ($o) { $o->setDailyPrintUsageByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
-            'dailyPrintUsageSummariesByPrinter' => function (ParseNode $n) use ($o) { $o->setDailyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues(array(PrintUsageByPrinter::class, 'createFromDiscriminatorValue'))); },
-            'dailyPrintUsageSummariesByUser' => function (ParseNode $n) use ($o) { $o->setDailyPrintUsageSummariesByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
-            'monthlyPrintUsageByPrinter' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageByPrinter($n->getCollectionOfObjectValues(array(PrintUsageByPrinter::class, 'createFromDiscriminatorValue'))); },
-            'monthlyPrintUsageByUser' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
-            'monthlyPrintUsageSummariesByPrinter' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues(array(PrintUsageByPrinter::class, 'createFromDiscriminatorValue'))); },
-            'monthlyPrintUsageSummariesByUser' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageSummariesByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
-            'userCredentialUsageDetails' => function (ParseNode $n) use ($o) { $o->setUserCredentialUsageDetails($n->getCollectionOfObjectValues(array(UserCredentialUsageDetails::class, 'createFromDiscriminatorValue'))); },
+            'applicationSignInDetailedSummary' => function (self $o, ParseNode $n) { $o->setApplicationSignInDetailedSummary($n->getCollectionOfObjectValues(ApplicationSignInDetailedSummary::class)); },
+            'authenticationMethods' => function (self $o, ParseNode $n) { $o->setAuthenticationMethods($n->getObjectValue(AuthenticationMethodsRoot::class)); },
+            'credentialUserRegistrationDetails' => function (self $o, ParseNode $n) { $o->setCredentialUserRegistrationDetails($n->getCollectionOfObjectValues(CredentialUserRegistrationDetails::class)); },
+            'dailyPrintUsageByPrinter' => function (self $o, ParseNode $n) { $o->setDailyPrintUsageByPrinter($n->getCollectionOfObjectValues(PrintUsageByPrinter::class)); },
+            'dailyPrintUsageByUser' => function (self $o, ParseNode $n) { $o->setDailyPrintUsageByUser($n->getCollectionOfObjectValues(PrintUsageByUser::class)); },
+            'dailyPrintUsageSummariesByPrinter' => function (self $o, ParseNode $n) { $o->setDailyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues(PrintUsageByPrinter::class)); },
+            'dailyPrintUsageSummariesByUser' => function (self $o, ParseNode $n) { $o->setDailyPrintUsageSummariesByUser($n->getCollectionOfObjectValues(PrintUsageByUser::class)); },
+            'monthlyPrintUsageByPrinter' => function (self $o, ParseNode $n) { $o->setMonthlyPrintUsageByPrinter($n->getCollectionOfObjectValues(PrintUsageByPrinter::class)); },
+            'monthlyPrintUsageByUser' => function (self $o, ParseNode $n) { $o->setMonthlyPrintUsageByUser($n->getCollectionOfObjectValues(PrintUsageByUser::class)); },
+            'monthlyPrintUsageSummariesByPrinter' => function (self $o, ParseNode $n) { $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues(PrintUsageByPrinter::class)); },
+            'monthlyPrintUsageSummariesByUser' => function (self $o, ParseNode $n) { $o->setMonthlyPrintUsageSummariesByUser($n->getCollectionOfObjectValues(PrintUsageByUser::class)); },
+            'userCredentialUsageDetails' => function (self $o, ParseNode $n) { $o->setUserCredentialUsageDetails($n->getCollectionOfObjectValues(UserCredentialUsageDetails::class)); },
         ]);
     }
 

@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ExpressionInputObject implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var ObjectDefinition|null $definition Definition of the test object.
-    */
+    /** @var ObjectDefinition|null $definition Definition of the test object. */
     private ?ObjectDefinition $definition = null;
     
-    /**
-     * @var array<StringKeyObjectValuePair>|null $properties Property values of the test object.
-    */
+    /** @var array<StringKeyObjectValuePair>|null $properties Property values of the test object. */
     private ?array $properties = null;
     
     /**
@@ -36,7 +30,7 @@ class ExpressionInputObject implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExpressionInputObject
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExpressionInputObject {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ExpressionInputObject {
         return new ExpressionInputObject();
     }
 
@@ -61,10 +55,9 @@ class ExpressionInputObject implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'definition' => function (ParseNode $n) use ($o) { $o->setDefinition($n->getObjectValue(array(ObjectDefinition::class, 'createFromDiscriminatorValue'))); },
-            'properties' => function (ParseNode $n) use ($o) { $o->setProperties($n->getCollectionOfObjectValues(array(StringKeyObjectValuePair::class, 'createFromDiscriminatorValue'))); },
+            'definition' => function (self $o, ParseNode $n) { $o->setDefinition($n->getObjectValue(ObjectDefinition::class)); },
+            'properties' => function (self $o, ParseNode $n) { $o->setProperties($n->getCollectionOfObjectValues(StringKeyObjectValuePair::class)); },
         ];
     }
 

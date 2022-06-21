@@ -6,25 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DirectorySettingTemplate extends DirectoryObject implements Parsable 
+class DirectorySettingTemplate extends DirectoryObject 
 {
-    /**
-     * @var string|null $description Description of the template. Read-only.
-    */
+    /** @var string|null $description Description of the template. Read-only. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Display name of the template. Read-only.
-    */
+    /** @var string|null $displayName Display name of the template. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<SettingTemplateValue>|null $values Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template.  Read-only.
-    */
+    /** @var array<SettingTemplateValue>|null $values Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template.  Read-only. */
     private ?array $values = null;
     
     /**
-     * Instantiates a new DirectorySettingTemplate and sets the default values.
+     * Instantiates a new directorySettingTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +29,7 @@ class DirectorySettingTemplate extends DirectoryObject implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DirectorySettingTemplate
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DirectorySettingTemplate {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DirectorySettingTemplate {
         return new DirectorySettingTemplate();
     }
 
@@ -60,11 +54,10 @@ class DirectorySettingTemplate extends DirectoryObject implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'values' => function (ParseNode $n) use ($o) { $o->setValues($n->getCollectionOfObjectValues(array(SettingTemplateValue::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'values' => function (self $o, ParseNode $n) { $o->setValues($n->getCollectionOfObjectValues(SettingTemplateValue::class)); },
         ]);
     }
 

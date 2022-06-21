@@ -216,14 +216,10 @@ class ServicePrincipalItemRequestBuilder
         return new OwnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
+    /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
+    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -268,9 +264,7 @@ class ServicePrincipalItemRequestBuilder
         return new UpdatePasswordSingleSignOnCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
+    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
     /**
@@ -280,7 +274,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function appManagementPoliciesById(string $id): AppManagementPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['appManagementPolicy%2Did'] = $id;
+        $urlTplParams['appManagementPolicy_id'] = $id;
         return new AppManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -291,7 +285,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function appRoleAssignedToById(string $id): MicrosoftGraphBetaGeneratedServicePrincipalsItemAppRoleAssignedToItemAppRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['appRoleAssignment%2Did'] = $id;
+        $urlTplParams['appRoleAssignment_id'] = $id;
         return new MicrosoftGraphBetaGeneratedServicePrincipalsItemAppRoleAssignedToItemAppRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -302,7 +296,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function appRoleAssignmentsById(string $id): MicrosoftGraphBetaGeneratedServicePrincipalsItemAppRoleAssignmentsItemAppRoleAssignmentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['appRoleAssignment%2Did'] = $id;
+        $urlTplParams['appRoleAssignment_id'] = $id;
         return new MicrosoftGraphBetaGeneratedServicePrincipalsItemAppRoleAssignmentsItemAppRoleAssignmentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -313,7 +307,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function claimsMappingPoliciesById(string $id): ClaimsMappingPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['claimsMappingPolicy%2Did'] = $id;
+        $urlTplParams['claimsMappingPolicy_id'] = $id;
         return new ClaimsMappingPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -323,28 +317,27 @@ class ServicePrincipalItemRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/servicePrincipals/{servicePrincipal%2Did}{?%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/servicePrincipals/{servicePrincipal_id}{?select,expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Delete a servicePrincipal object.
-     * @param ServicePrincipalItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Delete entity from servicePrincipals
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createDeleteRequestInformation(?ServicePrincipalItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createDeleteRequestInformation(?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
@@ -356,55 +349,53 @@ class ServicePrincipalItemRequestBuilder
     */
     public function createdObjectsById(string $id): MicrosoftGraphBetaGeneratedServicePrincipalsItemCreatedObjectsItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedServicePrincipalsItemCreatedObjectsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
-     * @param ServicePrincipalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get entity from servicePrincipals by key
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?ServicePrincipalItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->queryParameters !== null) {
-                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($queryParameters !== null) {
+            $requestInfo->setQueryParameters($queryParameters);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
 
     /**
-     * Update the properties of servicePrincipal object.
+     * Update entity in servicePrincipals
      * @param ServicePrincipal $body 
-     * @param ServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(ServicePrincipal $body, ?ServicePrincipalItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createPatchRequestInformation(ServicePrincipal $body, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
+        }
         return $requestInfo;
     }
 
@@ -415,24 +406,21 @@ class ServicePrincipalItemRequestBuilder
     */
     public function delegatedPermissionClassificationsById(string $id): DelegatedPermissionClassificationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['delegatedPermissionClassification%2Did'] = $id;
+        $urlTplParams['delegatedPermissionClassification_id'] = $id;
         return new DelegatedPermissionClassificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
-     * Delete a servicePrincipal object.
-     * @param ServicePrincipalItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Delete entity from servicePrincipals
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?ServicePrincipalItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createDeleteRequestInformation($requestConfiguration);
+    public function delete(?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createDeleteRequestInformation($headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -445,7 +433,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function endpointsById(string $id): EndpointItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['endpoint%2Did'] = $id;
+        $urlTplParams['endpoint_id'] = $id;
         return new EndpointItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -456,24 +444,22 @@ class ServicePrincipalItemRequestBuilder
     */
     public function federatedIdentityCredentialsById(string $id): FederatedIdentityCredentialItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['federatedIdentityCredential%2Did'] = $id;
+        $urlTplParams['federatedIdentityCredential_id'] = $id;
         return new FederatedIdentityCredentialItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
-     * @param ServicePrincipalItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * Get entity from servicePrincipals by key
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ServicePrincipalItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
+    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(ServicePrincipal::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, ServicePrincipal::class, $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -486,7 +472,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function homeRealmDiscoveryPoliciesById(string $id): HomeRealmDiscoveryPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['homeRealmDiscoveryPolicy%2Did'] = $id;
+        $urlTplParams['homeRealmDiscoveryPolicy_id'] = $id;
         return new HomeRealmDiscoveryPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -497,7 +483,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function licenseDetailsById(string $id): LicenseDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['licenseDetails%2Did'] = $id;
+        $urlTplParams['licenseDetails_id'] = $id;
         return new LicenseDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -508,7 +494,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function memberOfById(string $id): MicrosoftGraphBetaGeneratedServicePrincipalsItemMemberOfItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedServicePrincipalsItemMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -519,7 +505,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function oauth2PermissionGrantsById(string $id): OAuth2PermissionGrantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['oAuth2PermissionGrant%2Did'] = $id;
+        $urlTplParams['oAuth2PermissionGrant_id'] = $id;
         return new OAuth2PermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -530,7 +516,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function ownedObjectsById(string $id): MicrosoftGraphBetaGeneratedServicePrincipalsItemOwnedObjectsItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedServicePrincipalsItemOwnedObjectsItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -541,25 +527,22 @@ class ServicePrincipalItemRequestBuilder
     */
     public function ownersById(string $id): MicrosoftGraphBetaGeneratedServicePrincipalsItemOwnersItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedServicePrincipalsItemOwnersItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
-     * Update the properties of servicePrincipal object.
+     * Update entity in servicePrincipals
      * @param ServicePrincipal $body 
-     * @param ServicePrincipalItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(ServicePrincipal $body, ?ServicePrincipalItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
+    public function patch(ServicePrincipal $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -572,7 +555,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function tokenIssuancePoliciesById(string $id): TokenIssuancePolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['tokenIssuancePolicy%2Did'] = $id;
+        $urlTplParams['tokenIssuancePolicy_id'] = $id;
         return new TokenIssuancePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -583,7 +566,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function tokenLifetimePoliciesById(string $id): TokenLifetimePolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['tokenLifetimePolicy%2Did'] = $id;
+        $urlTplParams['tokenLifetimePolicy_id'] = $id;
         return new TokenLifetimePolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -594,7 +577,7 @@ class ServicePrincipalItemRequestBuilder
     */
     public function transitiveMemberOfById(string $id): MicrosoftGraphBetaGeneratedServicePrincipalsItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new MicrosoftGraphBetaGeneratedServicePrincipalsItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

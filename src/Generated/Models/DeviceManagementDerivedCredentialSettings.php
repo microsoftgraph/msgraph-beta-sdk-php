@@ -6,32 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementDerivedCredentialSettings extends Entity implements Parsable 
+class DeviceManagementDerivedCredentialSettings extends Entity 
 {
-    /**
-     * @var string|null $displayName The display name for the profile.
-    */
+    /** @var string|null $displayName The display name for the profile. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $helpUrl The URL that will be accessible to end users as they retrieve a derived credential using the Company Portal.
-    */
+    /** @var string|null $helpUrl The URL that will be accessible to end users as they retrieve a derived credential using the Company Portal. */
     private ?string $helpUrl = null;
     
-    /**
-     * @var DeviceManagementDerivedCredentialIssuer|null $issuer The derived credential provider to use.
-    */
+    /** @var DeviceManagementDerivedCredentialIssuer|null $issuer The derived credential provider to use. */
     private ?DeviceManagementDerivedCredentialIssuer $issuer = null;
     
-    /**
-     * @var DeviceManagementDerivedCredentialNotificationType|null $notificationType The methods used to inform the end user to open Company Portal to deliver Wi-Fi, VPN, or email profiles that use certificates to the device.
-    */
+    /** @var DeviceManagementDerivedCredentialNotificationType|null $notificationType The methods used to inform the end user to open Company Portal to deliver Wi-Fi, VPN, or email profiles that use certificates to the device. */
     private ?DeviceManagementDerivedCredentialNotificationType $notificationType = null;
-    
-    /**
-     * @var int|null $renewalThresholdPercentage The nominal percentage of time before certificate renewal is initiated by the client.
-    */
-    private ?int $renewalThresholdPercentage = null;
     
     /**
      * Instantiates a new deviceManagementDerivedCredentialSettings and sets the default values.
@@ -45,7 +32,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementDerivedCredentialSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementDerivedCredentialSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementDerivedCredentialSettings {
         return new DeviceManagementDerivedCredentialSettings();
     }
 
@@ -62,13 +49,11 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'helpUrl' => function (ParseNode $n) use ($o) { $o->setHelpUrl($n->getStringValue()); },
-            'issuer' => function (ParseNode $n) use ($o) { $o->setIssuer($n->getEnumValue(DeviceManagementDerivedCredentialIssuer::class)); },
-            'notificationType' => function (ParseNode $n) use ($o) { $o->setNotificationType($n->getEnumValue(DeviceManagementDerivedCredentialNotificationType::class)); },
-            'renewalThresholdPercentage' => function (ParseNode $n) use ($o) { $o->setRenewalThresholdPercentage($n->getIntegerValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'helpUrl' => function (self $o, ParseNode $n) { $o->setHelpUrl($n->getStringValue()); },
+            'issuer' => function (self $o, ParseNode $n) { $o->setIssuer($n->getEnumValue(DeviceManagementDerivedCredentialIssuer::class)); },
+            'notificationType' => function (self $o, ParseNode $n) { $o->setNotificationType($n->getEnumValue(DeviceManagementDerivedCredentialNotificationType::class)); },
         ]);
     }
 
@@ -97,14 +82,6 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     }
 
     /**
-     * Gets the renewalThresholdPercentage property value. The nominal percentage of time before certificate renewal is initiated by the client.
-     * @return int|null
-    */
-    public function getRenewalThresholdPercentage(): ?int {
-        return $this->renewalThresholdPercentage;
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -114,7 +91,6 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
         $writer->writeStringValue('helpUrl', $this->helpUrl);
         $writer->writeEnumValue('issuer', $this->issuer);
         $writer->writeEnumValue('notificationType', $this->notificationType);
-        $writer->writeIntegerValue('renewalThresholdPercentage', $this->renewalThresholdPercentage);
     }
 
     /**
@@ -147,14 +123,6 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     */
     public function setNotificationType(?DeviceManagementDerivedCredentialNotificationType $value ): void {
         $this->notificationType = $value;
-    }
-
-    /**
-     * Sets the renewalThresholdPercentage property value. The nominal percentage of time before certificate renewal is initiated by the client.
-     *  @param int|null $value Value to set for the renewalThresholdPercentage property.
-    */
-    public function setRenewalThresholdPercentage(?int $value ): void {
-        $this->renewalThresholdPercentage = $value;
     }
 
 }

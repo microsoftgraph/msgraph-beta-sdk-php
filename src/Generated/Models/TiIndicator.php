@@ -7,296 +7,180 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TiIndicator extends Entity implements Parsable 
+class TiIndicator extends Entity 
 {
-    /**
-     * @var TiAction|null $action The action to apply if the indicator is matched from within the targetProduct security tool. Possible values are: unknown, allow, block, alert. Required.
-    */
+    /** @var TiAction|null $action The action to apply if the indicator is matched from within the targetProduct security tool. Possible values are: unknown, allow, block, alert. Required. */
     private ?TiAction $action = null;
     
-    /**
-     * @var array<string>|null $activityGroupNames The cyber threat intelligence name(s) for the parties responsible for the malicious activity covered by the threat indicator.
-    */
+    /** @var array<string>|null $activityGroupNames The cyber threat intelligence name(s) for the parties responsible for the malicious activity covered by the threat indicator. */
     private ?array $activityGroupNames = null;
     
-    /**
-     * @var string|null $additionalInformation A catchall area into which extra data from the indicator not covered by the other tiIndicator properties may be placed. Data placed into additionalInformation will typically not be utilized by the targetProduct security tool.
-    */
+    /** @var string|null $additionalInformation A catchall area into which extra data from the indicator not covered by the other tiIndicator properties may be placed. Data placed into additionalInformation will typically not be utilized by the targetProduct security tool. */
     private ?string $additionalInformation = null;
     
-    /**
-     * @var string|null $azureTenantId Stamped by the system when the indicator is ingested. The Azure Active Directory tenant id of submitting client. Required.
-    */
+    /** @var string|null $azureTenantId Stamped by the system when the indicator is ingested. The Azure Active Directory tenant id of submitting client. Required. */
     private ?string $azureTenantId = null;
     
-    /**
-     * @var int|null $confidence An integer representing the confidence the data within the indicator accurately identifies malicious behavior. Acceptable values are 0 – 100 with 100 being the highest.
-    */
+    /** @var int|null $confidence An integer representing the confidence the data within the indicator accurately identifies malicious behavior. Acceptable values are 0 – 100 with 100 being the highest. */
     private ?int $confidence = null;
     
-    /**
-     * @var string|null $description Brief description (100 characters or less) of the threat represented by the indicator. Required.
-    */
+    /** @var string|null $description Brief description (100 characters or less) of the threat represented by the indicator. Required. */
     private ?string $description = null;
     
-    /**
-     * @var DiamondModel|null $diamondModel The area of the Diamond Model in which this indicator exists. Possible values are: unknown, adversary, capability, infrastructure, victim.
-    */
+    /** @var DiamondModel|null $diamondModel The area of the Diamond Model in which this indicator exists. Possible values are: unknown, adversary, capability, infrastructure, victim. */
     private ?DiamondModel $diamondModel = null;
     
-    /**
-     * @var string|null $domainName The domainName property
-    */
+    /** @var string|null $domainName The domainName property */
     private ?string $domainName = null;
     
-    /**
-     * @var string|null $emailEncoding The emailEncoding property
-    */
+    /** @var string|null $emailEncoding The emailEncoding property */
     private ?string $emailEncoding = null;
     
-    /**
-     * @var string|null $emailLanguage The emailLanguage property
-    */
+    /** @var string|null $emailLanguage The emailLanguage property */
     private ?string $emailLanguage = null;
     
-    /**
-     * @var string|null $emailRecipient The emailRecipient property
-    */
+    /** @var string|null $emailRecipient The emailRecipient property */
     private ?string $emailRecipient = null;
     
-    /**
-     * @var string|null $emailSenderAddress The emailSenderAddress property
-    */
+    /** @var string|null $emailSenderAddress The emailSenderAddress property */
     private ?string $emailSenderAddress = null;
     
-    /**
-     * @var string|null $emailSenderName The emailSenderName property
-    */
+    /** @var string|null $emailSenderName The emailSenderName property */
     private ?string $emailSenderName = null;
     
-    /**
-     * @var string|null $emailSourceDomain The emailSourceDomain property
-    */
+    /** @var string|null $emailSourceDomain The emailSourceDomain property */
     private ?string $emailSourceDomain = null;
     
-    /**
-     * @var string|null $emailSourceIpAddress The emailSourceIpAddress property
-    */
+    /** @var string|null $emailSourceIpAddress The emailSourceIpAddress property */
     private ?string $emailSourceIpAddress = null;
     
-    /**
-     * @var string|null $emailSubject The emailSubject property
-    */
+    /** @var string|null $emailSubject The emailSubject property */
     private ?string $emailSubject = null;
     
-    /**
-     * @var string|null $emailXMailer The emailXMailer property
-    */
+    /** @var string|null $emailXMailer The emailXMailer property */
     private ?string $emailXMailer = null;
     
-    /**
-     * @var DateTime|null $expirationDateTime DateTime string indicating when the Indicator expires. All indicators must have an expiration date to avoid stale indicators persisting in the system. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
-    */
+    /** @var DateTime|null $expirationDateTime DateTime string indicating when the Indicator expires. All indicators must have an expiration date to avoid stale indicators persisting in the system. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required. */
     private ?DateTime $expirationDateTime = null;
     
-    /**
-     * @var string|null $externalId An identification number that ties the indicator back to the indicator provider’s system (e.g. a foreign key).
-    */
+    /** @var string|null $externalId An identification number that ties the indicator back to the indicator provider’s system (e.g. a foreign key). */
     private ?string $externalId = null;
     
-    /**
-     * @var DateTime|null $fileCompileDateTime The fileCompileDateTime property
-    */
+    /** @var DateTime|null $fileCompileDateTime The fileCompileDateTime property */
     private ?DateTime $fileCompileDateTime = null;
     
-    /**
-     * @var DateTime|null $fileCreatedDateTime The fileCreatedDateTime property
-    */
+    /** @var DateTime|null $fileCreatedDateTime The fileCreatedDateTime property */
     private ?DateTime $fileCreatedDateTime = null;
     
-    /**
-     * @var FileHashType|null $fileHashType The fileHashType property
-    */
+    /** @var FileHashType|null $fileHashType The fileHashType property */
     private ?FileHashType $fileHashType = null;
     
-    /**
-     * @var string|null $fileHashValue The fileHashValue property
-    */
+    /** @var string|null $fileHashValue The fileHashValue property */
     private ?string $fileHashValue = null;
     
-    /**
-     * @var string|null $fileMutexName The fileMutexName property
-    */
+    /** @var string|null $fileMutexName The fileMutexName property */
     private ?string $fileMutexName = null;
     
-    /**
-     * @var string|null $fileName The fileName property
-    */
+    /** @var string|null $fileName The fileName property */
     private ?string $fileName = null;
     
-    /**
-     * @var string|null $filePacker The filePacker property
-    */
+    /** @var string|null $filePacker The filePacker property */
     private ?string $filePacker = null;
     
-    /**
-     * @var string|null $filePath The filePath property
-    */
+    /** @var string|null $filePath The filePath property */
     private ?string $filePath = null;
     
-    /**
-     * @var int|null $fileSize The fileSize property
-    */
+    /** @var int|null $fileSize The fileSize property */
     private ?int $fileSize = null;
     
-    /**
-     * @var string|null $fileType The fileType property
-    */
+    /** @var string|null $fileType The fileType property */
     private ?string $fileType = null;
     
-    /**
-     * @var DateTime|null $ingestedDateTime Stamped by the system when the indicator is ingested. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $ingestedDateTime Stamped by the system when the indicator is ingested. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $ingestedDateTime = null;
     
-    /**
-     * @var bool|null $isActive Used to deactivate indicators within system. By default, any indicator submitted is set as active. However, providers may submit existing indicators with this set to ‘False’ to deactivate indicators in the system.
-    */
+    /** @var bool|null $isActive Used to deactivate indicators within system. By default, any indicator submitted is set as active. However, providers may submit existing indicators with this set to ‘False’ to deactivate indicators in the system. */
     private ?bool $isActive = null;
     
-    /**
-     * @var array<string>|null $killChain A JSON array of strings that describes which point or points on the Kill Chain this indicator targets. See ‘killChain values’ below for exact values.
-    */
+    /** @var array<string>|null $killChain A JSON array of strings that describes which point or points on the Kill Chain this indicator targets. See ‘killChain values’ below for exact values. */
     private ?array $killChain = null;
     
-    /**
-     * @var string|null $knownFalsePositives Scenarios in which the indicator may cause false positives. This should be human-readable text.
-    */
+    /** @var string|null $knownFalsePositives Scenarios in which the indicator may cause false positives. This should be human-readable text. */
     private ?string $knownFalsePositives = null;
     
-    /**
-     * @var DateTime|null $lastReportedDateTime The last time the indicator was seen. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $lastReportedDateTime The last time the indicator was seen. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $lastReportedDateTime = null;
     
-    /**
-     * @var array<string>|null $malwareFamilyNames The malware family name associated with an indicator if it exists. Microsoft prefers the Microsoft malware family name if at all possible which can be found via the Windows Defender Security Intelligence threat encyclopedia.
-    */
+    /** @var array<string>|null $malwareFamilyNames The malware family name associated with an indicator if it exists. Microsoft prefers the Microsoft malware family name if at all possible which can be found via the Windows Defender Security Intelligence threat encyclopedia. */
     private ?array $malwareFamilyNames = null;
     
-    /**
-     * @var string|null $networkCidrBlock The networkCidrBlock property
-    */
+    /** @var string|null $networkCidrBlock The networkCidrBlock property */
     private ?string $networkCidrBlock = null;
     
-    /**
-     * @var int|null $networkDestinationAsn The networkDestinationAsn property
-    */
+    /** @var int|null $networkDestinationAsn The networkDestinationAsn property */
     private ?int $networkDestinationAsn = null;
     
-    /**
-     * @var string|null $networkDestinationCidrBlock The networkDestinationCidrBlock property
-    */
+    /** @var string|null $networkDestinationCidrBlock The networkDestinationCidrBlock property */
     private ?string $networkDestinationCidrBlock = null;
     
-    /**
-     * @var string|null $networkDestinationIPv4 The networkDestinationIPv4 property
-    */
+    /** @var string|null $networkDestinationIPv4 The networkDestinationIPv4 property */
     private ?string $networkDestinationIPv4 = null;
     
-    /**
-     * @var string|null $networkDestinationIPv6 The networkDestinationIPv6 property
-    */
+    /** @var string|null $networkDestinationIPv6 The networkDestinationIPv6 property */
     private ?string $networkDestinationIPv6 = null;
     
-    /**
-     * @var int|null $networkDestinationPort The networkDestinationPort property
-    */
+    /** @var int|null $networkDestinationPort The networkDestinationPort property */
     private ?int $networkDestinationPort = null;
     
-    /**
-     * @var string|null $networkIPv4 The networkIPv4 property
-    */
+    /** @var string|null $networkIPv4 The networkIPv4 property */
     private ?string $networkIPv4 = null;
     
-    /**
-     * @var string|null $networkIPv6 The networkIPv6 property
-    */
+    /** @var string|null $networkIPv6 The networkIPv6 property */
     private ?string $networkIPv6 = null;
     
-    /**
-     * @var int|null $networkPort The networkPort property
-    */
+    /** @var int|null $networkPort The networkPort property */
     private ?int $networkPort = null;
     
-    /**
-     * @var int|null $networkProtocol The networkProtocol property
-    */
+    /** @var int|null $networkProtocol The networkProtocol property */
     private ?int $networkProtocol = null;
     
-    /**
-     * @var int|null $networkSourceAsn The networkSourceAsn property
-    */
+    /** @var int|null $networkSourceAsn The networkSourceAsn property */
     private ?int $networkSourceAsn = null;
     
-    /**
-     * @var string|null $networkSourceCidrBlock The networkSourceCidrBlock property
-    */
+    /** @var string|null $networkSourceCidrBlock The networkSourceCidrBlock property */
     private ?string $networkSourceCidrBlock = null;
     
-    /**
-     * @var string|null $networkSourceIPv4 The networkSourceIPv4 property
-    */
+    /** @var string|null $networkSourceIPv4 The networkSourceIPv4 property */
     private ?string $networkSourceIPv4 = null;
     
-    /**
-     * @var string|null $networkSourceIPv6 The networkSourceIPv6 property
-    */
+    /** @var string|null $networkSourceIPv6 The networkSourceIPv6 property */
     private ?string $networkSourceIPv6 = null;
     
-    /**
-     * @var int|null $networkSourcePort The networkSourcePort property
-    */
+    /** @var int|null $networkSourcePort The networkSourcePort property */
     private ?int $networkSourcePort = null;
     
-    /**
-     * @var bool|null $passiveOnly Determines if the indicator should trigger an event that is visible to an end-user. When set to ‘true,’ security tools will not notify the end user that a ‘hit’ has occurred. This is most often treated as audit or silent mode by security products where they will simply log that a match occurred but will not perform the action. Default value is false.
-    */
+    /** @var bool|null $passiveOnly Determines if the indicator should trigger an event that is visible to an end-user. When set to ‘true,’ security tools will not notify the end user that a ‘hit’ has occurred. This is most often treated as audit or silent mode by security products where they will simply log that a match occurred but will not perform the action. Default value is false. */
     private ?bool $passiveOnly = null;
     
-    /**
-     * @var int|null $severity An integer representing the severity of the malicious behavior identified by the data within the indicator. Acceptable values are 0 – 5 where 5 is the most severe and zero is not severe at all. Default value is 3.
-    */
+    /** @var int|null $severity An integer representing the severity of the malicious behavior identified by the data within the indicator. Acceptable values are 0 – 5 where 5 is the most severe and zero is not severe at all. Default value is 3. */
     private ?int $severity = null;
     
-    /**
-     * @var array<string>|null $tags A JSON array of strings that stores arbitrary tags/keywords.
-    */
+    /** @var array<string>|null $tags A JSON array of strings that stores arbitrary tags/keywords. */
     private ?array $tags = null;
     
-    /**
-     * @var string|null $targetProduct A string value representing a single security product to which the indicator should be applied. Acceptable values are: Azure Sentinel, Microsoft Defender ATP. Required
-    */
+    /** @var string|null $targetProduct A string value representing a single security product to which the indicator should be applied. Acceptable values are: Azure Sentinel, Microsoft Defender ATP. Required */
     private ?string $targetProduct = null;
     
-    /**
-     * @var string|null $threatType Each indicator must have a valid Indicator Threat Type. Possible values are: Botnet, C2, CryptoMining, Darknet, DDoS, MaliciousUrl, Malware, Phishing, Proxy, PUA, WatchList. Required.
-    */
+    /** @var string|null $threatType Each indicator must have a valid Indicator Threat Type. Possible values are: Botnet, C2, CryptoMining, Darknet, DDoS, MaliciousUrl, Malware, Phishing, Proxy, PUA, WatchList. Required. */
     private ?string $threatType = null;
     
-    /**
-     * @var TlpLevel|null $tlpLevel Traffic Light Protocol value for the indicator. Possible values are: unknown, white, green, amber, red. Required.
-    */
+    /** @var TlpLevel|null $tlpLevel Traffic Light Protocol value for the indicator. Possible values are: unknown, white, green, amber, red. Required. */
     private ?TlpLevel $tlpLevel = null;
     
-    /**
-     * @var string|null $url The url property
-    */
+    /** @var string|null $url The url property */
     private ?string $url = null;
     
-    /**
-     * @var string|null $userAgent The userAgent property
-    */
+    /** @var string|null $userAgent The userAgent property */
     private ?string $userAgent = null;
     
     /**
@@ -311,7 +195,7 @@ class TiIndicator extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TiIndicator
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TiIndicator {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TiIndicator {
         return new TiIndicator();
     }
 
@@ -472,66 +356,65 @@ class TiIndicator extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(TiAction::class)); },
-            'activityGroupNames' => function (ParseNode $n) use ($o) { $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()); },
-            'additionalInformation' => function (ParseNode $n) use ($o) { $o->setAdditionalInformation($n->getStringValue()); },
-            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
-            'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'diamondModel' => function (ParseNode $n) use ($o) { $o->setDiamondModel($n->getEnumValue(DiamondModel::class)); },
-            'domainName' => function (ParseNode $n) use ($o) { $o->setDomainName($n->getStringValue()); },
-            'emailEncoding' => function (ParseNode $n) use ($o) { $o->setEmailEncoding($n->getStringValue()); },
-            'emailLanguage' => function (ParseNode $n) use ($o) { $o->setEmailLanguage($n->getStringValue()); },
-            'emailRecipient' => function (ParseNode $n) use ($o) { $o->setEmailRecipient($n->getStringValue()); },
-            'emailSenderAddress' => function (ParseNode $n) use ($o) { $o->setEmailSenderAddress($n->getStringValue()); },
-            'emailSenderName' => function (ParseNode $n) use ($o) { $o->setEmailSenderName($n->getStringValue()); },
-            'emailSourceDomain' => function (ParseNode $n) use ($o) { $o->setEmailSourceDomain($n->getStringValue()); },
-            'emailSourceIpAddress' => function (ParseNode $n) use ($o) { $o->setEmailSourceIpAddress($n->getStringValue()); },
-            'emailSubject' => function (ParseNode $n) use ($o) { $o->setEmailSubject($n->getStringValue()); },
-            'emailXMailer' => function (ParseNode $n) use ($o) { $o->setEmailXMailer($n->getStringValue()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
-            'fileCompileDateTime' => function (ParseNode $n) use ($o) { $o->setFileCompileDateTime($n->getDateTimeValue()); },
-            'fileCreatedDateTime' => function (ParseNode $n) use ($o) { $o->setFileCreatedDateTime($n->getDateTimeValue()); },
-            'fileHashType' => function (ParseNode $n) use ($o) { $o->setFileHashType($n->getEnumValue(FileHashType::class)); },
-            'fileHashValue' => function (ParseNode $n) use ($o) { $o->setFileHashValue($n->getStringValue()); },
-            'fileMutexName' => function (ParseNode $n) use ($o) { $o->setFileMutexName($n->getStringValue()); },
-            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
-            'filePacker' => function (ParseNode $n) use ($o) { $o->setFilePacker($n->getStringValue()); },
-            'filePath' => function (ParseNode $n) use ($o) { $o->setFilePath($n->getStringValue()); },
-            'fileSize' => function (ParseNode $n) use ($o) { $o->setFileSize($n->getIntegerValue()); },
-            'fileType' => function (ParseNode $n) use ($o) { $o->setFileType($n->getStringValue()); },
-            'ingestedDateTime' => function (ParseNode $n) use ($o) { $o->setIngestedDateTime($n->getDateTimeValue()); },
-            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
-            'killChain' => function (ParseNode $n) use ($o) { $o->setKillChain($n->getCollectionOfPrimitiveValues()); },
-            'knownFalsePositives' => function (ParseNode $n) use ($o) { $o->setKnownFalsePositives($n->getStringValue()); },
-            'lastReportedDateTime' => function (ParseNode $n) use ($o) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
-            'malwareFamilyNames' => function (ParseNode $n) use ($o) { $o->setMalwareFamilyNames($n->getCollectionOfPrimitiveValues()); },
-            'networkCidrBlock' => function (ParseNode $n) use ($o) { $o->setNetworkCidrBlock($n->getStringValue()); },
-            'networkDestinationAsn' => function (ParseNode $n) use ($o) { $o->setNetworkDestinationAsn($n->getIntegerValue()); },
-            'networkDestinationCidrBlock' => function (ParseNode $n) use ($o) { $o->setNetworkDestinationCidrBlock($n->getStringValue()); },
-            'networkDestinationIPv4' => function (ParseNode $n) use ($o) { $o->setNetworkDestinationIPv4($n->getStringValue()); },
-            'networkDestinationIPv6' => function (ParseNode $n) use ($o) { $o->setNetworkDestinationIPv6($n->getStringValue()); },
-            'networkDestinationPort' => function (ParseNode $n) use ($o) { $o->setNetworkDestinationPort($n->getIntegerValue()); },
-            'networkIPv4' => function (ParseNode $n) use ($o) { $o->setNetworkIPv4($n->getStringValue()); },
-            'networkIPv6' => function (ParseNode $n) use ($o) { $o->setNetworkIPv6($n->getStringValue()); },
-            'networkPort' => function (ParseNode $n) use ($o) { $o->setNetworkPort($n->getIntegerValue()); },
-            'networkProtocol' => function (ParseNode $n) use ($o) { $o->setNetworkProtocol($n->getIntegerValue()); },
-            'networkSourceAsn' => function (ParseNode $n) use ($o) { $o->setNetworkSourceAsn($n->getIntegerValue()); },
-            'networkSourceCidrBlock' => function (ParseNode $n) use ($o) { $o->setNetworkSourceCidrBlock($n->getStringValue()); },
-            'networkSourceIPv4' => function (ParseNode $n) use ($o) { $o->setNetworkSourceIPv4($n->getStringValue()); },
-            'networkSourceIPv6' => function (ParseNode $n) use ($o) { $o->setNetworkSourceIPv6($n->getStringValue()); },
-            'networkSourcePort' => function (ParseNode $n) use ($o) { $o->setNetworkSourcePort($n->getIntegerValue()); },
-            'passiveOnly' => function (ParseNode $n) use ($o) { $o->setPassiveOnly($n->getBooleanValue()); },
-            'severity' => function (ParseNode $n) use ($o) { $o->setSeverity($n->getIntegerValue()); },
-            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'targetProduct' => function (ParseNode $n) use ($o) { $o->setTargetProduct($n->getStringValue()); },
-            'threatType' => function (ParseNode $n) use ($o) { $o->setThreatType($n->getStringValue()); },
-            'tlpLevel' => function (ParseNode $n) use ($o) { $o->setTlpLevel($n->getEnumValue(TlpLevel::class)); },
-            'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
-            'userAgent' => function (ParseNode $n) use ($o) { $o->setUserAgent($n->getStringValue()); },
+            'action' => function (self $o, ParseNode $n) { $o->setAction($n->getEnumValue(TiAction::class)); },
+            'activityGroupNames' => function (self $o, ParseNode $n) { $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()); },
+            'additionalInformation' => function (self $o, ParseNode $n) { $o->setAdditionalInformation($n->getStringValue()); },
+            'azureTenantId' => function (self $o, ParseNode $n) { $o->setAzureTenantId($n->getStringValue()); },
+            'confidence' => function (self $o, ParseNode $n) { $o->setConfidence($n->getIntegerValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'diamondModel' => function (self $o, ParseNode $n) { $o->setDiamondModel($n->getEnumValue(DiamondModel::class)); },
+            'domainName' => function (self $o, ParseNode $n) { $o->setDomainName($n->getStringValue()); },
+            'emailEncoding' => function (self $o, ParseNode $n) { $o->setEmailEncoding($n->getStringValue()); },
+            'emailLanguage' => function (self $o, ParseNode $n) { $o->setEmailLanguage($n->getStringValue()); },
+            'emailRecipient' => function (self $o, ParseNode $n) { $o->setEmailRecipient($n->getStringValue()); },
+            'emailSenderAddress' => function (self $o, ParseNode $n) { $o->setEmailSenderAddress($n->getStringValue()); },
+            'emailSenderName' => function (self $o, ParseNode $n) { $o->setEmailSenderName($n->getStringValue()); },
+            'emailSourceDomain' => function (self $o, ParseNode $n) { $o->setEmailSourceDomain($n->getStringValue()); },
+            'emailSourceIpAddress' => function (self $o, ParseNode $n) { $o->setEmailSourceIpAddress($n->getStringValue()); },
+            'emailSubject' => function (self $o, ParseNode $n) { $o->setEmailSubject($n->getStringValue()); },
+            'emailXMailer' => function (self $o, ParseNode $n) { $o->setEmailXMailer($n->getStringValue()); },
+            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'externalId' => function (self $o, ParseNode $n) { $o->setExternalId($n->getStringValue()); },
+            'fileCompileDateTime' => function (self $o, ParseNode $n) { $o->setFileCompileDateTime($n->getDateTimeValue()); },
+            'fileCreatedDateTime' => function (self $o, ParseNode $n) { $o->setFileCreatedDateTime($n->getDateTimeValue()); },
+            'fileHashType' => function (self $o, ParseNode $n) { $o->setFileHashType($n->getEnumValue(FileHashType::class)); },
+            'fileHashValue' => function (self $o, ParseNode $n) { $o->setFileHashValue($n->getStringValue()); },
+            'fileMutexName' => function (self $o, ParseNode $n) { $o->setFileMutexName($n->getStringValue()); },
+            'fileName' => function (self $o, ParseNode $n) { $o->setFileName($n->getStringValue()); },
+            'filePacker' => function (self $o, ParseNode $n) { $o->setFilePacker($n->getStringValue()); },
+            'filePath' => function (self $o, ParseNode $n) { $o->setFilePath($n->getStringValue()); },
+            'fileSize' => function (self $o, ParseNode $n) { $o->setFileSize($n->getIntegerValue()); },
+            'fileType' => function (self $o, ParseNode $n) { $o->setFileType($n->getStringValue()); },
+            'ingestedDateTime' => function (self $o, ParseNode $n) { $o->setIngestedDateTime($n->getDateTimeValue()); },
+            'isActive' => function (self $o, ParseNode $n) { $o->setIsActive($n->getBooleanValue()); },
+            'killChain' => function (self $o, ParseNode $n) { $o->setKillChain($n->getCollectionOfPrimitiveValues()); },
+            'knownFalsePositives' => function (self $o, ParseNode $n) { $o->setKnownFalsePositives($n->getStringValue()); },
+            'lastReportedDateTime' => function (self $o, ParseNode $n) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
+            'malwareFamilyNames' => function (self $o, ParseNode $n) { $o->setMalwareFamilyNames($n->getCollectionOfPrimitiveValues()); },
+            'networkCidrBlock' => function (self $o, ParseNode $n) { $o->setNetworkCidrBlock($n->getStringValue()); },
+            'networkDestinationAsn' => function (self $o, ParseNode $n) { $o->setNetworkDestinationAsn($n->getIntegerValue()); },
+            'networkDestinationCidrBlock' => function (self $o, ParseNode $n) { $o->setNetworkDestinationCidrBlock($n->getStringValue()); },
+            'networkDestinationIPv4' => function (self $o, ParseNode $n) { $o->setNetworkDestinationIPv4($n->getStringValue()); },
+            'networkDestinationIPv6' => function (self $o, ParseNode $n) { $o->setNetworkDestinationIPv6($n->getStringValue()); },
+            'networkDestinationPort' => function (self $o, ParseNode $n) { $o->setNetworkDestinationPort($n->getIntegerValue()); },
+            'networkIPv4' => function (self $o, ParseNode $n) { $o->setNetworkIPv4($n->getStringValue()); },
+            'networkIPv6' => function (self $o, ParseNode $n) { $o->setNetworkIPv6($n->getStringValue()); },
+            'networkPort' => function (self $o, ParseNode $n) { $o->setNetworkPort($n->getIntegerValue()); },
+            'networkProtocol' => function (self $o, ParseNode $n) { $o->setNetworkProtocol($n->getIntegerValue()); },
+            'networkSourceAsn' => function (self $o, ParseNode $n) { $o->setNetworkSourceAsn($n->getIntegerValue()); },
+            'networkSourceCidrBlock' => function (self $o, ParseNode $n) { $o->setNetworkSourceCidrBlock($n->getStringValue()); },
+            'networkSourceIPv4' => function (self $o, ParseNode $n) { $o->setNetworkSourceIPv4($n->getStringValue()); },
+            'networkSourceIPv6' => function (self $o, ParseNode $n) { $o->setNetworkSourceIPv6($n->getStringValue()); },
+            'networkSourcePort' => function (self $o, ParseNode $n) { $o->setNetworkSourcePort($n->getIntegerValue()); },
+            'passiveOnly' => function (self $o, ParseNode $n) { $o->setPassiveOnly($n->getBooleanValue()); },
+            'severity' => function (self $o, ParseNode $n) { $o->setSeverity($n->getIntegerValue()); },
+            'tags' => function (self $o, ParseNode $n) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
+            'targetProduct' => function (self $o, ParseNode $n) { $o->setTargetProduct($n->getStringValue()); },
+            'threatType' => function (self $o, ParseNode $n) { $o->setThreatType($n->getStringValue()); },
+            'tlpLevel' => function (self $o, ParseNode $n) { $o->setTlpLevel($n->getEnumValue(TlpLevel::class)); },
+            'url' => function (self $o, ParseNode $n) { $o->setUrl($n->getStringValue()); },
+            'userAgent' => function (self $o, ParseNode $n) { $o->setUserAgent($n->getStringValue()); },
         ]);
     }
 

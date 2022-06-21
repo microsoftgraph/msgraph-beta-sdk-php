@@ -9,49 +9,31 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MatchingDlpRule implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<DlpActionInfo>|null $actions The actions property
-    */
+    /** @var array<DlpActionInfo>|null $actions The actions property */
     private ?array $actions = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isMostRestrictive The isMostRestrictive property
-    */
+    /** @var bool|null $isMostRestrictive The isMostRestrictive property */
     private ?bool $isMostRestrictive = null;
     
-    /**
-     * @var string|null $policyId The policyId property
-    */
+    /** @var string|null $policyId The policyId property */
     private ?string $policyId = null;
     
-    /**
-     * @var string|null $policyName The policyName property
-    */
+    /** @var string|null $policyName The policyName property */
     private ?string $policyName = null;
     
-    /**
-     * @var int|null $priority The priority property
-    */
+    /** @var int|null $priority The priority property */
     private ?int $priority = null;
     
-    /**
-     * @var string|null $ruleId The ruleId property
-    */
+    /** @var string|null $ruleId The ruleId property */
     private ?string $ruleId = null;
     
-    /**
-     * @var RuleMode|null $ruleMode The ruleMode property
-    */
+    /** @var RuleMode|null $ruleMode The ruleMode property */
     private ?RuleMode $ruleMode = null;
     
-    /**
-     * @var string|null $ruleName The ruleName property
-    */
+    /** @var string|null $ruleName The ruleName property */
     private ?string $ruleName = null;
     
     /**
@@ -66,7 +48,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MatchingDlpRule
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MatchingDlpRule {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MatchingDlpRule {
         return new MatchingDlpRule();
     }
 
@@ -91,16 +73,15 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'actions' => function (ParseNode $n) use ($o) { $o->setActions($n->getCollectionOfObjectValues(array(DlpActionInfo::class, 'createFromDiscriminatorValue'))); },
-            'isMostRestrictive' => function (ParseNode $n) use ($o) { $o->setIsMostRestrictive($n->getBooleanValue()); },
-            'policyId' => function (ParseNode $n) use ($o) { $o->setPolicyId($n->getStringValue()); },
-            'policyName' => function (ParseNode $n) use ($o) { $o->setPolicyName($n->getStringValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'ruleId' => function (ParseNode $n) use ($o) { $o->setRuleId($n->getStringValue()); },
-            'ruleMode' => function (ParseNode $n) use ($o) { $o->setRuleMode($n->getEnumValue(RuleMode::class)); },
-            'ruleName' => function (ParseNode $n) use ($o) { $o->setRuleName($n->getStringValue()); },
+            'actions' => function (self $o, ParseNode $n) { $o->setActions($n->getCollectionOfObjectValues(DlpActionInfo::class)); },
+            'isMostRestrictive' => function (self $o, ParseNode $n) { $o->setIsMostRestrictive($n->getBooleanValue()); },
+            'policyId' => function (self $o, ParseNode $n) { $o->setPolicyId($n->getStringValue()); },
+            'policyName' => function (self $o, ParseNode $n) { $o->setPolicyName($n->getStringValue()); },
+            'priority' => function (self $o, ParseNode $n) { $o->setPriority($n->getIntegerValue()); },
+            'ruleId' => function (self $o, ParseNode $n) { $o->setRuleId($n->getStringValue()); },
+            'ruleMode' => function (self $o, ParseNode $n) { $o->setRuleMode($n->getEnumValue(RuleMode::class)); },
+            'ruleName' => function (self $o, ParseNode $n) { $o->setRuleName($n->getStringValue()); },
         ];
     }
 

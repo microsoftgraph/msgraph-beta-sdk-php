@@ -7,26 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ChecklistItem extends Entity implements Parsable 
+class ChecklistItem extends Entity 
 {
-    /**
-     * @var DateTime|null $checkedDateTime The date and time when the checklistItem was finished.
-    */
+    /** @var DateTime|null $checkedDateTime The date and time when the checklistItem was finished. */
     private ?DateTime $checkedDateTime = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date and time when the checklistItem was created.
-    */
+    /** @var DateTime|null $createdDateTime The date and time when the checklistItem was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $displayName Field indicating the title of checklistItem.
-    */
+    /** @var string|null $displayName Field indicating the title of checklistItem. */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isChecked State indicating whether the item is checked off or not.
-    */
+    /** @var bool|null $isChecked State indicating whether the item is checked off or not. */
     private ?bool $isChecked = null;
     
     /**
@@ -41,7 +33,7 @@ class ChecklistItem extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ChecklistItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ChecklistItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ChecklistItem {
         return new ChecklistItem();
     }
 
@@ -74,12 +66,11 @@ class ChecklistItem extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'checkedDateTime' => function (ParseNode $n) use ($o) { $o->setCheckedDateTime($n->getDateTimeValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isChecked' => function (ParseNode $n) use ($o) { $o->setIsChecked($n->getBooleanValue()); },
+            'checkedDateTime' => function (self $o, ParseNode $n) { $o->setCheckedDateTime($n->getDateTimeValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isChecked' => function (self $o, ParseNode $n) { $o->setIsChecked($n->getBooleanValue()); },
         ]);
     }
 

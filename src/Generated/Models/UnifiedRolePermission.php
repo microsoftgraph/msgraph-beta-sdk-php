@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UnifiedRolePermission implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<string>|null $allowedResourceActions Set of tasks that can be performed on a resource.
-    */
+    /** @var array<string>|null $allowedResourceActions Set of tasks that can be performed on a resource. Required. */
     private ?array $allowedResourceActions = null;
     
-    /**
-     * @var string|null $condition Optional constraints that must be met for the permission to be effective.
-    */
+    /** @var string|null $condition Optional constraints that must be met for the permission to be effective. */
     private ?string $condition = null;
     
-    /**
-     * @var array<string>|null $excludedResourceActions Set of tasks that may not be performed on a resource. Not yet supported.
-    */
+    /** @var array<string>|null $excludedResourceActions Set of tasks that may not be performed on a resource. Not yet supported. */
     private ?array $excludedResourceActions = null;
     
     /**
@@ -41,7 +33,7 @@ class UnifiedRolePermission implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRolePermission
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRolePermission {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRolePermission {
         return new UnifiedRolePermission();
     }
 
@@ -54,7 +46,7 @@ class UnifiedRolePermission implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the allowedResourceActions property value. Set of tasks that can be performed on a resource.
+     * Gets the allowedResourceActions property value. Set of tasks that can be performed on a resource. Required.
      * @return array<string>|null
     */
     public function getAllowedResourceActions(): ?array {
@@ -82,11 +74,10 @@ class UnifiedRolePermission implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'allowedResourceActions' => function (ParseNode $n) use ($o) { $o->setAllowedResourceActions($n->getCollectionOfPrimitiveValues()); },
-            'condition' => function (ParseNode $n) use ($o) { $o->setCondition($n->getStringValue()); },
-            'excludedResourceActions' => function (ParseNode $n) use ($o) { $o->setExcludedResourceActions($n->getCollectionOfPrimitiveValues()); },
+            'allowedResourceActions' => function (self $o, ParseNode $n) { $o->setAllowedResourceActions($n->getCollectionOfPrimitiveValues()); },
+            'condition' => function (self $o, ParseNode $n) { $o->setCondition($n->getStringValue()); },
+            'excludedResourceActions' => function (self $o, ParseNode $n) { $o->setExcludedResourceActions($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 
@@ -110,7 +101,7 @@ class UnifiedRolePermission implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the allowedResourceActions property value. Set of tasks that can be performed on a resource.
+     * Sets the allowedResourceActions property value. Set of tasks that can be performed on a resource. Required.
      *  @param array<string>|null $value Value to set for the allowedResourceActions property.
     */
     public function setAllowedResourceActions(?array $value ): void {

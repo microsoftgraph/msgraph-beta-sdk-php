@@ -6,46 +6,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SecurityBaselineSettingState extends Entity implements Parsable 
+class SecurityBaselineSettingState extends Entity 
 {
-    /**
-     * @var array<SecurityBaselineContributingPolicy>|null $contributingPolicies The policies that contribute to this setting instance
-    */
+    /** @var array<SecurityBaselineContributingPolicy>|null $contributingPolicies The policies that contribute to this setting instance */
     private ?array $contributingPolicies = null;
     
-    /**
-     * @var string|null $errorCode The error code if the setting is in error state
-    */
+    /** @var string|null $errorCode The error code if the setting is in error state */
     private ?string $errorCode = null;
     
-    /**
-     * @var string|null $settingCategoryId The setting category id which this setting belongs to
-    */
+    /** @var string|null $settingCategoryId The setting category id which this setting belongs to */
     private ?string $settingCategoryId = null;
     
-    /**
-     * @var string|null $settingCategoryName The setting category name which this setting belongs to
-    */
+    /** @var string|null $settingCategoryName The setting category name which this setting belongs to */
     private ?string $settingCategoryName = null;
     
-    /**
-     * @var string|null $settingId The setting id guid
-    */
+    /** @var string|null $settingId The setting id guid */
     private ?string $settingId = null;
     
-    /**
-     * @var string|null $settingName The setting name that is being reported
-    */
+    /** @var string|null $settingName The setting name that is being reported */
     private ?string $settingName = null;
     
-    /**
-     * @var array<SettingSource>|null $sourcePolicies The policies that contribute to this setting instance
-    */
+    /** @var array<SettingSource>|null $sourcePolicies The policies that contribute to this setting instance */
     private ?array $sourcePolicies = null;
     
-    /**
-     * @var SecurityBaselineComplianceState|null $state The compliance state of the security baseline setting
-    */
+    /** @var SecurityBaselineComplianceState|null $state The compliance state of the security baseline setting */
     private ?SecurityBaselineComplianceState $state = null;
     
     /**
@@ -60,7 +44,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SecurityBaselineSettingState
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SecurityBaselineSettingState {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SecurityBaselineSettingState {
         return new SecurityBaselineSettingState();
     }
 
@@ -85,16 +69,15 @@ class SecurityBaselineSettingState extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contributingPolicies' => function (ParseNode $n) use ($o) { $o->setContributingPolicies($n->getCollectionOfObjectValues(array(SecurityBaselineContributingPolicy::class, 'createFromDiscriminatorValue'))); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getStringValue()); },
-            'settingCategoryId' => function (ParseNode $n) use ($o) { $o->setSettingCategoryId($n->getStringValue()); },
-            'settingCategoryName' => function (ParseNode $n) use ($o) { $o->setSettingCategoryName($n->getStringValue()); },
-            'settingId' => function (ParseNode $n) use ($o) { $o->setSettingId($n->getStringValue()); },
-            'settingName' => function (ParseNode $n) use ($o) { $o->setSettingName($n->getStringValue()); },
-            'sourcePolicies' => function (ParseNode $n) use ($o) { $o->setSourcePolicies($n->getCollectionOfObjectValues(array(SettingSource::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(SecurityBaselineComplianceState::class)); },
+            'contributingPolicies' => function (self $o, ParseNode $n) { $o->setContributingPolicies($n->getCollectionOfObjectValues(SecurityBaselineContributingPolicy::class)); },
+            'errorCode' => function (self $o, ParseNode $n) { $o->setErrorCode($n->getStringValue()); },
+            'settingCategoryId' => function (self $o, ParseNode $n) { $o->setSettingCategoryId($n->getStringValue()); },
+            'settingCategoryName' => function (self $o, ParseNode $n) { $o->setSettingCategoryName($n->getStringValue()); },
+            'settingId' => function (self $o, ParseNode $n) { $o->setSettingId($n->getStringValue()); },
+            'settingName' => function (self $o, ParseNode $n) { $o->setSettingName($n->getStringValue()); },
+            'sourcePolicies' => function (self $o, ParseNode $n) { $o->setSourcePolicies($n->getCollectionOfObjectValues(SettingSource::class)); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(SecurityBaselineComplianceState::class)); },
         ]);
     }
 

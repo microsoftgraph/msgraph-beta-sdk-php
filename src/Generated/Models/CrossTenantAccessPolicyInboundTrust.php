@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isCompliantDeviceAccepted Specifies whether compliant devices from external Azure AD organizations are trusted.
-    */
+    /** @var bool|null $isCompliantDeviceAccepted Specifies whether compliant devices from external Azure AD organizations are trusted. */
     private ?bool $isCompliantDeviceAccepted = null;
     
-    /**
-     * @var bool|null $isHybridAzureADJoinedDeviceAccepted Specifies whether hybrid Azure AD joined devices from external Azure AD organizations are trusted.
-    */
+    /** @var bool|null $isHybridAzureADJoinedDeviceAccepted Specifies whether hybrid Azure AD joined devices from external Azure AD organizations are trusted. */
     private ?bool $isHybridAzureADJoinedDeviceAccepted = null;
     
-    /**
-     * @var bool|null $isMfaAccepted Specifies whether MFA from external Azure AD organizations is trusted.
-    */
+    /** @var bool|null $isMfaAccepted Specifies whether MFA from external Azure AD organizations is trusted. */
     private ?bool $isMfaAccepted = null;
     
     /**
@@ -41,7 +33,7 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Parsa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CrossTenantAccessPolicyInboundTrust
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicyInboundTrust {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicyInboundTrust {
         return new CrossTenantAccessPolicyInboundTrust();
     }
 
@@ -58,11 +50,10 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Parsa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isCompliantDeviceAccepted' => function (ParseNode $n) use ($o) { $o->setIsCompliantDeviceAccepted($n->getBooleanValue()); },
-            'isHybridAzureADJoinedDeviceAccepted' => function (ParseNode $n) use ($o) { $o->setIsHybridAzureADJoinedDeviceAccepted($n->getBooleanValue()); },
-            'isMfaAccepted' => function (ParseNode $n) use ($o) { $o->setIsMfaAccepted($n->getBooleanValue()); },
+            'isCompliantDeviceAccepted' => function (self $o, ParseNode $n) { $o->setIsCompliantDeviceAccepted($n->getBooleanValue()); },
+            'isHybridAzureADJoinedDeviceAccepted' => function (self $o, ParseNode $n) { $o->setIsHybridAzureADJoinedDeviceAccepted($n->getBooleanValue()); },
+            'isMfaAccepted' => function (self $o, ParseNode $n) { $o->setIsMfaAccepted($n->getBooleanValue()); },
         ];
     }
 

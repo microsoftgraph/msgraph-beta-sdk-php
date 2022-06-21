@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AppManagementConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<KeyCredentialConfiguration>|null $keyCredentials Collection of keyCredential restrictions settings to be applied to an application or service principal.
-    */
+    /** @var array<KeyCredentialConfiguration>|null $keyCredentials Collection of keyCredential restrictions settings to be applied to an application or service principal. */
     private ?array $keyCredentials = null;
     
-    /**
-     * @var array<PasswordCredentialConfiguration>|null $passwordCredentials Collection of password restrictions settings to be applied to an application or service principal.
-    */
+    /** @var array<PasswordCredentialConfiguration>|null $passwordCredentials Collection of password restrictions settings to be applied to an application or service principal. */
     private ?array $passwordCredentials = null;
     
     /**
@@ -36,7 +30,7 @@ class AppManagementConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AppManagementConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppManagementConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AppManagementConfiguration {
         return new AppManagementConfiguration();
     }
 
@@ -53,10 +47,9 @@ class AppManagementConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'keyCredentials' => function (ParseNode $n) use ($o) { $o->setKeyCredentials($n->getCollectionOfObjectValues(array(KeyCredentialConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'passwordCredentials' => function (ParseNode $n) use ($o) { $o->setPasswordCredentials($n->getCollectionOfObjectValues(array(PasswordCredentialConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'keyCredentials' => function (self $o, ParseNode $n) { $o->setKeyCredentials($n->getCollectionOfObjectValues(KeyCredentialConfiguration::class)); },
+            'passwordCredentials' => function (self $o, ParseNode $n) { $o->setPasswordCredentials($n->getCollectionOfObjectValues(PasswordCredentialConfiguration::class)); },
         ];
     }
 

@@ -8,66 +8,42 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class JournalLine extends Entity implements Parsable 
+class JournalLine extends Entity 
 {
-    /**
-     * @var Account|null $account The account property
-    */
+    /** @var Account|null $account The account property */
     private ?Account $account = null;
     
-    /**
-     * @var string|null $accountId The accountId property
-    */
+    /** @var string|null $accountId The accountId property */
     private ?string $accountId = null;
     
-    /**
-     * @var string|null $accountNumber The accountNumber property
-    */
+    /** @var string|null $accountNumber The accountNumber property */
     private ?string $accountNumber = null;
     
-    /**
-     * @var string|null $amount The amount property
-    */
-    private ?string $amount = null;
+    /** @var float|null $amount The amount property */
+    private ?float $amount = null;
     
-    /**
-     * @var string|null $comment The comment property
-    */
+    /** @var string|null $comment The comment property */
     private ?string $comment = null;
     
-    /**
-     * @var string|null $description The description property
-    */
+    /** @var string|null $description The description property */
     private ?string $description = null;
     
-    /**
-     * @var string|null $documentNumber The documentNumber property
-    */
+    /** @var string|null $documentNumber The documentNumber property */
     private ?string $documentNumber = null;
     
-    /**
-     * @var string|null $externalDocumentNumber The externalDocumentNumber property
-    */
+    /** @var string|null $externalDocumentNumber The externalDocumentNumber property */
     private ?string $externalDocumentNumber = null;
     
-    /**
-     * @var string|null $journalDisplayName The journalDisplayName property
-    */
+    /** @var string|null $journalDisplayName The journalDisplayName property */
     private ?string $journalDisplayName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var int|null $lineNumber The lineNumber property
-    */
+    /** @var int|null $lineNumber The lineNumber property */
     private ?int $lineNumber = null;
     
-    /**
-     * @var Date|null $postingDate The postingDate property
-    */
+    /** @var Date|null $postingDate The postingDate property */
     private ?Date $postingDate = null;
     
     /**
@@ -82,7 +58,7 @@ class JournalLine extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return JournalLine
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): JournalLine {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): JournalLine {
         return new JournalLine();
     }
 
@@ -112,9 +88,9 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Gets the amount property value. The amount property
-     * @return string|null
+     * @return float|null
     */
-    public function getAmount(): ?string {
+    public function getAmount(): ?float {
         return $this->amount;
     }
 
@@ -155,20 +131,19 @@ class JournalLine extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'account' => function (ParseNode $n) use ($o) { $o->setAccount($n->getObjectValue(array(Account::class, 'createFromDiscriminatorValue'))); },
-            'accountId' => function (ParseNode $n) use ($o) { $o->setAccountId($n->getStringValue()); },
-            'accountNumber' => function (ParseNode $n) use ($o) { $o->setAccountNumber($n->getStringValue()); },
-            'amount' => function (ParseNode $n) use ($o) { $o->setAmount($n->getStringValue()); },
-            'comment' => function (ParseNode $n) use ($o) { $o->setComment($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'documentNumber' => function (ParseNode $n) use ($o) { $o->setDocumentNumber($n->getStringValue()); },
-            'externalDocumentNumber' => function (ParseNode $n) use ($o) { $o->setExternalDocumentNumber($n->getStringValue()); },
-            'journalDisplayName' => function (ParseNode $n) use ($o) { $o->setJournalDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'lineNumber' => function (ParseNode $n) use ($o) { $o->setLineNumber($n->getIntegerValue()); },
-            'postingDate' => function (ParseNode $n) use ($o) { $o->setPostingDate($n->getDateValue()); },
+            'account' => function (self $o, ParseNode $n) { $o->setAccount($n->getObjectValue(Account::class)); },
+            'accountId' => function (self $o, ParseNode $n) { $o->setAccountId($n->getStringValue()); },
+            'accountNumber' => function (self $o, ParseNode $n) { $o->setAccountNumber($n->getStringValue()); },
+            'amount' => function (self $o, ParseNode $n) { $o->setAmount($n->getFloatValue()); },
+            'comment' => function (self $o, ParseNode $n) { $o->setComment($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'documentNumber' => function (self $o, ParseNode $n) { $o->setDocumentNumber($n->getStringValue()); },
+            'externalDocumentNumber' => function (self $o, ParseNode $n) { $o->setExternalDocumentNumber($n->getStringValue()); },
+            'journalDisplayName' => function (self $o, ParseNode $n) { $o->setJournalDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'lineNumber' => function (self $o, ParseNode $n) { $o->setLineNumber($n->getIntegerValue()); },
+            'postingDate' => function (self $o, ParseNode $n) { $o->setPostingDate($n->getDateValue()); },
         ]);
     }
 
@@ -213,7 +188,7 @@ class JournalLine extends Entity implements Parsable
         $writer->writeObjectValue('account', $this->account);
         $writer->writeStringValue('accountId', $this->accountId);
         $writer->writeStringValue('accountNumber', $this->accountNumber);
-        $writer->writeStringValue('amount', $this->amount);
+        $writer->writeFloatValue('amount', $this->amount);
         $writer->writeStringValue('comment', $this->comment);
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('documentNumber', $this->documentNumber);
@@ -250,9 +225,9 @@ class JournalLine extends Entity implements Parsable
 
     /**
      * Sets the amount property value. The amount property
-     *  @param string|null $value Value to set for the amount property.
+     *  @param float|null $value Value to set for the amount property.
     */
-    public function setAmount(?string $value ): void {
+    public function setAmount(?float $value ): void {
         $this->amount = $value;
     }
 

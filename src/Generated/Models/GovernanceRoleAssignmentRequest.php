@@ -7,71 +7,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GovernanceRoleAssignmentRequest extends Entity implements Parsable 
+class GovernanceRoleAssignmentRequest extends Entity 
 {
-    /**
-     * @var string|null $assignmentState Required. The state of the assignment. The possible values are: Eligible (for eligible assignment),  Active (if it is directly assigned), Active (by administrators, or activated on an eligible assignment by the users).
-    */
+    /** @var string|null $assignmentState Required. The state of the assignment. The possible values are: Eligible (for eligible assignment),  Active (if it is directly assigned), Active (by administrators, or activated on an eligible assignment by the users). */
     private ?string $assignmentState = null;
     
-    /**
-     * @var string|null $linkedEligibleRoleAssignmentId If this is a request for role activation, it represents the id of the eligible assignment being referred; Otherwise, the value is null.
-    */
+    /** @var string|null $linkedEligibleRoleAssignmentId If this is a request for role activation, it represents the id of the eligible assignment being referred; Otherwise, the value is null. */
     private ?string $linkedEligibleRoleAssignmentId = null;
     
-    /**
-     * @var string|null $reason A message provided by users and administrators when create the request about why it is needed.
-    */
+    /** @var string|null $reason A message provided by users and administrators when create the request about why it is needed. */
     private ?string $reason = null;
     
-    /**
-     * @var DateTime|null $requestedDateTime Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $requestedDateTime Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $requestedDateTime = null;
     
-    /**
-     * @var GovernanceResource|null $resource Read-only. The resource that the request aims to.
-    */
+    /** @var GovernanceResource|null $resource Read-only. The resource that the request aims to. */
     private ?GovernanceResource $resource = null;
     
-    /**
-     * @var string|null $resourceId Required. The unique identifier of the Azure resource that is associated with the role assignment request. Azure resources can include subscriptions, resource groups, virtual machines, and SQL databases.
-    */
+    /** @var string|null $resourceId Required. The unique identifier of the Azure resource that is associated with the role assignment request. Azure resources can include subscriptions, resource groups, virtual machines, and SQL databases. */
     private ?string $resourceId = null;
     
-    /**
-     * @var GovernanceRoleDefinition|null $roleDefinition Read-only. The role definition that the request aims to.
-    */
+    /** @var GovernanceRoleDefinition|null $roleDefinition Read-only. The role definition that the request aims to. */
     private ?GovernanceRoleDefinition $roleDefinition = null;
     
-    /**
-     * @var string|null $roleDefinitionId Required. The identifier of the Azure role definition that the role assignment request is associated with.
-    */
+    /** @var string|null $roleDefinitionId Required. The identifier of the Azure role definition that the role assignment request is associated with. */
     private ?string $roleDefinitionId = null;
     
-    /**
-     * @var GovernanceSchedule|null $schedule The schedule object of the role assignment request.
-    */
+    /** @var GovernanceSchedule|null $schedule The schedule object of the role assignment request. */
     private ?GovernanceSchedule $schedule = null;
     
-    /**
-     * @var GovernanceRoleAssignmentRequestStatus|null $status The status of the role assignment request.
-    */
+    /** @var GovernanceRoleAssignmentRequestStatus|null $status The status of the role assignment request. */
     private ?GovernanceRoleAssignmentRequestStatus $status = null;
     
-    /**
-     * @var GovernanceSubject|null $subject Read-only. The user/group principal.
-    */
+    /** @var GovernanceSubject|null $subject Read-only. The user/group principal. */
     private ?GovernanceSubject $subject = null;
     
-    /**
-     * @var string|null $subjectId Required. The unique identifier of the principal or subject that the role assignment request is associated with. Principals can be users, groups, or service principals.
-    */
+    /** @var string|null $subjectId Required. The unique identifier of the principal or subject that the role assignment request is associated with. Principals can be users, groups, or service principals. */
     private ?string $subjectId = null;
     
-    /**
-     * @var string|null $type Required. Representing the type of the operation on the role assignment. The possible values are: AdminAdd , UserAdd , AdminUpdate , AdminRemove , UserRemove , UserExtend , AdminExtend , UserRenew , AdminRenew.
-    */
+    /** @var string|null $type Required. Representing the type of the operation on the role assignment. The possible values are: AdminAdd , UserAdd , AdminUpdate , AdminRemove , UserRemove , UserExtend , AdminExtend , UserRenew , AdminRenew. */
     private ?string $type = null;
     
     /**
@@ -86,7 +60,7 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernanceRoleAssignmentRequest
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRoleAssignmentRequest {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRoleAssignmentRequest {
         return new GovernanceRoleAssignmentRequest();
     }
 
@@ -103,21 +77,20 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignmentState' => function (ParseNode $n) use ($o) { $o->setAssignmentState($n->getStringValue()); },
-            'linkedEligibleRoleAssignmentId' => function (ParseNode $n) use ($o) { $o->setLinkedEligibleRoleAssignmentId($n->getStringValue()); },
-            'reason' => function (ParseNode $n) use ($o) { $o->setReason($n->getStringValue()); },
-            'requestedDateTime' => function (ParseNode $n) use ($o) { $o->setRequestedDateTime($n->getDateTimeValue()); },
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(GovernanceResource::class, 'createFromDiscriminatorValue'))); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'roleDefinition' => function (ParseNode $n) use ($o) { $o->setRoleDefinition($n->getObjectValue(array(GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'roleDefinitionId' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionId($n->getStringValue()); },
-            'schedule' => function (ParseNode $n) use ($o) { $o->setSchedule($n->getObjectValue(array(GovernanceSchedule::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getObjectValue(array(GovernanceRoleAssignmentRequestStatus::class, 'createFromDiscriminatorValue'))); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getObjectValue(array(GovernanceSubject::class, 'createFromDiscriminatorValue'))); },
-            'subjectId' => function (ParseNode $n) use ($o) { $o->setSubjectId($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'assignmentState' => function (self $o, ParseNode $n) { $o->setAssignmentState($n->getStringValue()); },
+            'linkedEligibleRoleAssignmentId' => function (self $o, ParseNode $n) { $o->setLinkedEligibleRoleAssignmentId($n->getStringValue()); },
+            'reason' => function (self $o, ParseNode $n) { $o->setReason($n->getStringValue()); },
+            'requestedDateTime' => function (self $o, ParseNode $n) { $o->setRequestedDateTime($n->getDateTimeValue()); },
+            'resource' => function (self $o, ParseNode $n) { $o->setResource($n->getObjectValue(GovernanceResource::class)); },
+            'resourceId' => function (self $o, ParseNode $n) { $o->setResourceId($n->getStringValue()); },
+            'roleDefinition' => function (self $o, ParseNode $n) { $o->setRoleDefinition($n->getObjectValue(GovernanceRoleDefinition::class)); },
+            'roleDefinitionId' => function (self $o, ParseNode $n) { $o->setRoleDefinitionId($n->getStringValue()); },
+            'schedule' => function (self $o, ParseNode $n) { $o->setSchedule($n->getObjectValue(GovernanceSchedule::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getObjectValue(GovernanceRoleAssignmentRequestStatus::class)); },
+            'subject' => function (self $o, ParseNode $n) { $o->setSubject($n->getObjectValue(GovernanceSubject::class)); },
+            'subjectId' => function (self $o, ParseNode $n) { $o->setSubjectId($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
         ]);
     }
 

@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class LabelingOptions implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AssignmentMethod|null $assignmentMethod Possible values are: standard, privileged, auto.
-    */
+    /** @var AssignmentMethod|null $assignmentMethod Possible values are: standard, privileged, auto. */
     private ?AssignmentMethod $assignmentMethod = null;
     
-    /**
-     * @var DowngradeJustification|null $downgradeJustification The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
-    */
+    /** @var DowngradeJustification|null $downgradeJustification The downgrade justification object that indicates if downgrade was justified and, if so, the reason. */
     private ?DowngradeJustification $downgradeJustification = null;
     
-    /**
-     * @var array<KeyValuePair>|null $extendedProperties Extended properties will be parsed and returned in the standard MIP labeled metadata format as part of the label information.
-    */
+    /** @var array<KeyValuePair>|null $extendedProperties Extended properties will be parsed and returned in the standard MIP labeled metadata format as part of the label information. */
     private ?array $extendedProperties = null;
     
-    /**
-     * @var string|null $labelId The GUID of the label that should be applied to the information.
-    */
+    /** @var string|null $labelId The GUID of the label that should be applied to the information. */
     private ?string $labelId = null;
     
     /**
@@ -46,7 +36,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LabelingOptions
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): LabelingOptions {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): LabelingOptions {
         return new LabelingOptions();
     }
 
@@ -87,12 +77,11 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'assignmentMethod' => function (ParseNode $n) use ($o) { $o->setAssignmentMethod($n->getEnumValue(AssignmentMethod::class)); },
-            'downgradeJustification' => function (ParseNode $n) use ($o) { $o->setDowngradeJustification($n->getObjectValue(array(DowngradeJustification::class, 'createFromDiscriminatorValue'))); },
-            'extendedProperties' => function (ParseNode $n) use ($o) { $o->setExtendedProperties($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'labelId' => function (ParseNode $n) use ($o) { $o->setLabelId($n->getStringValue()); },
+            'assignmentMethod' => function (self $o, ParseNode $n) { $o->setAssignmentMethod($n->getEnumValue(AssignmentMethod::class)); },
+            'downgradeJustification' => function (self $o, ParseNode $n) { $o->setDowngradeJustification($n->getObjectValue(DowngradeJustification::class)); },
+            'extendedProperties' => function (self $o, ParseNode $n) { $o->setExtendedProperties($n->getCollectionOfObjectValues(KeyValuePair::class)); },
+            'labelId' => function (self $o, ParseNode $n) { $o->setLabelId($n->getStringValue()); },
         ];
     }
 

@@ -10,28 +10,20 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class InformationProtectionContentLabel implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AssignmentMethod|null $assignmentMethod Possible values are: standard, privileged, auto.
-    */
+    /** @var AssignmentMethod|null $assignmentMethod Possible values are: standard, privileged, auto. */
     private ?AssignmentMethod $assignmentMethod = null;
     
-    /**
-     * @var DateTime|null $creationDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $creationDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $creationDateTime = null;
     
-    /**
-     * @var LabelDetails|null $label Details on the label that is currently applied to the file.
-    */
+    /** @var LabelDetails|null $label Details on the label that is currently applied to the file. */
     private ?LabelDetails $label = null;
     
     /**
-     * Instantiates a new InformationProtectionContentLabel and sets the default values.
+     * Instantiates a new informationProtectionContentLabel and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -42,7 +34,7 @@ class InformationProtectionContentLabel implements AdditionalDataHolder, Parsabl
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return InformationProtectionContentLabel
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): InformationProtectionContentLabel {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): InformationProtectionContentLabel {
         return new InformationProtectionContentLabel();
     }
 
@@ -75,11 +67,10 @@ class InformationProtectionContentLabel implements AdditionalDataHolder, Parsabl
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'assignmentMethod' => function (ParseNode $n) use ($o) { $o->setAssignmentMethod($n->getEnumValue(AssignmentMethod::class)); },
-            'creationDateTime' => function (ParseNode $n) use ($o) { $o->setCreationDateTime($n->getDateTimeValue()); },
-            'label' => function (ParseNode $n) use ($o) { $o->setLabel($n->getObjectValue(array(LabelDetails::class, 'createFromDiscriminatorValue'))); },
+            'assignmentMethod' => function (self $o, ParseNode $n) { $o->setAssignmentMethod($n->getEnumValue(AssignmentMethod::class)); },
+            'creationDateTime' => function (self $o, ParseNode $n) { $o->setCreationDateTime($n->getDateTimeValue()); },
+            'label' => function (self $o, ParseNode $n) { $o->setLabel($n->getObjectValue(LabelDetails::class)); },
         ];
     }
 

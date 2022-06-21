@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PayloadResponse extends Entity implements Parsable 
+class PayloadResponse extends Entity 
 {
     /**
      * Instantiates a new payloadResponse and sets the default values.
@@ -20,7 +20,7 @@ class PayloadResponse extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PayloadResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PayloadResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PayloadResponse {
         return new PayloadResponse();
     }
 
@@ -29,7 +29,6 @@ class PayloadResponse extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

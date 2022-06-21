@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IdentityUserFlow extends Entity implements Parsable 
+class IdentityUserFlow extends Entity 
 {
-    /**
-     * @var UserFlowType|null $userFlowType The userFlowType property
-    */
+    /** @var UserFlowType|null $userFlowType The userFlowType property */
     private ?UserFlowType $userFlowType = null;
     
-    /**
-     * @var float|null $userFlowTypeVersion The userFlowTypeVersion property
-    */
+    /** @var float|null $userFlowTypeVersion The userFlowTypeVersion property */
     private ?float $userFlowTypeVersion = null;
     
     /**
@@ -30,15 +26,7 @@ class IdentityUserFlow extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return IdentityUserFlow
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): IdentityUserFlow {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.b2cIdentityUserFlow': return new B2cIdentityUserFlow();
-                case '#microsoft.graph.b2xIdentityUserFlow': return new B2xIdentityUserFlow();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): IdentityUserFlow {
         return new IdentityUserFlow();
     }
 
@@ -47,10 +35,9 @@ class IdentityUserFlow extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userFlowType' => function (ParseNode $n) use ($o) { $o->setUserFlowType($n->getEnumValue(UserFlowType::class)); },
-            'userFlowTypeVersion' => function (ParseNode $n) use ($o) { $o->setUserFlowTypeVersion($n->getFloatValue()); },
+            'userFlowType' => function (self $o, ParseNode $n) { $o->setUserFlowType($n->getEnumValue(UserFlowType::class)); },
+            'userFlowTypeVersion' => function (self $o, ParseNode $n) { $o->setUserFlowTypeVersion($n->getFloatValue()); },
         ]);
     }
 

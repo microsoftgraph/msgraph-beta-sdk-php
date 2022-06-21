@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class StatusBase implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var ProvisioningResult|null $status Possible values are: success, warning, failure, skipped, unknownFutureValue.
-    */
+    /** @var ProvisioningResult|null $status Possible values are: success, warning, failure, skipped, unknownFutureValue. */
     private ?ProvisioningResult $status = null;
     
     /**
@@ -31,7 +27,7 @@ class StatusBase implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return StatusBase
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): StatusBase {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): StatusBase {
         return new StatusBase();
     }
 
@@ -48,9 +44,8 @@ class StatusBase implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ProvisioningResult::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(ProvisioningResult::class)); },
         ];
     }
 

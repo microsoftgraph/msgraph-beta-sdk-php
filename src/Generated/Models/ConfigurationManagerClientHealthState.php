@@ -10,24 +10,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ConfigurationManagerClientHealthState implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $errorCode Error code for failed state.
-    */
+    /** @var int|null $errorCode Error code for failed state. */
     private ?int $errorCode = null;
     
-    /**
-     * @var DateTime|null $lastSyncDateTime Datetime for last sync with configuration manager management point.
-    */
+    /** @var DateTime|null $lastSyncDateTime Datetime for last sync with configuration manager management point. */
     private ?DateTime $lastSyncDateTime = null;
     
-    /**
-     * @var ConfigurationManagerClientState|null $state Current configuration manager client state. Possible values are: unknown, installed, healthy, installFailed, updateFailed, communicationError.
-    */
+    /** @var ConfigurationManagerClientState|null $state Current configuration manager client state. Possible values are: unknown, installed, healthy, installFailed, updateFailed, communicationError. */
     private ?ConfigurationManagerClientState $state = null;
     
     /**
@@ -42,7 +34,7 @@ class ConfigurationManagerClientHealthState implements AdditionalDataHolder, Par
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConfigurationManagerClientHealthState
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConfigurationManagerClientHealthState {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ConfigurationManagerClientHealthState {
         return new ConfigurationManagerClientHealthState();
     }
 
@@ -67,11 +59,10 @@ class ConfigurationManagerClientHealthState implements AdditionalDataHolder, Par
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ConfigurationManagerClientState::class)); },
+            'errorCode' => function (self $o, ParseNode $n) { $o->setErrorCode($n->getIntegerValue()); },
+            'lastSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(ConfigurationManagerClientState::class)); },
         ];
     }
 

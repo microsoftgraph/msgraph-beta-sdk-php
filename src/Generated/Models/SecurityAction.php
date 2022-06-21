@@ -7,76 +7,48 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SecurityAction extends Entity implements Parsable 
+class SecurityAction extends Entity 
 {
-    /**
-     * @var string|null $actionReason Reason for invoking this action.
-    */
+    /** @var string|null $actionReason Reason for invoking this action. */
     private ?string $actionReason = null;
     
-    /**
-     * @var string|null $appId The Application ID of the calling application that submitted (POST) the action. The appId should be extracted from the auth token and not entered manually by the calling application.
-    */
+    /** @var string|null $appId The Application ID of the calling application that submitted (POST) the action. The appId should be extracted from the auth token and not entered manually by the calling application. */
     private ?string $appId = null;
     
-    /**
-     * @var string|null $azureTenantId Azure tenant ID of the entity to determine which tenant the entity belongs to (multi-tenancy support). The azureTenantId should be extracted from the auth token and not entered manually by the calling application.
-    */
+    /** @var string|null $azureTenantId Azure tenant ID of the entity to determine which tenant the entity belongs to (multi-tenancy support). The azureTenantId should be extracted from the auth token and not entered manually by the calling application. */
     private ?string $azureTenantId = null;
     
-    /**
-     * @var string|null $clientContext The clientContext property
-    */
+    /** @var string|null $clientContext The clientContext property */
     private ?string $clientContext = null;
     
-    /**
-     * @var DateTime|null $completedDateTime Timestamp when the action was completed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $completedDateTime Timestamp when the action was completed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $completedDateTime = null;
     
-    /**
-     * @var DateTime|null $createdDateTime Timestamp when the action is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $createdDateTime Timestamp when the action is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var ResultInfo|null $errorInfo Error info when the action fails.
-    */
+    /** @var ResultInfo|null $errorInfo Error info when the action fails. */
     private ?ResultInfo $errorInfo = null;
     
-    /**
-     * @var DateTime|null $lastActionDateTime Timestamp when this action was last updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $lastActionDateTime Timestamp when this action was last updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $lastActionDateTime = null;
     
-    /**
-     * @var string|null $name Action name.
-    */
+    /** @var string|null $name Action name. */
     private ?string $name = null;
     
-    /**
-     * @var array<KeyValuePair>|null $parameters Collection of parameters (key-value pairs) necessary to invoke the action, for example, URL or fileHash to block.). Required.
-    */
+    /** @var array<KeyValuePair>|null $parameters Collection of parameters (key-value pairs) necessary to invoke the action, for example, URL or fileHash to block.). Required. */
     private ?array $parameters = null;
     
-    /**
-     * @var array<SecurityActionState>|null $states Collection of securityActionState to keep the history of an action.
-    */
+    /** @var array<SecurityActionState>|null $states Collection of securityActionState to keep the history of an action. */
     private ?array $states = null;
     
-    /**
-     * @var OperationStatus|null $status Status of the action. Possible values are: NotStarted, Running, Completed, Failed.
-    */
+    /** @var OperationStatus|null $status Status of the action. Possible values are: NotStarted, Running, Completed, Failed. */
     private ?OperationStatus $status = null;
     
-    /**
-     * @var string|null $user The user principal name of the signed-in user that submitted  (POST) the action. The user should be extracted from the auth token and not entered manually by the calling application.
-    */
+    /** @var string|null $user The user principal name of the signed-in user that submitted  (POST) the action. The user should be extracted from the auth token and not entered manually by the calling application. */
     private ?string $user = null;
     
-    /**
-     * @var SecurityVendorInformation|null $vendorInformation Complex Type containing details about the Security product/service vendor, provider, and sub-provider (for example, vendor=Microsoft; provider=Windows Defender ATP; sub-provider=AppLocker).
-    */
+    /** @var SecurityVendorInformation|null $vendorInformation Complex Type containing details about the Security product/service vendor, provider, and sub-provider (for example, vendor=Microsoft; provider=Windows Defender ATP; sub-provider=AppLocker). */
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
@@ -91,7 +63,7 @@ class SecurityAction extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SecurityAction
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SecurityAction {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SecurityAction {
         return new SecurityAction();
     }
 
@@ -156,22 +128,21 @@ class SecurityAction extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionReason' => function (ParseNode $n) use ($o) { $o->setActionReason($n->getStringValue()); },
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
-            'clientContext' => function (ParseNode $n) use ($o) { $o->setClientContext($n->getStringValue()); },
-            'completedDateTime' => function (ParseNode $n) use ($o) { $o->setCompletedDateTime($n->getDateTimeValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'errorInfo' => function (ParseNode $n) use ($o) { $o->setErrorInfo($n->getObjectValue(array(ResultInfo::class, 'createFromDiscriminatorValue'))); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'parameters' => function (ParseNode $n) use ($o) { $o->setParameters($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'states' => function (ParseNode $n) use ($o) { $o->setStates($n->getCollectionOfObjectValues(array(SecurityActionState::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(OperationStatus::class)); },
-            'user' => function (ParseNode $n) use ($o) { $o->setUser($n->getStringValue()); },
-            'vendorInformation' => function (ParseNode $n) use ($o) { $o->setVendorInformation($n->getObjectValue(array(SecurityVendorInformation::class, 'createFromDiscriminatorValue'))); },
+            'actionReason' => function (self $o, ParseNode $n) { $o->setActionReason($n->getStringValue()); },
+            'appId' => function (self $o, ParseNode $n) { $o->setAppId($n->getStringValue()); },
+            'azureTenantId' => function (self $o, ParseNode $n) { $o->setAzureTenantId($n->getStringValue()); },
+            'clientContext' => function (self $o, ParseNode $n) { $o->setClientContext($n->getStringValue()); },
+            'completedDateTime' => function (self $o, ParseNode $n) { $o->setCompletedDateTime($n->getDateTimeValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'errorInfo' => function (self $o, ParseNode $n) { $o->setErrorInfo($n->getObjectValue(ResultInfo::class)); },
+            'lastActionDateTime' => function (self $o, ParseNode $n) { $o->setLastActionDateTime($n->getDateTimeValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'parameters' => function (self $o, ParseNode $n) { $o->setParameters($n->getCollectionOfObjectValues(KeyValuePair::class)); },
+            'states' => function (self $o, ParseNode $n) { $o->setStates($n->getCollectionOfObjectValues(SecurityActionState::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(OperationStatus::class)); },
+            'user' => function (self $o, ParseNode $n) { $o->setUser($n->getStringValue()); },
+            'vendorInformation' => function (self $o, ParseNode $n) { $o->setVendorInformation($n->getObjectValue(SecurityVendorInformation::class)); },
         ]);
     }
 

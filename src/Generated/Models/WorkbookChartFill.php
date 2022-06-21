@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookChartFill extends Entity implements Parsable 
+class WorkbookChartFill extends Entity 
 {
     /**
      * Instantiates a new workbookChartFill and sets the default values.
@@ -20,7 +20,7 @@ class WorkbookChartFill extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookChartFill
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartFill {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartFill {
         return new WorkbookChartFill();
     }
 
@@ -29,7 +29,6 @@ class WorkbookChartFill extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

@@ -7,31 +7,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceConfigurationUserStatus extends Entity implements Parsable 
+class DeviceConfigurationUserStatus extends Entity 
 {
-    /**
-     * @var int|null $devicesCount Devices count for that user.
-    */
+    /** @var int|null $devicesCount Devices count for that user. */
     private ?int $devicesCount = null;
     
-    /**
-     * @var DateTime|null $lastReportedDateTime Last modified date time of the policy report.
-    */
+    /** @var DateTime|null $lastReportedDateTime Last modified date time of the policy report. */
     private ?DateTime $lastReportedDateTime = null;
     
-    /**
-     * @var ComplianceStatus|null $status Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
-    */
+    /** @var ComplianceStatus|null $status Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
     private ?ComplianceStatus $status = null;
     
-    /**
-     * @var string|null $userDisplayName User name of the DevicePolicyStatus.
-    */
+    /** @var string|null $userDisplayName User name of the DevicePolicyStatus. */
     private ?string $userDisplayName = null;
     
-    /**
-     * @var string|null $userPrincipalName UserPrincipalName.
-    */
+    /** @var string|null $userPrincipalName UserPrincipalName. */
     private ?string $userPrincipalName = null;
     
     /**
@@ -46,7 +36,7 @@ class DeviceConfigurationUserStatus extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceConfigurationUserStatus
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfigurationUserStatus {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfigurationUserStatus {
         return new DeviceConfigurationUserStatus();
     }
 
@@ -63,13 +53,12 @@ class DeviceConfigurationUserStatus extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'devicesCount' => function (ParseNode $n) use ($o) { $o->setDevicesCount($n->getIntegerValue()); },
-            'lastReportedDateTime' => function (ParseNode $n) use ($o) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ComplianceStatus::class)); },
-            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'devicesCount' => function (self $o, ParseNode $n) { $o->setDevicesCount($n->getIntegerValue()); },
+            'lastReportedDateTime' => function (self $o, ParseNode $n) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(ComplianceStatus::class)); },
+            'userDisplayName' => function (self $o, ParseNode $n) { $o->setUserDisplayName($n->getStringValue()); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

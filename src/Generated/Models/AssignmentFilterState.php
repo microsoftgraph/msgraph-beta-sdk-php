@@ -9,18 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AssignmentFilterState implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $enabled Indicator to if AssignmentFilter is enabled or disabled.
-    */
+    /** @var bool|null $enabled Indicator to if AssignmentFilter is enabled or disabled. */
     private ?bool $enabled = null;
     
     /**
-     * Instantiates a new AssignmentFilterState and sets the default values.
+     * Instantiates a new assignmentFilterState and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -31,7 +27,7 @@ class AssignmentFilterState implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssignmentFilterState
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterState {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterState {
         return new AssignmentFilterState();
     }
 
@@ -56,9 +52,8 @@ class AssignmentFilterState implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
+            'enabled' => function (self $o, ParseNode $n) { $o->setEnabled($n->getBooleanValue()); },
         ];
     }
 

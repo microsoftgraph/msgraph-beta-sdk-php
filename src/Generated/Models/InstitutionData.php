@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class InstitutionData implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $description Short description of the institution the user studied at.
-    */
+    /** @var string|null $description Short description of the institution the user studied at. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Name of the institution the user studied at.
-    */
+    /** @var string|null $displayName Name of the institution the user studied at. */
     private ?string $displayName = null;
     
-    /**
-     * @var PhysicalAddress|null $location Address or location of the institute.
-    */
+    /** @var PhysicalAddress|null $location Address or location of the institute. */
     private ?PhysicalAddress $location = null;
     
-    /**
-     * @var string|null $webUrl Link to the institution or department homepage.
-    */
+    /** @var string|null $webUrl Link to the institution or department homepage. */
     private ?string $webUrl = null;
     
     /**
@@ -46,7 +36,7 @@ class InstitutionData implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return InstitutionData
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): InstitutionData {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): InstitutionData {
         return new InstitutionData();
     }
 
@@ -79,12 +69,11 @@ class InstitutionData implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getObjectValue(array(PhysicalAddress::class, 'createFromDiscriminatorValue'))); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'location' => function (self $o, ParseNode $n) { $o->setLocation($n->getObjectValue(PhysicalAddress::class)); },
+            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
         ];
     }
 

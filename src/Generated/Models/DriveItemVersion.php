@@ -7,20 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class DriveItemVersion extends BaseItemVersion implements Parsable 
+class DriveItemVersion extends BaseItemVersion 
 {
-    /**
-     * @var StreamInterface|null $content The content property
-    */
+    /** @var StreamInterface|null $content The content stream for this version of the item. */
     private ?StreamInterface $content = null;
     
-    /**
-     * @var int|null $size Indicates the size of the content stream for this version of the item.
-    */
+    /** @var int|null $size Indicates the size of the content stream for this version of the item. */
     private ?int $size = null;
     
     /**
-     * Instantiates a new DriveItemVersion and sets the default values.
+     * Instantiates a new driveItemVersion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -31,12 +27,12 @@ class DriveItemVersion extends BaseItemVersion implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DriveItemVersion
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DriveItemVersion {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DriveItemVersion {
         return new DriveItemVersion();
     }
 
     /**
-     * Gets the content property value. The content property
+     * Gets the content property value. The content stream for this version of the item.
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -48,10 +44,9 @@ class DriveItemVersion extends BaseItemVersion implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
+            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getBinaryContent()); },
+            'size' => function (self $o, ParseNode $n) { $o->setSize($n->getIntegerValue()); },
         ]);
     }
 
@@ -74,7 +69,7 @@ class DriveItemVersion extends BaseItemVersion implements Parsable
     }
 
     /**
-     * Sets the content property value. The content property
+     * Sets the content property value. The content stream for this version of the item.
      *  @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value ): void {

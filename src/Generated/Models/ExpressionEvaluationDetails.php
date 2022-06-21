@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ExpressionEvaluationDetails implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $expression Represents expression which has been evaluated.
-    */
+    /** @var string|null $expression Represents expression which has been evaluated. */
     private ?string $expression = null;
     
-    /**
-     * @var array<ExpressionEvaluationDetails>|null $expressionEvaluationDetails Represents the details of the evaluation of the expression.
-    */
+    /** @var array<ExpressionEvaluationDetails>|null $expressionEvaluationDetails Represents the details of the evaluation of the expression. */
     private ?array $expressionEvaluationDetails = null;
     
-    /**
-     * @var bool|null $expressionResult Represents the value of the result of the current expression.
-    */
+    /** @var bool|null $expressionResult Represents the value of the result of the current expression. */
     private ?bool $expressionResult = null;
     
-    /**
-     * @var PropertyToEvaluate|null $propertyToEvaluate Defines the name of the property and the value of that property.
-    */
+    /** @var PropertyToEvaluate|null $propertyToEvaluate Defines the name of the property and the value of that property. */
     private ?PropertyToEvaluate $propertyToEvaluate = null;
     
     /**
@@ -46,7 +36,7 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExpressionEvaluationDetails
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExpressionEvaluationDetails {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ExpressionEvaluationDetails {
         return new ExpressionEvaluationDetails();
     }
 
@@ -87,12 +77,11 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'expression' => function (ParseNode $n) use ($o) { $o->setExpression($n->getStringValue()); },
-            'expressionEvaluationDetails' => function (ParseNode $n) use ($o) { $o->setExpressionEvaluationDetails($n->getCollectionOfObjectValues(array(ExpressionEvaluationDetails::class, 'createFromDiscriminatorValue'))); },
-            'expressionResult' => function (ParseNode $n) use ($o) { $o->setExpressionResult($n->getBooleanValue()); },
-            'propertyToEvaluate' => function (ParseNode $n) use ($o) { $o->setPropertyToEvaluate($n->getObjectValue(array(PropertyToEvaluate::class, 'createFromDiscriminatorValue'))); },
+            'expression' => function (self $o, ParseNode $n) { $o->setExpression($n->getStringValue()); },
+            'expressionEvaluationDetails' => function (self $o, ParseNode $n) { $o->setExpressionEvaluationDetails($n->getCollectionOfObjectValues(ExpressionEvaluationDetails::class)); },
+            'expressionResult' => function (self $o, ParseNode $n) { $o->setExpressionResult($n->getBooleanValue()); },
+            'propertyToEvaluate' => function (self $o, ParseNode $n) { $o->setPropertyToEvaluate($n->getObjectValue(PropertyToEvaluate::class)); },
         ];
     }
 

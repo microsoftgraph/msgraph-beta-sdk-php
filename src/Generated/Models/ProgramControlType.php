@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ProgramControlType extends Entity implements Parsable 
+class ProgramControlType extends Entity 
 {
-    /**
-     * @var string|null $controlTypeGroupId The controlTypeGroupId property
-    */
+    /** @var string|null $controlTypeGroupId The controlTypeGroupId property */
     private ?string $controlTypeGroupId = null;
     
-    /**
-     * @var string|null $displayName The name of the program control type
-    */
+    /** @var string|null $displayName The name of the program control type */
     private ?string $displayName = null;
     
     /**
@@ -30,7 +26,7 @@ class ProgramControlType extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ProgramControlType
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ProgramControlType {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ProgramControlType {
         return new ProgramControlType();
     }
 
@@ -55,10 +51,9 @@ class ProgramControlType extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'controlTypeGroupId' => function (ParseNode $n) use ($o) { $o->setControlTypeGroupId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'controlTypeGroupId' => function (self $o, ParseNode $n) { $o->setControlTypeGroupId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
         ]);
     }
 

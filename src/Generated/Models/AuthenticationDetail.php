@@ -10,39 +10,25 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AuthenticationDetail implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $authenticationMethod The type of authentication method used to perform this step of authentication. Possible values: Password, SMS, Voice, Authenticator App, Software OATH token, Satisfied by token, Previously satisfied.
-    */
+    /** @var string|null $authenticationMethod The type of authentication method used to perform this step of authentication. Possible values: Password, SMS, Voice, Authenticator App, Software OATH token, Satisfied by token, Previously satisfied. */
     private ?string $authenticationMethod = null;
     
-    /**
-     * @var string|null $authenticationMethodDetail Details about the authentication method used to perform this authentication step. For example, phone number (for SMS and voice), device name (for Authenticator app), and password source (e.g. cloud, AD FS, PTA, PHS).
-    */
+    /** @var string|null $authenticationMethodDetail Details about the authentication method used to perform this authentication step. For example, phone number (for SMS and voice), device name (for Authenticator app), and password source (e.g. cloud, AD FS, PTA, PHS). */
     private ?string $authenticationMethodDetail = null;
     
-    /**
-     * @var DateTime|null $authenticationStepDateTime Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $authenticationStepDateTime Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $authenticationStepDateTime = null;
     
-    /**
-     * @var string|null $authenticationStepRequirement The step of authentication that this satisfied. For example, primary authentication, or multi-factor authentication.
-    */
+    /** @var string|null $authenticationStepRequirement The step of authentication that this satisfied. For example, primary authentication, or multi-factor authentication. */
     private ?string $authenticationStepRequirement = null;
     
-    /**
-     * @var string|null $authenticationStepResultDetail Details about why the step succeeded or failed. For examples, user is blocked, fraud code entered, no phone input - timed out, phone unreachable, or claim in token.
-    */
+    /** @var string|null $authenticationStepResultDetail Details about why the step succeeded or failed. For examples, user is blocked, fraud code entered, no phone input - timed out, phone unreachable, or claim in token. */
     private ?string $authenticationStepResultDetail = null;
     
-    /**
-     * @var bool|null $succeeded Indicates the status of the authentication step. Possible values: succeeded, failed.
-    */
+    /** @var bool|null $succeeded Indicates the status of the authentication step. Possible values: succeeded, failed. */
     private ?bool $succeeded = null;
     
     /**
@@ -57,7 +43,7 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuthenticationDetail
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationDetail {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationDetail {
         return new AuthenticationDetail();
     }
 
@@ -114,14 +100,13 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'authenticationMethod' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethod($n->getStringValue()); },
-            'authenticationMethodDetail' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethodDetail($n->getStringValue()); },
-            'authenticationStepDateTime' => function (ParseNode $n) use ($o) { $o->setAuthenticationStepDateTime($n->getDateTimeValue()); },
-            'authenticationStepRequirement' => function (ParseNode $n) use ($o) { $o->setAuthenticationStepRequirement($n->getStringValue()); },
-            'authenticationStepResultDetail' => function (ParseNode $n) use ($o) { $o->setAuthenticationStepResultDetail($n->getStringValue()); },
-            'succeeded' => function (ParseNode $n) use ($o) { $o->setSucceeded($n->getBooleanValue()); },
+            'authenticationMethod' => function (self $o, ParseNode $n) { $o->setAuthenticationMethod($n->getStringValue()); },
+            'authenticationMethodDetail' => function (self $o, ParseNode $n) { $o->setAuthenticationMethodDetail($n->getStringValue()); },
+            'authenticationStepDateTime' => function (self $o, ParseNode $n) { $o->setAuthenticationStepDateTime($n->getDateTimeValue()); },
+            'authenticationStepRequirement' => function (self $o, ParseNode $n) { $o->setAuthenticationStepRequirement($n->getStringValue()); },
+            'authenticationStepResultDetail' => function (self $o, ParseNode $n) { $o->setAuthenticationStepResultDetail($n->getStringValue()); },
+            'succeeded' => function (self $o, ParseNode $n) { $o->setSucceeded($n->getBooleanValue()); },
         ];
     }
 

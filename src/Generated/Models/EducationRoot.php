@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class EducationRoot implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<EducationClass>|null $classes The classes property
-    */
+    /** @var array<EducationClass>|null $classes The classes property */
     private ?array $classes = null;
     
-    /**
-     * @var EducationUser|null $me The me property
-    */
+    /** @var EducationUser|null $me The me property */
     private ?EducationUser $me = null;
     
-    /**
-     * @var array<EducationSchool>|null $schools The schools property
-    */
+    /** @var array<EducationSchool>|null $schools The schools property */
     private ?array $schools = null;
     
-    /**
-     * @var array<EducationSynchronizationProfile>|null $synchronizationProfiles The synchronizationProfiles property
-    */
+    /** @var array<EducationSynchronizationProfile>|null $synchronizationProfiles The synchronizationProfiles property */
     private ?array $synchronizationProfiles = null;
     
-    /**
-     * @var array<EducationUser>|null $users The users property
-    */
+    /** @var array<EducationUser>|null $users The users property */
     private ?array $users = null;
     
     /**
@@ -51,7 +39,7 @@ class EducationRoot implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EducationRoot
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationRoot {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EducationRoot {
         return new EducationRoot();
     }
 
@@ -76,13 +64,12 @@ class EducationRoot implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'classes' => function (ParseNode $n) use ($o) { $o->setClasses($n->getCollectionOfObjectValues(array(EducationClass::class, 'createFromDiscriminatorValue'))); },
-            'me' => function (ParseNode $n) use ($o) { $o->setMe($n->getObjectValue(array(EducationUser::class, 'createFromDiscriminatorValue'))); },
-            'schools' => function (ParseNode $n) use ($o) { $o->setSchools($n->getCollectionOfObjectValues(array(EducationSchool::class, 'createFromDiscriminatorValue'))); },
-            'synchronizationProfiles' => function (ParseNode $n) use ($o) { $o->setSynchronizationProfiles($n->getCollectionOfObjectValues(array(EducationSynchronizationProfile::class, 'createFromDiscriminatorValue'))); },
-            'users' => function (ParseNode $n) use ($o) { $o->setUsers($n->getCollectionOfObjectValues(array(EducationUser::class, 'createFromDiscriminatorValue'))); },
+            'classes' => function (self $o, ParseNode $n) { $o->setClasses($n->getCollectionOfObjectValues(EducationClass::class)); },
+            'me' => function (self $o, ParseNode $n) { $o->setMe($n->getObjectValue(EducationUser::class)); },
+            'schools' => function (self $o, ParseNode $n) { $o->setSchools($n->getCollectionOfObjectValues(EducationSchool::class)); },
+            'synchronizationProfiles' => function (self $o, ParseNode $n) { $o->setSynchronizationProfiles($n->getCollectionOfObjectValues(EducationSynchronizationProfile::class)); },
+            'users' => function (self $o, ParseNode $n) { $o->setUsers($n->getCollectionOfObjectValues(EducationUser::class)); },
         ];
     }
 

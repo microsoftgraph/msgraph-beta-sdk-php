@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsUpdateCatalogItem extends Entity implements Parsable 
+class WindowsUpdateCatalogItem extends Entity 
 {
-    /**
-     * @var string|null $displayName The display name for the catalog item.
-    */
+    /** @var string|null $displayName The display name for the catalog item. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $endOfSupportDate The last supported date for a catalog item
-    */
+    /** @var DateTime|null $endOfSupportDate The last supported date for a catalog item */
     private ?DateTime $endOfSupportDate = null;
     
-    /**
-     * @var DateTime|null $releaseDateTime The date the catalog item was released
-    */
+    /** @var DateTime|null $releaseDateTime The date the catalog item was released */
     private ?DateTime $releaseDateTime = null;
     
     /**
@@ -36,15 +30,7 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsUpdateCatalogItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsUpdateCatalogItem {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.windowsFeatureUpdateCatalogItem': return new WindowsFeatureUpdateCatalogItem();
-                case '#microsoft.graph.windowsQualityUpdateCatalogItem': return new WindowsQualityUpdateCatalogItem();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsUpdateCatalogItem {
         return new WindowsUpdateCatalogItem();
     }
 
@@ -69,11 +55,10 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'endOfSupportDate' => function (ParseNode $n) use ($o) { $o->setEndOfSupportDate($n->getDateTimeValue()); },
-            'releaseDateTime' => function (ParseNode $n) use ($o) { $o->setReleaseDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'endOfSupportDate' => function (self $o, ParseNode $n) { $o->setEndOfSupportDate($n->getDateTimeValue()); },
+            'releaseDateTime' => function (self $o, ParseNode $n) { $o->setReleaseDateTime($n->getDateTimeValue()); },
         ]);
     }
 

@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceComplianceScheduledActionForRule extends Entity implements Parsable 
+class DeviceComplianceScheduledActionForRule extends Entity 
 {
-    /**
-     * @var string|null $ruleName Name of the rule which this scheduled action applies to. Currently scheduled actions are created per policy instead of per rule, thus RuleName is always set to default value PasswordRequired.
-    */
+    /** @var string|null $ruleName Name of the rule which this scheduled action applies to. Currently scheduled actions are created per policy instead of per rule, thus RuleName is always set to default value PasswordRequired. */
     private ?string $ruleName = null;
     
-    /**
-     * @var array<DeviceComplianceActionItem>|null $scheduledActionConfigurations The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
-    */
+    /** @var array<DeviceComplianceActionItem>|null $scheduledActionConfigurations The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action. */
     private ?array $scheduledActionConfigurations = null;
     
     /**
@@ -30,7 +26,7 @@ class DeviceComplianceScheduledActionForRule extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceComplianceScheduledActionForRule
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScheduledActionForRule {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScheduledActionForRule {
         return new DeviceComplianceScheduledActionForRule();
     }
 
@@ -39,10 +35,9 @@ class DeviceComplianceScheduledActionForRule extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'ruleName' => function (ParseNode $n) use ($o) { $o->setRuleName($n->getStringValue()); },
-            'scheduledActionConfigurations' => function (ParseNode $n) use ($o) { $o->setScheduledActionConfigurations($n->getCollectionOfObjectValues(array(DeviceComplianceActionItem::class, 'createFromDiscriminatorValue'))); },
+            'ruleName' => function (self $o, ParseNode $n) { $o->setRuleName($n->getStringValue()); },
+            'scheduledActionConfigurations' => function (self $o, ParseNode $n) { $o->setScheduledActionConfigurations($n->getCollectionOfObjectValues(DeviceComplianceActionItem::class)); },
         ]);
     }
 

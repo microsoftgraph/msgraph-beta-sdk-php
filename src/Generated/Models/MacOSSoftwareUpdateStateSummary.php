@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable 
+class MacOSSoftwareUpdateStateSummary extends Entity 
 {
-    /**
-     * @var string|null $displayName Human readable name of the software update
-    */
+    /** @var string|null $displayName Human readable name of the software update */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastUpdatedDateTime Last date time the report for this device and product key was updated.
-    */
+    /** @var DateTime|null $lastUpdatedDateTime Last date time the report for this device and product key was updated. */
     private ?DateTime $lastUpdatedDateTime = null;
     
-    /**
-     * @var string|null $productKey Product key of the software update.
-    */
+    /** @var string|null $productKey Product key of the software update. */
     private ?string $productKey = null;
     
-    /**
-     * @var MacOSSoftwareUpdateState|null $state State of the software update. Possible values are: success, downloading, downloaded, installing, idle, available, scheduled, downloadFailed, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installInsufficientSpace, installInsufficientPower, installFailed, commandFailed.
-    */
+    /** @var MacOSSoftwareUpdateState|null $state State of the software update. Possible values are: success, downloading, downloaded, installing, idle, available, scheduled, downloadFailed, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installInsufficientSpace, installInsufficientPower, installFailed, commandFailed. */
     private ?MacOSSoftwareUpdateState $state = null;
     
-    /**
-     * @var MacOSSoftwareUpdateCategory|null $updateCategory Software update category. Possible values are: critical, configurationDataFile, firmware, other.
-    */
+    /** @var MacOSSoftwareUpdateCategory|null $updateCategory Software update category. Possible values are: critical, configurationDataFile, firmware, other. */
     private ?MacOSSoftwareUpdateCategory $updateCategory = null;
     
-    /**
-     * @var string|null $updateVersion Version of the software update
-    */
+    /** @var string|null $updateVersion Version of the software update */
     private ?string $updateVersion = null;
     
     /**
@@ -51,7 +39,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MacOSSoftwareUpdateStateSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MacOSSoftwareUpdateStateSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MacOSSoftwareUpdateStateSummary {
         return new MacOSSoftwareUpdateStateSummary();
     }
 
@@ -68,14 +56,13 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'productKey' => function (ParseNode $n) use ($o) { $o->setProductKey($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(MacOSSoftwareUpdateState::class)); },
-            'updateCategory' => function (ParseNode $n) use ($o) { $o->setUpdateCategory($n->getEnumValue(MacOSSoftwareUpdateCategory::class)); },
-            'updateVersion' => function (ParseNode $n) use ($o) { $o->setUpdateVersion($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastUpdatedDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
+            'productKey' => function (self $o, ParseNode $n) { $o->setProductKey($n->getStringValue()); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(MacOSSoftwareUpdateState::class)); },
+            'updateCategory' => function (self $o, ParseNode $n) { $o->setUpdateCategory($n->getEnumValue(MacOSSoftwareUpdateCategory::class)); },
+            'updateVersion' => function (self $o, ParseNode $n) { $o->setUpdateVersion($n->getStringValue()); },
         ]);
     }
 

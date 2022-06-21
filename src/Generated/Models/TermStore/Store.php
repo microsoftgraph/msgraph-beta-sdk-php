@@ -7,26 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Store extends Entity implements Parsable 
+class Store extends Entity 
 {
-    /**
-     * @var string|null $defaultLanguageTag Default language of the term store.
-    */
+    /** @var string|null $defaultLanguageTag Default language of the term store. */
     private ?string $defaultLanguageTag = null;
     
-    /**
-     * @var array<Group>|null $groups Collection of all groups available in the term store.
-    */
+    /** @var array<Group>|null $groups Collection of all groups available in the term store. */
     private ?array $groups = null;
     
-    /**
-     * @var array<string>|null $languageTags List of languages for the term store.
-    */
+    /** @var array<string>|null $languageTags List of languages for the term store. */
     private ?array $languageTags = null;
     
-    /**
-     * @var array<Set>|null $sets Collection of all sets available in the term store.
-    */
+    /** @var array<Set>|null $sets Collection of all sets available in the term store. */
     private ?array $sets = null;
     
     /**
@@ -41,7 +33,7 @@ class Store extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Store
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Store {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Store {
         return new Store();
     }
 
@@ -58,12 +50,11 @@ class Store extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultLanguageTag' => function (ParseNode $n) use ($o) { $o->setDefaultLanguageTag($n->getStringValue()); },
-            'groups' => function (ParseNode $n) use ($o) { $o->setGroups($n->getCollectionOfObjectValues(array(Group::class, 'createFromDiscriminatorValue'))); },
-            'languageTags' => function (ParseNode $n) use ($o) { $o->setLanguageTags($n->getCollectionOfPrimitiveValues()); },
-            'sets' => function (ParseNode $n) use ($o) { $o->setSets($n->getCollectionOfObjectValues(array(Set::class, 'createFromDiscriminatorValue'))); },
+            'defaultLanguageTag' => function (self $o, ParseNode $n) { $o->setDefaultLanguageTag($n->getStringValue()); },
+            'groups' => function (self $o, ParseNode $n) { $o->setGroups($n->getCollectionOfObjectValues(Group::class)); },
+            'languageTags' => function (self $o, ParseNode $n) { $o->setLanguageTags($n->getCollectionOfPrimitiveValues()); },
+            'sets' => function (self $o, ParseNode $n) { $o->setSets($n->getCollectionOfObjectValues(Set::class)); },
         ]);
     }
 

@@ -6,85 +6,55 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleEligibilityScheduleRequest extends Request implements Parsable 
+class UnifiedRoleEligibilityScheduleRequest extends Request 
 {
-    /**
-     * @var string|null $action Represents the type of the operation on the role eligibility assignment. The possible values are: AdminAssign: For administrators to assign role eligibility to users or groups to roles.AdminExtend: For administrators to extend expiring assignments.AdminUpdate: For administrators to change existing role assignments.AdminRenew: For administrators to renew expired assignments.AdminRemove: For administrators to remove users or groups from eligible roles.UserAdd: For users to activate their eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserRenew: For users to request to renew their expired eligible assignments.
-    */
+    /** @var string|null $action Represents the type of the operation on the role eligibility assignment. The possible values are: AdminAssign: For administrators to assign role eligibility to users or groups to roles.AdminExtend: For administrators to extend expiring assignments.AdminUpdate: For administrators to change existing role assignments.AdminRenew: For administrators to renew expired assignments.AdminRemove: For administrators to remove users or groups from eligible roles.UserAdd: For users to activate their eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserRenew: For users to request to renew their expired eligible assignments. */
     private ?string $action = null;
     
-    /**
-     * @var AppScope|null $appScope Read-only property with details of the app-specific scope when the assignment scope is app-specific. Containment entity.
-    */
+    /** @var AppScope|null $appScope Read-only property with details of the app-specific scope when the assignment scope is app-specific. Containment entity. */
     private ?AppScope $appScope = null;
     
-    /**
-     * @var string|null $appScopeId Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units.
-    */
+    /** @var string|null $appScopeId Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units. */
     private ?string $appScopeId = null;
     
-    /**
-     * @var DirectoryObject|null $directoryScope Property referencing the directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only.
-    */
+    /** @var DirectoryObject|null $directoryScope Property referencing the directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. */
     private ?DirectoryObject $directoryScope = null;
     
-    /**
-     * @var string|null $directoryScopeId Identifier of the directory object representing the scope of the assignment. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only.
-    */
+    /** @var string|null $directoryScopeId Identifier of the directory object representing the scope of the assignment. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. */
     private ?string $directoryScopeId = null;
     
-    /**
-     * @var bool|null $isValidationOnly A boolean that determines whether the call is a validation or an actual call. Only set this property if you want to check whether an activation is subject to additional rules like MFA before actually submitting the request.
-    */
+    /** @var bool|null $isValidationOnly A boolean that determines whether the call is a validation or an actual call. Only set this property if you want to check whether an activation is subject to additional rules like MFA before actually submitting the request. */
     private ?bool $isValidationOnly = null;
     
-    /**
-     * @var string|null $justification A message provided by users and administrators when create the request about why it is needed.
-    */
+    /** @var string|null $justification A message provided by users and administrators when create the request about why it is needed. */
     private ?string $justification = null;
     
-    /**
-     * @var DirectoryObject|null $principal Property referencing the principal that is getting a role assignment through the request. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only.
-    */
+    /** @var DirectoryObject|null $principal Property referencing the principal that is getting a role assignment through the request. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. */
     private ?DirectoryObject $principal = null;
     
-    /**
-     * @var string|null $principalId Identifier of the principal to which the assignment is being granted to. For example, a user or a group. For groups, they must be assignable to roles, that is, the isAssignableToRole of the group property set to true.
-    */
+    /** @var string|null $principalId Identifier of the principal to which the assignment is being granted to. For example, a user or a group. For groups, they must be assignable to roles, that is, the isAssignableToRole of the group property set to true. */
     private ?string $principalId = null;
     
-    /**
-     * @var UnifiedRoleDefinition|null $roleDefinition Property indicating the roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.Id will be auto expanded.
-    */
+    /** @var UnifiedRoleDefinition|null $roleDefinition Property indicating the roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.Id will be auto expanded. */
     private ?UnifiedRoleDefinition $roleDefinition = null;
     
-    /**
-     * @var string|null $roleDefinitionId Identifier of the unifiedRoleDefinition the assignment is for. Read only.
-    */
+    /** @var string|null $roleDefinitionId Identifier of the unifiedRoleDefinition the assignment is for. Read only. */
     private ?string $roleDefinitionId = null;
     
-    /**
-     * @var RequestSchedule|null $scheduleInfo The schedule object of the role assignment request.
-    */
+    /** @var RequestSchedule|null $scheduleInfo The schedule object of the role assignment request. */
     private ?RequestSchedule $scheduleInfo = null;
     
-    /**
-     * @var UnifiedRoleEligibilitySchedule|null $targetSchedule Property indicating the schedule for an eligible role assignment.
-    */
+    /** @var UnifiedRoleEligibilitySchedule|null $targetSchedule Property indicating the schedule for an eligible role assignment. */
     private ?UnifiedRoleEligibilitySchedule $targetSchedule = null;
     
-    /**
-     * @var string|null $targetScheduleId The time period for which the eligibility assignment is valid.
-    */
+    /** @var string|null $targetScheduleId The time period for which the eligibility assignment is valid. */
     private ?string $targetScheduleId = null;
     
-    /**
-     * @var TicketInfo|null $ticketInfo The details of the ticket number and ticket system that is attached to the role assignment request.
-    */
+    /** @var TicketInfo|null $ticketInfo The details of the ticket number and ticket system that is attached to the role assignment request. */
     private ?TicketInfo $ticketInfo = null;
     
     /**
-     * Instantiates a new UnifiedRoleEligibilityScheduleRequest and sets the default values.
+     * Instantiates a new unifiedRoleEligibilityScheduleRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,7 +65,7 @@ class UnifiedRoleEligibilityScheduleRequest extends Request implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRoleEligibilityScheduleRequest
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleEligibilityScheduleRequest {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleEligibilityScheduleRequest {
         return new UnifiedRoleEligibilityScheduleRequest();
     }
 
@@ -144,23 +114,22 @@ class UnifiedRoleEligibilityScheduleRequest extends Request implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getStringValue()); },
-            'appScope' => function (ParseNode $n) use ($o) { $o->setAppScope($n->getObjectValue(array(AppScope::class, 'createFromDiscriminatorValue'))); },
-            'appScopeId' => function (ParseNode $n) use ($o) { $o->setAppScopeId($n->getStringValue()); },
-            'directoryScope' => function (ParseNode $n) use ($o) { $o->setDirectoryScope($n->getObjectValue(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'directoryScopeId' => function (ParseNode $n) use ($o) { $o->setDirectoryScopeId($n->getStringValue()); },
-            'isValidationOnly' => function (ParseNode $n) use ($o) { $o->setIsValidationOnly($n->getBooleanValue()); },
-            'justification' => function (ParseNode $n) use ($o) { $o->setJustification($n->getStringValue()); },
-            'principal' => function (ParseNode $n) use ($o) { $o->setPrincipal($n->getObjectValue(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'principalId' => function (ParseNode $n) use ($o) { $o->setPrincipalId($n->getStringValue()); },
-            'roleDefinition' => function (ParseNode $n) use ($o) { $o->setRoleDefinition($n->getObjectValue(array(UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'roleDefinitionId' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionId($n->getStringValue()); },
-            'scheduleInfo' => function (ParseNode $n) use ($o) { $o->setScheduleInfo($n->getObjectValue(array(RequestSchedule::class, 'createFromDiscriminatorValue'))); },
-            'targetSchedule' => function (ParseNode $n) use ($o) { $o->setTargetSchedule($n->getObjectValue(array(UnifiedRoleEligibilitySchedule::class, 'createFromDiscriminatorValue'))); },
-            'targetScheduleId' => function (ParseNode $n) use ($o) { $o->setTargetScheduleId($n->getStringValue()); },
-            'ticketInfo' => function (ParseNode $n) use ($o) { $o->setTicketInfo($n->getObjectValue(array(TicketInfo::class, 'createFromDiscriminatorValue'))); },
+            'action' => function (self $o, ParseNode $n) { $o->setAction($n->getStringValue()); },
+            'appScope' => function (self $o, ParseNode $n) { $o->setAppScope($n->getObjectValue(AppScope::class)); },
+            'appScopeId' => function (self $o, ParseNode $n) { $o->setAppScopeId($n->getStringValue()); },
+            'directoryScope' => function (self $o, ParseNode $n) { $o->setDirectoryScope($n->getObjectValue(DirectoryObject::class)); },
+            'directoryScopeId' => function (self $o, ParseNode $n) { $o->setDirectoryScopeId($n->getStringValue()); },
+            'isValidationOnly' => function (self $o, ParseNode $n) { $o->setIsValidationOnly($n->getBooleanValue()); },
+            'justification' => function (self $o, ParseNode $n) { $o->setJustification($n->getStringValue()); },
+            'principal' => function (self $o, ParseNode $n) { $o->setPrincipal($n->getObjectValue(DirectoryObject::class)); },
+            'principalId' => function (self $o, ParseNode $n) { $o->setPrincipalId($n->getStringValue()); },
+            'roleDefinition' => function (self $o, ParseNode $n) { $o->setRoleDefinition($n->getObjectValue(UnifiedRoleDefinition::class)); },
+            'roleDefinitionId' => function (self $o, ParseNode $n) { $o->setRoleDefinitionId($n->getStringValue()); },
+            'scheduleInfo' => function (self $o, ParseNode $n) { $o->setScheduleInfo($n->getObjectValue(RequestSchedule::class)); },
+            'targetSchedule' => function (self $o, ParseNode $n) { $o->setTargetSchedule($n->getObjectValue(UnifiedRoleEligibilitySchedule::class)); },
+            'targetScheduleId' => function (self $o, ParseNode $n) { $o->setTargetScheduleId($n->getStringValue()); },
+            'ticketInfo' => function (self $o, ParseNode $n) { $o->setTicketInfo($n->getObjectValue(TicketInfo::class)); },
         ]);
     }
 

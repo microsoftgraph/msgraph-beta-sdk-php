@@ -6,46 +6,30 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity implements Parsable 
+class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity 
 {
-    /**
-     * @var int|null $deviceCount User experience analytics device startup process summarized count.
-    */
+    /** @var int|null $deviceCount User experience analytics device startup process summarized count. */
     private ?int $deviceCount = null;
     
-    /**
-     * @var int|null $medianImpactInMs User experience analytics device startup process median impact in milliseconds.
-    */
+    /** @var int|null $medianImpactInMs User experience analytics device startup process median impact in milliseconds. */
     private ?int $medianImpactInMs = null;
     
-    /**
-     * @var int|null $medianImpactInMs2 User experience analytics device startup process median impact in milliseconds.
-    */
+    /** @var int|null $medianImpactInMs2 User experience analytics device startup process median impact in milliseconds. */
     private ?int $medianImpactInMs2 = null;
     
-    /**
-     * @var string|null $processName User experience analytics device startup process name.
-    */
+    /** @var string|null $processName User experience analytics device startup process name. */
     private ?string $processName = null;
     
-    /**
-     * @var string|null $productName The user experience analytics device startup process product name.
-    */
+    /** @var string|null $productName The user experience analytics device startup process product name. */
     private ?string $productName = null;
     
-    /**
-     * @var string|null $publisher The User experience analytics device startup process publisher.
-    */
+    /** @var string|null $publisher The User experience analytics device startup process publisher. */
     private ?string $publisher = null;
     
-    /**
-     * @var int|null $totalImpactInMs User experience analytics device startup process total impact in milliseconds.
-    */
+    /** @var int|null $totalImpactInMs User experience analytics device startup process total impact in milliseconds. */
     private ?int $totalImpactInMs = null;
     
-    /**
-     * @var int|null $totalImpactInMs2 User experience analytics device startup process total impact in milliseconds.
-    */
+    /** @var int|null $totalImpactInMs2 User experience analytics device startup process total impact in milliseconds. */
     private ?int $totalImpactInMs2 = null;
     
     /**
@@ -60,7 +44,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsDeviceStartupProcessPerformance
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsDeviceStartupProcessPerformance {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsDeviceStartupProcessPerformance {
         return new UserExperienceAnalyticsDeviceStartupProcessPerformance();
     }
 
@@ -77,16 +61,15 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceCount' => function (ParseNode $n) use ($o) { $o->setDeviceCount($n->getIntegerValue()); },
-            'medianImpactInMs' => function (ParseNode $n) use ($o) { $o->setMedianImpactInMs($n->getIntegerValue()); },
-            'medianImpactInMs2' => function (ParseNode $n) use ($o) { $o->setMedianImpactInMs2($n->getIntegerValue()); },
-            'processName' => function (ParseNode $n) use ($o) { $o->setProcessName($n->getStringValue()); },
-            'productName' => function (ParseNode $n) use ($o) { $o->setProductName($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'totalImpactInMs' => function (ParseNode $n) use ($o) { $o->setTotalImpactInMs($n->getIntegerValue()); },
-            'totalImpactInMs2' => function (ParseNode $n) use ($o) { $o->setTotalImpactInMs2($n->getIntegerValue()); },
+            'deviceCount' => function (self $o, ParseNode $n) { $o->setDeviceCount($n->getIntegerValue()); },
+            'medianImpactInMs' => function (self $o, ParseNode $n) { $o->setMedianImpactInMs($n->getIntegerValue()); },
+            'medianImpactInMs2' => function (self $o, ParseNode $n) { $o->setMedianImpactInMs2($n->getIntegerValue()); },
+            'processName' => function (self $o, ParseNode $n) { $o->setProcessName($n->getStringValue()); },
+            'productName' => function (self $o, ParseNode $n) { $o->setProductName($n->getStringValue()); },
+            'publisher' => function (self $o, ParseNode $n) { $o->setPublisher($n->getStringValue()); },
+            'totalImpactInMs' => function (self $o, ParseNode $n) { $o->setTotalImpactInMs($n->getIntegerValue()); },
+            'totalImpactInMs2' => function (self $o, ParseNode $n) { $o->setTotalImpactInMs2($n->getIntegerValue()); },
         ]);
     }
 

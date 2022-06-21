@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class InferenceClassificationOverride extends Entity implements Parsable 
+class InferenceClassificationOverride extends Entity 
 {
-    /**
-     * @var InferenceClassificationType|null $classifyAs Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.
-    */
+    /** @var InferenceClassificationType|null $classifyAs Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other. */
     private ?InferenceClassificationType $classifyAs = null;
     
-    /**
-     * @var EmailAddress|null $senderEmailAddress The email address information of the sender for whom the override is created.
-    */
+    /** @var EmailAddress|null $senderEmailAddress The email address information of the sender for whom the override is created. */
     private ?EmailAddress $senderEmailAddress = null;
     
     /**
@@ -30,12 +26,12 @@ class InferenceClassificationOverride extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return InferenceClassificationOverride
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): InferenceClassificationOverride {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): InferenceClassificationOverride {
         return new InferenceClassificationOverride();
     }
 
     /**
-     * Gets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.
+     * Gets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.
      * @return InferenceClassificationType|null
     */
     public function getClassifyAs(): ?InferenceClassificationType {
@@ -47,10 +43,9 @@ class InferenceClassificationOverride extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classifyAs' => function (ParseNode $n) use ($o) { $o->setClassifyAs($n->getEnumValue(InferenceClassificationType::class)); },
-            'senderEmailAddress' => function (ParseNode $n) use ($o) { $o->setSenderEmailAddress($n->getObjectValue(array(EmailAddress::class, 'createFromDiscriminatorValue'))); },
+            'classifyAs' => function (self $o, ParseNode $n) { $o->setClassifyAs($n->getEnumValue(InferenceClassificationType::class)); },
+            'senderEmailAddress' => function (self $o, ParseNode $n) { $o->setSenderEmailAddress($n->getObjectValue(EmailAddress::class)); },
         ]);
     }
 
@@ -73,7 +68,7 @@ class InferenceClassificationOverride extends Entity implements Parsable
     }
 
     /**
-     * Sets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.
+     * Sets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.
      *  @param InferenceClassificationType|null $value Value to set for the classifyAs property.
     */
     public function setClassifyAs(?InferenceClassificationType $value ): void {

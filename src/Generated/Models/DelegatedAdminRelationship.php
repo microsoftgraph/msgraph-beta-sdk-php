@@ -8,66 +8,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DelegatedAdminRelationship extends Entity implements Parsable 
+class DelegatedAdminRelationship extends Entity 
 {
-    /**
-     * @var array<DelegatedAdminAccessAssignment>|null $accessAssignments The access assignments associated with the delegated admin relationship.
-    */
+    /** @var array<DelegatedAdminAccessAssignment>|null $accessAssignments The access assignments associated with the delegated admin relationship. */
     private ?array $accessAssignments = null;
     
-    /**
-     * @var DelegatedAdminAccessDetails|null $accessDetails The accessDetails property
-    */
+    /** @var DelegatedAdminAccessDetails|null $accessDetails The accessDetails property */
     private ?DelegatedAdminAccessDetails $accessDetails = null;
     
-    /**
-     * @var DateTime|null $activatedDateTime The date and time in ISO 8601 format and in UTC time when the relationship became active. Read-only.
-    */
+    /** @var DateTime|null $activatedDateTime The date and time in ISO 8601 format and in UTC time when the relationship became active. Read-only. */
     private ?DateTime $activatedDateTime = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date and time in ISO 8601 format and in UTC time when the relationship was created. Read-only.
-    */
+    /** @var DateTime|null $createdDateTime The date and time in ISO 8601 format and in UTC time when the relationship was created. Read-only. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var DelegatedAdminRelationshipCustomerParticipant|null $customer The display name and unique identifier of the customer of the relationship. This is configured either by the partner at the time the relationship is created or by the system after the customer approves the relationship. Cannot be changed by the customer.
-    */
+    /** @var DelegatedAdminRelationshipCustomerParticipant|null $customer The display name and unique identifier of the customer of the relationship. This is configured either by the partner at the time the relationship is created or by the system after the customer approves the relationship. Cannot be changed by the customer. */
     private ?DelegatedAdminRelationshipCustomerParticipant $customer = null;
     
-    /**
-     * @var string|null $displayName The display name of the relationship used for ease of identification. Must be unique across all delegated admin relationships of the partner. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer.
-    */
+    /** @var string|null $displayName The display name of the relationship used for ease of identification. Must be unique across all delegated admin relationships of the partner. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateInterval|null $duration The duration of the relationship in ISO 8601 format. Must be a value between P1D and P2Y inclusive. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer.
-    */
+    /** @var DateInterval|null $duration The duration of the relationship in ISO 8601 format. Must be a value between P1D and P2Y inclusive. This is set by the partner only when the relationship is in the created status and cannot be changed by the customer. */
     private ?DateInterval $duration = null;
     
-    /**
-     * @var DateTime|null $endDateTime The date and time in ISO 8601 format and in UTC time when the status of relationship changes to either terminated or expired. Calculated as endDateTime = activatedDateTime + duration. Read-only.
-    */
+    /** @var DateTime|null $endDateTime The date and time in ISO 8601 format and in UTC time when the status of relationship changes to either terminated or expired. Calculated as endDateTime = activatedDateTime + duration. Read-only. */
     private ?DateTime $endDateTime = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time in ISO 8601 format and in UTC time when the relationship was last modified. Read-only.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time in ISO 8601 format and in UTC time when the relationship was last modified. Read-only. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var array<DelegatedAdminRelationshipOperation>|null $operations The long running operations associated with the delegated admin relationship.
-    */
+    /** @var array<DelegatedAdminRelationshipOperation>|null $operations The long running operations associated with the delegated admin relationship. */
     private ?array $operations = null;
     
-    /**
-     * @var array<DelegatedAdminRelationshipRequest>|null $requests The requests associated with the delegated admin relationship.
-    */
+    /** @var DelegatedAdminRelationshipParticipant|null $partner The partner property */
+    private ?DelegatedAdminRelationshipParticipant $partner = null;
+    
+    /** @var array<DelegatedAdminRelationshipRequest>|null $requests The requests associated with the delegated admin relationship. */
     private ?array $requests = null;
     
-    /**
-     * @var DelegatedAdminRelationshipStatus|null $status The status of the relationship. Read Only. The possible values are: activating, active, approvalPending, approved, created, expired, expiring, terminated, terminating, terminationRequested, unknownFutureValue. Supports $orderBy.
-    */
+    /** @var DelegatedAdminRelationshipStatus|null $status The status of the relationship. Read Only. The possible values are: activating, active, approvalPending, approved, created, expired, expiring, terminated, terminating, terminationRequested, unknownFutureValue. Supports $orderBy. */
     private ?DelegatedAdminRelationshipStatus $status = null;
     
     /**
@@ -82,7 +61,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DelegatedAdminRelationship
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminRelationship {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminRelationship {
         return new DelegatedAdminRelationship();
     }
 
@@ -155,20 +134,20 @@ class DelegatedAdminRelationship extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessAssignments' => function (ParseNode $n) use ($o) { $o->setAccessAssignments($n->getCollectionOfObjectValues(array(DelegatedAdminAccessAssignment::class, 'createFromDiscriminatorValue'))); },
-            'accessDetails' => function (ParseNode $n) use ($o) { $o->setAccessDetails($n->getObjectValue(array(DelegatedAdminAccessDetails::class, 'createFromDiscriminatorValue'))); },
-            'activatedDateTime' => function (ParseNode $n) use ($o) { $o->setActivatedDateTime($n->getDateTimeValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'customer' => function (ParseNode $n) use ($o) { $o->setCustomer($n->getObjectValue(array(DelegatedAdminRelationshipCustomerParticipant::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'duration' => function (ParseNode $n) use ($o) { $o->setDuration($n->getDateIntervalValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(DelegatedAdminRelationshipOperation::class, 'createFromDiscriminatorValue'))); },
-            'requests' => function (ParseNode $n) use ($o) { $o->setRequests($n->getCollectionOfObjectValues(array(DelegatedAdminRelationshipRequest::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DelegatedAdminRelationshipStatus::class)); },
+            'accessAssignments' => function (self $o, ParseNode $n) { $o->setAccessAssignments($n->getCollectionOfObjectValues(DelegatedAdminAccessAssignment::class)); },
+            'accessDetails' => function (self $o, ParseNode $n) { $o->setAccessDetails($n->getObjectValue(DelegatedAdminAccessDetails::class)); },
+            'activatedDateTime' => function (self $o, ParseNode $n) { $o->setActivatedDateTime($n->getDateTimeValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'customer' => function (self $o, ParseNode $n) { $o->setCustomer($n->getObjectValue(DelegatedAdminRelationshipCustomerParticipant::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'duration' => function (self $o, ParseNode $n) { $o->setDuration($n->getDateIntervalValue()); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'operations' => function (self $o, ParseNode $n) { $o->setOperations($n->getCollectionOfObjectValues(DelegatedAdminRelationshipOperation::class)); },
+            'partner' => function (self $o, ParseNode $n) { $o->setPartner($n->getObjectValue(DelegatedAdminRelationshipParticipant::class)); },
+            'requests' => function (self $o, ParseNode $n) { $o->setRequests($n->getCollectionOfObjectValues(DelegatedAdminRelationshipRequest::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(DelegatedAdminRelationshipStatus::class)); },
         ]);
     }
 
@@ -186,6 +165,14 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     */
     public function getOperations(): ?array {
         return $this->operations;
+    }
+
+    /**
+     * Gets the partner property value. The partner property
+     * @return DelegatedAdminRelationshipParticipant|null
+    */
+    public function getPartner(): ?DelegatedAdminRelationshipParticipant {
+        return $this->partner;
     }
 
     /**
@@ -220,6 +207,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
         $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeCollectionOfObjectValues('operations', $this->operations);
+        $writer->writeObjectValue('partner', $this->partner);
         $writer->writeCollectionOfObjectValues('requests', $this->requests);
         $writer->writeEnumValue('status', $this->status);
     }
@@ -302,6 +290,14 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     */
     public function setOperations(?array $value ): void {
         $this->operations = $value;
+    }
+
+    /**
+     * Sets the partner property value. The partner property
+     *  @param DelegatedAdminRelationshipParticipant|null $value Value to set for the partner property.
+    */
+    public function setPartner(?DelegatedAdminRelationshipParticipant $value ): void {
+        $this->partner = $value;
     }
 
     /**

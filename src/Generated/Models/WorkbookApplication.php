@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookApplication extends Entity implements Parsable 
+class WorkbookApplication extends Entity 
 {
-    /**
-     * @var string|null $calculationMode Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
-    */
+    /** @var string|null $calculationMode Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual. */
     private ?string $calculationMode = null;
     
     /**
@@ -25,7 +23,7 @@ class WorkbookApplication extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookApplication
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookApplication {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookApplication {
         return new WorkbookApplication();
     }
 
@@ -42,9 +40,8 @@ class WorkbookApplication extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'calculationMode' => function (ParseNode $n) use ($o) { $o->setCalculationMode($n->getStringValue()); },
+            'calculationMode' => function (self $o, ParseNode $n) { $o->setCalculationMode($n->getStringValue()); },
         ]);
     }
 

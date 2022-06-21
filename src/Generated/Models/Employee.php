@@ -8,96 +8,60 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Employee extends Entity implements Parsable 
+class Employee extends Entity 
 {
-    /**
-     * @var PostalAddressType|null $address The address property
-    */
+    /** @var PostalAddressType|null $address The address property */
     private ?PostalAddressType $address = null;
     
-    /**
-     * @var Date|null $birthDate The birthDate property
-    */
+    /** @var Date|null $birthDate The birthDate property */
     private ?Date $birthDate = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $email The email property
-    */
+    /** @var string|null $email The email property */
     private ?string $email = null;
     
-    /**
-     * @var Date|null $employmentDate The employmentDate property
-    */
+    /** @var Date|null $employmentDate The employmentDate property */
     private ?Date $employmentDate = null;
     
-    /**
-     * @var string|null $givenName The givenName property
-    */
+    /** @var string|null $givenName The givenName property */
     private ?string $givenName = null;
     
-    /**
-     * @var string|null $jobTitle The jobTitle property
-    */
+    /** @var string|null $jobTitle The jobTitle property */
     private ?string $jobTitle = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $middleName The middleName property
-    */
+    /** @var string|null $middleName The middleName property */
     private ?string $middleName = null;
     
-    /**
-     * @var string|null $mobilePhone The mobilePhone property
-    */
+    /** @var string|null $mobilePhone The mobilePhone property */
     private ?string $mobilePhone = null;
     
-    /**
-     * @var string|null $number The number property
-    */
+    /** @var string|null $number The number property */
     private ?string $number = null;
     
-    /**
-     * @var string|null $personalEmail The personalEmail property
-    */
+    /** @var string|null $personalEmail The personalEmail property */
     private ?string $personalEmail = null;
     
-    /**
-     * @var string|null $phoneNumber The phoneNumber property
-    */
+    /** @var string|null $phoneNumber The phoneNumber property */
     private ?string $phoneNumber = null;
     
-    /**
-     * @var array<Picture>|null $picture The picture property
-    */
+    /** @var array<Picture>|null $picture The picture property */
     private ?array $picture = null;
     
-    /**
-     * @var string|null $statisticsGroupCode The statisticsGroupCode property
-    */
+    /** @var string|null $statisticsGroupCode The statisticsGroupCode property */
     private ?string $statisticsGroupCode = null;
     
-    /**
-     * @var string|null $status The status property
-    */
+    /** @var string|null $status The status property */
     private ?string $status = null;
     
-    /**
-     * @var string|null $surname The surname property
-    */
+    /** @var string|null $surname The surname property */
     private ?string $surname = null;
     
-    /**
-     * @var Date|null $terminationDate The terminationDate property
-    */
+    /** @var Date|null $terminationDate The terminationDate property */
     private ?Date $terminationDate = null;
     
     /**
@@ -112,7 +76,7 @@ class Employee extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Employee
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Employee {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Employee {
         return new Employee();
     }
 
@@ -161,26 +125,25 @@ class Employee extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
-            'birthDate' => function (ParseNode $n) use ($o) { $o->setBirthDate($n->getDateValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
-            'employmentDate' => function (ParseNode $n) use ($o) { $o->setEmploymentDate($n->getDateValue()); },
-            'givenName' => function (ParseNode $n) use ($o) { $o->setGivenName($n->getStringValue()); },
-            'jobTitle' => function (ParseNode $n) use ($o) { $o->setJobTitle($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'middleName' => function (ParseNode $n) use ($o) { $o->setMiddleName($n->getStringValue()); },
-            'mobilePhone' => function (ParseNode $n) use ($o) { $o->setMobilePhone($n->getStringValue()); },
-            'number' => function (ParseNode $n) use ($o) { $o->setNumber($n->getStringValue()); },
-            'personalEmail' => function (ParseNode $n) use ($o) { $o->setPersonalEmail($n->getStringValue()); },
-            'phoneNumber' => function (ParseNode $n) use ($o) { $o->setPhoneNumber($n->getStringValue()); },
-            'picture' => function (ParseNode $n) use ($o) { $o->setPicture($n->getCollectionOfObjectValues(array(Picture::class, 'createFromDiscriminatorValue'))); },
-            'statisticsGroupCode' => function (ParseNode $n) use ($o) { $o->setStatisticsGroupCode($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'surname' => function (ParseNode $n) use ($o) { $o->setSurname($n->getStringValue()); },
-            'terminationDate' => function (ParseNode $n) use ($o) { $o->setTerminationDate($n->getDateValue()); },
+            'address' => function (self $o, ParseNode $n) { $o->setAddress($n->getObjectValue(PostalAddressType::class)); },
+            'birthDate' => function (self $o, ParseNode $n) { $o->setBirthDate($n->getDateValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
+            'employmentDate' => function (self $o, ParseNode $n) { $o->setEmploymentDate($n->getDateValue()); },
+            'givenName' => function (self $o, ParseNode $n) { $o->setGivenName($n->getStringValue()); },
+            'jobTitle' => function (self $o, ParseNode $n) { $o->setJobTitle($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'middleName' => function (self $o, ParseNode $n) { $o->setMiddleName($n->getStringValue()); },
+            'mobilePhone' => function (self $o, ParseNode $n) { $o->setMobilePhone($n->getStringValue()); },
+            'number' => function (self $o, ParseNode $n) { $o->setNumber($n->getStringValue()); },
+            'personalEmail' => function (self $o, ParseNode $n) { $o->setPersonalEmail($n->getStringValue()); },
+            'phoneNumber' => function (self $o, ParseNode $n) { $o->setPhoneNumber($n->getStringValue()); },
+            'picture' => function (self $o, ParseNode $n) { $o->setPicture($n->getCollectionOfObjectValues(Picture::class)); },
+            'statisticsGroupCode' => function (self $o, ParseNode $n) { $o->setStatisticsGroupCode($n->getStringValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
+            'surname' => function (self $o, ParseNode $n) { $o->setSurname($n->getStringValue()); },
+            'terminationDate' => function (self $o, ParseNode $n) { $o->setTerminationDate($n->getDateValue()); },
         ]);
     }
 

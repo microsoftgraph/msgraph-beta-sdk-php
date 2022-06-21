@@ -7,26 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyOperation extends Entity implements Parsable 
+class GroupPolicyOperation extends Entity 
 {
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var GroupPolicyOperationStatus|null $operationStatus The group policy operation status. Possible values are: unknown, inProgress, success, failed.
-    */
+    /** @var GroupPolicyOperationStatus|null $operationStatus The group policy operation status. Possible values are: unknown, inProgress, success, failed. */
     private ?GroupPolicyOperationStatus $operationStatus = null;
     
-    /**
-     * @var GroupPolicyOperationType|null $operationType The type of group policy operation. Possible values are: none, upload, uploadNewVersion, addLanguageFiles, removeLanguageFiles, updateLanguageFiles, remove.
-    */
+    /** @var GroupPolicyOperationType|null $operationType The type of group policy operation. Possible values are: none, upload, uploadNewVersion, addLanguageFiles, removeLanguageFiles, updateLanguageFiles, remove. */
     private ?GroupPolicyOperationType $operationType = null;
     
-    /**
-     * @var string|null $statusDetails The group policy operation status detail.
-    */
+    /** @var string|null $statusDetails The group policy operation status detail. */
     private ?string $statusDetails = null;
     
     /**
@@ -41,7 +33,7 @@ class GroupPolicyOperation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicyOperation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyOperation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyOperation {
         return new GroupPolicyOperation();
     }
 
@@ -50,12 +42,11 @@ class GroupPolicyOperation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'operationStatus' => function (ParseNode $n) use ($o) { $o->setOperationStatus($n->getEnumValue(GroupPolicyOperationStatus::class)); },
-            'operationType' => function (ParseNode $n) use ($o) { $o->setOperationType($n->getEnumValue(GroupPolicyOperationType::class)); },
-            'statusDetails' => function (ParseNode $n) use ($o) { $o->setStatusDetails($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'operationStatus' => function (self $o, ParseNode $n) { $o->setOperationStatus($n->getEnumValue(GroupPolicyOperationStatus::class)); },
+            'operationType' => function (self $o, ParseNode $n) { $o->setOperationType($n->getEnumValue(GroupPolicyOperationType::class)); },
+            'statusDetails' => function (self $o, ParseNode $n) { $o->setStatusDetails($n->getStringValue()); },
         ]);
     }
 

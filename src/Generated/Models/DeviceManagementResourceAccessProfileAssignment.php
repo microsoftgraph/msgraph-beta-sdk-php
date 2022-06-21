@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementResourceAccessProfileAssignment extends Entity implements Parsable 
+class DeviceManagementResourceAccessProfileAssignment extends Entity 
 {
-    /**
-     * @var DeviceManagementResourceAccessProfileIntent|null $intent The assignment intent for the resource access profile. Possible values are: apply, remove.
-    */
+    /** @var DeviceManagementResourceAccessProfileIntent|null $intent The assignment intent for the resource access profile. Possible values are: apply, remove. */
     private ?DeviceManagementResourceAccessProfileIntent $intent = null;
     
-    /**
-     * @var string|null $sourceId The identifier of the source of the assignment.
-    */
+    /** @var string|null $sourceId The identifier of the source of the assignment. */
     private ?string $sourceId = null;
     
-    /**
-     * @var DeviceAndAppManagementAssignmentTarget|null $target Base type for assignment targets.
-    */
+    /** @var DeviceAndAppManagementAssignmentTarget|null $target Base type for assignment targets. */
     private ?DeviceAndAppManagementAssignmentTarget $target = null;
     
     /**
@@ -35,7 +29,7 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementResourceAccessProfileAssignment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementResourceAccessProfileAssignment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementResourceAccessProfileAssignment {
         return new DeviceManagementResourceAccessProfileAssignment();
     }
 
@@ -44,11 +38,10 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'intent' => function (ParseNode $n) use ($o) { $o->setIntent($n->getEnumValue(DeviceManagementResourceAccessProfileIntent::class)); },
-            'sourceId' => function (ParseNode $n) use ($o) { $o->setSourceId($n->getStringValue()); },
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
+            'intent' => function (self $o, ParseNode $n) { $o->setIntent($n->getEnumValue(DeviceManagementResourceAccessProfileIntent::class)); },
+            'sourceId' => function (self $o, ParseNode $n) { $o->setSourceId($n->getStringValue()); },
+            'target' => function (self $o, ParseNode $n) { $o->setTarget($n->getObjectValue(DeviceAndAppManagementAssignmentTarget::class)); },
         ]);
     }
 

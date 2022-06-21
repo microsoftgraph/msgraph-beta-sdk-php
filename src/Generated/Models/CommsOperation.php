@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CommsOperation extends Entity implements Parsable 
+class CommsOperation extends Entity 
 {
-    /**
-     * @var string|null $clientContext Unique Client Context string. Max limit is 256 chars.
-    */
+    /** @var string|null $clientContext Unique Client Context string. Max limit is 256 chars. */
     private ?string $clientContext = null;
     
-    /**
-     * @var ResultInfo|null $resultInfo The result information. Read-only.
-    */
+    /** @var ResultInfo|null $resultInfo The result information. Read-only. */
     private ?ResultInfo $resultInfo = null;
     
-    /**
-     * @var OperationStatus|null $status Possible values are: notStarted, running, completed, failed. Read-only.
-    */
+    /** @var OperationStatus|null $status Possible values are: notStarted, running, completed, failed. Read-only. */
     private ?OperationStatus $status = null;
     
     /**
@@ -35,25 +29,7 @@ class CommsOperation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CommsOperation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CommsOperation {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.addLargeGalleryViewOperation': return new AddLargeGalleryViewOperation();
-                case '#microsoft.graph.cancelMediaProcessingOperation': return new CancelMediaProcessingOperation();
-                case '#microsoft.graph.inviteParticipantsOperation': return new InviteParticipantsOperation();
-                case '#microsoft.graph.muteParticipantOperation': return new MuteParticipantOperation();
-                case '#microsoft.graph.muteParticipantsOperation': return new MuteParticipantsOperation();
-                case '#microsoft.graph.playPromptOperation': return new PlayPromptOperation();
-                case '#microsoft.graph.recordOperation': return new RecordOperation();
-                case '#microsoft.graph.startHoldMusicOperation': return new StartHoldMusicOperation();
-                case '#microsoft.graph.stopHoldMusicOperation': return new StopHoldMusicOperation();
-                case '#microsoft.graph.subscribeToToneOperation': return new SubscribeToToneOperation();
-                case '#microsoft.graph.unmuteParticipantOperation': return new UnmuteParticipantOperation();
-                case '#microsoft.graph.updateRecordingStatusOperation': return new UpdateRecordingStatusOperation();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CommsOperation {
         return new CommsOperation();
     }
 
@@ -70,11 +46,10 @@ class CommsOperation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'clientContext' => function (ParseNode $n) use ($o) { $o->setClientContext($n->getStringValue()); },
-            'resultInfo' => function (ParseNode $n) use ($o) { $o->setResultInfo($n->getObjectValue(array(ResultInfo::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(OperationStatus::class)); },
+            'clientContext' => function (self $o, ParseNode $n) { $o->setClientContext($n->getStringValue()); },
+            'resultInfo' => function (self $o, ParseNode $n) { $o->setResultInfo($n->getObjectValue(ResultInfo::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(OperationStatus::class)); },
         ]);
     }
 

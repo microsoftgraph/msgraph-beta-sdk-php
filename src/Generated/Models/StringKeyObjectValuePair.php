@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class StringKeyObjectValuePair implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $key Key.
-    */
+    /** @var string|null $key Key. */
     private ?string $key = null;
     
     /**
@@ -31,7 +27,7 @@ class StringKeyObjectValuePair implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return StringKeyObjectValuePair
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): StringKeyObjectValuePair {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): StringKeyObjectValuePair {
         return new StringKeyObjectValuePair();
     }
 
@@ -48,9 +44,8 @@ class StringKeyObjectValuePair implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getStringValue()); },
+            'key' => function (self $o, ParseNode $n) { $o->setKey($n->getStringValue()); },
         ];
     }
 

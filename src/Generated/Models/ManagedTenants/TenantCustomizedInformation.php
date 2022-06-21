@@ -7,26 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TenantCustomizedInformation extends Entity implements Parsable 
+class TenantCustomizedInformation extends Entity 
 {
-    /**
-     * @var array<TenantContactInformation>|null $contacts The collection of contacts for the managed tenant. Optional.
-    */
+    /** @var array<TenantContactInformation>|null $contacts The collection of contacts for the managed tenant. Optional. */
     private ?array $contacts = null;
     
-    /**
-     * @var string|null $displayName The display name for the managed tenant. Required. Read-only.
-    */
+    /** @var string|null $displayName The display name for the managed tenant. Required. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    */
+    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only. */
     private ?string $tenantId = null;
     
-    /**
-     * @var string|null $website The website for the managed tenant. Required.
-    */
+    /** @var string|null $website The website for the managed tenant. Required. */
     private ?string $website = null;
     
     /**
@@ -41,7 +33,7 @@ class TenantCustomizedInformation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantCustomizedInformation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantCustomizedInformation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantCustomizedInformation {
         return new TenantCustomizedInformation();
     }
 
@@ -66,12 +58,11 @@ class TenantCustomizedInformation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contacts' => function (ParseNode $n) use ($o) { $o->setContacts($n->getCollectionOfObjectValues(array(TenantContactInformation::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'website' => function (ParseNode $n) use ($o) { $o->setWebsite($n->getStringValue()); },
+            'contacts' => function (self $o, ParseNode $n) { $o->setContacts($n->getCollectionOfObjectValues(TenantContactInformation::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
+            'website' => function (self $o, ParseNode $n) { $o->setWebsite($n->getStringValue()); },
         ]);
     }
 

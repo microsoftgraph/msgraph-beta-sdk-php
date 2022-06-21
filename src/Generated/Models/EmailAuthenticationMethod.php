@@ -6,15 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EmailAuthenticationMethod extends AuthenticationMethod implements Parsable 
+class EmailAuthenticationMethod extends AuthenticationMethod 
 {
-    /**
-     * @var string|null $emailAddress The email address registered to this user.
-    */
+    /** @var string|null $emailAddress The email address registered to this user. */
     private ?string $emailAddress = null;
     
     /**
-     * Instantiates a new EmailAuthenticationMethod and sets the default values.
+     * Instantiates a new emailAuthenticationMethod and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +23,7 @@ class EmailAuthenticationMethod extends AuthenticationMethod implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EmailAuthenticationMethod
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EmailAuthenticationMethod {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EmailAuthenticationMethod {
         return new EmailAuthenticationMethod();
     }
 
@@ -42,9 +40,8 @@ class EmailAuthenticationMethod extends AuthenticationMethod implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'emailAddress' => function (ParseNode $n) use ($o) { $o->setEmailAddress($n->getStringValue()); },
+            'emailAddress' => function (self $o, ParseNode $n) { $o->setEmailAddress($n->getStringValue()); },
         ]);
     }
 

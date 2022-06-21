@@ -6,56 +6,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MobileAppInstallSummary extends Entity implements Parsable 
+class MobileAppInstallSummary extends Entity 
 {
-    /**
-     * @var int|null $failedDeviceCount Number of Devices that have failed to install this app.
-    */
+    /** @var int|null $failedDeviceCount Number of Devices that have failed to install this app. */
     private ?int $failedDeviceCount = null;
     
-    /**
-     * @var int|null $failedUserCount Number of Users that have 1 or more device that failed to install this app.
-    */
+    /** @var int|null $failedUserCount Number of Users that have 1 or more device that failed to install this app. */
     private ?int $failedUserCount = null;
     
-    /**
-     * @var int|null $installedDeviceCount Number of Devices that have successfully installed this app.
-    */
+    /** @var int|null $installedDeviceCount Number of Devices that have successfully installed this app. */
     private ?int $installedDeviceCount = null;
     
-    /**
-     * @var int|null $installedUserCount Number of Users whose devices have all succeeded to install this app.
-    */
+    /** @var int|null $installedUserCount Number of Users whose devices have all succeeded to install this app. */
     private ?int $installedUserCount = null;
     
-    /**
-     * @var int|null $notApplicableDeviceCount Number of Devices that are not applicable for this app.
-    */
+    /** @var int|null $notApplicableDeviceCount Number of Devices that are not applicable for this app. */
     private ?int $notApplicableDeviceCount = null;
     
-    /**
-     * @var int|null $notApplicableUserCount Number of Users whose devices were all not applicable for this app.
-    */
+    /** @var int|null $notApplicableUserCount Number of Users whose devices were all not applicable for this app. */
     private ?int $notApplicableUserCount = null;
     
-    /**
-     * @var int|null $notInstalledDeviceCount Number of Devices that does not have this app installed.
-    */
+    /** @var int|null $notInstalledDeviceCount Number of Devices that does not have this app installed. */
     private ?int $notInstalledDeviceCount = null;
     
-    /**
-     * @var int|null $notInstalledUserCount Number of Users that have 1 or more devices that did not install this app.
-    */
+    /** @var int|null $notInstalledUserCount Number of Users that have 1 or more devices that did not install this app. */
     private ?int $notInstalledUserCount = null;
     
-    /**
-     * @var int|null $pendingInstallDeviceCount Number of Devices that have been notified to install this app.
-    */
+    /** @var int|null $pendingInstallDeviceCount Number of Devices that have been notified to install this app. */
     private ?int $pendingInstallDeviceCount = null;
     
-    /**
-     * @var int|null $pendingInstallUserCount Number of Users that have 1 or more device that have been notified to install this app and have 0 devices with failures.
-    */
+    /** @var int|null $pendingInstallUserCount Number of Users that have 1 or more device that have been notified to install this app and have 0 devices with failures. */
     private ?int $pendingInstallUserCount = null;
     
     /**
@@ -70,7 +50,7 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MobileAppInstallSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppInstallSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppInstallSummary {
         return new MobileAppInstallSummary();
     }
 
@@ -95,18 +75,17 @@ class MobileAppInstallSummary extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
-            'failedUserCount' => function (ParseNode $n) use ($o) { $o->setFailedUserCount($n->getIntegerValue()); },
-            'installedDeviceCount' => function (ParseNode $n) use ($o) { $o->setInstalledDeviceCount($n->getIntegerValue()); },
-            'installedUserCount' => function (ParseNode $n) use ($o) { $o->setInstalledUserCount($n->getIntegerValue()); },
-            'notApplicableDeviceCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableDeviceCount($n->getIntegerValue()); },
-            'notApplicableUserCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableUserCount($n->getIntegerValue()); },
-            'notInstalledDeviceCount' => function (ParseNode $n) use ($o) { $o->setNotInstalledDeviceCount($n->getIntegerValue()); },
-            'notInstalledUserCount' => function (ParseNode $n) use ($o) { $o->setNotInstalledUserCount($n->getIntegerValue()); },
-            'pendingInstallDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingInstallDeviceCount($n->getIntegerValue()); },
-            'pendingInstallUserCount' => function (ParseNode $n) use ($o) { $o->setPendingInstallUserCount($n->getIntegerValue()); },
+            'failedDeviceCount' => function (self $o, ParseNode $n) { $o->setFailedDeviceCount($n->getIntegerValue()); },
+            'failedUserCount' => function (self $o, ParseNode $n) { $o->setFailedUserCount($n->getIntegerValue()); },
+            'installedDeviceCount' => function (self $o, ParseNode $n) { $o->setInstalledDeviceCount($n->getIntegerValue()); },
+            'installedUserCount' => function (self $o, ParseNode $n) { $o->setInstalledUserCount($n->getIntegerValue()); },
+            'notApplicableDeviceCount' => function (self $o, ParseNode $n) { $o->setNotApplicableDeviceCount($n->getIntegerValue()); },
+            'notApplicableUserCount' => function (self $o, ParseNode $n) { $o->setNotApplicableUserCount($n->getIntegerValue()); },
+            'notInstalledDeviceCount' => function (self $o, ParseNode $n) { $o->setNotInstalledDeviceCount($n->getIntegerValue()); },
+            'notInstalledUserCount' => function (self $o, ParseNode $n) { $o->setNotInstalledUserCount($n->getIntegerValue()); },
+            'pendingInstallDeviceCount' => function (self $o, ParseNode $n) { $o->setPendingInstallDeviceCount($n->getIntegerValue()); },
+            'pendingInstallUserCount' => function (self $o, ParseNode $n) { $o->setPendingInstallUserCount($n->getIntegerValue()); },
         ]);
     }
 

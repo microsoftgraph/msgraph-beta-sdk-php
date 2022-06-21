@@ -9,28 +9,20 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<DeviceComplianceScriptRuleError>|null $ruleErrors Errors in json for the script for rules.
-    */
+    /** @var array<DeviceComplianceScriptRuleError>|null $ruleErrors Errors in json for the script for rules. */
     private ?array $ruleErrors = null;
     
-    /**
-     * @var array<DeviceComplianceScriptRule>|null $rules Parsed rules from json.
-    */
+    /** @var array<DeviceComplianceScriptRule>|null $rules Parsed rules from json. */
     private ?array $rules = null;
     
-    /**
-     * @var array<DeviceComplianceScriptError>|null $scriptErrors Errors in json for the script.
-    */
+    /** @var array<DeviceComplianceScriptError>|null $scriptErrors Errors in json for the script. */
     private ?array $scriptErrors = null;
     
     /**
-     * Instantiates a new DeviceComplianceScriptValidationResult and sets the default values.
+     * Instantiates a new deviceComplianceScriptValidationResult and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -41,7 +33,7 @@ class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Pa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceComplianceScriptValidationResult
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScriptValidationResult {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScriptValidationResult {
         return new DeviceComplianceScriptValidationResult();
     }
 
@@ -58,11 +50,10 @@ class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Pa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'ruleErrors' => function (ParseNode $n) use ($o) { $o->setRuleErrors($n->getCollectionOfObjectValues(array(DeviceComplianceScriptRuleError::class, 'createFromDiscriminatorValue'))); },
-            'rules' => function (ParseNode $n) use ($o) { $o->setRules($n->getCollectionOfObjectValues(array(DeviceComplianceScriptRule::class, 'createFromDiscriminatorValue'))); },
-            'scriptErrors' => function (ParseNode $n) use ($o) { $o->setScriptErrors($n->getCollectionOfObjectValues(array(DeviceComplianceScriptError::class, 'createFromDiscriminatorValue'))); },
+            'ruleErrors' => function (self $o, ParseNode $n) { $o->setRuleErrors($n->getCollectionOfObjectValues(DeviceComplianceScriptRuleError::class)); },
+            'rules' => function (self $o, ParseNode $n) { $o->setRules($n->getCollectionOfObjectValues(DeviceComplianceScriptRule::class)); },
+            'scriptErrors' => function (self $o, ParseNode $n) { $o->setScriptErrors($n->getCollectionOfObjectValues(DeviceComplianceScriptError::class)); },
         ];
     }
 

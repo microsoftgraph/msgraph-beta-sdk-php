@@ -9,58 +9,38 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $compliancePolicyCount Number of devices with CompliancePolicy swung-over. This property is read-only.
-    */
+    /** @var int|null $compliancePolicyCount Number of devices with CompliancePolicy swung-over. This property is read-only. */
     private ?int $compliancePolicyCount = null;
     
-    /**
-     * @var int|null $configurationSettingsCount Number of devices with ConfigurationSettings swung-over. This property is read-only.
-    */
+    /** @var int|null $configurationSettingsCount Number of devices with ConfigurationSettings swung-over. This property is read-only. */
     private ?int $configurationSettingsCount = null;
     
-    /**
-     * @var int|null $endpointProtectionCount Number of devices with EndpointProtection swung-over. This property is read-only.
-    */
+    /** @var int|null $endpointProtectionCount Number of devices with EndpointProtection swung-over. This property is read-only. */
     private ?int $endpointProtectionCount = null;
     
-    /**
-     * @var int|null $inventoryCount Number of devices with Inventory swung-over. This property is read-only.
-    */
+    /** @var int|null $inventoryCount Number of devices with Inventory swung-over. This property is read-only. */
     private ?int $inventoryCount = null;
     
-    /**
-     * @var int|null $modernAppsCount Number of devices with ModernApps swung-over. This property is read-only.
-    */
+    /** @var int|null $modernAppsCount Number of devices with ModernApps swung-over. This property is read-only. */
     private ?int $modernAppsCount = null;
     
-    /**
-     * @var int|null $officeAppsCount Number of devices with OfficeApps swung-over. This property is read-only.
-    */
+    /** @var int|null $officeAppsCount Number of devices with OfficeApps swung-over. This property is read-only. */
     private ?int $officeAppsCount = null;
     
-    /**
-     * @var int|null $resourceAccessCount Number of devices with ResourceAccess swung-over. This property is read-only.
-    */
+    /** @var int|null $resourceAccessCount Number of devices with ResourceAccess swung-over. This property is read-only. */
     private ?int $resourceAccessCount = null;
     
-    /**
-     * @var int|null $totalComanagedCount Number of Co-Managed Devices. This property is read-only.
-    */
+    /** @var int|null $totalComanagedCount Number of Co-Managed Devices. This property is read-only. */
     private ?int $totalComanagedCount = null;
     
-    /**
-     * @var int|null $windowsUpdateForBusinessCount Number of devices with WindowsUpdateForBusiness swung-over. This property is read-only.
-    */
+    /** @var int|null $windowsUpdateForBusinessCount Number of devices with WindowsUpdateForBusiness swung-over. This property is read-only. */
     private ?int $windowsUpdateForBusinessCount = null;
     
     /**
-     * Instantiates a new ComanagedDevicesSummary and sets the default values.
+     * Instantiates a new comanagedDevicesSummary and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -71,7 +51,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ComanagedDevicesSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ComanagedDevicesSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ComanagedDevicesSummary {
         return new ComanagedDevicesSummary();
     }
 
@@ -112,17 +92,16 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'compliancePolicyCount' => function (ParseNode $n) use ($o) { $o->setCompliancePolicyCount($n->getIntegerValue()); },
-            'configurationSettingsCount' => function (ParseNode $n) use ($o) { $o->setConfigurationSettingsCount($n->getIntegerValue()); },
-            'endpointProtectionCount' => function (ParseNode $n) use ($o) { $o->setEndpointProtectionCount($n->getIntegerValue()); },
-            'inventoryCount' => function (ParseNode $n) use ($o) { $o->setInventoryCount($n->getIntegerValue()); },
-            'modernAppsCount' => function (ParseNode $n) use ($o) { $o->setModernAppsCount($n->getIntegerValue()); },
-            'officeAppsCount' => function (ParseNode $n) use ($o) { $o->setOfficeAppsCount($n->getIntegerValue()); },
-            'resourceAccessCount' => function (ParseNode $n) use ($o) { $o->setResourceAccessCount($n->getIntegerValue()); },
-            'totalComanagedCount' => function (ParseNode $n) use ($o) { $o->setTotalComanagedCount($n->getIntegerValue()); },
-            'windowsUpdateForBusinessCount' => function (ParseNode $n) use ($o) { $o->setWindowsUpdateForBusinessCount($n->getIntegerValue()); },
+            'compliancePolicyCount' => function (self $o, ParseNode $n) { $o->setCompliancePolicyCount($n->getIntegerValue()); },
+            'configurationSettingsCount' => function (self $o, ParseNode $n) { $o->setConfigurationSettingsCount($n->getIntegerValue()); },
+            'endpointProtectionCount' => function (self $o, ParseNode $n) { $o->setEndpointProtectionCount($n->getIntegerValue()); },
+            'inventoryCount' => function (self $o, ParseNode $n) { $o->setInventoryCount($n->getIntegerValue()); },
+            'modernAppsCount' => function (self $o, ParseNode $n) { $o->setModernAppsCount($n->getIntegerValue()); },
+            'officeAppsCount' => function (self $o, ParseNode $n) { $o->setOfficeAppsCount($n->getIntegerValue()); },
+            'resourceAccessCount' => function (self $o, ParseNode $n) { $o->setResourceAccessCount($n->getIntegerValue()); },
+            'totalComanagedCount' => function (self $o, ParseNode $n) { $o->setTotalComanagedCount($n->getIntegerValue()); },
+            'windowsUpdateForBusinessCount' => function (self $o, ParseNode $n) { $o->setWindowsUpdateForBusinessCount($n->getIntegerValue()); },
         ];
     }
 

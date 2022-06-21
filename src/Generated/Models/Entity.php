@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Entity implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $id The id property
-    */
+    /** @var string|null $id Read-only. */
     private ?string $id = null;
     
     /**
@@ -31,7 +27,7 @@ class Entity implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Entity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Entity {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Entity {
         return new Entity();
     }
 
@@ -48,14 +44,13 @@ class Entity implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Read-only.
      * @return string|null
     */
     public function getId(): ?string {
@@ -80,7 +75,7 @@ class Entity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Read-only.
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {

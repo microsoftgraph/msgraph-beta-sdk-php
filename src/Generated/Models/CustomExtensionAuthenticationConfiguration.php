@@ -9,9 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CustomExtensionAuthenticationConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
     /**
@@ -26,7 +24,7 @@ class CustomExtensionAuthenticationConfiguration implements AdditionalDataHolder
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CustomExtensionAuthenticationConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomExtensionAuthenticationConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CustomExtensionAuthenticationConfiguration {
         return new CustomExtensionAuthenticationConfiguration();
     }
 
@@ -43,7 +41,6 @@ class CustomExtensionAuthenticationConfiguration implements AdditionalDataHolder
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
         ];
     }

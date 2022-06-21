@@ -6,36 +6,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EBookInstallSummary extends Entity implements Parsable 
+class EBookInstallSummary extends Entity 
 {
-    /**
-     * @var int|null $failedDeviceCount Number of Devices that have failed to install this book.
-    */
+    /** @var int|null $failedDeviceCount Number of Devices that have failed to install this book. */
     private ?int $failedDeviceCount = null;
     
-    /**
-     * @var int|null $failedUserCount Number of Users that have 1 or more device that failed to install this book.
-    */
+    /** @var int|null $failedUserCount Number of Users that have 1 or more device that failed to install this book. */
     private ?int $failedUserCount = null;
     
-    /**
-     * @var int|null $installedDeviceCount Number of Devices that have successfully installed this book.
-    */
+    /** @var int|null $installedDeviceCount Number of Devices that have successfully installed this book. */
     private ?int $installedDeviceCount = null;
     
-    /**
-     * @var int|null $installedUserCount Number of Users whose devices have all succeeded to install this book.
-    */
+    /** @var int|null $installedUserCount Number of Users whose devices have all succeeded to install this book. */
     private ?int $installedUserCount = null;
     
-    /**
-     * @var int|null $notInstalledDeviceCount Number of Devices that does not have this book installed.
-    */
+    /** @var int|null $notInstalledDeviceCount Number of Devices that does not have this book installed. */
     private ?int $notInstalledDeviceCount = null;
     
-    /**
-     * @var int|null $notInstalledUserCount Number of Users that did not install this book.
-    */
+    /** @var int|null $notInstalledUserCount Number of Users that did not install this book. */
     private ?int $notInstalledUserCount = null;
     
     /**
@@ -50,7 +38,7 @@ class EBookInstallSummary extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EBookInstallSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EBookInstallSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EBookInstallSummary {
         return new EBookInstallSummary();
     }
 
@@ -75,14 +63,13 @@ class EBookInstallSummary extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
-            'failedUserCount' => function (ParseNode $n) use ($o) { $o->setFailedUserCount($n->getIntegerValue()); },
-            'installedDeviceCount' => function (ParseNode $n) use ($o) { $o->setInstalledDeviceCount($n->getIntegerValue()); },
-            'installedUserCount' => function (ParseNode $n) use ($o) { $o->setInstalledUserCount($n->getIntegerValue()); },
-            'notInstalledDeviceCount' => function (ParseNode $n) use ($o) { $o->setNotInstalledDeviceCount($n->getIntegerValue()); },
-            'notInstalledUserCount' => function (ParseNode $n) use ($o) { $o->setNotInstalledUserCount($n->getIntegerValue()); },
+            'failedDeviceCount' => function (self $o, ParseNode $n) { $o->setFailedDeviceCount($n->getIntegerValue()); },
+            'failedUserCount' => function (self $o, ParseNode $n) { $o->setFailedUserCount($n->getIntegerValue()); },
+            'installedDeviceCount' => function (self $o, ParseNode $n) { $o->setInstalledDeviceCount($n->getIntegerValue()); },
+            'installedUserCount' => function (self $o, ParseNode $n) { $o->setInstalledUserCount($n->getIntegerValue()); },
+            'notInstalledDeviceCount' => function (self $o, ParseNode $n) { $o->setNotInstalledDeviceCount($n->getIntegerValue()); },
+            'notInstalledUserCount' => function (self $o, ParseNode $n) { $o->setNotInstalledUserCount($n->getIntegerValue()); },
         ]);
     }
 

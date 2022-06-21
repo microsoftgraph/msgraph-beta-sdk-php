@@ -7,106 +7,66 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPC extends Entity implements Parsable 
+class CloudPC extends Entity 
 {
-    /**
-     * @var string|null $aadDeviceId The Azure Active Directory (Azure AD) device ID of the Cloud PC.
-    */
+    /** @var string|null $aadDeviceId The Azure Active Directory (Azure AD) device ID of the Cloud PC. */
     private ?string $aadDeviceId = null;
     
-    /**
-     * @var string|null $displayName The display name of the Cloud PC.
-    */
+    /** @var string|null $displayName The display name of the Cloud PC. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $gracePeriodEndDateTime The date and time when the grace period ends and reprovisioning/deprovisioning happens. Required only if the status is inGracePeriod. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $gracePeriodEndDateTime The date and time when the grace period ends and reprovisioning/deprovisioning happens. Required only if the status is inGracePeriod. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $gracePeriodEndDateTime = null;
     
-    /**
-     * @var string|null $imageDisplayName Name of the OS image that's on the Cloud PC.
-    */
+    /** @var string|null $imageDisplayName Name of the OS image that's on the Cloud PC. */
     private ?string $imageDisplayName = null;
     
-    /**
-     * @var CloudPcLoginResult|null $lastLoginResult The last login result of the Cloud PC. For example, { 'time': '2014-01-01T00:00:00Z'}.
-    */
+    /** @var CloudPcLoginResult|null $lastLoginResult The last login result of the Cloud PC. For example, { 'time': '2014-01-01T00:00:00Z'}. */
     private ?CloudPcLoginResult $lastLoginResult = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The last modified date and time of the Cloud PC. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The last modified date and time of the Cloud PC. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var CloudPcRemoteActionResult|null $lastRemoteActionResult The last remote action result of the enterprise Cloud PCs. The supported remote actions are: Reboot, Rename, Reprovision, Restore, and Troubleshoot.
-    */
+    /** @var CloudPcRemoteActionResult|null $lastRemoteActionResult The last remote action result of the enterprise Cloud PCs. The supported remote actions are: Reboot, Rename, Reprovision, Restore, and Troubleshoot. */
     private ?CloudPcRemoteActionResult $lastRemoteActionResult = null;
     
-    /**
-     * @var string|null $managedDeviceId The Intune device ID of the Cloud PC.
-    */
+    /** @var string|null $managedDeviceId The Intune device ID of the Cloud PC. */
     private ?string $managedDeviceId = null;
     
-    /**
-     * @var string|null $managedDeviceName The Intune device name of the Cloud PC.
-    */
+    /** @var string|null $managedDeviceName The Intune device name of the Cloud PC. */
     private ?string $managedDeviceName = null;
     
-    /**
-     * @var string|null $onPremisesConnectionName The Azure network connection that is applied during the provisioning of Cloud PCs.
-    */
+    /** @var string|null $onPremisesConnectionName The Azure network connection that is applied during the provisioning of Cloud PCs. */
     private ?string $onPremisesConnectionName = null;
     
-    /**
-     * @var CloudPcOperatingSystem|null $osVersion The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, and unknownFutureValue.
-    */
+    /** @var CloudPcOperatingSystem|null $osVersion The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, and unknownFutureValue. */
     private ?CloudPcOperatingSystem $osVersion = null;
     
-    /**
-     * @var string|null $provisioningPolicyId The provisioning policy ID of the Cloud PC.
-    */
+    /** @var string|null $provisioningPolicyId The provisioning policy ID of the Cloud PC. */
     private ?string $provisioningPolicyId = null;
     
-    /**
-     * @var string|null $provisioningPolicyName The provisioning policy that is applied during the provisioning of Cloud PCs.
-    */
+    /** @var string|null $provisioningPolicyName The provisioning policy that is applied during the provisioning of Cloud PCs. */
     private ?string $provisioningPolicyName = null;
     
-    /**
-     * @var string|null $servicePlanId The service plan ID of the Cloud PC.
-    */
+    /** @var string|null $servicePlanId The service plan ID of the Cloud PC. */
     private ?string $servicePlanId = null;
     
-    /**
-     * @var string|null $servicePlanName The service plan name of the Cloud PC.
-    */
+    /** @var string|null $servicePlanName The service plan name of the Cloud PC. */
     private ?string $servicePlanName = null;
     
-    /**
-     * @var CloudPcServicePlanType|null $servicePlanType The service plan type of the Cloud PC.
-    */
+    /** @var CloudPcServicePlanType|null $servicePlanType The service plan type of the Cloud PC. */
     private ?CloudPcServicePlanType $servicePlanType = null;
     
-    /**
-     * @var CloudPcStatus|null $status The status of the Cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed, restoring.
-    */
+    /** @var CloudPcStatus|null $status The status of the Cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed, restoring. */
     private ?CloudPcStatus $status = null;
     
-    /**
-     * @var CloudPcStatusDetails|null $statusDetails The details of the Cloud PC status.
-    */
+    /** @var CloudPcStatusDetails|null $statusDetails The details of the Cloud PC status. */
     private ?CloudPcStatusDetails $statusDetails = null;
     
-    /**
-     * @var CloudPcUserAccountType|null $userAccountType The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, and unknownFutureValue.
-    */
+    /** @var CloudPcUserAccountType|null $userAccountType The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, and unknownFutureValue. */
     private ?CloudPcUserAccountType $userAccountType = null;
     
-    /**
-     * @var string|null $userPrincipalName The user principal name (UPN) of the user assigned to the Cloud PC.
-    */
+    /** @var string|null $userPrincipalName The user principal name (UPN) of the user assigned to the Cloud PC. */
     private ?string $userPrincipalName = null;
     
     /**
@@ -121,7 +81,7 @@ class CloudPC extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPC
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPC {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPC {
         return new CloudPC();
     }
 
@@ -146,28 +106,27 @@ class CloudPC extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'aadDeviceId' => function (ParseNode $n) use ($o) { $o->setAadDeviceId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'gracePeriodEndDateTime' => function (ParseNode $n) use ($o) { $o->setGracePeriodEndDateTime($n->getDateTimeValue()); },
-            'imageDisplayName' => function (ParseNode $n) use ($o) { $o->setImageDisplayName($n->getStringValue()); },
-            'lastLoginResult' => function (ParseNode $n) use ($o) { $o->setLastLoginResult($n->getObjectValue(array(CloudPcLoginResult::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'lastRemoteActionResult' => function (ParseNode $n) use ($o) { $o->setLastRemoteActionResult($n->getObjectValue(array(CloudPcRemoteActionResult::class, 'createFromDiscriminatorValue'))); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'managedDeviceName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceName($n->getStringValue()); },
-            'onPremisesConnectionName' => function (ParseNode $n) use ($o) { $o->setOnPremisesConnectionName($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)); },
-            'provisioningPolicyId' => function (ParseNode $n) use ($o) { $o->setProvisioningPolicyId($n->getStringValue()); },
-            'provisioningPolicyName' => function (ParseNode $n) use ($o) { $o->setProvisioningPolicyName($n->getStringValue()); },
-            'servicePlanId' => function (ParseNode $n) use ($o) { $o->setServicePlanId($n->getStringValue()); },
-            'servicePlanName' => function (ParseNode $n) use ($o) { $o->setServicePlanName($n->getStringValue()); },
-            'servicePlanType' => function (ParseNode $n) use ($o) { $o->setServicePlanType($n->getEnumValue(CloudPcServicePlanType::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CloudPcStatus::class)); },
-            'statusDetails' => function (ParseNode $n) use ($o) { $o->setStatusDetails($n->getObjectValue(array(CloudPcStatusDetails::class, 'createFromDiscriminatorValue'))); },
-            'userAccountType' => function (ParseNode $n) use ($o) { $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'aadDeviceId' => function (self $o, ParseNode $n) { $o->setAadDeviceId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'gracePeriodEndDateTime' => function (self $o, ParseNode $n) { $o->setGracePeriodEndDateTime($n->getDateTimeValue()); },
+            'imageDisplayName' => function (self $o, ParseNode $n) { $o->setImageDisplayName($n->getStringValue()); },
+            'lastLoginResult' => function (self $o, ParseNode $n) { $o->setLastLoginResult($n->getObjectValue(CloudPcLoginResult::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'lastRemoteActionResult' => function (self $o, ParseNode $n) { $o->setLastRemoteActionResult($n->getObjectValue(CloudPcRemoteActionResult::class)); },
+            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
+            'managedDeviceName' => function (self $o, ParseNode $n) { $o->setManagedDeviceName($n->getStringValue()); },
+            'onPremisesConnectionName' => function (self $o, ParseNode $n) { $o->setOnPremisesConnectionName($n->getStringValue()); },
+            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)); },
+            'provisioningPolicyId' => function (self $o, ParseNode $n) { $o->setProvisioningPolicyId($n->getStringValue()); },
+            'provisioningPolicyName' => function (self $o, ParseNode $n) { $o->setProvisioningPolicyName($n->getStringValue()); },
+            'servicePlanId' => function (self $o, ParseNode $n) { $o->setServicePlanId($n->getStringValue()); },
+            'servicePlanName' => function (self $o, ParseNode $n) { $o->setServicePlanName($n->getStringValue()); },
+            'servicePlanType' => function (self $o, ParseNode $n) { $o->setServicePlanType($n->getEnumValue(CloudPcServicePlanType::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(CloudPcStatus::class)); },
+            'statusDetails' => function (self $o, ParseNode $n) { $o->setStatusDetails($n->getObjectValue(CloudPcStatusDetails::class)); },
+            'userAccountType' => function (self $o, ParseNode $n) { $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

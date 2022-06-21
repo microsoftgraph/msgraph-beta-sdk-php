@@ -6,20 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class BookingCustomer extends BookingPerson implements Parsable 
+class BookingCustomer extends BookingPerson 
 {
-    /**
-     * @var array<PhysicalAddress>|null $addresses Addresses associated with the customer, including home, business and other addresses.
-    */
+    /** @var array<PhysicalAddress>|null $addresses Addresses associated with the customer. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others. */
     private ?array $addresses = null;
     
-    /**
-     * @var array<Phone>|null $phones Phone numbers associated with the customer, including home, business and mobile numbers.
-    */
+    /** @var array<Phone>|null $phones Phone numbers associated with the customer, including home, business and mobile numbers. */
     private ?array $phones = null;
     
     /**
-     * Instantiates a new BookingCustomer and sets the default values.
+     * Instantiates a new bookingCustomer and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,12 +26,12 @@ class BookingCustomer extends BookingPerson implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BookingCustomer
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): BookingCustomer {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): BookingCustomer {
         return new BookingCustomer();
     }
 
     /**
-     * Gets the addresses property value. Addresses associated with the customer, including home, business and other addresses.
+     * Gets the addresses property value. Addresses associated with the customer. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
      * @return array<PhysicalAddress>|null
     */
     public function getAddresses(): ?array {
@@ -47,10 +43,9 @@ class BookingCustomer extends BookingPerson implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'addresses' => function (ParseNode $n) use ($o) { $o->setAddresses($n->getCollectionOfObjectValues(array(PhysicalAddress::class, 'createFromDiscriminatorValue'))); },
-            'phones' => function (ParseNode $n) use ($o) { $o->setPhones($n->getCollectionOfObjectValues(array(Phone::class, 'createFromDiscriminatorValue'))); },
+            'addresses' => function (self $o, ParseNode $n) { $o->setAddresses($n->getCollectionOfObjectValues(PhysicalAddress::class)); },
+            'phones' => function (self $o, ParseNode $n) { $o->setPhones($n->getCollectionOfObjectValues(Phone::class)); },
         ]);
     }
 
@@ -73,7 +68,7 @@ class BookingCustomer extends BookingPerson implements Parsable
     }
 
     /**
-     * Sets the addresses property value. Addresses associated with the customer, including home, business and other addresses.
+     * Sets the addresses property value. Addresses associated with the customer. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
      *  @param array<PhysicalAddress>|null $value Value to set for the addresses property.
     */
     public function setAddresses(?array $value ): void {

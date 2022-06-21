@@ -7,51 +7,33 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsDriverUpdateInventory extends Entity implements Parsable 
+class WindowsDriverUpdateInventory extends Entity 
 {
-    /**
-     * @var int|null $applicableDeviceCount The number of devices for which this driver is applicable.
-    */
+    /** @var int|null $applicableDeviceCount The number of devices for which this driver is applicable. */
     private ?int $applicableDeviceCount = null;
     
-    /**
-     * @var DriverApprovalStatus|null $approvalStatus The approval status for this driver. Possible values are: needsReview, declined, approved, suspended.
-    */
+    /** @var DriverApprovalStatus|null $approvalStatus The approval status for this driver. Possible values are: needsReview, declined, approved, suspended. */
     private ?DriverApprovalStatus $approvalStatus = null;
     
-    /**
-     * @var DriverCategory|null $category The category for this driver. Possible values are: recommended, previouslyApproved, other.
-    */
+    /** @var DriverCategory|null $category The category for this driver. Possible values are: recommended, previouslyApproved, other. */
     private ?DriverCategory $category = null;
     
-    /**
-     * @var DateTime|null $deployDateTime The date time when a driver should be deployed if approvalStatus is approved.
-    */
+    /** @var DateTime|null $deployDateTime The date time when a driver should be deployed if approvalStatus is approved. */
     private ?DateTime $deployDateTime = null;
     
-    /**
-     * @var string|null $driverClass The class of the driver.
-    */
+    /** @var string|null $driverClass The class of the driver. */
     private ?string $driverClass = null;
     
-    /**
-     * @var string|null $manufacturer The manufacturer of the driver.
-    */
+    /** @var string|null $manufacturer The manufacturer of the driver. */
     private ?string $manufacturer = null;
     
-    /**
-     * @var string|null $name The name of the driver.
-    */
+    /** @var string|null $name The name of the driver. */
     private ?string $name = null;
     
-    /**
-     * @var DateTime|null $releaseDateTime The release date time of the driver.
-    */
+    /** @var DateTime|null $releaseDateTime The release date time of the driver. */
     private ?DateTime $releaseDateTime = null;
     
-    /**
-     * @var string|null $version The version of the driver.
-    */
+    /** @var string|null $version The version of the driver. */
     private ?string $version = null;
     
     /**
@@ -66,7 +48,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsDriverUpdateInventory
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDriverUpdateInventory {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDriverUpdateInventory {
         return new WindowsDriverUpdateInventory();
     }
 
@@ -115,17 +97,16 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicableDeviceCount' => function (ParseNode $n) use ($o) { $o->setApplicableDeviceCount($n->getIntegerValue()); },
-            'approvalStatus' => function (ParseNode $n) use ($o) { $o->setApprovalStatus($n->getEnumValue(DriverApprovalStatus::class)); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(DriverCategory::class)); },
-            'deployDateTime' => function (ParseNode $n) use ($o) { $o->setDeployDateTime($n->getDateTimeValue()); },
-            'driverClass' => function (ParseNode $n) use ($o) { $o->setDriverClass($n->getStringValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'releaseDateTime' => function (ParseNode $n) use ($o) { $o->setReleaseDateTime($n->getDateTimeValue()); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'applicableDeviceCount' => function (self $o, ParseNode $n) { $o->setApplicableDeviceCount($n->getIntegerValue()); },
+            'approvalStatus' => function (self $o, ParseNode $n) { $o->setApprovalStatus($n->getEnumValue(DriverApprovalStatus::class)); },
+            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getEnumValue(DriverCategory::class)); },
+            'deployDateTime' => function (self $o, ParseNode $n) { $o->setDeployDateTime($n->getDateTimeValue()); },
+            'driverClass' => function (self $o, ParseNode $n) { $o->setDriverClass($n->getStringValue()); },
+            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'releaseDateTime' => function (self $o, ParseNode $n) { $o->setReleaseDateTime($n->getDateTimeValue()); },
+            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 

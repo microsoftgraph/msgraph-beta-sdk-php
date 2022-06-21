@@ -7,25 +7,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TimeOffRequest extends ScheduleChangeRequest implements Parsable 
+class TimeOffRequest extends ScheduleChangeRequest 
 {
-    /**
-     * @var DateTime|null $endDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $endDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $endDateTime = null;
     
-    /**
-     * @var DateTime|null $startDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $startDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $startDateTime = null;
     
-    /**
-     * @var string|null $timeOffReasonId The reason for the time off.
-    */
+    /** @var string|null $timeOffReasonId The reason for the time off. */
     private ?string $timeOffReasonId = null;
     
     /**
-     * Instantiates a new TimeOffRequest and sets the default values.
+     * Instantiates a new timeOffRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -36,7 +30,7 @@ class TimeOffRequest extends ScheduleChangeRequest implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TimeOffRequest
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeOffRequest {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TimeOffRequest {
         return new TimeOffRequest();
     }
 
@@ -53,11 +47,10 @@ class TimeOffRequest extends ScheduleChangeRequest implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'timeOffReasonId' => function (ParseNode $n) use ($o) { $o->setTimeOffReasonId($n->getStringValue()); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'timeOffReasonId' => function (self $o, ParseNode $n) { $o->setTimeOffReasonId($n->getStringValue()); },
         ]);
     }
 

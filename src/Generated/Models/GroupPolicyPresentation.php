@@ -7,21 +7,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyPresentation extends Entity implements Parsable 
+class GroupPolicyPresentation extends Entity 
 {
-    /**
-     * @var GroupPolicyDefinition|null $definition The group policy definition associated with the presentation.
-    */
+    /** @var GroupPolicyDefinition|null $definition The group policy definition associated with the presentation. */
     private ?GroupPolicyDefinition $definition = null;
     
-    /**
-     * @var string|null $label Localized text label for any presentation entity. The default value is empty.
-    */
+    /** @var string|null $label Localized text label for any presentation entity. The default value is empty. */
     private ?string $label = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
@@ -36,22 +30,7 @@ class GroupPolicyPresentation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicyPresentation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyPresentation {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.groupPolicyPresentationCheckBox': return new GroupPolicyPresentationCheckBox();
-                case '#microsoft.graph.groupPolicyPresentationComboBox': return new GroupPolicyPresentationComboBox();
-                case '#microsoft.graph.groupPolicyPresentationDecimalTextBox': return new GroupPolicyPresentationDecimalTextBox();
-                case '#microsoft.graph.groupPolicyPresentationDropdownList': return new GroupPolicyPresentationDropdownList();
-                case '#microsoft.graph.groupPolicyPresentationListBox': return new GroupPolicyPresentationListBox();
-                case '#microsoft.graph.groupPolicyPresentationLongDecimalTextBox': return new GroupPolicyPresentationLongDecimalTextBox();
-                case '#microsoft.graph.groupPolicyPresentationMultiTextBox': return new GroupPolicyPresentationMultiTextBox();
-                case '#microsoft.graph.groupPolicyPresentationText': return new GroupPolicyPresentationText();
-                case '#microsoft.graph.groupPolicyPresentationTextBox': return new GroupPolicyPresentationTextBox();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyPresentation {
         return new GroupPolicyPresentation();
     }
 
@@ -68,11 +47,10 @@ class GroupPolicyPresentation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'definition' => function (ParseNode $n) use ($o) { $o->setDefinition($n->getObjectValue(array(GroupPolicyDefinition::class, 'createFromDiscriminatorValue'))); },
-            'label' => function (ParseNode $n) use ($o) { $o->setLabel($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'definition' => function (self $o, ParseNode $n) { $o->setDefinition($n->getObjectValue(GroupPolicyDefinition::class)); },
+            'label' => function (self $o, ParseNode $n) { $o->setLabel($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

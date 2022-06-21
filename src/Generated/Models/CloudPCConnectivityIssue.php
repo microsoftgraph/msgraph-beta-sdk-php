@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPCConnectivityIssue extends Entity implements Parsable 
+class CloudPCConnectivityIssue extends Entity 
 {
-    /**
-     * @var string|null $deviceId The Intune DeviceId of the device the connection is associated with.
-    */
+    /** @var string|null $deviceId The Intune DeviceId of the device the connection is associated with. */
     private ?string $deviceId = null;
     
-    /**
-     * @var string|null $errorCode The error code of the connectivity issue.
-    */
+    /** @var string|null $errorCode The error code of the connectivity issue. */
     private ?string $errorCode = null;
     
-    /**
-     * @var DateTime|null $errorDateTime The time that the connection initiated. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time.
-    */
+    /** @var DateTime|null $errorDateTime The time that the connection initiated. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time. */
     private ?DateTime $errorDateTime = null;
     
-    /**
-     * @var string|null $errorDescription The detailed description of what went wrong.
-    */
+    /** @var string|null $errorDescription The detailed description of what went wrong. */
     private ?string $errorDescription = null;
     
-    /**
-     * @var string|null $recommendedAction The recommended action to fix the corresponding error.
-    */
+    /** @var string|null $recommendedAction The recommended action to fix the corresponding error. */
     private ?string $recommendedAction = null;
     
-    /**
-     * @var string|null $userId The unique id of user who initialize the connection.
-    */
+    /** @var string|null $userId The unique id of user who initialize the connection. */
     private ?string $userId = null;
     
     /**
@@ -51,7 +39,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPCConnectivityIssue
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPCConnectivityIssue {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPCConnectivityIssue {
         return new CloudPCConnectivityIssue();
     }
 
@@ -92,14 +80,13 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getStringValue()); },
-            'errorDateTime' => function (ParseNode $n) use ($o) { $o->setErrorDateTime($n->getDateTimeValue()); },
-            'errorDescription' => function (ParseNode $n) use ($o) { $o->setErrorDescription($n->getStringValue()); },
-            'recommendedAction' => function (ParseNode $n) use ($o) { $o->setRecommendedAction($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'errorCode' => function (self $o, ParseNode $n) { $o->setErrorCode($n->getStringValue()); },
+            'errorDateTime' => function (self $o, ParseNode $n) { $o->setErrorDateTime($n->getDateTimeValue()); },
+            'errorDescription' => function (self $o, ParseNode $n) { $o->setErrorDescription($n->getStringValue()); },
+            'recommendedAction' => function (self $o, ParseNode $n) { $o->setRecommendedAction($n->getStringValue()); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
         ]);
     }
 

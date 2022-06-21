@@ -242,19 +242,13 @@ class ReportsRequestBuilder
         return new MonthlyPrintUsageSummariesByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
+    /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
+    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
+    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
     /**
@@ -271,7 +265,7 @@ class ReportsRequestBuilder
     */
     public function applicationSignInDetailedSummaryById(string $id): ApplicationSignInDetailedSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['applicationSignInDetailedSummary%2Did'] = $id;
+        $urlTplParams['applicationSignInDetailedSummary_id'] = $id;
         return new ApplicationSignInDetailedSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -281,32 +275,31 @@ class ReportsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/reports{?%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/reports{?select,expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Get reports
-     * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?ReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->queryParameters !== null) {
-                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($queryParameters !== null) {
+            $requestInfo->setQueryParameters($queryParameters);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
@@ -314,23 +307,22 @@ class ReportsRequestBuilder
     /**
      * Update reports
      * @param ReportRoot $body 
-     * @param ReportsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(ReportRoot $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createPatchRequestInformation(ReportRoot $body, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
+        }
         return $requestInfo;
     }
 
@@ -341,7 +333,7 @@ class ReportsRequestBuilder
     */
     public function credentialUserRegistrationDetailsById(string $id): CredentialUserRegistrationDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['credentialUserRegistrationDetails%2Did'] = $id;
+        $urlTplParams['credentialUserRegistrationDetails_id'] = $id;
         return new CredentialUserRegistrationDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -352,7 +344,7 @@ class ReportsRequestBuilder
     */
     public function dailyPrintUsageByPrinterById(string $id): MicrosoftGraphBetaGeneratedReportsDailyPrintUsageByPrinterItemPrintUsageByPrinterItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByPrinter%2Did'] = $id;
+        $urlTplParams['printUsageByPrinter_id'] = $id;
         return new MicrosoftGraphBetaGeneratedReportsDailyPrintUsageByPrinterItemPrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -363,7 +355,7 @@ class ReportsRequestBuilder
     */
     public function dailyPrintUsageByUserById(string $id): MicrosoftGraphBetaGeneratedReportsDailyPrintUsageByUserItemPrintUsageByUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByUser%2Did'] = $id;
+        $urlTplParams['printUsageByUser_id'] = $id;
         return new MicrosoftGraphBetaGeneratedReportsDailyPrintUsageByUserItemPrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -374,7 +366,7 @@ class ReportsRequestBuilder
     */
     public function dailyPrintUsageSummariesByPrinterById(string $id): MicrosoftGraphBetaGeneratedReportsDailyPrintUsageSummariesByPrinterItemPrintUsageByPrinterItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByPrinter%2Did'] = $id;
+        $urlTplParams['printUsageByPrinter_id'] = $id;
         return new MicrosoftGraphBetaGeneratedReportsDailyPrintUsageSummariesByPrinterItemPrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -385,7 +377,7 @@ class ReportsRequestBuilder
     */
     public function dailyPrintUsageSummariesByUserById(string $id): MicrosoftGraphBetaGeneratedReportsDailyPrintUsageSummariesByUserItemPrintUsageByUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByUser%2Did'] = $id;
+        $urlTplParams['printUsageByUser_id'] = $id;
         return new MicrosoftGraphBetaGeneratedReportsDailyPrintUsageSummariesByUserItemPrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -407,18 +399,16 @@ class ReportsRequestBuilder
 
     /**
      * Get reports
-     * @param ReportsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ReportsRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
+    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(ReportRoot::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, ReportRoot::class, $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -1524,7 +1514,7 @@ class ReportsRequestBuilder
     */
     public function monthlyPrintUsageByPrinterById(string $id): MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageByPrinterItemPrintUsageByPrinterItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByPrinter%2Did'] = $id;
+        $urlTplParams['printUsageByPrinter_id'] = $id;
         return new MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageByPrinterItemPrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1535,7 +1525,7 @@ class ReportsRequestBuilder
     */
     public function monthlyPrintUsageByUserById(string $id): MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageByUserItemPrintUsageByUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByUser%2Did'] = $id;
+        $urlTplParams['printUsageByUser_id'] = $id;
         return new MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageByUserItemPrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1546,7 +1536,7 @@ class ReportsRequestBuilder
     */
     public function monthlyPrintUsageSummariesByPrinterById(string $id): MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageSummariesByPrinterItemPrintUsageByPrinterItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByPrinter%2Did'] = $id;
+        $urlTplParams['printUsageByPrinter_id'] = $id;
         return new MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageSummariesByPrinterItemPrintUsageByPrinterItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -1557,25 +1547,22 @@ class ReportsRequestBuilder
     */
     public function monthlyPrintUsageSummariesByUserById(string $id): MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageSummariesByUserItemPrintUsageByUserItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['printUsageByUser%2Did'] = $id;
+        $urlTplParams['printUsageByUser_id'] = $id;
         return new MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageSummariesByUserItemPrintUsageByUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update reports
      * @param ReportRoot $body 
-     * @param ReportsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(ReportRoot $body, ?ReportsRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
+    public function patch(ReportRoot $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -1588,7 +1575,7 @@ class ReportsRequestBuilder
     */
     public function userCredentialUsageDetailsById(string $id): UserCredentialUsageDetailsItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['userCredentialUsageDetails%2Did'] = $id;
+        $urlTplParams['userCredentialUsageDetails_id'] = $id;
         return new UserCredentialUsageDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

@@ -7,31 +7,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MicrosoftTunnelServer extends Entity implements Parsable 
+class MicrosoftTunnelServer extends Entity 
 {
-    /**
-     * @var string|null $agentImageDigest The digest of the current agent image running on this server
-    */
+    /** @var string|null $agentImageDigest The digest of the current agent image running on this server */
     private ?string $agentImageDigest = null;
     
-    /**
-     * @var string|null $displayName The MicrosoftTunnelServer's display name
-    */
+    /** @var string|null $displayName The MicrosoftTunnelServer's display name */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastCheckinDateTime When the MicrosoftTunnelServer last checked in
-    */
+    /** @var DateTime|null $lastCheckinDateTime When the MicrosoftTunnelServer last checked in */
     private ?DateTime $lastCheckinDateTime = null;
     
-    /**
-     * @var string|null $serverImageDigest The digest of the current server image running on this server
-    */
+    /** @var string|null $serverImageDigest The digest of the current server image running on this server */
     private ?string $serverImageDigest = null;
     
-    /**
-     * @var MicrosoftTunnelServerHealthStatus|null $tunnelServerHealthStatus The MicrosoftTunnelServer's health status. Possible values are: unknown, healthy, unhealthy, warning, offline, upgradeInProgress, upgradeFailed.
-    */
+    /** @var MicrosoftTunnelServerHealthStatus|null $tunnelServerHealthStatus The MicrosoftTunnelServer's health status. Possible values are: unknown, healthy, unhealthy, warning, offline, upgradeInProgress, upgradeFailed. */
     private ?MicrosoftTunnelServerHealthStatus $tunnelServerHealthStatus = null;
     
     /**
@@ -46,7 +36,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MicrosoftTunnelServer
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftTunnelServer {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftTunnelServer {
         return new MicrosoftTunnelServer();
     }
 
@@ -71,13 +61,12 @@ class MicrosoftTunnelServer extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agentImageDigest' => function (ParseNode $n) use ($o) { $o->setAgentImageDigest($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastCheckinDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckinDateTime($n->getDateTimeValue()); },
-            'serverImageDigest' => function (ParseNode $n) use ($o) { $o->setServerImageDigest($n->getStringValue()); },
-            'tunnelServerHealthStatus' => function (ParseNode $n) use ($o) { $o->setTunnelServerHealthStatus($n->getEnumValue(MicrosoftTunnelServerHealthStatus::class)); },
+            'agentImageDigest' => function (self $o, ParseNode $n) { $o->setAgentImageDigest($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastCheckinDateTime' => function (self $o, ParseNode $n) { $o->setLastCheckinDateTime($n->getDateTimeValue()); },
+            'serverImageDigest' => function (self $o, ParseNode $n) { $o->setServerImageDigest($n->getStringValue()); },
+            'tunnelServerHealthStatus' => function (self $o, ParseNode $n) { $o->setTunnelServerHealthStatus($n->getEnumValue(MicrosoftTunnelServerHealthStatus::class)); },
         ]);
     }
 

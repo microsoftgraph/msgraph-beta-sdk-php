@@ -7,51 +7,33 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrintJob extends Entity implements Parsable 
+class PrintJob extends Entity 
 {
-    /**
-     * @var PrintJobConfiguration|null $configuration A group of settings that a printer should use to print a job.
-    */
+    /** @var PrintJobConfiguration|null $configuration A group of settings that a printer should use to print a job. */
     private ?PrintJobConfiguration $configuration = null;
     
-    /**
-     * @var UserIdentity|null $createdBy The createdBy property
-    */
+    /** @var UserIdentity|null $createdBy Read-only. Nullable. */
     private ?UserIdentity $createdBy = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The DateTimeOffset when the job was created. Read-only.
-    */
+    /** @var DateTime|null $createdDateTime The DateTimeOffset when the job was created. Read-only. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var array<PrintDocument>|null $documents The documents property
-    */
+    /** @var array<PrintDocument>|null $documents Read-only. */
     private ?array $documents = null;
     
-    /**
-     * @var bool|null $isFetchable If true, document can be fetched by printer.
-    */
+    /** @var bool|null $isFetchable If true, document can be fetched by printer. */
     private ?bool $isFetchable = null;
     
-    /**
-     * @var string|null $redirectedFrom Contains the source job URL, if the job has been redirected from another printer.
-    */
+    /** @var string|null $redirectedFrom Contains the source job URL, if the job has been redirected from another printer. */
     private ?string $redirectedFrom = null;
     
-    /**
-     * @var string|null $redirectedTo Contains the destination job URL, if the job has been redirected to another printer.
-    */
+    /** @var string|null $redirectedTo Contains the destination job URL, if the job has been redirected to another printer. */
     private ?string $redirectedTo = null;
     
-    /**
-     * @var PrintJobStatus|null $status The status of the print job. Read-only.
-    */
+    /** @var PrintJobStatus|null $status The status of the print job. Read-only. */
     private ?PrintJobStatus $status = null;
     
-    /**
-     * @var array<PrintTask>|null $tasks A list of printTasks that were triggered by this print job.
-    */
+    /** @var array<PrintTask>|null $tasks A list of printTasks that were triggered by this print job. */
     private ?array $tasks = null;
     
     /**
@@ -66,7 +48,7 @@ class PrintJob extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrintJob
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrintJob {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrintJob {
         return new PrintJob();
     }
 
@@ -79,7 +61,7 @@ class PrintJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. Read-only. Nullable.
      * @return UserIdentity|null
     */
     public function getCreatedBy(): ?UserIdentity {
@@ -95,7 +77,7 @@ class PrintJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the documents property value. The documents property
+     * Gets the documents property value. Read-only.
      * @return array<PrintDocument>|null
     */
     public function getDocuments(): ?array {
@@ -107,17 +89,16 @@ class PrintJob extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configuration' => function (ParseNode $n) use ($o) { $o->setConfiguration($n->getObjectValue(array(PrintJobConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'documents' => function (ParseNode $n) use ($o) { $o->setDocuments($n->getCollectionOfObjectValues(array(PrintDocument::class, 'createFromDiscriminatorValue'))); },
-            'isFetchable' => function (ParseNode $n) use ($o) { $o->setIsFetchable($n->getBooleanValue()); },
-            'redirectedFrom' => function (ParseNode $n) use ($o) { $o->setRedirectedFrom($n->getStringValue()); },
-            'redirectedTo' => function (ParseNode $n) use ($o) { $o->setRedirectedTo($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getObjectValue(array(PrintJobStatus::class, 'createFromDiscriminatorValue'))); },
-            'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(PrintTask::class, 'createFromDiscriminatorValue'))); },
+            'configuration' => function (self $o, ParseNode $n) { $o->setConfiguration($n->getObjectValue(PrintJobConfiguration::class)); },
+            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(UserIdentity::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'documents' => function (self $o, ParseNode $n) { $o->setDocuments($n->getCollectionOfObjectValues(PrintDocument::class)); },
+            'isFetchable' => function (self $o, ParseNode $n) { $o->setIsFetchable($n->getBooleanValue()); },
+            'redirectedFrom' => function (self $o, ParseNode $n) { $o->setRedirectedFrom($n->getStringValue()); },
+            'redirectedTo' => function (self $o, ParseNode $n) { $o->setRedirectedTo($n->getStringValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getObjectValue(PrintJobStatus::class)); },
+            'tasks' => function (self $o, ParseNode $n) { $o->setTasks($n->getCollectionOfObjectValues(PrintTask::class)); },
         ]);
     }
 
@@ -187,7 +168,7 @@ class PrintJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. Read-only. Nullable.
      *  @param UserIdentity|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?UserIdentity $value ): void {
@@ -203,7 +184,7 @@ class PrintJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the documents property value. The documents property
+     * Sets the documents property value. Read-only.
      *  @param array<PrintDocument>|null $value Value to set for the documents property.
     */
     public function setDocuments(?array $value ): void {

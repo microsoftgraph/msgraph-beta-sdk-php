@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $availableVersion The available software version to update.
-    */
+    /** @var string|null $availableVersion The available software version to update. */
     private ?string $availableVersion = null;
     
-    /**
-     * @var string|null $currentVersion The current software version.
-    */
+    /** @var string|null $currentVersion The current software version. */
     private ?string $currentVersion = null;
     
-    /**
-     * @var TeamworkSoftwareFreshness|null $softwareFreshness The update status of the software. The possible values are: unknown, latest, updateAvailable, unknownFutureValue.
-    */
+    /** @var TeamworkSoftwareFreshness|null $softwareFreshness The update status of the software. The possible values are: unknown, latest, updateAvailable, unknownFutureValue. */
     private ?TeamworkSoftwareFreshness $softwareFreshness = null;
     
     /**
@@ -41,7 +33,7 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkSoftwareUpdateStatus
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkSoftwareUpdateStatus {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkSoftwareUpdateStatus {
         return new TeamworkSoftwareUpdateStatus();
     }
 
@@ -74,11 +66,10 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'availableVersion' => function (ParseNode $n) use ($o) { $o->setAvailableVersion($n->getStringValue()); },
-            'currentVersion' => function (ParseNode $n) use ($o) { $o->setCurrentVersion($n->getStringValue()); },
-            'softwareFreshness' => function (ParseNode $n) use ($o) { $o->setSoftwareFreshness($n->getEnumValue(TeamworkSoftwareFreshness::class)); },
+            'availableVersion' => function (self $o, ParseNode $n) { $o->setAvailableVersion($n->getStringValue()); },
+            'currentVersion' => function (self $o, ParseNode $n) { $o->setCurrentVersion($n->getStringValue()); },
+            'softwareFreshness' => function (self $o, ParseNode $n) { $o->setSoftwareFreshness($n->getEnumValue(TeamworkSoftwareFreshness::class)); },
         ];
     }
 

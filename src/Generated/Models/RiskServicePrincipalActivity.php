@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RiskServicePrincipalActivity implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var RiskDetail|null $detail Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden,  adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
-    */
+    /** @var RiskDetail|null $detail Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden,  adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal. */
     private ?RiskDetail $detail = null;
     
-    /**
-     * @var array<string>|null $riskEventTypes The riskEventTypes property
-    */
+    /** @var array<string>|null $riskEventTypes The riskEventTypes property */
     private ?array $riskEventTypes = null;
     
     /**
@@ -36,7 +30,7 @@ class RiskServicePrincipalActivity implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RiskServicePrincipalActivity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RiskServicePrincipalActivity {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RiskServicePrincipalActivity {
         return new RiskServicePrincipalActivity();
     }
 
@@ -61,10 +55,9 @@ class RiskServicePrincipalActivity implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getEnumValue(RiskDetail::class)); },
-            'riskEventTypes' => function (ParseNode $n) use ($o) { $o->setRiskEventTypes($n->getCollectionOfPrimitiveValues()); },
+            'detail' => function (self $o, ParseNode $n) { $o->setDetail($n->getEnumValue(RiskDetail::class)); },
+            'riskEventTypes' => function (self $o, ParseNode $n) { $o->setRiskEventTypes($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

@@ -6,36 +6,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ContinuousAccessEvaluationPolicy extends Entity implements Parsable 
+class ContinuousAccessEvaluationPolicy extends Entity 
 {
-    /**
-     * @var string|null $description Continuous access evaluation automatically blocks access to resources and applications in near real time when a user's access is removed or a client IP address changes. Read-only.
-    */
+    /** @var string|null $description Continuous access evaluation automatically blocks access to resources and applications in near real time when a user's access is removed or a client IP address changes. Read-only. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The value is always Continuous Access Evaluation. Read-only.
-    */
+    /** @var string|null $displayName The value is always Continuous Access Evaluation. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<string>|null $groups The collection of group identifiers in scope for evaluation. All groups are in scope when the collection is empty. Read-only.
-    */
+    /** @var array<string>|null $groups The collection of group identifiers in scope for evaluation. All groups are in scope when the collection is empty. Read-only. */
     private ?array $groups = null;
     
-    /**
-     * @var bool|null $isEnabled true to indicate whether continuous access evaluation should be performed; otherwise false. Read-only.
-    */
+    /** @var bool|null $isEnabled true to indicate whether continuous access evaluation should be performed; otherwise false. Read-only. */
     private ?bool $isEnabled = null;
     
-    /**
-     * @var bool|null $migrate true to indicate that the continuous access evaluation policy settings should be or has been migrated to the conditional access policy.
-    */
+    /** @var bool|null $migrate true to indicate that the continuous access evaluation policy settings should be or has been migrated to the conditional access policy. */
     private ?bool $migrate = null;
     
-    /**
-     * @var array<string>|null $users The collection of user identifiers in scope for evaluation. All users are in scope when the collection is empty. Read-only.
-    */
+    /** @var array<string>|null $users The collection of user identifiers in scope for evaluation. All users are in scope when the collection is empty. Read-only. */
     private ?array $users = null;
     
     /**
@@ -50,7 +38,7 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ContinuousAccessEvaluationPolicy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ContinuousAccessEvaluationPolicy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ContinuousAccessEvaluationPolicy {
         return new ContinuousAccessEvaluationPolicy();
     }
 
@@ -75,14 +63,13 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'groups' => function (ParseNode $n) use ($o) { $o->setGroups($n->getCollectionOfPrimitiveValues()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'migrate' => function (ParseNode $n) use ($o) { $o->setMigrate($n->getBooleanValue()); },
-            'users' => function (ParseNode $n) use ($o) { $o->setUsers($n->getCollectionOfPrimitiveValues()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'groups' => function (self $o, ParseNode $n) { $o->setGroups($n->getCollectionOfPrimitiveValues()); },
+            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
+            'migrate' => function (self $o, ParseNode $n) { $o->setMigrate($n->getBooleanValue()); },
+            'users' => function (self $o, ParseNode $n) { $o->setUsers($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

@@ -7,51 +7,33 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable 
+class AppleUserInitiatedEnrollmentProfile extends Entity 
 {
-    /**
-     * @var array<AppleEnrollmentProfileAssignment>|null $assignments The list of assignments for this profile.
-    */
+    /** @var array<AppleEnrollmentProfileAssignment>|null $assignments The list of assignments for this profile. */
     private ?array $assignments = null;
     
-    /**
-     * @var array<AppleOwnerTypeEnrollmentType>|null $availableEnrollmentTypeOptions List of available enrollment type options
-    */
+    /** @var array<AppleOwnerTypeEnrollmentType>|null $availableEnrollmentTypeOptions List of available enrollment type options */
     private ?array $availableEnrollmentTypeOptions = null;
     
-    /**
-     * @var DateTime|null $createdDateTime Profile creation time
-    */
+    /** @var DateTime|null $createdDateTime Profile creation time */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var AppleUserInitiatedEnrollmentType|null $defaultEnrollmentType The default profile enrollment type. Possible values are: unknown, device, user.
-    */
+    /** @var AppleUserInitiatedEnrollmentType|null $defaultEnrollmentType The default profile enrollment type. Possible values are: unknown, device, user. */
     private ?AppleUserInitiatedEnrollmentType $defaultEnrollmentType = null;
     
-    /**
-     * @var string|null $description Description of the profile
-    */
+    /** @var string|null $description Description of the profile */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Name of the profile
-    */
+    /** @var string|null $displayName Name of the profile */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime Profile last modified time
-    */
+    /** @var DateTime|null $lastModifiedDateTime Profile last modified time */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var DevicePlatformType|null $platform The platform of the Device. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
-    */
+    /** @var DevicePlatformType|null $platform The platform of the Device. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP. */
     private ?DevicePlatformType $platform = null;
     
-    /**
-     * @var int|null $priority Priority, 0 is highest
-    */
+    /** @var int|null $priority Priority, 0 is highest */
     private ?int $priority = null;
     
     /**
@@ -66,7 +48,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AppleUserInitiatedEnrollmentProfile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppleUserInitiatedEnrollmentProfile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AppleUserInitiatedEnrollmentProfile {
         return new AppleUserInitiatedEnrollmentProfile();
     }
 
@@ -123,17 +105,16 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(AppleEnrollmentProfileAssignment::class, 'createFromDiscriminatorValue'))); },
-            'availableEnrollmentTypeOptions' => function (ParseNode $n) use ($o) { $o->setAvailableEnrollmentTypeOptions($n->getCollectionOfObjectValues(array(AppleOwnerTypeEnrollmentType::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'defaultEnrollmentType' => function (ParseNode $n) use ($o) { $o->setDefaultEnrollmentType($n->getEnumValue(AppleUserInitiatedEnrollmentType::class)); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
+            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(AppleEnrollmentProfileAssignment::class)); },
+            'availableEnrollmentTypeOptions' => function (self $o, ParseNode $n) { $o->setAvailableEnrollmentTypeOptions($n->getCollectionOfObjectValues(AppleOwnerTypeEnrollmentType::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'defaultEnrollmentType' => function (self $o, ParseNode $n) { $o->setDefaultEnrollmentType($n->getEnumValue(AppleUserInitiatedEnrollmentType::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'platform' => function (self $o, ParseNode $n) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
+            'priority' => function (self $o, ParseNode $n) { $o->setPriority($n->getIntegerValue()); },
         ]);
     }
 

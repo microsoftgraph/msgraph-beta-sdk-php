@@ -7,56 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Office365ActiveUserCounts extends Entity implements Parsable 
+class Office365ActiveUserCounts extends Entity 
 {
-    /**
-     * @var int|null $exchange The number of active users in Exchange. Any user who can read and send email is considered an active user.
-    */
+    /** @var int|null $exchange The number of active users in Exchange. Any user who can read and send email is considered an active user. */
     private ?int $exchange = null;
     
-    /**
-     * @var int|null $office365 The number of active users in Microsoft 365. This number includes all the active users in Exchange, OneDrive, SharePoint, Skype For Business, Yammer, and Microsoft Teams. You can find the definition of active user for each product in the respective property description.
-    */
+    /** @var int|null $office365 The number of active users in Microsoft 365. This number includes all the active users in Exchange, OneDrive, SharePoint, Skype For Business, Yammer, and Microsoft Teams. You can find the definition of active user for each product in the respective property description. */
     private ?int $office365 = null;
     
-    /**
-     * @var int|null $oneDrive The number of active users in OneDrive. Any user who viewed or edited files, shared files internally or externally, or synced files is considered an active user.
-    */
+    /** @var int|null $oneDrive The number of active users in OneDrive. Any user who viewed or edited files, shared files internally or externally, or synced files is considered an active user. */
     private ?int $oneDrive = null;
     
-    /**
-     * @var Date|null $reportDate The date on which a number of users were active.
-    */
+    /** @var Date|null $reportDate The date on which a number of users were active. */
     private ?Date $reportDate = null;
     
-    /**
-     * @var string|null $reportPeriod The number of days the report covers.
-    */
+    /** @var string|null $reportPeriod The number of days the report covers. */
     private ?string $reportPeriod = null;
     
-    /**
-     * @var Date|null $reportRefreshDate The latest date of the content.
-    */
+    /** @var Date|null $reportRefreshDate The latest date of the content. */
     private ?Date $reportRefreshDate = null;
     
-    /**
-     * @var int|null $sharePoint The number of active users in SharePoint. Any user who viewed or edited files, shared files internally or externally, synced files, or viewed SharePoint pages is considered an active user.
-    */
+    /** @var int|null $sharePoint The number of active users in SharePoint. Any user who viewed or edited files, shared files internally or externally, synced files, or viewed SharePoint pages is considered an active user. */
     private ?int $sharePoint = null;
     
-    /**
-     * @var int|null $skypeForBusiness The number of active users in Skype For Business. Any user who organized or participated in conferences, or joined peer-to-peer sessions is considered an active user.
-    */
+    /** @var int|null $skypeForBusiness The number of active users in Skype For Business. Any user who organized or participated in conferences, or joined peer-to-peer sessions is considered an active user. */
     private ?int $skypeForBusiness = null;
     
-    /**
-     * @var int|null $teams The number of active users in Microsoft Teams. Any user who posted messages in team channels, sent messages in private chat sessions, or participated in meetings or calls is considered an active user.
-    */
+    /** @var int|null $teams The number of active users in Microsoft Teams. Any user who posted messages in team channels, sent messages in private chat sessions, or participated in meetings or calls is considered an active user. */
     private ?int $teams = null;
     
-    /**
-     * @var int|null $yammer The number of active users in Yammer. Any user who can post, read, or like messages is considered an active user.
-    */
+    /** @var int|null $yammer The number of active users in Yammer. Any user who can post, read, or like messages is considered an active user. */
     private ?int $yammer = null;
     
     /**
@@ -71,7 +51,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Office365ActiveUserCounts
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Office365ActiveUserCounts {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Office365ActiveUserCounts {
         return new Office365ActiveUserCounts();
     }
 
@@ -88,18 +68,17 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exchange' => function (ParseNode $n) use ($o) { $o->setExchange($n->getIntegerValue()); },
-            'office365' => function (ParseNode $n) use ($o) { $o->setOffice365($n->getIntegerValue()); },
-            'oneDrive' => function (ParseNode $n) use ($o) { $o->setOneDrive($n->getIntegerValue()); },
-            'reportDate' => function (ParseNode $n) use ($o) { $o->setReportDate($n->getDateValue()); },
-            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
-            'sharePoint' => function (ParseNode $n) use ($o) { $o->setSharePoint($n->getIntegerValue()); },
-            'skypeForBusiness' => function (ParseNode $n) use ($o) { $o->setSkypeForBusiness($n->getIntegerValue()); },
-            'teams' => function (ParseNode $n) use ($o) { $o->setTeams($n->getIntegerValue()); },
-            'yammer' => function (ParseNode $n) use ($o) { $o->setYammer($n->getIntegerValue()); },
+            'exchange' => function (self $o, ParseNode $n) { $o->setExchange($n->getIntegerValue()); },
+            'office365' => function (self $o, ParseNode $n) { $o->setOffice365($n->getIntegerValue()); },
+            'oneDrive' => function (self $o, ParseNode $n) { $o->setOneDrive($n->getIntegerValue()); },
+            'reportDate' => function (self $o, ParseNode $n) { $o->setReportDate($n->getDateValue()); },
+            'reportPeriod' => function (self $o, ParseNode $n) { $o->setReportPeriod($n->getStringValue()); },
+            'reportRefreshDate' => function (self $o, ParseNode $n) { $o->setReportRefreshDate($n->getDateValue()); },
+            'sharePoint' => function (self $o, ParseNode $n) { $o->setSharePoint($n->getIntegerValue()); },
+            'skypeForBusiness' => function (self $o, ParseNode $n) { $o->setSkypeForBusiness($n->getIntegerValue()); },
+            'teams' => function (self $o, ParseNode $n) { $o->setTeams($n->getIntegerValue()); },
+            'yammer' => function (self $o, ParseNode $n) { $o->setYammer($n->getIntegerValue()); },
         ]);
     }
 

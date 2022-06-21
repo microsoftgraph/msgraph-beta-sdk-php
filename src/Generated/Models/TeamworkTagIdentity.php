@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamworkTagIdentity extends Identity implements Parsable 
+class TeamworkTagIdentity extends Identity 
 {
     /**
      * Instantiates a new teamworkTagIdentity and sets the default values.
@@ -20,7 +20,7 @@ class TeamworkTagIdentity extends Identity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkTagIdentity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkTagIdentity {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkTagIdentity {
         return new TeamworkTagIdentity();
     }
 
@@ -29,7 +29,6 @@ class TeamworkTagIdentity extends Identity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

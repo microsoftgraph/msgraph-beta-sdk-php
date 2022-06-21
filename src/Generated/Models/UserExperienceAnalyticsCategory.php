@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsCategory extends Entity implements Parsable 
+class UserExperienceAnalyticsCategory extends Entity 
 {
-    /**
-     * @var array<UserExperienceAnalyticsInsight>|null $insights The insights for the user experience analytics category.
-    */
+    /** @var array<UserExperienceAnalyticsInsight>|null $insights The insights for the user experience analytics category. */
     private ?array $insights = null;
     
-    /**
-     * @var array<UserExperienceAnalyticsMetric>|null $metricValues The metric values for the user experience analytics category.
-    */
+    /** @var array<UserExperienceAnalyticsMetric>|null $metricValues The metric values for the user experience analytics category. */
     private ?array $metricValues = null;
     
     /**
@@ -30,7 +26,7 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsCategory
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsCategory {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsCategory {
         return new UserExperienceAnalyticsCategory();
     }
 
@@ -39,10 +35,9 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'insights' => function (ParseNode $n) use ($o) { $o->setInsights($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsInsight::class, 'createFromDiscriminatorValue'))); },
-            'metricValues' => function (ParseNode $n) use ($o) { $o->setMetricValues($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'))); },
+            'insights' => function (self $o, ParseNode $n) { $o->setInsights($n->getCollectionOfObjectValues(UserExperienceAnalyticsInsight::class)); },
+            'metricValues' => function (self $o, ParseNode $n) { $o->setMetricValues($n->getCollectionOfObjectValues(UserExperienceAnalyticsMetric::class)); },
         ]);
     }
 

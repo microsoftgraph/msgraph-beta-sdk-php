@@ -10,34 +10,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PlannerTeamsPublicationInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time when this task was last modified by the publication process. Read-only.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time when this task was last modified by the publication process. Read-only. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $publicationId The identifier of the publication. Read-only.
-    */
+    /** @var string|null $publicationId The identifier of the publication. Read-only. */
     private ?string $publicationId = null;
     
-    /**
-     * @var string|null $publishedToPlanId The identifier of the plannerPlan this task was originally placed in. Read-only.
-    */
+    /** @var string|null $publishedToPlanId The identifier of the plannerPlan this task was originally placed in. Read-only. */
     private ?string $publishedToPlanId = null;
     
-    /**
-     * @var string|null $publishingTeamId The identifier of the team that initiated the publication process. Read-only.
-    */
+    /** @var string|null $publishingTeamId The identifier of the team that initiated the publication process. Read-only. */
     private ?string $publishingTeamId = null;
     
-    /**
-     * @var string|null $publishingTeamName The display name of the team that initiated the publication process. This display name is for reference only, and might not represent the most up-to-date name of the team. Read-only.
-    */
+    /** @var string|null $publishingTeamName The display name of the team that initiated the publication process. This display name is for reference only, and might not represent the most up-to-date name of the team. Read-only. */
     private ?string $publishingTeamName = null;
     
     /**
@@ -52,7 +40,7 @@ class PlannerTeamsPublicationInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PlannerTeamsPublicationInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerTeamsPublicationInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PlannerTeamsPublicationInfo {
         return new PlannerTeamsPublicationInfo();
     }
 
@@ -69,13 +57,12 @@ class PlannerTeamsPublicationInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'publicationId' => function (ParseNode $n) use ($o) { $o->setPublicationId($n->getStringValue()); },
-            'publishedToPlanId' => function (ParseNode $n) use ($o) { $o->setPublishedToPlanId($n->getStringValue()); },
-            'publishingTeamId' => function (ParseNode $n) use ($o) { $o->setPublishingTeamId($n->getStringValue()); },
-            'publishingTeamName' => function (ParseNode $n) use ($o) { $o->setPublishingTeamName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'publicationId' => function (self $o, ParseNode $n) { $o->setPublicationId($n->getStringValue()); },
+            'publishedToPlanId' => function (self $o, ParseNode $n) { $o->setPublishedToPlanId($n->getStringValue()); },
+            'publishingTeamId' => function (self $o, ParseNode $n) { $o->setPublishingTeamId($n->getStringValue()); },
+            'publishingTeamName' => function (self $o, ParseNode $n) { $o->setPublishingTeamName($n->getStringValue()); },
         ];
     }
 

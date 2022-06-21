@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRbacResourceScope extends Entity implements Parsable 
+class UnifiedRbacResourceScope extends Entity 
 {
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $scope The scope property
-    */
+    /** @var string|null $scope The scope property */
     private ?string $scope = null;
     
-    /**
-     * @var string|null $type The type property
-    */
+    /** @var string|null $type The type property */
     private ?string $type = null;
     
     /**
@@ -35,7 +29,7 @@ class UnifiedRbacResourceScope extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRbacResourceScope
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRbacResourceScope {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRbacResourceScope {
         return new UnifiedRbacResourceScope();
     }
 
@@ -52,11 +46,10 @@ class UnifiedRbacResourceScope extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'scope' => function (self $o, ParseNode $n) { $o->setScope($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
         ]);
     }
 

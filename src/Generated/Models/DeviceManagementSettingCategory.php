@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementSettingCategory extends Entity implements Parsable 
+class DeviceManagementSettingCategory extends Entity 
 {
-    /**
-     * @var string|null $displayName The category name
-    */
+    /** @var string|null $displayName The category name */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $hasRequiredSetting The category contains top level required setting
-    */
+    /** @var bool|null $hasRequiredSetting The category contains top level required setting */
     private ?bool $hasRequiredSetting = null;
     
-    /**
-     * @var array<DeviceManagementSettingDefinition>|null $settingDefinitions The setting definitions this category contains
-    */
+    /** @var array<DeviceManagementSettingDefinition>|null $settingDefinitions The setting definitions this category contains */
     private ?array $settingDefinitions = null;
     
     /**
@@ -35,15 +29,7 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementSettingCategory
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettingCategory {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.deviceManagementIntentSettingCategory': return new DeviceManagementIntentSettingCategory();
-                case '#microsoft.graph.deviceManagementTemplateSettingCategory': return new DeviceManagementTemplateSettingCategory();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettingCategory {
         return new DeviceManagementSettingCategory();
     }
 
@@ -60,11 +46,10 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'hasRequiredSetting' => function (ParseNode $n) use ($o) { $o->setHasRequiredSetting($n->getBooleanValue()); },
-            'settingDefinitions' => function (ParseNode $n) use ($o) { $o->setSettingDefinitions($n->getCollectionOfObjectValues(array(DeviceManagementSettingDefinition::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'hasRequiredSetting' => function (self $o, ParseNode $n) { $o->setHasRequiredSetting($n->getBooleanValue()); },
+            'settingDefinitions' => function (self $o, ParseNode $n) { $o->setSettingDefinitions($n->getCollectionOfObjectValues(DeviceManagementSettingDefinition::class)); },
         ]);
     }
 

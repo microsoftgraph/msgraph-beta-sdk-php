@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var CrossTenantAccessPolicyTargetConfiguration|null $applications The list of applications targeted with your cross-tenant access policy.
-    */
+    /** @var CrossTenantAccessPolicyTargetConfiguration|null $applications The list of applications targeted with your cross-tenant access policy. */
     private ?CrossTenantAccessPolicyTargetConfiguration $applications = null;
     
-    /**
-     * @var CrossTenantAccessPolicyTargetConfiguration|null $usersAndGroups The list of users and groups targeted with your cross-tenant access policy.
-    */
+    /** @var CrossTenantAccessPolicyTargetConfiguration|null $usersAndGroups The list of users and groups targeted with your cross-tenant access policy. */
     private ?CrossTenantAccessPolicyTargetConfiguration $usersAndGroups = null;
     
     /**
@@ -36,7 +30,7 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, Parsabl
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CrossTenantAccessPolicyB2BSetting
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicyB2BSetting {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicyB2BSetting {
         return new CrossTenantAccessPolicyB2BSetting();
     }
 
@@ -61,10 +55,9 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, Parsabl
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'applications' => function (ParseNode $n) use ($o) { $o->setApplications($n->getObjectValue(array(CrossTenantAccessPolicyTargetConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'usersAndGroups' => function (ParseNode $n) use ($o) { $o->setUsersAndGroups($n->getObjectValue(array(CrossTenantAccessPolicyTargetConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'applications' => function (self $o, ParseNode $n) { $o->setApplications($n->getObjectValue(CrossTenantAccessPolicyTargetConfiguration::class)); },
+            'usersAndGroups' => function (self $o, ParseNode $n) { $o->setUsersAndGroups($n->getObjectValue(CrossTenantAccessPolicyTargetConfiguration::class)); },
         ];
     }
 

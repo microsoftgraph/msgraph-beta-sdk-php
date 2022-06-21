@@ -7,20 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class OnenoteResource extends OnenoteEntityBaseModel implements Parsable 
+class OnenoteResource extends OnenoteEntityBaseModel 
 {
-    /**
-     * @var StreamInterface|null $content The content stream
-    */
+    /** @var StreamInterface|null $content The content stream */
     private ?StreamInterface $content = null;
     
-    /**
-     * @var string|null $contentUrl The URL for downloading the content
-    */
+    /** @var string|null $contentUrl The URL for downloading the content */
     private ?string $contentUrl = null;
     
     /**
-     * Instantiates a new OnenoteResource and sets the default values.
+     * Instantiates a new onenoteResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -31,7 +27,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OnenoteResource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OnenoteResource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OnenoteResource {
         return new OnenoteResource();
     }
 
@@ -56,10 +52,9 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'contentUrl' => function (ParseNode $n) use ($o) { $o->setContentUrl($n->getStringValue()); },
+            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getBinaryContent()); },
+            'contentUrl' => function (self $o, ParseNode $n) { $o->setContentUrl($n->getStringValue()); },
         ]);
     }
 

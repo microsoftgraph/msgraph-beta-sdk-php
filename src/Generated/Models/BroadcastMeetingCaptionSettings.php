@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isCaptionEnabled Indicates whether caption is enabled for this Teams live event.
-    */
+    /** @var bool|null $isCaptionEnabled Indicates whether caption is enabled for this Teams live event. */
     private ?bool $isCaptionEnabled = null;
     
-    /**
-     * @var string|null $spokenLanguage The spoken language.
-    */
+    /** @var string|null $spokenLanguage The spoken language. */
     private ?string $spokenLanguage = null;
     
-    /**
-     * @var array<string>|null $translationLanguages The translation languages (choose up to 6).
-    */
+    /** @var array<string>|null $translationLanguages The translation languages (choose up to 6). */
     private ?array $translationLanguages = null;
     
     /**
@@ -41,7 +33,7 @@ class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BroadcastMeetingCaptionSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): BroadcastMeetingCaptionSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): BroadcastMeetingCaptionSettings {
         return new BroadcastMeetingCaptionSettings();
     }
 
@@ -58,11 +50,10 @@ class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isCaptionEnabled' => function (ParseNode $n) use ($o) { $o->setIsCaptionEnabled($n->getBooleanValue()); },
-            'spokenLanguage' => function (ParseNode $n) use ($o) { $o->setSpokenLanguage($n->getStringValue()); },
-            'translationLanguages' => function (ParseNode $n) use ($o) { $o->setTranslationLanguages($n->getCollectionOfPrimitiveValues()); },
+            'isCaptionEnabled' => function (self $o, ParseNode $n) { $o->setIsCaptionEnabled($n->getBooleanValue()); },
+            'spokenLanguage' => function (self $o, ParseNode $n) { $o->setSpokenLanguage($n->getStringValue()); },
+            'translationLanguages' => function (self $o, ParseNode $n) { $o->setTranslationLanguages($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

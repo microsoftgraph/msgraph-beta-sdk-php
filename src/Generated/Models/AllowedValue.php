@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AllowedValue extends Entity implements Parsable 
+class AllowedValue extends Entity 
 {
-    /**
-     * @var bool|null $isActive Indicates whether the predefined value is active or deactivated. If set to false, this predefined value cannot be assigned to any additional supported directory objects.
-    */
+    /** @var bool|null $isActive Indicates whether the predefined value is active or deactivated. If set to false, this predefined value cannot be assigned to any additional supported directory objects. */
     private ?bool $isActive = null;
     
     /**
@@ -25,7 +23,7 @@ class AllowedValue extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AllowedValue
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AllowedValue {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AllowedValue {
         return new AllowedValue();
     }
 
@@ -34,9 +32,8 @@ class AllowedValue extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
+            'isActive' => function (self $o, ParseNode $n) { $o->setIsActive($n->getBooleanValue()); },
         ]);
     }
 

@@ -7,41 +7,27 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyCategory extends Entity implements Parsable 
+class GroupPolicyCategory extends Entity 
 {
-    /**
-     * @var array<GroupPolicyCategory>|null $children The children categories
-    */
+    /** @var array<GroupPolicyCategory>|null $children The children categories */
     private ?array $children = null;
     
-    /**
-     * @var GroupPolicyDefinitionFile|null $definitionFile The id of the definition file the category came from
-    */
+    /** @var GroupPolicyDefinitionFile|null $definitionFile The id of the definition file the category came from */
     private ?GroupPolicyDefinitionFile $definitionFile = null;
     
-    /**
-     * @var array<GroupPolicyDefinition>|null $definitions The immediate GroupPolicyDefinition children of the category
-    */
+    /** @var array<GroupPolicyDefinition>|null $definitions The immediate GroupPolicyDefinition children of the category */
     private ?array $definitions = null;
     
-    /**
-     * @var string|null $displayName The string id of the category's display name
-    */
+    /** @var string|null $displayName The string id of the category's display name */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isRoot Defines if the category is a root category
-    */
+    /** @var bool|null $isRoot Defines if the category is a root category */
     private ?bool $isRoot = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var GroupPolicyCategory|null $parent The parent category
-    */
+    /** @var GroupPolicyCategory|null $parent The parent category */
     private ?GroupPolicyCategory $parent = null;
     
     /**
@@ -56,7 +42,7 @@ class GroupPolicyCategory extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicyCategory
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyCategory {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyCategory {
         return new GroupPolicyCategory();
     }
 
@@ -97,15 +83,14 @@ class GroupPolicyCategory extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'children' => function (ParseNode $n) use ($o) { $o->setChildren($n->getCollectionOfObjectValues(array(GroupPolicyCategory::class, 'createFromDiscriminatorValue'))); },
-            'definitionFile' => function (ParseNode $n) use ($o) { $o->setDefinitionFile($n->getObjectValue(array(GroupPolicyDefinitionFile::class, 'createFromDiscriminatorValue'))); },
-            'definitions' => function (ParseNode $n) use ($o) { $o->setDefinitions($n->getCollectionOfObjectValues(array(GroupPolicyDefinition::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isRoot' => function (ParseNode $n) use ($o) { $o->setIsRoot($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(GroupPolicyCategory::class, 'createFromDiscriminatorValue'))); },
+            'children' => function (self $o, ParseNode $n) { $o->setChildren($n->getCollectionOfObjectValues(GroupPolicyCategory::class)); },
+            'definitionFile' => function (self $o, ParseNode $n) { $o->setDefinitionFile($n->getObjectValue(GroupPolicyDefinitionFile::class)); },
+            'definitions' => function (self $o, ParseNode $n) { $o->setDefinitions($n->getCollectionOfObjectValues(GroupPolicyDefinition::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isRoot' => function (self $o, ParseNode $n) { $o->setIsRoot($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'parent' => function (self $o, ParseNode $n) { $o->setParent($n->getObjectValue(GroupPolicyCategory::class)); },
         ]);
     }
 

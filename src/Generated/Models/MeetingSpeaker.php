@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MeetingSpeaker implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $bio Bio of the speaker.
-    */
+    /** @var string|null $bio Bio of the speaker. */
     private ?string $bio = null;
     
-    /**
-     * @var string|null $displayName Display name of the speaker.
-    */
+    /** @var string|null $displayName Display name of the speaker. */
     private ?string $displayName = null;
     
     /**
@@ -36,7 +30,7 @@ class MeetingSpeaker implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MeetingSpeaker
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MeetingSpeaker {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MeetingSpeaker {
         return new MeetingSpeaker();
     }
 
@@ -69,10 +63,9 @@ class MeetingSpeaker implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'bio' => function (ParseNode $n) use ($o) { $o->setBio($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'bio' => function (self $o, ParseNode $n) { $o->setBio($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
         ];
     }
 

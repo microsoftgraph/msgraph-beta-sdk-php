@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary extends Entity implements Parsable 
+class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary extends Entity 
 {
-    /**
-     * @var int|null $deployedDeviceCount Number of Devices that have successfully deployed this WindowsDefenderApplicationControl supplemental policy.
-    */
+    /** @var int|null $deployedDeviceCount Number of Devices that have successfully deployed this WindowsDefenderApplicationControl supplemental policy. */
     private ?int $deployedDeviceCount = null;
     
-    /**
-     * @var int|null $failedDeviceCount Number of Devices that have failed to deploy this WindowsDefenderApplicationControl supplemental policy.
-    */
+    /** @var int|null $failedDeviceCount Number of Devices that have failed to deploy this WindowsDefenderApplicationControl supplemental policy. */
     private ?int $failedDeviceCount = null;
     
     /**
@@ -30,7 +26,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary {
         return new WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary();
     }
 
@@ -55,10 +51,9 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deployedDeviceCount' => function (ParseNode $n) use ($o) { $o->setDeployedDeviceCount($n->getIntegerValue()); },
-            'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
+            'deployedDeviceCount' => function (self $o, ParseNode $n) { $o->setDeployedDeviceCount($n->getIntegerValue()); },
+            'failedDeviceCount' => function (self $o, ParseNode $n) { $o->setFailedDeviceCount($n->getIntegerValue()); },
         ]);
     }
 

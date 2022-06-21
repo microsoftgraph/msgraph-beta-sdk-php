@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IdentityProviderBase extends Entity implements Parsable 
+class IdentityProviderBase extends Entity 
 {
-    /**
-     * @var string|null $displayName The display name of the identity provider.
-    */
+    /** @var string|null $displayName The display name of the identity provider. */
     private ?string $displayName = null;
     
     /**
@@ -25,18 +23,7 @@ class IdentityProviderBase extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return IdentityProviderBase
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): IdentityProviderBase {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.appleManagedIdentityProvider': return new AppleManagedIdentityProvider();
-                case '#microsoft.graph.builtInIdentityProvider': return new BuiltInIdentityProvider();
-                case '#microsoft.graph.openIdConnectIdentityProvider': return new OpenIdConnectIdentityProvider();
-                case '#microsoft.graph.samlOrWsFedProvider': return new SamlOrWsFedProvider();
-                case '#microsoft.graph.socialIdentityProvider': return new SocialIdentityProvider();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): IdentityProviderBase {
         return new IdentityProviderBase();
     }
 
@@ -53,9 +40,8 @@ class IdentityProviderBase extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
         ]);
     }
 

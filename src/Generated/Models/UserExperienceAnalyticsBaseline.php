@@ -7,56 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsBaseline extends Entity implements Parsable 
+class UserExperienceAnalyticsBaseline extends Entity 
 {
-    /**
-     * @var UserExperienceAnalyticsCategory|null $appHealthMetrics The user experience analytics app health metrics.
-    */
+    /** @var UserExperienceAnalyticsCategory|null $appHealthMetrics The user experience analytics app health metrics. */
     private ?UserExperienceAnalyticsCategory $appHealthMetrics = null;
     
-    /**
-     * @var UserExperienceAnalyticsCategory|null $batteryHealthMetrics The user experience analytics battery health metrics.
-    */
+    /** @var UserExperienceAnalyticsCategory|null $batteryHealthMetrics The user experience analytics battery health metrics. */
     private ?UserExperienceAnalyticsCategory $batteryHealthMetrics = null;
     
-    /**
-     * @var UserExperienceAnalyticsCategory|null $bestPracticesMetrics The user experience analytics best practices metrics.
-    */
+    /** @var UserExperienceAnalyticsCategory|null $bestPracticesMetrics The user experience analytics best practices metrics. */
     private ?UserExperienceAnalyticsCategory $bestPracticesMetrics = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The date the custom baseline was created.
-    */
+    /** @var DateTime|null $createdDateTime The date the custom baseline was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var UserExperienceAnalyticsCategory|null $deviceBootPerformanceMetrics The user experience analytics device boot performance metrics.
-    */
+    /** @var UserExperienceAnalyticsCategory|null $deviceBootPerformanceMetrics The user experience analytics device boot performance metrics. */
     private ?UserExperienceAnalyticsCategory $deviceBootPerformanceMetrics = null;
     
-    /**
-     * @var string|null $displayName The name of the user experience analytics baseline.
-    */
+    /** @var string|null $displayName The name of the user experience analytics baseline. */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isBuiltIn Signifies if the current baseline is the commercial median baseline or a custom baseline.
-    */
+    /** @var bool|null $isBuiltIn Signifies if the current baseline is the commercial median baseline or a custom baseline. */
     private ?bool $isBuiltIn = null;
     
-    /**
-     * @var UserExperienceAnalyticsCategory|null $rebootAnalyticsMetrics The user experience analytics reboot analytics metrics.
-    */
+    /** @var UserExperienceAnalyticsCategory|null $rebootAnalyticsMetrics The user experience analytics reboot analytics metrics. */
     private ?UserExperienceAnalyticsCategory $rebootAnalyticsMetrics = null;
     
-    /**
-     * @var UserExperienceAnalyticsCategory|null $resourcePerformanceMetrics The user experience analytics resource performance metrics.
-    */
+    /** @var UserExperienceAnalyticsCategory|null $resourcePerformanceMetrics The user experience analytics resource performance metrics. */
     private ?UserExperienceAnalyticsCategory $resourcePerformanceMetrics = null;
     
-    /**
-     * @var UserExperienceAnalyticsCategory|null $workFromAnywhereMetrics The user experience analytics work from anywhere metrics.
-    */
+    /** @var UserExperienceAnalyticsCategory|null $workFromAnywhereMetrics The user experience analytics work from anywhere metrics. */
     private ?UserExperienceAnalyticsCategory $workFromAnywhereMetrics = null;
     
     /**
@@ -71,7 +51,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsBaseline
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBaseline {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBaseline {
         return new UserExperienceAnalyticsBaseline();
     }
 
@@ -128,18 +108,17 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appHealthMetrics' => function (ParseNode $n) use ($o) { $o->setAppHealthMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'batteryHealthMetrics' => function (ParseNode $n) use ($o) { $o->setBatteryHealthMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'bestPracticesMetrics' => function (ParseNode $n) use ($o) { $o->setBestPracticesMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deviceBootPerformanceMetrics' => function (ParseNode $n) use ($o) { $o->setDeviceBootPerformanceMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isBuiltIn' => function (ParseNode $n) use ($o) { $o->setIsBuiltIn($n->getBooleanValue()); },
-            'rebootAnalyticsMetrics' => function (ParseNode $n) use ($o) { $o->setRebootAnalyticsMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'resourcePerformanceMetrics' => function (ParseNode $n) use ($o) { $o->setResourcePerformanceMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'workFromAnywhereMetrics' => function (ParseNode $n) use ($o) { $o->setWorkFromAnywhereMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
+            'appHealthMetrics' => function (self $o, ParseNode $n) { $o->setAppHealthMetrics($n->getObjectValue(UserExperienceAnalyticsCategory::class)); },
+            'batteryHealthMetrics' => function (self $o, ParseNode $n) { $o->setBatteryHealthMetrics($n->getObjectValue(UserExperienceAnalyticsCategory::class)); },
+            'bestPracticesMetrics' => function (self $o, ParseNode $n) { $o->setBestPracticesMetrics($n->getObjectValue(UserExperienceAnalyticsCategory::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'deviceBootPerformanceMetrics' => function (self $o, ParseNode $n) { $o->setDeviceBootPerformanceMetrics($n->getObjectValue(UserExperienceAnalyticsCategory::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isBuiltIn' => function (self $o, ParseNode $n) { $o->setIsBuiltIn($n->getBooleanValue()); },
+            'rebootAnalyticsMetrics' => function (self $o, ParseNode $n) { $o->setRebootAnalyticsMetrics($n->getObjectValue(UserExperienceAnalyticsCategory::class)); },
+            'resourcePerformanceMetrics' => function (self $o, ParseNode $n) { $o->setResourcePerformanceMetrics($n->getObjectValue(UserExperienceAnalyticsCategory::class)); },
+            'workFromAnywhereMetrics' => function (self $o, ParseNode $n) { $o->setWorkFromAnywhereMetrics($n->getObjectValue(UserExperienceAnalyticsCategory::class)); },
         ]);
     }
 

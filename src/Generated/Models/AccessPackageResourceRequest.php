@@ -7,56 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageResourceRequest extends Entity implements Parsable 
+class AccessPackageResourceRequest extends Entity 
 {
-    /**
-     * @var AccessPackageResource|null $accessPackageResource The accessPackageResource property
-    */
+    /** @var AccessPackageResource|null $accessPackageResource Nullable. */
     private ?AccessPackageResource $accessPackageResource = null;
     
-    /**
-     * @var string|null $catalogId The unique ID of the access package catalog.
-    */
+    /** @var string|null $catalogId The unique ID of the access package catalog. */
     private ?string $catalogId = null;
     
-    /**
-     * @var bool|null $executeImmediately The executeImmediately property
-    */
+    /** @var bool|null $executeImmediately The executeImmediately property */
     private ?bool $executeImmediately = null;
     
-    /**
-     * @var DateTime|null $expirationDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $expirationDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $expirationDateTime = null;
     
-    /**
-     * @var bool|null $isValidationOnly If set, does not add the resource.
-    */
+    /** @var bool|null $isValidationOnly If set, does not add the resource. */
     private ?bool $isValidationOnly = null;
     
-    /**
-     * @var string|null $justification The requestor's justification for adding or removing the resource.
-    */
+    /** @var string|null $justification The requestor's justification for adding or removing the resource. */
     private ?string $justification = null;
     
-    /**
-     * @var AccessPackageSubject|null $requestor Read-only. Nullable. Supports $expand.
-    */
+    /** @var AccessPackageSubject|null $requestor Read-only. Nullable. Supports $expand. */
     private ?AccessPackageSubject $requestor = null;
     
-    /**
-     * @var string|null $requestState The outcome of whether the service was able to add the resource to the catalog.  The value is Delivered if the resource was added or removed. Read-Only.
-    */
+    /** @var string|null $requestState The outcome of whether the service was able to add the resource to the catalog.  The value is Delivered if the resource was added or removed. Read-Only. */
     private ?string $requestState = null;
     
-    /**
-     * @var string|null $requestStatus The requestStatus property
-    */
+    /** @var string|null $requestStatus Read-only. */
     private ?string $requestStatus = null;
     
-    /**
-     * @var string|null $requestType Use AdminAdd to add a resource, if the caller is an administrator or resource owner, or AdminRemove to remove a resource.
-    */
+    /** @var string|null $requestType Use AdminAdd to add a resource, if the caller is an administrator or resource owner, or AdminRemove to remove a resource. */
     private ?string $requestType = null;
     
     /**
@@ -71,12 +51,12 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageResourceRequest
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceRequest {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceRequest {
         return new AccessPackageResourceRequest();
     }
 
     /**
-     * Gets the accessPackageResource property value. The accessPackageResource property
+     * Gets the accessPackageResource property value. Nullable.
      * @return AccessPackageResource|null
     */
     public function getAccessPackageResource(): ?AccessPackageResource {
@@ -112,18 +92,17 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResource' => function (ParseNode $n) use ($o) { $o->setAccessPackageResource($n->getObjectValue(array(AccessPackageResource::class, 'createFromDiscriminatorValue'))); },
-            'catalogId' => function (ParseNode $n) use ($o) { $o->setCatalogId($n->getStringValue()); },
-            'executeImmediately' => function (ParseNode $n) use ($o) { $o->setExecuteImmediately($n->getBooleanValue()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'isValidationOnly' => function (ParseNode $n) use ($o) { $o->setIsValidationOnly($n->getBooleanValue()); },
-            'justification' => function (ParseNode $n) use ($o) { $o->setJustification($n->getStringValue()); },
-            'requestor' => function (ParseNode $n) use ($o) { $o->setRequestor($n->getObjectValue(array(AccessPackageSubject::class, 'createFromDiscriminatorValue'))); },
-            'requestState' => function (ParseNode $n) use ($o) { $o->setRequestState($n->getStringValue()); },
-            'requestStatus' => function (ParseNode $n) use ($o) { $o->setRequestStatus($n->getStringValue()); },
-            'requestType' => function (ParseNode $n) use ($o) { $o->setRequestType($n->getStringValue()); },
+            'accessPackageResource' => function (self $o, ParseNode $n) { $o->setAccessPackageResource($n->getObjectValue(AccessPackageResource::class)); },
+            'catalogId' => function (self $o, ParseNode $n) { $o->setCatalogId($n->getStringValue()); },
+            'executeImmediately' => function (self $o, ParseNode $n) { $o->setExecuteImmediately($n->getBooleanValue()); },
+            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'isValidationOnly' => function (self $o, ParseNode $n) { $o->setIsValidationOnly($n->getBooleanValue()); },
+            'justification' => function (self $o, ParseNode $n) { $o->setJustification($n->getStringValue()); },
+            'requestor' => function (self $o, ParseNode $n) { $o->setRequestor($n->getObjectValue(AccessPackageSubject::class)); },
+            'requestState' => function (self $o, ParseNode $n) { $o->setRequestState($n->getStringValue()); },
+            'requestStatus' => function (self $o, ParseNode $n) { $o->setRequestStatus($n->getStringValue()); },
+            'requestType' => function (self $o, ParseNode $n) { $o->setRequestType($n->getStringValue()); },
         ]);
     }
 
@@ -160,7 +139,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestStatus property value. The requestStatus property
+     * Gets the requestStatus property value. Read-only.
      * @return string|null
     */
     public function getRequestStatus(): ?string {
@@ -194,7 +173,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessPackageResource property value. The accessPackageResource property
+     * Sets the accessPackageResource property value. Nullable.
      *  @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
     */
     public function setAccessPackageResource(?AccessPackageResource $value ): void {
@@ -258,7 +237,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestStatus property value. The requestStatus property
+     * Sets the requestStatus property value. Read-only.
      *  @param string|null $value Value to set for the requestStatus property.
     */
     public function setRequestStatus(?string $value ): void {

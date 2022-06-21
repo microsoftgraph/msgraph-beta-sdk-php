@@ -10,23 +10,17 @@ use Psr\Http\Message\StreamInterface;
 
 class SigningResult implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var StreamInterface|null $signature The signature property
-    */
+    /** @var StreamInterface|null $signature The signature property */
     private ?StreamInterface $signature = null;
     
-    /**
-     * @var string|null $signingKeyId The signingKeyId property
-    */
+    /** @var string|null $signingKeyId The signingKeyId property */
     private ?string $signingKeyId = null;
     
     /**
-     * Instantiates a new SigningResult and sets the default values.
+     * Instantiates a new signingResult and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -37,7 +31,7 @@ class SigningResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SigningResult
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SigningResult {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SigningResult {
         return new SigningResult();
     }
 
@@ -54,10 +48,9 @@ class SigningResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'signature' => function (ParseNode $n) use ($o) { $o->setSignature($n->getBinaryContent()); },
-            'signingKeyId' => function (ParseNode $n) use ($o) { $o->setSigningKeyId($n->getStringValue()); },
+            'signature' => function (self $o, ParseNode $n) { $o->setSignature($n->getBinaryContent()); },
+            'signingKeyId' => function (self $o, ParseNode $n) { $o->setSigningKeyId($n->getStringValue()); },
         ];
     }
 

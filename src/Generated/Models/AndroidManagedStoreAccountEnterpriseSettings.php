@@ -7,66 +7,42 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Parsable 
+class AndroidManagedStoreAccountEnterpriseSettings extends Entity 
 {
-    /**
-     * @var bool|null $androidDeviceOwnerFullyManagedEnrollmentEnabled Company codes for AndroidManagedStoreAccountEnterpriseSettings
-    */
+    /** @var bool|null $androidDeviceOwnerFullyManagedEnrollmentEnabled Company codes for AndroidManagedStoreAccountEnterpriseSettings */
     private ?bool $androidDeviceOwnerFullyManagedEnrollmentEnabled = null;
     
-    /**
-     * @var AndroidManagedStoreAccountBindStatus|null $bindStatus Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding.
-    */
+    /** @var AndroidManagedStoreAccountBindStatus|null $bindStatus Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding. */
     private ?AndroidManagedStoreAccountBindStatus $bindStatus = null;
     
-    /**
-     * @var array<AndroidEnrollmentCompanyCode>|null $companyCodes Company codes for AndroidManagedStoreAccountEnterpriseSettings
-    */
+    /** @var array<AndroidEnrollmentCompanyCode>|null $companyCodes Company codes for AndroidManagedStoreAccountEnterpriseSettings */
     private ?array $companyCodes = null;
     
-    /**
-     * @var bool|null $deviceOwnerManagementEnabled Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
-    */
+    /** @var bool|null $deviceOwnerManagementEnabled Indicates if this account is flighting for Android Device Owner Management with CloudDPC. */
     private ?bool $deviceOwnerManagementEnabled = null;
     
-    /**
-     * @var AndroidManagedStoreAccountEnrollmentTarget|null $enrollmentTarget Indicates which users can enroll devices in Android Enterprise device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions.
-    */
+    /** @var AndroidManagedStoreAccountEnrollmentTarget|null $enrollmentTarget Indicates which users can enroll devices in Android Enterprise device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions. */
     private ?AndroidManagedStoreAccountEnrollmentTarget $enrollmentTarget = null;
     
-    /**
-     * @var DateTime|null $lastAppSyncDateTime Last completion time for app sync
-    */
+    /** @var DateTime|null $lastAppSyncDateTime Last completion time for app sync */
     private ?DateTime $lastAppSyncDateTime = null;
     
-    /**
-     * @var AndroidManagedStoreAccountAppSyncStatus|null $lastAppSyncStatus Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none.
-    */
+    /** @var AndroidManagedStoreAccountAppSyncStatus|null $lastAppSyncStatus Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none. */
     private ?AndroidManagedStoreAccountAppSyncStatus $lastAppSyncStatus = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime Last modification time for Android enterprise settings
-    */
+    /** @var DateTime|null $lastModifiedDateTime Last modification time for Android enterprise settings */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var array<string>|null $managedGooglePlayInitialScopeTagIds Initial scope tags for MGP apps
-    */
+    /** @var array<string>|null $managedGooglePlayInitialScopeTagIds Initial scope tags for MGP apps */
     private ?array $managedGooglePlayInitialScopeTagIds = null;
     
-    /**
-     * @var string|null $ownerOrganizationName Organization name used when onboarding Android Enterprise
-    */
+    /** @var string|null $ownerOrganizationName Organization name used when onboarding Android Enterprise */
     private ?string $ownerOrganizationName = null;
     
-    /**
-     * @var string|null $ownerUserPrincipalName Owner UPN that created the enterprise
-    */
+    /** @var string|null $ownerUserPrincipalName Owner UPN that created the enterprise */
     private ?string $ownerUserPrincipalName = null;
     
-    /**
-     * @var array<string>|null $targetGroupIds Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
-    */
+    /** @var array<string>|null $targetGroupIds Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted' */
     private ?array $targetGroupIds = null;
     
     /**
@@ -81,7 +57,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AndroidManagedStoreAccountEnterpriseSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidManagedStoreAccountEnterpriseSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AndroidManagedStoreAccountEnterpriseSettings {
         return new AndroidManagedStoreAccountEnterpriseSettings();
     }
 
@@ -130,20 +106,19 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'androidDeviceOwnerFullyManagedEnrollmentEnabled' => function (ParseNode $n) use ($o) { $o->setAndroidDeviceOwnerFullyManagedEnrollmentEnabled($n->getBooleanValue()); },
-            'bindStatus' => function (ParseNode $n) use ($o) { $o->setBindStatus($n->getEnumValue(AndroidManagedStoreAccountBindStatus::class)); },
-            'companyCodes' => function (ParseNode $n) use ($o) { $o->setCompanyCodes($n->getCollectionOfObjectValues(array(AndroidEnrollmentCompanyCode::class, 'createFromDiscriminatorValue'))); },
-            'deviceOwnerManagementEnabled' => function (ParseNode $n) use ($o) { $o->setDeviceOwnerManagementEnabled($n->getBooleanValue()); },
-            'enrollmentTarget' => function (ParseNode $n) use ($o) { $o->setEnrollmentTarget($n->getEnumValue(AndroidManagedStoreAccountEnrollmentTarget::class)); },
-            'lastAppSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastAppSyncDateTime($n->getDateTimeValue()); },
-            'lastAppSyncStatus' => function (ParseNode $n) use ($o) { $o->setLastAppSyncStatus($n->getEnumValue(AndroidManagedStoreAccountAppSyncStatus::class)); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'managedGooglePlayInitialScopeTagIds' => function (ParseNode $n) use ($o) { $o->setManagedGooglePlayInitialScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'ownerOrganizationName' => function (ParseNode $n) use ($o) { $o->setOwnerOrganizationName($n->getStringValue()); },
-            'ownerUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setOwnerUserPrincipalName($n->getStringValue()); },
-            'targetGroupIds' => function (ParseNode $n) use ($o) { $o->setTargetGroupIds($n->getCollectionOfPrimitiveValues()); },
+            'androidDeviceOwnerFullyManagedEnrollmentEnabled' => function (self $o, ParseNode $n) { $o->setAndroidDeviceOwnerFullyManagedEnrollmentEnabled($n->getBooleanValue()); },
+            'bindStatus' => function (self $o, ParseNode $n) { $o->setBindStatus($n->getEnumValue(AndroidManagedStoreAccountBindStatus::class)); },
+            'companyCodes' => function (self $o, ParseNode $n) { $o->setCompanyCodes($n->getCollectionOfObjectValues(AndroidEnrollmentCompanyCode::class)); },
+            'deviceOwnerManagementEnabled' => function (self $o, ParseNode $n) { $o->setDeviceOwnerManagementEnabled($n->getBooleanValue()); },
+            'enrollmentTarget' => function (self $o, ParseNode $n) { $o->setEnrollmentTarget($n->getEnumValue(AndroidManagedStoreAccountEnrollmentTarget::class)); },
+            'lastAppSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastAppSyncDateTime($n->getDateTimeValue()); },
+            'lastAppSyncStatus' => function (self $o, ParseNode $n) { $o->setLastAppSyncStatus($n->getEnumValue(AndroidManagedStoreAccountAppSyncStatus::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'managedGooglePlayInitialScopeTagIds' => function (self $o, ParseNode $n) { $o->setManagedGooglePlayInitialScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'ownerOrganizationName' => function (self $o, ParseNode $n) { $o->setOwnerOrganizationName($n->getStringValue()); },
+            'ownerUserPrincipalName' => function (self $o, ParseNode $n) { $o->setOwnerUserPrincipalName($n->getStringValue()); },
+            'targetGroupIds' => function (self $o, ParseNode $n) { $o->setTargetGroupIds($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

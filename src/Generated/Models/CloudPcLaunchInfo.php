@@ -9,23 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $cloudPcId The unique identifier of the Cloud PC.
-    */
+    /** @var string|null $cloudPcId The cloudPcId property */
     private ?string $cloudPcId = null;
     
-    /**
-     * @var string|null $cloudPcLaunchUrl The connect URL of the Cloud PC.
-    */
+    /** @var string|null $cloudPcLaunchUrl The cloudPcLaunchUrl property */
     private ?string $cloudPcLaunchUrl = null;
     
     /**
-     * Instantiates a new CloudPcLaunchInfo and sets the default values.
+     * Instantiates a new cloudPcLaunchInfo and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -36,7 +30,7 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcLaunchInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcLaunchInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcLaunchInfo {
         return new CloudPcLaunchInfo();
     }
 
@@ -49,7 +43,7 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the cloudPcId property value. The unique identifier of the Cloud PC.
+     * Gets the cloudPcId property value. The cloudPcId property
      * @return string|null
     */
     public function getCloudPcId(): ?string {
@@ -57,7 +51,7 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the cloudPcLaunchUrl property value. The connect URL of the Cloud PC.
+     * Gets the cloudPcLaunchUrl property value. The cloudPcLaunchUrl property
      * @return string|null
     */
     public function getCloudPcLaunchUrl(): ?string {
@@ -69,10 +63,9 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'cloudPcId' => function (ParseNode $n) use ($o) { $o->setCloudPcId($n->getStringValue()); },
-            'cloudPcLaunchUrl' => function (ParseNode $n) use ($o) { $o->setCloudPcLaunchUrl($n->getStringValue()); },
+            'cloudPcId' => function (self $o, ParseNode $n) { $o->setCloudPcId($n->getStringValue()); },
+            'cloudPcLaunchUrl' => function (self $o, ParseNode $n) { $o->setCloudPcLaunchUrl($n->getStringValue()); },
         ];
     }
 
@@ -95,7 +88,7 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the cloudPcId property value. The unique identifier of the Cloud PC.
+     * Sets the cloudPcId property value. The cloudPcId property
      *  @param string|null $value Value to set for the cloudPcId property.
     */
     public function setCloudPcId(?string $value ): void {
@@ -103,7 +96,7 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the cloudPcLaunchUrl property value. The connect URL of the Cloud PC.
+     * Sets the cloudPcLaunchUrl property value. The cloudPcLaunchUrl property
      *  @param string|null $value Value to set for the cloudPcLaunchUrl property.
     */
     public function setCloudPcLaunchUrl(?string $value ): void {

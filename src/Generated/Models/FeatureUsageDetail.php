@@ -10,34 +10,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class FeatureUsageDetail implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $featureName The featureName property
-    */
+    /** @var string|null $featureName The featureName property */
     private ?string $featureName = null;
     
-    /**
-     * @var DateTime|null $lastConfiguredDateTime The lastConfiguredDateTime property
-    */
+    /** @var DateTime|null $lastConfiguredDateTime The lastConfiguredDateTime property */
     private ?DateTime $lastConfiguredDateTime = null;
     
-    /**
-     * @var DateTime|null $lastUsedDateTime The lastUsedDateTime property
-    */
+    /** @var DateTime|null $lastUsedDateTime The lastUsedDateTime property */
     private ?DateTime $lastUsedDateTime = null;
     
-    /**
-     * @var AzureADLicenseType|null $licenseAssigned The licenseAssigned property
-    */
+    /** @var AzureADLicenseType|null $licenseAssigned The licenseAssigned property */
     private ?AzureADLicenseType $licenseAssigned = null;
     
-    /**
-     * @var AzureADLicenseType|null $licenseRequired The licenseRequired property
-    */
+    /** @var AzureADLicenseType|null $licenseRequired The licenseRequired property */
     private ?AzureADLicenseType $licenseRequired = null;
     
     /**
@@ -52,7 +40,7 @@ class FeatureUsageDetail implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return FeatureUsageDetail
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): FeatureUsageDetail {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): FeatureUsageDetail {
         return new FeatureUsageDetail();
     }
 
@@ -77,13 +65,12 @@ class FeatureUsageDetail implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'featureName' => function (ParseNode $n) use ($o) { $o->setFeatureName($n->getStringValue()); },
-            'lastConfiguredDateTime' => function (ParseNode $n) use ($o) { $o->setLastConfiguredDateTime($n->getDateTimeValue()); },
-            'lastUsedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUsedDateTime($n->getDateTimeValue()); },
-            'licenseAssigned' => function (ParseNode $n) use ($o) { $o->setLicenseAssigned($n->getEnumValue(AzureADLicenseType::class)); },
-            'licenseRequired' => function (ParseNode $n) use ($o) { $o->setLicenseRequired($n->getEnumValue(AzureADLicenseType::class)); },
+            'featureName' => function (self $o, ParseNode $n) { $o->setFeatureName($n->getStringValue()); },
+            'lastConfiguredDateTime' => function (self $o, ParseNode $n) { $o->setLastConfiguredDateTime($n->getDateTimeValue()); },
+            'lastUsedDateTime' => function (self $o, ParseNode $n) { $o->setLastUsedDateTime($n->getDateTimeValue()); },
+            'licenseAssigned' => function (self $o, ParseNode $n) { $o->setLicenseAssigned($n->getEnumValue(AzureADLicenseType::class)); },
+            'licenseRequired' => function (self $o, ParseNode $n) { $o->setLicenseRequired($n->getEnumValue(AzureADLicenseType::class)); },
         ];
     }
 

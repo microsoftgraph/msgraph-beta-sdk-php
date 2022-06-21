@@ -7,71 +7,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamsAppDefinition extends Entity implements Parsable 
+class TeamsAppDefinition extends Entity 
 {
-    /**
-     * @var TeamsAppInstallationScopes|null $allowedInstallationScopes A collection of scopes where the Teams app can be installed. Possible values are:team — Indicates that the Teams app can be installed within a team and is authorized to access that team's data. groupChat  — Indicates that the Teams app can be installed within a group chat and is authorized to access that group chat's data.  personal — Indicates that the Teams app can be installed in the personal scope of a user and is authorized to access that user's data.
-    */
+    /** @var TeamsAppInstallationScopes|null $allowedInstallationScopes A collection of scopes where the Teams app can be installed. Possible values are:team — Indicates that the Teams app can be installed within a team and is authorized to access that team's data. groupChat  — Indicates that the Teams app can be installed within a group chat and is authorized to access that group chat's data.  personal — Indicates that the Teams app can be installed in the personal scope of a user and is authorized to access that user's data. */
     private ?TeamsAppInstallationScopes $allowedInstallationScopes = null;
     
-    /**
-     * @var string|null $azureADAppId The WebApplicationInfo.Id from the Teams app manifest.
-    */
+    /** @var string|null $azureADAppId The WebApplicationInfo.Id from the Teams app manifest. */
     private ?string $azureADAppId = null;
     
-    /**
-     * @var TeamworkBot|null $bot The details of the bot specified in the Teams app manifest.
-    */
+    /** @var TeamworkBot|null $bot The details of the bot specified in the Teams app manifest. */
     private ?TeamworkBot $bot = null;
     
-    /**
-     * @var TeamsAppIcon|null $colorIcon The color version of the Teams app's icon.
-    */
+    /** @var TeamsAppIcon|null $colorIcon The color version of the Teams app's icon. */
     private ?TeamsAppIcon $colorIcon = null;
     
-    /**
-     * @var IdentitySet|null $createdBy The createdBy property
-    */
+    /** @var IdentitySet|null $createdBy The createdBy property */
     private ?IdentitySet $createdBy = null;
     
-    /**
-     * @var string|null $description Verbose description of the application.
-    */
+    /** @var string|null $description Verbose description of the application. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The name of the app provided by the app developer.
-    */
+    /** @var string|null $displayName The name of the app provided by the app developer. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var TeamsAppIcon|null $outlineIcon The outline version of the Teams app's icon.
-    */
+    /** @var TeamsAppIcon|null $outlineIcon The outline version of the Teams app's icon. */
     private ?TeamsAppIcon $outlineIcon = null;
     
-    /**
-     * @var TeamsAppPublishingState|null $publishingState The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin.
-    */
+    /** @var TeamsAppPublishingState|null $publishingState The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin. */
     private ?TeamsAppPublishingState $publishingState = null;
     
-    /**
-     * @var string|null $shortdescription The shortdescription property
-    */
+    /** @var string|null $shortdescription The shortdescription property */
     private ?string $shortdescription = null;
     
-    /**
-     * @var string|null $teamsAppId The ID from the Teams app manifest.
-    */
+    /** @var string|null $teamsAppId The ID from the Teams app manifest. */
     private ?string $teamsAppId = null;
     
-    /**
-     * @var string|null $version The version number of the application.
-    */
+    /** @var string|null $version The version number of the application. */
     private ?string $version = null;
     
     /**
@@ -86,7 +60,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamsAppDefinition
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamsAppDefinition {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamsAppDefinition {
         return new TeamsAppDefinition();
     }
 
@@ -151,21 +125,20 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedInstallationScopes' => function (ParseNode $n) use ($o) { $o->setAllowedInstallationScopes($n->getEnumValue(TeamsAppInstallationScopes::class)); },
-            'azureADAppId' => function (ParseNode $n) use ($o) { $o->setAzureADAppId($n->getStringValue()); },
-            'bot' => function (ParseNode $n) use ($o) { $o->setBot($n->getObjectValue(array(TeamworkBot::class, 'createFromDiscriminatorValue'))); },
-            'colorIcon' => function (ParseNode $n) use ($o) { $o->setColorIcon($n->getObjectValue(array(TeamsAppIcon::class, 'createFromDiscriminatorValue'))); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'outlineIcon' => function (ParseNode $n) use ($o) { $o->setOutlineIcon($n->getObjectValue(array(TeamsAppIcon::class, 'createFromDiscriminatorValue'))); },
-            'publishingState' => function (ParseNode $n) use ($o) { $o->setPublishingState($n->getEnumValue(TeamsAppPublishingState::class)); },
-            'shortdescription' => function (ParseNode $n) use ($o) { $o->setShortdescription($n->getStringValue()); },
-            'teamsAppId' => function (ParseNode $n) use ($o) { $o->setTeamsAppId($n->getStringValue()); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'allowedInstallationScopes' => function (self $o, ParseNode $n) { $o->setAllowedInstallationScopes($n->getEnumValue(TeamsAppInstallationScopes::class)); },
+            'azureADAppId' => function (self $o, ParseNode $n) { $o->setAzureADAppId($n->getStringValue()); },
+            'bot' => function (self $o, ParseNode $n) { $o->setBot($n->getObjectValue(TeamworkBot::class)); },
+            'colorIcon' => function (self $o, ParseNode $n) { $o->setColorIcon($n->getObjectValue(TeamsAppIcon::class)); },
+            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'outlineIcon' => function (self $o, ParseNode $n) { $o->setOutlineIcon($n->getObjectValue(TeamsAppIcon::class)); },
+            'publishingState' => function (self $o, ParseNode $n) { $o->setPublishingState($n->getEnumValue(TeamsAppPublishingState::class)); },
+            'shortdescription' => function (self $o, ParseNode $n) { $o->setShortdescription($n->getStringValue()); },
+            'teamsAppId' => function (self $o, ParseNode $n) { $o->setTeamsAppId($n->getStringValue()); },
+            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 

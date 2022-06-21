@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SettingValue implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $name Name of the setting (as defined by the directorySettingTemplate).
-    */
+    /** @var string|null $name Name of the setting (as defined by the groupSettingTemplate). */
     private ?string $name = null;
     
-    /**
-     * @var string|null $value Value of the setting.
-    */
+    /** @var string|null $value Value of the setting. */
     private ?string $value = null;
     
     /**
@@ -36,7 +30,7 @@ class SettingValue implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SettingValue
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SettingValue {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SettingValue {
         return new SettingValue();
     }
 
@@ -53,15 +47,14 @@ class SettingValue implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the name property value. Name of the setting (as defined by the directorySettingTemplate).
+     * Gets the name property value. Name of the setting (as defined by the groupSettingTemplate).
      * @return string|null
     */
     public function getName(): ?string {
@@ -95,7 +88,7 @@ class SettingValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the name property value. Name of the setting (as defined by the directorySettingTemplate).
+     * Sets the name property value. Name of the setting (as defined by the groupSettingTemplate).
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {

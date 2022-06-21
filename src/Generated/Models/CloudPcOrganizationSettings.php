@@ -6,22 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcOrganizationSettings extends Entity implements Parsable 
+class CloudPcOrganizationSettings extends Entity 
 {
-    /**
-     * @var CloudPcOperatingSystem|null $osVersion The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.
-    */
+    /** @var CloudPcOperatingSystem|null $osVersion The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue. */
     private ?CloudPcOperatingSystem $osVersion = null;
     
-    /**
-     * @var CloudPcUserAccountType|null $userAccountType The account type of the user on provisioned Cloud PCs. The possible values are: standardUser, administrator, unknownFutureValue.
-    */
+    /** @var CloudPcUserAccountType|null $userAccountType The account type of the user on provisioned Cloud PCs. The possible values are: standardUser, administrator, unknownFutureValue. */
     private ?CloudPcUserAccountType $userAccountType = null;
-    
-    /**
-     * @var CloudPcWindowsSettings|null $windowsSettings Represents the Cloud PC organization settings for a tenant. A tenant has only one cloudPcOrganizationSettings object. The default language value en-US.
-    */
-    private ?CloudPcWindowsSettings $windowsSettings = null;
     
     /**
      * Instantiates a new cloudPcOrganizationSettings and sets the default values.
@@ -35,7 +26,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcOrganizationSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcOrganizationSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcOrganizationSettings {
         return new CloudPcOrganizationSettings();
     }
 
@@ -44,11 +35,9 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)); },
-            'userAccountType' => function (ParseNode $n) use ($o) { $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)); },
-            'windowsSettings' => function (ParseNode $n) use ($o) { $o->setWindowsSettings($n->getObjectValue(array(CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'))); },
+            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)); },
+            'userAccountType' => function (self $o, ParseNode $n) { $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)); },
         ]);
     }
 
@@ -69,14 +58,6 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the windowsSettings property value. Represents the Cloud PC organization settings for a tenant. A tenant has only one cloudPcOrganizationSettings object. The default language value en-US.
-     * @return CloudPcWindowsSettings|null
-    */
-    public function getWindowsSettings(): ?CloudPcWindowsSettings {
-        return $this->windowsSettings;
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -84,7 +65,6 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('osVersion', $this->osVersion);
         $writer->writeEnumValue('userAccountType', $this->userAccountType);
-        $writer->writeObjectValue('windowsSettings', $this->windowsSettings);
     }
 
     /**
@@ -101,14 +81,6 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     */
     public function setUserAccountType(?CloudPcUserAccountType $value ): void {
         $this->userAccountType = $value;
-    }
-
-    /**
-     * Sets the windowsSettings property value. Represents the Cloud PC organization settings for a tenant. A tenant has only one cloudPcOrganizationSettings object. The default language value en-US.
-     *  @param CloudPcWindowsSettings|null $value Value to set for the windowsSettings property.
-    */
-    public function setWindowsSettings(?CloudPcWindowsSettings $value ): void {
-        $this->windowsSettings = $value;
     }
 
 }

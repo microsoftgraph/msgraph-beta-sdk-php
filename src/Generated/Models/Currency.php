@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Currency extends Entity implements Parsable 
+class Currency extends Entity 
 {
-    /**
-     * @var string|null $amountDecimalPlaces The amountDecimalPlaces property
-    */
+    /** @var string|null $amountDecimalPlaces The amountDecimalPlaces property */
     private ?string $amountDecimalPlaces = null;
     
-    /**
-     * @var string|null $amountRoundingPrecision The amountRoundingPrecision property
-    */
-    private ?string $amountRoundingPrecision = null;
+    /** @var float|null $amountRoundingPrecision The amountRoundingPrecision property */
+    private ?float $amountRoundingPrecision = null;
     
-    /**
-     * @var string|null $code The code property
-    */
+    /** @var string|null $code The code property */
     private ?string $code = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $symbol The symbol property
-    */
+    /** @var string|null $symbol The symbol property */
     private ?string $symbol = null;
     
     /**
@@ -51,7 +39,7 @@ class Currency extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Currency
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Currency {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Currency {
         return new Currency();
     }
 
@@ -65,9 +53,9 @@ class Currency extends Entity implements Parsable
 
     /**
      * Gets the amountRoundingPrecision property value. The amountRoundingPrecision property
-     * @return string|null
+     * @return float|null
     */
-    public function getAmountRoundingPrecision(): ?string {
+    public function getAmountRoundingPrecision(): ?float {
         return $this->amountRoundingPrecision;
     }
 
@@ -92,14 +80,13 @@ class Currency extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'amountDecimalPlaces' => function (ParseNode $n) use ($o) { $o->setAmountDecimalPlaces($n->getStringValue()); },
-            'amountRoundingPrecision' => function (ParseNode $n) use ($o) { $o->setAmountRoundingPrecision($n->getStringValue()); },
-            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'symbol' => function (ParseNode $n) use ($o) { $o->setSymbol($n->getStringValue()); },
+            'amountDecimalPlaces' => function (self $o, ParseNode $n) { $o->setAmountDecimalPlaces($n->getStringValue()); },
+            'amountRoundingPrecision' => function (self $o, ParseNode $n) { $o->setAmountRoundingPrecision($n->getFloatValue()); },
+            'code' => function (self $o, ParseNode $n) { $o->setCode($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'symbol' => function (self $o, ParseNode $n) { $o->setSymbol($n->getStringValue()); },
         ]);
     }
 
@@ -126,7 +113,7 @@ class Currency extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('amountDecimalPlaces', $this->amountDecimalPlaces);
-        $writer->writeStringValue('amountRoundingPrecision', $this->amountRoundingPrecision);
+        $writer->writeFloatValue('amountRoundingPrecision', $this->amountRoundingPrecision);
         $writer->writeStringValue('code', $this->code);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
@@ -143,9 +130,9 @@ class Currency extends Entity implements Parsable
 
     /**
      * Sets the amountRoundingPrecision property value. The amountRoundingPrecision property
-     *  @param string|null $value Value to set for the amountRoundingPrecision property.
+     *  @param float|null $value Value to set for the amountRoundingPrecision property.
     */
-    public function setAmountRoundingPrecision(?string $value ): void {
+    public function setAmountRoundingPrecision(?float $value ): void {
         $this->amountRoundingPrecision = $value;
     }
 

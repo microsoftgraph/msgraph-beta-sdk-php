@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GovernanceNotificationPolicy implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<string>|null $enabledTemplateTypes The enabledTemplateTypes property
-    */
+    /** @var array<string>|null $enabledTemplateTypes The enabledTemplateTypes property */
     private ?array $enabledTemplateTypes = null;
     
-    /**
-     * @var array<GovernanceNotificationTemplate>|null $notificationTemplates The notificationTemplates property
-    */
+    /** @var array<GovernanceNotificationTemplate>|null $notificationTemplates The notificationTemplates property */
     private ?array $notificationTemplates = null;
     
     /**
@@ -36,7 +30,7 @@ class GovernanceNotificationPolicy implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernanceNotificationPolicy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceNotificationPolicy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceNotificationPolicy {
         return new GovernanceNotificationPolicy();
     }
 
@@ -61,10 +55,9 @@ class GovernanceNotificationPolicy implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'enabledTemplateTypes' => function (ParseNode $n) use ($o) { $o->setEnabledTemplateTypes($n->getCollectionOfPrimitiveValues()); },
-            'notificationTemplates' => function (ParseNode $n) use ($o) { $o->setNotificationTemplates($n->getCollectionOfObjectValues(array(GovernanceNotificationTemplate::class, 'createFromDiscriminatorValue'))); },
+            'enabledTemplateTypes' => function (self $o, ParseNode $n) { $o->setEnabledTemplateTypes($n->getCollectionOfPrimitiveValues()); },
+            'notificationTemplates' => function (self $o, ParseNode $n) { $o->setNotificationTemplates($n->getCollectionOfObjectValues(GovernanceNotificationTemplate::class)); },
         ];
     }
 

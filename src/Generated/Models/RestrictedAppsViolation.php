@@ -6,51 +6,33 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RestrictedAppsViolation extends Entity implements Parsable 
+class RestrictedAppsViolation extends Entity 
 {
-    /**
-     * @var string|null $deviceConfigurationId Device configuration profile unique identifier, must be Guid
-    */
+    /** @var string|null $deviceConfigurationId Device configuration profile unique identifier, must be Guid */
     private ?string $deviceConfigurationId = null;
     
-    /**
-     * @var string|null $deviceConfigurationName Device configuration profile name
-    */
+    /** @var string|null $deviceConfigurationName Device configuration profile name */
     private ?string $deviceConfigurationName = null;
     
-    /**
-     * @var string|null $deviceName Device name
-    */
+    /** @var string|null $deviceName Device name */
     private ?string $deviceName = null;
     
-    /**
-     * @var string|null $managedDeviceId Managed device unique identifier, must be Guid
-    */
+    /** @var string|null $managedDeviceId Managed device unique identifier, must be Guid */
     private ?string $managedDeviceId = null;
     
-    /**
-     * @var PolicyPlatformType|null $platformType Platform type. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
-    */
+    /** @var PolicyPlatformType|null $platformType Platform type. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all. */
     private ?PolicyPlatformType $platformType = null;
     
-    /**
-     * @var array<ManagedDeviceReportedApp>|null $restrictedApps List of violated restricted apps
-    */
+    /** @var array<ManagedDeviceReportedApp>|null $restrictedApps List of violated restricted apps */
     private ?array $restrictedApps = null;
     
-    /**
-     * @var RestrictedAppsState|null $restrictedAppsState Restricted apps state. Possible values are: prohibitedApps, notApprovedApps.
-    */
+    /** @var RestrictedAppsState|null $restrictedAppsState Restricted apps state. Possible values are: prohibitedApps, notApprovedApps. */
     private ?RestrictedAppsState $restrictedAppsState = null;
     
-    /**
-     * @var string|null $userId User unique identifier, must be Guid
-    */
+    /** @var string|null $userId User unique identifier, must be Guid */
     private ?string $userId = null;
     
-    /**
-     * @var string|null $userName User name
-    */
+    /** @var string|null $userName User name */
     private ?string $userName = null;
     
     /**
@@ -65,7 +47,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RestrictedAppsViolation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): RestrictedAppsViolation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): RestrictedAppsViolation {
         return new RestrictedAppsViolation();
     }
 
@@ -98,17 +80,16 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceConfigurationId' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationId($n->getStringValue()); },
-            'deviceConfigurationName' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationName($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'platformType' => function (ParseNode $n) use ($o) { $o->setPlatformType($n->getEnumValue(PolicyPlatformType::class)); },
-            'restrictedApps' => function (ParseNode $n) use ($o) { $o->setRestrictedApps($n->getCollectionOfObjectValues(array(ManagedDeviceReportedApp::class, 'createFromDiscriminatorValue'))); },
-            'restrictedAppsState' => function (ParseNode $n) use ($o) { $o->setRestrictedAppsState($n->getEnumValue(RestrictedAppsState::class)); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'deviceConfigurationId' => function (self $o, ParseNode $n) { $o->setDeviceConfigurationId($n->getStringValue()); },
+            'deviceConfigurationName' => function (self $o, ParseNode $n) { $o->setDeviceConfigurationName($n->getStringValue()); },
+            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
+            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
+            'platformType' => function (self $o, ParseNode $n) { $o->setPlatformType($n->getEnumValue(PolicyPlatformType::class)); },
+            'restrictedApps' => function (self $o, ParseNode $n) { $o->setRestrictedApps($n->getCollectionOfObjectValues(ManagedDeviceReportedApp::class)); },
+            'restrictedAppsState' => function (self $o, ParseNode $n) { $o->setRestrictedAppsState($n->getEnumValue(RestrictedAppsState::class)); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
+            'userName' => function (self $o, ParseNode $n) { $o->setUserName($n->getStringValue()); },
         ]);
     }
 

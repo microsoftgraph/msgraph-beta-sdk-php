@@ -10,24 +10,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ItemActivityTimeSet implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $lastRecordedDateTime The lastRecordedDateTime property
-    */
+    /** @var DateTime|null $lastRecordedDateTime The lastRecordedDateTime property */
     private ?DateTime $lastRecordedDateTime = null;
     
-    /**
-     * @var DateTime|null $observedDateTime When the activity was observed to take place.
-    */
+    /** @var DateTime|null $observedDateTime When the activity was observed to take place. */
     private ?DateTime $observedDateTime = null;
     
-    /**
-     * @var DateTime|null $recordedDateTime When the observation was recorded on the service.
-    */
+    /** @var DateTime|null $recordedDateTime When the observation was recorded on the service. */
     private ?DateTime $recordedDateTime = null;
     
     /**
@@ -42,7 +34,7 @@ class ItemActivityTimeSet implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ItemActivityTimeSet
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ItemActivityTimeSet {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ItemActivityTimeSet {
         return new ItemActivityTimeSet();
     }
 
@@ -59,11 +51,10 @@ class ItemActivityTimeSet implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'lastRecordedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRecordedDateTime($n->getDateTimeValue()); },
-            'observedDateTime' => function (ParseNode $n) use ($o) { $o->setObservedDateTime($n->getDateTimeValue()); },
-            'recordedDateTime' => function (ParseNode $n) use ($o) { $o->setRecordedDateTime($n->getDateTimeValue()); },
+            'lastRecordedDateTime' => function (self $o, ParseNode $n) { $o->setLastRecordedDateTime($n->getDateTimeValue()); },
+            'observedDateTime' => function (self $o, ParseNode $n) { $o->setObservedDateTime($n->getDateTimeValue()); },
+            'recordedDateTime' => function (self $o, ParseNode $n) { $o->setRecordedDateTime($n->getDateTimeValue()); },
         ];
     }
 

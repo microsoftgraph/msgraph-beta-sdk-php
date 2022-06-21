@@ -6,61 +6,39 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementConfigurationCategory extends Entity implements Parsable 
+class DeviceManagementConfigurationCategory extends Entity 
 {
-    /**
-     * @var string|null $categoryDescription Description of the category header
-    */
+    /** @var string|null $categoryDescription Description of the category header */
     private ?string $categoryDescription = null;
     
-    /**
-     * @var array<string>|null $childCategoryIds List of child ids of the category.
-    */
+    /** @var array<string>|null $childCategoryIds List of child ids of the category. */
     private ?array $childCategoryIds = null;
     
-    /**
-     * @var string|null $description Description of the item
-    */
+    /** @var string|null $description Description of the item */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Display name of the item
-    */
+    /** @var string|null $displayName Display name of the item */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $helpText Help text of the item
-    */
+    /** @var string|null $helpText Help text of the item */
     private ?string $helpText = null;
     
-    /**
-     * @var string|null $name Name of the item
-    */
+    /** @var string|null $name Name of the item */
     private ?string $name = null;
     
-    /**
-     * @var string|null $parentCategoryId Parent id of the category.
-    */
+    /** @var string|null $parentCategoryId Parent id of the category. */
     private ?string $parentCategoryId = null;
     
-    /**
-     * @var DeviceManagementConfigurationPlatforms|null $platforms Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
-    */
+    /** @var DeviceManagementConfigurationPlatforms|null $platforms Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue. */
     private ?DeviceManagementConfigurationPlatforms $platforms = null;
     
-    /**
-     * @var string|null $rootCategoryId Root id of the category.
-    */
+    /** @var string|null $rootCategoryId Root id of the category. */
     private ?string $rootCategoryId = null;
     
-    /**
-     * @var DeviceManagementConfigurationSettingUsage|null $settingUsage Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.
-    */
+    /** @var DeviceManagementConfigurationSettingUsage|null $settingUsage Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance. */
     private ?DeviceManagementConfigurationSettingUsage $settingUsage = null;
     
-    /**
-     * @var DeviceManagementConfigurationTechnologies|null $technologies Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
-    */
+    /** @var DeviceManagementConfigurationTechnologies|null $technologies Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue. */
     private ?DeviceManagementConfigurationTechnologies $technologies = null;
     
     /**
@@ -75,7 +53,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationCategory
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationCategory {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationCategory {
         return new DeviceManagementConfigurationCategory();
     }
 
@@ -116,19 +94,18 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categoryDescription' => function (ParseNode $n) use ($o) { $o->setCategoryDescription($n->getStringValue()); },
-            'childCategoryIds' => function (ParseNode $n) use ($o) { $o->setChildCategoryIds($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'helpText' => function (ParseNode $n) use ($o) { $o->setHelpText($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'parentCategoryId' => function (ParseNode $n) use ($o) { $o->setParentCategoryId($n->getStringValue()); },
-            'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
-            'rootCategoryId' => function (ParseNode $n) use ($o) { $o->setRootCategoryId($n->getStringValue()); },
-            'settingUsage' => function (ParseNode $n) use ($o) { $o->setSettingUsage($n->getEnumValue(DeviceManagementConfigurationSettingUsage::class)); },
-            'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
+            'categoryDescription' => function (self $o, ParseNode $n) { $o->setCategoryDescription($n->getStringValue()); },
+            'childCategoryIds' => function (self $o, ParseNode $n) { $o->setChildCategoryIds($n->getCollectionOfPrimitiveValues()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'helpText' => function (self $o, ParseNode $n) { $o->setHelpText($n->getStringValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'parentCategoryId' => function (self $o, ParseNode $n) { $o->setParentCategoryId($n->getStringValue()); },
+            'platforms' => function (self $o, ParseNode $n) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
+            'rootCategoryId' => function (self $o, ParseNode $n) { $o->setRootCategoryId($n->getStringValue()); },
+            'settingUsage' => function (self $o, ParseNode $n) { $o->setSettingUsage($n->getEnumValue(DeviceManagementConfigurationSettingUsage::class)); },
+            'technologies' => function (self $o, ParseNode $n) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
         ]);
     }
 
@@ -181,7 +158,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the technologies property value. Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Gets the technologies property value. Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
@@ -288,7 +265,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the technologies property value. Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Sets the technologies property value. Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
      *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value ): void {

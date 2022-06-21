@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementScriptRunSummary extends Entity implements Parsable 
+class DeviceManagementScriptRunSummary extends Entity 
 {
-    /**
-     * @var int|null $errorDeviceCount Error device count.
-    */
+    /** @var int|null $errorDeviceCount Error device count. */
     private ?int $errorDeviceCount = null;
     
-    /**
-     * @var int|null $errorUserCount Error user count.
-    */
+    /** @var int|null $errorUserCount Error user count. */
     private ?int $errorUserCount = null;
     
-    /**
-     * @var int|null $successDeviceCount Success device count.
-    */
+    /** @var int|null $successDeviceCount Success device count. */
     private ?int $successDeviceCount = null;
     
-    /**
-     * @var int|null $successUserCount Success user count.
-    */
+    /** @var int|null $successUserCount Success user count. */
     private ?int $successUserCount = null;
     
     /**
@@ -40,7 +32,7 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementScriptRunSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementScriptRunSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementScriptRunSummary {
         return new DeviceManagementScriptRunSummary();
     }
 
@@ -65,12 +57,11 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'errorDeviceCount' => function (ParseNode $n) use ($o) { $o->setErrorDeviceCount($n->getIntegerValue()); },
-            'errorUserCount' => function (ParseNode $n) use ($o) { $o->setErrorUserCount($n->getIntegerValue()); },
-            'successDeviceCount' => function (ParseNode $n) use ($o) { $o->setSuccessDeviceCount($n->getIntegerValue()); },
-            'successUserCount' => function (ParseNode $n) use ($o) { $o->setSuccessUserCount($n->getIntegerValue()); },
+            'errorDeviceCount' => function (self $o, ParseNode $n) { $o->setErrorDeviceCount($n->getIntegerValue()); },
+            'errorUserCount' => function (self $o, ParseNode $n) { $o->setErrorUserCount($n->getIntegerValue()); },
+            'successDeviceCount' => function (self $o, ParseNode $n) { $o->setSuccessDeviceCount($n->getIntegerValue()); },
+            'successUserCount' => function (self $o, ParseNode $n) { $o->setSuccessUserCount($n->getIntegerValue()); },
         ]);
     }
 

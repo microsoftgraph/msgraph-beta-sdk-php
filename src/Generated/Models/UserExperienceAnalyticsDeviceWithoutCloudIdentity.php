@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implements Parsable 
+class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity 
 {
-    /**
-     * @var string|null $azureAdDeviceId Azure Active Directory Device Id
-    */
+    /** @var string|null $azureAdDeviceId Azure Active Directory Device Id */
     private ?string $azureAdDeviceId = null;
     
-    /**
-     * @var string|null $deviceName The tenant attach device's name.
-    */
+    /** @var string|null $deviceName The tenant attach device's name. */
     private ?string $deviceName = null;
     
     /**
@@ -30,7 +26,7 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implement
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsDeviceWithoutCloudIdentity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsDeviceWithoutCloudIdentity {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsDeviceWithoutCloudIdentity {
         return new UserExperienceAnalyticsDeviceWithoutCloudIdentity();
     }
 
@@ -55,10 +51,9 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implement
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureAdDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureAdDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
+            'azureAdDeviceId' => function (self $o, ParseNode $n) { $o->setAzureAdDeviceId($n->getStringValue()); },
+            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
         ]);
     }
 

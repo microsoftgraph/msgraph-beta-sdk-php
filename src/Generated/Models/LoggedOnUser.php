@@ -10,19 +10,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class LoggedOnUser implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $lastLogOnDateTime Date time when user logs on
-    */
+    /** @var DateTime|null $lastLogOnDateTime Date time when user logs on */
     private ?DateTime $lastLogOnDateTime = null;
     
-    /**
-     * @var string|null $userId User id
-    */
+    /** @var string|null $userId User id */
     private ?string $userId = null;
     
     /**
@@ -37,7 +31,7 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LoggedOnUser
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): LoggedOnUser {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): LoggedOnUser {
         return new LoggedOnUser();
     }
 
@@ -54,10 +48,9 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'lastLogOnDateTime' => function (ParseNode $n) use ($o) { $o->setLastLogOnDateTime($n->getDateTimeValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'lastLogOnDateTime' => function (self $o, ParseNode $n) { $o->setLastLogOnDateTime($n->getDateTimeValue()); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
         ];
     }
 

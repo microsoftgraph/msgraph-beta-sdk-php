@@ -10,44 +10,28 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class LogonUser implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var string|null $accountDomain Domain of user account used to logon.
-    */
+    /** @var string|null $accountDomain Domain of user account used to logon. */
     private ?string $accountDomain = null;
     
-    /**
-     * @var string|null $accountName Account name of user account used to logon.
-    */
+    /** @var string|null $accountName Account name of user account used to logon. */
     private ?string $accountName = null;
     
-    /**
-     * @var UserAccountSecurityType|null $accountType User Account type, per Windows definition. Possible values are: unknown, standard, power, administrator.
-    */
+    /** @var UserAccountSecurityType|null $accountType User Account type, per Windows definition. Possible values are: unknown, standard, power, administrator. */
     private ?UserAccountSecurityType $accountType = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $firstSeenDateTime DateTime at which the earliest logon by this user account occurred (provider-determined period). The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $firstSeenDateTime DateTime at which the earliest logon by this user account occurred (provider-determined period). The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $firstSeenDateTime = null;
     
-    /**
-     * @var DateTime|null $lastSeenDateTime DateTime at which the latest logon by this user account occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $lastSeenDateTime DateTime at which the latest logon by this user account occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $lastSeenDateTime = null;
     
-    /**
-     * @var string|null $logonId User logon ID.
-    */
+    /** @var string|null $logonId User logon ID. */
     private ?string $logonId = null;
     
-    /**
-     * @var array<string>|null $logonTypes Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-    */
+    /** @var array<LogonType>|null $logonTypes Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service. */
     private ?array $logonTypes = null;
     
     /**
@@ -62,7 +46,7 @@ class LogonUser implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LogonUser
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): LogonUser {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): LogonUser {
         return new LogonUser();
     }
 
@@ -103,15 +87,14 @@ class LogonUser implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'accountDomain' => function (ParseNode $n) use ($o) { $o->setAccountDomain($n->getStringValue()); },
-            'accountName' => function (ParseNode $n) use ($o) { $o->setAccountName($n->getStringValue()); },
-            'accountType' => function (ParseNode $n) use ($o) { $o->setAccountType($n->getEnumValue(UserAccountSecurityType::class)); },
-            'firstSeenDateTime' => function (ParseNode $n) use ($o) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
-            'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
-            'logonId' => function (ParseNode $n) use ($o) { $o->setLogonId($n->getStringValue()); },
-            'logonTypes' => function (ParseNode $n) use ($o) { $o->setLogonTypes($n->getCollectionOfPrimitiveValues()); },
+            'accountDomain' => function (self $o, ParseNode $n) { $o->setAccountDomain($n->getStringValue()); },
+            'accountName' => function (self $o, ParseNode $n) { $o->setAccountName($n->getStringValue()); },
+            'accountType' => function (self $o, ParseNode $n) { $o->setAccountType($n->getEnumValue(UserAccountSecurityType::class)); },
+            'firstSeenDateTime' => function (self $o, ParseNode $n) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
+            'lastSeenDateTime' => function (self $o, ParseNode $n) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
+            'logonId' => function (self $o, ParseNode $n) { $o->setLogonId($n->getStringValue()); },
+            'logonTypes' => function (self $o, ParseNode $n) { $o->setLogonTypes($n->getCollectionOfEnumValues(LogonType::class)); },
         ];
     }
 
@@ -141,7 +124,7 @@ class LogonUser implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-     * @return array<string>|null
+     * @return array<LogonType>|null
     */
     public function getLogonTypes(): ?array {
         return $this->logonTypes;
@@ -158,7 +141,7 @@ class LogonUser implements AdditionalDataHolder, Parsable
         $writer->writeDateTimeValue('firstSeenDateTime', $this->firstSeenDateTime);
         $writer->writeDateTimeValue('lastSeenDateTime', $this->lastSeenDateTime);
         $writer->writeStringValue('logonId', $this->logonId);
-        $writer->writeCollectionOfPrimitiveValues('logonTypes', $this->logonTypes);
+        $writer->writeCollectionOfEnumValues('logonTypes', $this->logonTypes);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -220,7 +203,7 @@ class LogonUser implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-     *  @param array<string>|null $value Value to set for the logonTypes property.
+     *  @param array<LogonType>|null $value Value to set for the logonTypes property.
     */
     public function setLogonTypes(?array $value ): void {
         $this->logonTypes = $value;

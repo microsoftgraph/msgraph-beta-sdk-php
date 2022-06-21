@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SettingTemplateValue implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $defaultValue Default value for the setting. Read-only.
-    */
+    /** @var string|null $defaultValue Default value for the setting. */
     private ?string $defaultValue = null;
     
-    /**
-     * @var string|null $description Description of the setting. Read-only.
-    */
+    /** @var string|null $description Description of the setting. */
     private ?string $description = null;
     
-    /**
-     * @var string|null $name Name of the setting. Read-only.
-    */
+    /** @var string|null $name Name of the setting. */
     private ?string $name = null;
     
-    /**
-     * @var string|null $type Type of the setting. Read-only.
-    */
+    /** @var string|null $type Type of the setting. */
     private ?string $type = null;
     
     /**
@@ -46,7 +36,7 @@ class SettingTemplateValue implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SettingTemplateValue
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SettingTemplateValue {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SettingTemplateValue {
         return new SettingTemplateValue();
     }
 
@@ -59,7 +49,7 @@ class SettingTemplateValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the defaultValue property value. Default value for the setting. Read-only.
+     * Gets the defaultValue property value. Default value for the setting.
      * @return string|null
     */
     public function getDefaultValue(): ?string {
@@ -67,7 +57,7 @@ class SettingTemplateValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the description property value. Description of the setting. Read-only.
+     * Gets the description property value. Description of the setting.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -79,17 +69,16 @@ class SettingTemplateValue implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'defaultValue' => function (self $o, ParseNode $n) { $o->setDefaultValue($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the name property value. Name of the setting. Read-only.
+     * Gets the name property value. Name of the setting.
      * @return string|null
     */
     public function getName(): ?string {
@@ -97,7 +86,7 @@ class SettingTemplateValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the type property value. Type of the setting. Read-only.
+     * Gets the type property value. Type of the setting.
      * @return string|null
     */
     public function getType(): ?string {
@@ -125,7 +114,7 @@ class SettingTemplateValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the defaultValue property value. Default value for the setting. Read-only.
+     * Sets the defaultValue property value. Default value for the setting.
      *  @param string|null $value Value to set for the defaultValue property.
     */
     public function setDefaultValue(?string $value ): void {
@@ -133,7 +122,7 @@ class SettingTemplateValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the description property value. Description of the setting. Read-only.
+     * Sets the description property value. Description of the setting.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -141,7 +130,7 @@ class SettingTemplateValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the name property value. Name of the setting. Read-only.
+     * Sets the name property value. Name of the setting.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {
@@ -149,7 +138,7 @@ class SettingTemplateValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the type property value. Type of the setting. Read-only.
+     * Sets the type property value. Type of the setting.
      *  @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value ): void {

@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ResultTemplateDictionary extends Dictionary implements Parsable 
+class ResultTemplateDictionary extends Dictionary 
 {
     /**
      * Instantiates a new resultTemplateDictionary and sets the default values.
@@ -20,7 +20,7 @@ class ResultTemplateDictionary extends Dictionary implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ResultTemplateDictionary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ResultTemplateDictionary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ResultTemplateDictionary {
         return new ResultTemplateDictionary();
     }
 
@@ -29,7 +29,6 @@ class ResultTemplateDictionary extends Dictionary implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

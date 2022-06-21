@@ -6,71 +6,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable 
+class UserExperienceAnalyticsRemoteConnection extends Entity 
 {
-    /**
-     * @var float|null $cloudPcFailurePercentage The sign in failure percentage of Cloud PC Device. Valid values 0 to 100
-    */
+    /** @var float|null $cloudPcFailurePercentage The sign in failure percentage of Cloud PC Device. Valid values 0 to 100 */
     private ?float $cloudPcFailurePercentage = null;
     
-    /**
-     * @var float|null $cloudPcRoundTripTime The round tip time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-    */
+    /** @var float|null $cloudPcRoundTripTime The round tip time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308 */
     private ?float $cloudPcRoundTripTime = null;
     
-    /**
-     * @var float|null $cloudPcSignInTime The sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-    */
+    /** @var float|null $cloudPcSignInTime The sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308 */
     private ?float $cloudPcSignInTime = null;
     
-    /**
-     * @var float|null $coreBootTime The core boot time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-    */
+    /** @var float|null $coreBootTime The core boot time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308 */
     private ?float $coreBootTime = null;
     
-    /**
-     * @var float|null $coreSignInTime The core sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-    */
+    /** @var float|null $coreSignInTime The core sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308 */
     private ?float $coreSignInTime = null;
     
-    /**
-     * @var int|null $deviceCount The count of remote connection. Valid values 0 to 2147483647
-    */
+    /** @var int|null $deviceCount The count of remote connection. Valid values 0 to 2147483647 */
     private ?int $deviceCount = null;
     
-    /**
-     * @var string|null $deviceId The id of the device.
-    */
+    /** @var string|null $deviceId The id of the device. */
     private ?string $deviceId = null;
     
-    /**
-     * @var string|null $deviceName The name of the device.
-    */
+    /** @var string|null $deviceName The name of the device. */
     private ?string $deviceName = null;
     
-    /**
-     * @var string|null $manufacturer The user experience analytics manufacturer.
-    */
+    /** @var string|null $manufacturer The user experience analytics manufacturer. */
     private ?string $manufacturer = null;
     
-    /**
-     * @var string|null $model The user experience analytics device model.
-    */
+    /** @var string|null $model The user experience analytics device model. */
     private ?string $model = null;
     
-    /**
-     * @var float|null $remoteSignInTime The remote sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-    */
+    /** @var float|null $remoteSignInTime The remote sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308 */
     private ?float $remoteSignInTime = null;
     
-    /**
-     * @var string|null $userPrincipalName The user experience analytics userPrincipalName.
-    */
+    /** @var string|null $userPrincipalName The user experience analytics userPrincipalName. */
     private ?string $userPrincipalName = null;
     
-    /**
-     * @var string|null $virtualNetwork The user experience analytics virtual network.
-    */
+    /** @var string|null $virtualNetwork The user experience analytics virtual network. */
     private ?string $virtualNetwork = null;
     
     /**
@@ -85,7 +59,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsRemoteConnection
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsRemoteConnection {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsRemoteConnection {
         return new UserExperienceAnalyticsRemoteConnection();
     }
 
@@ -158,21 +132,20 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cloudPcFailurePercentage' => function (ParseNode $n) use ($o) { $o->setCloudPcFailurePercentage($n->getFloatValue()); },
-            'cloudPcRoundTripTime' => function (ParseNode $n) use ($o) { $o->setCloudPcRoundTripTime($n->getFloatValue()); },
-            'cloudPcSignInTime' => function (ParseNode $n) use ($o) { $o->setCloudPcSignInTime($n->getFloatValue()); },
-            'coreBootTime' => function (ParseNode $n) use ($o) { $o->setCoreBootTime($n->getFloatValue()); },
-            'coreSignInTime' => function (ParseNode $n) use ($o) { $o->setCoreSignInTime($n->getFloatValue()); },
-            'deviceCount' => function (ParseNode $n) use ($o) { $o->setDeviceCount($n->getIntegerValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'remoteSignInTime' => function (ParseNode $n) use ($o) { $o->setRemoteSignInTime($n->getFloatValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
-            'virtualNetwork' => function (ParseNode $n) use ($o) { $o->setVirtualNetwork($n->getStringValue()); },
+            'cloudPcFailurePercentage' => function (self $o, ParseNode $n) { $o->setCloudPcFailurePercentage($n->getFloatValue()); },
+            'cloudPcRoundTripTime' => function (self $o, ParseNode $n) { $o->setCloudPcRoundTripTime($n->getFloatValue()); },
+            'cloudPcSignInTime' => function (self $o, ParseNode $n) { $o->setCloudPcSignInTime($n->getFloatValue()); },
+            'coreBootTime' => function (self $o, ParseNode $n) { $o->setCoreBootTime($n->getFloatValue()); },
+            'coreSignInTime' => function (self $o, ParseNode $n) { $o->setCoreSignInTime($n->getFloatValue()); },
+            'deviceCount' => function (self $o, ParseNode $n) { $o->setDeviceCount($n->getIntegerValue()); },
+            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
+            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
+            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
+            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
+            'remoteSignInTime' => function (self $o, ParseNode $n) { $o->setRemoteSignInTime($n->getFloatValue()); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'virtualNetwork' => function (self $o, ParseNode $n) { $o->setVirtualNetwork($n->getStringValue()); },
         ]);
     }
 

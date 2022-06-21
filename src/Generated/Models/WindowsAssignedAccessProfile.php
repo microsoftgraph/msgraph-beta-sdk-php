@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class WindowsAssignedAccessProfile extends Entity implements Parsable 
+class WindowsAssignedAccessProfile extends Entity 
 {
-    /**
-     * @var array<string>|null $appUserModelIds These are the only Windows Store Apps that will be available to launch from the Start menu.
-    */
+    /** @var array<string>|null $appUserModelIds These are the only Windows Store Apps that will be available to launch from the Start menu. */
     private ?array $appUserModelIds = null;
     
-    /**
-     * @var array<string>|null $desktopAppPaths These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch.
-    */
+    /** @var array<string>|null $desktopAppPaths These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch. */
     private ?array $desktopAppPaths = null;
     
-    /**
-     * @var string|null $profileName This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
-    */
+    /** @var string|null $profileName This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned. */
     private ?string $profileName = null;
     
-    /**
-     * @var bool|null $showTaskBar This setting allows the admin to specify whether the Task Bar is shown or not.
-    */
+    /** @var bool|null $showTaskBar This setting allows the admin to specify whether the Task Bar is shown or not. */
     private ?bool $showTaskBar = null;
     
-    /**
-     * @var StreamInterface|null $startMenuLayoutXml Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-    */
+    /** @var StreamInterface|null $startMenuLayoutXml Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format. */
     private ?StreamInterface $startMenuLayoutXml = null;
     
-    /**
-     * @var array<string>|null $userAccounts The user accounts that will be locked to this kiosk configuration.
-    */
+    /** @var array<string>|null $userAccounts The user accounts that will be locked to this kiosk configuration. */
     private ?array $userAccounts = null;
     
     /**
@@ -51,7 +39,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsAssignedAccessProfile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsAssignedAccessProfile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsAssignedAccessProfile {
         return new WindowsAssignedAccessProfile();
     }
 
@@ -76,14 +64,13 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appUserModelIds' => function (ParseNode $n) use ($o) { $o->setAppUserModelIds($n->getCollectionOfPrimitiveValues()); },
-            'desktopAppPaths' => function (ParseNode $n) use ($o) { $o->setDesktopAppPaths($n->getCollectionOfPrimitiveValues()); },
-            'profileName' => function (ParseNode $n) use ($o) { $o->setProfileName($n->getStringValue()); },
-            'showTaskBar' => function (ParseNode $n) use ($o) { $o->setShowTaskBar($n->getBooleanValue()); },
-            'startMenuLayoutXml' => function (ParseNode $n) use ($o) { $o->setStartMenuLayoutXml($n->getBinaryContent()); },
-            'userAccounts' => function (ParseNode $n) use ($o) { $o->setUserAccounts($n->getCollectionOfPrimitiveValues()); },
+            'appUserModelIds' => function (self $o, ParseNode $n) { $o->setAppUserModelIds($n->getCollectionOfPrimitiveValues()); },
+            'desktopAppPaths' => function (self $o, ParseNode $n) { $o->setDesktopAppPaths($n->getCollectionOfPrimitiveValues()); },
+            'profileName' => function (self $o, ParseNode $n) { $o->setProfileName($n->getStringValue()); },
+            'showTaskBar' => function (self $o, ParseNode $n) { $o->setShowTaskBar($n->getBooleanValue()); },
+            'startMenuLayoutXml' => function (self $o, ParseNode $n) { $o->setStartMenuLayoutXml($n->getBinaryContent()); },
+            'userAccounts' => function (self $o, ParseNode $n) { $o->setUserAccounts($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

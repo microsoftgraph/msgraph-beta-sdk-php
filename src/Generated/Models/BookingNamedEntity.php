@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class BookingNamedEntity extends Entity implements Parsable 
+class BookingNamedEntity extends Entity 
 {
-    /**
-     * @var string|null $displayName A name for the derived entity, which interfaces with customers.
-    */
+    /** @var string|null $displayName A name for the derived entity, which interfaces with customers. */
     private ?string $displayName = null;
     
     /**
@@ -25,16 +23,7 @@ class BookingNamedEntity extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BookingNamedEntity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): BookingNamedEntity {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.bookingBusiness': return new BookingBusiness();
-                case '#microsoft.graph.bookingPerson': return new BookingPerson();
-                case '#microsoft.graph.bookingService': return new BookingService();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): BookingNamedEntity {
         return new BookingNamedEntity();
     }
 
@@ -51,9 +40,8 @@ class BookingNamedEntity extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
         ]);
     }
 

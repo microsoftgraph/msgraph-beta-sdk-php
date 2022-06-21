@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class EducationTeacher implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $externalId Id of the Teacher in external source system.
-    */
+    /** @var string|null $externalId ID of the teacher in the source system. */
     private ?string $externalId = null;
     
-    /**
-     * @var string|null $teacherNumber Teacher number.
-    */
+    /** @var string|null $teacherNumber Teacher number. */
     private ?string $teacherNumber = null;
     
     /**
@@ -36,7 +30,7 @@ class EducationTeacher implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EducationTeacher
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationTeacher {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EducationTeacher {
         return new EducationTeacher();
     }
 
@@ -49,7 +43,7 @@ class EducationTeacher implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the externalId property value. Id of the Teacher in external source system.
+     * Gets the externalId property value. ID of the teacher in the source system.
      * @return string|null
     */
     public function getExternalId(): ?string {
@@ -61,10 +55,9 @@ class EducationTeacher implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
-            'teacherNumber' => function (ParseNode $n) use ($o) { $o->setTeacherNumber($n->getStringValue()); },
+            'externalId' => function (self $o, ParseNode $n) { $o->setExternalId($n->getStringValue()); },
+            'teacherNumber' => function (self $o, ParseNode $n) { $o->setTeacherNumber($n->getStringValue()); },
         ];
     }
 
@@ -95,7 +88,7 @@ class EducationTeacher implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the externalId property value. Id of the Teacher in external source system.
+     * Sets the externalId property value. ID of the teacher in the source system.
      *  @param string|null $value Value to set for the externalId property.
     */
     public function setExternalId(?string $value ): void {

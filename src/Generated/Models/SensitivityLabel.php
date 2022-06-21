@@ -6,71 +6,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SensitivityLabel extends Entity implements Parsable 
+class SensitivityLabel extends Entity 
 {
-    /**
-     * @var SensitivityLabelTarget|null $applicableTo The applicableTo property
-    */
+    /** @var SensitivityLabelTarget|null $applicableTo The applicableTo property */
     private ?SensitivityLabelTarget $applicableTo = null;
     
-    /**
-     * @var ApplicationMode|null $applicationMode The applicationMode property
-    */
+    /** @var ApplicationMode|null $applicationMode The applicationMode property */
     private ?ApplicationMode $applicationMode = null;
     
-    /**
-     * @var array<LabelPolicy>|null $assignedPolicies The assignedPolicies property
-    */
+    /** @var array<LabelPolicy>|null $assignedPolicies The assignedPolicies property */
     private ?array $assignedPolicies = null;
     
-    /**
-     * @var AutoLabeling|null $autoLabeling The autoLabeling property
-    */
+    /** @var AutoLabeling|null $autoLabeling The autoLabeling property */
     private ?AutoLabeling $autoLabeling = null;
     
-    /**
-     * @var string|null $description The description property
-    */
+    /** @var string|null $description The description property */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isDefault The isDefault property
-    */
+    /** @var bool|null $isDefault The isDefault property */
     private ?bool $isDefault = null;
     
-    /**
-     * @var bool|null $isEndpointProtectionEnabled The isEndpointProtectionEnabled property
-    */
+    /** @var bool|null $isEndpointProtectionEnabled The isEndpointProtectionEnabled property */
     private ?bool $isEndpointProtectionEnabled = null;
     
-    /**
-     * @var array<LabelActionBase>|null $labelActions The labelActions property
-    */
+    /** @var array<LabelActionBase>|null $labelActions The labelActions property */
     private ?array $labelActions = null;
     
-    /**
-     * @var string|null $name The name property
-    */
+    /** @var string|null $name The name property */
     private ?string $name = null;
     
-    /**
-     * @var int|null $priority The priority property
-    */
+    /** @var int|null $priority The priority property */
     private ?int $priority = null;
     
-    /**
-     * @var array<SensitivityLabel>|null $sublabels The sublabels property
-    */
+    /** @var array<SensitivityLabel>|null $sublabels The sublabels property */
     private ?array $sublabels = null;
     
-    /**
-     * @var string|null $toolTip The toolTip property
-    */
+    /** @var string|null $toolTip The toolTip property */
     private ?string $toolTip = null;
     
     /**
@@ -85,7 +59,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SensitivityLabel
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SensitivityLabel {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SensitivityLabel {
         return new SensitivityLabel();
     }
 
@@ -142,21 +116,20 @@ class SensitivityLabel extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicableTo' => function (ParseNode $n) use ($o) { $o->setApplicableTo($n->getEnumValue(SensitivityLabelTarget::class)); },
-            'applicationMode' => function (ParseNode $n) use ($o) { $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)); },
-            'assignedPolicies' => function (ParseNode $n) use ($o) { $o->setAssignedPolicies($n->getCollectionOfObjectValues(array(LabelPolicy::class, 'createFromDiscriminatorValue'))); },
-            'autoLabeling' => function (ParseNode $n) use ($o) { $o->setAutoLabeling($n->getObjectValue(array(AutoLabeling::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'isEndpointProtectionEnabled' => function (ParseNode $n) use ($o) { $o->setIsEndpointProtectionEnabled($n->getBooleanValue()); },
-            'labelActions' => function (ParseNode $n) use ($o) { $o->setLabelActions($n->getCollectionOfObjectValues(array(LabelActionBase::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'sublabels' => function (ParseNode $n) use ($o) { $o->setSublabels($n->getCollectionOfObjectValues(array(SensitivityLabel::class, 'createFromDiscriminatorValue'))); },
-            'toolTip' => function (ParseNode $n) use ($o) { $o->setToolTip($n->getStringValue()); },
+            'applicableTo' => function (self $o, ParseNode $n) { $o->setApplicableTo($n->getEnumValue(SensitivityLabelTarget::class)); },
+            'applicationMode' => function (self $o, ParseNode $n) { $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)); },
+            'assignedPolicies' => function (self $o, ParseNode $n) { $o->setAssignedPolicies($n->getCollectionOfObjectValues(LabelPolicy::class)); },
+            'autoLabeling' => function (self $o, ParseNode $n) { $o->setAutoLabeling($n->getObjectValue(AutoLabeling::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isDefault' => function (self $o, ParseNode $n) { $o->setIsDefault($n->getBooleanValue()); },
+            'isEndpointProtectionEnabled' => function (self $o, ParseNode $n) { $o->setIsEndpointProtectionEnabled($n->getBooleanValue()); },
+            'labelActions' => function (self $o, ParseNode $n) { $o->setLabelActions($n->getCollectionOfObjectValues(LabelActionBase::class)); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'priority' => function (self $o, ParseNode $n) { $o->setPriority($n->getIntegerValue()); },
+            'sublabels' => function (self $o, ParseNode $n) { $o->setSublabels($n->getCollectionOfObjectValues(SensitivityLabel::class)); },
+            'toolTip' => function (self $o, ParseNode $n) { $o->setToolTip($n->getStringValue()); },
         ]);
     }
 

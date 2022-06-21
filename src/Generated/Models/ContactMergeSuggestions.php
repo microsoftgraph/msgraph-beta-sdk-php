@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ContactMergeSuggestions extends Entity implements Parsable 
+class ContactMergeSuggestions extends Entity 
 {
-    /**
-     * @var bool|null $isEnabled true if the duplicate contact merge suggestions feature is enabled for the user; false if the feature is disabled. Default value is true.
-    */
+    /** @var bool|null $isEnabled true if the duplicate contact merge suggestions feature is enabled for the user; false if the feature is disabled. Default value is true. */
     private ?bool $isEnabled = null;
     
     /**
@@ -25,7 +23,7 @@ class ContactMergeSuggestions extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ContactMergeSuggestions
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ContactMergeSuggestions {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ContactMergeSuggestions {
         return new ContactMergeSuggestions();
     }
 
@@ -34,9 +32,8 @@ class ContactMergeSuggestions extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
         ]);
     }
 

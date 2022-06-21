@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamGuestSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $allowCreateUpdateChannels If set to true, guests can add and update channels.
-    */
+    /** @var bool|null $allowCreateUpdateChannels If set to true, guests can add and update channels. */
     private ?bool $allowCreateUpdateChannels = null;
     
-    /**
-     * @var bool|null $allowDeleteChannels If set to true, guests can delete channels.
-    */
+    /** @var bool|null $allowDeleteChannels If set to true, guests can delete channels. */
     private ?bool $allowDeleteChannels = null;
     
     /**
@@ -36,7 +30,7 @@ class TeamGuestSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamGuestSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamGuestSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamGuestSettings {
         return new TeamGuestSettings();
     }
 
@@ -69,10 +63,9 @@ class TeamGuestSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'allowCreateUpdateChannels' => function (ParseNode $n) use ($o) { $o->setAllowCreateUpdateChannels($n->getBooleanValue()); },
-            'allowDeleteChannels' => function (ParseNode $n) use ($o) { $o->setAllowDeleteChannels($n->getBooleanValue()); },
+            'allowCreateUpdateChannels' => function (self $o, ParseNode $n) { $o->setAllowCreateUpdateChannels($n->getBooleanValue()); },
+            'allowDeleteChannels' => function (self $o, ParseNode $n) { $o->setAllowDeleteChannels($n->getBooleanValue()); },
         ];
     }
 

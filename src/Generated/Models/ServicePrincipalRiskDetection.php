@@ -7,106 +7,66 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ServicePrincipalRiskDetection extends Entity implements Parsable 
+class ServicePrincipalRiskDetection extends Entity 
 {
-    /**
-     * @var ActivityType|null $activity Indicates the activity type the detected risk is linked to.  The possible values are: signin, unknownFutureValue, servicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: servicePrincipal.
-    */
+    /** @var ActivityType|null $activity Indicates the activity type the detected risk is linked to.  The possible values are: signin, unknownFutureValue, servicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: servicePrincipal. */
     private ?ActivityType $activity = null;
     
-    /**
-     * @var DateTime|null $activityDateTime Date and time when the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $activityDateTime Date and time when the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $activityDateTime = null;
     
-    /**
-     * @var string|null $additionalInfo Additional information associated with the risk detection. This string value is represented as a JSON object with the quotations escaped.
-    */
+    /** @var string|null $additionalInfo Additional information associated with the risk detection. This string value is represented as a JSON object with the quotations escaped. */
     private ?string $additionalInfo = null;
     
-    /**
-     * @var string|null $appId The unique identifier for the associated application.
-    */
+    /** @var string|null $appId The unique identifier for the associated application. */
     private ?string $appId = null;
     
-    /**
-     * @var string|null $correlationId Correlation ID of the sign-in activity associated with the risk detection. This property is null if the risk detection is not associated with a sign-in activity.
-    */
+    /** @var string|null $correlationId Correlation ID of the sign-in activity associated with the risk detection. This property is null if the risk detection is not associated with a sign-in activity. */
     private ?string $correlationId = null;
     
-    /**
-     * @var DateTime|null $detectedDateTime Date and time when the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $detectedDateTime Date and time when the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $detectedDateTime = null;
     
-    /**
-     * @var RiskDetectionTimingType|null $detectionTimingType Timing of the detected risk , whether real-time or offline). The possible values are: notDefined, realtime, nearRealtime, offline, unknownFutureValue.
-    */
+    /** @var RiskDetectionTimingType|null $detectionTimingType Timing of the detected risk , whether real-time or offline). The possible values are: notDefined, realtime, nearRealtime, offline, unknownFutureValue. */
     private ?RiskDetectionTimingType $detectionTimingType = null;
     
-    /**
-     * @var string|null $ipAddress Provides the IP address of the client from where the risk occurred.
-    */
+    /** @var string|null $ipAddress Provides the IP address of the client from where the risk occurred. */
     private ?string $ipAddress = null;
     
-    /**
-     * @var array<string>|null $keyIds The unique identifier (GUID) for the key credential associated with the risk detection.
-    */
+    /** @var array<string>|null $keyIds The unique identifier (GUID) for the key credential associated with the risk detection. */
     private ?array $keyIds = null;
     
-    /**
-     * @var DateTime|null $lastUpdatedDateTime Date and time when the risk detection was last updated.
-    */
+    /** @var DateTime|null $lastUpdatedDateTime Date and time when the risk detection was last updated. */
     private ?DateTime $lastUpdatedDateTime = null;
     
-    /**
-     * @var SignInLocation|null $location Location from where the sign-in was initiated.
-    */
+    /** @var SignInLocation|null $location Location from where the sign-in was initiated. */
     private ?SignInLocation $location = null;
     
-    /**
-     * @var string|null $requestId Request identifier of the sign-in activity associated with the risk detection. This property is null if the risk detection is not associated with a sign-in activity. Supports $filter (eq).
-    */
+    /** @var string|null $requestId Request identifier of the sign-in activity associated with the risk detection. This property is null if the risk detection is not associated with a sign-in activity. Supports $filter (eq). */
     private ?string $requestId = null;
     
-    /**
-     * @var RiskDetail|null $riskDetail Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, hidden, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
-    */
+    /** @var RiskDetail|null $riskDetail Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, hidden, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal. */
     private ?RiskDetail $riskDetail = null;
     
-    /**
-     * @var string|null $riskEventType The type of risk event detected. The possible values are:  investigationsThreatIntelligence, generic, adminConfirmedServicePrincipalCompromised, suspiciousSignins, leakedCredentials, unknownFutureValue. Supports $filter (eq).
-    */
+    /** @var string|null $riskEventType The type of risk event detected. The possible values are:  investigationsThreatIntelligence, generic, adminConfirmedServicePrincipalCompromised, suspiciousSignins, leakedCredentials, unknownFutureValue. Supports $filter (eq). */
     private ?string $riskEventType = null;
     
-    /**
-     * @var RiskLevel|null $riskLevel Level of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: low, medium, high, hidden, none, unknownFutureValue.
-    */
+    /** @var RiskLevel|null $riskLevel Level of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: low, medium, high, hidden, none, unknownFutureValue. */
     private ?RiskLevel $riskLevel = null;
     
-    /**
-     * @var RiskState|null $riskState The state of a detected risky service principal or sign-in activity. The possible values are: none, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
-    */
+    /** @var RiskState|null $riskState The state of a detected risky service principal or sign-in activity. The possible values are: none, dismissed, atRisk, confirmedCompromised, unknownFutureValue. */
     private ?RiskState $riskState = null;
     
-    /**
-     * @var string|null $servicePrincipalDisplayName The display name for the service principal.
-    */
+    /** @var string|null $servicePrincipalDisplayName The display name for the service principal. */
     private ?string $servicePrincipalDisplayName = null;
     
-    /**
-     * @var string|null $servicePrincipalId The unique identifier for the service principal. Supports $filter (eq).
-    */
+    /** @var string|null $servicePrincipalId The unique identifier for the service principal. Supports $filter (eq). */
     private ?string $servicePrincipalId = null;
     
-    /**
-     * @var string|null $source Source of the risk detection. For example, identityProtection.
-    */
+    /** @var string|null $source Source of the risk detection. For example, identityProtection. */
     private ?string $source = null;
     
-    /**
-     * @var TokenIssuerType|null $tokenIssuerType Indicates the type of token issuer for the detected sign-in risk. The possible values are: AzureAD, UnknownFutureValue.
-    */
+    /** @var TokenIssuerType|null $tokenIssuerType Indicates the type of token issuer for the detected sign-in risk. The possible values are: AzureAD, UnknownFutureValue. */
     private ?TokenIssuerType $tokenIssuerType = null;
     
     /**
@@ -121,7 +81,7 @@ class ServicePrincipalRiskDetection extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ServicePrincipalRiskDetection
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ServicePrincipalRiskDetection {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ServicePrincipalRiskDetection {
         return new ServicePrincipalRiskDetection();
     }
 
@@ -186,28 +146,27 @@ class ServicePrincipalRiskDetection extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getEnumValue(ActivityType::class)); },
-            'activityDateTime' => function (ParseNode $n) use ($o) { $o->setActivityDateTime($n->getDateTimeValue()); },
-            'additionalInfo' => function (ParseNode $n) use ($o) { $o->setAdditionalInfo($n->getStringValue()); },
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'correlationId' => function (ParseNode $n) use ($o) { $o->setCorrelationId($n->getStringValue()); },
-            'detectedDateTime' => function (ParseNode $n) use ($o) { $o->setDetectedDateTime($n->getDateTimeValue()); },
-            'detectionTimingType' => function (ParseNode $n) use ($o) { $o->setDetectionTimingType($n->getEnumValue(RiskDetectionTimingType::class)); },
-            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
-            'keyIds' => function (ParseNode $n) use ($o) { $o->setKeyIds($n->getCollectionOfPrimitiveValues()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getObjectValue(array(SignInLocation::class, 'createFromDiscriminatorValue'))); },
-            'requestId' => function (ParseNode $n) use ($o) { $o->setRequestId($n->getStringValue()); },
-            'riskDetail' => function (ParseNode $n) use ($o) { $o->setRiskDetail($n->getEnumValue(RiskDetail::class)); },
-            'riskEventType' => function (ParseNode $n) use ($o) { $o->setRiskEventType($n->getStringValue()); },
-            'riskLevel' => function (ParseNode $n) use ($o) { $o->setRiskLevel($n->getEnumValue(RiskLevel::class)); },
-            'riskState' => function (ParseNode $n) use ($o) { $o->setRiskState($n->getEnumValue(RiskState::class)); },
-            'servicePrincipalDisplayName' => function (ParseNode $n) use ($o) { $o->setServicePrincipalDisplayName($n->getStringValue()); },
-            'servicePrincipalId' => function (ParseNode $n) use ($o) { $o->setServicePrincipalId($n->getStringValue()); },
-            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getStringValue()); },
-            'tokenIssuerType' => function (ParseNode $n) use ($o) { $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)); },
+            'activity' => function (self $o, ParseNode $n) { $o->setActivity($n->getEnumValue(ActivityType::class)); },
+            'activityDateTime' => function (self $o, ParseNode $n) { $o->setActivityDateTime($n->getDateTimeValue()); },
+            'additionalInfo' => function (self $o, ParseNode $n) { $o->setAdditionalInfo($n->getStringValue()); },
+            'appId' => function (self $o, ParseNode $n) { $o->setAppId($n->getStringValue()); },
+            'correlationId' => function (self $o, ParseNode $n) { $o->setCorrelationId($n->getStringValue()); },
+            'detectedDateTime' => function (self $o, ParseNode $n) { $o->setDetectedDateTime($n->getDateTimeValue()); },
+            'detectionTimingType' => function (self $o, ParseNode $n) { $o->setDetectionTimingType($n->getEnumValue(RiskDetectionTimingType::class)); },
+            'ipAddress' => function (self $o, ParseNode $n) { $o->setIpAddress($n->getStringValue()); },
+            'keyIds' => function (self $o, ParseNode $n) { $o->setKeyIds($n->getCollectionOfPrimitiveValues()); },
+            'lastUpdatedDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
+            'location' => function (self $o, ParseNode $n) { $o->setLocation($n->getObjectValue(SignInLocation::class)); },
+            'requestId' => function (self $o, ParseNode $n) { $o->setRequestId($n->getStringValue()); },
+            'riskDetail' => function (self $o, ParseNode $n) { $o->setRiskDetail($n->getEnumValue(RiskDetail::class)); },
+            'riskEventType' => function (self $o, ParseNode $n) { $o->setRiskEventType($n->getStringValue()); },
+            'riskLevel' => function (self $o, ParseNode $n) { $o->setRiskLevel($n->getEnumValue(RiskLevel::class)); },
+            'riskState' => function (self $o, ParseNode $n) { $o->setRiskState($n->getEnumValue(RiskState::class)); },
+            'servicePrincipalDisplayName' => function (self $o, ParseNode $n) { $o->setServicePrincipalDisplayName($n->getStringValue()); },
+            'servicePrincipalId' => function (self $o, ParseNode $n) { $o->setServicePrincipalId($n->getStringValue()); },
+            'source' => function (self $o, ParseNode $n) { $o->setSource($n->getStringValue()); },
+            'tokenIssuerType' => function (self $o, ParseNode $n) { $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)); },
         ]);
     }
 

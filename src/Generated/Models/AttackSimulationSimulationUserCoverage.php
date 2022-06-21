@@ -10,34 +10,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AttackSimulationUser|null $attackSimulationUser User in an attack simulation and training campaign.
-    */
+    /** @var AttackSimulationUser|null $attackSimulationUser User in an attack simulation and training campaign. */
     private ?AttackSimulationUser $attackSimulationUser = null;
     
-    /**
-     * @var int|null $clickCount Number of link clicks in the received payloads by the user in attack simulation and training campaigns.
-    */
+    /** @var int|null $clickCount Number of link clicks in the received payloads by the user in attack simulation and training campaigns. */
     private ?int $clickCount = null;
     
-    /**
-     * @var int|null $compromisedCount Number of compromising actions by the user in attack simulation and training campaigns.
-    */
+    /** @var int|null $compromisedCount Number of compromising actions by the user in attack simulation and training campaigns. */
     private ?int $compromisedCount = null;
     
-    /**
-     * @var DateTime|null $latestSimulationDateTime Date and time of latest attack simulation and training campaign that the user was included in.
-    */
+    /** @var DateTime|null $latestSimulationDateTime Date and time of latest attack simulation and training campaign that the user was included in. */
     private ?DateTime $latestSimulationDateTime = null;
     
-    /**
-     * @var int|null $simulationCount Number of attack simulation and training campaigns that the user was included in.
-    */
+    /** @var int|null $simulationCount Number of attack simulation and training campaigns that the user was included in. */
     private ?int $simulationCount = null;
     
     /**
@@ -52,7 +40,7 @@ class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Pa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AttackSimulationSimulationUserCoverage
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AttackSimulationSimulationUserCoverage {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AttackSimulationSimulationUserCoverage {
         return new AttackSimulationSimulationUserCoverage();
     }
 
@@ -93,13 +81,12 @@ class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Pa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'attackSimulationUser' => function (ParseNode $n) use ($o) { $o->setAttackSimulationUser($n->getObjectValue(array(AttackSimulationUser::class, 'createFromDiscriminatorValue'))); },
-            'clickCount' => function (ParseNode $n) use ($o) { $o->setClickCount($n->getIntegerValue()); },
-            'compromisedCount' => function (ParseNode $n) use ($o) { $o->setCompromisedCount($n->getIntegerValue()); },
-            'latestSimulationDateTime' => function (ParseNode $n) use ($o) { $o->setLatestSimulationDateTime($n->getDateTimeValue()); },
-            'simulationCount' => function (ParseNode $n) use ($o) { $o->setSimulationCount($n->getIntegerValue()); },
+            'attackSimulationUser' => function (self $o, ParseNode $n) { $o->setAttackSimulationUser($n->getObjectValue(AttackSimulationUser::class)); },
+            'clickCount' => function (self $o, ParseNode $n) { $o->setClickCount($n->getIntegerValue()); },
+            'compromisedCount' => function (self $o, ParseNode $n) { $o->setCompromisedCount($n->getIntegerValue()); },
+            'latestSimulationDateTime' => function (self $o, ParseNode $n) { $o->setLatestSimulationDateTime($n->getDateTimeValue()); },
+            'simulationCount' => function (self $o, ParseNode $n) { $o->setSimulationCount($n->getIntegerValue()); },
         ];
     }
 

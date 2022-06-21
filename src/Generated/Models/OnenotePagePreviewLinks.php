@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OnenotePagePreviewLinks implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var ExternalLink|null $previewImageUrl The previewImageUrl property
-    */
+    /** @var ExternalLink|null $previewImageUrl The previewImageUrl property */
     private ?ExternalLink $previewImageUrl = null;
     
     /**
@@ -31,7 +27,7 @@ class OnenotePagePreviewLinks implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OnenotePagePreviewLinks
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OnenotePagePreviewLinks {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OnenotePagePreviewLinks {
         return new OnenotePagePreviewLinks();
     }
 
@@ -48,9 +44,8 @@ class OnenotePagePreviewLinks implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'previewImageUrl' => function (ParseNode $n) use ($o) { $o->setPreviewImageUrl($n->getObjectValue(array(ExternalLink::class, 'createFromDiscriminatorValue'))); },
+            'previewImageUrl' => function (self $o, ParseNode $n) { $o->setPreviewImageUrl($n->getObjectValue(ExternalLink::class)); },
         ];
     }
 

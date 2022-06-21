@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementConfigurationSettingOccurrence implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $maxDeviceOccurrence Maximum times setting can be set on device.
-    */
+    /** @var int|null $maxDeviceOccurrence Maximum times setting can be set on device. */
     private ?int $maxDeviceOccurrence = null;
     
-    /**
-     * @var int|null $minDeviceOccurrence Minimum times setting can be set on device. A MinDeviceOccurrence of 0 means setting is optional
-    */
+    /** @var int|null $minDeviceOccurrence Minimum times setting can be set on device. A MinDeviceOccurrence of 0 means setting is optional */
     private ?int $minDeviceOccurrence = null;
     
     /**
@@ -36,7 +30,7 @@ class DeviceManagementConfigurationSettingOccurrence implements AdditionalDataHo
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationSettingOccurrence
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingOccurrence {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingOccurrence {
         return new DeviceManagementConfigurationSettingOccurrence();
     }
 
@@ -53,10 +47,9 @@ class DeviceManagementConfigurationSettingOccurrence implements AdditionalDataHo
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'maxDeviceOccurrence' => function (ParseNode $n) use ($o) { $o->setMaxDeviceOccurrence($n->getIntegerValue()); },
-            'minDeviceOccurrence' => function (ParseNode $n) use ($o) { $o->setMinDeviceOccurrence($n->getIntegerValue()); },
+            'maxDeviceOccurrence' => function (self $o, ParseNode $n) { $o->setMaxDeviceOccurrence($n->getIntegerValue()); },
+            'minDeviceOccurrence' => function (self $o, ParseNode $n) { $o->setMinDeviceOccurrence($n->getIntegerValue()); },
         ];
     }
 

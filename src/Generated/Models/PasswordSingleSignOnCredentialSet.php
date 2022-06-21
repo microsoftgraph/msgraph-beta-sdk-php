@@ -9,23 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PasswordSingleSignOnCredentialSet implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<Credential>|null $credentials A list of credential objects that define the complete sign in flow.
-    */
+    /** @var array<Credential>|null $credentials A list of credential objects that define the complete sign in flow. */
     private ?array $credentials = null;
     
-    /**
-     * @var string|null $id The ID of the user or group this credential set belongs to.
-    */
+    /** @var string|null $id The ID of the user or group this credential set belongs to. */
     private ?string $id = null;
     
     /**
-     * Instantiates a new PasswordSingleSignOnCredentialSet and sets the default values.
+     * Instantiates a new passwordSingleSignOnCredentialSet and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -36,7 +30,7 @@ class PasswordSingleSignOnCredentialSet implements AdditionalDataHolder, Parsabl
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PasswordSingleSignOnCredentialSet
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PasswordSingleSignOnCredentialSet {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PasswordSingleSignOnCredentialSet {
         return new PasswordSingleSignOnCredentialSet();
     }
 
@@ -61,10 +55,9 @@ class PasswordSingleSignOnCredentialSet implements AdditionalDataHolder, Parsabl
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'credentials' => function (ParseNode $n) use ($o) { $o->setCredentials($n->getCollectionOfObjectValues(array(Credential::class, 'createFromDiscriminatorValue'))); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'credentials' => function (self $o, ParseNode $n) { $o->setCredentials($n->getCollectionOfObjectValues(Credential::class)); },
+            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
         ];
     }
 

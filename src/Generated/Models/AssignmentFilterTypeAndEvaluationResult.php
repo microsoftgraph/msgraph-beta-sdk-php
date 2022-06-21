@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DeviceAndAppManagementAssignmentFilterType|null $assignmentFilterType Represents the filter type. Possible values are: none, include, exclude.
-    */
+    /** @var DeviceAndAppManagementAssignmentFilterType|null $assignmentFilterType Represents the filter type. Possible values are: none, include, exclude. */
     private ?DeviceAndAppManagementAssignmentFilterType $assignmentFilterType = null;
     
-    /**
-     * @var AssignmentFilterEvaluationResult|null $evaluationResult Represents the evalaution result of the filter. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
-    */
+    /** @var AssignmentFilterEvaluationResult|null $evaluationResult Represents the evalaution result of the filter. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated. */
     private ?AssignmentFilterEvaluationResult $evaluationResult = null;
     
     /**
@@ -36,7 +30,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssignmentFilterTypeAndEvaluationResult
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterTypeAndEvaluationResult {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterTypeAndEvaluationResult {
         return new AssignmentFilterTypeAndEvaluationResult();
     }
 
@@ -69,10 +63,9 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'assignmentFilterType' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
-            'evaluationResult' => function (ParseNode $n) use ($o) { $o->setEvaluationResult($n->getEnumValue(AssignmentFilterEvaluationResult::class)); },
+            'assignmentFilterType' => function (self $o, ParseNode $n) { $o->setAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
+            'evaluationResult' => function (self $o, ParseNode $n) { $o->setEvaluationResult($n->getEnumValue(AssignmentFilterEvaluationResult::class)); },
         ];
     }
 

@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $devicesNotAutopilotRegistered The count of intune devices that are not autopilot registerd.
-    */
+    /** @var int|null $devicesNotAutopilotRegistered The count of intune devices that are not autopilot registerd. */
     private ?int $devicesNotAutopilotRegistered = null;
     
-    /**
-     * @var int|null $devicesWithoutAutopilotProfileAssigned The count of intune devices not autopilot profile assigned.
-    */
+    /** @var int|null $devicesWithoutAutopilotProfileAssigned The count of intune devices not autopilot profile assigned. */
     private ?int $devicesWithoutAutopilotProfileAssigned = null;
     
-    /**
-     * @var int|null $totalWindows10DevicesWithoutTenantAttached The count of windows 10 devices that are Intune and Comanaged.
-    */
+    /** @var int|null $totalWindows10DevicesWithoutTenantAttached The count of windows 10 devices that are Intune and Comanaged. */
     private ?int $totalWindows10DevicesWithoutTenantAttached = null;
     
     /**
@@ -41,7 +33,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsAutopilotDevicesSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAutopilotDevicesSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAutopilotDevicesSummary {
         return new UserExperienceAnalyticsAutopilotDevicesSummary();
     }
 
@@ -74,11 +66,10 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'devicesNotAutopilotRegistered' => function (ParseNode $n) use ($o) { $o->setDevicesNotAutopilotRegistered($n->getIntegerValue()); },
-            'devicesWithoutAutopilotProfileAssigned' => function (ParseNode $n) use ($o) { $o->setDevicesWithoutAutopilotProfileAssigned($n->getIntegerValue()); },
-            'totalWindows10DevicesWithoutTenantAttached' => function (ParseNode $n) use ($o) { $o->setTotalWindows10DevicesWithoutTenantAttached($n->getIntegerValue()); },
+            'devicesNotAutopilotRegistered' => function (self $o, ParseNode $n) { $o->setDevicesNotAutopilotRegistered($n->getIntegerValue()); },
+            'devicesWithoutAutopilotProfileAssigned' => function (self $o, ParseNode $n) { $o->setDevicesWithoutAutopilotProfileAssigned($n->getIntegerValue()); },
+            'totalWindows10DevicesWithoutTenantAttached' => function (self $o, ParseNode $n) { $o->setTotalWindows10DevicesWithoutTenantAttached($n->getIntegerValue()); },
         ];
     }
 

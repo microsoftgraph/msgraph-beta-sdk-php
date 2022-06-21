@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AttributeMappingFunctionSchema extends Entity implements Parsable 
+class AttributeMappingFunctionSchema extends Entity 
 {
-    /**
-     * @var array<AttributeMappingParameterSchema>|null $parameters Collection of function parameters.
-    */
+    /** @var array<AttributeMappingParameterSchema>|null $parameters Collection of function parameters. */
     private ?array $parameters = null;
     
     /**
@@ -25,7 +23,7 @@ class AttributeMappingFunctionSchema extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AttributeMappingFunctionSchema
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AttributeMappingFunctionSchema {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AttributeMappingFunctionSchema {
         return new AttributeMappingFunctionSchema();
     }
 
@@ -34,9 +32,8 @@ class AttributeMappingFunctionSchema extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'parameters' => function (ParseNode $n) use ($o) { $o->setParameters($n->getCollectionOfObjectValues(array(AttributeMappingParameterSchema::class, 'createFromDiscriminatorValue'))); },
+            'parameters' => function (self $o, ParseNode $n) { $o->setParameters($n->getCollectionOfObjectValues(AttributeMappingParameterSchema::class)); },
         ]);
     }
 

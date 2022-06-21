@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OnenoteEntityBaseModel extends Entity implements Parsable 
+class OnenoteEntityBaseModel extends Entity 
 {
-    /**
-     * @var string|null $EscapedSelf The endpoint where you can get details about the page. Read-only.
-    */
+    /** @var string|null $EscapedSelf The endpoint where you can get details about the page. Read-only. */
     private ?string $escapedSelf = null;
     
     /**
@@ -25,15 +23,7 @@ class OnenoteEntityBaseModel extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OnenoteEntityBaseModel
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OnenoteEntityBaseModel {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.onenoteEntitySchemaObjectModel': return new OnenoteEntitySchemaObjectModel();
-                case '#microsoft.graph.onenoteResource': return new OnenoteResource();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OnenoteEntityBaseModel {
         return new OnenoteEntityBaseModel();
     }
 
@@ -42,9 +32,8 @@ class OnenoteEntityBaseModel extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'self' => function (ParseNode $n) use ($o) { $o->setSelf($n->getStringValue()); },
+            'self' => function (self $o, ParseNode $n) { $o->setEscapedSelf($n->getStringValue()); },
         ]);
     }
 

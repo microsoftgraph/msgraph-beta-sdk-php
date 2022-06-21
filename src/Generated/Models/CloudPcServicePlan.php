@@ -6,36 +6,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcServicePlan extends Entity implements Parsable 
+class CloudPcServicePlan extends Entity 
 {
-    /**
-     * @var string|null $displayName The name for the service plan. Read-only.
-    */
+    /** @var string|null $displayName The name for the service plan. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var int|null $ramInGB The size of the RAM in GB. Read-only.
-    */
+    /** @var int|null $ramInGB The size of the RAM in GB. Read-only. */
     private ?int $ramInGB = null;
     
-    /**
-     * @var int|null $storageInGB The size of the OS Disk in GB. Read-only.
-    */
+    /** @var int|null $storageInGB The size of the OS Disk in GB. Read-only. */
     private ?int $storageInGB = null;
     
-    /**
-     * @var CloudPcServicePlanType|null $type The type of the service plan. Possible values are: enterprise, business, unknownFutureValue. Read-only.
-    */
+    /** @var CloudPcServicePlanType|null $type The type of the service plan. Possible values are: enterprise, business, unknownFutureValue. Read-only. */
     private ?CloudPcServicePlanType $type = null;
     
-    /**
-     * @var int|null $userProfileInGB The size of the user profile disk in GB. Read-only.
-    */
+    /** @var int|null $userProfileInGB The size of the user profile disk in GB. Read-only. */
     private ?int $userProfileInGB = null;
     
-    /**
-     * @var int|null $vCpuCount The number of vCPUs. Read-only.
-    */
+    /** @var int|null $vCpuCount The number of vCPUs. Read-only. */
     private ?int $vCpuCount = null;
     
     /**
@@ -50,7 +38,7 @@ class CloudPcServicePlan extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcServicePlan
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcServicePlan {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcServicePlan {
         return new CloudPcServicePlan();
     }
 
@@ -67,14 +55,13 @@ class CloudPcServicePlan extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'ramInGB' => function (ParseNode $n) use ($o) { $o->setRamInGB($n->getIntegerValue()); },
-            'storageInGB' => function (ParseNode $n) use ($o) { $o->setStorageInGB($n->getIntegerValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(CloudPcServicePlanType::class)); },
-            'userProfileInGB' => function (ParseNode $n) use ($o) { $o->setUserProfileInGB($n->getIntegerValue()); },
-            'vCpuCount' => function (ParseNode $n) use ($o) { $o->setVCpuCount($n->getIntegerValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'ramInGB' => function (self $o, ParseNode $n) { $o->setRamInGB($n->getIntegerValue()); },
+            'storageInGB' => function (self $o, ParseNode $n) { $o->setStorageInGB($n->getIntegerValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(CloudPcServicePlanType::class)); },
+            'userProfileInGB' => function (self $o, ParseNode $n) { $o->setUserProfileInGB($n->getIntegerValue()); },
+            'vCpuCount' => function (self $o, ParseNode $n) { $o->setVCpuCount($n->getIntegerValue()); },
         ]);
     }
 

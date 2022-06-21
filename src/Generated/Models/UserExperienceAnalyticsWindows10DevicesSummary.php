@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserExperienceAnalyticsWindows10DevicesSummary implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $unsupportedOSversionDeviceCount The count of Windows 10 devices that have unsupported OS versions.
-    */
+    /** @var int|null $unsupportedOSversionDeviceCount The count of Windows 10 devices that have unsupported OS versions. */
     private ?int $unsupportedOSversionDeviceCount = null;
     
     /**
@@ -31,7 +27,7 @@ class UserExperienceAnalyticsWindows10DevicesSummary implements AdditionalDataHo
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsWindows10DevicesSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsWindows10DevicesSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsWindows10DevicesSummary {
         return new UserExperienceAnalyticsWindows10DevicesSummary();
     }
 
@@ -48,9 +44,8 @@ class UserExperienceAnalyticsWindows10DevicesSummary implements AdditionalDataHo
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'unsupportedOSversionDeviceCount' => function (ParseNode $n) use ($o) { $o->setUnsupportedOSversionDeviceCount($n->getIntegerValue()); },
+            'unsupportedOSversionDeviceCount' => function (self $o, ParseNode $n) { $o->setUnsupportedOSversionDeviceCount($n->getIntegerValue()); },
         ];
     }
 

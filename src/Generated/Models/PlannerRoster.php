@@ -6,16 +6,12 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PlannerRoster extends Entity implements Parsable 
+class PlannerRoster extends Entity 
 {
-    /**
-     * @var array<PlannerRosterMember>|null $members Retrieves the members of the plannerRoster.
-    */
+    /** @var array<PlannerRosterMember>|null $members Retrieves the members of the plannerRoster. */
     private ?array $members = null;
     
-    /**
-     * @var array<PlannerPlan>|null $plans Retrieves the plans contained by the plannerRoster.
-    */
+    /** @var array<PlannerPlan>|null $plans Retrieves the plans contained by the plannerRoster. */
     private ?array $plans = null;
     
     /**
@@ -30,7 +26,7 @@ class PlannerRoster extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PlannerRoster
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerRoster {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PlannerRoster {
         return new PlannerRoster();
     }
 
@@ -39,10 +35,9 @@ class PlannerRoster extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfObjectValues(array(PlannerRosterMember::class, 'createFromDiscriminatorValue'))); },
-            'plans' => function (ParseNode $n) use ($o) { $o->setPlans($n->getCollectionOfObjectValues(array(PlannerPlan::class, 'createFromDiscriminatorValue'))); },
+            'members' => function (self $o, ParseNode $n) { $o->setMembers($n->getCollectionOfObjectValues(PlannerRosterMember::class)); },
+            'plans' => function (self $o, ParseNode $n) { $o->setPlans($n->getCollectionOfObjectValues(PlannerPlan::class)); },
         ]);
     }
 

@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MentionsPreview implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isMentioned True if the signed-in user is mentioned in the parent resource instance. Read-only. Supports filter.
-    */
+    /** @var bool|null $isMentioned True if the signed-in user is mentioned in the parent resource instance. Read-only. Supports filter. */
     private ?bool $isMentioned = null;
     
     /**
@@ -31,7 +27,7 @@ class MentionsPreview implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MentionsPreview
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MentionsPreview {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MentionsPreview {
         return new MentionsPreview();
     }
 
@@ -48,9 +44,8 @@ class MentionsPreview implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isMentioned' => function (ParseNode $n) use ($o) { $o->setIsMentioned($n->getBooleanValue()); },
+            'isMentioned' => function (self $o, ParseNode $n) { $o->setIsMentioned($n->getBooleanValue()); },
         ];
     }
 

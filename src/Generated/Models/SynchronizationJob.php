@@ -6,31 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SynchronizationJob extends Entity implements Parsable 
+class SynchronizationJob extends Entity 
 {
-    /**
-     * @var SynchronizationSchedule|null $schedule Schedule used to run the job. Read-only.
-    */
+    /** @var SynchronizationSchedule|null $schedule Schedule used to run the job. Read-only. */
     private ?SynchronizationSchedule $schedule = null;
     
-    /**
-     * @var SynchronizationSchema|null $schema The synchronization schema configured for the job.
-    */
+    /** @var SynchronizationSchema|null $schema The synchronization schema configured for the job. */
     private ?SynchronizationSchema $schema = null;
     
-    /**
-     * @var SynchronizationStatus|null $status Status of the job, which includes when the job was last run, current job state, and errors.
-    */
+    /** @var SynchronizationStatus|null $status Status of the job, which includes when the job was last run, current job state, and errors. */
     private ?SynchronizationStatus $status = null;
     
-    /**
-     * @var array<KeyValuePair>|null $synchronizationJobSettings Settings associated with the job. Some settings are inherited from the template.
-    */
+    /** @var array<KeyValuePair>|null $synchronizationJobSettings Settings associated with the job. Some settings are inherited from the template. */
     private ?array $synchronizationJobSettings = null;
     
-    /**
-     * @var string|null $templateId Identifier of the synchronization template this job is based on.
-    */
+    /** @var string|null $templateId Identifier of the synchronization template this job is based on. */
     private ?string $templateId = null;
     
     /**
@@ -45,7 +35,7 @@ class SynchronizationJob extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationJob
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationJob {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationJob {
         return new SynchronizationJob();
     }
 
@@ -54,13 +44,12 @@ class SynchronizationJob extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'schedule' => function (ParseNode $n) use ($o) { $o->setSchedule($n->getObjectValue(array(SynchronizationSchedule::class, 'createFromDiscriminatorValue'))); },
-            'schema' => function (ParseNode $n) use ($o) { $o->setSchema($n->getObjectValue(array(SynchronizationSchema::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getObjectValue(array(SynchronizationStatus::class, 'createFromDiscriminatorValue'))); },
-            'synchronizationJobSettings' => function (ParseNode $n) use ($o) { $o->setSynchronizationJobSettings($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
+            'schedule' => function (self $o, ParseNode $n) { $o->setSchedule($n->getObjectValue(SynchronizationSchedule::class)); },
+            'schema' => function (self $o, ParseNode $n) { $o->setSchema($n->getObjectValue(SynchronizationSchema::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getObjectValue(SynchronizationStatus::class)); },
+            'synchronizationJobSettings' => function (self $o, ParseNode $n) { $o->setSynchronizationJobSettings($n->getCollectionOfObjectValues(KeyValuePair::class)); },
+            'templateId' => function (self $o, ParseNode $n) { $o->setTemplateId($n->getStringValue()); },
         ]);
     }
 

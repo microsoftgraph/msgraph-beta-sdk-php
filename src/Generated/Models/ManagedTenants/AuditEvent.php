@@ -8,71 +8,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AuditEvent extends Entity implements Parsable 
+class AuditEvent extends Entity 
 {
-    /**
-     * @var string|null $activity A string which uniquely represents the operation that occurred. Required. Read-only.
-    */
+    /** @var string|null $activity A string which uniquely represents the operation that occurred. Required. Read-only. */
     private ?string $activity = null;
     
-    /**
-     * @var DateTime|null $activityDateTime The time when the activity ocurred. Required. Read-only.
-    */
+    /** @var DateTime|null $activityDateTime The time when the activity ocurred. Required. Read-only. */
     private ?DateTime $activityDateTime = null;
     
-    /**
-     * @var string|null $activityId The identifier of the activity request that made the audit event. Required. Read-only.
-    */
+    /** @var string|null $activityId The identifier of the activity request that made the audit event. Required. Read-only. */
     private ?string $activityId = null;
     
-    /**
-     * @var string|null $category A category which represents a logical grouping of activities. Required. Read-only.
-    */
+    /** @var string|null $category A category which represents a logical grouping of activities. Required. Read-only. */
     private ?string $category = null;
     
-    /**
-     * @var string|null $httpVerb The HTTP verb that was used when making the API request. Required. Read-only.
-    */
+    /** @var string|null $httpVerb The HTTP verb that was used when making the API request. Required. Read-only. */
     private ?string $httpVerb = null;
     
-    /**
-     * @var string|null $initiatedByAppId The identifier of the app that was used to make the request. Required. Read-only.
-    */
+    /** @var string|null $initiatedByAppId The identifier of the app that was used to make the request. Required. Read-only. */
     private ?string $initiatedByAppId = null;
     
-    /**
-     * @var string|null $initiatedByUpn The UPN of the user who initiated the activity. Required. Read-only.
-    */
+    /** @var string|null $initiatedByUpn The UPN of the user who initiated the activity. Required. Read-only. */
     private ?string $initiatedByUpn = null;
     
-    /**
-     * @var string|null $initiatedByUserId The identifier of the user who initiated the activity. Required. Read-only.
-    */
+    /** @var string|null $initiatedByUserId The identifier of the user who initiated the activity. Required. Read-only. */
     private ?string $initiatedByUserId = null;
     
-    /**
-     * @var string|null $ipAddress The IP address of where the activity was initiated. This may be an IPv4 or IPv6 address. Required. Read-only.
-    */
+    /** @var string|null $ipAddress The IP address of where the activity was initiated. This may be an IPv4 or IPv6 address. Required. Read-only. */
     private ?string $ipAddress = null;
     
-    /**
-     * @var string|null $requestBody The raw HTTP request body. Some sensitive information may be removed.
-    */
+    /** @var string|null $requestBody The raw HTTP request body. Some sensitive information may be removed. */
     private ?string $requestBody = null;
     
-    /**
-     * @var string|null $requestUrl The raw HTTP request URL. Required. Read-only.
-    */
+    /** @var string|null $requestUrl The raw HTTP request URL. Required. Read-only. */
     private ?string $requestUrl = null;
     
-    /**
-     * @var string|null $tenantIds The collection of Azure Active Directory tenant identifiers for the managed tenants that were impacted by this change. This is formatted as a list of comma-separated values. Required. Read-only.
-    */
+    /** @var string|null $tenantIds The collection of Azure Active Directory tenant identifiers for the managed tenants that were impacted by this change. This is formatted as a list of comma-separated values. Required. Read-only. */
     private ?string $tenantIds = null;
     
-    /**
-     * @var string|null $tenantNames The collection of tenant names that were impacted by this change. This is formatted as a list of comma-separated values. Required. Read-only.
-    */
+    /** @var string|null $tenantNames The collection of tenant names that were impacted by this change. This is formatted as a list of comma-separated values. Required. Read-only. */
     private ?string $tenantNames = null;
     
     /**
@@ -87,7 +61,7 @@ class AuditEvent extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuditEvent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuditEvent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AuditEvent {
         return new AuditEvent();
     }
 
@@ -128,21 +102,20 @@ class AuditEvent extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getStringValue()); },
-            'activityDateTime' => function (ParseNode $n) use ($o) { $o->setActivityDateTime($n->getDateTimeValue()); },
-            'activityId' => function (ParseNode $n) use ($o) { $o->setActivityId($n->getStringValue()); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getStringValue()); },
-            'httpVerb' => function (ParseNode $n) use ($o) { $o->setHttpVerb($n->getStringValue()); },
-            'initiatedByAppId' => function (ParseNode $n) use ($o) { $o->setInitiatedByAppId($n->getStringValue()); },
-            'initiatedByUpn' => function (ParseNode $n) use ($o) { $o->setInitiatedByUpn($n->getStringValue()); },
-            'initiatedByUserId' => function (ParseNode $n) use ($o) { $o->setInitiatedByUserId($n->getStringValue()); },
-            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
-            'requestBody' => function (ParseNode $n) use ($o) { $o->setRequestBody($n->getStringValue()); },
-            'requestUrl' => function (ParseNode $n) use ($o) { $o->setRequestUrl($n->getStringValue()); },
-            'tenantIds' => function (ParseNode $n) use ($o) { $o->setTenantIds($n->getStringValue()); },
-            'tenantNames' => function (ParseNode $n) use ($o) { $o->setTenantNames($n->getStringValue()); },
+            'activity' => function (self $o, ParseNode $n) { $o->setActivity($n->getStringValue()); },
+            'activityDateTime' => function (self $o, ParseNode $n) { $o->setActivityDateTime($n->getDateTimeValue()); },
+            'activityId' => function (self $o, ParseNode $n) { $o->setActivityId($n->getStringValue()); },
+            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getStringValue()); },
+            'httpVerb' => function (self $o, ParseNode $n) { $o->setHttpVerb($n->getStringValue()); },
+            'initiatedByAppId' => function (self $o, ParseNode $n) { $o->setInitiatedByAppId($n->getStringValue()); },
+            'initiatedByUpn' => function (self $o, ParseNode $n) { $o->setInitiatedByUpn($n->getStringValue()); },
+            'initiatedByUserId' => function (self $o, ParseNode $n) { $o->setInitiatedByUserId($n->getStringValue()); },
+            'ipAddress' => function (self $o, ParseNode $n) { $o->setIpAddress($n->getStringValue()); },
+            'requestBody' => function (self $o, ParseNode $n) { $o->setRequestBody($n->getStringValue()); },
+            'requestUrl' => function (self $o, ParseNode $n) { $o->setRequestUrl($n->getStringValue()); },
+            'tenantIds' => function (self $o, ParseNode $n) { $o->setTenantIds($n->getStringValue()); },
+            'tenantNames' => function (self $o, ParseNode $n) { $o->setTenantNames($n->getStringValue()); },
         ]);
     }
 

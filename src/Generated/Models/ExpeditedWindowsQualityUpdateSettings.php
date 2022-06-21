@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ExpeditedWindowsQualityUpdateSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $daysUntilForcedReboot The number of days after installation that forced reboot will happen.
-    */
+    /** @var int|null $daysUntilForcedReboot The number of days after installation that forced reboot will happen. */
     private ?int $daysUntilForcedReboot = null;
     
-    /**
-     * @var string|null $qualityUpdateRelease The release date to identify a quality update.
-    */
+    /** @var string|null $qualityUpdateRelease The release date to identify a quality update. */
     private ?string $qualityUpdateRelease = null;
     
     /**
@@ -36,7 +30,7 @@ class ExpeditedWindowsQualityUpdateSettings implements AdditionalDataHolder, Par
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExpeditedWindowsQualityUpdateSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExpeditedWindowsQualityUpdateSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ExpeditedWindowsQualityUpdateSettings {
         return new ExpeditedWindowsQualityUpdateSettings();
     }
 
@@ -61,10 +55,9 @@ class ExpeditedWindowsQualityUpdateSettings implements AdditionalDataHolder, Par
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'daysUntilForcedReboot' => function (ParseNode $n) use ($o) { $o->setDaysUntilForcedReboot($n->getIntegerValue()); },
-            'qualityUpdateRelease' => function (ParseNode $n) use ($o) { $o->setQualityUpdateRelease($n->getStringValue()); },
+            'daysUntilForcedReboot' => function (self $o, ParseNode $n) { $o->setDaysUntilForcedReboot($n->getIntegerValue()); },
+            'qualityUpdateRelease' => function (self $o, ParseNode $n) { $o->setQualityUpdateRelease($n->getStringValue()); },
         ];
     }
 

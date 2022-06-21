@@ -10,24 +10,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OsVersionCount implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $deviceCount Count of devices with malware for the OS version
-    */
+    /** @var int|null $deviceCount Count of devices with malware for the OS version */
     private ?int $deviceCount = null;
     
-    /**
-     * @var DateTime|null $lastUpdateDateTime The Timestamp of the last update for the device count in UTC
-    */
+    /** @var DateTime|null $lastUpdateDateTime The Timestamp of the last update for the device count in UTC */
     private ?DateTime $lastUpdateDateTime = null;
     
-    /**
-     * @var string|null $osVersion OS version
-    */
+    /** @var string|null $osVersion OS version */
     private ?string $osVersion = null;
     
     /**
@@ -42,7 +34,7 @@ class OsVersionCount implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OsVersionCount
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OsVersionCount {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OsVersionCount {
         return new OsVersionCount();
     }
 
@@ -67,11 +59,10 @@ class OsVersionCount implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'deviceCount' => function (ParseNode $n) use ($o) { $o->setDeviceCount($n->getIntegerValue()); },
-            'lastUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdateDateTime($n->getDateTimeValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
+            'deviceCount' => function (self $o, ParseNode $n) { $o->setDeviceCount($n->getIntegerValue()); },
+            'lastUpdateDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdateDateTime($n->getDateTimeValue()); },
+            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getStringValue()); },
         ];
     }
 

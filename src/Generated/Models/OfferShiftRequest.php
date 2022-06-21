@@ -7,30 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OfferShiftRequest extends ScheduleChangeRequest implements Parsable 
+class OfferShiftRequest extends ScheduleChangeRequest 
 {
-    /**
-     * @var DateTime|null $recipientActionDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $recipientActionDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $recipientActionDateTime = null;
     
-    /**
-     * @var string|null $recipientActionMessage Custom message sent by recipient of the offer shift request.
-    */
+    /** @var string|null $recipientActionMessage Custom message sent by recipient of the offer shift request. */
     private ?string $recipientActionMessage = null;
     
-    /**
-     * @var string|null $recipientUserId User id of the recipient of the offer shift request.
-    */
+    /** @var string|null $recipientUserId User ID of the recipient of the offer shift request. */
     private ?string $recipientUserId = null;
     
-    /**
-     * @var string|null $senderShiftId User id of the sender of the offer shift request.
-    */
+    /** @var string|null $senderShiftId User ID of the sender of the offer shift request. */
     private ?string $senderShiftId = null;
     
     /**
-     * Instantiates a new OfferShiftRequest and sets the default values.
+     * Instantiates a new offerShiftRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -41,14 +33,7 @@ class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OfferShiftRequest
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): OfferShiftRequest {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.swapShiftsChangeRequest': return new SwapShiftsChangeRequest();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): OfferShiftRequest {
         return new OfferShiftRequest();
     }
 
@@ -57,12 +42,11 @@ class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'recipientActionDateTime' => function (ParseNode $n) use ($o) { $o->setRecipientActionDateTime($n->getDateTimeValue()); },
-            'recipientActionMessage' => function (ParseNode $n) use ($o) { $o->setRecipientActionMessage($n->getStringValue()); },
-            'recipientUserId' => function (ParseNode $n) use ($o) { $o->setRecipientUserId($n->getStringValue()); },
-            'senderShiftId' => function (ParseNode $n) use ($o) { $o->setSenderShiftId($n->getStringValue()); },
+            'recipientActionDateTime' => function (self $o, ParseNode $n) { $o->setRecipientActionDateTime($n->getDateTimeValue()); },
+            'recipientActionMessage' => function (self $o, ParseNode $n) { $o->setRecipientActionMessage($n->getStringValue()); },
+            'recipientUserId' => function (self $o, ParseNode $n) { $o->setRecipientUserId($n->getStringValue()); },
+            'senderShiftId' => function (self $o, ParseNode $n) { $o->setSenderShiftId($n->getStringValue()); },
         ]);
     }
 
@@ -83,7 +67,7 @@ class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
     }
 
     /**
-     * Gets the recipientUserId property value. User id of the recipient of the offer shift request.
+     * Gets the recipientUserId property value. User ID of the recipient of the offer shift request.
      * @return string|null
     */
     public function getRecipientUserId(): ?string {
@@ -91,7 +75,7 @@ class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
     }
 
     /**
-     * Gets the senderShiftId property value. User id of the sender of the offer shift request.
+     * Gets the senderShiftId property value. User ID of the sender of the offer shift request.
      * @return string|null
     */
     public function getSenderShiftId(): ?string {
@@ -127,7 +111,7 @@ class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
     }
 
     /**
-     * Sets the recipientUserId property value. User id of the recipient of the offer shift request.
+     * Sets the recipientUserId property value. User ID of the recipient of the offer shift request.
      *  @param string|null $value Value to set for the recipientUserId property.
     */
     public function setRecipientUserId(?string $value ): void {
@@ -135,7 +119,7 @@ class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
     }
 
     /**
-     * Sets the senderShiftId property value. User id of the sender of the offer shift request.
+     * Sets the senderShiftId property value. User ID of the sender of the offer shift request.
      *  @param string|null $value Value to set for the senderShiftId property.
     */
     public function setSenderShiftId(?string $value ): void {

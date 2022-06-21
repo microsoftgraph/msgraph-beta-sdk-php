@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SecurityResource implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $resource Name of the resource that is related to current alert. Required.
-    */
+    /** @var string|null $resource Name of the resource that is related to current alert. Required. */
     private ?string $resource = null;
     
-    /**
-     * @var SecurityResourceType|null $resourceType Represents type of security resources related to an alert. Possible values are: attacked, related.
-    */
+    /** @var SecurityResourceType|null $resourceType Represents type of security resources related to an alert. Possible values are: attacked, related. */
     private ?SecurityResourceType $resourceType = null;
     
     /**
@@ -36,7 +30,7 @@ class SecurityResource implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SecurityResource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SecurityResource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SecurityResource {
         return new SecurityResource();
     }
 
@@ -53,10 +47,9 @@ class SecurityResource implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getStringValue()); },
-            'resourceType' => function (ParseNode $n) use ($o) { $o->setResourceType($n->getEnumValue(SecurityResourceType::class)); },
+            'resource' => function (self $o, ParseNode $n) { $o->setResource($n->getStringValue()); },
+            'resourceType' => function (self $o, ParseNode $n) { $o->setResourceType($n->getEnumValue(SecurityResourceType::class)); },
         ];
     }
 

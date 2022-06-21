@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamSummary implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $guestsCount Count of guests in a team.
-    */
+    /** @var int|null $guestsCount Count of guests in a team. */
     private ?int $guestsCount = null;
     
-    /**
-     * @var int|null $membersCount Count of members in a team.
-    */
+    /** @var int|null $membersCount Count of members in a team. */
     private ?int $membersCount = null;
     
-    /**
-     * @var int|null $ownersCount Count of owners in a team.
-    */
+    /** @var int|null $ownersCount Count of owners in a team. */
     private ?int $ownersCount = null;
     
     /**
@@ -41,7 +33,7 @@ class TeamSummary implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamSummary {
         return new TeamSummary();
     }
 
@@ -58,11 +50,10 @@ class TeamSummary implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'guestsCount' => function (ParseNode $n) use ($o) { $o->setGuestsCount($n->getIntegerValue()); },
-            'membersCount' => function (ParseNode $n) use ($o) { $o->setMembersCount($n->getIntegerValue()); },
-            'ownersCount' => function (ParseNode $n) use ($o) { $o->setOwnersCount($n->getIntegerValue()); },
+            'guestsCount' => function (self $o, ParseNode $n) { $o->setGuestsCount($n->getIntegerValue()); },
+            'membersCount' => function (self $o, ParseNode $n) { $o->setMembersCount($n->getIntegerValue()); },
+            'ownersCount' => function (self $o, ParseNode $n) { $o->setOwnersCount($n->getIntegerValue()); },
         ];
     }
 

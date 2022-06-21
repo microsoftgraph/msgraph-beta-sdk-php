@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MicrosoftTunnelHealthThreshold extends Entity implements Parsable 
+class MicrosoftTunnelHealthThreshold extends Entity 
 {
-    /**
-     * @var int|null $defaultHealthyThreshold The default threshold for being healthy
-    */
+    /** @var int|null $defaultHealthyThreshold The default threshold for being healthy */
     private ?int $defaultHealthyThreshold = null;
     
-    /**
-     * @var int|null $defaultUnhealthyThreshold The default threshold for being unhealthy
-    */
+    /** @var int|null $defaultUnhealthyThreshold The default threshold for being unhealthy */
     private ?int $defaultUnhealthyThreshold = null;
     
-    /**
-     * @var int|null $healthyThreshold The threshold for being healthy
-    */
+    /** @var int|null $healthyThreshold The threshold for being healthy */
     private ?int $healthyThreshold = null;
     
-    /**
-     * @var int|null $unhealthyThreshold The threshold for being unhealthy
-    */
+    /** @var int|null $unhealthyThreshold The threshold for being unhealthy */
     private ?int $unhealthyThreshold = null;
     
     /**
@@ -40,7 +32,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MicrosoftTunnelHealthThreshold
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftTunnelHealthThreshold {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftTunnelHealthThreshold {
         return new MicrosoftTunnelHealthThreshold();
     }
 
@@ -65,12 +57,11 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultHealthyThreshold' => function (ParseNode $n) use ($o) { $o->setDefaultHealthyThreshold($n->getIntegerValue()); },
-            'defaultUnhealthyThreshold' => function (ParseNode $n) use ($o) { $o->setDefaultUnhealthyThreshold($n->getIntegerValue()); },
-            'healthyThreshold' => function (ParseNode $n) use ($o) { $o->setHealthyThreshold($n->getIntegerValue()); },
-            'unhealthyThreshold' => function (ParseNode $n) use ($o) { $o->setUnhealthyThreshold($n->getIntegerValue()); },
+            'defaultHealthyThreshold' => function (self $o, ParseNode $n) { $o->setDefaultHealthyThreshold($n->getIntegerValue()); },
+            'defaultUnhealthyThreshold' => function (self $o, ParseNode $n) { $o->setDefaultUnhealthyThreshold($n->getIntegerValue()); },
+            'healthyThreshold' => function (self $o, ParseNode $n) { $o->setHealthyThreshold($n->getIntegerValue()); },
+            'unhealthyThreshold' => function (self $o, ParseNode $n) { $o->setUnhealthyThreshold($n->getIntegerValue()); },
         ]);
     }
 

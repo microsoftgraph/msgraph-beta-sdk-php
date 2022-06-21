@@ -6,15 +6,13 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DlpEvaluatePoliciesJobResponse extends JobResponseBase implements Parsable 
+class DlpEvaluatePoliciesJobResponse extends JobResponseBase 
 {
-    /**
-     * @var DlpPoliciesJobResult|null $result The result property
-    */
+    /** @var DlpPoliciesJobResult|null $result The result property */
     private ?DlpPoliciesJobResult $result = null;
     
     /**
-     * Instantiates a new DlpEvaluatePoliciesJobResponse and sets the default values.
+     * Instantiates a new dlpEvaluatePoliciesJobResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -25,7 +23,7 @@ class DlpEvaluatePoliciesJobResponse extends JobResponseBase implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DlpEvaluatePoliciesJobResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DlpEvaluatePoliciesJobResponse {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DlpEvaluatePoliciesJobResponse {
         return new DlpEvaluatePoliciesJobResponse();
     }
 
@@ -34,9 +32,8 @@ class DlpEvaluatePoliciesJobResponse extends JobResponseBase implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'result' => function (ParseNode $n) use ($o) { $o->setResult($n->getObjectValue(array(DlpPoliciesJobResult::class, 'createFromDiscriminatorValue'))); },
+            'result' => function (self $o, ParseNode $n) { $o->setResult($n->getObjectValue(DlpPoliciesJobResult::class)); },
         ]);
     }
 

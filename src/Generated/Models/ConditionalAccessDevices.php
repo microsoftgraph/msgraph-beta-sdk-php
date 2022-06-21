@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ConditionalAccessDevices implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var ConditionalAccessFilter|null $deviceFilter Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
-    */
+    /** @var ConditionalAccessFilter|null $deviceFilter Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. */
     private ?ConditionalAccessFilter $deviceFilter = null;
     
-    /**
-     * @var array<string>|null $excludeDevices States excluded from the scope of the policy. Possible values: Compliant, DomainJoined. Cannot be set if deviceFIlter is set.
-    */
+    /** @var array<string>|null $excludeDevices States excluded from the scope of the policy. Possible values: Compliant, DomainJoined. Cannot be set if deviceFIlter is set. */
     private ?array $excludeDevices = null;
     
-    /**
-     * @var array<string>|null $excludeDeviceStates The excludeDeviceStates property
-    */
+    /** @var array<string>|null $excludeDeviceStates The excludeDeviceStates property */
     private ?array $excludeDeviceStates = null;
     
-    /**
-     * @var array<string>|null $includeDevices States in the scope of the policy. All is the only allowed value. Cannot be set if deviceFIlter is set.
-    */
+    /** @var array<string>|null $includeDevices States in the scope of the policy. All is the only allowed value. Cannot be set if deviceFIlter is set. */
     private ?array $includeDevices = null;
     
-    /**
-     * @var array<string>|null $includeDeviceStates The includeDeviceStates property
-    */
+    /** @var array<string>|null $includeDeviceStates The includeDeviceStates property */
     private ?array $includeDeviceStates = null;
     
     /**
@@ -51,7 +39,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConditionalAccessDevices
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessDevices {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessDevices {
         return new ConditionalAccessDevices();
     }
 
@@ -64,7 +52,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
+     * Gets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
      * @return ConditionalAccessFilter|null
     */
     public function getDeviceFilter(): ?ConditionalAccessFilter {
@@ -92,13 +80,12 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'deviceFilter' => function (ParseNode $n) use ($o) { $o->setDeviceFilter($n->getObjectValue(array(ConditionalAccessFilter::class, 'createFromDiscriminatorValue'))); },
-            'excludeDevices' => function (ParseNode $n) use ($o) { $o->setExcludeDevices($n->getCollectionOfPrimitiveValues()); },
-            'excludeDeviceStates' => function (ParseNode $n) use ($o) { $o->setExcludeDeviceStates($n->getCollectionOfPrimitiveValues()); },
-            'includeDevices' => function (ParseNode $n) use ($o) { $o->setIncludeDevices($n->getCollectionOfPrimitiveValues()); },
-            'includeDeviceStates' => function (ParseNode $n) use ($o) { $o->setIncludeDeviceStates($n->getCollectionOfPrimitiveValues()); },
+            'deviceFilter' => function (self $o, ParseNode $n) { $o->setDeviceFilter($n->getObjectValue(ConditionalAccessFilter::class)); },
+            'excludeDevices' => function (self $o, ParseNode $n) { $o->setExcludeDevices($n->getCollectionOfPrimitiveValues()); },
+            'excludeDeviceStates' => function (self $o, ParseNode $n) { $o->setExcludeDeviceStates($n->getCollectionOfPrimitiveValues()); },
+            'includeDevices' => function (self $o, ParseNode $n) { $o->setIncludeDevices($n->getCollectionOfPrimitiveValues()); },
+            'includeDeviceStates' => function (self $o, ParseNode $n) { $o->setIncludeDeviceStates($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 
@@ -140,7 +127,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
+     * Sets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
      *  @param ConditionalAccessFilter|null $value Value to set for the deviceFilter property.
     */
     public function setDeviceFilter(?ConditionalAccessFilter $value ): void {

@@ -7,16 +7,12 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class TeamworkHostedContent extends Entity implements Parsable 
+class TeamworkHostedContent extends Entity 
 {
-    /**
-     * @var StreamInterface|null $contentBytes Write only. Bytes for the hosted content (such as images).
-    */
+    /** @var StreamInterface|null $contentBytes Write only. Bytes for the hosted content (such as images). */
     private ?StreamInterface $contentBytes = null;
     
-    /**
-     * @var string|null $contentType Write only. Content type, such as image/png, image/jpg.
-    */
+    /** @var string|null $contentType Write only. Content type. sicj as image/png, image/jpg. */
     private ?string $contentType = null;
     
     /**
@@ -31,14 +27,7 @@ class TeamworkHostedContent extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkHostedContent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkHostedContent {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.chatMessageHostedContent': return new ChatMessageHostedContent();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkHostedContent {
         return new TeamworkHostedContent();
     }
 
@@ -51,7 +40,7 @@ class TeamworkHostedContent extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentType property value. Write only. Content type, such as image/png, image/jpg.
+     * Gets the contentType property value. Write only. Content type. sicj as image/png, image/jpg.
      * @return string|null
     */
     public function getContentType(): ?string {
@@ -63,10 +52,9 @@ class TeamworkHostedContent extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contentBytes' => function (ParseNode $n) use ($o) { $o->setContentBytes($n->getBinaryContent()); },
-            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getStringValue()); },
+            'contentBytes' => function (self $o, ParseNode $n) { $o->setContentBytes($n->getBinaryContent()); },
+            'contentType' => function (self $o, ParseNode $n) { $o->setContentType($n->getStringValue()); },
         ]);
     }
 
@@ -89,7 +77,7 @@ class TeamworkHostedContent extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentType property value. Write only. Content type, such as image/png, image/jpg.
+     * Sets the contentType property value. Write only. Content type. sicj as image/png, image/jpg.
      *  @param string|null $value Value to set for the contentType property.
     */
     public function setContentType(?string $value ): void {

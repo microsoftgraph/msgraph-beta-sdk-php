@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GovernancePolicyTemplate extends Entity implements Parsable 
+class GovernancePolicyTemplate extends Entity 
 {
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var GovernancePolicy|null $policy The policy property
-    */
+    /** @var GovernancePolicy|null $policy The policy property */
     private ?GovernancePolicy $policy = null;
     
-    /**
-     * @var BusinessFlowSettings|null $settings The settings property
-    */
+    /** @var BusinessFlowSettings|null $settings The settings property */
     private ?BusinessFlowSettings $settings = null;
     
     /**
@@ -35,7 +29,7 @@ class GovernancePolicyTemplate extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernancePolicyTemplate
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernancePolicyTemplate {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernancePolicyTemplate {
         return new GovernancePolicyTemplate();
     }
 
@@ -52,11 +46,10 @@ class GovernancePolicyTemplate extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'policy' => function (ParseNode $n) use ($o) { $o->setPolicy($n->getObjectValue(array(GovernancePolicy::class, 'createFromDiscriminatorValue'))); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(BusinessFlowSettings::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'policy' => function (self $o, ParseNode $n) { $o->setPolicy($n->getObjectValue(GovernancePolicy::class)); },
+            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getObjectValue(BusinessFlowSettings::class)); },
         ]);
     }
 

@@ -11,49 +11,31 @@ use Psr\Http\Message\StreamInterface;
 
 class KeyCredential implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var StreamInterface|null $customKeyIdentifier Custom key identifier
-    */
+    /** @var StreamInterface|null $customKeyIdentifier Custom key identifier */
     private ?StreamInterface $customKeyIdentifier = null;
     
-    /**
-     * @var string|null $displayName Friendly name for the key. Optional.
-    */
+    /** @var string|null $displayName Friendly name for the key. Optional. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $endDateTime The date and time at which the credential expires. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $endDateTime The date and time at which the credential expires. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $endDateTime = null;
     
-    /**
-     * @var StreamInterface|null $key Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
-    */
+    /** @var StreamInterface|null $key The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null. */
     private ?StreamInterface $key = null;
     
-    /**
-     * @var string|null $keyId The unique identifier for the key.
-    */
+    /** @var string|null $keyId The unique identifier (GUID) for the key. */
     private ?string $keyId = null;
     
-    /**
-     * @var DateTime|null $startDateTime The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
+    /** @var DateTime|null $startDateTime The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private ?DateTime $startDateTime = null;
     
-    /**
-     * @var string|null $type The type of key credential; for example, Symmetric, AsymmetricX509Cert.
-    */
+    /** @var string|null $type The type of key credential; for example, Symmetric, AsymmetricX509Cert. */
     private ?string $type = null;
     
-    /**
-     * @var string|null $usage A string that describes the purpose for which the key can be used; for example, Verify.
-    */
+    /** @var string|null $usage A string that describes the purpose for which the key can be used; for example, Verify. */
     private ?string $usage = null;
     
     /**
@@ -68,7 +50,7 @@ class KeyCredential implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return KeyCredential
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): KeyCredential {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): KeyCredential {
         return new KeyCredential();
     }
 
@@ -109,21 +91,20 @@ class KeyCredential implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'customKeyIdentifier' => function (ParseNode $n) use ($o) { $o->setCustomKeyIdentifier($n->getBinaryContent()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getBinaryContent()); },
-            'keyId' => function (ParseNode $n) use ($o) { $o->setKeyId($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
-            'usage' => function (ParseNode $n) use ($o) { $o->setUsage($n->getStringValue()); },
+            'customKeyIdentifier' => function (self $o, ParseNode $n) { $o->setCustomKeyIdentifier($n->getBinaryContent()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'key' => function (self $o, ParseNode $n) { $o->setKey($n->getBinaryContent()); },
+            'keyId' => function (self $o, ParseNode $n) { $o->setKeyId($n->getStringValue()); },
+            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
+            'usage' => function (self $o, ParseNode $n) { $o->setUsage($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the key property value. Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
+     * Gets the key property value. The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
      * @return StreamInterface|null
     */
     public function getKey(): ?StreamInterface {
@@ -131,7 +112,7 @@ class KeyCredential implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the keyId property value. The unique identifier for the key.
+     * Gets the keyId property value. The unique identifier (GUID) for the key.
      * @return string|null
     */
     public function getKeyId(): ?string {
@@ -211,7 +192,7 @@ class KeyCredential implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the key property value. Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
+     * Sets the key property value. The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
      *  @param StreamInterface|null $value Value to set for the key property.
     */
     public function setKey(?StreamInterface $value ): void {
@@ -219,7 +200,7 @@ class KeyCredential implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the keyId property value. The unique identifier for the key.
+     * Sets the keyId property value. The unique identifier (GUID) for the key.
      *  @param string|null $value Value to set for the keyId property.
     */
     public function setKeyId(?string $value ): void {

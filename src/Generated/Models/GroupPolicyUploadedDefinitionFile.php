@@ -8,40 +8,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implements Parsable 
+class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile 
 {
-    /**
-     * @var StreamInterface|null $content The contents of the uploaded ADMX file.
-    */
+    /** @var StreamInterface|null $content The contents of the uploaded ADMX file. */
     private ?StreamInterface $content = null;
     
-    /**
-     * @var string|null $defaultLanguageCode The default language of the uploaded ADMX file.
-    */
+    /** @var string|null $defaultLanguageCode The default language of the uploaded ADMX file. */
     private ?string $defaultLanguageCode = null;
     
-    /**
-     * @var array<GroupPolicyOperation>|null $groupPolicyOperations The list of operations on the uploaded ADMX file.
-    */
+    /** @var array<GroupPolicyOperation>|null $groupPolicyOperations The list of operations on the uploaded ADMX file. */
     private ?array $groupPolicyOperations = null;
     
-    /**
-     * @var array<GroupPolicyUploadedLanguageFile>|null $groupPolicyUploadedLanguageFiles The list of ADML files associated with the uploaded ADMX file.
-    */
+    /** @var array<GroupPolicyUploadedLanguageFile>|null $groupPolicyUploadedLanguageFiles The list of ADML files associated with the uploaded ADMX file. */
     private ?array $groupPolicyUploadedLanguageFiles = null;
     
-    /**
-     * @var GroupPolicyUploadedDefinitionFileStatus|null $status The upload status of the uploaded ADMX file. Possible values are: none, uploadInProgress, available, assigned, removalInProgress, uploadFailed, removalFailed.
-    */
+    /** @var GroupPolicyUploadedDefinitionFileStatus|null $status The upload status of the uploaded ADMX file. Possible values are: none, uploadInProgress, available, assigned, removalInProgress, uploadFailed, removalFailed. */
     private ?GroupPolicyUploadedDefinitionFileStatus $status = null;
     
-    /**
-     * @var DateTime|null $uploadDateTime The uploaded time of the uploaded ADMX file.
-    */
+    /** @var DateTime|null $uploadDateTime The uploaded time of the uploaded ADMX file. */
     private ?DateTime $uploadDateTime = null;
     
     /**
-     * Instantiates a new GroupPolicyUploadedDefinitionFile and sets the default values.
+     * Instantiates a new groupPolicyUploadedDefinitionFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -52,7 +40,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicyUploadedDefinitionFile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyUploadedDefinitionFile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyUploadedDefinitionFile {
         return new GroupPolicyUploadedDefinitionFile();
     }
 
@@ -77,14 +65,13 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'defaultLanguageCode' => function (ParseNode $n) use ($o) { $o->setDefaultLanguageCode($n->getStringValue()); },
-            'groupPolicyOperations' => function (ParseNode $n) use ($o) { $o->setGroupPolicyOperations($n->getCollectionOfObjectValues(array(GroupPolicyOperation::class, 'createFromDiscriminatorValue'))); },
-            'groupPolicyUploadedLanguageFiles' => function (ParseNode $n) use ($o) { $o->setGroupPolicyUploadedLanguageFiles($n->getCollectionOfObjectValues(array(GroupPolicyUploadedLanguageFile::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(GroupPolicyUploadedDefinitionFileStatus::class)); },
-            'uploadDateTime' => function (ParseNode $n) use ($o) { $o->setUploadDateTime($n->getDateTimeValue()); },
+            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getBinaryContent()); },
+            'defaultLanguageCode' => function (self $o, ParseNode $n) { $o->setDefaultLanguageCode($n->getStringValue()); },
+            'groupPolicyOperations' => function (self $o, ParseNode $n) { $o->setGroupPolicyOperations($n->getCollectionOfObjectValues(GroupPolicyOperation::class)); },
+            'groupPolicyUploadedLanguageFiles' => function (self $o, ParseNode $n) { $o->setGroupPolicyUploadedLanguageFiles($n->getCollectionOfObjectValues(GroupPolicyUploadedLanguageFile::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(GroupPolicyUploadedDefinitionFileStatus::class)); },
+            'uploadDateTime' => function (self $o, ParseNode $n) { $o->setUploadDateTime($n->getDateTimeValue()); },
         ]);
     }
 

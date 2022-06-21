@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PlannerTaskCreation implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var PlannerTeamsPublicationInfo|null $teamsPublicationInfo Information about the publication process that created this task. null value indicates that the task was not created by a publication process.
-    */
+    /** @var PlannerTeamsPublicationInfo|null $teamsPublicationInfo Information about the publication process that created this task. null value indicates that the task was not created by a publication process. */
     private ?PlannerTeamsPublicationInfo $teamsPublicationInfo = null;
     
     /**
@@ -31,7 +27,7 @@ class PlannerTaskCreation implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PlannerTaskCreation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerTaskCreation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PlannerTaskCreation {
         return new PlannerTaskCreation();
     }
 
@@ -48,9 +44,8 @@ class PlannerTaskCreation implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'teamsPublicationInfo' => function (ParseNode $n) use ($o) { $o->setTeamsPublicationInfo($n->getObjectValue(array(PlannerTeamsPublicationInfo::class, 'createFromDiscriminatorValue'))); },
+            'teamsPublicationInfo' => function (self $o, ParseNode $n) { $o->setTeamsPublicationInfo($n->getObjectValue(PlannerTeamsPublicationInfo::class)); },
         ];
     }
 

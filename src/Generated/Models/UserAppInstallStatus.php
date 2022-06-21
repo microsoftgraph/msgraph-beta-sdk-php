@@ -6,41 +6,27 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserAppInstallStatus extends Entity implements Parsable 
+class UserAppInstallStatus extends Entity 
 {
-    /**
-     * @var MobileApp|null $app The navigation link to the mobile app.
-    */
+    /** @var MobileApp|null $app The navigation link to the mobile app. */
     private ?MobileApp $app = null;
     
-    /**
-     * @var array<MobileAppInstallStatus>|null $deviceStatuses The install state of the app on devices.
-    */
+    /** @var array<MobileAppInstallStatus>|null $deviceStatuses The install state of the app on devices. */
     private ?array $deviceStatuses = null;
     
-    /**
-     * @var int|null $failedDeviceCount Failed Device Count.
-    */
+    /** @var int|null $failedDeviceCount Failed Device Count. */
     private ?int $failedDeviceCount = null;
     
-    /**
-     * @var int|null $installedDeviceCount Installed Device Count.
-    */
+    /** @var int|null $installedDeviceCount Installed Device Count. */
     private ?int $installedDeviceCount = null;
     
-    /**
-     * @var int|null $notInstalledDeviceCount Not installed device count.
-    */
+    /** @var int|null $notInstalledDeviceCount Not installed device count. */
     private ?int $notInstalledDeviceCount = null;
     
-    /**
-     * @var string|null $userName User name.
-    */
+    /** @var string|null $userName User name. */
     private ?string $userName = null;
     
-    /**
-     * @var string|null $userPrincipalName User Principal Name.
-    */
+    /** @var string|null $userPrincipalName User Principal Name. */
     private ?string $userPrincipalName = null;
     
     /**
@@ -55,7 +41,7 @@ class UserAppInstallStatus extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserAppInstallStatus
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserAppInstallStatus {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserAppInstallStatus {
         return new UserAppInstallStatus();
     }
 
@@ -88,15 +74,14 @@ class UserAppInstallStatus extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'app' => function (ParseNode $n) use ($o) { $o->setApp($n->getObjectValue(array(MobileApp::class, 'createFromDiscriminatorValue'))); },
-            'deviceStatuses' => function (ParseNode $n) use ($o) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(array(MobileAppInstallStatus::class, 'createFromDiscriminatorValue'))); },
-            'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
-            'installedDeviceCount' => function (ParseNode $n) use ($o) { $o->setInstalledDeviceCount($n->getIntegerValue()); },
-            'notInstalledDeviceCount' => function (ParseNode $n) use ($o) { $o->setNotInstalledDeviceCount($n->getIntegerValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'app' => function (self $o, ParseNode $n) { $o->setApp($n->getObjectValue(MobileApp::class)); },
+            'deviceStatuses' => function (self $o, ParseNode $n) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(MobileAppInstallStatus::class)); },
+            'failedDeviceCount' => function (self $o, ParseNode $n) { $o->setFailedDeviceCount($n->getIntegerValue()); },
+            'installedDeviceCount' => function (self $o, ParseNode $n) { $o->setInstalledDeviceCount($n->getIntegerValue()); },
+            'notInstalledDeviceCount' => function (self $o, ParseNode $n) { $o->setNotInstalledDeviceCount($n->getIntegerValue()); },
+            'userName' => function (self $o, ParseNode $n) { $o->setUserName($n->getStringValue()); },
+            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

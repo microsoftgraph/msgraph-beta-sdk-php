@@ -6,8 +6,8 @@ use Microsoft\Kiota\Abstractions\Enum;
 
 class Operator extends Enum {
     public const NONE = 'none';
-    public const ESCAPED_AND = 'and';
-    public const ESCAPED_OR = 'or';
+    public const ESCAPED_AND = 'EscapedAnd';
+    public const ESCAPED_OR = 'EscapedOr';
     public const IS_EQUALS = 'isEquals';
     public const NOT_EQUALS = 'notEquals';
     public const GREATER_THAN = 'greaterThan';

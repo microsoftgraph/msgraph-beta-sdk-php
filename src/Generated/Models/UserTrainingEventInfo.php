@@ -9,34 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserTrainingEventInfo implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName Display name of the training.
-    */
+    /** @var string|null $displayName Display name of the training. */
     private ?string $displayName = null;
     
-    /**
-     * @var TrainingStatus|null $latestTrainingStatus Latest status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
-    */
+    /** @var TrainingStatus|null $latestTrainingStatus Latest status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue. */
     private ?TrainingStatus $latestTrainingStatus = null;
     
-    /**
-     * @var UserTrainingContentEventInfo|null $trainingAssignedProperties Event details of the training when it was assigned to the user.
-    */
+    /** @var UserTrainingContentEventInfo|null $trainingAssignedProperties Event details of the training when it was assigned to the user. */
     private ?UserTrainingContentEventInfo $trainingAssignedProperties = null;
     
-    /**
-     * @var UserTrainingContentEventInfo|null $trainingCompletedProperties Event details of the training when it was completed by the user.
-    */
+    /** @var UserTrainingContentEventInfo|null $trainingCompletedProperties Event details of the training when it was completed by the user. */
     private ?UserTrainingContentEventInfo $trainingCompletedProperties = null;
     
-    /**
-     * @var UserTrainingContentEventInfo|null $trainingUpdatedProperties Event details of the training when it was updated/in-progress by the user.
-    */
+    /** @var UserTrainingContentEventInfo|null $trainingUpdatedProperties Event details of the training when it was updated/in-progress by the user. */
     private ?UserTrainingContentEventInfo $trainingUpdatedProperties = null;
     
     /**
@@ -51,7 +39,7 @@ class UserTrainingEventInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserTrainingEventInfo
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserTrainingEventInfo {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserTrainingEventInfo {
         return new UserTrainingEventInfo();
     }
 
@@ -76,13 +64,12 @@ class UserTrainingEventInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'latestTrainingStatus' => function (ParseNode $n) use ($o) { $o->setLatestTrainingStatus($n->getEnumValue(TrainingStatus::class)); },
-            'trainingAssignedProperties' => function (ParseNode $n) use ($o) { $o->setTrainingAssignedProperties($n->getObjectValue(array(UserTrainingContentEventInfo::class, 'createFromDiscriminatorValue'))); },
-            'trainingCompletedProperties' => function (ParseNode $n) use ($o) { $o->setTrainingCompletedProperties($n->getObjectValue(array(UserTrainingContentEventInfo::class, 'createFromDiscriminatorValue'))); },
-            'trainingUpdatedProperties' => function (ParseNode $n) use ($o) { $o->setTrainingUpdatedProperties($n->getObjectValue(array(UserTrainingContentEventInfo::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'latestTrainingStatus' => function (self $o, ParseNode $n) { $o->setLatestTrainingStatus($n->getEnumValue(TrainingStatus::class)); },
+            'trainingAssignedProperties' => function (self $o, ParseNode $n) { $o->setTrainingAssignedProperties($n->getObjectValue(UserTrainingContentEventInfo::class)); },
+            'trainingCompletedProperties' => function (self $o, ParseNode $n) { $o->setTrainingCompletedProperties($n->getObjectValue(UserTrainingContentEventInfo::class)); },
+            'trainingUpdatedProperties' => function (self $o, ParseNode $n) { $o->setTrainingUpdatedProperties($n->getObjectValue(UserTrainingContentEventInfo::class)); },
         ];
     }
 

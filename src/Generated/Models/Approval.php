@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Approval extends Entity implements Parsable 
+class Approval extends Entity 
 {
-    /**
-     * @var array<ApprovalStep>|null $steps The steps property
-    */
+    /** @var array<ApprovalStep>|null $steps The steps property */
     private ?array $steps = null;
     
     /**
@@ -25,7 +23,7 @@ class Approval extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Approval
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Approval {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Approval {
         return new Approval();
     }
 
@@ -34,9 +32,8 @@ class Approval extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'steps' => function (ParseNode $n) use ($o) { $o->setSteps($n->getCollectionOfObjectValues(array(ApprovalStep::class, 'createFromDiscriminatorValue'))); },
+            'steps' => function (self $o, ParseNode $n) { $o->setSteps($n->getCollectionOfObjectValues(ApprovalStep::class)); },
         ]);
     }
 

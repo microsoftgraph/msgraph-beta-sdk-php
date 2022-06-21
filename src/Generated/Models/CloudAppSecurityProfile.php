@@ -7,91 +7,57 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudAppSecurityProfile extends Entity implements Parsable 
+class CloudAppSecurityProfile extends Entity 
 {
-    /**
-     * @var string|null $azureSubscriptionId The azureSubscriptionId property
-    */
+    /** @var string|null $azureSubscriptionId The azureSubscriptionId property */
     private ?string $azureSubscriptionId = null;
     
-    /**
-     * @var string|null $azureTenantId The azureTenantId property
-    */
+    /** @var string|null $azureTenantId The azureTenantId property */
     private ?string $azureTenantId = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
+    /** @var DateTime|null $createdDateTime The createdDateTime property */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $deploymentPackageUrl The deploymentPackageUrl property
-    */
+    /** @var string|null $deploymentPackageUrl The deploymentPackageUrl property */
     private ?string $deploymentPackageUrl = null;
     
-    /**
-     * @var string|null $destinationServiceName The destinationServiceName property
-    */
+    /** @var string|null $destinationServiceName The destinationServiceName property */
     private ?string $destinationServiceName = null;
     
-    /**
-     * @var bool|null $isSigned The isSigned property
-    */
+    /** @var bool|null $isSigned The isSigned property */
     private ?bool $isSigned = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $manifest The manifest property
-    */
+    /** @var string|null $manifest The manifest property */
     private ?string $manifest = null;
     
-    /**
-     * @var string|null $name The name property
-    */
+    /** @var string|null $name The name property */
     private ?string $name = null;
     
-    /**
-     * @var ApplicationPermissionsRequired|null $permissionsRequired The permissionsRequired property
-    */
+    /** @var ApplicationPermissionsRequired|null $permissionsRequired The permissionsRequired property */
     private ?ApplicationPermissionsRequired $permissionsRequired = null;
     
-    /**
-     * @var string|null $platform The platform property
-    */
+    /** @var string|null $platform The platform property */
     private ?string $platform = null;
     
-    /**
-     * @var string|null $policyName The policyName property
-    */
+    /** @var string|null $policyName The policyName property */
     private ?string $policyName = null;
     
-    /**
-     * @var string|null $publisher The publisher property
-    */
+    /** @var string|null $publisher The publisher property */
     private ?string $publisher = null;
     
-    /**
-     * @var string|null $riskScore The riskScore property
-    */
+    /** @var string|null $riskScore The riskScore property */
     private ?string $riskScore = null;
     
-    /**
-     * @var array<string>|null $tags The tags property
-    */
+    /** @var array<string>|null $tags The tags property */
     private ?array $tags = null;
     
-    /**
-     * @var string|null $type The type property
-    */
+    /** @var string|null $type The type property */
     private ?string $type = null;
     
-    /**
-     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
-    */
+    /** @var SecurityVendorInformation|null $vendorInformation The vendorInformation property */
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
@@ -106,7 +72,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudAppSecurityProfile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudAppSecurityProfile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudAppSecurityProfile {
         return new CloudAppSecurityProfile();
     }
 
@@ -155,25 +121,24 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureSubscriptionId' => function (ParseNode $n) use ($o) { $o->setAzureSubscriptionId($n->getStringValue()); },
-            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deploymentPackageUrl' => function (ParseNode $n) use ($o) { $o->setDeploymentPackageUrl($n->getStringValue()); },
-            'destinationServiceName' => function (ParseNode $n) use ($o) { $o->setDestinationServiceName($n->getStringValue()); },
-            'isSigned' => function (ParseNode $n) use ($o) { $o->setIsSigned($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'manifest' => function (ParseNode $n) use ($o) { $o->setManifest($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'permissionsRequired' => function (ParseNode $n) use ($o) { $o->setPermissionsRequired($n->getEnumValue(ApplicationPermissionsRequired::class)); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getStringValue()); },
-            'policyName' => function (ParseNode $n) use ($o) { $o->setPolicyName($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getStringValue()); },
-            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
-            'vendorInformation' => function (ParseNode $n) use ($o) { $o->setVendorInformation($n->getObjectValue(array(SecurityVendorInformation::class, 'createFromDiscriminatorValue'))); },
+            'azureSubscriptionId' => function (self $o, ParseNode $n) { $o->setAzureSubscriptionId($n->getStringValue()); },
+            'azureTenantId' => function (self $o, ParseNode $n) { $o->setAzureTenantId($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'deploymentPackageUrl' => function (self $o, ParseNode $n) { $o->setDeploymentPackageUrl($n->getStringValue()); },
+            'destinationServiceName' => function (self $o, ParseNode $n) { $o->setDestinationServiceName($n->getStringValue()); },
+            'isSigned' => function (self $o, ParseNode $n) { $o->setIsSigned($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'manifest' => function (self $o, ParseNode $n) { $o->setManifest($n->getStringValue()); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'permissionsRequired' => function (self $o, ParseNode $n) { $o->setPermissionsRequired($n->getEnumValue(ApplicationPermissionsRequired::class)); },
+            'platform' => function (self $o, ParseNode $n) { $o->setPlatform($n->getStringValue()); },
+            'policyName' => function (self $o, ParseNode $n) { $o->setPolicyName($n->getStringValue()); },
+            'publisher' => function (self $o, ParseNode $n) { $o->setPublisher($n->getStringValue()); },
+            'riskScore' => function (self $o, ParseNode $n) { $o->setRiskScore($n->getStringValue()); },
+            'tags' => function (self $o, ParseNode $n) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
+            'vendorInformation' => function (self $o, ParseNode $n) { $o->setVendorInformation($n->getObjectValue(SecurityVendorInformation::class)); },
         ]);
     }
 

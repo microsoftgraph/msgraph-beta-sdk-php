@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class LicenseDetails extends Entity implements Parsable 
+class LicenseDetails extends Entity 
 {
-    /**
-     * @var array<ServicePlanInfo>|null $servicePlans Information about the service plans assigned with the license. Read-only, Not nullable
-    */
+    /** @var array<ServicePlanInfo>|null $servicePlans Information about the service plans assigned with the license. Read-only, Not nullable */
     private ?array $servicePlans = null;
     
-    /**
-     * @var string|null $skuId Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only
-    */
+    /** @var string|null $skuId Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only */
     private ?string $skuId = null;
     
-    /**
-     * @var string|null $skuPartNumber Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only
-    */
+    /** @var string|null $skuPartNumber Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only */
     private ?string $skuPartNumber = null;
     
     /**
@@ -35,7 +29,7 @@ class LicenseDetails extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LicenseDetails
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): LicenseDetails {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): LicenseDetails {
         return new LicenseDetails();
     }
 
@@ -44,11 +38,10 @@ class LicenseDetails extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'servicePlans' => function (ParseNode $n) use ($o) { $o->setServicePlans($n->getCollectionOfObjectValues(array(ServicePlanInfo::class, 'createFromDiscriminatorValue'))); },
-            'skuId' => function (ParseNode $n) use ($o) { $o->setSkuId($n->getStringValue()); },
-            'skuPartNumber' => function (ParseNode $n) use ($o) { $o->setSkuPartNumber($n->getStringValue()); },
+            'servicePlans' => function (self $o, ParseNode $n) { $o->setServicePlans($n->getCollectionOfObjectValues(ServicePlanInfo::class)); },
+            'skuId' => function (self $o, ParseNode $n) { $o->setSkuId($n->getStringValue()); },
+            'skuPartNumber' => function (self $o, ParseNode $n) { $o->setSkuPartNumber($n->getStringValue()); },
         ]);
     }
 

@@ -6,55 +6,37 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsable 
+class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile 
 {
-    /**
-     * @var bool|null $accessibilityScreenDisabled Indicates if Accessibility screen is disabled
-    */
+    /** @var bool|null $accessibilityScreenDisabled Indicates if Accessibility screen is disabled */
     private ?bool $accessibilityScreenDisabled = null;
     
-    /**
-     * @var bool|null $autoUnlockWithWatchDisabled Indicates if UnlockWithWatch screen is disabled
-    */
+    /** @var bool|null $autoUnlockWithWatchDisabled Indicates if UnlockWithWatch screen is disabled */
     private ?bool $autoUnlockWithWatchDisabled = null;
     
-    /**
-     * @var bool|null $chooseYourLockScreenDisabled Indicates if iCloud Documents and Desktop screen is disabled
-    */
+    /** @var bool|null $chooseYourLockScreenDisabled Indicates if iCloud Documents and Desktop screen is disabled */
     private ?bool $chooseYourLockScreenDisabled = null;
     
-    /**
-     * @var bool|null $fileVaultDisabled Indicates if file vault is disabled
-    */
+    /** @var bool|null $fileVaultDisabled Indicates if file vault is disabled */
     private ?bool $fileVaultDisabled = null;
     
-    /**
-     * @var bool|null $iCloudDiagnosticsDisabled Indicates if iCloud Analytics screen is disabled
-    */
+    /** @var bool|null $iCloudDiagnosticsDisabled Indicates if iCloud Analytics screen is disabled */
     private ?bool $iCloudDiagnosticsDisabled = null;
     
-    /**
-     * @var bool|null $iCloudStorageDisabled Indicates if iCloud Documents and Desktop screen is disabled
-    */
+    /** @var bool|null $iCloudStorageDisabled Indicates if iCloud Documents and Desktop screen is disabled */
     private ?bool $iCloudStorageDisabled = null;
     
-    /**
-     * @var bool|null $passCodeDisabled Indicates if Passcode setup pane is disabled
-    */
+    /** @var bool|null $passCodeDisabled Indicates if Passcode setup pane is disabled */
     private ?bool $passCodeDisabled = null;
     
-    /**
-     * @var bool|null $registrationDisabled Indicates if registration is disabled
-    */
+    /** @var bool|null $registrationDisabled Indicates if registration is disabled */
     private ?bool $registrationDisabled = null;
     
-    /**
-     * @var bool|null $zoomDisabled Indicates if zoom setup pane is disabled
-    */
+    /** @var bool|null $zoomDisabled Indicates if zoom setup pane is disabled */
     private ?bool $zoomDisabled = null;
     
     /**
-     * Instantiates a new DepMacOSEnrollmentProfile and sets the default values.
+     * Instantiates a new depMacOSEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -65,7 +47,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DepMacOSEnrollmentProfile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DepMacOSEnrollmentProfile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DepMacOSEnrollmentProfile {
         return new DepMacOSEnrollmentProfile();
     }
 
@@ -98,17 +80,16 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessibilityScreenDisabled' => function (ParseNode $n) use ($o) { $o->setAccessibilityScreenDisabled($n->getBooleanValue()); },
-            'autoUnlockWithWatchDisabled' => function (ParseNode $n) use ($o) { $o->setAutoUnlockWithWatchDisabled($n->getBooleanValue()); },
-            'chooseYourLockScreenDisabled' => function (ParseNode $n) use ($o) { $o->setChooseYourLockScreenDisabled($n->getBooleanValue()); },
-            'fileVaultDisabled' => function (ParseNode $n) use ($o) { $o->setFileVaultDisabled($n->getBooleanValue()); },
-            'iCloudDiagnosticsDisabled' => function (ParseNode $n) use ($o) { $o->setICloudDiagnosticsDisabled($n->getBooleanValue()); },
-            'iCloudStorageDisabled' => function (ParseNode $n) use ($o) { $o->setICloudStorageDisabled($n->getBooleanValue()); },
-            'passCodeDisabled' => function (ParseNode $n) use ($o) { $o->setPassCodeDisabled($n->getBooleanValue()); },
-            'registrationDisabled' => function (ParseNode $n) use ($o) { $o->setRegistrationDisabled($n->getBooleanValue()); },
-            'zoomDisabled' => function (ParseNode $n) use ($o) { $o->setZoomDisabled($n->getBooleanValue()); },
+            'accessibilityScreenDisabled' => function (self $o, ParseNode $n) { $o->setAccessibilityScreenDisabled($n->getBooleanValue()); },
+            'autoUnlockWithWatchDisabled' => function (self $o, ParseNode $n) { $o->setAutoUnlockWithWatchDisabled($n->getBooleanValue()); },
+            'chooseYourLockScreenDisabled' => function (self $o, ParseNode $n) { $o->setChooseYourLockScreenDisabled($n->getBooleanValue()); },
+            'fileVaultDisabled' => function (self $o, ParseNode $n) { $o->setFileVaultDisabled($n->getBooleanValue()); },
+            'iCloudDiagnosticsDisabled' => function (self $o, ParseNode $n) { $o->setICloudDiagnosticsDisabled($n->getBooleanValue()); },
+            'iCloudStorageDisabled' => function (self $o, ParseNode $n) { $o->setICloudStorageDisabled($n->getBooleanValue()); },
+            'passCodeDisabled' => function (self $o, ParseNode $n) { $o->setPassCodeDisabled($n->getBooleanValue()); },
+            'registrationDisabled' => function (self $o, ParseNode $n) { $o->setRegistrationDisabled($n->getBooleanValue()); },
+            'zoomDisabled' => function (self $o, ParseNode $n) { $o->setZoomDisabled($n->getBooleanValue()); },
         ]);
     }
 

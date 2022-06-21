@@ -9,54 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var AndroidForWorkAppConfigurationSchemaItemDataType|null $dataType The type of value this item describes. Possible values are: bool, integer, string, choice, multiselect, bundle, bundleArray, hidden.
-    */
+    /** @var AndroidForWorkAppConfigurationSchemaItemDataType|null $dataType The type of value this item describes. Possible values are: bool, integer, string, choice, multiselect, bundle, bundleArray, hidden. */
     private ?AndroidForWorkAppConfigurationSchemaItemDataType $dataType = null;
     
-    /**
-     * @var bool|null $defaultBoolValue Default value for boolean type items, if specified by the app developer
-    */
+    /** @var bool|null $defaultBoolValue Default value for boolean type items, if specified by the app developer */
     private ?bool $defaultBoolValue = null;
     
-    /**
-     * @var int|null $defaultIntValue Default value for integer type items, if specified by the app developer
-    */
+    /** @var int|null $defaultIntValue Default value for integer type items, if specified by the app developer */
     private ?int $defaultIntValue = null;
     
-    /**
-     * @var array<string>|null $defaultStringArrayValue Default value for string array type items, if specified by the app developer
-    */
+    /** @var array<string>|null $defaultStringArrayValue Default value for string array type items, if specified by the app developer */
     private ?array $defaultStringArrayValue = null;
     
-    /**
-     * @var string|null $defaultStringValue Default value for string type items, if specified by the app developer
-    */
+    /** @var string|null $defaultStringValue Default value for string type items, if specified by the app developer */
     private ?string $defaultStringValue = null;
     
-    /**
-     * @var string|null $description Description of what the item controls within the application
-    */
+    /** @var string|null $description Description of what the item controls within the application */
     private ?string $description = null;
     
-    /**
-     * @var string|null $displayName Human readable name
-    */
+    /** @var string|null $displayName Human readable name */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $schemaItemKey Unique key the application uses to identify the item
-    */
+    /** @var string|null $schemaItemKey Unique key the application uses to identify the item */
     private ?string $schemaItemKey = null;
     
-    /**
-     * @var array<KeyValuePair>|null $selections List of human readable name/value pairs for the valid values that can be set for this item (Choice and Multiselect items only)
-    */
+    /** @var array<KeyValuePair>|null $selections List of human readable name/value pairs for the valid values that can be set for this item (Choice and Multiselect items only) */
     private ?array $selections = null;
     
     /**
@@ -71,7 +51,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AndroidForWorkAppConfigurationSchemaItem
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidForWorkAppConfigurationSchemaItem {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AndroidForWorkAppConfigurationSchemaItem {
         return new AndroidForWorkAppConfigurationSchemaItem();
     }
 
@@ -144,17 +124,16 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'dataType' => function (ParseNode $n) use ($o) { $o->setDataType($n->getEnumValue(AndroidForWorkAppConfigurationSchemaItemDataType::class)); },
-            'defaultBoolValue' => function (ParseNode $n) use ($o) { $o->setDefaultBoolValue($n->getBooleanValue()); },
-            'defaultIntValue' => function (ParseNode $n) use ($o) { $o->setDefaultIntValue($n->getIntegerValue()); },
-            'defaultStringArrayValue' => function (ParseNode $n) use ($o) { $o->setDefaultStringArrayValue($n->getCollectionOfPrimitiveValues()); },
-            'defaultStringValue' => function (ParseNode $n) use ($o) { $o->setDefaultStringValue($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'schemaItemKey' => function (ParseNode $n) use ($o) { $o->setSchemaItemKey($n->getStringValue()); },
-            'selections' => function (ParseNode $n) use ($o) { $o->setSelections($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'dataType' => function (self $o, ParseNode $n) { $o->setDataType($n->getEnumValue(AndroidForWorkAppConfigurationSchemaItemDataType::class)); },
+            'defaultBoolValue' => function (self $o, ParseNode $n) { $o->setDefaultBoolValue($n->getBooleanValue()); },
+            'defaultIntValue' => function (self $o, ParseNode $n) { $o->setDefaultIntValue($n->getIntegerValue()); },
+            'defaultStringArrayValue' => function (self $o, ParseNode $n) { $o->setDefaultStringArrayValue($n->getCollectionOfPrimitiveValues()); },
+            'defaultStringValue' => function (self $o, ParseNode $n) { $o->setDefaultStringValue($n->getStringValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'schemaItemKey' => function (self $o, ParseNode $n) { $o->setSchemaItemKey($n->getStringValue()); },
+            'selections' => function (self $o, ParseNode $n) { $o->setSelections($n->getCollectionOfObjectValues(KeyValuePair::class)); },
         ];
     }
 

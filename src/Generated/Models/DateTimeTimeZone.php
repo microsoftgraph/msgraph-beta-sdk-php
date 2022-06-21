@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DateTimeTimeZone implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $dateTime A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'.
-    */
+    /** @var string|null $dateTime A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000). */
     private ?string $dateTime = null;
     
-    /**
-     * @var string|null $timeZone Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values.
-    */
+    /** @var string|null $timeZone Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values. */
     private ?string $timeZone = null;
     
     /**
@@ -36,7 +30,7 @@ class DateTimeTimeZone implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DateTimeTimeZone
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DateTimeTimeZone {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DateTimeTimeZone {
         return new DateTimeTimeZone();
     }
 
@@ -49,7 +43,7 @@ class DateTimeTimeZone implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the dateTime property value. A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'.
+     * Gets the dateTime property value. A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
      * @return string|null
     */
     public function getDateTime(): ?string {
@@ -61,15 +55,14 @@ class DateTimeTimeZone implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'dateTime' => function (ParseNode $n) use ($o) { $o->setDateTime($n->getStringValue()); },
-            'timeZone' => function (ParseNode $n) use ($o) { $o->setTimeZone($n->getStringValue()); },
+            'dateTime' => function (self $o, ParseNode $n) { $o->setDateTime($n->getStringValue()); },
+            'timeZone' => function (self $o, ParseNode $n) { $o->setTimeZone($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the timeZone property value. Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values.
+     * Gets the timeZone property value. Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
      * @return string|null
     */
     public function getTimeZone(): ?string {
@@ -95,7 +88,7 @@ class DateTimeTimeZone implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the dateTime property value. A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'.
+     * Sets the dateTime property value. A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
      *  @param string|null $value Value to set for the dateTime property.
     */
     public function setDateTime(?string $value ): void {
@@ -103,7 +96,7 @@ class DateTimeTimeZone implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the timeZone property value. Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values.
+     * Sets the timeZone property value. Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
      *  @param string|null $value Value to set for the timeZone property.
     */
     public function setTimeZone(?string $value ): void {

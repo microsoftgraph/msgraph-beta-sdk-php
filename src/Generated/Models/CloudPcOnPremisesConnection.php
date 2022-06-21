@@ -6,86 +6,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcOnPremisesConnection extends Entity implements Parsable 
+class CloudPcOnPremisesConnection extends Entity 
 {
-    /**
-     * @var string|null $adDomainName The fully qualified domain name (FQDN) of the Active Directory domain you want to join. Optional.
-    */
+    /** @var string|null $adDomainName The fully qualified domain name (FQDN) of the Active Directory domain you want to join. Optional. */
     private ?string $adDomainName = null;
     
-    /**
-     * @var string|null $adDomainPassword The password associated with adDomainUsername.
-    */
+    /** @var string|null $adDomainPassword The password associated with adDomainUsername. */
     private ?string $adDomainPassword = null;
     
-    /**
-     * @var string|null $adDomainUsername The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com. Optional.
-    */
+    /** @var string|null $adDomainUsername The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com. Optional. */
     private ?string $adDomainUsername = null;
     
-    /**
-     * @var string|null $alternateResourceUrl The alternateResourceUrl property
-    */
-    private ?string $alternateResourceUrl = null;
-    
-    /**
-     * @var string|null $displayName The display name for the Azure network connection.
-    */
+    /** @var string|null $displayName The display name for the Azure network connection. */
     private ?string $displayName = null;
     
-    /**
-     * @var CloudPcOnPremisesConnectionStatus|null $healthCheckStatus The status of the most recent health check done on the Azure network connection. For example, if status is 'passed', the Azure network connection has passed all checks run by the service. Possible values are: pending, running, passed, failed, unknownFutureValue. Read-only.
-    */
+    /** @var CloudPcOnPremisesConnectionStatus|null $healthCheckStatus The status of the most recent health check done on the Azure network connection. For example, if status is 'passed', the Azure network connection has passed all checks run by the service. Possible values are: pending, running, passed, failed, unknownFutureValue. Read-only. */
     private ?CloudPcOnPremisesConnectionStatus $healthCheckStatus = null;
     
-    /**
-     * @var CloudPcOnPremisesConnectionStatusDetails|null $healthCheckStatusDetails The details of the connection's health checks and the corresponding results. Returned only on $select.For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
-    */
+    /** @var CloudPcOnPremisesConnectionStatusDetails|null $healthCheckStatusDetails The details of the connection's health checks and the corresponding results. Returned only on $select.For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only. */
     private ?CloudPcOnPremisesConnectionStatusDetails $healthCheckStatusDetails = null;
     
-    /**
-     * @var bool|null $inUse When true, the Azure network connection is in use. When false, the connection is not in use. You cannot delete a connection that’s in use. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
-    */
+    /** @var bool|null $inUse When true, the Azure network connection is in use. When false, the connection is not in use. You cannot delete a connection that’s in use. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only. */
     private ?bool $inUse = null;
     
-    /**
-     * @var CloudPcManagementService|null $managedBy Specifies which services manage the Azure network connection. Possible values are: windows365, devBox and unknownFutureValue. Read-only.
-    */
+    /** @var CloudPcManagementService|null $managedBy Specifies which services manage the on-premises connection. Possible values are: windows365, devBox and unknownFutureValue. Read-only. */
     private ?CloudPcManagementService $managedBy = null;
     
-    /**
-     * @var string|null $organizationalUnit The organizational unit (OU) in which the computer account is created. If left null, the OU that’s configured as the default (a well-known computer object container) in your Active Directory domain (OU) is used. Optional.
-    */
+    /** @var string|null $organizationalUnit The organizational unit (OU) in which the computer account is created. If left null, the OU that’s configured as the default (a well-known computer object container) in your Active Directory domain (OU) is used. Optional. */
     private ?string $organizationalUnit = null;
     
-    /**
-     * @var string|null $resourceGroupId The ID of the target resource group. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}'.
-    */
+    /** @var string|null $resourceGroupId The ID of the target resource group. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}'. */
     private ?string $resourceGroupId = null;
     
-    /**
-     * @var string|null $subnetId The ID of the target subnet. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkId}/subnets/{subnetName}'.
-    */
+    /** @var string|null $subnetId The ID of the target subnet. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkId}/subnets/{subnetName}'. */
     private ?string $subnetId = null;
     
-    /**
-     * @var string|null $subscriptionId The ID of the target Azure subscription that’s associated with your tenant.
-    */
+    /** @var string|null $subscriptionId The ID of the target Azure subscription that’s associated with your tenant. */
     private ?string $subscriptionId = null;
     
-    /**
-     * @var string|null $subscriptionName The name of the target Azure subscription. Read-only.
-    */
+    /** @var string|null $subscriptionName The name of the target Azure subscription. Read-only. */
     private ?string $subscriptionName = null;
     
-    /**
-     * @var CloudPcOnPremisesConnectionType|null $type Specifies how the provisioned Cloud PC will be joined to Azure Active Directory. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
-    */
+    /** @var CloudPcOnPremisesConnectionType|null $type Specifies how the provisioned Cloud PC will be joined to Azure Active Directory. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue. */
     private ?CloudPcOnPremisesConnectionType $type = null;
     
-    /**
-     * @var string|null $virtualNetworkId The ID of the target virtual network. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}'.
-    */
+    /** @var string|null $virtualNetworkId The ID of the target virtual network. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}'. */
     private ?string $virtualNetworkId = null;
     
     /**
@@ -100,7 +65,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcOnPremisesConnection
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcOnPremisesConnection {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcOnPremisesConnection {
         return new CloudPcOnPremisesConnection();
     }
 
@@ -129,14 +94,6 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the alternateResourceUrl property value. The alternateResourceUrl property
-     * @return string|null
-    */
-    public function getAlternateResourceUrl(): ?string {
-        return $this->alternateResourceUrl;
-    }
-
-    /**
      * Gets the displayName property value. The display name for the Azure network connection.
      * @return string|null
     */
@@ -149,24 +106,22 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'adDomainName' => function (ParseNode $n) use ($o) { $o->setAdDomainName($n->getStringValue()); },
-            'adDomainPassword' => function (ParseNode $n) use ($o) { $o->setAdDomainPassword($n->getStringValue()); },
-            'adDomainUsername' => function (ParseNode $n) use ($o) { $o->setAdDomainUsername($n->getStringValue()); },
-            'alternateResourceUrl' => function (ParseNode $n) use ($o) { $o->setAlternateResourceUrl($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'healthCheckStatus' => function (ParseNode $n) use ($o) { $o->setHealthCheckStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)); },
-            'healthCheckStatusDetails' => function (ParseNode $n) use ($o) { $o->setHealthCheckStatusDetails($n->getObjectValue(array(CloudPcOnPremisesConnectionStatusDetails::class, 'createFromDiscriminatorValue'))); },
-            'inUse' => function (ParseNode $n) use ($o) { $o->setInUse($n->getBooleanValue()); },
-            'managedBy' => function (ParseNode $n) use ($o) { $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)); },
-            'organizationalUnit' => function (ParseNode $n) use ($o) { $o->setOrganizationalUnit($n->getStringValue()); },
-            'resourceGroupId' => function (ParseNode $n) use ($o) { $o->setResourceGroupId($n->getStringValue()); },
-            'subnetId' => function (ParseNode $n) use ($o) { $o->setSubnetId($n->getStringValue()); },
-            'subscriptionId' => function (ParseNode $n) use ($o) { $o->setSubscriptionId($n->getStringValue()); },
-            'subscriptionName' => function (ParseNode $n) use ($o) { $o->setSubscriptionName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(CloudPcOnPremisesConnectionType::class)); },
-            'virtualNetworkId' => function (ParseNode $n) use ($o) { $o->setVirtualNetworkId($n->getStringValue()); },
+            'adDomainName' => function (self $o, ParseNode $n) { $o->setAdDomainName($n->getStringValue()); },
+            'adDomainPassword' => function (self $o, ParseNode $n) { $o->setAdDomainPassword($n->getStringValue()); },
+            'adDomainUsername' => function (self $o, ParseNode $n) { $o->setAdDomainUsername($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'healthCheckStatus' => function (self $o, ParseNode $n) { $o->setHealthCheckStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)); },
+            'healthCheckStatusDetails' => function (self $o, ParseNode $n) { $o->setHealthCheckStatusDetails($n->getObjectValue(CloudPcOnPremisesConnectionStatusDetails::class)); },
+            'inUse' => function (self $o, ParseNode $n) { $o->setInUse($n->getBooleanValue()); },
+            'managedBy' => function (self $o, ParseNode $n) { $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)); },
+            'organizationalUnit' => function (self $o, ParseNode $n) { $o->setOrganizationalUnit($n->getStringValue()); },
+            'resourceGroupId' => function (self $o, ParseNode $n) { $o->setResourceGroupId($n->getStringValue()); },
+            'subnetId' => function (self $o, ParseNode $n) { $o->setSubnetId($n->getStringValue()); },
+            'subscriptionId' => function (self $o, ParseNode $n) { $o->setSubscriptionId($n->getStringValue()); },
+            'subscriptionName' => function (self $o, ParseNode $n) { $o->setSubscriptionName($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(CloudPcOnPremisesConnectionType::class)); },
+            'virtualNetworkId' => function (self $o, ParseNode $n) { $o->setVirtualNetworkId($n->getStringValue()); },
         ]);
     }
 
@@ -195,7 +150,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedBy property value. Specifies which services manage the Azure network connection. Possible values are: windows365, devBox and unknownFutureValue. Read-only.
+     * Gets the managedBy property value. Specifies which services manage the on-premises connection. Possible values are: windows365, devBox and unknownFutureValue. Read-only.
      * @return CloudPcManagementService|null
     */
     public function getManagedBy(): ?CloudPcManagementService {
@@ -267,7 +222,6 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
         $writer->writeStringValue('adDomainName', $this->adDomainName);
         $writer->writeStringValue('adDomainPassword', $this->adDomainPassword);
         $writer->writeStringValue('adDomainUsername', $this->adDomainUsername);
-        $writer->writeStringValue('alternateResourceUrl', $this->alternateResourceUrl);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeEnumValue('healthCheckStatus', $this->healthCheckStatus);
         $writer->writeObjectValue('healthCheckStatusDetails', $this->healthCheckStatusDetails);
@@ -307,14 +261,6 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the alternateResourceUrl property value. The alternateResourceUrl property
-     *  @param string|null $value Value to set for the alternateResourceUrl property.
-    */
-    public function setAlternateResourceUrl(?string $value ): void {
-        $this->alternateResourceUrl = $value;
-    }
-
-    /**
      * Sets the displayName property value. The display name for the Azure network connection.
      *  @param string|null $value Value to set for the displayName property.
     */
@@ -347,7 +293,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the managedBy property value. Specifies which services manage the Azure network connection. Possible values are: windows365, devBox and unknownFutureValue. Read-only.
+     * Sets the managedBy property value. Specifies which services manage the on-premises connection. Possible values are: windows365, devBox and unknownFutureValue. Read-only.
      *  @param CloudPcManagementService|null $value Value to set for the managedBy property.
     */
     public function setManagedBy(?CloudPcManagementService $value ): void {

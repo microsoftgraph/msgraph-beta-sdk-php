@@ -7,61 +7,39 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GovernanceResource extends Entity implements Parsable 
+class GovernanceResource extends Entity 
 {
-    /**
-     * @var string|null $displayName The display name of the resource.
-    */
+    /** @var string|null $displayName The display name of the resource. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $externalId The external id of the resource, representing its original id in the external system. For example, a subscription resource's external id can be '/subscriptions/c14ae696-5e0c-4e5d-88cc-bef6637737ac'.
-    */
+    /** @var string|null $externalId The external id of the resource, representing its original id in the external system. For example, a subscription resource's external id can be '/subscriptions/c14ae696-5e0c-4e5d-88cc-bef6637737ac'. */
     private ?string $externalId = null;
     
-    /**
-     * @var GovernanceResource|null $parent Read-only. The parent resource. for pimforazurerbac scenario, it can represent the subscription the resource belongs to.
-    */
+    /** @var GovernanceResource|null $parent Read-only. The parent resource. for pimforazurerbac scenario, it can represent the subscription the resource belongs to. */
     private ?GovernanceResource $parent = null;
     
-    /**
-     * @var DateTime|null $registeredDateTime Represents the date time when the resource is registered in PIM.
-    */
+    /** @var DateTime|null $registeredDateTime Represents the date time when the resource is registered in PIM. */
     private ?DateTime $registeredDateTime = null;
     
-    /**
-     * @var string|null $registeredRoot The externalId of the resource's root scope that is registered in PIM. The root scope can be the parent, grandparent, or higher ancestor resources.
-    */
+    /** @var string|null $registeredRoot The externalId of the resource's root scope that is registered in PIM. The root scope can be the parent, grandparent, or higher ancestor resources. */
     private ?string $registeredRoot = null;
     
-    /**
-     * @var array<GovernanceRoleAssignmentRequest>|null $roleAssignmentRequests The collection of role assignment requests for the resource.
-    */
+    /** @var array<GovernanceRoleAssignmentRequest>|null $roleAssignmentRequests The collection of role assignment requests for the resource. */
     private ?array $roleAssignmentRequests = null;
     
-    /**
-     * @var array<GovernanceRoleAssignment>|null $roleAssignments The collection of role assignments for the resource.
-    */
+    /** @var array<GovernanceRoleAssignment>|null $roleAssignments The collection of role assignments for the resource. */
     private ?array $roleAssignments = null;
     
-    /**
-     * @var array<GovernanceRoleDefinition>|null $roleDefinitions The collection of role defintions for the resource.
-    */
+    /** @var array<GovernanceRoleDefinition>|null $roleDefinitions The collection of role defintions for the resource. */
     private ?array $roleDefinitions = null;
     
-    /**
-     * @var array<GovernanceRoleSetting>|null $roleSettings The collection of role settings for the resource.
-    */
+    /** @var array<GovernanceRoleSetting>|null $roleSettings The collection of role settings for the resource. */
     private ?array $roleSettings = null;
     
-    /**
-     * @var string|null $status The status of a given resource. For example, it could represent whether the resource is locked or not (values: Active/Locked). Note: This property may be extended in the future to support more scenarios.
-    */
+    /** @var string|null $status The status of a given resource. For example, it could represent whether the resource is locked or not (values: Active/Locked). Note: This property may be extended in the future to support more scenarios. */
     private ?string $status = null;
     
-    /**
-     * @var string|null $type Required. Resource type. For example, for Azure resources, the type could be 'Subscription', 'ResourceGroup', 'Microsoft.Sql/server', etc.
-    */
+    /** @var string|null $type Required. Resource type. For example, for Azure resources, the type could be 'Subscription', 'ResourceGroup', 'Microsoft.Sql/server', etc. */
     private ?string $type = null;
     
     /**
@@ -76,7 +54,7 @@ class GovernanceResource extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernanceResource
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceResource {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceResource {
         return new GovernanceResource();
     }
 
@@ -101,19 +79,18 @@ class GovernanceResource extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
-            'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(GovernanceResource::class, 'createFromDiscriminatorValue'))); },
-            'registeredDateTime' => function (ParseNode $n) use ($o) { $o->setRegisteredDateTime($n->getDateTimeValue()); },
-            'registeredRoot' => function (ParseNode $n) use ($o) { $o->setRegisteredRoot($n->getStringValue()); },
-            'roleAssignmentRequests' => function (ParseNode $n) use ($o) { $o->setRoleAssignmentRequests($n->getCollectionOfObjectValues(array(GovernanceRoleAssignmentRequest::class, 'createFromDiscriminatorValue'))); },
-            'roleAssignments' => function (ParseNode $n) use ($o) { $o->setRoleAssignments($n->getCollectionOfObjectValues(array(GovernanceRoleAssignment::class, 'createFromDiscriminatorValue'))); },
-            'roleDefinitions' => function (ParseNode $n) use ($o) { $o->setRoleDefinitions($n->getCollectionOfObjectValues(array(GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'roleSettings' => function (ParseNode $n) use ($o) { $o->setRoleSettings($n->getCollectionOfObjectValues(array(GovernanceRoleSetting::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'externalId' => function (self $o, ParseNode $n) { $o->setExternalId($n->getStringValue()); },
+            'parent' => function (self $o, ParseNode $n) { $o->setParent($n->getObjectValue(GovernanceResource::class)); },
+            'registeredDateTime' => function (self $o, ParseNode $n) { $o->setRegisteredDateTime($n->getDateTimeValue()); },
+            'registeredRoot' => function (self $o, ParseNode $n) { $o->setRegisteredRoot($n->getStringValue()); },
+            'roleAssignmentRequests' => function (self $o, ParseNode $n) { $o->setRoleAssignmentRequests($n->getCollectionOfObjectValues(GovernanceRoleAssignmentRequest::class)); },
+            'roleAssignments' => function (self $o, ParseNode $n) { $o->setRoleAssignments($n->getCollectionOfObjectValues(GovernanceRoleAssignment::class)); },
+            'roleDefinitions' => function (self $o, ParseNode $n) { $o->setRoleDefinitions($n->getCollectionOfObjectValues(GovernanceRoleDefinition::class)); },
+            'roleSettings' => function (self $o, ParseNode $n) { $o->setRoleSettings($n->getCollectionOfObjectValues(GovernanceRoleSetting::class)); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
         ]);
     }
 

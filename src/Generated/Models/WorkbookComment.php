@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookComment extends Entity implements Parsable 
+class WorkbookComment extends Entity 
 {
-    /**
-     * @var string|null $content The content of the comment.
-    */
+    /** @var string|null $content The content of comment. */
     private ?string $content = null;
     
-    /**
-     * @var string|null $contentType Indicates the type for the comment.
-    */
+    /** @var string|null $contentType Indicates the type for the comment. */
     private ?string $contentType = null;
     
-    /**
-     * @var array<WorkbookCommentReply>|null $replies The replies property
-    */
+    /** @var array<WorkbookCommentReply>|null $replies Read-only. Nullable. */
     private ?array $replies = null;
     
     /**
@@ -35,12 +29,12 @@ class WorkbookComment extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookComment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookComment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookComment {
         return new WorkbookComment();
     }
 
     /**
-     * Gets the content property value. The content of the comment.
+     * Gets the content property value. The content of comment.
      * @return string|null
     */
     public function getContent(): ?string {
@@ -60,16 +54,15 @@ class WorkbookComment extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getStringValue()); },
-            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getStringValue()); },
-            'replies' => function (ParseNode $n) use ($o) { $o->setReplies($n->getCollectionOfObjectValues(array(WorkbookCommentReply::class, 'createFromDiscriminatorValue'))); },
+            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getStringValue()); },
+            'contentType' => function (self $o, ParseNode $n) { $o->setContentType($n->getStringValue()); },
+            'replies' => function (self $o, ParseNode $n) { $o->setReplies($n->getCollectionOfObjectValues(WorkbookCommentReply::class)); },
         ]);
     }
 
     /**
-     * Gets the replies property value. The replies property
+     * Gets the replies property value. Read-only. Nullable.
      * @return array<WorkbookCommentReply>|null
     */
     public function getReplies(): ?array {
@@ -88,7 +81,7 @@ class WorkbookComment extends Entity implements Parsable
     }
 
     /**
-     * Sets the content property value. The content of the comment.
+     * Sets the content property value. The content of comment.
      *  @param string|null $value Value to set for the content property.
     */
     public function setContent(?string $value ): void {
@@ -104,7 +97,7 @@ class WorkbookComment extends Entity implements Parsable
     }
 
     /**
-     * Sets the replies property value. The replies property
+     * Sets the replies property value. Read-only. Nullable.
      *  @param array<WorkbookCommentReply>|null $value Value to set for the replies property.
     */
     public function setReplies(?array $value ): void {

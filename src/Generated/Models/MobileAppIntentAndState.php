@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MobileAppIntentAndState extends Entity implements Parsable 
+class MobileAppIntentAndState extends Entity 
 {
-    /**
-     * @var string|null $managedDeviceIdentifier Device identifier created or collected by Intune.
-    */
+    /** @var string|null $managedDeviceIdentifier Device identifier created or collected by Intune. */
     private ?string $managedDeviceIdentifier = null;
     
-    /**
-     * @var array<MobileAppIntentAndStateDetail>|null $mobileAppList The list of payload intents and states for the tenant.
-    */
+    /** @var array<MobileAppIntentAndStateDetail>|null $mobileAppList The list of payload intents and states for the tenant. */
     private ?array $mobileAppList = null;
     
-    /**
-     * @var string|null $userId Identifier for the user that tried to enroll the device.
-    */
+    /** @var string|null $userId Identifier for the user that tried to enroll the device. */
     private ?string $userId = null;
     
     /**
@@ -35,7 +29,7 @@ class MobileAppIntentAndState extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MobileAppIntentAndState
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppIntentAndState {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppIntentAndState {
         return new MobileAppIntentAndState();
     }
 
@@ -44,11 +38,10 @@ class MobileAppIntentAndState extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'managedDeviceIdentifier' => function (ParseNode $n) use ($o) { $o->setManagedDeviceIdentifier($n->getStringValue()); },
-            'mobileAppList' => function (ParseNode $n) use ($o) { $o->setMobileAppList($n->getCollectionOfObjectValues(array(MobileAppIntentAndStateDetail::class, 'createFromDiscriminatorValue'))); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'managedDeviceIdentifier' => function (self $o, ParseNode $n) { $o->setManagedDeviceIdentifier($n->getStringValue()); },
+            'mobileAppList' => function (self $o, ParseNode $n) { $o->setMobileAppList($n->getCollectionOfObjectValues(MobileAppIntentAndStateDetail::class)); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
         ]);
     }
 

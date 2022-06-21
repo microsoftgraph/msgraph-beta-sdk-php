@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ConditionalAccessClientApplications implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<string>|null $excludeServicePrincipals Service principal IDs excluded from the policy scope.
-    */
+    /** @var array<string>|null $excludeServicePrincipals Service principal IDs excluded from the policy scope. */
     private ?array $excludeServicePrincipals = null;
     
-    /**
-     * @var array<string>|null $includeServicePrincipals Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.
-    */
+    /** @var array<string>|null $includeServicePrincipals Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant. */
     private ?array $includeServicePrincipals = null;
     
     /**
@@ -36,7 +30,7 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Parsa
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConditionalAccessClientApplications
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessClientApplications {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessClientApplications {
         return new ConditionalAccessClientApplications();
     }
 
@@ -61,10 +55,9 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Parsa
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'excludeServicePrincipals' => function (ParseNode $n) use ($o) { $o->setExcludeServicePrincipals($n->getCollectionOfPrimitiveValues()); },
-            'includeServicePrincipals' => function (ParseNode $n) use ($o) { $o->setIncludeServicePrincipals($n->getCollectionOfPrimitiveValues()); },
+            'excludeServicePrincipals' => function (self $o, ParseNode $n) { $o->setExcludeServicePrincipals($n->getCollectionOfPrimitiveValues()); },
+            'includeServicePrincipals' => function (self $o, ParseNode $n) { $o->setIncludeServicePrincipals($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DelegatedAdminCustomer extends Entity implements Parsable 
+class DelegatedAdminCustomer extends Entity 
 {
-    /**
-     * @var string|null $displayName The Azure AD display name of the customer tenant. Read-only. Supports $orderBy.
-    */
+    /** @var string|null $displayName The Azure AD display name of the customer tenant. Read-only. Supports $orderBy. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<DelegatedAdminServiceManagementDetail>|null $serviceManagementDetails Contains the management details of a service in the customer tenant that's managed by delegated administration.
-    */
+    /** @var array<DelegatedAdminServiceManagementDetail>|null $serviceManagementDetails Contains the management details of a service in the customer tenant that's managed by delegated administration. */
     private ?array $serviceManagementDetails = null;
     
-    /**
-     * @var string|null $tenantId The Azure AD-assigned tenant ID of the customer. Read-only.
-    */
+    /** @var string|null $tenantId The Azure AD-assigned tenant ID of the customer. Read-only. */
     private ?string $tenantId = null;
     
     /**
@@ -35,7 +29,7 @@ class DelegatedAdminCustomer extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DelegatedAdminCustomer
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminCustomer {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminCustomer {
         return new DelegatedAdminCustomer();
     }
 
@@ -52,11 +46,10 @@ class DelegatedAdminCustomer extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'serviceManagementDetails' => function (ParseNode $n) use ($o) { $o->setServiceManagementDetails($n->getCollectionOfObjectValues(array(DelegatedAdminServiceManagementDetail::class, 'createFromDiscriminatorValue'))); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'serviceManagementDetails' => function (self $o, ParseNode $n) { $o->setServiceManagementDetails($n->getCollectionOfObjectValues(DelegatedAdminServiceManagementDetail::class)); },
+            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
         ]);
     }
 

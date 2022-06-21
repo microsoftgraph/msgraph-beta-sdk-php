@@ -7,11 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Security extends Entity implements Parsable 
+class Security extends Entity 
 {
-    /**
-     * @var InformationProtection|null $informationProtection The informationProtection property
-    */
+    /** @var InformationProtection|null $informationProtection The informationProtection property */
     private ?InformationProtection $informationProtection = null;
     
     /**
@@ -26,7 +24,7 @@ class Security extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Security
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Security {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Security {
         return new Security();
     }
 
@@ -35,9 +33,8 @@ class Security extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'informationProtection' => function (ParseNode $n) use ($o) { $o->setInformationProtection($n->getObjectValue(array(InformationProtection::class, 'createFromDiscriminatorValue'))); },
+            'informationProtection' => function (self $o, ParseNode $n) { $o->setInformationProtection($n->getObjectValue(InformationProtection::class)); },
         ]);
     }
 

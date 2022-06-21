@@ -7,26 +7,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MeetingAttendanceReport extends Entity implements Parsable 
+class MeetingAttendanceReport extends Entity 
 {
-    /**
-     * @var array<AttendanceRecord>|null $attendanceRecords List of attendance records of an attendance report. Read-only.
-    */
+    /** @var array<AttendanceRecord>|null $attendanceRecords List of attendance records of an attendance report. Read-only. */
     private ?array $attendanceRecords = null;
     
-    /**
-     * @var DateTime|null $meetingEndDateTime UTC time when the meeting ended. Read-only.
-    */
+    /** @var DateTime|null $meetingEndDateTime UTC time when the meeting ended. Read-only. */
     private ?DateTime $meetingEndDateTime = null;
     
-    /**
-     * @var DateTime|null $meetingStartDateTime UTC time when the meeting started. Read-only.
-    */
+    /** @var DateTime|null $meetingStartDateTime UTC time when the meeting started. Read-only. */
     private ?DateTime $meetingStartDateTime = null;
     
-    /**
-     * @var int|null $totalParticipantCount Total number of participants. Read-only.
-    */
+    /** @var int|null $totalParticipantCount Total number of participants. Read-only. */
     private ?int $totalParticipantCount = null;
     
     /**
@@ -41,7 +33,7 @@ class MeetingAttendanceReport extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MeetingAttendanceReport
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MeetingAttendanceReport {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MeetingAttendanceReport {
         return new MeetingAttendanceReport();
     }
 
@@ -58,12 +50,11 @@ class MeetingAttendanceReport extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'attendanceRecords' => function (ParseNode $n) use ($o) { $o->setAttendanceRecords($n->getCollectionOfObjectValues(array(AttendanceRecord::class, 'createFromDiscriminatorValue'))); },
-            'meetingEndDateTime' => function (ParseNode $n) use ($o) { $o->setMeetingEndDateTime($n->getDateTimeValue()); },
-            'meetingStartDateTime' => function (ParseNode $n) use ($o) { $o->setMeetingStartDateTime($n->getDateTimeValue()); },
-            'totalParticipantCount' => function (ParseNode $n) use ($o) { $o->setTotalParticipantCount($n->getIntegerValue()); },
+            'attendanceRecords' => function (self $o, ParseNode $n) { $o->setAttendanceRecords($n->getCollectionOfObjectValues(AttendanceRecord::class)); },
+            'meetingEndDateTime' => function (self $o, ParseNode $n) { $o->setMeetingEndDateTime($n->getDateTimeValue()); },
+            'meetingStartDateTime' => function (self $o, ParseNode $n) { $o->setMeetingStartDateTime($n->getDateTimeValue()); },
+            'totalParticipantCount' => function (self $o, ParseNode $n) { $o->setTotalParticipantCount($n->getIntegerValue()); },
         ]);
     }
 

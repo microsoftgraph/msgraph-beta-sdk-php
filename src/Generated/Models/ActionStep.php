@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ActionStep implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var ActionUrl|null $actionUrl The actionUrl property
-    */
+    /** @var ActionUrl|null $actionUrl The actionUrl property */
     private ?ActionUrl $actionUrl = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $stepNumber The stepNumber property
-    */
+    /** @var int|null $stepNumber The stepNumber property */
     private ?int $stepNumber = null;
     
-    /**
-     * @var string|null $text The text property
-    */
+    /** @var string|null $text The text property */
     private ?string $text = null;
     
     /**
@@ -41,7 +33,7 @@ class ActionStep implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ActionStep
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ActionStep {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ActionStep {
         return new ActionStep();
     }
 
@@ -66,11 +58,10 @@ class ActionStep implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'actionUrl' => function (ParseNode $n) use ($o) { $o->setActionUrl($n->getObjectValue(array(ActionUrl::class, 'createFromDiscriminatorValue'))); },
-            'stepNumber' => function (ParseNode $n) use ($o) { $o->setStepNumber($n->getIntegerValue()); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
+            'actionUrl' => function (self $o, ParseNode $n) { $o->setActionUrl($n->getObjectValue(ActionUrl::class)); },
+            'stepNumber' => function (self $o, ParseNode $n) { $o->setStepNumber($n->getIntegerValue()); },
+            'text' => function (self $o, ParseNode $n) { $o->setText($n->getStringValue()); },
         ];
     }
 

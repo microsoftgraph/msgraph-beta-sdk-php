@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrivilegedRole extends Entity implements Parsable 
+class PrivilegedRole extends Entity 
 {
-    /**
-     * @var array<PrivilegedRoleAssignment>|null $assignments The assignments for this role. Read-only. Nullable.
-    */
+    /** @var array<PrivilegedRoleAssignment>|null $assignments The assignments for this role. Read-only. Nullable. */
     private ?array $assignments = null;
     
-    /**
-     * @var string|null $name Role name.
-    */
+    /** @var string|null $name Role name. */
     private ?string $name = null;
     
-    /**
-     * @var PrivilegedRoleSettings|null $settings The settings for this role. Read-only. Nullable.
-    */
+    /** @var PrivilegedRoleSettings|null $settings The settings for this role. Read-only. Nullable. */
     private ?PrivilegedRoleSettings $settings = null;
     
-    /**
-     * @var PrivilegedRoleSummary|null $summary The summary information for this role. Read-only. Nullable.
-    */
+    /** @var PrivilegedRoleSummary|null $summary The summary information for this role. Read-only. Nullable. */
     private ?PrivilegedRoleSummary $summary = null;
     
     /**
@@ -40,7 +32,7 @@ class PrivilegedRole extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrivilegedRole
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedRole {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedRole {
         return new PrivilegedRole();
     }
 
@@ -57,12 +49,11 @@ class PrivilegedRole extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(PrivilegedRoleAssignment::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(PrivilegedRoleSettings::class, 'createFromDiscriminatorValue'))); },
-            'summary' => function (ParseNode $n) use ($o) { $o->setSummary($n->getObjectValue(array(PrivilegedRoleSummary::class, 'createFromDiscriminatorValue'))); },
+            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(PrivilegedRoleAssignment::class)); },
+            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getObjectValue(PrivilegedRoleSettings::class)); },
+            'summary' => function (self $o, ParseNode $n) { $o->setSummary($n->getObjectValue(PrivilegedRoleSummary::class)); },
         ]);
     }
 

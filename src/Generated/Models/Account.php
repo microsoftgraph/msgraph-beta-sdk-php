@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Account extends Entity implements Parsable 
+class Account extends Entity 
 {
-    /**
-     * @var bool|null $blocked The blocked property
-    */
+    /** @var bool|null $blocked The blocked property */
     private ?bool $blocked = null;
     
-    /**
-     * @var string|null $category The category property
-    */
+    /** @var string|null $category The category property */
     private ?string $category = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
+    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var string|null $number The number property
-    */
+    /** @var string|null $number The number property */
     private ?string $number = null;
     
-    /**
-     * @var string|null $subCategory The subCategory property
-    */
+    /** @var string|null $subCategory The subCategory property */
     private ?string $subCategory = null;
     
     /**
@@ -51,7 +39,7 @@ class Account extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Account
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Account {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Account {
         return new Account();
     }
 
@@ -84,14 +72,13 @@ class Account extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'blocked' => function (ParseNode $n) use ($o) { $o->setBlocked($n->getBooleanValue()); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'number' => function (ParseNode $n) use ($o) { $o->setNumber($n->getStringValue()); },
-            'subCategory' => function (ParseNode $n) use ($o) { $o->setSubCategory($n->getStringValue()); },
+            'blocked' => function (self $o, ParseNode $n) { $o->setBlocked($n->getBooleanValue()); },
+            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'number' => function (self $o, ParseNode $n) { $o->setNumber($n->getStringValue()); },
+            'subCategory' => function (self $o, ParseNode $n) { $o->setSubCategory($n->getStringValue()); },
         ]);
     }
 

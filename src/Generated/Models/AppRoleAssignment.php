@@ -7,41 +7,27 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AppRoleAssignment extends Entity implements Parsable 
+class AppRoleAssignment extends Entity 
 {
-    /**
-     * @var string|null $appRoleId The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create.
-    */
+    /** @var string|null $appRoleId The identifier (id) for the app role which is assigned to the principal. This app role must be exposed in the appRoles property on the resource application's service principal (resourceId). If the resource application has not declared any app roles, a default app role ID of 00000000-0000-0000-0000-000000000000 can be specified to signal that the principal is assigned to the resource app without any specific app roles. Required on create. */
     private ?string $appRoleId = null;
     
-    /**
-     * @var DateTime|null $creationTimestamp The time when the app role assignment was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    */
+    /** @var DateTime|null $creationTimestamp The time when the app role assignment was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private ?DateTime $creationTimestamp = null;
     
-    /**
-     * @var string|null $principalDisplayName The display name of the user, group, or service principal that was granted the app role assignment. Read-only. Supports $filter (eq and startswith).
-    */
+    /** @var string|null $principalDisplayName The display name of the user, group, or service principal that was granted the app role assignment. Read-only. Supports $filter (eq and startswith). */
     private ?string $principalDisplayName = null;
     
-    /**
-     * @var string|null $principalId The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create.
-    */
+    /** @var string|null $principalId The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create. */
     private ?string $principalId = null;
     
-    /**
-     * @var string|null $principalType The type of the assigned principal. This can either be User, Group, or ServicePrincipal. Read-only.
-    */
+    /** @var string|null $principalType The type of the assigned principal. This can either be User, Group, or ServicePrincipal. Read-only. */
     private ?string $principalType = null;
     
-    /**
-     * @var string|null $resourceDisplayName The display name of the resource app's service principal to which the assignment is made.
-    */
+    /** @var string|null $resourceDisplayName The display name of the resource app's service principal to which the assignment is made. */
     private ?string $resourceDisplayName = null;
     
-    /**
-     * @var string|null $resourceId The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).
-    */
+    /** @var string|null $resourceId The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only). */
     private ?string $resourceId = null;
     
     /**
@@ -56,7 +42,7 @@ class AppRoleAssignment extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AppRoleAssignment
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppRoleAssignment {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AppRoleAssignment {
         return new AppRoleAssignment();
     }
 
@@ -81,15 +67,14 @@ class AppRoleAssignment extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appRoleId' => function (ParseNode $n) use ($o) { $o->setAppRoleId($n->getStringValue()); },
-            'creationTimestamp' => function (ParseNode $n) use ($o) { $o->setCreationTimestamp($n->getDateTimeValue()); },
-            'principalDisplayName' => function (ParseNode $n) use ($o) { $o->setPrincipalDisplayName($n->getStringValue()); },
-            'principalId' => function (ParseNode $n) use ($o) { $o->setPrincipalId($n->getStringValue()); },
-            'principalType' => function (ParseNode $n) use ($o) { $o->setPrincipalType($n->getStringValue()); },
-            'resourceDisplayName' => function (ParseNode $n) use ($o) { $o->setResourceDisplayName($n->getStringValue()); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
+            'appRoleId' => function (self $o, ParseNode $n) { $o->setAppRoleId($n->getStringValue()); },
+            'creationTimestamp' => function (self $o, ParseNode $n) { $o->setCreationTimestamp($n->getDateTimeValue()); },
+            'principalDisplayName' => function (self $o, ParseNode $n) { $o->setPrincipalDisplayName($n->getStringValue()); },
+            'principalId' => function (self $o, ParseNode $n) { $o->setPrincipalId($n->getStringValue()); },
+            'principalType' => function (self $o, ParseNode $n) { $o->setPrincipalType($n->getStringValue()); },
+            'resourceDisplayName' => function (self $o, ParseNode $n) { $o->setResourceDisplayName($n->getStringValue()); },
+            'resourceId' => function (self $o, ParseNode $n) { $o->setResourceId($n->getStringValue()); },
         ]);
     }
 

@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CallMediaState implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var MediaState|null $audio The audio media state. Possible values are: active, inactive, unknownFutureValue.
-    */
+    /** @var MediaState|null $audio The audio media state. Possible values are: active, inactive, unknownFutureValue. */
     private ?MediaState $audio = null;
     
     /**
@@ -31,7 +27,7 @@ class CallMediaState implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CallMediaState
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CallMediaState {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CallMediaState {
         return new CallMediaState();
     }
 
@@ -56,9 +52,8 @@ class CallMediaState implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'audio' => function (ParseNode $n) use ($o) { $o->setAudio($n->getEnumValue(MediaState::class)); },
+            'audio' => function (self $o, ParseNode $n) { $o->setAudio($n->getEnumValue(MediaState::class)); },
         ];
     }
 

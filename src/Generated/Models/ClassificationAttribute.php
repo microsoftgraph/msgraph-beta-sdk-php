@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ClassificationAttribute implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var int|null $confidence The confidence property
-    */
+    /** @var int|null $confidence The confidence property */
     private ?int $confidence = null;
     
-    /**
-     * @var int|null $count The count property
-    */
+    /** @var int|null $count The count property */
     private ?int $count = null;
     
     /**
@@ -36,7 +30,7 @@ class ClassificationAttribute implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ClassificationAttribute
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ClassificationAttribute {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ClassificationAttribute {
         return new ClassificationAttribute();
     }
 
@@ -69,10 +63,9 @@ class ClassificationAttribute implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
-            'count' => function (ParseNode $n) use ($o) { $o->setCount($n->getIntegerValue()); },
+            'confidence' => function (self $o, ParseNode $n) { $o->setConfidence($n->getIntegerValue()); },
+            'count' => function (self $o, ParseNode $n) { $o->setCount($n->getIntegerValue()); },
         ];
     }
 

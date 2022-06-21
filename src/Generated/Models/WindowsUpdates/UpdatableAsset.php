@@ -7,7 +7,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UpdatableAsset extends Entity implements Parsable 
+class UpdatableAsset extends Entity 
 {
     /**
      * Instantiates a new updatableAsset and sets the default values.
@@ -21,15 +21,7 @@ class UpdatableAsset extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UpdatableAsset
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UpdatableAsset {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.windowsUpdates.azureADDevice': return new AzureADDevice();
-                case '#microsoft.graph.windowsUpdates.updatableAssetGroup': return new UpdatableAssetGroup();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UpdatableAsset {
         return new UpdatableAsset();
     }
 
@@ -38,7 +30,6 @@ class UpdatableAsset extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

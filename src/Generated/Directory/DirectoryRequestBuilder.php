@@ -20,8 +20,8 @@ use Microsoft\Graph\Beta\Generated\Directory\FederationConfigurations\Item\Ident
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\ImpactedResourcesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\RecommendationResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\InboundSharedUserProfilesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\Item\InboundSharedUserProfileUserItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\OutboundSharedUserProfileUserItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\Item\InboundSharedUserProfileItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\OutboundSharedUserProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\OutboundSharedUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\RecommendationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\RecommendationsRequestBuilder;
@@ -102,9 +102,7 @@ class DirectoryRequestBuilder
         return new OutboundSharedUserProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
+    /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
     /**
@@ -114,9 +112,7 @@ class DirectoryRequestBuilder
         return new RecommendationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
+    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -126,9 +122,7 @@ class DirectoryRequestBuilder
         return new SharedEmailDomainsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
+    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
     /**
@@ -138,7 +132,7 @@ class DirectoryRequestBuilder
     */
     public function administrativeUnitsById(string $id): AdministrativeUnitItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['administrativeUnit%2Did'] = $id;
+        $urlTplParams['administrativeUnit_id'] = $id;
         return new AdministrativeUnitItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -149,7 +143,7 @@ class DirectoryRequestBuilder
     */
     public function attributeSetsById(string $id): AttributeSetItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['attributeSet%2Did'] = $id;
+        $urlTplParams['attributeSet_id'] = $id;
         return new AttributeSetItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -159,32 +153,31 @@ class DirectoryRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/directory{?%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/directory{?select,expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Get directory
-     * @param DirectoryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?DirectoryRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->queryParameters !== null) {
-                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($queryParameters !== null) {
+            $requestInfo->setQueryParameters($queryParameters);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
@@ -192,23 +185,22 @@ class DirectoryRequestBuilder
     /**
      * Update directory
      * @param Directory $body 
-     * @param DirectoryRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(Directory $body, ?DirectoryRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createPatchRequestInformation(Directory $body, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
+        }
         return $requestInfo;
     }
 
@@ -219,7 +211,7 @@ class DirectoryRequestBuilder
     */
     public function customSecurityAttributeDefinitionsById(string $id): CustomSecurityAttributeDefinitionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['customSecurityAttributeDefinition%2Did'] = $id;
+        $urlTplParams['customSecurityAttributeDefinition_id'] = $id;
         return new CustomSecurityAttributeDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -230,7 +222,7 @@ class DirectoryRequestBuilder
     */
     public function deletedItemsById(string $id): DirectoryObjectItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['directoryObject%2Did'] = $id;
+        $urlTplParams['directoryObject_id'] = $id;
         return new DirectoryObjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -241,7 +233,7 @@ class DirectoryRequestBuilder
     */
     public function featureRolloutPoliciesById(string $id): FeatureRolloutPolicyItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['featureRolloutPolicy%2Did'] = $id;
+        $urlTplParams['featureRolloutPolicy_id'] = $id;
         return new FeatureRolloutPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -252,24 +244,22 @@ class DirectoryRequestBuilder
     */
     public function federationConfigurationsById(string $id): IdentityProviderBaseItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['identityProviderBase%2Did'] = $id;
+        $urlTplParams['identityProviderBase_id'] = $id;
         return new IdentityProviderBaseItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Get directory
-     * @param DirectoryRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?DirectoryRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
+    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(Directory::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, Directory::class, $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -282,47 +272,44 @@ class DirectoryRequestBuilder
     */
     public function impactedResourcesById(string $id): RecommendationResourceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['recommendationResource%2Did'] = $id;
+        $urlTplParams['recommendationResource_id'] = $id;
         return new RecommendationResourceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.directory.inboundSharedUserProfiles.item collection
      * @param string $id Unique identifier of the item
-     * @return InboundSharedUserProfileUserItemRequestBuilder
+     * @return InboundSharedUserProfileItemRequestBuilder
     */
-    public function inboundSharedUserProfilesById(string $id): InboundSharedUserProfileUserItemRequestBuilder {
+    public function inboundSharedUserProfilesById(string $id): InboundSharedUserProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['inboundSharedUserProfile%2DuserId'] = $id;
-        return new InboundSharedUserProfileUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        $urlTplParams['inboundSharedUserProfile_userId'] = $id;
+        return new InboundSharedUserProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.directory.outboundSharedUserProfiles.item collection
      * @param string $id Unique identifier of the item
-     * @return OutboundSharedUserProfileUserItemRequestBuilder
+     * @return OutboundSharedUserProfileItemRequestBuilder
     */
-    public function outboundSharedUserProfilesById(string $id): OutboundSharedUserProfileUserItemRequestBuilder {
+    public function outboundSharedUserProfilesById(string $id): OutboundSharedUserProfileItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['outboundSharedUserProfile%2DuserId'] = $id;
-        return new OutboundSharedUserProfileUserItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        $urlTplParams['outboundSharedUserProfile_userId'] = $id;
+        return new OutboundSharedUserProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update directory
      * @param Directory $body 
-     * @param DirectoryRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Directory $body, ?DirectoryRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
+    public function patch(Directory $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -335,7 +322,7 @@ class DirectoryRequestBuilder
     */
     public function recommendationsById(string $id): RecommendationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['recommendation%2Did'] = $id;
+        $urlTplParams['recommendation_id'] = $id;
         return new RecommendationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -346,7 +333,7 @@ class DirectoryRequestBuilder
     */
     public function sharedEmailDomainsById(string $id): SharedEmailDomainItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['sharedEmailDomain%2Did'] = $id;
+        $urlTplParams['sharedEmailDomain_id'] = $id;
         return new SharedEmailDomainItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

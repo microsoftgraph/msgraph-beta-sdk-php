@@ -7,31 +7,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TenantGroup extends Entity implements Parsable 
+class TenantGroup extends Entity 
 {
-    /**
-     * @var bool|null $allTenantsIncluded A flag indicating whether all managed tenant are included in the tenant group. Required. Read-only.
-    */
+    /** @var bool|null $allTenantsIncluded A flag indicating whether all managed tenant are included in the tenant group. Required. Read-only. */
     private ?bool $allTenantsIncluded = null;
     
-    /**
-     * @var string|null $displayName The display name for the tenant group. Optional. Read-only.
-    */
+    /** @var string|null $displayName The display name for the tenant group. Optional. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<ManagementActionInfo>|null $managementActions The collection of management action associated with the tenant group. Optional. Read-only.
-    */
+    /** @var array<ManagementActionInfo>|null $managementActions The collection of management action associated with the tenant group. Optional. Read-only. */
     private ?array $managementActions = null;
     
-    /**
-     * @var array<ManagementIntentInfo>|null $managementIntents The collection of management intents associated with the tenant group. Optional. Read-only.
-    */
+    /** @var array<ManagementIntentInfo>|null $managementIntents The collection of management intents associated with the tenant group. Optional. Read-only. */
     private ?array $managementIntents = null;
     
-    /**
-     * @var array<string>|null $tenantIds The collection of managed tenant identifiers include in the tenant group. Optional. Read-only.
-    */
+    /** @var array<string>|null $tenantIds The collection of managed tenant identifiers include in the tenant group. Optional. Read-only. */
     private ?array $tenantIds = null;
     
     /**
@@ -46,7 +36,7 @@ class TenantGroup extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantGroup
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantGroup {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantGroup {
         return new TenantGroup();
     }
 
@@ -71,13 +61,12 @@ class TenantGroup extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allTenantsIncluded' => function (ParseNode $n) use ($o) { $o->setAllTenantsIncluded($n->getBooleanValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'managementActions' => function (ParseNode $n) use ($o) { $o->setManagementActions($n->getCollectionOfObjectValues(array(ManagementActionInfo::class, 'createFromDiscriminatorValue'))); },
-            'managementIntents' => function (ParseNode $n) use ($o) { $o->setManagementIntents($n->getCollectionOfObjectValues(array(ManagementIntentInfo::class, 'createFromDiscriminatorValue'))); },
-            'tenantIds' => function (ParseNode $n) use ($o) { $o->setTenantIds($n->getCollectionOfPrimitiveValues()); },
+            'allTenantsIncluded' => function (self $o, ParseNode $n) { $o->setAllTenantsIncluded($n->getBooleanValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'managementActions' => function (self $o, ParseNode $n) { $o->setManagementActions($n->getCollectionOfObjectValues(ManagementActionInfo::class)); },
+            'managementIntents' => function (self $o, ParseNode $n) { $o->setManagementIntents($n->getCollectionOfObjectValues(ManagementIntentInfo::class)); },
+            'tenantIds' => function (self $o, ParseNode $n) { $o->setTenantIds($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

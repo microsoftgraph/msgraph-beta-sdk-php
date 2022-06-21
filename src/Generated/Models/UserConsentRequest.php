@@ -6,20 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserConsentRequest extends Request implements Parsable 
+class UserConsentRequest extends Request 
 {
-    /**
-     * @var Approval|null $approval Approval decisions associated with a request.
-    */
+    /** @var Approval|null $approval Approval decisions associated with a request. */
     private ?Approval $approval = null;
     
-    /**
-     * @var string|null $reason The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby.
-    */
+    /** @var string|null $reason The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby. */
     private ?string $reason = null;
     
     /**
-     * Instantiates a new UserConsentRequest and sets the default values.
+     * Instantiates a new userConsentRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +26,7 @@ class UserConsentRequest extends Request implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserConsentRequest
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserConsentRequest {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserConsentRequest {
         return new UserConsentRequest();
     }
 
@@ -47,10 +43,9 @@ class UserConsentRequest extends Request implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'approval' => function (ParseNode $n) use ($o) { $o->setApproval($n->getObjectValue(array(Approval::class, 'createFromDiscriminatorValue'))); },
-            'reason' => function (ParseNode $n) use ($o) { $o->setReason($n->getStringValue()); },
+            'approval' => function (self $o, ParseNode $n) { $o->setApproval($n->getObjectValue(Approval::class)); },
+            'reason' => function (self $o, ParseNode $n) { $o->setReason($n->getStringValue()); },
         ]);
     }
 

@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PropertyToEvaluate implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $propertyName Provides the property name.
-    */
+    /** @var string|null $propertyName Provides the property name. */
     private ?string $propertyName = null;
     
-    /**
-     * @var string|null $propertyValue Provides the property value.
-    */
+    /** @var string|null $propertyValue Provides the property value. */
     private ?string $propertyValue = null;
     
     /**
@@ -36,7 +30,7 @@ class PropertyToEvaluate implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PropertyToEvaluate
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PropertyToEvaluate {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PropertyToEvaluate {
         return new PropertyToEvaluate();
     }
 
@@ -53,10 +47,9 @@ class PropertyToEvaluate implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'propertyName' => function (ParseNode $n) use ($o) { $o->setPropertyName($n->getStringValue()); },
-            'propertyValue' => function (ParseNode $n) use ($o) { $o->setPropertyValue($n->getStringValue()); },
+            'propertyName' => function (self $o, ParseNode $n) { $o->setPropertyName($n->getStringValue()); },
+            'propertyValue' => function (self $o, ParseNode $n) { $o->setPropertyValue($n->getStringValue()); },
         ];
     }
 

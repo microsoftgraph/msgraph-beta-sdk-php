@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PlannerTaskDetails extends PlannerDelta implements Parsable 
+class PlannerTaskDetails extends PlannerDelta 
 {
-    /**
-     * @var PlannerChecklistItems|null $checklist The collection of checklist items on the task.
-    */
+    /** @var PlannerChecklistItems|null $checklist The collection of checklist items on the task. */
     private ?PlannerChecklistItems $checklist = null;
     
-    /**
-     * @var string|null $description Description of the task.
-    */
+    /** @var string|null $description Description of the task. */
     private ?string $description = null;
     
-    /**
-     * @var PlannerPreviewType|null $previewType This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
-    */
+    /** @var PlannerPreviewType|null $previewType This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task. */
     private ?PlannerPreviewType $previewType = null;
     
-    /**
-     * @var PlannerExternalReferences|null $references The collection of references on the task.
-    */
+    /** @var PlannerExternalReferences|null $references The collection of references on the task. */
     private ?PlannerExternalReferences $references = null;
     
     /**
@@ -40,7 +32,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PlannerTaskDetails
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerTaskDetails {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PlannerTaskDetails {
         return new PlannerTaskDetails();
     }
 
@@ -65,17 +57,16 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'checklist' => function (ParseNode $n) use ($o) { $o->setChecklist($n->getObjectValue(array(PlannerChecklistItems::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'previewType' => function (ParseNode $n) use ($o) { $o->setPreviewType($n->getEnumValue(PlannerPreviewType::class)); },
-            'references' => function (ParseNode $n) use ($o) { $o->setReferences($n->getObjectValue(array(PlannerExternalReferences::class, 'createFromDiscriminatorValue'))); },
+            'checklist' => function (self $o, ParseNode $n) { $o->setChecklist($n->getObjectValue(PlannerChecklistItems::class)); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'previewType' => function (self $o, ParseNode $n) { $o->setPreviewType($n->getEnumValue(PlannerPreviewType::class)); },
+            'references' => function (self $o, ParseNode $n) { $o->setReferences($n->getObjectValue(PlannerExternalReferences::class)); },
         ]);
     }
 
     /**
-     * Gets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
+     * Gets the previewType property value. This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
      * @return PlannerPreviewType|null
     */
     public function getPreviewType(): ?PlannerPreviewType {
@@ -119,7 +110,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
+     * Sets the previewType property value. This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
      *  @param PlannerPreviewType|null $value Value to set for the previewType property.
     */
     public function setPreviewType(?PlannerPreviewType $value ): void {

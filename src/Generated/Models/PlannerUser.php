@@ -6,50 +6,34 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PlannerUser extends PlannerDelta implements Parsable 
+class PlannerUser extends PlannerDelta 
 {
-    /**
-     * @var array<PlannerDelta>|null $all The all property
-    */
+    /** @var array<PlannerDelta>|null $all The all property */
     private ?array $all = null;
     
-    /**
-     * @var PlannerFavoritePlanReferenceCollection|null $favoritePlanReferences A collection containing the references to the plans that the user has marked as favorites.
-    */
+    /** @var PlannerFavoritePlanReferenceCollection|null $favoritePlanReferences A collection containing the references to the plans that the user has marked as favorites. */
     private ?PlannerFavoritePlanReferenceCollection $favoritePlanReferences = null;
     
-    /**
-     * @var array<PlannerPlan>|null $favoritePlans Read-only. Nullable. Returns the plannerPlans that the user marked as favorites.
-    */
+    /** @var array<PlannerPlan>|null $favoritePlans Read-only. Nullable. Returns the plannerPlans that the user marked as favorites. */
     private ?array $favoritePlans = null;
     
-    /**
-     * @var array<PlannerPlan>|null $plans Read-only. Nullable. Returns the plannerTasks assigned to the user.
-    */
+    /** @var array<PlannerPlan>|null $plans Read-only. Nullable. Returns the plannerTasks assigned to the user. */
     private ?array $plans = null;
     
-    /**
-     * @var PlannerRecentPlanReferenceCollection|null $recentPlanReferences A collection containing references to the plans that were viewed recently by the user in apps that support recent plans.
-    */
+    /** @var PlannerRecentPlanReferenceCollection|null $recentPlanReferences A collection containing references to the plans that were viewed recently by the user in apps that support recent plans. */
     private ?PlannerRecentPlanReferenceCollection $recentPlanReferences = null;
     
-    /**
-     * @var array<PlannerPlan>|null $recentPlans Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
-    */
+    /** @var array<PlannerPlan>|null $recentPlans Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans. */
     private ?array $recentPlans = null;
     
-    /**
-     * @var array<PlannerPlan>|null $rosterPlans Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
-    */
+    /** @var array<PlannerPlan>|null $rosterPlans Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member. */
     private ?array $rosterPlans = null;
     
-    /**
-     * @var array<PlannerTask>|null $tasks Read-only. Nullable. Returns the plannerTasks assigned to the user.
-    */
+    /** @var array<PlannerTask>|null $tasks Read-only. Nullable. Returns the plannerPlans shared with the user. */
     private ?array $tasks = null;
     
     /**
-     * Instantiates a new PlannerUser and sets the default values.
+     * Instantiates a new plannerUser and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -60,7 +44,7 @@ class PlannerUser extends PlannerDelta implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PlannerUser
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerUser {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PlannerUser {
         return new PlannerUser();
     }
 
@@ -93,16 +77,15 @@ class PlannerUser extends PlannerDelta implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'all' => function (ParseNode $n) use ($o) { $o->setAll($n->getCollectionOfObjectValues(array(PlannerDelta::class, 'createFromDiscriminatorValue'))); },
-            'favoritePlanReferences' => function (ParseNode $n) use ($o) { $o->setFavoritePlanReferences($n->getObjectValue(array(PlannerFavoritePlanReferenceCollection::class, 'createFromDiscriminatorValue'))); },
-            'favoritePlans' => function (ParseNode $n) use ($o) { $o->setFavoritePlans($n->getCollectionOfObjectValues(array(PlannerPlan::class, 'createFromDiscriminatorValue'))); },
-            'plans' => function (ParseNode $n) use ($o) { $o->setPlans($n->getCollectionOfObjectValues(array(PlannerPlan::class, 'createFromDiscriminatorValue'))); },
-            'recentPlanReferences' => function (ParseNode $n) use ($o) { $o->setRecentPlanReferences($n->getObjectValue(array(PlannerRecentPlanReferenceCollection::class, 'createFromDiscriminatorValue'))); },
-            'recentPlans' => function (ParseNode $n) use ($o) { $o->setRecentPlans($n->getCollectionOfObjectValues(array(PlannerPlan::class, 'createFromDiscriminatorValue'))); },
-            'rosterPlans' => function (ParseNode $n) use ($o) { $o->setRosterPlans($n->getCollectionOfObjectValues(array(PlannerPlan::class, 'createFromDiscriminatorValue'))); },
-            'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(PlannerTask::class, 'createFromDiscriminatorValue'))); },
+            'all' => function (self $o, ParseNode $n) { $o->setAll($n->getCollectionOfObjectValues(PlannerDelta::class)); },
+            'favoritePlanReferences' => function (self $o, ParseNode $n) { $o->setFavoritePlanReferences($n->getObjectValue(PlannerFavoritePlanReferenceCollection::class)); },
+            'favoritePlans' => function (self $o, ParseNode $n) { $o->setFavoritePlans($n->getCollectionOfObjectValues(PlannerPlan::class)); },
+            'plans' => function (self $o, ParseNode $n) { $o->setPlans($n->getCollectionOfObjectValues(PlannerPlan::class)); },
+            'recentPlanReferences' => function (self $o, ParseNode $n) { $o->setRecentPlanReferences($n->getObjectValue(PlannerRecentPlanReferenceCollection::class)); },
+            'recentPlans' => function (self $o, ParseNode $n) { $o->setRecentPlans($n->getCollectionOfObjectValues(PlannerPlan::class)); },
+            'rosterPlans' => function (self $o, ParseNode $n) { $o->setRosterPlans($n->getCollectionOfObjectValues(PlannerPlan::class)); },
+            'tasks' => function (self $o, ParseNode $n) { $o->setTasks($n->getCollectionOfObjectValues(PlannerTask::class)); },
         ]);
     }
 
@@ -139,7 +122,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the tasks property value. Read-only. Nullable. Returns the plannerTasks assigned to the user.
+     * Gets the tasks property value. Read-only. Nullable. Returns the plannerPlans shared with the user.
      * @return array<PlannerTask>|null
     */
     public function getTasks(): ?array {
@@ -219,7 +202,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the tasks property value. Read-only. Nullable. Returns the plannerTasks assigned to the user.
+     * Sets the tasks property value. Read-only. Nullable. Returns the plannerPlans shared with the user.
      *  @param array<PlannerTask>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value ): void {

@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TimeConstraint implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var ActivityDomain|null $activityDomain The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
-    */
+    /** @var ActivityDomain|null $activityDomain The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown. */
     private ?ActivityDomain $activityDomain = null;
     
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<TimeSlot>|null $timeSlots The timeSlots property
-    */
+    /** @var array<TimeSlot>|null $timeSlots The timeSlots property */
     private ?array $timeSlots = null;
     
     /**
@@ -36,12 +30,12 @@ class TimeConstraint implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TimeConstraint
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeConstraint {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TimeConstraint {
         return new TimeConstraint();
     }
 
     /**
-     * Gets the activityDomain property value. The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+     * Gets the activityDomain property value. The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
      * @return ActivityDomain|null
     */
     public function getActivityDomain(): ?ActivityDomain {
@@ -61,10 +55,9 @@ class TimeConstraint implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'activityDomain' => function (ParseNode $n) use ($o) { $o->setActivityDomain($n->getEnumValue(ActivityDomain::class)); },
-            'timeSlots' => function (ParseNode $n) use ($o) { $o->setTimeSlots($n->getCollectionOfObjectValues(array(TimeSlot::class, 'createFromDiscriminatorValue'))); },
+            'activityDomain' => function (self $o, ParseNode $n) { $o->setActivityDomain($n->getEnumValue(ActivityDomain::class)); },
+            'timeSlots' => function (self $o, ParseNode $n) { $o->setTimeSlots($n->getCollectionOfObjectValues(TimeSlot::class)); },
         ];
     }
 
@@ -87,7 +80,7 @@ class TimeConstraint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the activityDomain property value. The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+     * Sets the activityDomain property value. The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
      *  @param ActivityDomain|null $value Value to set for the activityDomain property.
     */
     public function setActivityDomain(?ActivityDomain $value ): void {

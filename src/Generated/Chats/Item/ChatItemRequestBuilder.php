@@ -19,8 +19,6 @@ use Microsoft\Graph\Beta\Generated\Chats\Item\Operations\Item\TeamsAsyncOperatio
 use Microsoft\Graph\Beta\Generated\Chats\Item\Operations\OperationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\PermissionGrants\Item\ResourceSpecificPermissionGrantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\PermissionGrants\PermissionGrantsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Chats\Item\PinnedMessages\Item\PinnedChatMessageInfoItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Chats\Item\PinnedMessages\PinnedMessagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\SendActivityNotification\SendActivityNotificationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\Tabs\Item\TeamsTabItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Chats\Item\Tabs\TabsRequestBuilder;
@@ -93,9 +91,7 @@ class ChatItemRequestBuilder
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var array<string, mixed> $pathParameters Path parameters for the request
-    */
+    /** @var array<string, mixed> $pathParameters Path parameters for the request */
     private array $pathParameters;
     
     /**
@@ -105,16 +101,7 @@ class ChatItemRequestBuilder
         return new PermissionGrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * The pinnedMessages property
-    */
-    public function pinnedMessages(): PinnedMessagesRequestBuilder {
-        return new PinnedMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-    */
+    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -138,9 +125,7 @@ class ChatItemRequestBuilder
         return new UnhideForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /**
-     * @var string $urlTemplate Url template to use to build the URL for the current request builder
-    */
+    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
     private string $urlTemplate;
     
     /**
@@ -149,53 +134,51 @@ class ChatItemRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/chats/{chat%2Did}{?%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/chats/{chat_id}{?select,expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Delete entity from chats
-     * @param ChatItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createDeleteRequestInformation(?ChatItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createDeleteRequestInformation(?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
 
     /**
      * Get entity from chats by key
-     * @param ChatItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?ChatItemRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->queryParameters !== null) {
-                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        }
+        if ($queryParameters !== null) {
+            $requestInfo->setQueryParameters($queryParameters);
+        }
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
         }
         return $requestInfo;
     }
@@ -203,40 +186,36 @@ class ChatItemRequestBuilder
     /**
      * Update entity in chats
      * @param Chat $body 
-     * @param ChatItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(Chat $body, ?ChatItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
+    public function createPatchRequestInformation(Chat $body, ?array $headers = null, ?array $options = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
+        if ($headers !== null) {
+            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        if ($options !== null) {
+            $requestInfo->addRequestOptions(...$options);
+        }
         return $requestInfo;
     }
 
     /**
      * Delete entity from chats
-     * @param ChatItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?ChatItemRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createDeleteRequestInformation($requestConfiguration);
+    public function delete(?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createDeleteRequestInformation($headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -244,18 +223,16 @@ class ChatItemRequestBuilder
 
     /**
      * Get entity from chats by key
-     * @param ChatItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array|null $queryParameters Request query parameters
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?ChatItemRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
+    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(Chat::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, Chat::class, $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -268,7 +245,7 @@ class ChatItemRequestBuilder
     */
     public function installedAppsById(string $id): TeamsAppInstallationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamsAppInstallation%2Did'] = $id;
+        $urlTplParams['teamsAppInstallation_id'] = $id;
         return new TeamsAppInstallationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -279,7 +256,7 @@ class ChatItemRequestBuilder
     */
     public function membersById(string $id): ConversationMemberItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['conversationMember%2Did'] = $id;
+        $urlTplParams['conversationMember_id'] = $id;
         return new ConversationMemberItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -290,7 +267,7 @@ class ChatItemRequestBuilder
     */
     public function messagesById(string $id): ChatMessageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['chatMessage%2Did'] = $id;
+        $urlTplParams['chatMessage_id'] = $id;
         return new ChatMessageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -301,25 +278,22 @@ class ChatItemRequestBuilder
     */
     public function operationsById(string $id): TeamsAsyncOperationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamsAsyncOperation%2Did'] = $id;
+        $urlTplParams['teamsAsyncOperation_id'] = $id;
         return new TeamsAsyncOperationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update entity in chats
      * @param Chat $body 
-     * @param ChatItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param array<string, mixed>|null $headers Request headers
+     * @param array<string, RequestOption>|null $options Request options
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(Chat $body, ?ChatItemRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
+    public function patch(Chat $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
         try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -332,19 +306,8 @@ class ChatItemRequestBuilder
     */
     public function permissionGrantsById(string $id): ResourceSpecificPermissionGrantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['resourceSpecificPermissionGrant%2Did'] = $id;
+        $urlTplParams['resourceSpecificPermissionGrant_id'] = $id;
         return new ResourceSpecificPermissionGrantItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.chats.item.pinnedMessages.item collection
-     * @param string $id Unique identifier of the item
-     * @return PinnedChatMessageInfoItemRequestBuilder
-    */
-    public function pinnedMessagesById(string $id): PinnedChatMessageInfoItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['pinnedChatMessageInfo%2Did'] = $id;
-        return new PinnedChatMessageInfoItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -354,7 +317,7 @@ class ChatItemRequestBuilder
     */
     public function tabsById(string $id): TeamsTabItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['teamsTab%2Did'] = $id;
+        $urlTplParams['teamsTab_id'] = $id;
         return new TeamsTabItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

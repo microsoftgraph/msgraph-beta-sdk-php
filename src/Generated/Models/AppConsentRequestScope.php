@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AppConsentRequestScope implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName The name of the scope.
-    */
+    /** @var string|null $displayName The name of the scope. */
     private ?string $displayName = null;
     
     /**
@@ -31,7 +27,7 @@ class AppConsentRequestScope implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AppConsentRequestScope
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppConsentRequestScope {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AppConsentRequestScope {
         return new AppConsentRequestScope();
     }
 
@@ -56,9 +52,8 @@ class AppConsentRequestScope implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
         ];
     }
 

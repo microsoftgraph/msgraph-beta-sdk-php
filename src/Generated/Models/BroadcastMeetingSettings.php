@@ -9,39 +9,25 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var BroadcastMeetingAudience|null $allowedAudience Defines who can join the Teams live event. Possible values are listed in the following table.
-    */
+    /** @var BroadcastMeetingAudience|null $allowedAudience Defines who can join the Teams live event. Possible values are listed in the following table. */
     private ?BroadcastMeetingAudience $allowedAudience = null;
     
-    /**
-     * @var BroadcastMeetingCaptionSettings|null $captions Caption settings of a Teams live event.
-    */
+    /** @var BroadcastMeetingCaptionSettings|null $captions Caption settings of a Teams live event. */
     private ?BroadcastMeetingCaptionSettings $captions = null;
     
-    /**
-     * @var bool|null $isAttendeeReportEnabled Indicates whether attendee report is enabled for this Teams live event. Default value is false.
-    */
+    /** @var bool|null $isAttendeeReportEnabled Indicates whether attendee report is enabled for this Teams live event. Default value is false. */
     private ?bool $isAttendeeReportEnabled = null;
     
-    /**
-     * @var bool|null $isQuestionAndAnswerEnabled Indicates whether Q&A is enabled for this Teams live event. Default value is false.
-    */
+    /** @var bool|null $isQuestionAndAnswerEnabled Indicates whether Q&A is enabled for this Teams live event. Default value is false. */
     private ?bool $isQuestionAndAnswerEnabled = null;
     
-    /**
-     * @var bool|null $isRecordingEnabled Indicates whether recording is enabled for this Teams live event. Default value is false.
-    */
+    /** @var bool|null $isRecordingEnabled Indicates whether recording is enabled for this Teams live event. Default value is false. */
     private ?bool $isRecordingEnabled = null;
     
-    /**
-     * @var bool|null $isVideoOnDemandEnabled Indicates whether video on demand is enabled for this Teams live event. Default value is false.
-    */
+    /** @var bool|null $isVideoOnDemandEnabled Indicates whether video on demand is enabled for this Teams live event. Default value is false. */
     private ?bool $isVideoOnDemandEnabled = null;
     
     /**
@@ -56,7 +42,7 @@ class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BroadcastMeetingSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): BroadcastMeetingSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): BroadcastMeetingSettings {
         return new BroadcastMeetingSettings();
     }
 
@@ -89,14 +75,13 @@ class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'allowedAudience' => function (ParseNode $n) use ($o) { $o->setAllowedAudience($n->getEnumValue(BroadcastMeetingAudience::class)); },
-            'captions' => function (ParseNode $n) use ($o) { $o->setCaptions($n->getObjectValue(array(BroadcastMeetingCaptionSettings::class, 'createFromDiscriminatorValue'))); },
-            'isAttendeeReportEnabled' => function (ParseNode $n) use ($o) { $o->setIsAttendeeReportEnabled($n->getBooleanValue()); },
-            'isQuestionAndAnswerEnabled' => function (ParseNode $n) use ($o) { $o->setIsQuestionAndAnswerEnabled($n->getBooleanValue()); },
-            'isRecordingEnabled' => function (ParseNode $n) use ($o) { $o->setIsRecordingEnabled($n->getBooleanValue()); },
-            'isVideoOnDemandEnabled' => function (ParseNode $n) use ($o) { $o->setIsVideoOnDemandEnabled($n->getBooleanValue()); },
+            'allowedAudience' => function (self $o, ParseNode $n) { $o->setAllowedAudience($n->getEnumValue(BroadcastMeetingAudience::class)); },
+            'captions' => function (self $o, ParseNode $n) { $o->setCaptions($n->getObjectValue(BroadcastMeetingCaptionSettings::class)); },
+            'isAttendeeReportEnabled' => function (self $o, ParseNode $n) { $o->setIsAttendeeReportEnabled($n->getBooleanValue()); },
+            'isQuestionAndAnswerEnabled' => function (self $o, ParseNode $n) { $o->setIsQuestionAndAnswerEnabled($n->getBooleanValue()); },
+            'isRecordingEnabled' => function (self $o, ParseNode $n) { $o->setIsRecordingEnabled($n->getBooleanValue()); },
+            'isVideoOnDemandEnabled' => function (self $o, ParseNode $n) { $o->setIsVideoOnDemandEnabled($n->getBooleanValue()); },
         ];
     }
 

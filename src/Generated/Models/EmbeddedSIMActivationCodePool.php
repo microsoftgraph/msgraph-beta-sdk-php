@@ -7,41 +7,27 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EmbeddedSIMActivationCodePool extends Entity implements Parsable 
+class EmbeddedSIMActivationCodePool extends Entity 
 {
-    /**
-     * @var int|null $activationCodeCount The total count of activation codes which belong to this pool.
-    */
+    /** @var int|null $activationCodeCount The total count of activation codes which belong to this pool. */
     private ?int $activationCodeCount = null;
     
-    /**
-     * @var array<EmbeddedSIMActivationCode>|null $activationCodes The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune.
-    */
+    /** @var array<EmbeddedSIMActivationCode>|null $activationCodes The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune. */
     private ?array $activationCodes = null;
     
-    /**
-     * @var array<EmbeddedSIMActivationCodePoolAssignment>|null $assignments Navigational property to a list of targets to which this pool is assigned.
-    */
+    /** @var array<EmbeddedSIMActivationCodePoolAssignment>|null $assignments Navigational property to a list of targets to which this pool is assigned. */
     private ?array $assignments = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The time the embedded SIM activation code pool was created. Generated service side.
-    */
+    /** @var DateTime|null $createdDateTime The time the embedded SIM activation code pool was created. Generated service side. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var array<EmbeddedSIMDeviceState>|null $deviceStates Navigational property to a list of device states for this pool.
-    */
+    /** @var array<EmbeddedSIMDeviceState>|null $deviceStates Navigational property to a list of device states for this pool. */
     private ?array $deviceStates = null;
     
-    /**
-     * @var string|null $displayName The admin defined name of the embedded SIM activation code pool.
-    */
+    /** @var string|null $displayName The admin defined name of the embedded SIM activation code pool. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $modifiedDateTime The time the embedded SIM activation code pool was last modified. Updated service side.
-    */
+    /** @var DateTime|null $modifiedDateTime The time the embedded SIM activation code pool was last modified. Updated service side. */
     private ?DateTime $modifiedDateTime = null;
     
     /**
@@ -56,7 +42,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EmbeddedSIMActivationCodePool
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EmbeddedSIMActivationCodePool {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EmbeddedSIMActivationCodePool {
         return new EmbeddedSIMActivationCodePool();
     }
 
@@ -113,15 +99,14 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activationCodeCount' => function (ParseNode $n) use ($o) { $o->setActivationCodeCount($n->getIntegerValue()); },
-            'activationCodes' => function (ParseNode $n) use ($o) { $o->setActivationCodes($n->getCollectionOfObjectValues(array(EmbeddedSIMActivationCode::class, 'createFromDiscriminatorValue'))); },
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(EmbeddedSIMActivationCodePoolAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deviceStates' => function (ParseNode $n) use ($o) { $o->setDeviceStates($n->getCollectionOfObjectValues(array(EmbeddedSIMDeviceState::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
+            'activationCodeCount' => function (self $o, ParseNode $n) { $o->setActivationCodeCount($n->getIntegerValue()); },
+            'activationCodes' => function (self $o, ParseNode $n) { $o->setActivationCodes($n->getCollectionOfObjectValues(EmbeddedSIMActivationCode::class)); },
+            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(EmbeddedSIMActivationCodePoolAssignment::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'deviceStates' => function (self $o, ParseNode $n) { $o->setDeviceStates($n->getCollectionOfObjectValues(EmbeddedSIMDeviceState::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'modifiedDateTime' => function (self $o, ParseNode $n) { $o->setModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

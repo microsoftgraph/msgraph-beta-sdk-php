@@ -6,25 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SchedulingGroup extends ChangeTrackedEntity implements Parsable 
+class SchedulingGroup extends ChangeTrackedEntity 
 {
-    /**
-     * @var string|null $displayName The display name for the schedulingGroup. Required.
-    */
+    /** @var string|null $displayName The display name for the schedulingGroup. Required. */
     private ?string $displayName = null;
     
-    /**
-     * @var bool|null $isActive Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.
-    */
+    /** @var bool|null $isActive Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required. */
     private ?bool $isActive = null;
     
-    /**
-     * @var array<string>|null $userIds The list of user IDs that are a member of the schedulingGroup. Required.
-    */
+    /** @var array<string>|null $userIds The list of user IDs that are a member of the schedulingGroup. Required. */
     private ?array $userIds = null;
     
     /**
-     * Instantiates a new SchedulingGroup and sets the default values.
+     * Instantiates a new schedulingGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +29,7 @@ class SchedulingGroup extends ChangeTrackedEntity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SchedulingGroup
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SchedulingGroup {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SchedulingGroup {
         return new SchedulingGroup();
     }
 
@@ -52,11 +46,10 @@ class SchedulingGroup extends ChangeTrackedEntity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
-            'userIds' => function (ParseNode $n) use ($o) { $o->setUserIds($n->getCollectionOfPrimitiveValues()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'isActive' => function (self $o, ParseNode $n) { $o->setIsActive($n->getBooleanValue()); },
+            'userIds' => function (self $o, ParseNode $n) { $o->setUserIds($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

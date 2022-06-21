@@ -6,25 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase implements Parsable 
+class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase 
 {
-    /**
-     * @var array<string>|null $allowedCloudEndpoints Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
-    */
-    private ?array $allowedCloudEndpoints = null;
-    
-    /**
-     * @var CrossTenantAccessPolicyConfigurationDefault|null $EscapedDefault Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
-    */
+    /** @var CrossTenantAccessPolicyConfigurationDefault|null $EscapedDefault Defines the default configuration for how your organization interacts with external Azure Active Directory organizations. */
     private ?CrossTenantAccessPolicyConfigurationDefault $escapedDefault = null;
     
-    /**
-     * @var array<CrossTenantAccessPolicyConfigurationPartner>|null $partners Defines partner-specific configurations for external Azure Active Directory organizations.
-    */
+    /** @var array<CrossTenantAccessPolicyConfigurationPartner>|null $partners Defines partner-specific configurations for external Azure Active Directory organizations. */
     private ?array $partners = null;
     
     /**
-     * Instantiates a new CrossTenantAccessPolicy and sets the default values.
+     * Instantiates a new crossTenantAccessPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,16 +26,8 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CrossTenantAccessPolicy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicy {
         return new CrossTenantAccessPolicy();
-    }
-
-    /**
-     * Gets the allowedCloudEndpoints property value. Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
-     * @return array<string>|null
-    */
-    public function getAllowedCloudEndpoints(): ?array {
-        return $this->allowedCloudEndpoints;
     }
 
     /**
@@ -60,11 +43,9 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedCloudEndpoints' => function (ParseNode $n) use ($o) { $o->setAllowedCloudEndpoints($n->getCollectionOfPrimitiveValues()); },
-            'default' => function (ParseNode $n) use ($o) { $o->setDefault($n->getObjectValue(array(CrossTenantAccessPolicyConfigurationDefault::class, 'createFromDiscriminatorValue'))); },
-            'partners' => function (ParseNode $n) use ($o) { $o->setPartners($n->getCollectionOfObjectValues(array(CrossTenantAccessPolicyConfigurationPartner::class, 'createFromDiscriminatorValue'))); },
+            'default' => function (self $o, ParseNode $n) { $o->setEscapedDefault($n->getObjectValue(CrossTenantAccessPolicyConfigurationDefault::class)); },
+            'partners' => function (self $o, ParseNode $n) { $o->setPartners($n->getCollectionOfObjectValues(CrossTenantAccessPolicyConfigurationPartner::class)); },
         ]);
     }
 
@@ -82,17 +63,8 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('allowedCloudEndpoints', $this->allowedCloudEndpoints);
         $writer->writeObjectValue('default', $this->escapedDefault);
         $writer->writeCollectionOfObjectValues('partners', $this->partners);
-    }
-
-    /**
-     * Sets the allowedCloudEndpoints property value. Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
-     *  @param array<string>|null $value Value to set for the allowedCloudEndpoints property.
-    */
-    public function setAllowedCloudEndpoints(?array $value ): void {
-        $this->allowedCloudEndpoints = $value;
     }
 
     /**

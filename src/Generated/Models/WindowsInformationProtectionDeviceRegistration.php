@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsInformationProtectionDeviceRegistration extends Entity implements Parsable 
+class WindowsInformationProtectionDeviceRegistration extends Entity 
 {
-    /**
-     * @var string|null $deviceMacAddress Device Mac address.
-    */
+    /** @var string|null $deviceMacAddress Device Mac address. */
     private ?string $deviceMacAddress = null;
     
-    /**
-     * @var string|null $deviceName Device name.
-    */
+    /** @var string|null $deviceName Device name. */
     private ?string $deviceName = null;
     
-    /**
-     * @var string|null $deviceRegistrationId Device identifier for this device registration record.
-    */
+    /** @var string|null $deviceRegistrationId Device identifier for this device registration record. */
     private ?string $deviceRegistrationId = null;
     
-    /**
-     * @var string|null $deviceType Device type, for example, Windows laptop VS Windows phone.
-    */
+    /** @var string|null $deviceType Device type, for example, Windows laptop VS Windows phone. */
     private ?string $deviceType = null;
     
-    /**
-     * @var DateTime|null $lastCheckInDateTime Last checkin time of the device.
-    */
+    /** @var DateTime|null $lastCheckInDateTime Last checkin time of the device. */
     private ?DateTime $lastCheckInDateTime = null;
     
-    /**
-     * @var string|null $userId UserId associated with this device registration record.
-    */
+    /** @var string|null $userId UserId associated with this device registration record. */
     private ?string $userId = null;
     
     /**
@@ -51,7 +39,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsInformationProtectionDeviceRegistration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionDeviceRegistration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionDeviceRegistration {
         return new WindowsInformationProtectionDeviceRegistration();
     }
 
@@ -92,14 +80,13 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceMacAddress' => function (ParseNode $n) use ($o) { $o->setDeviceMacAddress($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'deviceRegistrationId' => function (ParseNode $n) use ($o) { $o->setDeviceRegistrationId($n->getStringValue()); },
-            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getStringValue()); },
-            'lastCheckInDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckInDateTime($n->getDateTimeValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'deviceMacAddress' => function (self $o, ParseNode $n) { $o->setDeviceMacAddress($n->getStringValue()); },
+            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
+            'deviceRegistrationId' => function (self $o, ParseNode $n) { $o->setDeviceRegistrationId($n->getStringValue()); },
+            'deviceType' => function (self $o, ParseNode $n) { $o->setDeviceType($n->getStringValue()); },
+            'lastCheckInDateTime' => function (self $o, ParseNode $n) { $o->setLastCheckInDateTime($n->getDateTimeValue()); },
+            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
         ]);
     }
 

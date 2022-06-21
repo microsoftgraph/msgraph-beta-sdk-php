@@ -7,36 +7,24 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ConfigManagerCollection extends Entity implements Parsable 
+class ConfigManagerCollection extends Entity 
 {
-    /**
-     * @var string|null $collectionIdentifier The collection identifier in SCCM.
-    */
+    /** @var string|null $collectionIdentifier The collection identifier in SCCM. */
     private ?string $collectionIdentifier = null;
     
-    /**
-     * @var DateTime|null $createdDateTime The created date.
-    */
+    /** @var DateTime|null $createdDateTime The created date. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $displayName The DisplayName.
-    */
+    /** @var string|null $displayName The DisplayName. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $hierarchyIdentifier The Hierarchy Identifier.
-    */
+    /** @var string|null $hierarchyIdentifier The Hierarchy Identifier. */
     private ?string $hierarchyIdentifier = null;
     
-    /**
-     * @var string|null $hierarchyName The HierarchyName.
-    */
+    /** @var string|null $hierarchyName The HierarchyName. */
     private ?string $hierarchyName = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime The last modified date.
-    */
+    /** @var DateTime|null $lastModifiedDateTime The last modified date. */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
@@ -51,7 +39,7 @@ class ConfigManagerCollection extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConfigManagerCollection
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConfigManagerCollection {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ConfigManagerCollection {
         return new ConfigManagerCollection();
     }
 
@@ -84,14 +72,13 @@ class ConfigManagerCollection extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'collectionIdentifier' => function (ParseNode $n) use ($o) { $o->setCollectionIdentifier($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'hierarchyIdentifier' => function (ParseNode $n) use ($o) { $o->setHierarchyIdentifier($n->getStringValue()); },
-            'hierarchyName' => function (ParseNode $n) use ($o) { $o->setHierarchyName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'collectionIdentifier' => function (self $o, ParseNode $n) { $o->setCollectionIdentifier($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'hierarchyIdentifier' => function (self $o, ParseNode $n) { $o->setHierarchyIdentifier($n->getStringValue()); },
+            'hierarchyName' => function (self $o, ParseNode $n) { $o->setHierarchyName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

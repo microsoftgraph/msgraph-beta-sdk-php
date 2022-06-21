@@ -6,65 +6,43 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PersonName extends ItemFacet implements Parsable 
+class PersonName extends ItemFacet 
 {
-    /**
-     * @var string|null $displayName Provides an ordered rendering of firstName and lastName depending on the locale of the user or their device.
-    */
+    /** @var string|null $displayName Provides an ordered rendering of firstName and lastName depending on the locale of the user or their device. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $first First name of the user.
-    */
+    /** @var string|null $first First name of the user. */
     private ?string $first = null;
     
-    /**
-     * @var string|null $initials Initials of the user.
-    */
+    /** @var string|null $initials Initials of the user. */
     private ?string $initials = null;
     
-    /**
-     * @var string|null $languageTag Contains the name for the language (en-US, no-NB, en-AU) following IETF BCP47 format.
-    */
+    /** @var string|null $languageTag Contains the name for the language (en-US, no-NB, en-AU) following IETF BCP47 format. */
     private ?string $languageTag = null;
     
-    /**
-     * @var string|null $last Last name of the user.
-    */
+    /** @var string|null $last Last name of the user. */
     private ?string $last = null;
     
-    /**
-     * @var string|null $maiden Maiden name of the user.
-    */
+    /** @var string|null $maiden Maiden name of the user. */
     private ?string $maiden = null;
     
-    /**
-     * @var string|null $middle Middle name of the user.
-    */
+    /** @var string|null $middle Middle name of the user. */
     private ?string $middle = null;
     
-    /**
-     * @var string|null $nickname Nickname of the user.
-    */
+    /** @var string|null $nickname Nickname of the user. */
     private ?string $nickname = null;
     
-    /**
-     * @var PersonNamePronounciation|null $pronunciation Guidance on how to pronounce the users name.
-    */
+    /** @var PersonNamePronounciation|null $pronunciation Guidance on how to pronounce the users name. */
     private ?PersonNamePronounciation $pronunciation = null;
     
-    /**
-     * @var string|null $suffix Designators used after the users name (eg: PhD.)
-    */
+    /** @var string|null $suffix Designators used after the users name (eg: PhD.) */
     private ?string $suffix = null;
     
-    /**
-     * @var string|null $title Honorifics used to prefix a users name (eg: Dr, Sir, Madam, Mrs.)
-    */
+    /** @var string|null $title Honorifics used to prefix a users name (eg: Dr, Sir, Madam, Mrs.) */
     private ?string $title = null;
     
     /**
-     * Instantiates a new PersonName and sets the default values.
+     * Instantiates a new personName and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -75,7 +53,7 @@ class PersonName extends ItemFacet implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PersonName
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PersonName {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PersonName {
         return new PersonName();
     }
 
@@ -92,19 +70,18 @@ class PersonName extends ItemFacet implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'first' => function (ParseNode $n) use ($o) { $o->setFirst($n->getStringValue()); },
-            'initials' => function (ParseNode $n) use ($o) { $o->setInitials($n->getStringValue()); },
-            'languageTag' => function (ParseNode $n) use ($o) { $o->setLanguageTag($n->getStringValue()); },
-            'last' => function (ParseNode $n) use ($o) { $o->setLast($n->getStringValue()); },
-            'maiden' => function (ParseNode $n) use ($o) { $o->setMaiden($n->getStringValue()); },
-            'middle' => function (ParseNode $n) use ($o) { $o->setMiddle($n->getStringValue()); },
-            'nickname' => function (ParseNode $n) use ($o) { $o->setNickname($n->getStringValue()); },
-            'pronunciation' => function (ParseNode $n) use ($o) { $o->setPronunciation($n->getObjectValue(array(PersonNamePronounciation::class, 'createFromDiscriminatorValue'))); },
-            'suffix' => function (ParseNode $n) use ($o) { $o->setSuffix($n->getStringValue()); },
-            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'first' => function (self $o, ParseNode $n) { $o->setFirst($n->getStringValue()); },
+            'initials' => function (self $o, ParseNode $n) { $o->setInitials($n->getStringValue()); },
+            'languageTag' => function (self $o, ParseNode $n) { $o->setLanguageTag($n->getStringValue()); },
+            'last' => function (self $o, ParseNode $n) { $o->setLast($n->getStringValue()); },
+            'maiden' => function (self $o, ParseNode $n) { $o->setMaiden($n->getStringValue()); },
+            'middle' => function (self $o, ParseNode $n) { $o->setMiddle($n->getStringValue()); },
+            'nickname' => function (self $o, ParseNode $n) { $o->setNickname($n->getStringValue()); },
+            'pronunciation' => function (self $o, ParseNode $n) { $o->setPronunciation($n->getObjectValue(PersonNamePronounciation::class)); },
+            'suffix' => function (self $o, ParseNode $n) { $o->setSuffix($n->getStringValue()); },
+            'title' => function (self $o, ParseNode $n) { $o->setTitle($n->getStringValue()); },
         ]);
     }
 

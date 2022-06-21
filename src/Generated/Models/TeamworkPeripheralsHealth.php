@@ -9,39 +9,25 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var TeamworkPeripheralHealth|null $communicationSpeakerHealth The health details about the communication speaker.
-    */
+    /** @var TeamworkPeripheralHealth|null $communicationSpeakerHealth The health details about the communication speaker. */
     private ?TeamworkPeripheralHealth $communicationSpeakerHealth = null;
     
-    /**
-     * @var TeamworkPeripheralHealth|null $contentCameraHealth The health details about the content camera.
-    */
+    /** @var TeamworkPeripheralHealth|null $contentCameraHealth The health details about the content camera. */
     private ?TeamworkPeripheralHealth $contentCameraHealth = null;
     
-    /**
-     * @var array<TeamworkPeripheralHealth>|null $displayHealthCollection The health details about displays.
-    */
+    /** @var array<TeamworkPeripheralHealth>|null $displayHealthCollection The health details about displays. */
     private ?array $displayHealthCollection = null;
     
-    /**
-     * @var TeamworkPeripheralHealth|null $microphoneHealth The health details about the microphone.
-    */
+    /** @var TeamworkPeripheralHealth|null $microphoneHealth The health details about the microphone. */
     private ?TeamworkPeripheralHealth $microphoneHealth = null;
     
-    /**
-     * @var TeamworkPeripheralHealth|null $roomCameraHealth The health details about the room camera.
-    */
+    /** @var TeamworkPeripheralHealth|null $roomCameraHealth The health details about the room camera. */
     private ?TeamworkPeripheralHealth $roomCameraHealth = null;
     
-    /**
-     * @var TeamworkPeripheralHealth|null $speakerHealth The health details about the speaker.
-    */
+    /** @var TeamworkPeripheralHealth|null $speakerHealth The health details about the speaker. */
     private ?TeamworkPeripheralHealth $speakerHealth = null;
     
     /**
@@ -56,7 +42,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkPeripheralsHealth
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkPeripheralsHealth {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkPeripheralsHealth {
         return new TeamworkPeripheralsHealth();
     }
 
@@ -97,14 +83,13 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'communicationSpeakerHealth' => function (ParseNode $n) use ($o) { $o->setCommunicationSpeakerHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
-            'contentCameraHealth' => function (ParseNode $n) use ($o) { $o->setContentCameraHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
-            'displayHealthCollection' => function (ParseNode $n) use ($o) { $o->setDisplayHealthCollection($n->getCollectionOfObjectValues(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
-            'microphoneHealth' => function (ParseNode $n) use ($o) { $o->setMicrophoneHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
-            'roomCameraHealth' => function (ParseNode $n) use ($o) { $o->setRoomCameraHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
-            'speakerHealth' => function (ParseNode $n) use ($o) { $o->setSpeakerHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
+            'communicationSpeakerHealth' => function (self $o, ParseNode $n) { $o->setCommunicationSpeakerHealth($n->getObjectValue(TeamworkPeripheralHealth::class)); },
+            'contentCameraHealth' => function (self $o, ParseNode $n) { $o->setContentCameraHealth($n->getObjectValue(TeamworkPeripheralHealth::class)); },
+            'displayHealthCollection' => function (self $o, ParseNode $n) { $o->setDisplayHealthCollection($n->getCollectionOfObjectValues(TeamworkPeripheralHealth::class)); },
+            'microphoneHealth' => function (self $o, ParseNode $n) { $o->setMicrophoneHealth($n->getObjectValue(TeamworkPeripheralHealth::class)); },
+            'roomCameraHealth' => function (self $o, ParseNode $n) { $o->setRoomCameraHealth($n->getObjectValue(TeamworkPeripheralHealth::class)); },
+            'speakerHealth' => function (self $o, ParseNode $n) { $o->setSpeakerHealth($n->getObjectValue(TeamworkPeripheralHealth::class)); },
         ];
     }
 

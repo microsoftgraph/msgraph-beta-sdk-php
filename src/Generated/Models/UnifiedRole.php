@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UnifiedRole implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $roleDefinitionId The unified role definition ID of the directory role. Refer to unifiedRoleDefinition resource.
-    */
+    /** @var string|null $roleDefinitionId The unified role definition ID of the directory role. Refer to unifiedRoleDefinition resource. */
     private ?string $roleDefinitionId = null;
     
     /**
@@ -31,7 +27,7 @@ class UnifiedRole implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRole
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRole {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRole {
         return new UnifiedRole();
     }
 
@@ -48,9 +44,8 @@ class UnifiedRole implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'roleDefinitionId' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionId($n->getStringValue()); },
+            'roleDefinitionId' => function (self $o, ParseNode $n) { $o->setRoleDefinitionId($n->getStringValue()); },
         ];
     }
 

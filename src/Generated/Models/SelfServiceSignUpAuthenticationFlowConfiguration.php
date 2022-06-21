@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SelfServiceSignUpAuthenticationFlowConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var bool|null $isEnabled Indicates whether self-service sign-up flow is enabled or disabled. The default value is false. This property is not a key. Required.
-    */
+    /** @var bool|null $isEnabled Indicates whether self-service sign-up flow is enabled or disabled. The default value is false. This property is not a key. Required. */
     private ?bool $isEnabled = null;
     
     /**
@@ -31,7 +27,7 @@ class SelfServiceSignUpAuthenticationFlowConfiguration implements AdditionalData
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SelfServiceSignUpAuthenticationFlowConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SelfServiceSignUpAuthenticationFlowConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SelfServiceSignUpAuthenticationFlowConfiguration {
         return new SelfServiceSignUpAuthenticationFlowConfiguration();
     }
 
@@ -48,9 +44,8 @@ class SelfServiceSignUpAuthenticationFlowConfiguration implements AdditionalData
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
         ];
     }
 

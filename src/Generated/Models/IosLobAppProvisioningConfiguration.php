@@ -8,71 +8,45 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class IosLobAppProvisioningConfiguration extends Entity implements Parsable 
+class IosLobAppProvisioningConfiguration extends Entity 
 {
-    /**
-     * @var array<IosLobAppProvisioningConfigurationAssignment>|null $assignments The associated group assignments for IosLobAppProvisioningConfiguration.
-    */
+    /** @var array<IosLobAppProvisioningConfigurationAssignment>|null $assignments The associated group assignments for IosLobAppProvisioningConfiguration. */
     private ?array $assignments = null;
     
-    /**
-     * @var DateTime|null $createdDateTime DateTime the object was created.
-    */
+    /** @var DateTime|null $createdDateTime DateTime the object was created. */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $description Admin provided description of the Device Configuration.
-    */
+    /** @var string|null $description Admin provided description of the Device Configuration. */
     private ?string $description = null;
     
-    /**
-     * @var array<ManagedDeviceMobileAppConfigurationDeviceStatus>|null $deviceStatuses The list of device installation states for this mobile app configuration.
-    */
+    /** @var array<ManagedDeviceMobileAppConfigurationDeviceStatus>|null $deviceStatuses The list of device installation states for this mobile app configuration. */
     private ?array $deviceStatuses = null;
     
-    /**
-     * @var string|null $displayName Admin provided name of the device configuration.
-    */
+    /** @var string|null $displayName Admin provided name of the device configuration. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $expirationDateTime Optional profile expiration date and time.
-    */
+    /** @var DateTime|null $expirationDateTime Optional profile expiration date and time. */
     private ?DateTime $expirationDateTime = null;
     
-    /**
-     * @var array<MobileAppProvisioningConfigGroupAssignment>|null $groupAssignments The associated group assignments.
-    */
+    /** @var array<MobileAppProvisioningConfigGroupAssignment>|null $groupAssignments The associated group assignments. */
     private ?array $groupAssignments = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime DateTime the object was last modified.
-    */
+    /** @var DateTime|null $lastModifiedDateTime DateTime the object was last modified. */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var StreamInterface|null $payload Payload. (UTF8 encoded byte array)
-    */
+    /** @var StreamInterface|null $payload Payload. (UTF8 encoded byte array) */
     private ?StreamInterface $payload = null;
     
-    /**
-     * @var string|null $payloadFileName Payload file name (.mobileprovision
-    */
+    /** @var string|null $payloadFileName Payload file name (.mobileprovision */
     private ?string $payloadFileName = null;
     
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this iOS LOB app provisioning configuration entity.
-    */
+    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this iOS LOB app provisioning configuration entity. */
     private ?array $roleScopeTagIds = null;
     
-    /**
-     * @var array<ManagedDeviceMobileAppConfigurationUserStatus>|null $userStatuses The list of user installation states for this mobile app configuration.
-    */
+    /** @var array<ManagedDeviceMobileAppConfigurationUserStatus>|null $userStatuses The list of user installation states for this mobile app configuration. */
     private ?array $userStatuses = null;
     
-    /**
-     * @var int|null $version Version of the device configuration.
-    */
+    /** @var int|null $version Version of the device configuration. */
     private ?int $version = null;
     
     /**
@@ -87,7 +61,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return IosLobAppProvisioningConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): IosLobAppProvisioningConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): IosLobAppProvisioningConfiguration {
         return new IosLobAppProvisioningConfiguration();
     }
 
@@ -144,21 +118,20 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(IosLobAppProvisioningConfigurationAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'deviceStatuses' => function (ParseNode $n) use ($o) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(array(ManagedDeviceMobileAppConfigurationDeviceStatus::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'groupAssignments' => function (ParseNode $n) use ($o) { $o->setGroupAssignments($n->getCollectionOfObjectValues(array(MobileAppProvisioningConfigGroupAssignment::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'payload' => function (ParseNode $n) use ($o) { $o->setPayload($n->getBinaryContent()); },
-            'payloadFileName' => function (ParseNode $n) use ($o) { $o->setPayloadFileName($n->getStringValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'userStatuses' => function (ParseNode $n) use ($o) { $o->setUserStatuses($n->getCollectionOfObjectValues(array(ManagedDeviceMobileAppConfigurationUserStatus::class, 'createFromDiscriminatorValue'))); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
+            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(IosLobAppProvisioningConfigurationAssignment::class)); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'deviceStatuses' => function (self $o, ParseNode $n) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(ManagedDeviceMobileAppConfigurationDeviceStatus::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'groupAssignments' => function (self $o, ParseNode $n) { $o->setGroupAssignments($n->getCollectionOfObjectValues(MobileAppProvisioningConfigGroupAssignment::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'payload' => function (self $o, ParseNode $n) { $o->setPayload($n->getBinaryContent()); },
+            'payloadFileName' => function (self $o, ParseNode $n) { $o->setPayloadFileName($n->getStringValue()); },
+            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'userStatuses' => function (self $o, ParseNode $n) { $o->setUserStatuses($n->getCollectionOfObjectValues(ManagedDeviceMobileAppConfigurationUserStatus::class)); },
+            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getIntegerValue()); },
         ]);
     }
 

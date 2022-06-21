@@ -7,11 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Catalog extends Entity implements Parsable 
+class Catalog extends Entity 
 {
-    /**
-     * @var array<CatalogEntry>|null $entries Lists the content that you can approve for deployment. Read-only.
-    */
+    /** @var array<CatalogEntry>|null $entries Lists the content that you can approve for deployment. Read-only. */
     private ?array $entries = null;
     
     /**
@@ -26,7 +24,7 @@ class Catalog extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Catalog
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Catalog {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Catalog {
         return new Catalog();
     }
 
@@ -43,9 +41,8 @@ class Catalog extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'entries' => function (ParseNode $n) use ($o) { $o->setEntries($n->getCollectionOfObjectValues(array(CatalogEntry::class, 'createFromDiscriminatorValue'))); },
+            'entries' => function (self $o, ParseNode $n) { $o->setEntries($n->getCollectionOfObjectValues(CatalogEntry::class)); },
         ]);
     }
 

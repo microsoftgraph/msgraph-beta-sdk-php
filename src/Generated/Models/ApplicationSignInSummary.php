@@ -6,26 +6,18 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ApplicationSignInSummary extends Entity implements Parsable 
+class ApplicationSignInSummary extends Entity 
 {
-    /**
-     * @var string|null $appDisplayName Name of the application that the user signed into.
-    */
+    /** @var string|null $appDisplayName Name of the application that the user signed into. */
     private ?string $appDisplayName = null;
     
-    /**
-     * @var int|null $failedSignInCount Count of failed sign-ins made by the application.
-    */
+    /** @var int|null $failedSignInCount Count of failed sign-ins made by the application. */
     private ?int $failedSignInCount = null;
     
-    /**
-     * @var int|null $successfulSignInCount Count of successful sign-ins made by the application.
-    */
+    /** @var int|null $successfulSignInCount Count of successful sign-ins made by the application. */
     private ?int $successfulSignInCount = null;
     
-    /**
-     * @var float|null $successPercentage Percentage of successful sign-ins made by the application.
-    */
+    /** @var float|null $successPercentage Percentage of successful sign-ins made by the application. */
     private ?float $successPercentage = null;
     
     /**
@@ -40,7 +32,7 @@ class ApplicationSignInSummary extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ApplicationSignInSummary
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ApplicationSignInSummary {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ApplicationSignInSummary {
         return new ApplicationSignInSummary();
     }
 
@@ -65,12 +57,11 @@ class ApplicationSignInSummary extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'failedSignInCount' => function (ParseNode $n) use ($o) { $o->setFailedSignInCount($n->getIntegerValue()); },
-            'successfulSignInCount' => function (ParseNode $n) use ($o) { $o->setSuccessfulSignInCount($n->getIntegerValue()); },
-            'successPercentage' => function (ParseNode $n) use ($o) { $o->setSuccessPercentage($n->getFloatValue()); },
+            'appDisplayName' => function (self $o, ParseNode $n) { $o->setAppDisplayName($n->getStringValue()); },
+            'failedSignInCount' => function (self $o, ParseNode $n) { $o->setFailedSignInCount($n->getIntegerValue()); },
+            'successfulSignInCount' => function (self $o, ParseNode $n) { $o->setSuccessfulSignInCount($n->getIntegerValue()); },
+            'successPercentage' => function (self $o, ParseNode $n) { $o->setSuccessPercentage($n->getFloatValue()); },
         ]);
     }
 

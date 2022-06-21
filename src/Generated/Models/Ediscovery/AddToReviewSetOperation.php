@@ -6,20 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AddToReviewSetOperation extends CaseOperation implements Parsable 
+class AddToReviewSetOperation extends CaseOperation 
 {
-    /**
-     * @var ReviewSet|null $reviewSet The review set to which items matching the source collection query are added to.
-    */
+    /** @var ReviewSet|null $reviewSet The review set to which items matching the source collection query are added to. */
     private ?ReviewSet $reviewSet = null;
     
-    /**
-     * @var SourceCollection|null $sourceCollection The sourceCollection that items are being added from.
-    */
+    /** @var SourceCollection|null $sourceCollection The sourceCollection that items are being added from. */
     private ?SourceCollection $sourceCollection = null;
     
     /**
-     * Instantiates a new AddToReviewSetOperation and sets the default values.
+     * Instantiates a new addToReviewSetOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -30,7 +26,7 @@ class AddToReviewSetOperation extends CaseOperation implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AddToReviewSetOperation
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AddToReviewSetOperation {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AddToReviewSetOperation {
         return new AddToReviewSetOperation();
     }
 
@@ -39,10 +35,9 @@ class AddToReviewSetOperation extends CaseOperation implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'reviewSet' => function (ParseNode $n) use ($o) { $o->setReviewSet($n->getObjectValue(array(ReviewSet::class, 'createFromDiscriminatorValue'))); },
-            'sourceCollection' => function (ParseNode $n) use ($o) { $o->setSourceCollection($n->getObjectValue(array(SourceCollection::class, 'createFromDiscriminatorValue'))); },
+            'reviewSet' => function (self $o, ParseNode $n) { $o->setReviewSet($n->getObjectValue(ReviewSet::class)); },
+            'sourceCollection' => function (self $o, ParseNode $n) { $o->setSourceCollection($n->getObjectValue(SourceCollection::class)); },
         ]);
     }
 

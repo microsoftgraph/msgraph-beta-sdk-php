@@ -7,11 +7,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ConnectionQuota extends Entity implements Parsable 
+class ConnectionQuota extends Entity 
 {
-    /**
-     * @var int|null $itemsRemaining The minimum of two values, one representing the items remaining in the connection and the other remaining items at tenant-level. The following equation represents the formula used to calculate the minimum number: min ({max capacity in the connection} – {number of items in the connection}, {tenant quota} – {number of items indexed in all connections}). If the connection is not monetized, such as in a preview connector or preview content experience, then this property is simply the number of remaining items in the connection.
-    */
+    /** @var int|null $itemsRemaining The itemsRemaining property */
     private ?int $itemsRemaining = null;
     
     /**
@@ -26,7 +24,7 @@ class ConnectionQuota extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConnectionQuota
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConnectionQuota {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ConnectionQuota {
         return new ConnectionQuota();
     }
 
@@ -35,14 +33,13 @@ class ConnectionQuota extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'itemsRemaining' => function (ParseNode $n) use ($o) { $o->setItemsRemaining($n->getIntegerValue()); },
+            'itemsRemaining' => function (self $o, ParseNode $n) { $o->setItemsRemaining($n->getIntegerValue()); },
         ]);
     }
 
     /**
-     * Gets the itemsRemaining property value. The minimum of two values, one representing the items remaining in the connection and the other remaining items at tenant-level. The following equation represents the formula used to calculate the minimum number: min ({max capacity in the connection} – {number of items in the connection}, {tenant quota} – {number of items indexed in all connections}). If the connection is not monetized, such as in a preview connector or preview content experience, then this property is simply the number of remaining items in the connection.
+     * Gets the itemsRemaining property value. The itemsRemaining property
      * @return int|null
     */
     public function getItemsRemaining(): ?int {
@@ -59,7 +56,7 @@ class ConnectionQuota extends Entity implements Parsable
     }
 
     /**
-     * Sets the itemsRemaining property value. The minimum of two values, one representing the items remaining in the connection and the other remaining items at tenant-level. The following equation represents the formula used to calculate the minimum number: min ({max capacity in the connection} – {number of items in the connection}, {tenant quota} – {number of items indexed in all connections}). If the connection is not monetized, such as in a preview connector or preview content experience, then this property is simply the number of remaining items in the connection.
+     * Sets the itemsRemaining property value. The itemsRemaining property
      *  @param int|null $value Value to set for the itemsRemaining property.
     */
     public function setItemsRemaining(?int $value ): void {

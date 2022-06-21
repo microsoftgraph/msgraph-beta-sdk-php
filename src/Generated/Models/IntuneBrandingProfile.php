@@ -7,166 +7,102 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IntuneBrandingProfile extends Entity implements Parsable 
+class IntuneBrandingProfile extends Entity 
 {
-    /**
-     * @var array<IntuneBrandingProfileAssignment>|null $assignments The list of group assignments for the branding profile
-    */
+    /** @var array<IntuneBrandingProfileAssignment>|null $assignments The list of group assignments for the branding profile */
     private ?array $assignments = null;
     
-    /**
-     * @var array<CompanyPortalBlockedAction>|null $companyPortalBlockedActions Collection of blocked actions on the company portal as per platform and device ownership types.
-    */
+    /** @var array<CompanyPortalBlockedAction>|null $companyPortalBlockedActions Collection of blocked actions on the company portal as per platform and device ownership types. */
     private ?array $companyPortalBlockedActions = null;
     
-    /**
-     * @var string|null $contactITEmailAddress E-mail address of the person/organization responsible for IT support
-    */
+    /** @var string|null $contactITEmailAddress E-mail address of the person/organization responsible for IT support */
     private ?string $contactITEmailAddress = null;
     
-    /**
-     * @var string|null $contactITName Name of the person/organization responsible for IT support
-    */
+    /** @var string|null $contactITName Name of the person/organization responsible for IT support */
     private ?string $contactITName = null;
     
-    /**
-     * @var string|null $contactITNotes Text comments regarding the person/organization responsible for IT support
-    */
+    /** @var string|null $contactITNotes Text comments regarding the person/organization responsible for IT support */
     private ?string $contactITNotes = null;
     
-    /**
-     * @var string|null $contactITPhoneNumber Phone number of the person/organization responsible for IT support
-    */
+    /** @var string|null $contactITPhoneNumber Phone number of the person/organization responsible for IT support */
     private ?string $contactITPhoneNumber = null;
     
-    /**
-     * @var DateTime|null $createdDateTime Time when the BrandingProfile was created
-    */
+    /** @var DateTime|null $createdDateTime Time when the BrandingProfile was created */
     private ?DateTime $createdDateTime = null;
     
-    /**
-     * @var string|null $customCanSeePrivacyMessage Text comments regarding what the admin has access to on the device
-    */
+    /** @var string|null $customCanSeePrivacyMessage Text comments regarding what the admin has access to on the device */
     private ?string $customCanSeePrivacyMessage = null;
     
-    /**
-     * @var string|null $customCantSeePrivacyMessage Text comments regarding what the admin doesn't have access to on the device
-    */
+    /** @var string|null $customCantSeePrivacyMessage Text comments regarding what the admin doesn't have access to on the device */
     private ?string $customCantSeePrivacyMessage = null;
     
-    /**
-     * @var string|null $customPrivacyMessage Text comments regarding what the admin doesn't have access to on the device
-    */
+    /** @var string|null $customPrivacyMessage Text comments regarding what the admin doesn't have access to on the device */
     private ?string $customPrivacyMessage = null;
     
-    /**
-     * @var bool|null $disableClientTelemetry Applies to telemetry sent from all clients to the Intune service. When disabled, all proactive troubleshooting and issue warnings within the client are turned off, and telemetry settings appear inactive or hidden to the device user.
-    */
+    /** @var bool|null $disableClientTelemetry Applies to telemetry sent from all clients to the Intune service. When disabled, all proactive troubleshooting and issue warnings within the client are turned off, and telemetry settings appear inactive or hidden to the device user. */
     private ?bool $disableClientTelemetry = null;
     
-    /**
-     * @var string|null $displayName Company/organization name that is displayed to end users
-    */
+    /** @var string|null $displayName Company/organization name that is displayed to end users */
     private ?string $displayName = null;
     
-    /**
-     * @var EnrollmentAvailabilityOptions|null $enrollmentAvailability Customized device enrollment flow displayed to the end user . Possible values are: availableWithPrompts, availableWithoutPrompts, unavailable.
-    */
+    /** @var EnrollmentAvailabilityOptions|null $enrollmentAvailability Customized device enrollment flow displayed to the end user . Possible values are: availableWithPrompts, availableWithoutPrompts, unavailable. */
     private ?EnrollmentAvailabilityOptions $enrollmentAvailability = null;
     
-    /**
-     * @var bool|null $isDefaultProfile Boolean that represents whether the profile is used as default or not
-    */
+    /** @var bool|null $isDefaultProfile Boolean that represents whether the profile is used as default or not */
     private ?bool $isDefaultProfile = null;
     
-    /**
-     * @var bool|null $isFactoryResetDisabled Boolean that represents whether the adminsistrator has disabled the 'Factory Reset' action on corporate owned devices.
-    */
+    /** @var bool|null $isFactoryResetDisabled Boolean that represents whether the adminsistrator has disabled the 'Factory Reset' action on corporate owned devices. */
     private ?bool $isFactoryResetDisabled = null;
     
-    /**
-     * @var bool|null $isRemoveDeviceDisabled Boolean that represents whether the adminsistrator has disabled the 'Remove Device' action on corporate owned devices.
-    */
+    /** @var bool|null $isRemoveDeviceDisabled Boolean that represents whether the adminsistrator has disabled the 'Remove Device' action on corporate owned devices. */
     private ?bool $isRemoveDeviceDisabled = null;
     
-    /**
-     * @var MimeContent|null $landingPageCustomizedImage Customized image displayed in Company Portal apps landing page
-    */
+    /** @var MimeContent|null $landingPageCustomizedImage Customized image displayed in Company Portal apps landing page */
     private ?MimeContent $landingPageCustomizedImage = null;
     
-    /**
-     * @var DateTime|null $lastModifiedDateTime Time when the BrandingProfile was last modified
-    */
+    /** @var DateTime|null $lastModifiedDateTime Time when the BrandingProfile was last modified */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /**
-     * @var MimeContent|null $lightBackgroundLogo Logo image displayed in Company Portal apps which have a light background behind the logo
-    */
+    /** @var MimeContent|null $lightBackgroundLogo Logo image displayed in Company Portal apps which have a light background behind the logo */
     private ?MimeContent $lightBackgroundLogo = null;
     
-    /**
-     * @var string|null $onlineSupportSiteName Display name of the company/organization’s IT helpdesk site
-    */
+    /** @var string|null $onlineSupportSiteName Display name of the company/organization’s IT helpdesk site */
     private ?string $onlineSupportSiteName = null;
     
-    /**
-     * @var string|null $onlineSupportSiteUrl URL to the company/organization’s IT helpdesk site
-    */
+    /** @var string|null $onlineSupportSiteUrl URL to the company/organization’s IT helpdesk site */
     private ?string $onlineSupportSiteUrl = null;
     
-    /**
-     * @var string|null $privacyUrl URL to the company/organization’s privacy policy
-    */
+    /** @var string|null $privacyUrl URL to the company/organization’s privacy policy */
     private ?string $privacyUrl = null;
     
-    /**
-     * @var string|null $profileDescription Description of the profile
-    */
+    /** @var string|null $profileDescription Description of the profile */
     private ?string $profileDescription = null;
     
-    /**
-     * @var string|null $profileName Name of the profile
-    */
+    /** @var string|null $profileName Name of the profile */
     private ?string $profileName = null;
     
-    /**
-     * @var array<string>|null $roleScopeTagIds List of scope tags assigned to the branding profile
-    */
+    /** @var array<string>|null $roleScopeTagIds List of scope tags assigned to the branding profile */
     private ?array $roleScopeTagIds = null;
     
-    /**
-     * @var bool|null $sendDeviceOwnershipChangePushNotification Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate
-    */
+    /** @var bool|null $sendDeviceOwnershipChangePushNotification Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate */
     private ?bool $sendDeviceOwnershipChangePushNotification = null;
     
-    /**
-     * @var bool|null $showAzureADEnterpriseApps Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal
-    */
+    /** @var bool|null $showAzureADEnterpriseApps Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal */
     private ?bool $showAzureADEnterpriseApps = null;
     
-    /**
-     * @var bool|null $showDisplayNameNextToLogo Boolean that represents whether the administrator-supplied display name will be shown next to the logo image or not
-    */
+    /** @var bool|null $showDisplayNameNextToLogo Boolean that represents whether the administrator-supplied display name will be shown next to the logo image or not */
     private ?bool $showDisplayNameNextToLogo = null;
     
-    /**
-     * @var bool|null $showLogo Boolean that represents whether the administrator-supplied logo images are shown or not
-    */
+    /** @var bool|null $showLogo Boolean that represents whether the administrator-supplied logo images are shown or not */
     private ?bool $showLogo = null;
     
-    /**
-     * @var bool|null $showOfficeWebApps Boolean that indicates if Office WebApps will be shown in Company Portal
-    */
+    /** @var bool|null $showOfficeWebApps Boolean that indicates if Office WebApps will be shown in Company Portal */
     private ?bool $showOfficeWebApps = null;
     
-    /**
-     * @var RgbColor|null $themeColor Primary theme color used in the Company Portal applications and web portal
-    */
+    /** @var RgbColor|null $themeColor Primary theme color used in the Company Portal applications and web portal */
     private ?RgbColor $themeColor = null;
     
-    /**
-     * @var MimeContent|null $themeColorLogo Logo image displayed in Company Portal apps which have a theme color background behind the logo
-    */
+    /** @var MimeContent|null $themeColorLogo Logo image displayed in Company Portal apps which have a theme color background behind the logo */
     private ?MimeContent $themeColorLogo = null;
     
     /**
@@ -181,7 +117,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return IntuneBrandingProfile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): IntuneBrandingProfile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): IntuneBrandingProfile {
         return new IntuneBrandingProfile();
     }
 
@@ -294,40 +230,39 @@ class IntuneBrandingProfile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(IntuneBrandingProfileAssignment::class, 'createFromDiscriminatorValue'))); },
-            'companyPortalBlockedActions' => function (ParseNode $n) use ($o) { $o->setCompanyPortalBlockedActions($n->getCollectionOfObjectValues(array(CompanyPortalBlockedAction::class, 'createFromDiscriminatorValue'))); },
-            'contactITEmailAddress' => function (ParseNode $n) use ($o) { $o->setContactITEmailAddress($n->getStringValue()); },
-            'contactITName' => function (ParseNode $n) use ($o) { $o->setContactITName($n->getStringValue()); },
-            'contactITNotes' => function (ParseNode $n) use ($o) { $o->setContactITNotes($n->getStringValue()); },
-            'contactITPhoneNumber' => function (ParseNode $n) use ($o) { $o->setContactITPhoneNumber($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'customCanSeePrivacyMessage' => function (ParseNode $n) use ($o) { $o->setCustomCanSeePrivacyMessage($n->getStringValue()); },
-            'customCantSeePrivacyMessage' => function (ParseNode $n) use ($o) { $o->setCustomCantSeePrivacyMessage($n->getStringValue()); },
-            'customPrivacyMessage' => function (ParseNode $n) use ($o) { $o->setCustomPrivacyMessage($n->getStringValue()); },
-            'disableClientTelemetry' => function (ParseNode $n) use ($o) { $o->setDisableClientTelemetry($n->getBooleanValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enrollmentAvailability' => function (ParseNode $n) use ($o) { $o->setEnrollmentAvailability($n->getEnumValue(EnrollmentAvailabilityOptions::class)); },
-            'isDefaultProfile' => function (ParseNode $n) use ($o) { $o->setIsDefaultProfile($n->getBooleanValue()); },
-            'isFactoryResetDisabled' => function (ParseNode $n) use ($o) { $o->setIsFactoryResetDisabled($n->getBooleanValue()); },
-            'isRemoveDeviceDisabled' => function (ParseNode $n) use ($o) { $o->setIsRemoveDeviceDisabled($n->getBooleanValue()); },
-            'landingPageCustomizedImage' => function (ParseNode $n) use ($o) { $o->setLandingPageCustomizedImage($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'lightBackgroundLogo' => function (ParseNode $n) use ($o) { $o->setLightBackgroundLogo($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
-            'onlineSupportSiteName' => function (ParseNode $n) use ($o) { $o->setOnlineSupportSiteName($n->getStringValue()); },
-            'onlineSupportSiteUrl' => function (ParseNode $n) use ($o) { $o->setOnlineSupportSiteUrl($n->getStringValue()); },
-            'privacyUrl' => function (ParseNode $n) use ($o) { $o->setPrivacyUrl($n->getStringValue()); },
-            'profileDescription' => function (ParseNode $n) use ($o) { $o->setProfileDescription($n->getStringValue()); },
-            'profileName' => function (ParseNode $n) use ($o) { $o->setProfileName($n->getStringValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'sendDeviceOwnershipChangePushNotification' => function (ParseNode $n) use ($o) { $o->setSendDeviceOwnershipChangePushNotification($n->getBooleanValue()); },
-            'showAzureADEnterpriseApps' => function (ParseNode $n) use ($o) { $o->setShowAzureADEnterpriseApps($n->getBooleanValue()); },
-            'showDisplayNameNextToLogo' => function (ParseNode $n) use ($o) { $o->setShowDisplayNameNextToLogo($n->getBooleanValue()); },
-            'showLogo' => function (ParseNode $n) use ($o) { $o->setShowLogo($n->getBooleanValue()); },
-            'showOfficeWebApps' => function (ParseNode $n) use ($o) { $o->setShowOfficeWebApps($n->getBooleanValue()); },
-            'themeColor' => function (ParseNode $n) use ($o) { $o->setThemeColor($n->getObjectValue(array(RgbColor::class, 'createFromDiscriminatorValue'))); },
-            'themeColorLogo' => function (ParseNode $n) use ($o) { $o->setThemeColorLogo($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
+            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(IntuneBrandingProfileAssignment::class)); },
+            'companyPortalBlockedActions' => function (self $o, ParseNode $n) { $o->setCompanyPortalBlockedActions($n->getCollectionOfObjectValues(CompanyPortalBlockedAction::class)); },
+            'contactITEmailAddress' => function (self $o, ParseNode $n) { $o->setContactITEmailAddress($n->getStringValue()); },
+            'contactITName' => function (self $o, ParseNode $n) { $o->setContactITName($n->getStringValue()); },
+            'contactITNotes' => function (self $o, ParseNode $n) { $o->setContactITNotes($n->getStringValue()); },
+            'contactITPhoneNumber' => function (self $o, ParseNode $n) { $o->setContactITPhoneNumber($n->getStringValue()); },
+            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'customCanSeePrivacyMessage' => function (self $o, ParseNode $n) { $o->setCustomCanSeePrivacyMessage($n->getStringValue()); },
+            'customCantSeePrivacyMessage' => function (self $o, ParseNode $n) { $o->setCustomCantSeePrivacyMessage($n->getStringValue()); },
+            'customPrivacyMessage' => function (self $o, ParseNode $n) { $o->setCustomPrivacyMessage($n->getStringValue()); },
+            'disableClientTelemetry' => function (self $o, ParseNode $n) { $o->setDisableClientTelemetry($n->getBooleanValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'enrollmentAvailability' => function (self $o, ParseNode $n) { $o->setEnrollmentAvailability($n->getEnumValue(EnrollmentAvailabilityOptions::class)); },
+            'isDefaultProfile' => function (self $o, ParseNode $n) { $o->setIsDefaultProfile($n->getBooleanValue()); },
+            'isFactoryResetDisabled' => function (self $o, ParseNode $n) { $o->setIsFactoryResetDisabled($n->getBooleanValue()); },
+            'isRemoveDeviceDisabled' => function (self $o, ParseNode $n) { $o->setIsRemoveDeviceDisabled($n->getBooleanValue()); },
+            'landingPageCustomizedImage' => function (self $o, ParseNode $n) { $o->setLandingPageCustomizedImage($n->getObjectValue(MimeContent::class)); },
+            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'lightBackgroundLogo' => function (self $o, ParseNode $n) { $o->setLightBackgroundLogo($n->getObjectValue(MimeContent::class)); },
+            'onlineSupportSiteName' => function (self $o, ParseNode $n) { $o->setOnlineSupportSiteName($n->getStringValue()); },
+            'onlineSupportSiteUrl' => function (self $o, ParseNode $n) { $o->setOnlineSupportSiteUrl($n->getStringValue()); },
+            'privacyUrl' => function (self $o, ParseNode $n) { $o->setPrivacyUrl($n->getStringValue()); },
+            'profileDescription' => function (self $o, ParseNode $n) { $o->setProfileDescription($n->getStringValue()); },
+            'profileName' => function (self $o, ParseNode $n) { $o->setProfileName($n->getStringValue()); },
+            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'sendDeviceOwnershipChangePushNotification' => function (self $o, ParseNode $n) { $o->setSendDeviceOwnershipChangePushNotification($n->getBooleanValue()); },
+            'showAzureADEnterpriseApps' => function (self $o, ParseNode $n) { $o->setShowAzureADEnterpriseApps($n->getBooleanValue()); },
+            'showDisplayNameNextToLogo' => function (self $o, ParseNode $n) { $o->setShowDisplayNameNextToLogo($n->getBooleanValue()); },
+            'showLogo' => function (self $o, ParseNode $n) { $o->setShowLogo($n->getBooleanValue()); },
+            'showOfficeWebApps' => function (self $o, ParseNode $n) { $o->setShowOfficeWebApps($n->getBooleanValue()); },
+            'themeColor' => function (self $o, ParseNode $n) { $o->setThemeColor($n->getObjectValue(RgbColor::class)); },
+            'themeColorLogo' => function (self $o, ParseNode $n) { $o->setThemeColorLogo($n->getObjectValue(MimeContent::class)); },
         ]);
     }
 

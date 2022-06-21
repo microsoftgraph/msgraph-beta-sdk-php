@@ -8,76 +8,48 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagedDeviceCompliance extends Entity implements Parsable 
+class ManagedDeviceCompliance extends Entity 
 {
-    /**
-     * @var string|null $complianceStatus Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager. Optional. Read-only.
-    */
+    /** @var string|null $complianceStatus Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager. Optional. Read-only. */
     private ?string $complianceStatus = null;
     
-    /**
-     * @var string|null $deviceType Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.  Optional. Read-only.
-    */
+    /** @var string|null $deviceType Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.  Optional. Read-only. */
     private ?string $deviceType = null;
     
-    /**
-     * @var DateTime|null $inGracePeriodUntilDateTime The date and time when the grace period will expire. Optional. Read-only.
-    */
+    /** @var DateTime|null $inGracePeriodUntilDateTime The date and time when the grace period will expire. Optional. Read-only. */
     private ?DateTime $inGracePeriodUntilDateTime = null;
     
-    /**
-     * @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
-    */
+    /** @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only. */
     private ?DateTime $lastRefreshedDateTime = null;
     
-    /**
-     * @var DateTime|null $lastSyncDateTime The date and time that the device last completed a successful sync with Microsoft Endpoint Manager. Optional. Read-only.
-    */
+    /** @var DateTime|null $lastSyncDateTime The date and time that the device last completed a successful sync with Microsoft Endpoint Manager. Optional. Read-only. */
     private ?DateTime $lastSyncDateTime = null;
     
-    /**
-     * @var string|null $managedDeviceId The identifier for the managed device in Microsoft Endpoint Manager. Optional. Read-only.
-    */
+    /** @var string|null $managedDeviceId The identifier for the managed device in Microsoft Endpoint Manager. Optional. Read-only. */
     private ?string $managedDeviceId = null;
     
-    /**
-     * @var string|null $managedDeviceName The display name for the managed device. Optional. Read-only.
-    */
+    /** @var string|null $managedDeviceName The display name for the managed device. Optional. Read-only. */
     private ?string $managedDeviceName = null;
     
-    /**
-     * @var string|null $manufacturer The manufacture for the device. Optional. Read-only.
-    */
+    /** @var string|null $manufacturer The manufacture for the device. Optional. Read-only. */
     private ?string $manufacturer = null;
     
-    /**
-     * @var string|null $model The model for the device. Optional. Read-only.
-    */
+    /** @var string|null $model The model for the device. Optional. Read-only. */
     private ?string $model = null;
     
-    /**
-     * @var string|null $osDescription The description of the operating system for the managed device. Optional. Read-only.
-    */
+    /** @var string|null $osDescription The description of the operating system for the managed device. Optional. Read-only. */
     private ?string $osDescription = null;
     
-    /**
-     * @var string|null $osVersion The version of the operating system for the managed device. Optional. Read-only.
-    */
+    /** @var string|null $osVersion The version of the operating system for the managed device. Optional. Read-only. */
     private ?string $osVersion = null;
     
-    /**
-     * @var string|null $ownerType The type of owner for the managed device. Optional. Read-only.
-    */
+    /** @var string|null $ownerType The type of owner for the managed device. Optional. Read-only. */
     private ?string $ownerType = null;
     
-    /**
-     * @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only.
-    */
+    /** @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only. */
     private ?string $tenantDisplayName = null;
     
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    */
+    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only. */
     private ?string $tenantId = null;
     
     /**
@@ -92,7 +64,7 @@ class ManagedDeviceCompliance extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagedDeviceCompliance
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceCompliance {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceCompliance {
         return new ManagedDeviceCompliance();
     }
 
@@ -117,22 +89,21 @@ class ManagedDeviceCompliance extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'complianceStatus' => function (ParseNode $n) use ($o) { $o->setComplianceStatus($n->getStringValue()); },
-            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getStringValue()); },
-            'inGracePeriodUntilDateTime' => function (ParseNode $n) use ($o) { $o->setInGracePeriodUntilDateTime($n->getDateTimeValue()); },
-            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'managedDeviceName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceName($n->getStringValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'osDescription' => function (ParseNode $n) use ($o) { $o->setOsDescription($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getStringValue()); },
-            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'complianceStatus' => function (self $o, ParseNode $n) { $o->setComplianceStatus($n->getStringValue()); },
+            'deviceType' => function (self $o, ParseNode $n) { $o->setDeviceType($n->getStringValue()); },
+            'inGracePeriodUntilDateTime' => function (self $o, ParseNode $n) { $o->setInGracePeriodUntilDateTime($n->getDateTimeValue()); },
+            'lastRefreshedDateTime' => function (self $o, ParseNode $n) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
+            'lastSyncDateTime' => function (self $o, ParseNode $n) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
+            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
+            'managedDeviceName' => function (self $o, ParseNode $n) { $o->setManagedDeviceName($n->getStringValue()); },
+            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
+            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
+            'osDescription' => function (self $o, ParseNode $n) { $o->setOsDescription($n->getStringValue()); },
+            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getStringValue()); },
+            'ownerType' => function (self $o, ParseNode $n) { $o->setOwnerType($n->getStringValue()); },
+            'tenantDisplayName' => function (self $o, ParseNode $n) { $o->setTenantDisplayName($n->getStringValue()); },
+            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
         ]);
     }
 

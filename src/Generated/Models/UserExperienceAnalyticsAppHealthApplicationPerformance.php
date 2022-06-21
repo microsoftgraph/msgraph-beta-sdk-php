@@ -6,56 +6,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity implements Parsable 
+class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity 
 {
-    /**
-     * @var int|null $activeDeviceCount The number of devices where the app has been active. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $activeDeviceCount The number of devices where the app has been active. Valid values -2147483648 to 2147483647 */
     private ?int $activeDeviceCount = null;
     
-    /**
-     * @var int|null $appCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $appCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647 */
     private ?int $appCrashCount = null;
     
-    /**
-     * @var string|null $appDisplayName The friendly name of the application.
-    */
+    /** @var string|null $appDisplayName The friendly name of the application. */
     private ?string $appDisplayName = null;
     
-    /**
-     * @var int|null $appHangCount The number of hangs for the app. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $appHangCount The number of hangs for the app. Valid values -2147483648 to 2147483647 */
     private ?int $appHangCount = null;
     
-    /**
-     * @var float|null $appHealthScore The health score of the app. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $appHealthScore The health score of the app. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $appHealthScore = null;
     
-    /**
-     * @var string|null $appHealthStatus The overall health status of the app.
-    */
+    /** @var string|null $appHealthStatus The overall health status of the app. */
     private ?string $appHealthStatus = null;
     
-    /**
-     * @var string|null $appName The name of the application.
-    */
+    /** @var string|null $appName The name of the application. */
     private ?string $appName = null;
     
-    /**
-     * @var string|null $appPublisher The publisher of the application.
-    */
+    /** @var string|null $appPublisher The publisher of the application. */
     private ?string $appPublisher = null;
     
-    /**
-     * @var int|null $appUsageDuration The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $appUsageDuration The total usage time of the application in minutes. Valid values -2147483648 to 2147483647 */
     private ?int $appUsageDuration = null;
     
-    /**
-     * @var int|null $meanTimeToFailureInMinutes The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $meanTimeToFailureInMinutes The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647 */
     private ?int $meanTimeToFailureInMinutes = null;
     
     /**
@@ -70,7 +50,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsAppHealthApplicationPerformance
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthApplicationPerformance {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthApplicationPerformance {
         return new UserExperienceAnalyticsAppHealthApplicationPerformance();
     }
 
@@ -151,18 +131,17 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeDeviceCount' => function (ParseNode $n) use ($o) { $o->setActiveDeviceCount($n->getIntegerValue()); },
-            'appCrashCount' => function (ParseNode $n) use ($o) { $o->setAppCrashCount($n->getIntegerValue()); },
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appHangCount' => function (ParseNode $n) use ($o) { $o->setAppHangCount($n->getIntegerValue()); },
-            'appHealthScore' => function (ParseNode $n) use ($o) { $o->setAppHealthScore($n->getFloatValue()); },
-            'appHealthStatus' => function (ParseNode $n) use ($o) { $o->setAppHealthStatus($n->getStringValue()); },
-            'appName' => function (ParseNode $n) use ($o) { $o->setAppName($n->getStringValue()); },
-            'appPublisher' => function (ParseNode $n) use ($o) { $o->setAppPublisher($n->getStringValue()); },
-            'appUsageDuration' => function (ParseNode $n) use ($o) { $o->setAppUsageDuration($n->getIntegerValue()); },
-            'meanTimeToFailureInMinutes' => function (ParseNode $n) use ($o) { $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()); },
+            'activeDeviceCount' => function (self $o, ParseNode $n) { $o->setActiveDeviceCount($n->getIntegerValue()); },
+            'appCrashCount' => function (self $o, ParseNode $n) { $o->setAppCrashCount($n->getIntegerValue()); },
+            'appDisplayName' => function (self $o, ParseNode $n) { $o->setAppDisplayName($n->getStringValue()); },
+            'appHangCount' => function (self $o, ParseNode $n) { $o->setAppHangCount($n->getIntegerValue()); },
+            'appHealthScore' => function (self $o, ParseNode $n) { $o->setAppHealthScore($n->getFloatValue()); },
+            'appHealthStatus' => function (self $o, ParseNode $n) { $o->setAppHealthStatus($n->getStringValue()); },
+            'appName' => function (self $o, ParseNode $n) { $o->setAppName($n->getStringValue()); },
+            'appPublisher' => function (self $o, ParseNode $n) { $o->setAppPublisher($n->getStringValue()); },
+            'appUsageDuration' => function (self $o, ParseNode $n) { $o->setAppUsageDuration($n->getIntegerValue()); },
+            'meanTimeToFailureInMinutes' => function (self $o, ParseNode $n) { $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()); },
         ]);
     }
 

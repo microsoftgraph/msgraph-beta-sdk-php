@@ -8,21 +8,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CatalogEntry extends Entity implements Parsable 
+class CatalogEntry extends Entity 
 {
-    /**
-     * @var DateTime|null $deployableUntilDateTime The date on which the content is no longer available to deploy using the service. Read-only.
-    */
+    /** @var DateTime|null $deployableUntilDateTime The date on which the content is no longer available to deploy using the service. Read-only. */
     private ?DateTime $deployableUntilDateTime = null;
     
-    /**
-     * @var string|null $displayName The display name of the content. Read-only.
-    */
+    /** @var string|null $displayName The display name of the content. Read-only. */
     private ?string $displayName = null;
     
-    /**
-     * @var DateTime|null $releaseDateTime The release date for the content. Read-only.
-    */
+    /** @var DateTime|null $releaseDateTime The release date for the content. Read-only. */
     private ?DateTime $releaseDateTime = null;
     
     /**
@@ -37,14 +31,7 @@ class CatalogEntry extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CatalogEntry
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): CatalogEntry {
-        $mappingValueNode = ParseNode::getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.windowsUpdates.softwareUpdateCatalogEntry': return new SoftwareUpdateCatalogEntry();
-            }
-        }
+    public function createFromDiscriminatorValue(ParseNode $parseNode): CatalogEntry {
         return new CatalogEntry();
     }
 
@@ -69,11 +56,10 @@ class CatalogEntry extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deployableUntilDateTime' => function (ParseNode $n) use ($o) { $o->setDeployableUntilDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'releaseDateTime' => function (ParseNode $n) use ($o) { $o->setReleaseDateTime($n->getDateTimeValue()); },
+            'deployableUntilDateTime' => function (self $o, ParseNode $n) { $o->setDeployableUntilDateTime($n->getDateTimeValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'releaseDateTime' => function (self $o, ParseNode $n) { $o->setReleaseDateTime($n->getDateTimeValue()); },
         ]);
     }
 

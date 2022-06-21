@@ -10,14 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceHealth implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var DateTime|null $lastConnectionTime The last time the device was connected.
-    */
+    /** @var DateTime|null $lastConnectionTime The last time the device was connected. */
     private ?DateTime $lastConnectionTime = null;
     
     /**
@@ -32,7 +28,7 @@ class DeviceHealth implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceHealth
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealth {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealth {
         return new DeviceHealth();
     }
 
@@ -49,9 +45,8 @@ class DeviceHealth implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'lastConnectionTime' => function (ParseNode $n) use ($o) { $o->setLastConnectionTime($n->getDateTimeValue()); },
+            'lastConnectionTime' => function (self $o, ParseNode $n) { $o->setLastConnectionTime($n->getDateTimeValue()); },
         ];
     }
 

@@ -9,59 +9,37 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<AccessPackageAnswer>|null $existingAnswers Answers that have already been provided.
-    */
+    /** @var array<AccessPackageAnswer>|null $existingAnswers Answers that have already been provided. */
     private ?array $existingAnswers = null;
     
-    /**
-     * @var bool|null $isApprovalRequired Indicates whether a request must be approved by an approver.
-    */
+    /** @var bool|null $isApprovalRequired Indicates whether a request must be approved by an approver. */
     private ?bool $isApprovalRequired = null;
     
-    /**
-     * @var bool|null $isApprovalRequiredForExtension Indicates whether approval is required when a user tries to extend their access.
-    */
+    /** @var bool|null $isApprovalRequiredForExtension Indicates whether approval is required when a user tries to extend their access. */
     private ?bool $isApprovalRequiredForExtension = null;
     
-    /**
-     * @var bool|null $isCustomAssignmentScheduleAllowed Indicates whether the requestor is allowed to set a custom schedule.
-    */
+    /** @var bool|null $isCustomAssignmentScheduleAllowed Indicates whether the requestor is allowed to set a custom schedule. */
     private ?bool $isCustomAssignmentScheduleAllowed = null;
     
-    /**
-     * @var bool|null $isRequestorJustificationRequired Indicates whether a requestor must supply justification when submitting an assignment request.
-    */
+    /** @var bool|null $isRequestorJustificationRequired Indicates whether a requestor must supply justification when submitting an assignment request. */
     private ?bool $isRequestorJustificationRequired = null;
     
-    /**
-     * @var string|null $policyDescription The description of the policy that the user is trying to request access using.
-    */
+    /** @var string|null $policyDescription The description of the policy that the user is trying to request access using. */
     private ?string $policyDescription = null;
     
-    /**
-     * @var string|null $policyDisplayName The display name of the policy that the user is trying to request access using.
-    */
+    /** @var string|null $policyDisplayName The display name of the policy that the user is trying to request access using. */
     private ?string $policyDisplayName = null;
     
-    /**
-     * @var string|null $policyId The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request.
-    */
+    /** @var string|null $policyId The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request. */
     private ?string $policyId = null;
     
-    /**
-     * @var array<AccessPackageQuestion>|null $questions Questions that are configured on the policy. The questions can be required or optional; callers can determine whether a question is required or optional based on the isRequired property on accessPackageQuestion.
-    */
+    /** @var array<AccessPackageQuestion>|null $questions Questions that are configured on the policy. The questions can be required or optional; callers can determine whether a question is required or optional based on the isRequired property on accessPackageQuestion. */
     private ?array $questions = null;
     
-    /**
-     * @var RequestSchedule|null $schedule Schedule restrictions enforced, if any.
-    */
+    /** @var RequestSchedule|null $schedule Schedule restrictions enforced, if any. */
     private ?RequestSchedule $schedule = null;
     
     /**
@@ -76,7 +54,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageAssignmentRequestRequirements
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageAssignmentRequestRequirements {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageAssignmentRequestRequirements {
         return new AccessPackageAssignmentRequestRequirements();
     }
 
@@ -101,18 +79,17 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'existingAnswers' => function (ParseNode $n) use ($o) { $o->setExistingAnswers($n->getCollectionOfObjectValues(array(AccessPackageAnswer::class, 'createFromDiscriminatorValue'))); },
-            'isApprovalRequired' => function (ParseNode $n) use ($o) { $o->setIsApprovalRequired($n->getBooleanValue()); },
-            'isApprovalRequiredForExtension' => function (ParseNode $n) use ($o) { $o->setIsApprovalRequiredForExtension($n->getBooleanValue()); },
-            'isCustomAssignmentScheduleAllowed' => function (ParseNode $n) use ($o) { $o->setIsCustomAssignmentScheduleAllowed($n->getBooleanValue()); },
-            'isRequestorJustificationRequired' => function (ParseNode $n) use ($o) { $o->setIsRequestorJustificationRequired($n->getBooleanValue()); },
-            'policyDescription' => function (ParseNode $n) use ($o) { $o->setPolicyDescription($n->getStringValue()); },
-            'policyDisplayName' => function (ParseNode $n) use ($o) { $o->setPolicyDisplayName($n->getStringValue()); },
-            'policyId' => function (ParseNode $n) use ($o) { $o->setPolicyId($n->getStringValue()); },
-            'questions' => function (ParseNode $n) use ($o) { $o->setQuestions($n->getCollectionOfObjectValues(array(AccessPackageQuestion::class, 'createFromDiscriminatorValue'))); },
-            'schedule' => function (ParseNode $n) use ($o) { $o->setSchedule($n->getObjectValue(array(RequestSchedule::class, 'createFromDiscriminatorValue'))); },
+            'existingAnswers' => function (self $o, ParseNode $n) { $o->setExistingAnswers($n->getCollectionOfObjectValues(AccessPackageAnswer::class)); },
+            'isApprovalRequired' => function (self $o, ParseNode $n) { $o->setIsApprovalRequired($n->getBooleanValue()); },
+            'isApprovalRequiredForExtension' => function (self $o, ParseNode $n) { $o->setIsApprovalRequiredForExtension($n->getBooleanValue()); },
+            'isCustomAssignmentScheduleAllowed' => function (self $o, ParseNode $n) { $o->setIsCustomAssignmentScheduleAllowed($n->getBooleanValue()); },
+            'isRequestorJustificationRequired' => function (self $o, ParseNode $n) { $o->setIsRequestorJustificationRequired($n->getBooleanValue()); },
+            'policyDescription' => function (self $o, ParseNode $n) { $o->setPolicyDescription($n->getStringValue()); },
+            'policyDisplayName' => function (self $o, ParseNode $n) { $o->setPolicyDisplayName($n->getStringValue()); },
+            'policyId' => function (self $o, ParseNode $n) { $o->setPolicyId($n->getStringValue()); },
+            'questions' => function (self $o, ParseNode $n) { $o->setQuestions($n->getCollectionOfObjectValues(AccessPackageQuestion::class)); },
+            'schedule' => function (self $o, ParseNode $n) { $o->setSchedule($n->getObjectValue(RequestSchedule::class)); },
         ];
     }
 

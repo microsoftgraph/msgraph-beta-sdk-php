@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AudioRoutingGroup extends Entity implements Parsable 
+class AudioRoutingGroup extends Entity 
 {
-    /**
-     * @var array<string>|null $receivers List of receiving participant ids.
-    */
+    /** @var array<string>|null $receivers List of receiving participant ids. */
     private ?array $receivers = null;
     
-    /**
-     * @var RoutingMode|null $routingMode Routing group mode.  Possible values are: oneToOne, multicast.
-    */
+    /** @var RoutingMode|null $routingMode Routing group mode.  Possible values are: oneToOne, multicast. */
     private ?RoutingMode $routingMode = null;
     
-    /**
-     * @var array<string>|null $sources List of source participant ids.
-    */
+    /** @var array<string>|null $sources List of source participant ids. */
     private ?array $sources = null;
     
     /**
@@ -35,7 +29,7 @@ class AudioRoutingGroup extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AudioRoutingGroup
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): AudioRoutingGroup {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): AudioRoutingGroup {
         return new AudioRoutingGroup();
     }
 
@@ -44,11 +38,10 @@ class AudioRoutingGroup extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'receivers' => function (ParseNode $n) use ($o) { $o->setReceivers($n->getCollectionOfPrimitiveValues()); },
-            'routingMode' => function (ParseNode $n) use ($o) { $o->setRoutingMode($n->getEnumValue(RoutingMode::class)); },
-            'sources' => function (ParseNode $n) use ($o) { $o->setSources($n->getCollectionOfPrimitiveValues()); },
+            'receivers' => function (self $o, ParseNode $n) { $o->setReceivers($n->getCollectionOfPrimitiveValues()); },
+            'routingMode' => function (self $o, ParseNode $n) { $o->setRoutingMode($n->getEnumValue(RoutingMode::class)); },
+            'sources' => function (self $o, ParseNode $n) { $o->setSources($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

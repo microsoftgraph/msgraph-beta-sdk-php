@@ -9,24 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var TeamworkPeripheral|null $compute The compute property
-    */
+    /** @var TeamworkPeripheral|null $compute The compute property */
     private ?TeamworkPeripheral $compute = null;
     
-    /**
-     * @var TeamworkPeripheral|null $hdmiIngest The hdmiIngest property
-    */
+    /** @var TeamworkPeripheral|null $hdmiIngest The hdmiIngest property */
     private ?TeamworkPeripheral $hdmiIngest = null;
     
-    /**
-     * @var string|null $processorModel The CPU model on the device.
-    */
+    /** @var string|null $processorModel The CPU model on the device. */
     private ?string $processorModel = null;
     
     /**
@@ -41,7 +33,7 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkHardwareConfiguration
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkHardwareConfiguration {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkHardwareConfiguration {
         return new TeamworkHardwareConfiguration();
     }
 
@@ -66,11 +58,10 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'compute' => function (ParseNode $n) use ($o) { $o->setCompute($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'hdmiIngest' => function (ParseNode $n) use ($o) { $o->setHdmiIngest($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'processorModel' => function (ParseNode $n) use ($o) { $o->setProcessorModel($n->getStringValue()); },
+            'compute' => function (self $o, ParseNode $n) { $o->setCompute($n->getObjectValue(TeamworkPeripheral::class)); },
+            'hdmiIngest' => function (self $o, ParseNode $n) { $o->setHdmiIngest($n->getObjectValue(TeamworkPeripheral::class)); },
+            'processorModel' => function (self $o, ParseNode $n) { $o->setProcessorModel($n->getStringValue()); },
         ];
     }
 

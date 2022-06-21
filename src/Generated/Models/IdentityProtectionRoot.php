@@ -9,29 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class IdentityProtectionRoot implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<RiskDetection>|null $riskDetections Risk detection in Azure AD Identity Protection and the associated information about the detection.
-    */
+    /** @var array<RiskDetection>|null $riskDetections Risk detection in Azure AD Identity Protection and the associated information about the detection. */
     private ?array $riskDetections = null;
     
-    /**
-     * @var array<RiskyServicePrincipal>|null $riskyServicePrincipals Azure AD service principals that are at risk.
-    */
+    /** @var array<RiskyServicePrincipal>|null $riskyServicePrincipals Azure AD service principals that are at risk. */
     private ?array $riskyServicePrincipals = null;
     
-    /**
-     * @var array<RiskyUser>|null $riskyUsers Users that are flagged as at-risk by Azure AD Identity Protection.
-    */
+    /** @var array<RiskyUser>|null $riskyUsers Users that are flagged as at-risk by Azure AD Identity Protection. */
     private ?array $riskyUsers = null;
     
-    /**
-     * @var array<ServicePrincipalRiskDetection>|null $servicePrincipalRiskDetections Represents information about detected at-risk service principals in an Azure AD tenant.
-    */
+    /** @var array<ServicePrincipalRiskDetection>|null $servicePrincipalRiskDetections Represents information about detected at-risk service principals in an Azure AD tenant. */
     private ?array $servicePrincipalRiskDetections = null;
     
     /**
@@ -46,7 +36,7 @@ class IdentityProtectionRoot implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return IdentityProtectionRoot
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): IdentityProtectionRoot {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): IdentityProtectionRoot {
         return new IdentityProtectionRoot();
     }
 
@@ -63,12 +53,11 @@ class IdentityProtectionRoot implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'riskDetections' => function (ParseNode $n) use ($o) { $o->setRiskDetections($n->getCollectionOfObjectValues(array(RiskDetection::class, 'createFromDiscriminatorValue'))); },
-            'riskyServicePrincipals' => function (ParseNode $n) use ($o) { $o->setRiskyServicePrincipals($n->getCollectionOfObjectValues(array(RiskyServicePrincipal::class, 'createFromDiscriminatorValue'))); },
-            'riskyUsers' => function (ParseNode $n) use ($o) { $o->setRiskyUsers($n->getCollectionOfObjectValues(array(RiskyUser::class, 'createFromDiscriminatorValue'))); },
-            'servicePrincipalRiskDetections' => function (ParseNode $n) use ($o) { $o->setServicePrincipalRiskDetections($n->getCollectionOfObjectValues(array(ServicePrincipalRiskDetection::class, 'createFromDiscriminatorValue'))); },
+            'riskDetections' => function (self $o, ParseNode $n) { $o->setRiskDetections($n->getCollectionOfObjectValues(RiskDetection::class)); },
+            'riskyServicePrincipals' => function (self $o, ParseNode $n) { $o->setRiskyServicePrincipals($n->getCollectionOfObjectValues(RiskyServicePrincipal::class)); },
+            'riskyUsers' => function (self $o, ParseNode $n) { $o->setRiskyUsers($n->getCollectionOfObjectValues(RiskyUser::class)); },
+            'servicePrincipalRiskDetections' => function (self $o, ParseNode $n) { $o->setServicePrincipalRiskDetections($n->getCollectionOfObjectValues(ServicePrincipalRiskDetection::class)); },
         ];
     }
 

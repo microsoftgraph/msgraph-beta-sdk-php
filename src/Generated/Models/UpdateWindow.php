@@ -10,19 +10,13 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 
 class UpdateWindow implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var Time|null $updateWindowEndTime End of a time window during which agents can receive updates
-    */
+    /** @var Time|null $updateWindowEndTime End of a time window during which agents can receive updates */
     private ?Time $updateWindowEndTime = null;
     
-    /**
-     * @var Time|null $updateWindowStartTime Start of a time window during which agents can receive updates
-    */
+    /** @var Time|null $updateWindowStartTime Start of a time window during which agents can receive updates */
     private ?Time $updateWindowStartTime = null;
     
     /**
@@ -37,7 +31,7 @@ class UpdateWindow implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UpdateWindow
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UpdateWindow {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UpdateWindow {
         return new UpdateWindow();
     }
 
@@ -54,10 +48,9 @@ class UpdateWindow implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'updateWindowEndTime' => function (ParseNode $n) use ($o) { $o->setUpdateWindowEndTime($n->getTimeValue()); },
-            'updateWindowStartTime' => function (ParseNode $n) use ($o) { $o->setUpdateWindowStartTime($n->getTimeValue()); },
+            'updateWindowEndTime' => function (self $o, ParseNode $n) { $o->setUpdateWindowEndTime($n->getTimeValue()); },
+            'updateWindowStartTime' => function (self $o, ParseNode $n) { $o->setUpdateWindowStartTime($n->getTimeValue()); },
         ];
     }
 

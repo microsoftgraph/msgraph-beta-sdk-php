@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementConfigurationSettingInstanceTemplateReference implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $settingInstanceTemplateId Setting instance template id
-    */
+    /** @var string|null $settingInstanceTemplateId Setting instance template id */
     private ?string $settingInstanceTemplateId = null;
     
     /**
@@ -31,7 +27,7 @@ class DeviceManagementConfigurationSettingInstanceTemplateReference implements A
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationSettingInstanceTemplateReference
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingInstanceTemplateReference {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingInstanceTemplateReference {
         return new DeviceManagementConfigurationSettingInstanceTemplateReference();
     }
 
@@ -48,9 +44,8 @@ class DeviceManagementConfigurationSettingInstanceTemplateReference implements A
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'settingInstanceTemplateId' => function (ParseNode $n) use ($o) { $o->setSettingInstanceTemplateId($n->getStringValue()); },
+            'settingInstanceTemplateId' => function (self $o, ParseNode $n) { $o->setSettingInstanceTemplateId($n->getStringValue()); },
         ];
     }
 

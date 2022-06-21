@@ -7,25 +7,19 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class PersonAnnualEvent extends ItemFacet implements Parsable 
+class PersonAnnualEvent extends ItemFacet 
 {
-    /**
-     * @var Date|null $date The date property
-    */
+    /** @var Date|null $date The date property */
     private ?Date $date = null;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var PersonAnnualEventType|null $type The type property
-    */
+    /** @var PersonAnnualEventType|null $type The type property */
     private ?PersonAnnualEventType $type = null;
     
     /**
-     * Instantiates a new PersonAnnualEvent and sets the default values.
+     * Instantiates a new personAnnualEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -36,7 +30,7 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PersonAnnualEvent
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): PersonAnnualEvent {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): PersonAnnualEvent {
         return new PersonAnnualEvent();
     }
 
@@ -61,11 +55,10 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'date' => function (ParseNode $n) use ($o) { $o->setDate($n->getDateValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(PersonAnnualEventType::class)); },
+            'date' => function (self $o, ParseNode $n) { $o->setDate($n->getDateValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(PersonAnnualEventType::class)); },
         ]);
     }
 

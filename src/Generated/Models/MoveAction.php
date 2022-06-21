@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MoveAction implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $from The name of the location the item was moved from.
-    */
+    /** @var string|null $from The name of the location the item was moved from. */
     private ?string $from = null;
     
-    /**
-     * @var string|null $to The name of the location the item was moved to.
-    */
+    /** @var string|null $to The name of the location the item was moved to. */
     private ?string $to = null;
     
     /**
@@ -36,7 +30,7 @@ class MoveAction implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MoveAction
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): MoveAction {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): MoveAction {
         return new MoveAction();
     }
 
@@ -53,10 +47,9 @@ class MoveAction implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'from' => function (ParseNode $n) use ($o) { $o->setFrom($n->getStringValue()); },
-            'to' => function (ParseNode $n) use ($o) { $o->setTo($n->getStringValue()); },
+            'from' => function (self $o, ParseNode $n) { $o->setFrom($n->getStringValue()); },
+            'to' => function (self $o, ParseNode $n) { $o->setTo($n->getStringValue()); },
         ];
     }
 

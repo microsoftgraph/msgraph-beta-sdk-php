@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EducationCategory extends Entity implements Parsable 
+class EducationCategory extends Entity 
 {
-    /**
-     * @var string|null $displayName Unique identifier for the category.
-    */
+    /** @var string|null $displayName Unique identifier for the category. */
     private ?string $displayName = null;
     
     /**
@@ -25,7 +23,7 @@ class EducationCategory extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EducationCategory
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationCategory {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EducationCategory {
         return new EducationCategory();
     }
 
@@ -42,9 +40,8 @@ class EducationCategory extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
         ]);
     }
 

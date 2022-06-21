@@ -7,51 +7,33 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class EducationSynchronizationProfile extends Entity implements Parsable 
+class EducationSynchronizationProfile extends Entity 
 {
-    /**
-     * @var EducationSynchronizationDataProvider|null $dataProvider The dataProvider property
-    */
+    /** @var EducationSynchronizationDataProvider|null $dataProvider The dataProvider property */
     private ?EducationSynchronizationDataProvider $dataProvider = null;
     
-    /**
-     * @var string|null $displayName Name of the configuration profile for syncing identities.
-    */
+    /** @var string|null $displayName Name of the configuration profile for syncing identities. */
     private ?string $displayName = null;
     
-    /**
-     * @var array<EducationSynchronizationError>|null $errors All errors associated with this synchronization profile.
-    */
+    /** @var array<EducationSynchronizationError>|null $errors All errors associated with this synchronization profile. */
     private ?array $errors = null;
     
-    /**
-     * @var Date|null $expirationDate The date the profile should be considered expired and cease syncing. Provide the date in YYYY-MM-DD format, following ISO 8601. Maximum value is 18 months from profile creation.  (optional)
-    */
+    /** @var Date|null $expirationDate The date the profile should be considered expired and cease syncing. Provide the date in YYYY-MM-DD format, following ISO 8601. Maximum value is 18 months from profile creation.  (optional) */
     private ?Date $expirationDate = null;
     
-    /**
-     * @var bool|null $handleSpecialCharacterConstraint Determines if School Data Sync should automatically replace unsupported special characters while syncing from source.
-    */
+    /** @var bool|null $handleSpecialCharacterConstraint Determines if School Data Sync should automatically replace unsupported special characters while syncing from source. */
     private ?bool $handleSpecialCharacterConstraint = null;
     
-    /**
-     * @var EducationIdentitySynchronizationConfiguration|null $identitySynchronizationConfiguration The identitySynchronizationConfiguration property
-    */
+    /** @var EducationIdentitySynchronizationConfiguration|null $identitySynchronizationConfiguration The identitySynchronizationConfiguration property */
     private ?EducationIdentitySynchronizationConfiguration $identitySynchronizationConfiguration = null;
     
-    /**
-     * @var array<EducationSynchronizationLicenseAssignment>|null $licensesToAssign License setup configuration.
-    */
+    /** @var array<EducationSynchronizationLicenseAssignment>|null $licensesToAssign License setup configuration. */
     private ?array $licensesToAssign = null;
     
-    /**
-     * @var EducationSynchronizationProfileStatus|null $profileStatus The synchronization status.
-    */
+    /** @var EducationSynchronizationProfileStatus|null $profileStatus The synchronization status. */
     private ?EducationSynchronizationProfileStatus $profileStatus = null;
     
-    /**
-     * @var EducationSynchronizationProfileState|null $state The state of the profile. Possible values are: provisioning, provisioned, provisioningFailed, deleting, deletionFailed.
-    */
+    /** @var EducationSynchronizationProfileState|null $state The state of the profile. Possible values are: provisioning, provisioned, provisioningFailed, deleting, deletionFailed. */
     private ?EducationSynchronizationProfileState $state = null;
     
     /**
@@ -66,7 +48,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EducationSynchronizationProfile
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationSynchronizationProfile {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EducationSynchronizationProfile {
         return new EducationSynchronizationProfile();
     }
 
@@ -107,17 +89,16 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'dataProvider' => function (ParseNode $n) use ($o) { $o->setDataProvider($n->getObjectValue(array(EducationSynchronizationDataProvider::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'errors' => function (ParseNode $n) use ($o) { $o->setErrors($n->getCollectionOfObjectValues(array(EducationSynchronizationError::class, 'createFromDiscriminatorValue'))); },
-            'expirationDate' => function (ParseNode $n) use ($o) { $o->setExpirationDate($n->getDateValue()); },
-            'handleSpecialCharacterConstraint' => function (ParseNode $n) use ($o) { $o->setHandleSpecialCharacterConstraint($n->getBooleanValue()); },
-            'identitySynchronizationConfiguration' => function (ParseNode $n) use ($o) { $o->setIdentitySynchronizationConfiguration($n->getObjectValue(array(EducationIdentitySynchronizationConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'licensesToAssign' => function (ParseNode $n) use ($o) { $o->setLicensesToAssign($n->getCollectionOfObjectValues(array(EducationSynchronizationLicenseAssignment::class, 'createFromDiscriminatorValue'))); },
-            'profileStatus' => function (ParseNode $n) use ($o) { $o->setProfileStatus($n->getObjectValue(array(EducationSynchronizationProfileStatus::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(EducationSynchronizationProfileState::class)); },
+            'dataProvider' => function (self $o, ParseNode $n) { $o->setDataProvider($n->getObjectValue(EducationSynchronizationDataProvider::class)); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'errors' => function (self $o, ParseNode $n) { $o->setErrors($n->getCollectionOfObjectValues(EducationSynchronizationError::class)); },
+            'expirationDate' => function (self $o, ParseNode $n) { $o->setExpirationDate($n->getDateValue()); },
+            'handleSpecialCharacterConstraint' => function (self $o, ParseNode $n) { $o->setHandleSpecialCharacterConstraint($n->getBooleanValue()); },
+            'identitySynchronizationConfiguration' => function (self $o, ParseNode $n) { $o->setIdentitySynchronizationConfiguration($n->getObjectValue(EducationIdentitySynchronizationConfiguration::class)); },
+            'licensesToAssign' => function (self $o, ParseNode $n) { $o->setLicensesToAssign($n->getCollectionOfObjectValues(EducationSynchronizationLicenseAssignment::class)); },
+            'profileStatus' => function (self $o, ParseNode $n) { $o->setProfileStatus($n->getObjectValue(EducationSynchronizationProfileStatus::class)); },
+            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(EducationSynchronizationProfileState::class)); },
         ]);
     }
 

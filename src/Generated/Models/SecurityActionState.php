@@ -10,29 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SecurityActionState implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $appId The Application ID of the calling application that submitted an update (PATCH) to the action. The appId should be extracted from the auth token and not entered manually by the calling application.
-    */
+    /** @var string|null $appId The Application ID of the calling application that submitted an update (PATCH) to the action. The appId should be extracted from the auth token and not entered manually by the calling application. */
     private ?string $appId = null;
     
-    /**
-     * @var OperationStatus|null $status Status of the securityAction in this update. Possible values are: NotStarted, Running, Completed, Failed.
-    */
+    /** @var OperationStatus|null $status Status of the securityAction in this update. Possible values are: NotStarted, Running, Completed, Failed. */
     private ?OperationStatus $status = null;
     
-    /**
-     * @var DateTime|null $updatedDateTime Timestamp when the actionState was updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
+    /** @var DateTime|null $updatedDateTime Timestamp when the actionState was updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private ?DateTime $updatedDateTime = null;
     
-    /**
-     * @var string|null $user The user principal name of the signed-in user that submitted an update (PATCH) to the action. The user should be extracted from the auth token and not entered manually by the calling application.
-    */
+    /** @var string|null $user The user principal name of the signed-in user that submitted an update (PATCH) to the action. The user should be extracted from the auth token and not entered manually by the calling application. */
     private ?string $user = null;
     
     /**
@@ -47,7 +37,7 @@ class SecurityActionState implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SecurityActionState
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SecurityActionState {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SecurityActionState {
         return new SecurityActionState();
     }
 
@@ -72,12 +62,11 @@ class SecurityActionState implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(OperationStatus::class)); },
-            'updatedDateTime' => function (ParseNode $n) use ($o) { $o->setUpdatedDateTime($n->getDateTimeValue()); },
-            'user' => function (ParseNode $n) use ($o) { $o->setUser($n->getStringValue()); },
+            'appId' => function (self $o, ParseNode $n) { $o->setAppId($n->getStringValue()); },
+            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(OperationStatus::class)); },
+            'updatedDateTime' => function (self $o, ParseNode $n) { $o->setUpdatedDateTime($n->getDateTimeValue()); },
+            'user' => function (self $o, ParseNode $n) { $o->setUser($n->getStringValue()); },
         ];
     }
 

@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Identity implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName The display name of the identity. This property is read-only.
-    */
+    /** @var string|null $displayName The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta. */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $id The identifier of the identity. This property is read-only.
-    */
+    /** @var string|null $id Unique identifier for the identity. */
     private ?string $id = null;
     
     /**
@@ -36,7 +30,7 @@ class Identity implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Identity
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Identity {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): Identity {
         return new Identity();
     }
 
@@ -49,7 +43,7 @@ class Identity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name of the identity. This property is read-only.
+     * Gets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -61,15 +55,14 @@ class Identity implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the id property value. The identifier of the identity. This property is read-only.
+     * Gets the id property value. Unique identifier for the identity.
      * @return string|null
     */
     public function getId(): ?string {
@@ -95,7 +88,7 @@ class Identity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name of the identity. This property is read-only.
+     * Sets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -103,7 +96,7 @@ class Identity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the id property value. The identifier of the identity. This property is read-only.
+     * Sets the id property value. Unique identifier for the identity.
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {

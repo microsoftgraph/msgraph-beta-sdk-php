@@ -6,25 +6,19 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable 
+class ServicePrincipalCreationPolicy extends PolicyBase 
 {
-    /**
-     * @var array<ServicePrincipalCreationConditionSet>|null $excludes The excludes property
-    */
+    /** @var array<ServicePrincipalCreationConditionSet>|null $excludes The excludes property */
     private ?array $excludes = null;
     
-    /**
-     * @var array<ServicePrincipalCreationConditionSet>|null $includes The includes property
-    */
+    /** @var array<ServicePrincipalCreationConditionSet>|null $includes The includes property */
     private ?array $includes = null;
     
-    /**
-     * @var bool|null $isBuiltIn The isBuiltIn property
-    */
+    /** @var bool|null $isBuiltIn The isBuiltIn property */
     private ?bool $isBuiltIn = null;
     
     /**
-     * Instantiates a new ServicePrincipalCreationPolicy and sets the default values.
+     * Instantiates a new servicePrincipalCreationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +29,7 @@ class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ServicePrincipalCreationPolicy
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ServicePrincipalCreationPolicy {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ServicePrincipalCreationPolicy {
         return new ServicePrincipalCreationPolicy();
     }
 
@@ -52,11 +46,10 @@ class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'excludes' => function (ParseNode $n) use ($o) { $o->setExcludes($n->getCollectionOfObjectValues(array(ServicePrincipalCreationConditionSet::class, 'createFromDiscriminatorValue'))); },
-            'includes' => function (ParseNode $n) use ($o) { $o->setIncludes($n->getCollectionOfObjectValues(array(ServicePrincipalCreationConditionSet::class, 'createFromDiscriminatorValue'))); },
-            'isBuiltIn' => function (ParseNode $n) use ($o) { $o->setIsBuiltIn($n->getBooleanValue()); },
+            'excludes' => function (self $o, ParseNode $n) { $o->setExcludes($n->getCollectionOfObjectValues(ServicePrincipalCreationConditionSet::class)); },
+            'includes' => function (self $o, ParseNode $n) { $o->setIncludes($n->getCollectionOfObjectValues(ServicePrincipalCreationConditionSet::class)); },
+            'isBuiltIn' => function (self $o, ParseNode $n) { $o->setIsBuiltIn($n->getBooleanValue()); },
         ]);
     }
 

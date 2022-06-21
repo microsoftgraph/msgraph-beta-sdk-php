@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WorkbookChartAxisTitleFormat extends Entity implements Parsable 
+class WorkbookChartAxisTitleFormat extends Entity 
 {
-    /**
-     * @var WorkbookChartFont|null $font Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only.
-    */
+    /** @var WorkbookChartFont|null $font Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only. */
     private ?WorkbookChartFont $font = null;
     
     /**
@@ -25,7 +23,7 @@ class WorkbookChartAxisTitleFormat extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkbookChartAxisTitleFormat
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartAxisTitleFormat {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkbookChartAxisTitleFormat {
         return new WorkbookChartAxisTitleFormat();
     }
 
@@ -34,9 +32,8 @@ class WorkbookChartAxisTitleFormat extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'font' => function (ParseNode $n) use ($o) { $o->setFont($n->getObjectValue(array(WorkbookChartFont::class, 'createFromDiscriminatorValue'))); },
+            'font' => function (self $o, ParseNode $n) { $o->setFont($n->getObjectValue(WorkbookChartFont::class)); },
         ]);
     }
 

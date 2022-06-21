@@ -9,19 +9,13 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ActionUrl implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var string|null $displayName The displayName property
-    */
+    /** @var string|null $displayName The displayName property */
     private ?string $displayName = null;
     
-    /**
-     * @var string|null $url The url property
-    */
+    /** @var string|null $url The url property */
     private ?string $url = null;
     
     /**
@@ -36,7 +30,7 @@ class ActionUrl implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ActionUrl
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ActionUrl {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ActionUrl {
         return new ActionUrl();
     }
 
@@ -61,10 +55,9 @@ class ActionUrl implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
+            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'url' => function (self $o, ParseNode $n) { $o->setUrl($n->getStringValue()); },
         ];
     }
 

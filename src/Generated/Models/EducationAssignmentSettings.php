@@ -6,11 +6,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EducationAssignmentSettings extends Entity implements Parsable 
+class EducationAssignmentSettings extends Entity 
 {
-    /**
-     * @var bool|null $submissionAnimationDisabled Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.
-    */
+    /** @var bool|null $submissionAnimationDisabled Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false. */
     private ?bool $submissionAnimationDisabled = null;
     
     /**
@@ -25,7 +23,7 @@ class EducationAssignmentSettings extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EducationAssignmentSettings
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationAssignmentSettings {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): EducationAssignmentSettings {
         return new EducationAssignmentSettings();
     }
 
@@ -34,9 +32,8 @@ class EducationAssignmentSettings extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'submissionAnimationDisabled' => function (ParseNode $n) use ($o) { $o->setSubmissionAnimationDisabled($n->getBooleanValue()); },
+            'submissionAnimationDisabled' => function (self $o, ParseNode $n) { $o->setSubmissionAnimationDisabled($n->getBooleanValue()); },
         ]);
     }
 

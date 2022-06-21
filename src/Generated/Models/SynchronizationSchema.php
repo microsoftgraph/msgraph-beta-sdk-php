@@ -6,21 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SynchronizationSchema extends Entity implements Parsable 
+class SynchronizationSchema extends Entity 
 {
-    /**
-     * @var array<DirectoryDefinition>|null $directories Contains the collection of directories and all of their objects.
-    */
+    /** @var array<DirectoryDefinition>|null $directories Contains the collection of directories and all of their objects. */
     private ?array $directories = null;
     
-    /**
-     * @var array<SynchronizationRule>|null $synchronizationRules A collection of synchronization rules configured for the synchronizationJob or synchronizationTemplate.
-    */
+    /** @var array<SynchronizationRule>|null $synchronizationRules A collection of synchronization rules configured for the synchronizationJob or synchronizationTemplate. */
     private ?array $synchronizationRules = null;
     
-    /**
-     * @var string|null $version The version of the schema, updated automatically with every schema change.
-    */
+    /** @var string|null $version The version of the schema, updated automatically with every schema change. */
     private ?string $version = null;
     
     /**
@@ -35,7 +29,7 @@ class SynchronizationSchema extends Entity implements Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationSchema
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationSchema {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationSchema {
         return new SynchronizationSchema();
     }
 
@@ -52,11 +46,10 @@ class SynchronizationSchema extends Entity implements Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'directories' => function (ParseNode $n) use ($o) { $o->setDirectories($n->getCollectionOfObjectValues(array(DirectoryDefinition::class, 'createFromDiscriminatorValue'))); },
-            'synchronizationRules' => function (ParseNode $n) use ($o) { $o->setSynchronizationRules($n->getCollectionOfObjectValues(array(SynchronizationRule::class, 'createFromDiscriminatorValue'))); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'directories' => function (self $o, ParseNode $n) { $o->setDirectories($n->getCollectionOfObjectValues(DirectoryDefinition::class)); },
+            'synchronizationRules' => function (self $o, ParseNode $n) { $o->setSynchronizationRules($n->getCollectionOfObjectValues(SynchronizationRule::class)); },
+            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 

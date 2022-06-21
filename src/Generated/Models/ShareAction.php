@@ -9,14 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ShareAction implements AdditionalDataHolder, Parsable 
 {
-    /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
+    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private array $additionalData;
     
-    /**
-     * @var array<IdentitySet>|null $recipients The identities the item was shared with in this action.
-    */
+    /** @var array<IdentitySet>|null $recipients The identities the item was shared with in this action. */
     private ?array $recipients = null;
     
     /**
@@ -31,7 +27,7 @@ class ShareAction implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ShareAction
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ShareAction {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): ShareAction {
         return new ShareAction();
     }
 
@@ -48,9 +44,8 @@ class ShareAction implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return  [
-            'recipients' => function (ParseNode $n) use ($o) { $o->setRecipients($n->getCollectionOfObjectValues(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'recipients' => function (self $o, ParseNode $n) { $o->setRecipients($n->getCollectionOfObjectValues(IdentitySet::class)); },
         ];
     }
 

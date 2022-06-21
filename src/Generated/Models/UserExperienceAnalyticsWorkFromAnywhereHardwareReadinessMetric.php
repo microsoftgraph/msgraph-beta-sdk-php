@@ -6,61 +6,39 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Entity implements Parsable 
+class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Entity 
 {
-    /**
-     * @var float|null $osCheckFailedPercentage The percentage of devices for which OS check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $osCheckFailedPercentage The percentage of devices for which OS check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $osCheckFailedPercentage = null;
     
-    /**
-     * @var float|null $processor64BitCheckFailedPercentage The percentage of devices for which processor hardware 64-bit architecture check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $processor64BitCheckFailedPercentage The percentage of devices for which processor hardware 64-bit architecture check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $processor64BitCheckFailedPercentage = null;
     
-    /**
-     * @var float|null $processorCoreCountCheckFailedPercentage The percentage of devices for which processor hardware core count check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $processorCoreCountCheckFailedPercentage The percentage of devices for which processor hardware core count check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $processorCoreCountCheckFailedPercentage = null;
     
-    /**
-     * @var float|null $processorFamilyCheckFailedPercentage The percentage of devices for which processor hardware family check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $processorFamilyCheckFailedPercentage The percentage of devices for which processor hardware family check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $processorFamilyCheckFailedPercentage = null;
     
-    /**
-     * @var float|null $processorSpeedCheckFailedPercentage The percentage of devices for which processor hardware speed check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $processorSpeedCheckFailedPercentage The percentage of devices for which processor hardware speed check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $processorSpeedCheckFailedPercentage = null;
     
-    /**
-     * @var float|null $ramCheckFailedPercentage The percentage of devices for which RAM hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $ramCheckFailedPercentage The percentage of devices for which RAM hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $ramCheckFailedPercentage = null;
     
-    /**
-     * @var float|null $secureBootCheckFailedPercentage The percentage of devices for which secure boot hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $secureBootCheckFailedPercentage The percentage of devices for which secure boot hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $secureBootCheckFailedPercentage = null;
     
-    /**
-     * @var float|null $storageCheckFailedPercentage The percentage of devices for which storage hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $storageCheckFailedPercentage The percentage of devices for which storage hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $storageCheckFailedPercentage = null;
     
-    /**
-     * @var int|null $totalDeviceCount The count of total devices in an organization. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $totalDeviceCount The count of total devices in an organization. Valid values -2147483648 to 2147483647 */
     private ?int $totalDeviceCount = null;
     
-    /**
-     * @var float|null $tpmCheckFailedPercentage The percentage of devices for which Trusted Platform Module (TPM) hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
+    /** @var float|null $tpmCheckFailedPercentage The percentage of devices for which Trusted Platform Module (TPM) hardware check has failed. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
     private ?float $tpmCheckFailedPercentage = null;
     
-    /**
-     * @var int|null $upgradeEligibleDeviceCount The count of devices in an organization eligible for windows upgrade. Valid values -2147483648 to 2147483647
-    */
+    /** @var int|null $upgradeEligibleDeviceCount The count of devices in an organization eligible for windows upgrade. Valid values -2147483648 to 2147483647 */
     private ?int $upgradeEligibleDeviceCount = null;
     
     /**
@@ -75,7 +53,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric {
+    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric {
         return new UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric();
     }
 
@@ -84,19 +62,18 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
-        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'osCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setOsCheckFailedPercentage($n->getFloatValue()); },
-            'processor64BitCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setProcessor64BitCheckFailedPercentage($n->getFloatValue()); },
-            'processorCoreCountCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setProcessorCoreCountCheckFailedPercentage($n->getFloatValue()); },
-            'processorFamilyCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setProcessorFamilyCheckFailedPercentage($n->getFloatValue()); },
-            'processorSpeedCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setProcessorSpeedCheckFailedPercentage($n->getFloatValue()); },
-            'ramCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setRamCheckFailedPercentage($n->getFloatValue()); },
-            'secureBootCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setSecureBootCheckFailedPercentage($n->getFloatValue()); },
-            'storageCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setStorageCheckFailedPercentage($n->getFloatValue()); },
-            'totalDeviceCount' => function (ParseNode $n) use ($o) { $o->setTotalDeviceCount($n->getIntegerValue()); },
-            'tpmCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setTpmCheckFailedPercentage($n->getFloatValue()); },
-            'upgradeEligibleDeviceCount' => function (ParseNode $n) use ($o) { $o->setUpgradeEligibleDeviceCount($n->getIntegerValue()); },
+            'osCheckFailedPercentage' => function (self $o, ParseNode $n) { $o->setOsCheckFailedPercentage($n->getFloatValue()); },
+            'processor64BitCheckFailedPercentage' => function (self $o, ParseNode $n) { $o->setProcessor64BitCheckFailedPercentage($n->getFloatValue()); },
+            'processorCoreCountCheckFailedPercentage' => function (self $o, ParseNode $n) { $o->setProcessorCoreCountCheckFailedPercentage($n->getFloatValue()); },
+            'processorFamilyCheckFailedPercentage' => function (self $o, ParseNode $n) { $o->setProcessorFamilyCheckFailedPercentage($n->getFloatValue()); },
+            'processorSpeedCheckFailedPercentage' => function (self $o, ParseNode $n) { $o->setProcessorSpeedCheckFailedPercentage($n->getFloatValue()); },
+            'ramCheckFailedPercentage' => function (self $o, ParseNode $n) { $o->setRamCheckFailedPercentage($n->getFloatValue()); },
+            'secureBootCheckFailedPercentage' => function (self $o, ParseNode $n) { $o->setSecureBootCheckFailedPercentage($n->getFloatValue()); },
+            'storageCheckFailedPercentage' => function (self $o, ParseNode $n) { $o->setStorageCheckFailedPercentage($n->getFloatValue()); },
+            'totalDeviceCount' => function (self $o, ParseNode $n) { $o->setTotalDeviceCount($n->getIntegerValue()); },
+            'tpmCheckFailedPercentage' => function (self $o, ParseNode $n) { $o->setTpmCheckFailedPercentage($n->getFloatValue()); },
+            'upgradeEligibleDeviceCount' => function (self $o, ParseNode $n) { $o->setUpgradeEligibleDeviceCount($n->getIntegerValue()); },
         ]);
     }
 
