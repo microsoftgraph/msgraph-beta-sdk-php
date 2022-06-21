@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $maxOSVersion Max OS version for Applicability Rule. */
+    /**
+     * @var string|null $maxOSVersion Max OS version for Applicability Rule.
+    */
     private ?string $maxOSVersion = null;
     
-    /** @var string|null $minOSVersion Min OS version for Applicability Rule. */
+    /**
+     * @var string|null $minOSVersion Min OS version for Applicability Rule.
+    */
     private ?string $minOSVersion = null;
     
-    /** @var string|null $name Name for object. */
+    /**
+     * @var string|null $name Name for object.
+    */
     private ?string $name = null;
     
-    /** @var DeviceManagementApplicabilityRuleType|null $ruleType Applicability Rule type. Possible values are: include, exclude. */
+    /**
+     * @var DeviceManagementApplicabilityRuleType|null $ruleType Applicability Rule type. Possible values are: include, exclude.
+    */
     private ?DeviceManagementApplicabilityRuleType $ruleType = null;
     
     /**
@@ -36,7 +46,7 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementApplicabilityRuleOsVersion
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementApplicabilityRuleOsVersion {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementApplicabilityRuleOsVersion {
         return new DeviceManagementApplicabilityRuleOsVersion();
     }
 
@@ -53,11 +63,12 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'maxOSVersion' => function (self $o, ParseNode $n) { $o->setMaxOSVersion($n->getStringValue()); },
-            'minOSVersion' => function (self $o, ParseNode $n) { $o->setMinOSVersion($n->getStringValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'ruleType' => function (self $o, ParseNode $n) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
+            'maxOSVersion' => function (ParseNode $n) use ($o) { $o->setMaxOSVersion($n->getStringValue()); },
+            'minOSVersion' => function (ParseNode $n) use ($o) { $o->setMinOSVersion($n->getStringValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'ruleType' => function (ParseNode $n) use ($o) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
         ];
     }
 

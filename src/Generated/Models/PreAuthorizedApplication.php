@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PreAuthorizedApplication implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $appId The unique identifier for the application. */
+    /**
+     * @var string|null $appId The unique identifier for the client application.
+    */
     private ?string $appId = null;
     
-    /** @var array<string>|null $permissionIds The unique identifier for the oauth2PermissionScopes the application requires. */
+    /**
+     * @var array<string>|null $permissionIds The unique identifier for the scopes the client application is granted.
+    */
     private ?array $permissionIds = null;
     
     /**
@@ -30,7 +36,7 @@ class PreAuthorizedApplication implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PreAuthorizedApplication
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PreAuthorizedApplication {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PreAuthorizedApplication {
         return new PreAuthorizedApplication();
     }
 
@@ -43,7 +49,7 @@ class PreAuthorizedApplication implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the appId property value. The unique identifier for the application.
+     * Gets the appId property value. The unique identifier for the client application.
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -55,14 +61,15 @@ class PreAuthorizedApplication implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'appId' => function (self $o, ParseNode $n) { $o->setAppId($n->getStringValue()); },
-            'permissionIds' => function (self $o, ParseNode $n) { $o->setPermissionIds($n->getCollectionOfPrimitiveValues()); },
+            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
+            'permissionIds' => function (ParseNode $n) use ($o) { $o->setPermissionIds($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 
     /**
-     * Gets the permissionIds property value. The unique identifier for the oauth2PermissionScopes the application requires.
+     * Gets the permissionIds property value. The unique identifier for the scopes the client application is granted.
      * @return array<string>|null
     */
     public function getPermissionIds(): ?array {
@@ -88,7 +95,7 @@ class PreAuthorizedApplication implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the appId property value. The unique identifier for the application.
+     * Sets the appId property value. The unique identifier for the client application.
      *  @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value ): void {
@@ -96,7 +103,7 @@ class PreAuthorizedApplication implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the permissionIds property value. The unique identifier for the oauth2PermissionScopes the application requires.
+     * Sets the permissionIds property value. The unique identifier for the scopes the client application is granted.
      *  @param array<string>|null $value Value to set for the permissionIds property.
     */
     public function setPermissionIds(?array $value ): void {

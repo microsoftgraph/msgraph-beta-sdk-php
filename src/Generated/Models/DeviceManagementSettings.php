@@ -9,46 +9,74 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $androidDeviceAdministratorEnrollmentEnabled The property to determine if Android device administrator enrollment is enabled for this account. */
+    /**
+     * @var bool|null $androidDeviceAdministratorEnrollmentEnabled The property to determine if Android device administrator enrollment is enabled for this account.
+    */
     private ?bool $androidDeviceAdministratorEnrollmentEnabled = null;
     
-    /** @var DerivedCredentialProviderType|null $derivedCredentialProvider The Derived Credential Provider to use for this account. Possible values are: notConfigured, entrustDataCard, purebred, xTec, intercede. */
+    /**
+     * @var DerivedCredentialProviderType|null $derivedCredentialProvider The Derived Credential Provider to use for this account. Possible values are: notConfigured, entrustDataCard, purebred, xTec, intercede.
+    */
     private ?DerivedCredentialProviderType $derivedCredentialProvider = null;
     
-    /** @var string|null $derivedCredentialUrl The Derived Credential Provider self-service URI. */
+    /**
+     * @var string|null $derivedCredentialUrl The Derived Credential Provider self-service URI.
+    */
     private ?string $derivedCredentialUrl = null;
     
-    /** @var int|null $deviceComplianceCheckinThresholdDays The number of days a device is allowed to go without checking in to remain compliant. */
+    /**
+     * @var int|null $deviceComplianceCheckinThresholdDays The number of days a device is allowed to go without checking in to remain compliant.
+    */
     private ?int $deviceComplianceCheckinThresholdDays = null;
     
-    /** @var int|null $deviceInactivityBeforeRetirementInDay When the device does not check in for specified number of days, the company data might be removed and the device will not be under management. Valid values 30 to 270 */
+    /**
+     * @var int|null $deviceInactivityBeforeRetirementInDay When the device does not check in for specified number of days, the company data might be removed and the device will not be under management. Valid values 30 to 270
+    */
     private ?int $deviceInactivityBeforeRetirementInDay = null;
     
-    /** @var bool|null $enableAutopilotDiagnostics Determines whether the autopilot diagnostic feature is enabled or not. */
+    /**
+     * @var bool|null $enableAutopilotDiagnostics Determines whether the autopilot diagnostic feature is enabled or not.
+    */
     private ?bool $enableAutopilotDiagnostics = null;
     
-    /** @var bool|null $enableDeviceGroupMembershipReport Determines whether the device group membership report feature is enabled or not. */
+    /**
+     * @var bool|null $enableDeviceGroupMembershipReport Determines whether the device group membership report feature is enabled or not.
+    */
     private ?bool $enableDeviceGroupMembershipReport = null;
     
-    /** @var bool|null $enableEnhancedTroubleshootingExperience Determines whether the enhanced troubleshooting UX is enabled or not. */
+    /**
+     * @var bool|null $enableEnhancedTroubleshootingExperience Determines whether the enhanced troubleshooting UX is enabled or not.
+    */
     private ?bool $enableEnhancedTroubleshootingExperience = null;
     
-    /** @var bool|null $enableLogCollection Determines whether the log collection feature should be available for use. */
+    /**
+     * @var bool|null $enableLogCollection Determines whether the log collection feature should be available for use.
+    */
     private ?bool $enableLogCollection = null;
     
-    /** @var bool|null $enhancedJailBreak Is feature enabled or not for enhanced jailbreak detection. */
+    /**
+     * @var bool|null $enhancedJailBreak Is feature enabled or not for enhanced jailbreak detection.
+    */
     private ?bool $enhancedJailBreak = null;
     
-    /** @var bool|null $ignoreDevicesForUnsupportedSettingsEnabled The property to determine whether to ignore unsupported compliance settings on certian models of devices. */
+    /**
+     * @var bool|null $ignoreDevicesForUnsupportedSettingsEnabled The property to determine whether to ignore unsupported compliance settings on certian models of devices.
+    */
     private ?bool $ignoreDevicesForUnsupportedSettingsEnabled = null;
     
-    /** @var bool|null $isScheduledActionEnabled Is feature enabled or not for scheduled action for rule. */
+    /**
+     * @var bool|null $isScheduledActionEnabled Is feature enabled or not for scheduled action for rule.
+    */
     private ?bool $isScheduledActionEnabled = null;
     
-    /** @var bool|null $secureByDefault Device should be noncompliant when there is no compliance policy targeted when this is true */
+    /**
+     * @var bool|null $secureByDefault Device should be noncompliant when there is no compliance policy targeted when this is true
+    */
     private ?bool $secureByDefault = null;
     
     /**
@@ -63,7 +91,7 @@ class DeviceManagementSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettings {
         return new DeviceManagementSettings();
     }
 
@@ -160,20 +188,21 @@ class DeviceManagementSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'androidDeviceAdministratorEnrollmentEnabled' => function (self $o, ParseNode $n) { $o->setAndroidDeviceAdministratorEnrollmentEnabled($n->getBooleanValue()); },
-            'derivedCredentialProvider' => function (self $o, ParseNode $n) { $o->setDerivedCredentialProvider($n->getEnumValue(DerivedCredentialProviderType::class)); },
-            'derivedCredentialUrl' => function (self $o, ParseNode $n) { $o->setDerivedCredentialUrl($n->getStringValue()); },
-            'deviceComplianceCheckinThresholdDays' => function (self $o, ParseNode $n) { $o->setDeviceComplianceCheckinThresholdDays($n->getIntegerValue()); },
-            'deviceInactivityBeforeRetirementInDay' => function (self $o, ParseNode $n) { $o->setDeviceInactivityBeforeRetirementInDay($n->getIntegerValue()); },
-            'enableAutopilotDiagnostics' => function (self $o, ParseNode $n) { $o->setEnableAutopilotDiagnostics($n->getBooleanValue()); },
-            'enableDeviceGroupMembershipReport' => function (self $o, ParseNode $n) { $o->setEnableDeviceGroupMembershipReport($n->getBooleanValue()); },
-            'enableEnhancedTroubleshootingExperience' => function (self $o, ParseNode $n) { $o->setEnableEnhancedTroubleshootingExperience($n->getBooleanValue()); },
-            'enableLogCollection' => function (self $o, ParseNode $n) { $o->setEnableLogCollection($n->getBooleanValue()); },
-            'enhancedJailBreak' => function (self $o, ParseNode $n) { $o->setEnhancedJailBreak($n->getBooleanValue()); },
-            'ignoreDevicesForUnsupportedSettingsEnabled' => function (self $o, ParseNode $n) { $o->setIgnoreDevicesForUnsupportedSettingsEnabled($n->getBooleanValue()); },
-            'isScheduledActionEnabled' => function (self $o, ParseNode $n) { $o->setIsScheduledActionEnabled($n->getBooleanValue()); },
-            'secureByDefault' => function (self $o, ParseNode $n) { $o->setSecureByDefault($n->getBooleanValue()); },
+            'androidDeviceAdministratorEnrollmentEnabled' => function (ParseNode $n) use ($o) { $o->setAndroidDeviceAdministratorEnrollmentEnabled($n->getBooleanValue()); },
+            'derivedCredentialProvider' => function (ParseNode $n) use ($o) { $o->setDerivedCredentialProvider($n->getEnumValue(DerivedCredentialProviderType::class)); },
+            'derivedCredentialUrl' => function (ParseNode $n) use ($o) { $o->setDerivedCredentialUrl($n->getStringValue()); },
+            'deviceComplianceCheckinThresholdDays' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceCheckinThresholdDays($n->getIntegerValue()); },
+            'deviceInactivityBeforeRetirementInDay' => function (ParseNode $n) use ($o) { $o->setDeviceInactivityBeforeRetirementInDay($n->getIntegerValue()); },
+            'enableAutopilotDiagnostics' => function (ParseNode $n) use ($o) { $o->setEnableAutopilotDiagnostics($n->getBooleanValue()); },
+            'enableDeviceGroupMembershipReport' => function (ParseNode $n) use ($o) { $o->setEnableDeviceGroupMembershipReport($n->getBooleanValue()); },
+            'enableEnhancedTroubleshootingExperience' => function (ParseNode $n) use ($o) { $o->setEnableEnhancedTroubleshootingExperience($n->getBooleanValue()); },
+            'enableLogCollection' => function (ParseNode $n) use ($o) { $o->setEnableLogCollection($n->getBooleanValue()); },
+            'enhancedJailBreak' => function (ParseNode $n) use ($o) { $o->setEnhancedJailBreak($n->getBooleanValue()); },
+            'ignoreDevicesForUnsupportedSettingsEnabled' => function (ParseNode $n) use ($o) { $o->setIgnoreDevicesForUnsupportedSettingsEnabled($n->getBooleanValue()); },
+            'isScheduledActionEnabled' => function (ParseNode $n) use ($o) { $o->setIsScheduledActionEnabled($n->getBooleanValue()); },
+            'secureByDefault' => function (ParseNode $n) use ($o) { $o->setSecureByDefault($n->getBooleanValue()); },
         ];
     }
 

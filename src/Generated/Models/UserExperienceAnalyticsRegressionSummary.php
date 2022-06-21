@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsRegressionSummary extends Entity 
+class UserExperienceAnalyticsRegressionSummary extends Entity implements Parsable 
 {
-    /** @var array<UserExperienceAnalyticsMetric>|null $manufacturerRegression The metric values for the user experience analytics Manufacturer regression. */
+    /**
+     * @var array<UserExperienceAnalyticsMetric>|null $manufacturerRegression The metric values for the user experience analytics Manufacturer regression.
+    */
     private ?array $manufacturerRegression = null;
     
-    /** @var array<UserExperienceAnalyticsMetric>|null $modelRegression The metric values for the user experience analytics model regression. */
+    /**
+     * @var array<UserExperienceAnalyticsMetric>|null $modelRegression The metric values for the user experience analytics model regression.
+    */
     private ?array $modelRegression = null;
     
-    /** @var array<UserExperienceAnalyticsMetric>|null $operatingSystemRegression The metric values for the user experience analytics operating system regression. */
+    /**
+     * @var array<UserExperienceAnalyticsMetric>|null $operatingSystemRegression The metric values for the user experience analytics operating system regression.
+    */
     private ?array $operatingSystemRegression = null;
     
     /**
@@ -29,7 +35,7 @@ class UserExperienceAnalyticsRegressionSummary extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsRegressionSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsRegressionSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsRegressionSummary {
         return new UserExperienceAnalyticsRegressionSummary();
     }
 
@@ -38,10 +44,11 @@ class UserExperienceAnalyticsRegressionSummary extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'manufacturerRegression' => function (self $o, ParseNode $n) { $o->setManufacturerRegression($n->getCollectionOfObjectValues(UserExperienceAnalyticsMetric::class)); },
-            'modelRegression' => function (self $o, ParseNode $n) { $o->setModelRegression($n->getCollectionOfObjectValues(UserExperienceAnalyticsMetric::class)); },
-            'operatingSystemRegression' => function (self $o, ParseNode $n) { $o->setOperatingSystemRegression($n->getCollectionOfObjectValues(UserExperienceAnalyticsMetric::class)); },
+            'manufacturerRegression' => function (ParseNode $n) use ($o) { $o->setManufacturerRegression($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'))); },
+            'modelRegression' => function (ParseNode $n) use ($o) { $o->setModelRegression($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'))); },
+            'operatingSystemRegression' => function (ParseNode $n) use ($o) { $o->setOperatingSystemRegression($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

@@ -7,28 +7,40 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class PersonAward extends ItemFacet 
+class PersonAward extends ItemFacet implements Parsable 
 {
-    /** @var string|null $description Descpription of the award or honor. */
+    /**
+     * @var string|null $description Descpription of the award or honor.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Name of the award or honor. */
+    /**
+     * @var string|null $displayName Name of the award or honor.
+    */
     private ?string $displayName = null;
     
-    /** @var Date|null $issuedDate The date that the award or honor was granted. */
+    /**
+     * @var Date|null $issuedDate The date that the award or honor was granted.
+    */
     private ?Date $issuedDate = null;
     
-    /** @var string|null $issuingAuthority Authority which granted the award or honor. */
+    /**
+     * @var string|null $issuingAuthority Authority which granted the award or honor.
+    */
     private ?string $issuingAuthority = null;
     
-    /** @var string|null $thumbnailUrl URL referencing a thumbnail of the award or honor. */
+    /**
+     * @var string|null $thumbnailUrl URL referencing a thumbnail of the award or honor.
+    */
     private ?string $thumbnailUrl = null;
     
-    /** @var string|null $webUrl URL referencing the award or honor. */
+    /**
+     * @var string|null $webUrl URL referencing the award or honor.
+    */
     private ?string $webUrl = null;
     
     /**
-     * Instantiates a new personAward and sets the default values.
+     * Instantiates a new PersonAward and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -39,7 +51,7 @@ class PersonAward extends ItemFacet
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PersonAward
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PersonAward {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PersonAward {
         return new PersonAward();
     }
 
@@ -64,13 +76,14 @@ class PersonAward extends ItemFacet
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'issuedDate' => function (self $o, ParseNode $n) { $o->setIssuedDate($n->getDateValue()); },
-            'issuingAuthority' => function (self $o, ParseNode $n) { $o->setIssuingAuthority($n->getStringValue()); },
-            'thumbnailUrl' => function (self $o, ParseNode $n) { $o->setThumbnailUrl($n->getStringValue()); },
-            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'issuedDate' => function (ParseNode $n) use ($o) { $o->setIssuedDate($n->getDateValue()); },
+            'issuingAuthority' => function (ParseNode $n) use ($o) { $o->setIssuingAuthority($n->getStringValue()); },
+            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
+            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 

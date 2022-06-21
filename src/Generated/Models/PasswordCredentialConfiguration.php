@@ -11,16 +11,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PasswordCredentialConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var DateInterval|null $maxLifetime The maxLifetime property */
+    /**
+     * @var DateInterval|null $maxLifetime The maxLifetime property
+    */
     private ?DateInterval $maxLifetime = null;
     
-    /** @var DateTime|null $restrictForAppsCreatedAfterDateTime Enforces the policy for an app created on or after the enforcement date. For existing applications, the enforcement date would be backdated. To apply to all applications, this date would be null. */
+    /**
+     * @var DateTime|null $restrictForAppsCreatedAfterDateTime Enforces the policy for an app created on or after the enforcement date. For existing applications, the enforcement date would be backdated. To apply to all applications, this date would be null.
+    */
     private ?DateTime $restrictForAppsCreatedAfterDateTime = null;
     
-    /** @var AppCredentialRestrictionType|null $restrictionType The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime,customPasswordAddition, unknownFutureValue. Each value of restrictionType can be used only once per policy. */
+    /**
+     * @var AppCredentialRestrictionType|null $restrictionType The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime,customPasswordAddition, unknownFutureValue. Each value of restrictionType can be used only once per policy.
+    */
     private ?AppCredentialRestrictionType $restrictionType = null;
     
     /**
@@ -35,7 +43,7 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PasswordCredentialConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PasswordCredentialConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PasswordCredentialConfiguration {
         return new PasswordCredentialConfiguration();
     }
 
@@ -52,10 +60,11 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'maxLifetime' => function (self $o, ParseNode $n) { $o->setMaxLifetime($n->getDateIntervalValue()); },
-            'restrictForAppsCreatedAfterDateTime' => function (self $o, ParseNode $n) { $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()); },
-            'restrictionType' => function (self $o, ParseNode $n) { $o->setRestrictionType($n->getEnumValue(AppCredentialRestrictionType::class)); },
+            'maxLifetime' => function (ParseNode $n) use ($o) { $o->setMaxLifetime($n->getDateIntervalValue()); },
+            'restrictForAppsCreatedAfterDateTime' => function (ParseNode $n) use ($o) { $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()); },
+            'restrictionType' => function (ParseNode $n) use ($o) { $o->setRestrictionType($n->getEnumValue(AppCredentialRestrictionType::class)); },
         ];
     }
 

@@ -8,27 +8,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DataSourceContainer extends Entity 
+class DataSourceContainer extends Entity implements Parsable 
 {
-    /** @var DateTime|null $createdDateTime Created date and time of the dataSourceContainer entity. */
+    /**
+     * @var DateTime|null $createdDateTime Created date and time of the dataSourceContainer entity.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $displayName Display name of the dataSourceContainer entity. */
+    /**
+     * @var string|null $displayName Display name of the dataSourceContainer entity.
+    */
     private ?string $displayName = null;
     
-    /** @var DataSourceHoldStatus|null $holdStatus The holdStatus property */
+    /**
+     * @var DataSourceHoldStatus|null $holdStatus The holdStatus property
+    */
     private ?DataSourceHoldStatus $holdStatus = null;
     
-    /** @var CaseIndexOperation|null $lastIndexOperation The lastIndexOperation property */
+    /**
+     * @var CaseIndexOperation|null $lastIndexOperation The lastIndexOperation property
+    */
     private ?CaseIndexOperation $lastIndexOperation = null;
     
-    /** @var DateTime|null $lastModifiedDateTime Last modified date and time of the dataSourceContainer. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime Last modified date and time of the dataSourceContainer.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var DateTime|null $releasedDateTime Date and time that the dataSourceContainer was released from the case. */
+    /**
+     * @var DateTime|null $releasedDateTime Date and time that the dataSourceContainer was released from the case.
+    */
     private ?DateTime $releasedDateTime = null;
     
-    /** @var DataSourceContainerStatus|null $status Latest status of the dataSourceContainer. Possible values are: Active, Released. */
+    /**
+     * @var DataSourceContainerStatus|null $status Latest status of the dataSourceContainer. Possible values are: Active, Released.
+    */
     private ?DataSourceContainerStatus $status = null;
     
     /**
@@ -43,7 +57,15 @@ class DataSourceContainer extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DataSourceContainer
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DataSourceContainer {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DataSourceContainer {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.ediscovery.custodian': return new Custodian();
+                case '#microsoft.graph.ediscovery.noncustodialDataSource': return new NoncustodialDataSource();
+            }
+        }
         return new DataSourceContainer();
     }
 
@@ -68,14 +90,15 @@ class DataSourceContainer extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'holdStatus' => function (self $o, ParseNode $n) { $o->setHoldStatus($n->getEnumValue(DataSourceHoldStatus::class)); },
-            'lastIndexOperation' => function (self $o, ParseNode $n) { $o->setLastIndexOperation($n->getObjectValue(CaseIndexOperation::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'releasedDateTime' => function (self $o, ParseNode $n) { $o->setReleasedDateTime($n->getDateTimeValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(DataSourceContainerStatus::class)); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'holdStatus' => function (ParseNode $n) use ($o) { $o->setHoldStatus($n->getEnumValue(DataSourceHoldStatus::class)); },
+            'lastIndexOperation' => function (ParseNode $n) use ($o) { $o->setLastIndexOperation($n->getObjectValue(array(CaseIndexOperation::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'releasedDateTime' => function (ParseNode $n) use ($o) { $o->setReleasedDateTime($n->getDateTimeValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DataSourceContainerStatus::class)); },
         ]);
     }
 

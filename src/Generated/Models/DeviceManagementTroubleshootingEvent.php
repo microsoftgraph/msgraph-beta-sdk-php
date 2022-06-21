@@ -7,21 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementTroubleshootingEvent extends Entity 
+class DeviceManagementTroubleshootingEvent extends Entity implements Parsable 
 {
-    /** @var array<KeyValuePair>|null $additionalInformation A set of string key and string value pairs which provides additional information on the Troubleshooting event */
+    /**
+     * @var array<KeyValuePair>|null $additionalInformation A set of string key and string value pairs which provides additional information on the Troubleshooting event
+    */
     private ?array $additionalInformation = null;
     
-    /** @var string|null $correlationId Id used for tracing the failure in the service. */
+    /**
+     * @var string|null $correlationId Id used for tracing the failure in the service.
+    */
     private ?string $correlationId = null;
     
-    /** @var DateTime|null $eventDateTime Time when the event occurred . */
+    /**
+     * @var DateTime|null $eventDateTime Time when the event occurred .
+    */
     private ?DateTime $eventDateTime = null;
     
-    /** @var string|null $eventName Event Name corresponding to the Troubleshooting Event. It is an Optional field */
+    /**
+     * @var string|null $eventName Event Name corresponding to the Troubleshooting Event. It is an Optional field
+    */
     private ?string $eventName = null;
     
-    /** @var DeviceManagementTroubleshootingErrorDetails|null $troubleshootingErrorDetails Object containing detailed information about the error and its remediation. */
+    /**
+     * @var DeviceManagementTroubleshootingErrorDetails|null $troubleshootingErrorDetails Object containing detailed information about the error and its remediation.
+    */
     private ?DeviceManagementTroubleshootingErrorDetails $troubleshootingErrorDetails = null;
     
     /**
@@ -36,7 +46,16 @@ class DeviceManagementTroubleshootingEvent extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementTroubleshootingEvent
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementTroubleshootingEvent {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementTroubleshootingEvent {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.appleVppTokenTroubleshootingEvent': return new AppleVppTokenTroubleshootingEvent();
+                case '#microsoft.graph.enrollmentTroubleshootingEvent': return new EnrollmentTroubleshootingEvent();
+                case '#microsoft.graph.mobileAppTroubleshootingEvent': return new MobileAppTroubleshootingEvent();
+            }
+        }
         return new DeviceManagementTroubleshootingEvent();
     }
 
@@ -77,12 +96,13 @@ class DeviceManagementTroubleshootingEvent extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'additionalInformation' => function (self $o, ParseNode $n) { $o->setAdditionalInformation($n->getCollectionOfObjectValues(KeyValuePair::class)); },
-            'correlationId' => function (self $o, ParseNode $n) { $o->setCorrelationId($n->getStringValue()); },
-            'eventDateTime' => function (self $o, ParseNode $n) { $o->setEventDateTime($n->getDateTimeValue()); },
-            'eventName' => function (self $o, ParseNode $n) { $o->setEventName($n->getStringValue()); },
-            'troubleshootingErrorDetails' => function (self $o, ParseNode $n) { $o->setTroubleshootingErrorDetails($n->getObjectValue(DeviceManagementTroubleshootingErrorDetails::class)); },
+            'additionalInformation' => function (ParseNode $n) use ($o) { $o->setAdditionalInformation($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'correlationId' => function (ParseNode $n) use ($o) { $o->setCorrelationId($n->getStringValue()); },
+            'eventDateTime' => function (ParseNode $n) use ($o) { $o->setEventDateTime($n->getDateTimeValue()); },
+            'eventName' => function (ParseNode $n) use ($o) { $o->setEventName($n->getStringValue()); },
+            'troubleshootingErrorDetails' => function (ParseNode $n) use ($o) { $o->setTroubleshootingErrorDetails($n->getObjectValue(array(DeviceManagementTroubleshootingErrorDetails::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

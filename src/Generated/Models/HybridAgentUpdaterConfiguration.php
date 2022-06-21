@@ -10,16 +10,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $allowUpdateConfigurationOverride Indicates if updater configuration will be skipped and the agent will receive an update when the next version of the agent is available. */
+    /**
+     * @var bool|null $allowUpdateConfigurationOverride Indicates if updater configuration will be skipped and the agent will receive an update when the next version of the agent is available.
+    */
     private ?bool $allowUpdateConfigurationOverride = null;
     
-    /** @var DateTime|null $deferUpdateDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    /**
+     * @var DateTime|null $deferUpdateDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    */
     private ?DateTime $deferUpdateDateTime = null;
     
-    /** @var UpdateWindow|null $updateWindow The updateWindow property */
+    /**
+     * @var UpdateWindow|null $updateWindow The updateWindow property
+    */
     private ?UpdateWindow $updateWindow = null;
     
     /**
@@ -34,7 +42,7 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return HybridAgentUpdaterConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): HybridAgentUpdaterConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): HybridAgentUpdaterConfiguration {
         return new HybridAgentUpdaterConfiguration();
     }
 
@@ -67,10 +75,11 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'allowUpdateConfigurationOverride' => function (self $o, ParseNode $n) { $o->setAllowUpdateConfigurationOverride($n->getBooleanValue()); },
-            'deferUpdateDateTime' => function (self $o, ParseNode $n) { $o->setDeferUpdateDateTime($n->getDateTimeValue()); },
-            'updateWindow' => function (self $o, ParseNode $n) { $o->setUpdateWindow($n->getObjectValue(UpdateWindow::class)); },
+            'allowUpdateConfigurationOverride' => function (ParseNode $n) use ($o) { $o->setAllowUpdateConfigurationOverride($n->getBooleanValue()); },
+            'deferUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setDeferUpdateDateTime($n->getDateTimeValue()); },
+            'updateWindow' => function (ParseNode $n) use ($o) { $o->setUpdateWindow($n->getObjectValue(array(UpdateWindow::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

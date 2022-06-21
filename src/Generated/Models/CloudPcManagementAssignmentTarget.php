@@ -9,7 +9,9 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcManagementAssignmentTarget implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
     /**
@@ -24,7 +26,7 @@ class CloudPcManagementAssignmentTarget implements AdditionalDataHolder, Parsabl
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcManagementAssignmentTarget
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcManagementAssignmentTarget {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcManagementAssignmentTarget {
         return new CloudPcManagementAssignmentTarget();
     }
 
@@ -41,6 +43,7 @@ class CloudPcManagementAssignmentTarget implements AdditionalDataHolder, Parsabl
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
         ];
     }

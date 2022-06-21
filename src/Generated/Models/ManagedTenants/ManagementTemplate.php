@@ -9,54 +9,86 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagementTemplate extends Entity 
+class ManagementTemplate extends Entity implements Parsable 
 {
-    /** @var ManagementCategory|null $category The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only. */
+    /**
+     * @var ManagementCategory|null $category The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
+    */
     private ?ManagementCategory $category = null;
     
-    /** @var string|null $createdByUserId The createdByUserId property */
+    /**
+     * @var string|null $createdByUserId The createdByUserId property
+    */
     private ?string $createdByUserId = null;
     
-    /** @var DateTime|null $createdDateTime The createdDateTime property */
+    /**
+     * @var DateTime|null $createdDateTime The createdDateTime property
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description The description for the management template. Optional. Read-only. */
+    /**
+     * @var string|null $description The description for the management template. Optional. Read-only.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name for the management template. Required. Read-only. */
+    /**
+     * @var string|null $displayName The display name for the management template. Required. Read-only.
+    */
     private ?string $displayName = null;
     
-    /** @var array<ActionUrl>|null $informationLinks The informationLinks property */
+    /**
+     * @var array<ActionUrl>|null $informationLinks The informationLinks property
+    */
     private ?array $informationLinks = null;
     
-    /** @var string|null $lastActionByUserId The lastActionByUserId property */
+    /**
+     * @var string|null $lastActionByUserId The lastActionByUserId property
+    */
     private ?string $lastActionByUserId = null;
     
-    /** @var DateTime|null $lastActionDateTime The lastActionDateTime property */
+    /**
+     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
+    */
     private ?DateTime $lastActionDateTime = null;
     
-    /** @var array<ManagementTemplateCollection>|null $managementTemplateCollections The managementTemplateCollections property */
+    /**
+     * @var array<ManagementTemplateCollection>|null $managementTemplateCollections The managementTemplateCollections property
+    */
     private ?array $managementTemplateCollections = null;
     
-    /** @var array<ManagementTemplateStep>|null $managementTemplateSteps The managementTemplateSteps property */
+    /**
+     * @var array<ManagementTemplateStep>|null $managementTemplateSteps The managementTemplateSteps property
+    */
     private ?array $managementTemplateSteps = null;
     
-    /** @var array<TemplateParameter>|null $parameters The collection of parameters used by the management template. Optional. Read-only. */
+    /**
+     * @var array<TemplateParameter>|null $parameters The collection of parameters used by the management template. Optional. Read-only.
+    */
     private ?array $parameters = null;
     
-    /** @var int|null $priority The priority property */
+    /**
+     * @var int|null $priority The priority property
+    */
     private ?int $priority = null;
     
-    /** @var ManagementProvider|null $provider The provider property */
+    /**
+     * @var ManagementProvider|null $provider The provider property
+    */
     private ?ManagementProvider $provider = null;
     
-    /** @var string|null $userImpact The userImpact property */
+    /**
+     * @var string|null $userImpact The userImpact property
+    */
     private ?string $userImpact = null;
     
-    /** @var int|null $version The version property */
+    /**
+     * @var int|null $version The version property
+    */
     private ?int $version = null;
     
-    /** @var array<WorkloadAction>|null $workloadActions The collection of workload actions associated with the management template. Optional. Read-only. */
+    /**
+     * @var array<WorkloadAction>|null $workloadActions The collection of workload actions associated with the management template. Optional. Read-only.
+    */
     private ?array $workloadActions = null;
     
     /**
@@ -71,7 +103,7 @@ class ManagementTemplate extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementTemplate
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementTemplate {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementTemplate {
         return new ManagementTemplate();
     }
 
@@ -120,23 +152,24 @@ class ManagementTemplate extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
-            'createdByUserId' => function (self $o, ParseNode $n) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'informationLinks' => function (self $o, ParseNode $n) { $o->setInformationLinks($n->getCollectionOfObjectValues(ActionUrl::class)); },
-            'lastActionByUserId' => function (self $o, ParseNode $n) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (self $o, ParseNode $n) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'managementTemplateCollections' => function (self $o, ParseNode $n) { $o->setManagementTemplateCollections($n->getCollectionOfObjectValues(ManagementTemplateCollection::class)); },
-            'managementTemplateSteps' => function (self $o, ParseNode $n) { $o->setManagementTemplateSteps($n->getCollectionOfObjectValues(ManagementTemplateStep::class)); },
-            'parameters' => function (self $o, ParseNode $n) { $o->setParameters($n->getCollectionOfObjectValues(TemplateParameter::class)); },
-            'priority' => function (self $o, ParseNode $n) { $o->setPriority($n->getIntegerValue()); },
-            'provider' => function (self $o, ParseNode $n) { $o->setProvider($n->getEnumValue(ManagementProvider::class)); },
-            'userImpact' => function (self $o, ParseNode $n) { $o->setUserImpact($n->getStringValue()); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getIntegerValue()); },
-            'workloadActions' => function (self $o, ParseNode $n) { $o->setWorkloadActions($n->getCollectionOfObjectValues(WorkloadAction::class)); },
+            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
+            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'informationLinks' => function (ParseNode $n) use ($o) { $o->setInformationLinks($n->getCollectionOfObjectValues(array(ActionUrl::class, 'createFromDiscriminatorValue'))); },
+            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
+            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
+            'managementTemplateCollections' => function (ParseNode $n) use ($o) { $o->setManagementTemplateCollections($n->getCollectionOfObjectValues(array(ManagementTemplateCollection::class, 'createFromDiscriminatorValue'))); },
+            'managementTemplateSteps' => function (ParseNode $n) use ($o) { $o->setManagementTemplateSteps($n->getCollectionOfObjectValues(array(ManagementTemplateStep::class, 'createFromDiscriminatorValue'))); },
+            'parameters' => function (ParseNode $n) use ($o) { $o->setParameters($n->getCollectionOfObjectValues(array(TemplateParameter::class, 'createFromDiscriminatorValue'))); },
+            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
+            'provider' => function (ParseNode $n) use ($o) { $o->setProvider($n->getEnumValue(ManagementProvider::class)); },
+            'userImpact' => function (ParseNode $n) use ($o) { $o->setUserImpact($n->getStringValue()); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
+            'workloadActions' => function (ParseNode $n) use ($o) { $o->setWorkloadActions($n->getCollectionOfObjectValues(array(WorkloadAction::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

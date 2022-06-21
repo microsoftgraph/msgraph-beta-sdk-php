@@ -10,49 +10,79 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable 
 {
-    /** @var string|null $activityIdentifier Identifier of the job run. */
+    /**
+     * @var string|null $activityIdentifier Identifier of the job run.
+    */
     private ?string $activityIdentifier = null;
     
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $countEntitled Count of processed entries that were assigned for this application. */
+    /**
+     * @var int|null $countEntitled Count of processed entries that were assigned for this application.
+    */
     private ?int $countEntitled = null;
     
-    /** @var int|null $countEntitledForProvisioning Count of processed entries that were assigned for provisioning. */
+    /**
+     * @var int|null $countEntitledForProvisioning Count of processed entries that were assigned for provisioning.
+    */
     private ?int $countEntitledForProvisioning = null;
     
-    /** @var int|null $countEscrowed Count of entries that were escrowed (errors). */
+    /**
+     * @var int|null $countEscrowed Count of entries that were escrowed (errors).
+    */
     private ?int $countEscrowed = null;
     
-    /** @var int|null $countEscrowedRaw Count of entries that were escrowed, including system-generated escrows. */
+    /**
+     * @var int|null $countEscrowedRaw Count of entries that were escrowed, including system-generated escrows.
+    */
     private ?int $countEscrowedRaw = null;
     
-    /** @var int|null $countExported Count of exported entries. */
+    /**
+     * @var int|null $countExported Count of exported entries.
+    */
     private ?int $countExported = null;
     
-    /** @var int|null $countExports Count of entries that were expected to be exported. */
+    /**
+     * @var int|null $countExports Count of entries that were expected to be exported.
+    */
     private ?int $countExports = null;
     
-    /** @var int|null $countImported Count of imported entries. */
+    /**
+     * @var int|null $countImported Count of imported entries.
+    */
     private ?int $countImported = null;
     
-    /** @var int|null $countImportedDeltas Count of imported delta-changes. */
+    /**
+     * @var int|null $countImportedDeltas Count of imported delta-changes.
+    */
     private ?int $countImportedDeltas = null;
     
-    /** @var int|null $countImportedReferenceDeltas Count of imported delta-changes pertaining to reference changes. */
+    /**
+     * @var int|null $countImportedReferenceDeltas Count of imported delta-changes pertaining to reference changes.
+    */
     private ?int $countImportedReferenceDeltas = null;
     
-    /** @var SynchronizationError|null $error If an error was encountered, contains a synchronizationError object with details. */
+    /**
+     * @var SynchronizationError|null $error If an error was encountered, contains a synchronizationError object with details.
+    */
     private ?SynchronizationError $error = null;
     
-    /** @var SynchronizationTaskExecutionResult|null $state Code summarizing the result of this run. Possible values are: Succeeded, Failed, EntryLevelErrors. */
+    /**
+     * @var SynchronizationTaskExecutionResult|null $state Code summarizing the result of this run. Possible values are: Succeeded, Failed, EntryLevelErrors.
+    */
     private ?SynchronizationTaskExecutionResult $state = null;
     
-    /** @var DateTime|null $timeBegan Time when this job run began. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /**
+     * @var DateTime|null $timeBegan Time when this job run began. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    */
     private ?DateTime $timeBegan = null;
     
-    /** @var DateTime|null $timeEnded Time when this job run ended. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /**
+     * @var DateTime|null $timeEnded Time when this job run ended. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    */
     private ?DateTime $timeEnded = null;
     
     /**
@@ -67,7 +97,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationTaskExecution
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationTaskExecution {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationTaskExecution {
         return new SynchronizationTaskExecution();
     }
 
@@ -172,21 +202,22 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'activityIdentifier' => function (self $o, ParseNode $n) { $o->setActivityIdentifier($n->getStringValue()); },
-            'countEntitled' => function (self $o, ParseNode $n) { $o->setCountEntitled($n->getIntegerValue()); },
-            'countEntitledForProvisioning' => function (self $o, ParseNode $n) { $o->setCountEntitledForProvisioning($n->getIntegerValue()); },
-            'countEscrowed' => function (self $o, ParseNode $n) { $o->setCountEscrowed($n->getIntegerValue()); },
-            'countEscrowedRaw' => function (self $o, ParseNode $n) { $o->setCountEscrowedRaw($n->getIntegerValue()); },
-            'countExported' => function (self $o, ParseNode $n) { $o->setCountExported($n->getIntegerValue()); },
-            'countExports' => function (self $o, ParseNode $n) { $o->setCountExports($n->getIntegerValue()); },
-            'countImported' => function (self $o, ParseNode $n) { $o->setCountImported($n->getIntegerValue()); },
-            'countImportedDeltas' => function (self $o, ParseNode $n) { $o->setCountImportedDeltas($n->getIntegerValue()); },
-            'countImportedReferenceDeltas' => function (self $o, ParseNode $n) { $o->setCountImportedReferenceDeltas($n->getIntegerValue()); },
-            'error' => function (self $o, ParseNode $n) { $o->setError($n->getObjectValue(SynchronizationError::class)); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(SynchronizationTaskExecutionResult::class)); },
-            'timeBegan' => function (self $o, ParseNode $n) { $o->setTimeBegan($n->getDateTimeValue()); },
-            'timeEnded' => function (self $o, ParseNode $n) { $o->setTimeEnded($n->getDateTimeValue()); },
+            'activityIdentifier' => function (ParseNode $n) use ($o) { $o->setActivityIdentifier($n->getStringValue()); },
+            'countEntitled' => function (ParseNode $n) use ($o) { $o->setCountEntitled($n->getIntegerValue()); },
+            'countEntitledForProvisioning' => function (ParseNode $n) use ($o) { $o->setCountEntitledForProvisioning($n->getIntegerValue()); },
+            'countEscrowed' => function (ParseNode $n) use ($o) { $o->setCountEscrowed($n->getIntegerValue()); },
+            'countEscrowedRaw' => function (ParseNode $n) use ($o) { $o->setCountEscrowedRaw($n->getIntegerValue()); },
+            'countExported' => function (ParseNode $n) use ($o) { $o->setCountExported($n->getIntegerValue()); },
+            'countExports' => function (ParseNode $n) use ($o) { $o->setCountExports($n->getIntegerValue()); },
+            'countImported' => function (ParseNode $n) use ($o) { $o->setCountImported($n->getIntegerValue()); },
+            'countImportedDeltas' => function (ParseNode $n) use ($o) { $o->setCountImportedDeltas($n->getIntegerValue()); },
+            'countImportedReferenceDeltas' => function (ParseNode $n) use ($o) { $o->setCountImportedReferenceDeltas($n->getIntegerValue()); },
+            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(SynchronizationError::class, 'createFromDiscriminatorValue'))); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(SynchronizationTaskExecutionResult::class)); },
+            'timeBegan' => function (ParseNode $n) use ($o) { $o->setTimeBegan($n->getDateTimeValue()); },
+            'timeEnded' => function (ParseNode $n) use ($o) { $o->setTimeEnded($n->getDateTimeValue()); },
         ];
     }
 

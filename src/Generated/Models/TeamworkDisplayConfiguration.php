@@ -9,22 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkDisplayConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<TeamworkConfiguredPeripheral>|null $configuredDisplays The list of configured displays. Applicable only for Microsoft Teams Rooms devices. */
+    /**
+     * @var array<TeamworkConfiguredPeripheral>|null $configuredDisplays The list of configured displays. Applicable only for Microsoft Teams Rooms devices.
+    */
     private ?array $configuredDisplays = null;
     
-    /** @var int|null $displayCount Total number of connected displays, including the inbuilt display. Applicable only for Teams Rooms devices. */
+    /**
+     * @var int|null $displayCount Total number of connected displays, including the inbuilt display. Applicable only for Teams Rooms devices.
+    */
     private ?int $displayCount = null;
     
-    /** @var TeamworkDisplayScreenConfiguration|null $inBuiltDisplayScreenConfiguration Configuration for the inbuilt display. Not applicable for Teams Rooms devices. */
+    /**
+     * @var TeamworkDisplayScreenConfiguration|null $inBuiltDisplayScreenConfiguration Configuration for the inbuilt display. Not applicable for Teams Rooms devices.
+    */
     private ?TeamworkDisplayScreenConfiguration $inBuiltDisplayScreenConfiguration = null;
     
-    /** @var bool|null $isContentDuplicationAllowed True if content duplication is allowed. Applicable only for Teams Rooms devices. */
+    /**
+     * @var bool|null $isContentDuplicationAllowed True if content duplication is allowed. Applicable only for Teams Rooms devices.
+    */
     private ?bool $isContentDuplicationAllowed = null;
     
-    /** @var bool|null $isDualDisplayModeEnabled True if dual display mode is enabled. If isDualDisplayModeEnabled is true, then the content will be displayed on both front of room screens instead of just the one screen, when it is shared via the HDMI ingest module on the Microsoft Teams Rooms device. Applicable only for Teams Rooms devices. */
+    /**
+     * @var bool|null $isDualDisplayModeEnabled True if dual display mode is enabled. If isDualDisplayModeEnabled is true, then the content will be displayed on both front of room screens instead of just the one screen, when it is shared via the HDMI ingest module on the Microsoft Teams Rooms device. Applicable only for Teams Rooms devices.
+    */
     private ?bool $isDualDisplayModeEnabled = null;
     
     /**
@@ -39,7 +51,7 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkDisplayConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDisplayConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDisplayConfiguration {
         return new TeamworkDisplayConfiguration();
     }
 
@@ -72,12 +84,13 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'configuredDisplays' => function (self $o, ParseNode $n) { $o->setConfiguredDisplays($n->getCollectionOfObjectValues(TeamworkConfiguredPeripheral::class)); },
-            'displayCount' => function (self $o, ParseNode $n) { $o->setDisplayCount($n->getIntegerValue()); },
-            'inBuiltDisplayScreenConfiguration' => function (self $o, ParseNode $n) { $o->setInBuiltDisplayScreenConfiguration($n->getObjectValue(TeamworkDisplayScreenConfiguration::class)); },
-            'isContentDuplicationAllowed' => function (self $o, ParseNode $n) { $o->setIsContentDuplicationAllowed($n->getBooleanValue()); },
-            'isDualDisplayModeEnabled' => function (self $o, ParseNode $n) { $o->setIsDualDisplayModeEnabled($n->getBooleanValue()); },
+            'configuredDisplays' => function (ParseNode $n) use ($o) { $o->setConfiguredDisplays($n->getCollectionOfObjectValues(array(TeamworkConfiguredPeripheral::class, 'createFromDiscriminatorValue'))); },
+            'displayCount' => function (ParseNode $n) use ($o) { $o->setDisplayCount($n->getIntegerValue()); },
+            'inBuiltDisplayScreenConfiguration' => function (ParseNode $n) use ($o) { $o->setInBuiltDisplayScreenConfiguration($n->getObjectValue(array(TeamworkDisplayScreenConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'isContentDuplicationAllowed' => function (ParseNode $n) use ($o) { $o->setIsContentDuplicationAllowed($n->getBooleanValue()); },
+            'isDualDisplayModeEnabled' => function (ParseNode $n) use ($o) { $o->setIsDualDisplayModeEnabled($n->getBooleanValue()); },
         ];
     }
 

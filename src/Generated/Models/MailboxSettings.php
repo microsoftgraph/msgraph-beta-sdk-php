@@ -9,37 +9,59 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MailboxSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $archiveFolder Folder ID of an archive folder for the user. */
+    /**
+     * @var string|null $archiveFolder Folder ID of an archive folder for the user. Read only.
+    */
     private ?string $archiveFolder = null;
     
-    /** @var AutomaticRepliesSetting|null $automaticRepliesSetting Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user. */
+    /**
+     * @var AutomaticRepliesSetting|null $automaticRepliesSetting Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user.
+    */
     private ?AutomaticRepliesSetting $automaticRepliesSetting = null;
     
-    /** @var string|null $dateFormat The date format for the user's mailbox. */
+    /**
+     * @var string|null $dateFormat The date format for the user's mailbox.
+    */
     private ?string $dateFormat = null;
     
-    /** @var DelegateMeetingMessageDeliveryOptions|null $delegateMeetingMessageDeliveryOptions If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. */
+    /**
+     * @var DelegateMeetingMessageDeliveryOptions|null $delegateMeetingMessageDeliveryOptions If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
+    */
     private ?DelegateMeetingMessageDeliveryOptions $delegateMeetingMessageDeliveryOptions = null;
     
-    /** @var LocaleInfo|null $language The locale information for the user, including the preferred language and country/region. */
+    /**
+     * @var LocaleInfo|null $language The locale information for the user, including the preferred language and country/region.
+    */
     private ?LocaleInfo $language = null;
     
-    /** @var string|null $timeFormat The time format for the user's mailbox. */
+    /**
+     * @var string|null $timeFormat The time format for the user's mailbox.
+    */
     private ?string $timeFormat = null;
     
-    /** @var string|null $timeZone The default time zone for the user's mailbox. */
+    /**
+     * @var string|null $timeZone The default time zone for the user's mailbox.
+    */
     private ?string $timeZone = null;
     
-    /** @var UserPurpose|null $userPurpose The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only. */
+    /**
+     * @var UserPurpose|null $userPurpose The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
+    */
     private ?UserPurpose $userPurpose = null;
     
-    /** @var MailboxRecipientType|null $userPurposeV2 The userPurposeV2 property */
+    /**
+     * @var MailboxRecipientType|null $userPurposeV2 The userPurposeV2 property
+    */
     private ?MailboxRecipientType $userPurposeV2 = null;
     
-    /** @var WorkingHours|null $workingHours The days of the week and hours in a specific time zone that the user works. */
+    /**
+     * @var WorkingHours|null $workingHours The days of the week and hours in a specific time zone that the user works.
+    */
     private ?WorkingHours $workingHours = null;
     
     /**
@@ -54,7 +76,7 @@ class MailboxSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MailboxSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MailboxSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MailboxSettings {
         return new MailboxSettings();
     }
 
@@ -67,7 +89,7 @@ class MailboxSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the archiveFolder property value. Folder ID of an archive folder for the user.
+     * Gets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
      * @return string|null
     */
     public function getArchiveFolder(): ?string {
@@ -91,7 +113,7 @@ class MailboxSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.
+     * Gets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
      * @return DelegateMeetingMessageDeliveryOptions|null
     */
     public function getDelegateMeetingMessageDeliveryOptions(): ?DelegateMeetingMessageDeliveryOptions {
@@ -103,17 +125,18 @@ class MailboxSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'archiveFolder' => function (self $o, ParseNode $n) { $o->setArchiveFolder($n->getStringValue()); },
-            'automaticRepliesSetting' => function (self $o, ParseNode $n) { $o->setAutomaticRepliesSetting($n->getObjectValue(AutomaticRepliesSetting::class)); },
-            'dateFormat' => function (self $o, ParseNode $n) { $o->setDateFormat($n->getStringValue()); },
-            'delegateMeetingMessageDeliveryOptions' => function (self $o, ParseNode $n) { $o->setDelegateMeetingMessageDeliveryOptions($n->getEnumValue(DelegateMeetingMessageDeliveryOptions::class)); },
-            'language' => function (self $o, ParseNode $n) { $o->setLanguage($n->getObjectValue(LocaleInfo::class)); },
-            'timeFormat' => function (self $o, ParseNode $n) { $o->setTimeFormat($n->getStringValue()); },
-            'timeZone' => function (self $o, ParseNode $n) { $o->setTimeZone($n->getStringValue()); },
-            'userPurpose' => function (self $o, ParseNode $n) { $o->setUserPurpose($n->getEnumValue(UserPurpose::class)); },
-            'userPurposeV2' => function (self $o, ParseNode $n) { $o->setUserPurposeV2($n->getEnumValue(MailboxRecipientType::class)); },
-            'workingHours' => function (self $o, ParseNode $n) { $o->setWorkingHours($n->getObjectValue(WorkingHours::class)); },
+            'archiveFolder' => function (ParseNode $n) use ($o) { $o->setArchiveFolder($n->getStringValue()); },
+            'automaticRepliesSetting' => function (ParseNode $n) use ($o) { $o->setAutomaticRepliesSetting($n->getObjectValue(array(AutomaticRepliesSetting::class, 'createFromDiscriminatorValue'))); },
+            'dateFormat' => function (ParseNode $n) use ($o) { $o->setDateFormat($n->getStringValue()); },
+            'delegateMeetingMessageDeliveryOptions' => function (ParseNode $n) use ($o) { $o->setDelegateMeetingMessageDeliveryOptions($n->getEnumValue(DelegateMeetingMessageDeliveryOptions::class)); },
+            'language' => function (ParseNode $n) use ($o) { $o->setLanguage($n->getObjectValue(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
+            'timeFormat' => function (ParseNode $n) use ($o) { $o->setTimeFormat($n->getStringValue()); },
+            'timeZone' => function (ParseNode $n) use ($o) { $o->setTimeZone($n->getStringValue()); },
+            'userPurpose' => function (ParseNode $n) use ($o) { $o->setUserPurpose($n->getEnumValue(UserPurpose::class)); },
+            'userPurposeV2' => function (ParseNode $n) use ($o) { $o->setUserPurposeV2($n->getEnumValue(MailboxRecipientType::class)); },
+            'workingHours' => function (ParseNode $n) use ($o) { $o->setWorkingHours($n->getObjectValue(array(WorkingHours::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
@@ -192,7 +215,7 @@ class MailboxSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the archiveFolder property value. Folder ID of an archive folder for the user.
+     * Sets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
      *  @param string|null $value Value to set for the archiveFolder property.
     */
     public function setArchiveFolder(?string $value ): void {
@@ -216,7 +239,7 @@ class MailboxSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.
+     * Sets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
      *  @param DelegateMeetingMessageDeliveryOptions|null $value Value to set for the delegateMeetingMessageDeliveryOptions property.
     */
     public function setDelegateMeetingMessageDeliveryOptions(?DelegateMeetingMessageDeliveryOptions $value ): void {

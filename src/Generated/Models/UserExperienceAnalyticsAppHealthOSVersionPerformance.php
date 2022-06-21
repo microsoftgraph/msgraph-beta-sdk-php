@@ -6,24 +6,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity 
+class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implements Parsable 
 {
-    /** @var int|null $activeDeviceCount The number of active devices for the OS version. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $activeDeviceCount The number of active devices for the OS version. Valid values -2147483648 to 2147483647
+    */
     private ?int $activeDeviceCount = null;
     
-    /** @var int|null $meanTimeToFailureInMinutes The mean time to failure for the OS version in minutes. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $meanTimeToFailureInMinutes The mean time to failure for the OS version in minutes. Valid values -2147483648 to 2147483647
+    */
     private ?int $meanTimeToFailureInMinutes = null;
     
-    /** @var string|null $osBuildNumber The OS build number installed on the device. */
+    /**
+     * @var string|null $osBuildNumber The OS build number installed on the device.
+    */
     private ?string $osBuildNumber = null;
     
-    /** @var string|null $osVersion The OS version installed on the device. */
+    /**
+     * @var string|null $osVersion The OS version installed on the device.
+    */
     private ?string $osVersion = null;
     
-    /** @var float|null $osVersionAppHealthScore The app health score of the OS version. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
+    /**
+     * @var float|null $osVersionAppHealthScore The app health score of the OS version. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    */
     private ?float $osVersionAppHealthScore = null;
     
-    /** @var string|null $osVersionAppHealthStatus The overall app health status of the OS version. */
+    /**
+     * @var string|null $osVersionAppHealthStatus The overall app health status of the OS version.
+    */
     private ?string $osVersionAppHealthStatus = null;
     
     /**
@@ -38,7 +50,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsAppHealthOSVersionPerformance
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthOSVersionPerformance {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthOSVersionPerformance {
         return new UserExperienceAnalyticsAppHealthOSVersionPerformance();
     }
 
@@ -55,13 +67,14 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeDeviceCount' => function (self $o, ParseNode $n) { $o->setActiveDeviceCount($n->getIntegerValue()); },
-            'meanTimeToFailureInMinutes' => function (self $o, ParseNode $n) { $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()); },
-            'osBuildNumber' => function (self $o, ParseNode $n) { $o->setOsBuildNumber($n->getStringValue()); },
-            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getStringValue()); },
-            'osVersionAppHealthScore' => function (self $o, ParseNode $n) { $o->setOsVersionAppHealthScore($n->getFloatValue()); },
-            'osVersionAppHealthStatus' => function (self $o, ParseNode $n) { $o->setOsVersionAppHealthStatus($n->getStringValue()); },
+            'activeDeviceCount' => function (ParseNode $n) use ($o) { $o->setActiveDeviceCount($n->getIntegerValue()); },
+            'meanTimeToFailureInMinutes' => function (ParseNode $n) use ($o) { $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()); },
+            'osBuildNumber' => function (ParseNode $n) use ($o) { $o->setOsBuildNumber($n->getStringValue()); },
+            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
+            'osVersionAppHealthScore' => function (ParseNode $n) use ($o) { $o->setOsVersionAppHealthScore($n->getFloatValue()); },
+            'osVersionAppHealthStatus' => function (ParseNode $n) use ($o) { $o->setOsVersionAppHealthStatus($n->getStringValue()); },
         ]);
     }
 

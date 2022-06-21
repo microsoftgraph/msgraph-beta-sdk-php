@@ -7,9 +7,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Ediscoveryroot extends Entity 
+class Ediscoveryroot extends Entity implements Parsable 
 {
-    /** @var array<EscapedCase>|null $cases The cases property */
+    /**
+     * @var array<EscapedCase>|null $cases The cases property
+    */
     private ?array $cases = null;
     
     /**
@@ -24,7 +26,7 @@ class Ediscoveryroot extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Ediscoveryroot
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Ediscoveryroot {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Ediscoveryroot {
         return new Ediscoveryroot();
     }
 
@@ -41,8 +43,9 @@ class Ediscoveryroot extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cases' => function (self $o, ParseNode $n) { $o->setCases($n->getCollectionOfObjectValues(EscapedCase::class)); },
+            'cases' => function (ParseNode $n) use ($o) { $o->setCases($n->getCollectionOfObjectValues(array(EscapedCase::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

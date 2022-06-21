@@ -7,36 +7,56 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RiskyServicePrincipal extends Entity 
+class RiskyServicePrincipal extends Entity implements Parsable 
 {
-    /** @var bool|null $accountEnabled true if the service principal account is enabled; otherwise, false. */
+    /**
+     * @var bool|null $accountEnabled true if the service principal account is enabled; otherwise, false.
+    */
     private ?bool $accountEnabled = null;
     
-    /** @var string|null $appId The globally unique identifier for the associated application (its appId property), if any. */
+    /**
+     * @var string|null $appId The globally unique identifier for the associated application (its appId property), if any.
+    */
     private ?string $appId = null;
     
-    /** @var string|null $displayName The display name for the service principal. */
+    /**
+     * @var string|null $displayName The display name for the service principal.
+    */
     private ?string $displayName = null;
     
-    /** @var array<RiskyServicePrincipalHistoryItem>|null $history Represents the risk history of Azure AD service principals. */
+    /**
+     * @var array<RiskyServicePrincipalHistoryItem>|null $history Represents the risk history of Azure AD service principals.
+    */
     private ?array $history = null;
     
-    /** @var bool|null $isProcessing Indicates whether Azure AD is currently processing the service principal's risky state. */
+    /**
+     * @var bool|null $isProcessing Indicates whether Azure AD is currently processing the service principal's risky state.
+    */
     private ?bool $isProcessing = null;
     
-    /** @var RiskDetail|null $riskDetail Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden,  adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal. */
+    /**
+     * @var RiskDetail|null $riskDetail Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden,  adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
+    */
     private ?RiskDetail $riskDetail = null;
     
-    /** @var DateTime|null $riskLastUpdatedDateTime The date and time that the risk state was last updated. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z. Supports $filter (eq). */
+    /**
+     * @var DateTime|null $riskLastUpdatedDateTime The date and time that the risk state was last updated. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z. Supports $filter (eq).
+    */
     private ?DateTime $riskLastUpdatedDateTime = null;
     
-    /** @var RiskLevel|null $riskLevel Level of the detected risky workload identity. The possible values are: low, medium, high, hidden, none, unknownFutureValue. Supports $filter (eq). */
+    /**
+     * @var RiskLevel|null $riskLevel Level of the detected risky workload identity. The possible values are: low, medium, high, hidden, none, unknownFutureValue. Supports $filter (eq).
+    */
     private ?RiskLevel $riskLevel = null;
     
-    /** @var RiskState|null $riskState State of the service principal's risk. The possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue. */
+    /**
+     * @var RiskState|null $riskState State of the service principal's risk. The possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
+    */
     private ?RiskState $riskState = null;
     
-    /** @var string|null $servicePrincipalType Identifies whether the service principal represents an Application, a ManagedIdentity, or a legacy application (socialIdp). This is set by Azure AD internally and is inherited from servicePrincipal. */
+    /**
+     * @var string|null $servicePrincipalType Identifies whether the service principal represents an Application, a ManagedIdentity, or a legacy application (socialIdp). This is set by Azure AD internally and is inherited from servicePrincipal.
+    */
     private ?string $servicePrincipalType = null;
     
     /**
@@ -51,7 +71,14 @@ class RiskyServicePrincipal extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RiskyServicePrincipal
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RiskyServicePrincipal {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RiskyServicePrincipal {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.riskyServicePrincipalHistoryItem': return new RiskyServicePrincipalHistoryItem();
+            }
+        }
         return new RiskyServicePrincipal();
     }
 
@@ -84,17 +111,18 @@ class RiskyServicePrincipal extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accountEnabled' => function (self $o, ParseNode $n) { $o->setAccountEnabled($n->getBooleanValue()); },
-            'appId' => function (self $o, ParseNode $n) { $o->setAppId($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'history' => function (self $o, ParseNode $n) { $o->setHistory($n->getCollectionOfObjectValues(RiskyServicePrincipalHistoryItem::class)); },
-            'isProcessing' => function (self $o, ParseNode $n) { $o->setIsProcessing($n->getBooleanValue()); },
-            'riskDetail' => function (self $o, ParseNode $n) { $o->setRiskDetail($n->getEnumValue(RiskDetail::class)); },
-            'riskLastUpdatedDateTime' => function (self $o, ParseNode $n) { $o->setRiskLastUpdatedDateTime($n->getDateTimeValue()); },
-            'riskLevel' => function (self $o, ParseNode $n) { $o->setRiskLevel($n->getEnumValue(RiskLevel::class)); },
-            'riskState' => function (self $o, ParseNode $n) { $o->setRiskState($n->getEnumValue(RiskState::class)); },
-            'servicePrincipalType' => function (self $o, ParseNode $n) { $o->setServicePrincipalType($n->getStringValue()); },
+            'accountEnabled' => function (ParseNode $n) use ($o) { $o->setAccountEnabled($n->getBooleanValue()); },
+            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'history' => function (ParseNode $n) use ($o) { $o->setHistory($n->getCollectionOfObjectValues(array(RiskyServicePrincipalHistoryItem::class, 'createFromDiscriminatorValue'))); },
+            'isProcessing' => function (ParseNode $n) use ($o) { $o->setIsProcessing($n->getBooleanValue()); },
+            'riskDetail' => function (ParseNode $n) use ($o) { $o->setRiskDetail($n->getEnumValue(RiskDetail::class)); },
+            'riskLastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setRiskLastUpdatedDateTime($n->getDateTimeValue()); },
+            'riskLevel' => function (ParseNode $n) use ($o) { $o->setRiskLevel($n->getEnumValue(RiskLevel::class)); },
+            'riskState' => function (ParseNode $n) use ($o) { $o->setRiskState($n->getEnumValue(RiskState::class)); },
+            'servicePrincipalType' => function (ParseNode $n) use ($o) { $o->setServicePrincipalType($n->getStringValue()); },
         ]);
     }
 

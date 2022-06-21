@@ -7,30 +7,46 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class OfficeClientConfiguration extends Entity 
+class OfficeClientConfiguration extends Entity implements Parsable 
 {
-    /** @var array<OfficeClientConfigurationAssignment>|null $assignments The list of group assignments for the policy. */
+    /**
+     * @var array<OfficeClientConfigurationAssignment>|null $assignments The list of group assignments for the policy.
+    */
     private ?array $assignments = null;
     
-    /** @var array<OfficeClientCheckinStatus>|null $checkinStatuses List of office Client check-in status. */
+    /**
+     * @var array<OfficeClientCheckinStatus>|null $checkinStatuses List of office Client check-in status.
+    */
     private ?array $checkinStatuses = null;
     
-    /** @var string|null $description Not yet documented */
+    /**
+     * @var string|null $description Not yet documented
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Admin provided description of the office client configuration policy. */
+    /**
+     * @var string|null $displayName Admin provided description of the office client configuration policy.
+    */
     private ?string $displayName = null;
     
-    /** @var StreamInterface|null $policyPayload Policy settings JSON string in binary format, these values cannot be changed by the user. */
+    /**
+     * @var StreamInterface|null $policyPayload Policy settings JSON string in binary format, these values cannot be changed by the user.
+    */
     private ?StreamInterface $policyPayload = null;
     
-    /** @var int|null $priority Priority value should be unique value for each policy under a tenant and will be used for conflict resolution, lower values mean priority is high. */
+    /**
+     * @var int|null $priority Priority value should be unique value for each policy under a tenant and will be used for conflict resolution, lower values mean priority is high.
+    */
     private ?int $priority = null;
     
-    /** @var OfficeUserCheckinSummary|null $userCheckinSummary User check-in summary for the policy. */
+    /**
+     * @var OfficeUserCheckinSummary|null $userCheckinSummary User check-in summary for the policy.
+    */
     private ?OfficeUserCheckinSummary $userCheckinSummary = null;
     
-    /** @var StreamInterface|null $userPreferencePayload Preference settings JSON string in binary format, these values can be overridden by the user. */
+    /**
+     * @var StreamInterface|null $userPreferencePayload Preference settings JSON string in binary format, these values can be overridden by the user.
+    */
     private ?StreamInterface $userPreferencePayload = null;
     
     /**
@@ -45,7 +61,15 @@ class OfficeClientConfiguration extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OfficeClientConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): OfficeClientConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OfficeClientConfiguration {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windowsOfficeClientConfiguration': return new WindowsOfficeClientConfiguration();
+                case '#microsoft.graph.windowsOfficeClientSecurityConfiguration': return new WindowsOfficeClientSecurityConfiguration();
+            }
+        }
         return new OfficeClientConfiguration();
     }
 
@@ -86,15 +110,16 @@ class OfficeClientConfiguration extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(OfficeClientConfigurationAssignment::class)); },
-            'checkinStatuses' => function (self $o, ParseNode $n) { $o->setCheckinStatuses($n->getCollectionOfObjectValues(OfficeClientCheckinStatus::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'policyPayload' => function (self $o, ParseNode $n) { $o->setPolicyPayload($n->getBinaryContent()); },
-            'priority' => function (self $o, ParseNode $n) { $o->setPriority($n->getIntegerValue()); },
-            'userCheckinSummary' => function (self $o, ParseNode $n) { $o->setUserCheckinSummary($n->getObjectValue(OfficeUserCheckinSummary::class)); },
-            'userPreferencePayload' => function (self $o, ParseNode $n) { $o->setUserPreferencePayload($n->getBinaryContent()); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(OfficeClientConfigurationAssignment::class, 'createFromDiscriminatorValue'))); },
+            'checkinStatuses' => function (ParseNode $n) use ($o) { $o->setCheckinStatuses($n->getCollectionOfObjectValues(array(OfficeClientCheckinStatus::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'policyPayload' => function (ParseNode $n) use ($o) { $o->setPolicyPayload($n->getBinaryContent()); },
+            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
+            'userCheckinSummary' => function (ParseNode $n) use ($o) { $o->setUserCheckinSummary($n->getObjectValue(array(OfficeUserCheckinSummary::class, 'createFromDiscriminatorValue'))); },
+            'userPreferencePayload' => function (ParseNode $n) use ($o) { $o->setUserPreferencePayload($n->getBinaryContent()); },
         ]);
     }
 

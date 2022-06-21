@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class Media implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $isTranscriptionShown If a file has a transcript, this setting controls if the closed captions / transcription for the media file should be shown to people during viewing. Read-Write. */
+    /**
+     * @var bool|null $isTranscriptionShown If a file has a transcript, this setting controls if the closed captions / transcription for the media file should be shown to people during viewing. Read-Write.
+    */
     private ?bool $isTranscriptionShown = null;
     
-    /** @var MediaSource|null $mediaSource Information about the source of media. Read-only. */
+    /**
+     * @var MediaSource|null $mediaSource Information about the source of media. Read-only.
+    */
     private ?MediaSource $mediaSource = null;
     
     /**
@@ -30,7 +36,7 @@ class Media implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Media
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Media {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Media {
         return new Media();
     }
 
@@ -47,9 +53,10 @@ class Media implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'isTranscriptionShown' => function (self $o, ParseNode $n) { $o->setIsTranscriptionShown($n->getBooleanValue()); },
-            'mediaSource' => function (self $o, ParseNode $n) { $o->setMediaSource($n->getObjectValue(MediaSource::class)); },
+            'isTranscriptionShown' => function (ParseNode $n) use ($o) { $o->setIsTranscriptionShown($n->getBooleanValue()); },
+            'mediaSource' => function (ParseNode $n) use ($o) { $o->setMediaSource($n->getObjectValue(array(MediaSource::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

@@ -6,19 +6,25 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserSource extends DataSource 
+class UserSource extends DataSource implements Parsable 
 {
-    /** @var string|null $email Email address of the user's mailbox. */
+    /**
+     * @var string|null $email Email address of the user's mailbox.
+    */
     private ?string $email = null;
     
-    /** @var SourceType|null $includedSources Specifies which sources are included in this group. Possible values are: mailbox, site. */
+    /**
+     * @var SourceType|null $includedSources Specifies which sources are included in this group. Possible values are: mailbox, site.
+    */
     private ?SourceType $includedSources = null;
     
-    /** @var string|null $siteWebUrl The URL of the user's OneDrive for Business site. Read-only. */
+    /**
+     * @var string|null $siteWebUrl The URL of the user's OneDrive for Business site. Read-only.
+    */
     private ?string $siteWebUrl = null;
     
     /**
-     * Instantiates a new userSource and sets the default values.
+     * Instantiates a new UserSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -29,7 +35,7 @@ class UserSource extends DataSource
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserSource
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserSource {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserSource {
         return new UserSource();
     }
 
@@ -46,10 +52,11 @@ class UserSource extends DataSource
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
-            'includedSources' => function (self $o, ParseNode $n) { $o->setIncludedSources($n->getEnumValue(SourceType::class)); },
-            'siteWebUrl' => function (self $o, ParseNode $n) { $o->setSiteWebUrl($n->getStringValue()); },
+            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
+            'includedSources' => function (ParseNode $n) use ($o) { $o->setIncludedSources($n->getEnumValue(SourceType::class)); },
+            'siteWebUrl' => function (ParseNode $n) use ($o) { $o->setSiteWebUrl($n->getStringValue()); },
         ]);
     }
 

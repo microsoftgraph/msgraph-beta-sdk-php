@@ -7,18 +7,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AppLogCollectionRequest extends Entity 
+class AppLogCollectionRequest extends Entity implements Parsable 
 {
-    /** @var DateTime|null $completedDateTime Time at which the upload log request reached a terminal state */
+    /**
+     * @var DateTime|null $completedDateTime Time at which the upload log request reached a terminal state
+    */
     private ?DateTime $completedDateTime = null;
     
-    /** @var array<string>|null $customLogFolders List of log folders. */
+    /**
+     * @var array<string>|null $customLogFolders List of log folders.
+    */
     private ?array $customLogFolders = null;
     
-    /** @var string|null $errorMessage Error message if any during the upload process */
+    /**
+     * @var string|null $errorMessage Error message if any during the upload process
+    */
     private ?string $errorMessage = null;
     
-    /** @var AppLogUploadState|null $status Log upload status. Possible values are: pending, completed, failed. */
+    /**
+     * @var AppLogUploadState|null $status Log upload status. Possible values are: pending, completed, failed.
+    */
     private ?AppLogUploadState $status = null;
     
     /**
@@ -33,7 +41,7 @@ class AppLogCollectionRequest extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AppLogCollectionRequest
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AppLogCollectionRequest {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppLogCollectionRequest {
         return new AppLogCollectionRequest();
     }
 
@@ -66,11 +74,12 @@ class AppLogCollectionRequest extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completedDateTime' => function (self $o, ParseNode $n) { $o->setCompletedDateTime($n->getDateTimeValue()); },
-            'customLogFolders' => function (self $o, ParseNode $n) { $o->setCustomLogFolders($n->getCollectionOfPrimitiveValues()); },
-            'errorMessage' => function (self $o, ParseNode $n) { $o->setErrorMessage($n->getStringValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(AppLogUploadState::class)); },
+            'completedDateTime' => function (ParseNode $n) use ($o) { $o->setCompletedDateTime($n->getDateTimeValue()); },
+            'customLogFolders' => function (ParseNode $n) use ($o) { $o->setCustomLogFolders($n->getCollectionOfPrimitiveValues()); },
+            'errorMessage' => function (ParseNode $n) use ($o) { $o->setErrorMessage($n->getStringValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(AppLogUploadState::class)); },
         ]);
     }
 

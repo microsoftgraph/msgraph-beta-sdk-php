@@ -6,66 +6,106 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicySettingMapping extends Entity 
+class GroupPolicySettingMapping extends Entity implements Parsable 
 {
-    /** @var string|null $admxSettingDefinitionId Admx Group Policy Id */
+    /**
+     * @var string|null $admxSettingDefinitionId Admx Group Policy Id
+    */
     private ?string $admxSettingDefinitionId = null;
     
-    /** @var array<string>|null $childIdList List of Child Ids of the group policy setting. */
+    /**
+     * @var array<string>|null $childIdList List of Child Ids of the group policy setting.
+    */
     private ?array $childIdList = null;
     
-    /** @var string|null $intuneSettingDefinitionId The Intune Setting Definition Id */
+    /**
+     * @var string|null $intuneSettingDefinitionId The Intune Setting Definition Id
+    */
     private ?string $intuneSettingDefinitionId = null;
     
-    /** @var array<string>|null $intuneSettingUriList The list of Intune Setting URIs this group policy setting maps to */
+    /**
+     * @var array<string>|null $intuneSettingUriList The list of Intune Setting URIs this group policy setting maps to
+    */
     private ?array $intuneSettingUriList = null;
     
-    /** @var bool|null $isMdmSupported Indicates if the setting is supported by Intune or not */
+    /**
+     * @var bool|null $isMdmSupported Indicates if the setting is supported by Intune or not
+    */
     private ?bool $isMdmSupported = null;
     
-    /** @var string|null $mdmCspName The CSP name this group policy setting maps to. */
+    /**
+     * @var string|null $mdmCspName The CSP name this group policy setting maps to.
+    */
     private ?string $mdmCspName = null;
     
-    /** @var int|null $mdmMinimumOSVersion The minimum OS version this mdm setting supports. */
+    /**
+     * @var int|null $mdmMinimumOSVersion The minimum OS version this mdm setting supports.
+    */
     private ?int $mdmMinimumOSVersion = null;
     
-    /** @var string|null $mdmSettingUri The MDM CSP URI this group policy setting maps to. */
+    /**
+     * @var string|null $mdmSettingUri The MDM CSP URI this group policy setting maps to.
+    */
     private ?string $mdmSettingUri = null;
     
-    /** @var MdmSupportedState|null $mdmSupportedState Indicates if the setting is supported in Mdm or not. Possible values are: unknown, supported, unsupported, deprecated. */
+    /**
+     * @var MdmSupportedState|null $mdmSupportedState Indicates if the setting is supported in Mdm or not. Possible values are: unknown, supported, unsupported, deprecated.
+    */
     private ?MdmSupportedState $mdmSupportedState = null;
     
-    /** @var string|null $parentId Parent Id of the group policy setting. */
+    /**
+     * @var string|null $parentId Parent Id of the group policy setting.
+    */
     private ?string $parentId = null;
     
-    /** @var string|null $settingCategory The category the group policy setting is in. */
+    /**
+     * @var string|null $settingCategory The category the group policy setting is in.
+    */
     private ?string $settingCategory = null;
     
-    /** @var string|null $settingDisplayName The display name of this group policy setting. */
+    /**
+     * @var string|null $settingDisplayName The display name of this group policy setting.
+    */
     private ?string $settingDisplayName = null;
     
-    /** @var string|null $settingDisplayValue The display value of this group policy setting. */
+    /**
+     * @var string|null $settingDisplayValue The display value of this group policy setting.
+    */
     private ?string $settingDisplayValue = null;
     
-    /** @var string|null $settingDisplayValueType The display value type of this group policy setting. */
+    /**
+     * @var string|null $settingDisplayValueType The display value type of this group policy setting.
+    */
     private ?string $settingDisplayValueType = null;
     
-    /** @var string|null $settingName The name of this group policy setting. */
+    /**
+     * @var string|null $settingName The name of this group policy setting.
+    */
     private ?string $settingName = null;
     
-    /** @var GroupPolicySettingScope|null $settingScope The scope of the setting. Possible values are: unknown, device, user. */
+    /**
+     * @var GroupPolicySettingScope|null $settingScope The scope of the setting. Possible values are: unknown, device, user.
+    */
     private ?GroupPolicySettingScope $settingScope = null;
     
-    /** @var GroupPolicySettingType|null $settingType The setting type (security or admx) of the Group Policy. Possible values are: unknown, policy, account, securityOptions, userRightsAssignment, auditSetting, windowsFirewallSettings, appLockerRuleCollection, dataSourcesSettings, devicesSettings, driveMapSettings, environmentVariables, filesSettings, folderOptions, folders, iniFiles, internetOptions, localUsersAndGroups, networkOptions, networkShares, ntServices, powerOptions, printers, regionalOptionsSettings, registrySettings, scheduledTasks, shortcutSettings, startMenuSettings. */
+    /**
+     * @var GroupPolicySettingType|null $settingType The setting type (security or admx) of the Group Policy. Possible values are: unknown, policy, account, securityOptions, userRightsAssignment, auditSetting, windowsFirewallSettings, appLockerRuleCollection, dataSourcesSettings, devicesSettings, driveMapSettings, environmentVariables, filesSettings, folderOptions, folders, iniFiles, internetOptions, localUsersAndGroups, networkOptions, networkShares, ntServices, powerOptions, printers, regionalOptionsSettings, registrySettings, scheduledTasks, shortcutSettings, startMenuSettings.
+    */
     private ?GroupPolicySettingType $settingType = null;
     
-    /** @var string|null $settingValue The value of this group policy setting. */
+    /**
+     * @var string|null $settingValue The value of this group policy setting.
+    */
     private ?string $settingValue = null;
     
-    /** @var string|null $settingValueDisplayUnits The display units of this group policy setting value */
+    /**
+     * @var string|null $settingValueDisplayUnits The display units of this group policy setting value
+    */
     private ?string $settingValueDisplayUnits = null;
     
-    /** @var string|null $settingValueType The value type of this group policy setting. */
+    /**
+     * @var string|null $settingValueType The value type of this group policy setting.
+    */
     private ?string $settingValueType = null;
     
     /**
@@ -80,7 +120,7 @@ class GroupPolicySettingMapping extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicySettingMapping
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicySettingMapping {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicySettingMapping {
         return new GroupPolicySettingMapping();
     }
 
@@ -105,27 +145,28 @@ class GroupPolicySettingMapping extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'admxSettingDefinitionId' => function (self $o, ParseNode $n) { $o->setAdmxSettingDefinitionId($n->getStringValue()); },
-            'childIdList' => function (self $o, ParseNode $n) { $o->setChildIdList($n->getCollectionOfPrimitiveValues()); },
-            'intuneSettingDefinitionId' => function (self $o, ParseNode $n) { $o->setIntuneSettingDefinitionId($n->getStringValue()); },
-            'intuneSettingUriList' => function (self $o, ParseNode $n) { $o->setIntuneSettingUriList($n->getCollectionOfPrimitiveValues()); },
-            'isMdmSupported' => function (self $o, ParseNode $n) { $o->setIsMdmSupported($n->getBooleanValue()); },
-            'mdmCspName' => function (self $o, ParseNode $n) { $o->setMdmCspName($n->getStringValue()); },
-            'mdmMinimumOSVersion' => function (self $o, ParseNode $n) { $o->setMdmMinimumOSVersion($n->getIntegerValue()); },
-            'mdmSettingUri' => function (self $o, ParseNode $n) { $o->setMdmSettingUri($n->getStringValue()); },
-            'mdmSupportedState' => function (self $o, ParseNode $n) { $o->setMdmSupportedState($n->getEnumValue(MdmSupportedState::class)); },
-            'parentId' => function (self $o, ParseNode $n) { $o->setParentId($n->getStringValue()); },
-            'settingCategory' => function (self $o, ParseNode $n) { $o->setSettingCategory($n->getStringValue()); },
-            'settingDisplayName' => function (self $o, ParseNode $n) { $o->setSettingDisplayName($n->getStringValue()); },
-            'settingDisplayValue' => function (self $o, ParseNode $n) { $o->setSettingDisplayValue($n->getStringValue()); },
-            'settingDisplayValueType' => function (self $o, ParseNode $n) { $o->setSettingDisplayValueType($n->getStringValue()); },
-            'settingName' => function (self $o, ParseNode $n) { $o->setSettingName($n->getStringValue()); },
-            'settingScope' => function (self $o, ParseNode $n) { $o->setSettingScope($n->getEnumValue(GroupPolicySettingScope::class)); },
-            'settingType' => function (self $o, ParseNode $n) { $o->setSettingType($n->getEnumValue(GroupPolicySettingType::class)); },
-            'settingValue' => function (self $o, ParseNode $n) { $o->setSettingValue($n->getStringValue()); },
-            'settingValueDisplayUnits' => function (self $o, ParseNode $n) { $o->setSettingValueDisplayUnits($n->getStringValue()); },
-            'settingValueType' => function (self $o, ParseNode $n) { $o->setSettingValueType($n->getStringValue()); },
+            'admxSettingDefinitionId' => function (ParseNode $n) use ($o) { $o->setAdmxSettingDefinitionId($n->getStringValue()); },
+            'childIdList' => function (ParseNode $n) use ($o) { $o->setChildIdList($n->getCollectionOfPrimitiveValues()); },
+            'intuneSettingDefinitionId' => function (ParseNode $n) use ($o) { $o->setIntuneSettingDefinitionId($n->getStringValue()); },
+            'intuneSettingUriList' => function (ParseNode $n) use ($o) { $o->setIntuneSettingUriList($n->getCollectionOfPrimitiveValues()); },
+            'isMdmSupported' => function (ParseNode $n) use ($o) { $o->setIsMdmSupported($n->getBooleanValue()); },
+            'mdmCspName' => function (ParseNode $n) use ($o) { $o->setMdmCspName($n->getStringValue()); },
+            'mdmMinimumOSVersion' => function (ParseNode $n) use ($o) { $o->setMdmMinimumOSVersion($n->getIntegerValue()); },
+            'mdmSettingUri' => function (ParseNode $n) use ($o) { $o->setMdmSettingUri($n->getStringValue()); },
+            'mdmSupportedState' => function (ParseNode $n) use ($o) { $o->setMdmSupportedState($n->getEnumValue(MdmSupportedState::class)); },
+            'parentId' => function (ParseNode $n) use ($o) { $o->setParentId($n->getStringValue()); },
+            'settingCategory' => function (ParseNode $n) use ($o) { $o->setSettingCategory($n->getStringValue()); },
+            'settingDisplayName' => function (ParseNode $n) use ($o) { $o->setSettingDisplayName($n->getStringValue()); },
+            'settingDisplayValue' => function (ParseNode $n) use ($o) { $o->setSettingDisplayValue($n->getStringValue()); },
+            'settingDisplayValueType' => function (ParseNode $n) use ($o) { $o->setSettingDisplayValueType($n->getStringValue()); },
+            'settingName' => function (ParseNode $n) use ($o) { $o->setSettingName($n->getStringValue()); },
+            'settingScope' => function (ParseNode $n) use ($o) { $o->setSettingScope($n->getEnumValue(GroupPolicySettingScope::class)); },
+            'settingType' => function (ParseNode $n) use ($o) { $o->setSettingType($n->getEnumValue(GroupPolicySettingType::class)); },
+            'settingValue' => function (ParseNode $n) use ($o) { $o->setSettingValue($n->getStringValue()); },
+            'settingValueDisplayUnits' => function (ParseNode $n) use ($o) { $o->setSettingValueDisplayUnits($n->getStringValue()); },
+            'settingValueType' => function (ParseNode $n) use ($o) { $o->setSettingValueType($n->getStringValue()); },
         ]);
     }
 

@@ -8,36 +8,56 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class CloudPcDeviceImage extends Entity 
+class CloudPcDeviceImage extends Entity implements Parsable 
 {
-    /** @var string|null $displayName The image's display name. */
+    /**
+     * @var string|null $displayName The image's display name.
+    */
     private ?string $displayName = null;
     
-    /** @var Date|null $expirationDate The date the image became unavailable. */
+    /**
+     * @var Date|null $expirationDate The date the image became unavailable.
+    */
     private ?Date $expirationDate = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The data and time that the image was last modified. The time is shown in ISO 8601 format and  Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The data and time that the image was last modified. The time is shown in ISO 8601 format and  Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $operatingSystem The image's operating system. For example: Windows 10 Enterprise. */
+    /**
+     * @var string|null $operatingSystem The image's operating system. For example: Windows 10 Enterprise.
+    */
     private ?string $operatingSystem = null;
     
-    /** @var string|null $osBuildNumber The image's OS build version. For example: 1909. */
+    /**
+     * @var string|null $osBuildNumber The image's OS build version. For example: 1909.
+    */
     private ?string $osBuildNumber = null;
     
-    /** @var CloudPcDeviceImageOsStatus|null $osStatus The OS status of this image. Possible values are: supported, supportedWithWarning, unknownFutureValue. */
+    /**
+     * @var CloudPcDeviceImageOsStatus|null $osStatus The OS status of this image. Possible values are: supported, supportedWithWarning, unknownFutureValue.
+    */
     private ?CloudPcDeviceImageOsStatus $osStatus = null;
     
-    /** @var string|null $sourceImageResourceId The ID of the source image resource on Azure. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'. */
+    /**
+     * @var string|null $sourceImageResourceId The ID of the source image resource on Azure. Required format: '/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/images/{imageName}'.
+    */
     private ?string $sourceImageResourceId = null;
     
-    /** @var CloudPcDeviceImageStatus|null $status The status of the image on Cloud PC. Possible values are: pending, ready, failed. */
+    /**
+     * @var CloudPcDeviceImageStatus|null $status The status of the image on Cloud PC. Possible values are: pending, ready, failed.
+    */
     private ?CloudPcDeviceImageStatus $status = null;
     
-    /** @var CloudPcDeviceImageStatusDetails|null $statusDetails The details of the image's status, which indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized. */
+    /**
+     * @var CloudPcDeviceImageStatusDetails|null $statusDetails The details of the image's status, which indicates why the upload failed, if applicable. Possible values are: internalServerError, sourceImageNotFound, osVersionNotSupported, sourceImageInvalid, and sourceImageNotGeneralized.
+    */
     private ?CloudPcDeviceImageStatusDetails $statusDetails = null;
     
-    /** @var string|null $version The image version. For example: 0.0.1, 1.5.13. */
+    /**
+     * @var string|null $version The image version. For example: 0.0.1, 1.5.13.
+    */
     private ?string $version = null;
     
     /**
@@ -52,7 +72,7 @@ class CloudPcDeviceImage extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcDeviceImage
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcDeviceImage {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcDeviceImage {
         return new CloudPcDeviceImage();
     }
 
@@ -77,17 +97,18 @@ class CloudPcDeviceImage extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'expirationDate' => function (self $o, ParseNode $n) { $o->setExpirationDate($n->getDateValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'operatingSystem' => function (self $o, ParseNode $n) { $o->setOperatingSystem($n->getStringValue()); },
-            'osBuildNumber' => function (self $o, ParseNode $n) { $o->setOsBuildNumber($n->getStringValue()); },
-            'osStatus' => function (self $o, ParseNode $n) { $o->setOsStatus($n->getEnumValue(CloudPcDeviceImageOsStatus::class)); },
-            'sourceImageResourceId' => function (self $o, ParseNode $n) { $o->setSourceImageResourceId($n->getStringValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(CloudPcDeviceImageStatus::class)); },
-            'statusDetails' => function (self $o, ParseNode $n) { $o->setStatusDetails($n->getEnumValue(CloudPcDeviceImageStatusDetails::class)); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'expirationDate' => function (ParseNode $n) use ($o) { $o->setExpirationDate($n->getDateValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'operatingSystem' => function (ParseNode $n) use ($o) { $o->setOperatingSystem($n->getStringValue()); },
+            'osBuildNumber' => function (ParseNode $n) use ($o) { $o->setOsBuildNumber($n->getStringValue()); },
+            'osStatus' => function (ParseNode $n) use ($o) { $o->setOsStatus($n->getEnumValue(CloudPcDeviceImageOsStatus::class)); },
+            'sourceImageResourceId' => function (ParseNode $n) use ($o) { $o->setSourceImageResourceId($n->getStringValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CloudPcDeviceImageStatus::class)); },
+            'statusDetails' => function (ParseNode $n) use ($o) { $o->setStatusDetails($n->getEnumValue(CloudPcDeviceImageStatusDetails::class)); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 

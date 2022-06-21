@@ -9,37 +9,59 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SearchHit implements AdditionalDataHolder, Parsable 
 {
-    /** @var string|null $_id The _id property */
+    /**
+     * @var string|null $_id The _id property
+    */
     private ?string $_id = null;
     
-    /** @var int|null $_score The _score property */
+    /**
+     * @var int|null $_score The _score property
+    */
     private ?int $_score = null;
     
-    /** @var Entity|null $_source The _source property */
+    /**
+     * @var Entity|null $_source The _source property
+    */
     private ?Entity $_source = null;
     
-    /** @var string|null $_summary The _summary property */
+    /**
+     * @var string|null $_summary The _summary property
+    */
     private ?string $_summary = null;
     
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $contentSource The name of the content source which the externalItem is part of . */
+    /**
+     * @var string|null $contentSource The name of the content source which the externalItem is part of .
+    */
     private ?string $contentSource = null;
     
-    /** @var string|null $hitId The internal identifier for the item. */
+    /**
+     * @var string|null $hitId The internal identifier for the item.
+    */
     private ?string $hitId = null;
     
-    /** @var int|null $rank The rank or the order of the result. */
+    /**
+     * @var int|null $rank The rank or the order of the result.
+    */
     private ?int $rank = null;
     
-    /** @var Entity|null $resource The resource property */
+    /**
+     * @var Entity|null $resource The resource property
+    */
     private ?Entity $resource = null;
     
-    /** @var string|null $resultTemplateId ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse. */
+    /**
+     * @var string|null $resultTemplateId ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
+    */
     private ?string $resultTemplateId = null;
     
-    /** @var string|null $summary A summary of the result, if a summary is available. */
+    /**
+     * @var string|null $summary A summary of the result, if a summary is available.
+    */
     private ?string $summary = null;
     
     /**
@@ -54,7 +76,7 @@ class SearchHit implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SearchHit
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SearchHit {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SearchHit {
         return new SearchHit();
     }
 
@@ -111,17 +133,18 @@ class SearchHit implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            '_id' => function (self $o, ParseNode $n) { $o->set_id($n->getStringValue()); },
-            '_score' => function (self $o, ParseNode $n) { $o->set_score($n->getIntegerValue()); },
-            '_source' => function (self $o, ParseNode $n) { $o->set_source($n->getObjectValue(Entity::class)); },
-            '_summary' => function (self $o, ParseNode $n) { $o->set_summary($n->getStringValue()); },
-            'contentSource' => function (self $o, ParseNode $n) { $o->setContentSource($n->getStringValue()); },
-            'hitId' => function (self $o, ParseNode $n) { $o->setHitId($n->getStringValue()); },
-            'rank' => function (self $o, ParseNode $n) { $o->setRank($n->getIntegerValue()); },
-            'resource' => function (self $o, ParseNode $n) { $o->setResource($n->getObjectValue(Entity::class)); },
-            'resultTemplateId' => function (self $o, ParseNode $n) { $o->setResultTemplateId($n->getStringValue()); },
-            'summary' => function (self $o, ParseNode $n) { $o->setSummary($n->getStringValue()); },
+            '_id' => function (ParseNode $n) use ($o) { $o->set_id($n->getStringValue()); },
+            '_score' => function (ParseNode $n) use ($o) { $o->set_score($n->getIntegerValue()); },
+            '_source' => function (ParseNode $n) use ($o) { $o->set_source($n->getObjectValue(array(Entity::class, 'createFromDiscriminatorValue'))); },
+            '_summary' => function (ParseNode $n) use ($o) { $o->set_summary($n->getStringValue()); },
+            'contentSource' => function (ParseNode $n) use ($o) { $o->setContentSource($n->getStringValue()); },
+            'hitId' => function (ParseNode $n) use ($o) { $o->setHitId($n->getStringValue()); },
+            'rank' => function (ParseNode $n) use ($o) { $o->setRank($n->getIntegerValue()); },
+            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(Entity::class, 'createFromDiscriminatorValue'))); },
+            'resultTemplateId' => function (ParseNode $n) use ($o) { $o->setResultTemplateId($n->getStringValue()); },
+            'summary' => function (ParseNode $n) use ($o) { $o->setSummary($n->getStringValue()); },
         ];
     }
 
@@ -150,7 +173,7 @@ class SearchHit implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the resultTemplateId property value. ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.
+     * Gets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
      * @return string|null
     */
     public function getResultTemplateId(): ?string {
@@ -256,7 +279,7 @@ class SearchHit implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the resultTemplateId property value. ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.
+     * Sets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
      *  @param string|null $value Value to set for the resultTemplateId property.
     */
     public function setResultTemplateId(?string $value ): void {

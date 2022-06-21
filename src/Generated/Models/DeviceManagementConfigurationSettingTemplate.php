@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementConfigurationSettingTemplate extends Entity 
+class DeviceManagementConfigurationSettingTemplate extends Entity implements Parsable 
 {
-    /** @var array<DeviceManagementConfigurationSettingDefinition>|null $settingDefinitions List of related Setting Definitions */
+    /**
+     * @var array<DeviceManagementConfigurationSettingDefinition>|null $settingDefinitions List of related Setting Definitions
+    */
     private ?array $settingDefinitions = null;
     
-    /** @var DeviceManagementConfigurationSettingInstanceTemplate|null $settingInstanceTemplate Setting Instance Template */
+    /**
+     * @var DeviceManagementConfigurationSettingInstanceTemplate|null $settingInstanceTemplate Setting Instance Template
+    */
     private ?DeviceManagementConfigurationSettingInstanceTemplate $settingInstanceTemplate = null;
     
     /**
@@ -26,7 +30,7 @@ class DeviceManagementConfigurationSettingTemplate extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationSettingTemplate
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingTemplate {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingTemplate {
         return new DeviceManagementConfigurationSettingTemplate();
     }
 
@@ -35,9 +39,10 @@ class DeviceManagementConfigurationSettingTemplate extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'settingDefinitions' => function (self $o, ParseNode $n) { $o->setSettingDefinitions($n->getCollectionOfObjectValues(DeviceManagementConfigurationSettingDefinition::class)); },
-            'settingInstanceTemplate' => function (self $o, ParseNode $n) { $o->setSettingInstanceTemplate($n->getObjectValue(DeviceManagementConfigurationSettingInstanceTemplate::class)); },
+            'settingDefinitions' => function (ParseNode $n) use ($o) { $o->setSettingDefinitions($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingDefinition::class, 'createFromDiscriminatorValue'))); },
+            'settingInstanceTemplate' => function (ParseNode $n) use ($o) { $o->setSettingInstanceTemplate($n->getObjectValue(array(DeviceManagementConfigurationSettingInstanceTemplate::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

@@ -7,28 +7,40 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class ItemPublication extends ItemFacet 
+class ItemPublication extends ItemFacet implements Parsable 
 {
-    /** @var string|null $description Description of the publication. */
+    /**
+     * @var string|null $description Description of the publication.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Title of the publication. */
+    /**
+     * @var string|null $displayName Title of the publication.
+    */
     private ?string $displayName = null;
     
-    /** @var Date|null $publishedDate The date that the publication was published. */
+    /**
+     * @var Date|null $publishedDate The date that the publication was published.
+    */
     private ?Date $publishedDate = null;
     
-    /** @var string|null $publisher Publication or publisher for the publication. */
+    /**
+     * @var string|null $publisher Publication or publisher for the publication.
+    */
     private ?string $publisher = null;
     
-    /** @var string|null $thumbnailUrl URL referencing a thumbnail of the publication. */
+    /**
+     * @var string|null $thumbnailUrl URL referencing a thumbnail of the publication.
+    */
     private ?string $thumbnailUrl = null;
     
-    /** @var string|null $webUrl URL referencing the publication. */
+    /**
+     * @var string|null $webUrl URL referencing the publication.
+    */
     private ?string $webUrl = null;
     
     /**
-     * Instantiates a new itemPublication and sets the default values.
+     * Instantiates a new ItemPublication and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -39,7 +51,7 @@ class ItemPublication extends ItemFacet
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ItemPublication
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ItemPublication {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ItemPublication {
         return new ItemPublication();
     }
 
@@ -64,13 +76,14 @@ class ItemPublication extends ItemFacet
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'publishedDate' => function (self $o, ParseNode $n) { $o->setPublishedDate($n->getDateValue()); },
-            'publisher' => function (self $o, ParseNode $n) { $o->setPublisher($n->getStringValue()); },
-            'thumbnailUrl' => function (self $o, ParseNode $n) { $o->setThumbnailUrl($n->getStringValue()); },
-            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'publishedDate' => function (ParseNode $n) use ($o) { $o->setPublishedDate($n->getDateValue()); },
+            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
+            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
+            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 

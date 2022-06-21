@@ -6,27 +6,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CredentialUserRegistrationDetails extends Entity 
+class CredentialUserRegistrationDetails extends Entity implements Parsable 
 {
-    /** @var array<RegistrationAuthMethod>|null $authMethods Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue. */
+    /**
+     * @var array<string>|null $authMethods Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
+    */
     private ?array $authMethods = null;
     
-    /** @var bool|null $isCapable Indicates whether the user is ready to perform self-service password reset or MFA. */
+    /**
+     * @var bool|null $isCapable Indicates whether the user is ready to perform self-service password reset or MFA.
+    */
     private ?bool $isCapable = null;
     
-    /** @var bool|null $isEnabled Indicates whether the user enabled to perform self-service password reset. */
+    /**
+     * @var bool|null $isEnabled Indicates whether the user enabled to perform self-service password reset.
+    */
     private ?bool $isEnabled = null;
     
-    /** @var bool|null $isMfaRegistered Indicates whether the user is registered for MFA. */
+    /**
+     * @var bool|null $isMfaRegistered Indicates whether the user is registered for MFA.
+    */
     private ?bool $isMfaRegistered = null;
     
-    /** @var bool|null $isRegistered Indicates whether the user has registered any authentication methods for self-service password reset. */
+    /**
+     * @var bool|null $isRegistered Indicates whether the user has registered any authentication methods for self-service password reset.
+    */
     private ?bool $isRegistered = null;
     
-    /** @var string|null $userDisplayName Provides the user name of the corresponding user. */
+    /**
+     * @var string|null $userDisplayName Provides the user name of the corresponding user.
+    */
     private ?string $userDisplayName = null;
     
-    /** @var string|null $userPrincipalName Provides the user principal name of the corresponding user. */
+    /**
+     * @var string|null $userPrincipalName Provides the user principal name of the corresponding user.
+    */
     private ?string $userPrincipalName = null;
     
     /**
@@ -41,13 +55,13 @@ class CredentialUserRegistrationDetails extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CredentialUserRegistrationDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUserRegistrationDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUserRegistrationDetails {
         return new CredentialUserRegistrationDetails();
     }
 
     /**
      * Gets the authMethods property value. Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
-     * @return array<RegistrationAuthMethod>|null
+     * @return array<string>|null
     */
     public function getAuthMethods(): ?array {
         return $this->authMethods;
@@ -58,14 +72,15 @@ class CredentialUserRegistrationDetails extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authMethods' => function (self $o, ParseNode $n) { $o->setAuthMethods($n->getCollectionOfEnumValues(RegistrationAuthMethod::class)); },
-            'isCapable' => function (self $o, ParseNode $n) { $o->setIsCapable($n->getBooleanValue()); },
-            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
-            'isMfaRegistered' => function (self $o, ParseNode $n) { $o->setIsMfaRegistered($n->getBooleanValue()); },
-            'isRegistered' => function (self $o, ParseNode $n) { $o->setIsRegistered($n->getBooleanValue()); },
-            'userDisplayName' => function (self $o, ParseNode $n) { $o->setUserDisplayName($n->getStringValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'authMethods' => function (ParseNode $n) use ($o) { $o->setAuthMethods($n->getCollectionOfPrimitiveValues()); },
+            'isCapable' => function (ParseNode $n) use ($o) { $o->setIsCapable($n->getBooleanValue()); },
+            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            'isMfaRegistered' => function (ParseNode $n) use ($o) { $o->setIsMfaRegistered($n->getBooleanValue()); },
+            'isRegistered' => function (ParseNode $n) use ($o) { $o->setIsRegistered($n->getBooleanValue()); },
+            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 
@@ -123,7 +138,7 @@ class CredentialUserRegistrationDetails extends Entity
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfEnumValues('authMethods', $this->authMethods);
+        $writer->writeCollectionOfPrimitiveValues('authMethods', $this->authMethods);
         $writer->writeBooleanValue('isCapable', $this->isCapable);
         $writer->writeBooleanValue('isEnabled', $this->isEnabled);
         $writer->writeBooleanValue('isMfaRegistered', $this->isMfaRegistered);
@@ -134,7 +149,7 @@ class CredentialUserRegistrationDetails extends Entity
 
     /**
      * Sets the authMethods property value. Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
-     *  @param array<RegistrationAuthMethod>|null $value Value to set for the authMethods property.
+     *  @param array<string>|null $value Value to set for the authMethods property.
     */
     public function setAuthMethods(?array $value ): void {
         $this->authMethods = $value;

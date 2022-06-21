@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ProfileCardAnnotation implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $displayName If present, the value of this field is used by the profile card as the default property label in the experience (for example, 'Cost Center'). */
+    /**
+     * @var string|null $displayName If present, the value of this field is used by the profile card as the default property label in the experience (for example, 'Cost Center').
+    */
     private ?string $displayName = null;
     
-    /** @var array<DisplayNameLocalization>|null $localizations Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a no-NB client gets 'Kostnads Senter' as the attribute label, rather than 'Cost Center.' */
+    /**
+     * @var array<DisplayNameLocalization>|null $localizations Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a no-NB client gets 'Kostnads Senter' as the attribute label, rather than 'Cost Center.'
+    */
     private ?array $localizations = null;
     
     /**
@@ -30,7 +36,7 @@ class ProfileCardAnnotation implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ProfileCardAnnotation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ProfileCardAnnotation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ProfileCardAnnotation {
         return new ProfileCardAnnotation();
     }
 
@@ -55,9 +61,10 @@ class ProfileCardAnnotation implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'localizations' => function (self $o, ParseNode $n) { $o->setLocalizations($n->getCollectionOfObjectValues(DisplayNameLocalization::class)); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'localizations' => function (ParseNode $n) use ($o) { $o->setLocalizations($n->getCollectionOfObjectValues(array(DisplayNameLocalization::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class WebPart implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var SitePageData|null $data The required properties for the webPart (varies by webPart) */
+    /**
+     * @var SitePageData|null $data The required properties for the webPart (varies by webPart)
+    */
     private ?SitePageData $data = null;
     
-    /** @var string|null $type A unique identifier specifying the webPart type. Read-only. */
+    /**
+     * @var string|null $type A unique identifier specifying the webPart type. Read-only.
+    */
     private ?string $type = null;
     
     /**
@@ -30,7 +36,7 @@ class WebPart implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WebPart
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WebPart {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WebPart {
         return new WebPart();
     }
 
@@ -55,9 +61,10 @@ class WebPart implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'data' => function (self $o, ParseNode $n) { $o->setData($n->getObjectValue(SitePageData::class)); },
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
+            'data' => function (ParseNode $n) use ($o) { $o->setData($n->getObjectValue(array(SitePageData::class, 'createFromDiscriminatorValue'))); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
         ];
     }
 

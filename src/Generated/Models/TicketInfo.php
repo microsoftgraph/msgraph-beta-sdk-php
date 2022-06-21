@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TicketInfo implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $ticketNumber Ticket number meta data */
+    /**
+     * @var string|null $ticketNumber The ticket number.
+    */
     private ?string $ticketNumber = null;
     
-    /** @var string|null $ticketSystem Ticket system meta data */
+    /**
+     * @var string|null $ticketSystem The description of the ticket system.
+    */
     private ?string $ticketSystem = null;
     
     /**
@@ -30,7 +36,7 @@ class TicketInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TicketInfo
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TicketInfo {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TicketInfo {
         return new TicketInfo();
     }
 
@@ -47,14 +53,15 @@ class TicketInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'ticketNumber' => function (self $o, ParseNode $n) { $o->setTicketNumber($n->getStringValue()); },
-            'ticketSystem' => function (self $o, ParseNode $n) { $o->setTicketSystem($n->getStringValue()); },
+            'ticketNumber' => function (ParseNode $n) use ($o) { $o->setTicketNumber($n->getStringValue()); },
+            'ticketSystem' => function (ParseNode $n) use ($o) { $o->setTicketSystem($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the ticketNumber property value. Ticket number meta data
+     * Gets the ticketNumber property value. The ticket number.
      * @return string|null
     */
     public function getTicketNumber(): ?string {
@@ -62,7 +69,7 @@ class TicketInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the ticketSystem property value. Ticket system meta data
+     * Gets the ticketSystem property value. The description of the ticket system.
      * @return string|null
     */
     public function getTicketSystem(): ?string {
@@ -88,7 +95,7 @@ class TicketInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ticketNumber property value. Ticket number meta data
+     * Sets the ticketNumber property value. The ticket number.
      *  @param string|null $value Value to set for the ticketNumber property.
     */
     public function setTicketNumber(?string $value ): void {
@@ -96,7 +103,7 @@ class TicketInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ticketSystem property value. Ticket system meta data
+     * Sets the ticketSystem property value. The description of the ticket system.
      *  @param string|null $value Value to set for the ticketSystem property.
     */
     public function setTicketSystem(?string $value ): void {

@@ -6,27 +6,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementIntentDeviceSettingStateSummary extends Entity 
+class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements Parsable 
 {
-    /** @var int|null $compliantCount Number of compliant devices */
+    /**
+     * @var int|null $compliantCount Number of compliant devices
+    */
     private ?int $compliantCount = null;
     
-    /** @var int|null $conflictCount Number of devices in conflict */
+    /**
+     * @var int|null $conflictCount Number of devices in conflict
+    */
     private ?int $conflictCount = null;
     
-    /** @var int|null $errorCount Number of error devices */
+    /**
+     * @var int|null $errorCount Number of error devices
+    */
     private ?int $errorCount = null;
     
-    /** @var int|null $nonCompliantCount Number of non compliant devices */
+    /**
+     * @var int|null $nonCompliantCount Number of non compliant devices
+    */
     private ?int $nonCompliantCount = null;
     
-    /** @var int|null $notApplicableCount Number of not applicable devices */
+    /**
+     * @var int|null $notApplicableCount Number of not applicable devices
+    */
     private ?int $notApplicableCount = null;
     
-    /** @var int|null $remediatedCount Number of remediated devices */
+    /**
+     * @var int|null $remediatedCount Number of remediated devices
+    */
     private ?int $remediatedCount = null;
     
-    /** @var string|null $settingName Name of a setting */
+    /**
+     * @var string|null $settingName Name of a setting
+    */
     private ?string $settingName = null;
     
     /**
@@ -41,7 +55,7 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementIntentDeviceSettingStateSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementIntentDeviceSettingStateSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementIntentDeviceSettingStateSummary {
         return new DeviceManagementIntentDeviceSettingStateSummary();
     }
 
@@ -74,14 +88,15 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'compliantCount' => function (self $o, ParseNode $n) { $o->setCompliantCount($n->getIntegerValue()); },
-            'conflictCount' => function (self $o, ParseNode $n) { $o->setConflictCount($n->getIntegerValue()); },
-            'errorCount' => function (self $o, ParseNode $n) { $o->setErrorCount($n->getIntegerValue()); },
-            'nonCompliantCount' => function (self $o, ParseNode $n) { $o->setNonCompliantCount($n->getIntegerValue()); },
-            'notApplicableCount' => function (self $o, ParseNode $n) { $o->setNotApplicableCount($n->getIntegerValue()); },
-            'remediatedCount' => function (self $o, ParseNode $n) { $o->setRemediatedCount($n->getIntegerValue()); },
-            'settingName' => function (self $o, ParseNode $n) { $o->setSettingName($n->getStringValue()); },
+            'compliantCount' => function (ParseNode $n) use ($o) { $o->setCompliantCount($n->getIntegerValue()); },
+            'conflictCount' => function (ParseNode $n) use ($o) { $o->setConflictCount($n->getIntegerValue()); },
+            'errorCount' => function (ParseNode $n) use ($o) { $o->setErrorCount($n->getIntegerValue()); },
+            'nonCompliantCount' => function (ParseNode $n) use ($o) { $o->setNonCompliantCount($n->getIntegerValue()); },
+            'notApplicableCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableCount($n->getIntegerValue()); },
+            'remediatedCount' => function (ParseNode $n) use ($o) { $o->setRemediatedCount($n->getIntegerValue()); },
+            'settingName' => function (ParseNode $n) use ($o) { $o->setSettingName($n->getStringValue()); },
         ]);
     }
 

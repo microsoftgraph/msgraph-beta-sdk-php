@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ObjectDefinition implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<AttributeDefinition>|null $attributes The attributes property */
+    /**
+     * @var array<AttributeDefinition>|null $attributes The attributes property
+    */
     private ?array $attributes = null;
     
-    /** @var array<MetadataEntry>|null $metadata The metadata property */
+    /**
+     * @var array<MetadataEntry>|null $metadata The metadata property
+    */
     private ?array $metadata = null;
     
-    /** @var string|null $name The name property */
+    /**
+     * @var string|null $name The name property
+    */
     private ?string $name = null;
     
-    /** @var array<string>|null $supportedApis The supportedApis property */
+    /**
+     * @var array<string>|null $supportedApis The supportedApis property
+    */
     private ?array $supportedApis = null;
     
     /**
@@ -36,7 +46,7 @@ class ObjectDefinition implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ObjectDefinition
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ObjectDefinition {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ObjectDefinition {
         return new ObjectDefinition();
     }
 
@@ -61,11 +71,12 @@ class ObjectDefinition implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'attributes' => function (self $o, ParseNode $n) { $o->setAttributes($n->getCollectionOfObjectValues(AttributeDefinition::class)); },
-            'metadata' => function (self $o, ParseNode $n) { $o->setMetadata($n->getCollectionOfObjectValues(MetadataEntry::class)); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'supportedApis' => function (self $o, ParseNode $n) { $o->setSupportedApis($n->getCollectionOfPrimitiveValues()); },
+            'attributes' => function (ParseNode $n) use ($o) { $o->setAttributes($n->getCollectionOfObjectValues(array(AttributeDefinition::class, 'createFromDiscriminatorValue'))); },
+            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(MetadataEntry::class, 'createFromDiscriminatorValue'))); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'supportedApis' => function (ParseNode $n) use ($o) { $o->setSupportedApis($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

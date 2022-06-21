@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $displayName Name of the policy */
+    /**
+     * @var string|null $displayName Name of the policy
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $sourceId Unique identifier of the policy */
+    /**
+     * @var string|null $sourceId Unique identifier of the policy
+    */
     private ?string $sourceId = null;
     
-    /** @var SecurityBaselinePolicySourceType|null $sourceType Authoring source of the policy. Possible values are: deviceConfiguration, deviceIntent. */
+    /**
+     * @var SecurityBaselinePolicySourceType|null $sourceType Authoring source of the policy. Possible values are: deviceConfiguration, deviceIntent.
+    */
     private ?SecurityBaselinePolicySourceType $sourceType = null;
     
     /**
@@ -33,7 +41,7 @@ class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsab
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SecurityBaselineContributingPolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SecurityBaselineContributingPolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SecurityBaselineContributingPolicy {
         return new SecurityBaselineContributingPolicy();
     }
 
@@ -58,10 +66,11 @@ class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsab
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'sourceId' => function (self $o, ParseNode $n) { $o->setSourceId($n->getStringValue()); },
-            'sourceType' => function (self $o, ParseNode $n) { $o->setSourceType($n->getEnumValue(SecurityBaselinePolicySourceType::class)); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'sourceId' => function (ParseNode $n) use ($o) { $o->setSourceId($n->getStringValue()); },
+            'sourceType' => function (ParseNode $n) use ($o) { $o->setSourceType($n->getEnumValue(SecurityBaselinePolicySourceType::class)); },
         ];
     }
 

@@ -10,49 +10,79 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ArchivedPrintJob implements AdditionalDataHolder, Parsable 
 {
-    /** @var bool|null $acquiredByPrinter True if the job was acquired by a printer; false otherwise. Read-only. */
+    /**
+     * @var bool|null $acquiredByPrinter True if the job was acquired by a printer; false otherwise. Read-only.
+    */
     private ?bool $acquiredByPrinter = null;
     
-    /** @var DateTime|null $acquiredDateTime The dateTimeOffset when the job was acquired by the printer, if any. Read-only. */
+    /**
+     * @var DateTime|null $acquiredDateTime The dateTimeOffset when the job was acquired by the printer, if any. Read-only.
+    */
     private ?DateTime $acquiredDateTime = null;
     
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $blackAndWhitePageCount The number of black and white pages that were printed. Read-only. */
+    /**
+     * @var int|null $blackAndWhitePageCount The number of black and white pages that were printed. Read-only.
+    */
     private ?int $blackAndWhitePageCount = null;
     
-    /** @var int|null $colorPageCount The number of color pages that were printed. Read-only. */
+    /**
+     * @var int|null $colorPageCount The number of color pages that were printed. Read-only.
+    */
     private ?int $colorPageCount = null;
     
-    /** @var DateTime|null $completionDateTime The dateTimeOffset when the job was completed, canceled or aborted. Read-only. */
+    /**
+     * @var DateTime|null $completionDateTime The dateTimeOffset when the job was completed, canceled or aborted. Read-only.
+    */
     private ?DateTime $completionDateTime = null;
     
-    /** @var int|null $copiesPrinted The number of copies that were printed. Read-only. */
+    /**
+     * @var int|null $copiesPrinted The number of copies that were printed. Read-only.
+    */
     private ?int $copiesPrinted = null;
     
-    /** @var UserIdentity|null $createdBy The user who created the print job. Read-only. */
+    /**
+     * @var UserIdentity|null $createdBy The user who created the print job. Read-only.
+    */
     private ?UserIdentity $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime The dateTimeOffset when the job was created. Read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The dateTimeOffset when the job was created. Read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var int|null $duplexPageCount The number of duplex (double-sided) pages that were printed. Read-only. */
+    /**
+     * @var int|null $duplexPageCount The number of duplex (double-sided) pages that were printed. Read-only.
+    */
     private ?int $duplexPageCount = null;
     
-    /** @var string|null $id The archived print job's GUID. Read-only. */
+    /**
+     * @var string|null $id The archived print job's GUID. Read-only.
+    */
     private ?string $id = null;
     
-    /** @var int|null $pageCount The total number of pages that were printed. Read-only. */
+    /**
+     * @var int|null $pageCount The total number of pages that were printed. Read-only.
+    */
     private ?int $pageCount = null;
     
-    /** @var string|null $printerId The printer ID that the job was queued for. Read-only. */
+    /**
+     * @var string|null $printerId The printer ID that the job was queued for. Read-only.
+    */
     private ?string $printerId = null;
     
-    /** @var PrintJobProcessingState|null $processingState The print job's final processing state. Read-only. */
+    /**
+     * @var PrintJobProcessingState|null $processingState The print job's final processing state. Read-only.
+    */
     private ?PrintJobProcessingState $processingState = null;
     
-    /** @var int|null $simplexPageCount The number of simplex (single-sided) pages that were printed. Read-only. */
+    /**
+     * @var int|null $simplexPageCount The number of simplex (single-sided) pages that were printed. Read-only.
+    */
     private ?int $simplexPageCount = null;
     
     /**
@@ -67,7 +97,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ArchivedPrintJob
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ArchivedPrintJob {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ArchivedPrintJob {
         return new ArchivedPrintJob();
     }
 
@@ -156,21 +186,22 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'acquiredByPrinter' => function (self $o, ParseNode $n) { $o->setAcquiredByPrinter($n->getBooleanValue()); },
-            'acquiredDateTime' => function (self $o, ParseNode $n) { $o->setAcquiredDateTime($n->getDateTimeValue()); },
-            'blackAndWhitePageCount' => function (self $o, ParseNode $n) { $o->setBlackAndWhitePageCount($n->getIntegerValue()); },
-            'colorPageCount' => function (self $o, ParseNode $n) { $o->setColorPageCount($n->getIntegerValue()); },
-            'completionDateTime' => function (self $o, ParseNode $n) { $o->setCompletionDateTime($n->getDateTimeValue()); },
-            'copiesPrinted' => function (self $o, ParseNode $n) { $o->setCopiesPrinted($n->getIntegerValue()); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(UserIdentity::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'duplexPageCount' => function (self $o, ParseNode $n) { $o->setDuplexPageCount($n->getIntegerValue()); },
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
-            'pageCount' => function (self $o, ParseNode $n) { $o->setPageCount($n->getIntegerValue()); },
-            'printerId' => function (self $o, ParseNode $n) { $o->setPrinterId($n->getStringValue()); },
-            'processingState' => function (self $o, ParseNode $n) { $o->setProcessingState($n->getEnumValue(PrintJobProcessingState::class)); },
-            'simplexPageCount' => function (self $o, ParseNode $n) { $o->setSimplexPageCount($n->getIntegerValue()); },
+            'acquiredByPrinter' => function (ParseNode $n) use ($o) { $o->setAcquiredByPrinter($n->getBooleanValue()); },
+            'acquiredDateTime' => function (ParseNode $n) use ($o) { $o->setAcquiredDateTime($n->getDateTimeValue()); },
+            'blackAndWhitePageCount' => function (ParseNode $n) use ($o) { $o->setBlackAndWhitePageCount($n->getIntegerValue()); },
+            'colorPageCount' => function (ParseNode $n) use ($o) { $o->setColorPageCount($n->getIntegerValue()); },
+            'completionDateTime' => function (ParseNode $n) use ($o) { $o->setCompletionDateTime($n->getDateTimeValue()); },
+            'copiesPrinted' => function (ParseNode $n) use ($o) { $o->setCopiesPrinted($n->getIntegerValue()); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'duplexPageCount' => function (ParseNode $n) use ($o) { $o->setDuplexPageCount($n->getIntegerValue()); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'pageCount' => function (ParseNode $n) use ($o) { $o->setPageCount($n->getIntegerValue()); },
+            'printerId' => function (ParseNode $n) use ($o) { $o->setPrinterId($n->getStringValue()); },
+            'processingState' => function (ParseNode $n) use ($o) { $o->setProcessingState($n->getEnumValue(PrintJobProcessingState::class)); },
+            'simplexPageCount' => function (ParseNode $n) use ($o) { $o->setSimplexPageCount($n->getIntegerValue()); },
         ];
     }
 

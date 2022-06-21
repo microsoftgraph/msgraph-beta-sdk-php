@@ -7,57 +7,91 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceConfiguration extends Entity 
+class DeviceConfiguration extends Entity implements Parsable 
 {
-    /** @var array<DeviceConfigurationAssignment>|null $assignments The list of assignments for the device configuration profile. */
+    /**
+     * @var array<DeviceConfigurationAssignment>|null $assignments The list of assignments for the device configuration profile.
+    */
     private ?array $assignments = null;
     
-    /** @var DateTime|null $createdDateTime DateTime the object was created. */
+    /**
+     * @var DateTime|null $createdDateTime DateTime the object was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description Admin provided description of the Device Configuration. */
+    /**
+     * @var string|null $description Admin provided description of the Device Configuration.
+    */
     private ?string $description = null;
     
-    /** @var DeviceManagementApplicabilityRuleDeviceMode|null $deviceManagementApplicabilityRuleDeviceMode The device mode applicability rule for this Policy. */
+    /**
+     * @var DeviceManagementApplicabilityRuleDeviceMode|null $deviceManagementApplicabilityRuleDeviceMode The device mode applicability rule for this Policy.
+    */
     private ?DeviceManagementApplicabilityRuleDeviceMode $deviceManagementApplicabilityRuleDeviceMode = null;
     
-    /** @var DeviceManagementApplicabilityRuleOsEdition|null $deviceManagementApplicabilityRuleOsEdition The OS edition applicability for this Policy. */
+    /**
+     * @var DeviceManagementApplicabilityRuleOsEdition|null $deviceManagementApplicabilityRuleOsEdition The OS edition applicability for this Policy.
+    */
     private ?DeviceManagementApplicabilityRuleOsEdition $deviceManagementApplicabilityRuleOsEdition = null;
     
-    /** @var DeviceManagementApplicabilityRuleOsVersion|null $deviceManagementApplicabilityRuleOsVersion The OS version applicability rule for this Policy. */
+    /**
+     * @var DeviceManagementApplicabilityRuleOsVersion|null $deviceManagementApplicabilityRuleOsVersion The OS version applicability rule for this Policy.
+    */
     private ?DeviceManagementApplicabilityRuleOsVersion $deviceManagementApplicabilityRuleOsVersion = null;
     
-    /** @var array<SettingStateDeviceSummary>|null $deviceSettingStateSummaries Device Configuration Setting State Device Summary */
+    /**
+     * @var array<SettingStateDeviceSummary>|null $deviceSettingStateSummaries Device Configuration Setting State Device Summary
+    */
     private ?array $deviceSettingStateSummaries = null;
     
-    /** @var array<DeviceConfigurationDeviceStatus>|null $deviceStatuses Device configuration installation status by device. */
+    /**
+     * @var array<DeviceConfigurationDeviceStatus>|null $deviceStatuses Device configuration installation status by device.
+    */
     private ?array $deviceStatuses = null;
     
-    /** @var DeviceConfigurationDeviceOverview|null $deviceStatusOverview Device Configuration devices status overview */
+    /**
+     * @var DeviceConfigurationDeviceOverview|null $deviceStatusOverview Device Configuration devices status overview
+    */
     private ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null;
     
-    /** @var string|null $displayName Admin provided name of the device configuration. */
+    /**
+     * @var string|null $displayName Admin provided name of the device configuration.
+    */
     private ?string $displayName = null;
     
-    /** @var array<DeviceConfigurationGroupAssignment>|null $groupAssignments The list of group assignments for the device configuration profile. */
+    /**
+     * @var array<DeviceConfigurationGroupAssignment>|null $groupAssignments The list of group assignments for the device configuration profile.
+    */
     private ?array $groupAssignments = null;
     
-    /** @var DateTime|null $lastModifiedDateTime DateTime the object was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime DateTime the object was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance. */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
+    */
     private ?array $roleScopeTagIds = null;
     
-    /** @var bool|null $supportsScopeTags Indicates whether or not the underlying Device Configuration supports the assignment of scope tags. Assigning to the ScopeTags property is not allowed when this value is false and entities will not be visible to scoped users. This occurs for Legacy policies created in Silverlight and can be resolved by deleting and recreating the policy in the Azure Portal. This property is read-only. */
+    /**
+     * @var bool|null $supportsScopeTags Indicates whether or not the underlying Device Configuration supports the assignment of scope tags. Assigning to the ScopeTags property is not allowed when this value is false and entities will not be visible to scoped users. This occurs for Legacy policies created in Silverlight and can be resolved by deleting and recreating the policy in the Azure Portal. This property is read-only.
+    */
     private ?bool $supportsScopeTags = null;
     
-    /** @var array<DeviceConfigurationUserStatus>|null $userStatuses Device configuration installation status by user. */
+    /**
+     * @var array<DeviceConfigurationUserStatus>|null $userStatuses Device configuration installation status by user.
+    */
     private ?array $userStatuses = null;
     
-    /** @var DeviceConfigurationUserOverview|null $userStatusOverview Device Configuration users status overview */
+    /**
+     * @var DeviceConfigurationUserOverview|null $userStatusOverview Device Configuration users status overview
+    */
     private ?DeviceConfigurationUserOverview $userStatusOverview = null;
     
-    /** @var int|null $version Version of the device configuration. */
+    /**
+     * @var int|null $version Version of the device configuration.
+    */
     private ?int $version = null;
     
     /**
@@ -72,7 +106,98 @@ class DeviceConfiguration extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfiguration {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.androidCertificateProfileBase': return new AndroidCertificateProfileBase();
+                case '#microsoft.graph.androidCustomConfiguration': return new AndroidCustomConfiguration();
+                case '#microsoft.graph.androidDeviceOwnerCertificateProfileBase': return new AndroidDeviceOwnerCertificateProfileBase();
+                case '#microsoft.graph.androidDeviceOwnerDerivedCredentialAuthenticationConfiguration': return new AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration();
+                case '#microsoft.graph.androidDeviceOwnerGeneralDeviceConfiguration': return new AndroidDeviceOwnerGeneralDeviceConfiguration();
+                case '#microsoft.graph.androidDeviceOwnerTrustedRootCertificate': return new AndroidDeviceOwnerTrustedRootCertificate();
+                case '#microsoft.graph.androidDeviceOwnerWiFiConfiguration': return new AndroidDeviceOwnerWiFiConfiguration();
+                case '#microsoft.graph.androidEasEmailProfileConfiguration': return new AndroidEasEmailProfileConfiguration();
+                case '#microsoft.graph.androidForWorkCertificateProfileBase': return new AndroidForWorkCertificateProfileBase();
+                case '#microsoft.graph.androidForWorkCustomConfiguration': return new AndroidForWorkCustomConfiguration();
+                case '#microsoft.graph.androidForWorkEasEmailProfileBase': return new AndroidForWorkEasEmailProfileBase();
+                case '#microsoft.graph.androidForWorkGeneralDeviceConfiguration': return new AndroidForWorkGeneralDeviceConfiguration();
+                case '#microsoft.graph.androidForWorkTrustedRootCertificate': return new AndroidForWorkTrustedRootCertificate();
+                case '#microsoft.graph.androidForWorkVpnConfiguration': return new AndroidForWorkVpnConfiguration();
+                case '#microsoft.graph.androidForWorkWiFiConfiguration': return new AndroidForWorkWiFiConfiguration();
+                case '#microsoft.graph.androidGeneralDeviceConfiguration': return new AndroidGeneralDeviceConfiguration();
+                case '#microsoft.graph.androidOmaCpConfiguration': return new AndroidOmaCpConfiguration();
+                case '#microsoft.graph.androidTrustedRootCertificate': return new AndroidTrustedRootCertificate();
+                case '#microsoft.graph.androidVpnConfiguration': return new AndroidVpnConfiguration();
+                case '#microsoft.graph.androidWiFiConfiguration': return new AndroidWiFiConfiguration();
+                case '#microsoft.graph.androidWorkProfileCertificateProfileBase': return new AndroidWorkProfileCertificateProfileBase();
+                case '#microsoft.graph.androidWorkProfileCustomConfiguration': return new AndroidWorkProfileCustomConfiguration();
+                case '#microsoft.graph.androidWorkProfileEasEmailProfileBase': return new AndroidWorkProfileEasEmailProfileBase();
+                case '#microsoft.graph.androidWorkProfileGeneralDeviceConfiguration': return new AndroidWorkProfileGeneralDeviceConfiguration();
+                case '#microsoft.graph.androidWorkProfileTrustedRootCertificate': return new AndroidWorkProfileTrustedRootCertificate();
+                case '#microsoft.graph.androidWorkProfileVpnConfiguration': return new AndroidWorkProfileVpnConfiguration();
+                case '#microsoft.graph.androidWorkProfileWiFiConfiguration': return new AndroidWorkProfileWiFiConfiguration();
+                case '#microsoft.graph.aospDeviceOwnerCertificateProfileBase': return new AospDeviceOwnerCertificateProfileBase();
+                case '#microsoft.graph.aospDeviceOwnerDeviceConfiguration': return new AospDeviceOwnerDeviceConfiguration();
+                case '#microsoft.graph.aospDeviceOwnerTrustedRootCertificate': return new AospDeviceOwnerTrustedRootCertificate();
+                case '#microsoft.graph.aospDeviceOwnerWiFiConfiguration': return new AospDeviceOwnerWiFiConfiguration();
+                case '#microsoft.graph.appleDeviceFeaturesConfigurationBase': return new AppleDeviceFeaturesConfigurationBase();
+                case '#microsoft.graph.appleExpeditedCheckinConfigurationBase': return new AppleExpeditedCheckinConfigurationBase();
+                case '#microsoft.graph.appleVpnConfiguration': return new AppleVpnConfiguration();
+                case '#microsoft.graph.easEmailProfileConfigurationBase': return new EasEmailProfileConfigurationBase();
+                case '#microsoft.graph.editionUpgradeConfiguration': return new EditionUpgradeConfiguration();
+                case '#microsoft.graph.iosCertificateProfile': return new IosCertificateProfile();
+                case '#microsoft.graph.iosCustomConfiguration': return new IosCustomConfiguration();
+                case '#microsoft.graph.iosDerivedCredentialAuthenticationConfiguration': return new IosDerivedCredentialAuthenticationConfiguration();
+                case '#microsoft.graph.iosEducationDeviceConfiguration': return new IosEducationDeviceConfiguration();
+                case '#microsoft.graph.iosEduDeviceConfiguration': return new IosEduDeviceConfiguration();
+                case '#microsoft.graph.iosGeneralDeviceConfiguration': return new IosGeneralDeviceConfiguration();
+                case '#microsoft.graph.iosTrustedRootCertificate': return new IosTrustedRootCertificate();
+                case '#microsoft.graph.iosUpdateConfiguration': return new IosUpdateConfiguration();
+                case '#microsoft.graph.iosWiFiConfiguration': return new IosWiFiConfiguration();
+                case '#microsoft.graph.macOSCertificateProfileBase': return new MacOSCertificateProfileBase();
+                case '#microsoft.graph.macOSCustomAppConfiguration': return new MacOSCustomAppConfiguration();
+                case '#microsoft.graph.macOSCustomConfiguration': return new MacOSCustomConfiguration();
+                case '#microsoft.graph.macOSEndpointProtectionConfiguration': return new MacOSEndpointProtectionConfiguration();
+                case '#microsoft.graph.macOSExtensionsConfiguration': return new MacOSExtensionsConfiguration();
+                case '#microsoft.graph.macOSGeneralDeviceConfiguration': return new MacOSGeneralDeviceConfiguration();
+                case '#microsoft.graph.macOSSoftwareUpdateConfiguration': return new MacOSSoftwareUpdateConfiguration();
+                case '#microsoft.graph.macOSTrustedRootCertificate': return new MacOSTrustedRootCertificate();
+                case '#microsoft.graph.macOSWiFiConfiguration': return new MacOSWiFiConfiguration();
+                case '#microsoft.graph.macOSWiredNetworkConfiguration': return new MacOSWiredNetworkConfiguration();
+                case '#microsoft.graph.sharedPCConfiguration': return new SharedPCConfiguration();
+                case '#microsoft.graph.unsupportedDeviceConfiguration': return new UnsupportedDeviceConfiguration();
+                case '#microsoft.graph.vpnConfiguration': return new VpnConfiguration();
+                case '#microsoft.graph.windows10CustomConfiguration': return new Windows10CustomConfiguration();
+                case '#microsoft.graph.windows10DeviceFirmwareConfigurationInterface': return new Windows10DeviceFirmwareConfigurationInterface();
+                case '#microsoft.graph.windows10EndpointProtectionConfiguration': return new Windows10EndpointProtectionConfiguration();
+                case '#microsoft.graph.windows10EnterpriseModernAppManagementConfiguration': return new Windows10EnterpriseModernAppManagementConfiguration();
+                case '#microsoft.graph.windows10GeneralConfiguration': return new Windows10GeneralConfiguration();
+                case '#microsoft.graph.windows10NetworkBoundaryConfiguration': return new Windows10NetworkBoundaryConfiguration();
+                case '#microsoft.graph.windows10PFXImportCertificateProfile': return new Windows10PFXImportCertificateProfile();
+                case '#microsoft.graph.windows10SecureAssessmentConfiguration': return new Windows10SecureAssessmentConfiguration();
+                case '#microsoft.graph.windows10TeamGeneralConfiguration': return new Windows10TeamGeneralConfiguration();
+                case '#microsoft.graph.windows81GeneralConfiguration': return new Windows81GeneralConfiguration();
+                case '#microsoft.graph.windows81TrustedRootCertificate': return new Windows81TrustedRootCertificate();
+                case '#microsoft.graph.windows81WifiImportConfiguration': return new Windows81WifiImportConfiguration();
+                case '#microsoft.graph.windowsCertificateProfileBase': return new WindowsCertificateProfileBase();
+                case '#microsoft.graph.windowsDefenderAdvancedThreatProtectionConfiguration': return new WindowsDefenderAdvancedThreatProtectionConfiguration();
+                case '#microsoft.graph.windowsDeliveryOptimizationConfiguration': return new WindowsDeliveryOptimizationConfiguration();
+                case '#microsoft.graph.windowsDomainJoinConfiguration': return new WindowsDomainJoinConfiguration();
+                case '#microsoft.graph.windowsHealthMonitoringConfiguration': return new WindowsHealthMonitoringConfiguration();
+                case '#microsoft.graph.windowsIdentityProtectionConfiguration': return new WindowsIdentityProtectionConfiguration();
+                case '#microsoft.graph.windowsKioskConfiguration': return new WindowsKioskConfiguration();
+                case '#microsoft.graph.windowsPhone81CertificateProfileBase': return new WindowsPhone81CertificateProfileBase();
+                case '#microsoft.graph.windowsPhone81CustomConfiguration': return new WindowsPhone81CustomConfiguration();
+                case '#microsoft.graph.windowsPhone81GeneralConfiguration': return new WindowsPhone81GeneralConfiguration();
+                case '#microsoft.graph.windowsPhone81TrustedRootCertificate': return new WindowsPhone81TrustedRootCertificate();
+                case '#microsoft.graph.windowsUpdateForBusinessConfiguration': return new WindowsUpdateForBusinessConfiguration();
+                case '#microsoft.graph.windowsVpnConfiguration': return new WindowsVpnConfiguration();
+                case '#microsoft.graph.windowsWifiConfiguration': return new WindowsWifiConfiguration();
+                case '#microsoft.graph.windowsWiredNetworkConfiguration': return new WindowsWiredNetworkConfiguration();
+            }
+        }
         return new DeviceConfiguration();
     }
 
@@ -161,24 +286,25 @@ class DeviceConfiguration extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(DeviceConfigurationAssignment::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'deviceManagementApplicabilityRuleDeviceMode' => function (self $o, ParseNode $n) { $o->setDeviceManagementApplicabilityRuleDeviceMode($n->getObjectValue(DeviceManagementApplicabilityRuleDeviceMode::class)); },
-            'deviceManagementApplicabilityRuleOsEdition' => function (self $o, ParseNode $n) { $o->setDeviceManagementApplicabilityRuleOsEdition($n->getObjectValue(DeviceManagementApplicabilityRuleOsEdition::class)); },
-            'deviceManagementApplicabilityRuleOsVersion' => function (self $o, ParseNode $n) { $o->setDeviceManagementApplicabilityRuleOsVersion($n->getObjectValue(DeviceManagementApplicabilityRuleOsVersion::class)); },
-            'deviceSettingStateSummaries' => function (self $o, ParseNode $n) { $o->setDeviceSettingStateSummaries($n->getCollectionOfObjectValues(SettingStateDeviceSummary::class)); },
-            'deviceStatuses' => function (self $o, ParseNode $n) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(DeviceConfigurationDeviceStatus::class)); },
-            'deviceStatusOverview' => function (self $o, ParseNode $n) { $o->setDeviceStatusOverview($n->getObjectValue(DeviceConfigurationDeviceOverview::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'groupAssignments' => function (self $o, ParseNode $n) { $o->setGroupAssignments($n->getCollectionOfObjectValues(DeviceConfigurationGroupAssignment::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'supportsScopeTags' => function (self $o, ParseNode $n) { $o->setSupportsScopeTags($n->getBooleanValue()); },
-            'userStatuses' => function (self $o, ParseNode $n) { $o->setUserStatuses($n->getCollectionOfObjectValues(DeviceConfigurationUserStatus::class)); },
-            'userStatusOverview' => function (self $o, ParseNode $n) { $o->setUserStatusOverview($n->getObjectValue(DeviceConfigurationUserOverview::class)); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getIntegerValue()); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceConfigurationAssignment::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'deviceManagementApplicabilityRuleDeviceMode' => function (ParseNode $n) use ($o) { $o->setDeviceManagementApplicabilityRuleDeviceMode($n->getObjectValue(array(DeviceManagementApplicabilityRuleDeviceMode::class, 'createFromDiscriminatorValue'))); },
+            'deviceManagementApplicabilityRuleOsEdition' => function (ParseNode $n) use ($o) { $o->setDeviceManagementApplicabilityRuleOsEdition($n->getObjectValue(array(DeviceManagementApplicabilityRuleOsEdition::class, 'createFromDiscriminatorValue'))); },
+            'deviceManagementApplicabilityRuleOsVersion' => function (ParseNode $n) use ($o) { $o->setDeviceManagementApplicabilityRuleOsVersion($n->getObjectValue(array(DeviceManagementApplicabilityRuleOsVersion::class, 'createFromDiscriminatorValue'))); },
+            'deviceSettingStateSummaries' => function (ParseNode $n) use ($o) { $o->setDeviceSettingStateSummaries($n->getCollectionOfObjectValues(array(SettingStateDeviceSummary::class, 'createFromDiscriminatorValue'))); },
+            'deviceStatuses' => function (ParseNode $n) use ($o) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(array(DeviceConfigurationDeviceStatus::class, 'createFromDiscriminatorValue'))); },
+            'deviceStatusOverview' => function (ParseNode $n) use ($o) { $o->setDeviceStatusOverview($n->getObjectValue(array(DeviceConfigurationDeviceOverview::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'groupAssignments' => function (ParseNode $n) use ($o) { $o->setGroupAssignments($n->getCollectionOfObjectValues(array(DeviceConfigurationGroupAssignment::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'supportsScopeTags' => function (ParseNode $n) use ($o) { $o->setSupportsScopeTags($n->getBooleanValue()); },
+            'userStatuses' => function (ParseNode $n) use ($o) { $o->setUserStatuses($n->getCollectionOfObjectValues(array(DeviceConfigurationUserStatus::class, 'createFromDiscriminatorValue'))); },
+            'userStatusOverview' => function (ParseNode $n) use ($o) { $o->setUserStatusOverview($n->getObjectValue(array(DeviceConfigurationUserOverview::class, 'createFromDiscriminatorValue'))); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
         ]);
     }
 

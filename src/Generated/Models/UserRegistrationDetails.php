@@ -6,33 +6,56 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserRegistrationDetails extends Entity 
+class UserRegistrationDetails extends Entity implements Parsable 
 {
-    /** @var bool|null $isMfaCapable Whether the user has registered a strong authentication method for multi-factor authentication. The method must be allowed by the authentication methods policy. Supports $filter (eq). */
+    /**
+     * @var DefaultMfaMethodType|null $defaultMfaMethod The method the user or admin selected as default for performing multi-factor authentication for the user. The possible values are: none, mobilePhone, alternateMobilePhone, officePhone, microsoftAuthenticatorPush, softwareOneTimePasscode, unknownFutureValue.
+    */
+    private ?DefaultMfaMethodType $defaultMfaMethod = null;
+    
+    /**
+     * @var bool|null $isMfaCapable Whether the user has registered a strong authentication method for multi-factor authentication. The method must be allowed by the authentication methods policy. Supports $filter (eq).
+    */
     private ?bool $isMfaCapable = null;
     
-    /** @var bool|null $isMfaRegistered Whether the user has registered a strong authentication method for multi-factor authentication. The method may not necessarily be allowed by the authentication methods policy.  Supports $filter (eq). */
+    /**
+     * @var bool|null $isMfaRegistered Whether the user has registered a strong authentication method for multi-factor authentication. The method may not necessarily be allowed by the authentication methods policy.  Supports $filter (eq).
+    */
     private ?bool $isMfaRegistered = null;
     
-    /** @var bool|null $isPasswordlessCapable Whether the user has registered a passwordless strong authentication method (including FIDO2, Windows Hello for Business, and Microsoft Authenticator (Passwordless)) that is allowed by the authentication methods policy. Supports $filter (eq). */
+    /**
+     * @var bool|null $isPasswordlessCapable Whether the user has registered a passwordless strong authentication method (including FIDO2, Windows Hello for Business, and Microsoft Authenticator (Passwordless)) that is allowed by the authentication methods policy. Supports $filter (eq).
+    */
     private ?bool $isPasswordlessCapable = null;
     
-    /** @var bool|null $isSsprCapable Whether the user has registered the required number of authentication methods for self-service password reset and the user is allowed to perform self-service password reset by policy. Supports $filter (eq). */
+    /**
+     * @var bool|null $isSsprCapable Whether the user has registered the required number of authentication methods for self-service password reset and the user is allowed to perform self-service password reset by policy. Supports $filter (eq).
+    */
     private ?bool $isSsprCapable = null;
     
-    /** @var bool|null $isSsprEnabled Whether the user is allowed to perform self-service password reset by policy. The user may not necessarily have registered the required number of authentication methods for self-service password reset. Supports $filter (eq). */
+    /**
+     * @var bool|null $isSsprEnabled Whether the user is allowed to perform self-service password reset by policy. The user may not necessarily have registered the required number of authentication methods for self-service password reset. Supports $filter (eq).
+    */
     private ?bool $isSsprEnabled = null;
     
-    /** @var bool|null $isSsprRegistered Whether the user has registered the required number of authentication methods for self-service password reset. The user may not necessarily be allowed to perform self-service password reset by policy. Supports $filter (eq). */
+    /**
+     * @var bool|null $isSsprRegistered Whether the user has registered the required number of authentication methods for self-service password reset. The user may not necessarily be allowed to perform self-service password reset by policy. Supports $filter (eq).
+    */
     private ?bool $isSsprRegistered = null;
     
-    /** @var array<string>|null $methodsRegistered Collection of authentication methods registered, such as mobilePhone, email, fido2. Supports $filter (any with eq). */
+    /**
+     * @var array<string>|null $methodsRegistered Collection of authentication methods registered, such as mobilePhone, email, fido2. Supports $filter (any with eq).
+    */
     private ?array $methodsRegistered = null;
     
-    /** @var string|null $userDisplayName The user display name, such as Adele Vance. Supports $filter (eq, startsWith) and $orderBy. */
+    /**
+     * @var string|null $userDisplayName The user display name, such as Adele Vance. Supports $filter (eq, startsWith) and $orderBy.
+    */
     private ?string $userDisplayName = null;
     
-    /** @var string|null $userPrincipalName The user principal name, such as AdeleV@contoso.com. Supports $filter (eq, startsWith) and $orderBy. */
+    /**
+     * @var string|null $userPrincipalName The user principal name, such as AdeleV@contoso.com. Supports $filter (eq, startsWith) and $orderBy.
+    */
     private ?string $userPrincipalName = null;
     
     /**
@@ -47,8 +70,16 @@ class UserRegistrationDetails extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserRegistrationDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserRegistrationDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserRegistrationDetails {
         return new UserRegistrationDetails();
+    }
+
+    /**
+     * Gets the defaultMfaMethod property value. The method the user or admin selected as default for performing multi-factor authentication for the user. The possible values are: none, mobilePhone, alternateMobilePhone, officePhone, microsoftAuthenticatorPush, softwareOneTimePasscode, unknownFutureValue.
+     * @return DefaultMfaMethodType|null
+    */
+    public function getDefaultMfaMethod(): ?DefaultMfaMethodType {
+        return $this->defaultMfaMethod;
     }
 
     /**
@@ -56,16 +87,18 @@ class UserRegistrationDetails extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isMfaCapable' => function (self $o, ParseNode $n) { $o->setIsMfaCapable($n->getBooleanValue()); },
-            'isMfaRegistered' => function (self $o, ParseNode $n) { $o->setIsMfaRegistered($n->getBooleanValue()); },
-            'isPasswordlessCapable' => function (self $o, ParseNode $n) { $o->setIsPasswordlessCapable($n->getBooleanValue()); },
-            'isSsprCapable' => function (self $o, ParseNode $n) { $o->setIsSsprCapable($n->getBooleanValue()); },
-            'isSsprEnabled' => function (self $o, ParseNode $n) { $o->setIsSsprEnabled($n->getBooleanValue()); },
-            'isSsprRegistered' => function (self $o, ParseNode $n) { $o->setIsSsprRegistered($n->getBooleanValue()); },
-            'methodsRegistered' => function (self $o, ParseNode $n) { $o->setMethodsRegistered($n->getCollectionOfPrimitiveValues()); },
-            'userDisplayName' => function (self $o, ParseNode $n) { $o->setUserDisplayName($n->getStringValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'defaultMfaMethod' => function (ParseNode $n) use ($o) { $o->setDefaultMfaMethod($n->getEnumValue(DefaultMfaMethodType::class)); },
+            'isMfaCapable' => function (ParseNode $n) use ($o) { $o->setIsMfaCapable($n->getBooleanValue()); },
+            'isMfaRegistered' => function (ParseNode $n) use ($o) { $o->setIsMfaRegistered($n->getBooleanValue()); },
+            'isPasswordlessCapable' => function (ParseNode $n) use ($o) { $o->setIsPasswordlessCapable($n->getBooleanValue()); },
+            'isSsprCapable' => function (ParseNode $n) use ($o) { $o->setIsSsprCapable($n->getBooleanValue()); },
+            'isSsprEnabled' => function (ParseNode $n) use ($o) { $o->setIsSsprEnabled($n->getBooleanValue()); },
+            'isSsprRegistered' => function (ParseNode $n) use ($o) { $o->setIsSsprRegistered($n->getBooleanValue()); },
+            'methodsRegistered' => function (ParseNode $n) use ($o) { $o->setMethodsRegistered($n->getCollectionOfPrimitiveValues()); },
+            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 
@@ -147,6 +180,7 @@ class UserRegistrationDetails extends Entity
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('defaultMfaMethod', $this->defaultMfaMethod);
         $writer->writeBooleanValue('isMfaCapable', $this->isMfaCapable);
         $writer->writeBooleanValue('isMfaRegistered', $this->isMfaRegistered);
         $writer->writeBooleanValue('isPasswordlessCapable', $this->isPasswordlessCapable);
@@ -156,6 +190,14 @@ class UserRegistrationDetails extends Entity
         $writer->writeCollectionOfPrimitiveValues('methodsRegistered', $this->methodsRegistered);
         $writer->writeStringValue('userDisplayName', $this->userDisplayName);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+    }
+
+    /**
+     * Sets the defaultMfaMethod property value. The method the user or admin selected as default for performing multi-factor authentication for the user. The possible values are: none, mobilePhone, alternateMobilePhone, officePhone, microsoftAuthenticatorPush, softwareOneTimePasscode, unknownFutureValue.
+     *  @param DefaultMfaMethodType|null $value Value to set for the defaultMfaMethod property.
+    */
+    public function setDefaultMfaMethod(?DefaultMfaMethodType $value ): void {
+        $this->defaultMfaMethod = $value;
     }
 
     /**

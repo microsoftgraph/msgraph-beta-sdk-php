@@ -10,34 +10,54 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $appliedPolicies List of policies delivered to the device as last checkin. */
+    /**
+     * @var array<string>|null $appliedPolicies List of policies delivered to the device as last checkin.
+    */
     private ?array $appliedPolicies = null;
     
-    /** @var DateTime|null $checkinDateTime Last device check-in time in UTC. */
+    /**
+     * @var DateTime|null $checkinDateTime Last device check-in time in UTC.
+    */
     private ?DateTime $checkinDateTime = null;
     
-    /** @var string|null $deviceName Device name trying to check-in. */
+    /**
+     * @var string|null $deviceName Device name trying to check-in.
+    */
     private ?string $deviceName = null;
     
-    /** @var string|null $devicePlatform Device platform trying to check-in. */
+    /**
+     * @var string|null $devicePlatform Device platform trying to check-in.
+    */
     private ?string $devicePlatform = null;
     
-    /** @var string|null $devicePlatformVersion Device platform version trying to check-in. */
+    /**
+     * @var string|null $devicePlatformVersion Device platform version trying to check-in.
+    */
     private ?string $devicePlatformVersion = null;
     
-    /** @var string|null $errorMessage Error message if any associated for the last checkin. */
+    /**
+     * @var string|null $errorMessage Error message if any associated for the last checkin.
+    */
     private ?string $errorMessage = null;
     
-    /** @var string|null $userId User identifier using the device. */
+    /**
+     * @var string|null $userId User identifier using the device.
+    */
     private ?string $userId = null;
     
-    /** @var string|null $userPrincipalName User principal name using the device. */
+    /**
+     * @var string|null $userPrincipalName User principal name using the device.
+    */
     private ?string $userPrincipalName = null;
     
-    /** @var bool|null $wasSuccessful If the last checkin was successful. */
+    /**
+     * @var bool|null $wasSuccessful If the last checkin was successful.
+    */
     private ?bool $wasSuccessful = null;
     
     /**
@@ -52,7 +72,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OfficeClientCheckinStatus
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): OfficeClientCheckinStatus {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OfficeClientCheckinStatus {
         return new OfficeClientCheckinStatus();
     }
 
@@ -117,16 +137,17 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'appliedPolicies' => function (self $o, ParseNode $n) { $o->setAppliedPolicies($n->getCollectionOfPrimitiveValues()); },
-            'checkinDateTime' => function (self $o, ParseNode $n) { $o->setCheckinDateTime($n->getDateTimeValue()); },
-            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
-            'devicePlatform' => function (self $o, ParseNode $n) { $o->setDevicePlatform($n->getStringValue()); },
-            'devicePlatformVersion' => function (self $o, ParseNode $n) { $o->setDevicePlatformVersion($n->getStringValue()); },
-            'errorMessage' => function (self $o, ParseNode $n) { $o->setErrorMessage($n->getStringValue()); },
-            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
-            'wasSuccessful' => function (self $o, ParseNode $n) { $o->setWasSuccessful($n->getBooleanValue()); },
+            'appliedPolicies' => function (ParseNode $n) use ($o) { $o->setAppliedPolicies($n->getCollectionOfPrimitiveValues()); },
+            'checkinDateTime' => function (ParseNode $n) use ($o) { $o->setCheckinDateTime($n->getDateTimeValue()); },
+            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
+            'devicePlatform' => function (ParseNode $n) use ($o) { $o->setDevicePlatform($n->getStringValue()); },
+            'devicePlatformVersion' => function (ParseNode $n) use ($o) { $o->setDevicePlatformVersion($n->getStringValue()); },
+            'errorMessage' => function (ParseNode $n) use ($o) { $o->setErrorMessage($n->getStringValue()); },
+            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'wasSuccessful' => function (ParseNode $n) use ($o) { $o->setWasSuccessful($n->getBooleanValue()); },
         ];
     }
 

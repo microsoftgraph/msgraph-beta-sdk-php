@@ -9,31 +9,49 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ConfigurationManagerClientEnabledFeatures implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $compliancePolicy Whether compliance policy is managed by Intune */
+    /**
+     * @var bool|null $compliancePolicy Whether compliance policy is managed by Intune
+    */
     private ?bool $compliancePolicy = null;
     
-    /** @var bool|null $deviceConfiguration Whether device configuration is managed by Intune */
+    /**
+     * @var bool|null $deviceConfiguration Whether device configuration is managed by Intune
+    */
     private ?bool $deviceConfiguration = null;
     
-    /** @var bool|null $endpointProtection Whether Endpoint Protection is managed by Intune */
+    /**
+     * @var bool|null $endpointProtection Whether Endpoint Protection is managed by Intune
+    */
     private ?bool $endpointProtection = null;
     
-    /** @var bool|null $inventory Whether inventory is managed by Intune */
+    /**
+     * @var bool|null $inventory Whether inventory is managed by Intune
+    */
     private ?bool $inventory = null;
     
-    /** @var bool|null $modernApps Whether modern application is managed by Intune */
+    /**
+     * @var bool|null $modernApps Whether modern application is managed by Intune
+    */
     private ?bool $modernApps = null;
     
-    /** @var bool|null $officeApps Whether Office application is managed by Intune */
+    /**
+     * @var bool|null $officeApps Whether Office application is managed by Intune
+    */
     private ?bool $officeApps = null;
     
-    /** @var bool|null $resourceAccess Whether resource access is managed by Intune */
+    /**
+     * @var bool|null $resourceAccess Whether resource access is managed by Intune
+    */
     private ?bool $resourceAccess = null;
     
-    /** @var bool|null $windowsUpdateForBusiness Whether Windows Update for Business is managed by Intune */
+    /**
+     * @var bool|null $windowsUpdateForBusiness Whether Windows Update for Business is managed by Intune
+    */
     private ?bool $windowsUpdateForBusiness = null;
     
     /**
@@ -48,7 +66,7 @@ class ConfigurationManagerClientEnabledFeatures implements AdditionalDataHolder,
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConfigurationManagerClientEnabledFeatures
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ConfigurationManagerClientEnabledFeatures {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConfigurationManagerClientEnabledFeatures {
         return new ConfigurationManagerClientEnabledFeatures();
     }
 
@@ -89,15 +107,16 @@ class ConfigurationManagerClientEnabledFeatures implements AdditionalDataHolder,
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'compliancePolicy' => function (self $o, ParseNode $n) { $o->setCompliancePolicy($n->getBooleanValue()); },
-            'deviceConfiguration' => function (self $o, ParseNode $n) { $o->setDeviceConfiguration($n->getBooleanValue()); },
-            'endpointProtection' => function (self $o, ParseNode $n) { $o->setEndpointProtection($n->getBooleanValue()); },
-            'inventory' => function (self $o, ParseNode $n) { $o->setInventory($n->getBooleanValue()); },
-            'modernApps' => function (self $o, ParseNode $n) { $o->setModernApps($n->getBooleanValue()); },
-            'officeApps' => function (self $o, ParseNode $n) { $o->setOfficeApps($n->getBooleanValue()); },
-            'resourceAccess' => function (self $o, ParseNode $n) { $o->setResourceAccess($n->getBooleanValue()); },
-            'windowsUpdateForBusiness' => function (self $o, ParseNode $n) { $o->setWindowsUpdateForBusiness($n->getBooleanValue()); },
+            'compliancePolicy' => function (ParseNode $n) use ($o) { $o->setCompliancePolicy($n->getBooleanValue()); },
+            'deviceConfiguration' => function (ParseNode $n) use ($o) { $o->setDeviceConfiguration($n->getBooleanValue()); },
+            'endpointProtection' => function (ParseNode $n) use ($o) { $o->setEndpointProtection($n->getBooleanValue()); },
+            'inventory' => function (ParseNode $n) use ($o) { $o->setInventory($n->getBooleanValue()); },
+            'modernApps' => function (ParseNode $n) use ($o) { $o->setModernApps($n->getBooleanValue()); },
+            'officeApps' => function (ParseNode $n) use ($o) { $o->setOfficeApps($n->getBooleanValue()); },
+            'resourceAccess' => function (ParseNode $n) use ($o) { $o->setResourceAccess($n->getBooleanValue()); },
+            'windowsUpdateForBusiness' => function (ParseNode $n) use ($o) { $o->setWindowsUpdateForBusiness($n->getBooleanValue()); },
         ];
     }
 

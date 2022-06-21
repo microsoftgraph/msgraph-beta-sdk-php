@@ -6,30 +6,46 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MobilityManagementPolicy extends Entity 
+class MobilityManagementPolicy extends Entity implements Parsable 
 {
-    /** @var PolicyScope|null $appliesTo Indicates the user scope of the mobility management policy. Possible values are: none, all, selected. */
+    /**
+     * @var PolicyScope|null $appliesTo Indicates the user scope of the mobility management policy. Possible values are: none, all, selected.
+    */
     private ?PolicyScope $appliesTo = null;
     
-    /** @var string|null $complianceUrl Compliance URL of the mobility management application. */
+    /**
+     * @var string|null $complianceUrl Compliance URL of the mobility management application.
+    */
     private ?string $complianceUrl = null;
     
-    /** @var string|null $description Description of the mobility management application. */
+    /**
+     * @var string|null $description Description of the mobility management application.
+    */
     private ?string $description = null;
     
-    /** @var string|null $discoveryUrl Discovery URL of the mobility management application. */
+    /**
+     * @var string|null $discoveryUrl Discovery URL of the mobility management application.
+    */
     private ?string $discoveryUrl = null;
     
-    /** @var string|null $displayName Display name of the mobility management application. */
+    /**
+     * @var string|null $displayName Display name of the mobility management application.
+    */
     private ?string $displayName = null;
     
-    /** @var array<Group>|null $includedGroups Azure AD groups under the scope of the mobility management application if appliesTo is selected */
+    /**
+     * @var array<Group>|null $includedGroups Azure AD groups under the scope of the mobility management application if appliesTo is selected
+    */
     private ?array $includedGroups = null;
     
-    /** @var bool|null $isValid Whether policy is valid. Invalid policies may not be updated and should be deleted. */
+    /**
+     * @var bool|null $isValid Whether policy is valid. Invalid policies may not be updated and should be deleted.
+    */
     private ?bool $isValid = null;
     
-    /** @var string|null $termsOfUseUrl Terms of Use URL of the mobility management application. */
+    /**
+     * @var string|null $termsOfUseUrl Terms of Use URL of the mobility management application.
+    */
     private ?string $termsOfUseUrl = null;
     
     /**
@@ -44,7 +60,7 @@ class MobilityManagementPolicy extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MobilityManagementPolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MobilityManagementPolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MobilityManagementPolicy {
         return new MobilityManagementPolicy();
     }
 
@@ -93,15 +109,16 @@ class MobilityManagementPolicy extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appliesTo' => function (self $o, ParseNode $n) { $o->setAppliesTo($n->getEnumValue(PolicyScope::class)); },
-            'complianceUrl' => function (self $o, ParseNode $n) { $o->setComplianceUrl($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'discoveryUrl' => function (self $o, ParseNode $n) { $o->setDiscoveryUrl($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'includedGroups' => function (self $o, ParseNode $n) { $o->setIncludedGroups($n->getCollectionOfObjectValues(Group::class)); },
-            'isValid' => function (self $o, ParseNode $n) { $o->setIsValid($n->getBooleanValue()); },
-            'termsOfUseUrl' => function (self $o, ParseNode $n) { $o->setTermsOfUseUrl($n->getStringValue()); },
+            'appliesTo' => function (ParseNode $n) use ($o) { $o->setAppliesTo($n->getEnumValue(PolicyScope::class)); },
+            'complianceUrl' => function (ParseNode $n) use ($o) { $o->setComplianceUrl($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'discoveryUrl' => function (ParseNode $n) use ($o) { $o->setDiscoveryUrl($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'includedGroups' => function (ParseNode $n) use ($o) { $o->setIncludedGroups($n->getCollectionOfObjectValues(array(Group::class, 'createFromDiscriminatorValue'))); },
+            'isValid' => function (ParseNode $n) use ($o) { $o->setIsValid($n->getBooleanValue()); },
+            'termsOfUseUrl' => function (ParseNode $n) use ($o) { $o->setTermsOfUseUrl($n->getStringValue()); },
         ]);
     }
 

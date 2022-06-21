@@ -7,18 +7,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DelegatedAdminRelationshipRequest extends Entity 
+class DelegatedAdminRelationshipRequest extends Entity implements Parsable 
 {
-    /** @var DelegatedAdminRelationshipRequestAction|null $action The action to be performed on the delegated admin relationship. */
+    /**
+     * @var DelegatedAdminRelationshipRequestAction|null $action The action to be performed on the delegated admin relationship.
+    */
     private ?DelegatedAdminRelationshipRequestAction $action = null;
     
-    /** @var DateTime|null $createdDateTime The date and time in ISO 8601 format and in UTC time when the relationship request was created. Read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time in ISO 8601 format and in UTC time when the relationship request was created. Read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The date and time in ISO 8601 format and UTC time when this relationship request was last modified. Read-only. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The date and time in ISO 8601 format and UTC time when this relationship request was last modified. Read-only.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var DelegatedAdminRelationshipRequestStatus|null $status The status of the request. Read-only. The possible values are: created, pending, complete, failed, unknownFutureValue. */
+    /**
+     * @var DelegatedAdminRelationshipRequestStatus|null $status The status of the request. Read-only. The possible values are: created, pending, succeeded, failed, unknownFutureValue.
+    */
     private ?DelegatedAdminRelationshipRequestStatus $status = null;
     
     /**
@@ -33,7 +41,7 @@ class DelegatedAdminRelationshipRequest extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DelegatedAdminRelationshipRequest
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminRelationshipRequest {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminRelationshipRequest {
         return new DelegatedAdminRelationshipRequest();
     }
 
@@ -58,11 +66,12 @@ class DelegatedAdminRelationshipRequest extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'action' => function (self $o, ParseNode $n) { $o->setAction($n->getEnumValue(DelegatedAdminRelationshipRequestAction::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(DelegatedAdminRelationshipRequestStatus::class)); },
+            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(DelegatedAdminRelationshipRequestAction::class)); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DelegatedAdminRelationshipRequestStatus::class)); },
         ]);
     }
 
@@ -75,7 +84,7 @@ class DelegatedAdminRelationshipRequest extends Entity
     }
 
     /**
-     * Gets the status property value. The status of the request. Read-only. The possible values are: created, pending, complete, failed, unknownFutureValue.
+     * Gets the status property value. The status of the request. Read-only. The possible values are: created, pending, succeeded, failed, unknownFutureValue.
      * @return DelegatedAdminRelationshipRequestStatus|null
     */
     public function getStatus(): ?DelegatedAdminRelationshipRequestStatus {
@@ -119,7 +128,7 @@ class DelegatedAdminRelationshipRequest extends Entity
     }
 
     /**
-     * Sets the status property value. The status of the request. Read-only. The possible values are: created, pending, complete, failed, unknownFutureValue.
+     * Sets the status property value. The status of the request. Read-only. The possible values are: created, pending, succeeded, failed, unknownFutureValue.
      *  @param DelegatedAdminRelationshipRequestStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DelegatedAdminRelationshipRequestStatus $value ): void {

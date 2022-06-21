@@ -9,25 +9,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ApprovalStage implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $approvalStageTimeOutInDays The number of days that a request can be pending a response before it is automatically denied. */
+    /**
+     * @var int|null $approvalStageTimeOutInDays The number of days that a request can be pending a response before it is automatically denied.
+    */
     private ?int $approvalStageTimeOutInDays = null;
     
-    /** @var array<UserSet>|null $escalationApprovers If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.  When creating or updating a policy, if there are no escalation approvers, or escalation approvers are not required for the stage, the value of this property should be an empty collection. */
+    /**
+     * @var array<UserSet>|null $escalationApprovers If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.  When creating or updating a policy, if there are no escalation approvers, or escalation approvers are not required for the stage, the value of this property should be an empty collection.
+    */
     private ?array $escalationApprovers = null;
     
-    /** @var int|null $escalationTimeInMinutes If escalation is required, the time a request can be pending a response from a primary approver. */
+    /**
+     * @var int|null $escalationTimeInMinutes If escalation is required, the time a request can be pending a response from a primary approver.
+    */
     private ?int $escalationTimeInMinutes = null;
     
-    /** @var bool|null $isApproverJustificationRequired Indicates whether the approver is required to provide a justification for approving a request. */
+    /**
+     * @var bool|null $isApproverJustificationRequired Indicates whether the approver is required to provide a justification for approving a request.
+    */
     private ?bool $isApproverJustificationRequired = null;
     
-    /** @var bool|null $isEscalationEnabled If true, then one or more escalation approvers are configured in this approval stage. */
+    /**
+     * @var bool|null $isEscalationEnabled If true, then one or more escalation approvers are configured in this approval stage.
+    */
     private ?bool $isEscalationEnabled = null;
     
-    /** @var array<UserSet>|null $primaryApprovers The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors. When creating or updating a policy, include at least one userSet in this collection. */
+    /**
+     * @var array<UserSet>|null $primaryApprovers The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors. When creating or updating a policy, include at least one userSet in this collection.
+    */
     private ?array $primaryApprovers = null;
     
     /**
@@ -42,7 +56,7 @@ class ApprovalStage implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ApprovalStage
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ApprovalStage {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ApprovalStage {
         return new ApprovalStage();
     }
 
@@ -83,13 +97,14 @@ class ApprovalStage implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'approvalStageTimeOutInDays' => function (self $o, ParseNode $n) { $o->setApprovalStageTimeOutInDays($n->getIntegerValue()); },
-            'escalationApprovers' => function (self $o, ParseNode $n) { $o->setEscalationApprovers($n->getCollectionOfObjectValues(UserSet::class)); },
-            'escalationTimeInMinutes' => function (self $o, ParseNode $n) { $o->setEscalationTimeInMinutes($n->getIntegerValue()); },
-            'isApproverJustificationRequired' => function (self $o, ParseNode $n) { $o->setIsApproverJustificationRequired($n->getBooleanValue()); },
-            'isEscalationEnabled' => function (self $o, ParseNode $n) { $o->setIsEscalationEnabled($n->getBooleanValue()); },
-            'primaryApprovers' => function (self $o, ParseNode $n) { $o->setPrimaryApprovers($n->getCollectionOfObjectValues(UserSet::class)); },
+            'approvalStageTimeOutInDays' => function (ParseNode $n) use ($o) { $o->setApprovalStageTimeOutInDays($n->getIntegerValue()); },
+            'escalationApprovers' => function (ParseNode $n) use ($o) { $o->setEscalationApprovers($n->getCollectionOfObjectValues(array(UserSet::class, 'createFromDiscriminatorValue'))); },
+            'escalationTimeInMinutes' => function (ParseNode $n) use ($o) { $o->setEscalationTimeInMinutes($n->getIntegerValue()); },
+            'isApproverJustificationRequired' => function (ParseNode $n) use ($o) { $o->setIsApproverJustificationRequired($n->getBooleanValue()); },
+            'isEscalationEnabled' => function (ParseNode $n) use ($o) { $o->setIsEscalationEnabled($n->getBooleanValue()); },
+            'primaryApprovers' => function (ParseNode $n) use ($o) { $o->setPrimaryApprovers($n->getCollectionOfObjectValues(array(UserSet::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

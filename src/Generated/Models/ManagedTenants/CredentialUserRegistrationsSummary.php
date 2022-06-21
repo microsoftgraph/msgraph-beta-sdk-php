@@ -8,36 +8,61 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CredentialUserRegistrationsSummary extends Entity 
+class CredentialUserRegistrationsSummary extends Entity implements Parsable 
 {
-    /** @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only. */
+    /**
+     * @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
+    */
     private ?DateTime $lastRefreshedDateTime = null;
     
-    /** @var int|null $mfaAndSsprCapableUserCount The number of users that are capable of performing multi-factor authentication or self service password reset. Optional. Read-only. */
+    /**
+     * @var int|null $mfaAndSsprCapableUserCount The number of users that are capable of performing multi-factor authentication or self service password reset. Optional. Read-only.
+    */
     private ?int $mfaAndSsprCapableUserCount = null;
     
-    /** @var string|null $mfaConditionalAccessPolicyState The state of a conditional access policy that enforces multi-factor authentication. Optional. Read-only. */
+    /**
+     * @var string|null $mfaConditionalAccessPolicyState The state of a conditional access policy that enforces multi-factor authentication. Optional. Read-only.
+    */
     private ?string $mfaConditionalAccessPolicyState = null;
     
-    /** @var int|null $mfaRegisteredUserCount The number of users registered for multi-factor authentication. Optional. Read-only. */
+    /**
+     * @var int|null $mfaExcludedUserCount The number of users in the multi-factor authentication exclusion security group (Microsoft 365 Lighthouse - MFA exclusions). Optional. Read-only.
+    */
+    private ?int $mfaExcludedUserCount = null;
+    
+    /**
+     * @var int|null $mfaRegisteredUserCount The number of users registered for multi-factor authentication. Optional. Read-only.
+    */
     private ?int $mfaRegisteredUserCount = null;
     
-    /** @var bool|null $securityDefaultsEnabled A flag indicating whether Identity Security Defaults is enabled. Optional. Read-only. */
+    /**
+     * @var bool|null $securityDefaultsEnabled A flag indicating whether Identity Security Defaults is enabled. Optional. Read-only.
+    */
     private ?bool $securityDefaultsEnabled = null;
     
-    /** @var int|null $ssprEnabledUserCount The number of users enabled for self service password reset. Optional. Read-only. */
+    /**
+     * @var int|null $ssprEnabledUserCount The number of users enabled for self service password reset. Optional. Read-only.
+    */
     private ?int $ssprEnabledUserCount = null;
     
-    /** @var int|null $ssprRegisteredUserCount The number of users registered for self service password reset. Optional. Read-only. */
+    /**
+     * @var int|null $ssprRegisteredUserCount The number of users registered for self service password reset. Optional. Read-only.
+    */
     private ?int $ssprRegisteredUserCount = null;
     
-    /** @var string|null $tenantDisplayName The display name for the managed tenant. Required. Read-only. */
+    /**
+     * @var string|null $tenantDisplayName The display name for the managed tenant. Required. Read-only.
+    */
     private ?string $tenantDisplayName = null;
     
-    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only. */
+    /**
+     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
+    */
     private ?string $tenantId = null;
     
-    /** @var int|null $totalUserCount The total number of users in the given managed tenant. Optional. Read-only. */
+    /**
+     * @var int|null $totalUserCount The total number of users in the given managed tenant. Optional. Read-only.
+    */
     private ?int $totalUserCount = null;
     
     /**
@@ -52,7 +77,7 @@ class CredentialUserRegistrationsSummary extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CredentialUserRegistrationsSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUserRegistrationsSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUserRegistrationsSummary {
         return new CredentialUserRegistrationsSummary();
     }
 
@@ -61,17 +86,19 @@ class CredentialUserRegistrationsSummary extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastRefreshedDateTime' => function (self $o, ParseNode $n) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'mfaAndSsprCapableUserCount' => function (self $o, ParseNode $n) { $o->setMfaAndSsprCapableUserCount($n->getIntegerValue()); },
-            'mfaConditionalAccessPolicyState' => function (self $o, ParseNode $n) { $o->setMfaConditionalAccessPolicyState($n->getStringValue()); },
-            'mfaRegisteredUserCount' => function (self $o, ParseNode $n) { $o->setMfaRegisteredUserCount($n->getIntegerValue()); },
-            'securityDefaultsEnabled' => function (self $o, ParseNode $n) { $o->setSecurityDefaultsEnabled($n->getBooleanValue()); },
-            'ssprEnabledUserCount' => function (self $o, ParseNode $n) { $o->setSsprEnabledUserCount($n->getIntegerValue()); },
-            'ssprRegisteredUserCount' => function (self $o, ParseNode $n) { $o->setSsprRegisteredUserCount($n->getIntegerValue()); },
-            'tenantDisplayName' => function (self $o, ParseNode $n) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
-            'totalUserCount' => function (self $o, ParseNode $n) { $o->setTotalUserCount($n->getIntegerValue()); },
+            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
+            'mfaAndSsprCapableUserCount' => function (ParseNode $n) use ($o) { $o->setMfaAndSsprCapableUserCount($n->getIntegerValue()); },
+            'mfaConditionalAccessPolicyState' => function (ParseNode $n) use ($o) { $o->setMfaConditionalAccessPolicyState($n->getStringValue()); },
+            'mfaExcludedUserCount' => function (ParseNode $n) use ($o) { $o->setMfaExcludedUserCount($n->getIntegerValue()); },
+            'mfaRegisteredUserCount' => function (ParseNode $n) use ($o) { $o->setMfaRegisteredUserCount($n->getIntegerValue()); },
+            'securityDefaultsEnabled' => function (ParseNode $n) use ($o) { $o->setSecurityDefaultsEnabled($n->getBooleanValue()); },
+            'ssprEnabledUserCount' => function (ParseNode $n) use ($o) { $o->setSsprEnabledUserCount($n->getIntegerValue()); },
+            'ssprRegisteredUserCount' => function (ParseNode $n) use ($o) { $o->setSsprRegisteredUserCount($n->getIntegerValue()); },
+            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'totalUserCount' => function (ParseNode $n) use ($o) { $o->setTotalUserCount($n->getIntegerValue()); },
         ]);
     }
 
@@ -97,6 +124,14 @@ class CredentialUserRegistrationsSummary extends Entity
     */
     public function getMfaConditionalAccessPolicyState(): ?string {
         return $this->mfaConditionalAccessPolicyState;
+    }
+
+    /**
+     * Gets the mfaExcludedUserCount property value. The number of users in the multi-factor authentication exclusion security group (Microsoft 365 Lighthouse - MFA exclusions). Optional. Read-only.
+     * @return int|null
+    */
+    public function getMfaExcludedUserCount(): ?int {
+        return $this->mfaExcludedUserCount;
     }
 
     /**
@@ -164,6 +199,7 @@ class CredentialUserRegistrationsSummary extends Entity
         $writer->writeDateTimeValue('lastRefreshedDateTime', $this->lastRefreshedDateTime);
         $writer->writeIntegerValue('mfaAndSsprCapableUserCount', $this->mfaAndSsprCapableUserCount);
         $writer->writeStringValue('mfaConditionalAccessPolicyState', $this->mfaConditionalAccessPolicyState);
+        $writer->writeIntegerValue('mfaExcludedUserCount', $this->mfaExcludedUserCount);
         $writer->writeIntegerValue('mfaRegisteredUserCount', $this->mfaRegisteredUserCount);
         $writer->writeBooleanValue('securityDefaultsEnabled', $this->securityDefaultsEnabled);
         $writer->writeIntegerValue('ssprEnabledUserCount', $this->ssprEnabledUserCount);
@@ -195,6 +231,14 @@ class CredentialUserRegistrationsSummary extends Entity
     */
     public function setMfaConditionalAccessPolicyState(?string $value ): void {
         $this->mfaConditionalAccessPolicyState = $value;
+    }
+
+    /**
+     * Sets the mfaExcludedUserCount property value. The number of users in the multi-factor authentication exclusion security group (Microsoft 365 Lighthouse - MFA exclusions). Optional. Read-only.
+     *  @param int|null $value Value to set for the mfaExcludedUserCount property.
+    */
+    public function setMfaExcludedUserCount(?int $value ): void {
+        $this->mfaExcludedUserCount = $value;
     }
 
     /**

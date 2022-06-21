@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SharedAppleDeviceUser implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $dataQuota Data quota */
+    /**
+     * @var int|null $dataQuota Data quota
+    */
     private ?int $dataQuota = null;
     
-    /** @var bool|null $dataToSync Data to sync */
+    /**
+     * @var bool|null $dataToSync Data to sync
+    */
     private ?bool $dataToSync = null;
     
-    /** @var int|null $dataUsed Data quota */
+    /**
+     * @var int|null $dataUsed Data quota
+    */
     private ?int $dataUsed = null;
     
-    /** @var string|null $userPrincipalName User name */
+    /**
+     * @var string|null $userPrincipalName User name
+    */
     private ?string $userPrincipalName = null;
     
     /**
@@ -36,7 +46,7 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SharedAppleDeviceUser
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SharedAppleDeviceUser {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SharedAppleDeviceUser {
         return new SharedAppleDeviceUser();
     }
 
@@ -77,11 +87,12 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'dataQuota' => function (self $o, ParseNode $n) { $o->setDataQuota($n->getIntegerValue()); },
-            'dataToSync' => function (self $o, ParseNode $n) { $o->setDataToSync($n->getBooleanValue()); },
-            'dataUsed' => function (self $o, ParseNode $n) { $o->setDataUsed($n->getIntegerValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'dataQuota' => function (ParseNode $n) use ($o) { $o->setDataQuota($n->getIntegerValue()); },
+            'dataToSync' => function (ParseNode $n) use ($o) { $o->setDataToSync($n->getBooleanValue()); },
+            'dataUsed' => function (ParseNode $n) use ($o) { $o->setDataUsed($n->getIntegerValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ];
     }
 

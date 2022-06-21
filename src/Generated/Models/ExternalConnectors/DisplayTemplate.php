@@ -10,19 +10,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DisplayTemplate implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $id The text identifier for the display template; for example, contosoTickets. */
+    /**
+     * @var string|null $id The text identifier for the display template; for example, contosoTickets.
+    */
     private ?string $id = null;
     
-    /** @var Json|null $layout The layout property */
+    /**
+     * @var Json|null $layout The layout property
+    */
     private ?Json $layout = null;
     
-    /** @var int|null $priority Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported. */
+    /**
+     * @var int|null $priority Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported.
+    */
     private ?int $priority = null;
     
-    /** @var array<PropertyRule>|null $rules Specifies additional rules for selecting this display template based on the item schema. Optional. */
+    /**
+     * @var array<PropertyRule>|null $rules Specifies additional rules for selecting this display template based on the item schema. Optional.
+    */
     private ?array $rules = null;
     
     /**
@@ -37,7 +47,7 @@ class DisplayTemplate implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DisplayTemplate
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DisplayTemplate {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DisplayTemplate {
         return new DisplayTemplate();
     }
 
@@ -54,11 +64,12 @@ class DisplayTemplate implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
-            'layout' => function (self $o, ParseNode $n) { $o->setLayout($n->getObjectValue(Json::class)); },
-            'priority' => function (self $o, ParseNode $n) { $o->setPriority($n->getIntegerValue()); },
-            'rules' => function (self $o, ParseNode $n) { $o->setRules($n->getCollectionOfObjectValues(PropertyRule::class)); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'layout' => function (ParseNode $n) use ($o) { $o->setLayout($n->getObjectValue(array(Json::class, 'createFromDiscriminatorValue'))); },
+            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
+            'rules' => function (ParseNode $n) use ($o) { $o->setRules($n->getCollectionOfObjectValues(array(PropertyRule::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

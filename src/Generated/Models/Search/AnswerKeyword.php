@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AnswerKeyword implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $keywords A collection of keywords used to trigger the search answer. */
+    /**
+     * @var array<string>|null $keywords A collection of keywords used to trigger the search answer.
+    */
     private ?array $keywords = null;
     
-    /** @var bool|null $matchSimilarKeywords If true, indicates that the search term contains similar words to the keywords that should trigger the search answer. */
+    /**
+     * @var bool|null $matchSimilarKeywords If true, indicates that the search term contains similar words to the keywords that should trigger the search answer.
+    */
     private ?bool $matchSimilarKeywords = null;
     
-    /** @var array<string>|null $reservedKeywords Unique keywords that will guarantee the search answer is triggered. */
+    /**
+     * @var array<string>|null $reservedKeywords Unique keywords that will guarantee the search answer is triggered.
+    */
     private ?array $reservedKeywords = null;
     
     /**
@@ -33,7 +41,7 @@ class AnswerKeyword implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AnswerKeyword
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AnswerKeyword {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AnswerKeyword {
         return new AnswerKeyword();
     }
 
@@ -50,10 +58,11 @@ class AnswerKeyword implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'keywords' => function (self $o, ParseNode $n) { $o->setKeywords($n->getCollectionOfPrimitiveValues()); },
-            'matchSimilarKeywords' => function (self $o, ParseNode $n) { $o->setMatchSimilarKeywords($n->getBooleanValue()); },
-            'reservedKeywords' => function (self $o, ParseNode $n) { $o->setReservedKeywords($n->getCollectionOfPrimitiveValues()); },
+            'keywords' => function (ParseNode $n) use ($o) { $o->setKeywords($n->getCollectionOfPrimitiveValues()); },
+            'matchSimilarKeywords' => function (ParseNode $n) use ($o) { $o->setMatchSimilarKeywords($n->getBooleanValue()); },
+            'reservedKeywords' => function (ParseNode $n) use ($o) { $o->setReservedKeywords($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

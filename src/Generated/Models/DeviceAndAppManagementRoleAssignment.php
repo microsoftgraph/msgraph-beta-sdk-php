@@ -6,16 +6,20 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceAndAppManagementRoleAssignment extends RoleAssignment 
+class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Parsable 
 {
-    /** @var array<string>|null $members The list of ids of role member security groups. These are IDs from Azure Active Directory. */
+    /**
+     * @var array<string>|null $members The list of ids of role member security groups. These are IDs from Azure Active Directory.
+    */
     private ?array $members = null;
     
-    /** @var array<RoleScopeTag>|null $roleScopeTags The set of Role Scope Tags defined on the Role Assignment. */
+    /**
+     * @var array<RoleScopeTag>|null $roleScopeTags The set of Role Scope Tags defined on the Role Assignment.
+    */
     private ?array $roleScopeTags = null;
     
     /**
-     * Instantiates a new deviceAndAppManagementRoleAssignment and sets the default values.
+     * Instantiates a new DeviceAndAppManagementRoleAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -26,7 +30,7 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceAndAppManagementRoleAssignment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAndAppManagementRoleAssignment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAndAppManagementRoleAssignment {
         return new DeviceAndAppManagementRoleAssignment();
     }
 
@@ -35,9 +39,10 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'members' => function (self $o, ParseNode $n) { $o->setMembers($n->getCollectionOfPrimitiveValues()); },
-            'roleScopeTags' => function (self $o, ParseNode $n) { $o->setRoleScopeTags($n->getCollectionOfObjectValues(RoleScopeTag::class)); },
+            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfPrimitiveValues()); },
+            'roleScopeTags' => function (ParseNode $n) use ($o) { $o->setRoleScopeTags($n->getCollectionOfObjectValues(array(RoleScopeTag::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

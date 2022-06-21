@@ -7,24 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagementAction extends Entity 
+class ManagementAction extends Entity implements Parsable 
 {
-    /** @var ManagementCategory|null $category The category for the management action. Possible values are: custom, devices, identity, unknownFutureValue. Optional. Read-only. */
+    /**
+     * @var ManagementCategory|null $category The category for the management action. Possible values are: custom, devices, identity, unknownFutureValue. Optional. Read-only.
+    */
     private ?ManagementCategory $category = null;
     
-    /** @var string|null $description The description for the management action. Optional. Read-only. */
+    /**
+     * @var string|null $description The description for the management action. Optional. Read-only.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name for the management action. Optional. Read-only. */
+    /**
+     * @var string|null $displayName The display name for the management action. Optional. Read-only.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $referenceTemplateId The reference for the management template used to generate the management action. Required. Read-only. */
+    /**
+     * @var string|null $referenceTemplateId The reference for the management template used to generate the management action. Required. Read-only.
+    */
     private ?string $referenceTemplateId = null;
     
-    /** @var int|null $referenceTemplateVersion The referenceTemplateVersion property */
+    /**
+     * @var int|null $referenceTemplateVersion The referenceTemplateVersion property
+    */
     private ?int $referenceTemplateVersion = null;
     
-    /** @var array<WorkloadAction>|null $workloadActions The collection of workload actions associated with the management action. Required. Read-only. */
+    /**
+     * @var array<WorkloadAction>|null $workloadActions The collection of workload actions associated with the management action. Required. Read-only.
+    */
     private ?array $workloadActions = null;
     
     /**
@@ -39,7 +51,7 @@ class ManagementAction extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementAction
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementAction {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementAction {
         return new ManagementAction();
     }
 
@@ -72,13 +84,14 @@ class ManagementAction extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'referenceTemplateId' => function (self $o, ParseNode $n) { $o->setReferenceTemplateId($n->getStringValue()); },
-            'referenceTemplateVersion' => function (self $o, ParseNode $n) { $o->setReferenceTemplateVersion($n->getIntegerValue()); },
-            'workloadActions' => function (self $o, ParseNode $n) { $o->setWorkloadActions($n->getCollectionOfObjectValues(WorkloadAction::class)); },
+            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'referenceTemplateId' => function (ParseNode $n) use ($o) { $o->setReferenceTemplateId($n->getStringValue()); },
+            'referenceTemplateVersion' => function (ParseNode $n) use ($o) { $o->setReferenceTemplateVersion($n->getIntegerValue()); },
+            'workloadActions' => function (ParseNode $n) use ($o) { $o->setWorkloadActions($n->getCollectionOfObjectValues(array(WorkloadAction::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

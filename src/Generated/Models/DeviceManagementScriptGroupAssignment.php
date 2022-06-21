@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementScriptGroupAssignment extends Entity 
+class DeviceManagementScriptGroupAssignment extends Entity implements Parsable 
 {
-    /** @var string|null $targetGroupId The Id of the Azure Active Directory group we are targeting the script to. */
+    /**
+     * @var string|null $targetGroupId The Id of the Azure Active Directory group we are targeting the script to.
+    */
     private ?string $targetGroupId = null;
     
     /**
@@ -23,7 +25,7 @@ class DeviceManagementScriptGroupAssignment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementScriptGroupAssignment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementScriptGroupAssignment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementScriptGroupAssignment {
         return new DeviceManagementScriptGroupAssignment();
     }
 
@@ -32,8 +34,9 @@ class DeviceManagementScriptGroupAssignment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'targetGroupId' => function (self $o, ParseNode $n) { $o->setTargetGroupId($n->getStringValue()); },
+            'targetGroupId' => function (ParseNode $n) use ($o) { $o->setTargetGroupId($n->getStringValue()); },
         ]);
     }
 

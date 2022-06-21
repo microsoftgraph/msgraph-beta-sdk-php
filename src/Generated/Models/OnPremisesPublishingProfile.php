@@ -6,27 +6,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OnPremisesPublishingProfile extends Entity 
+class OnPremisesPublishingProfile extends Entity implements Parsable 
 {
-    /** @var array<OnPremisesAgentGroup>|null $agentGroups List of existing onPremisesAgentGroup objects. Read-only. Nullable. */
+    /**
+     * @var array<OnPremisesAgentGroup>|null $agentGroups List of existing onPremisesAgentGroup objects. Read-only. Nullable.
+    */
     private ?array $agentGroups = null;
     
-    /** @var array<OnPremisesAgent>|null $agents List of existing onPremisesAgent objects. Read-only. Nullable. */
+    /**
+     * @var array<OnPremisesAgent>|null $agents List of existing onPremisesAgent objects. Read-only. Nullable.
+    */
     private ?array $agents = null;
     
-    /** @var array<ConnectorGroup>|null $connectorGroups List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable. */
+    /**
+     * @var array<ConnectorGroup>|null $connectorGroups List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
+    */
     private ?array $connectorGroups = null;
     
-    /** @var array<Connector>|null $connectors List of existing connector objects for applications published through Application Proxy. Read-only. Nullable. */
+    /**
+     * @var array<Connector>|null $connectors List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
+    */
     private ?array $connectors = null;
     
-    /** @var HybridAgentUpdaterConfiguration|null $hybridAgentUpdaterConfiguration Represents a hybridAgentUpdaterConfiguration object. */
+    /**
+     * @var HybridAgentUpdaterConfiguration|null $hybridAgentUpdaterConfiguration Represents a hybridAgentUpdaterConfiguration object.
+    */
     private ?HybridAgentUpdaterConfiguration $hybridAgentUpdaterConfiguration = null;
     
-    /** @var bool|null $isEnabled Represents if Azure AD Application Proxy is enabled for the tenant. */
+    /**
+     * @var bool|null $isEnabled Represents if Azure AD Application Proxy is enabled for the tenant.
+    */
     private ?bool $isEnabled = null;
     
-    /** @var array<PublishedResource>|null $publishedResources List of existing publishedResource objects. Read-only. Nullable. */
+    /**
+     * @var array<PublishedResource>|null $publishedResources List of existing publishedResource objects. Read-only. Nullable.
+    */
     private ?array $publishedResources = null;
     
     /**
@@ -41,7 +55,7 @@ class OnPremisesPublishingProfile extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OnPremisesPublishingProfile
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesPublishingProfile {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OnPremisesPublishingProfile {
         return new OnPremisesPublishingProfile();
     }
 
@@ -82,14 +96,15 @@ class OnPremisesPublishingProfile extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agentGroups' => function (self $o, ParseNode $n) { $o->setAgentGroups($n->getCollectionOfObjectValues(OnPremisesAgentGroup::class)); },
-            'agents' => function (self $o, ParseNode $n) { $o->setAgents($n->getCollectionOfObjectValues(OnPremisesAgent::class)); },
-            'connectorGroups' => function (self $o, ParseNode $n) { $o->setConnectorGroups($n->getCollectionOfObjectValues(ConnectorGroup::class)); },
-            'connectors' => function (self $o, ParseNode $n) { $o->setConnectors($n->getCollectionOfObjectValues(Connector::class)); },
-            'hybridAgentUpdaterConfiguration' => function (self $o, ParseNode $n) { $o->setHybridAgentUpdaterConfiguration($n->getObjectValue(HybridAgentUpdaterConfiguration::class)); },
-            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
-            'publishedResources' => function (self $o, ParseNode $n) { $o->setPublishedResources($n->getCollectionOfObjectValues(PublishedResource::class)); },
+            'agentGroups' => function (ParseNode $n) use ($o) { $o->setAgentGroups($n->getCollectionOfObjectValues(array(OnPremisesAgentGroup::class, 'createFromDiscriminatorValue'))); },
+            'agents' => function (ParseNode $n) use ($o) { $o->setAgents($n->getCollectionOfObjectValues(array(OnPremisesAgent::class, 'createFromDiscriminatorValue'))); },
+            'connectorGroups' => function (ParseNode $n) use ($o) { $o->setConnectorGroups($n->getCollectionOfObjectValues(array(ConnectorGroup::class, 'createFromDiscriminatorValue'))); },
+            'connectors' => function (ParseNode $n) use ($o) { $o->setConnectors($n->getCollectionOfObjectValues(array(Connector::class, 'createFromDiscriminatorValue'))); },
+            'hybridAgentUpdaterConfiguration' => function (ParseNode $n) use ($o) { $o->setHybridAgentUpdaterConfiguration($n->getObjectValue(array(HybridAgentUpdaterConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            'publishedResources' => function (ParseNode $n) use ($o) { $o->setPublishedResources($n->getCollectionOfObjectValues(array(PublishedResource::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

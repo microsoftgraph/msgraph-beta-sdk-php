@@ -16,7 +16,7 @@ use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcCon
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcDevices\CloudPcDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcDevices\Item\CloudPcDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcsOverview\CloudPcsOverviewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcsOverview\Item\CloudPcOverviewItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CloudPcsOverview\Item\CloudPcOverviewTenantItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ConditionalAccessPolicyCoverages\ConditionalAccessPolicyCoveragesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ConditionalAccessPolicyCoverages\Item\ConditionalAccessPolicyCoverageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\CredentialUserRegistrationsSummaries\CredentialUserRegistrationsSummariesRequestBuilder;
@@ -41,6 +41,8 @@ use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Management
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\ManagementTemplateStepsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\ManagementTemplateStepVersionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\ManagementTemplateStepVersionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\MyRoles\Item\MyRoleTenantItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\MyRoles\MyRolesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantGroups\Item\TenantGroupItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\TenantGroups\TenantGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Tenants\Item\TenantItemRequestBuilder;
@@ -184,10 +186,21 @@ class ManagedTenantsRequestBuilder
         return new ManagementTemplateStepVersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var array<string, mixed> $pathParameters Path parameters for the request */
+    /**
+     * The myRoles property
+    */
+    public function myRoles(): MyRolesRequestBuilder {
+        return new MyRolesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * @var array<string, mixed> $pathParameters Path parameters for the request
+    */
     private array $pathParameters;
     
-    /** @var RequestAdapter $requestAdapter The request adapter to use to execute the requests. */
+    /**
+     * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
+    */
     private RequestAdapter $requestAdapter;
     
     /**
@@ -225,7 +238,9 @@ class ManagedTenantsRequestBuilder
         return new TenantTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
-    /** @var string $urlTemplate Url template to use to build the URL for the current request builder */
+    /**
+     * @var string $urlTemplate Url template to use to build the URL for the current request builder
+    */
     private string $urlTemplate;
     
     /**
@@ -249,7 +264,7 @@ class ManagedTenantsRequestBuilder
     */
     public function aggregatedPolicyCompliancesById(string $id): AggregatedPolicyComplianceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['aggregatedPolicyCompliance_id'] = $id;
+        $urlTplParams['aggregatedPolicyCompliance%2Did'] = $id;
         return new AggregatedPolicyComplianceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -260,7 +275,7 @@ class ManagedTenantsRequestBuilder
     */
     public function auditEventsById(string $id): AuditEventItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['auditEvent_id'] = $id;
+        $urlTplParams['auditEvent%2Did'] = $id;
         return new AuditEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -271,7 +286,7 @@ class ManagedTenantsRequestBuilder
     */
     public function cloudPcConnectionsById(string $id): CloudPcConnectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['cloudPcConnection_id'] = $id;
+        $urlTplParams['cloudPcConnection%2Did'] = $id;
         return new CloudPcConnectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -282,19 +297,19 @@ class ManagedTenantsRequestBuilder
     */
     public function cloudPcDevicesById(string $id): CloudPcDeviceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['cloudPcDevice_id'] = $id;
+        $urlTplParams['cloudPcDevice%2Did'] = $id;
         return new CloudPcDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.cloudPcsOverview.item collection
      * @param string $id Unique identifier of the item
-     * @return CloudPcOverviewItemRequestBuilder
+     * @return CloudPcOverviewTenantItemRequestBuilder
     */
-    public function cloudPcsOverviewById(string $id): CloudPcOverviewItemRequestBuilder {
+    public function cloudPcsOverviewById(string $id): CloudPcOverviewTenantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['cloudPcOverview_tenantId'] = $id;
-        return new CloudPcOverviewItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        $urlTplParams['cloudPcOverview%2DtenantId'] = $id;
+        return new CloudPcOverviewTenantItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -304,7 +319,7 @@ class ManagedTenantsRequestBuilder
     */
     public function conditionalAccessPolicyCoveragesById(string $id): ConditionalAccessPolicyCoverageItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['conditionalAccessPolicyCoverage_id'] = $id;
+        $urlTplParams['conditionalAccessPolicyCoverage%2Did'] = $id;
         return new ConditionalAccessPolicyCoverageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -314,51 +329,53 @@ class ManagedTenantsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants{?select,expand}';
+        $this->urlTemplate = '{+baseurl}/tenantRelationships/managedTenants{?%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
      * Delete navigation property managedTenants for tenantRelationships
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedTenantsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createDeleteRequestInformation(?array $headers = null, ?array $options = null): RequestInformation {
+    public function createDeleteRequestInformation(?ManagedTenantsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::DELETE;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
-        }
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         return $requestInfo;
     }
 
     /**
      * The operations available to interact with the multi-tenant management platform.
-     * @param array|null $queryParameters Request query parameters
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedTenantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createGetRequestInformation(?array $queryParameters = null, ?array $headers = null, ?array $options = null): RequestInformation {
+    public function createGetRequestInformation(?ManagedTenantsRequestBuilderGetRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::GET;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
-        }
-        if ($queryParameters !== null) {
-            $requestInfo->setQueryParameters($queryParameters);
-        }
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         return $requestInfo;
     }
@@ -366,22 +383,23 @@ class ManagedTenantsRequestBuilder
     /**
      * Update the navigation property managedTenants in tenantRelationships
      * @param ManagedTenant $body 
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedTenantsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
-    public function createPatchRequestInformation(ManagedTenant $body, ?array $headers = null, ?array $options = null): RequestInformation {
+    public function createPatchRequestInformation(ManagedTenant $body, ?ManagedTenantsRequestBuilderPatchRequestConfiguration $requestConfiguration = null): RequestInformation {
         $requestInfo = new RequestInformation();
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
-        if ($headers !== null) {
-            $requestInfo->headers = array_merge($requestInfo->headers, $headers);
+        if ($requestConfiguration !== null) {
+            if ($requestConfiguration->headers !== null) {
+                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->options !== null) {
+                $requestInfo->addRequestOptions(...$requestConfiguration->options);
+            }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
-        if ($options !== null) {
-            $requestInfo->addRequestOptions(...$options);
-        }
         return $requestInfo;
     }
 
@@ -392,21 +410,24 @@ class ManagedTenantsRequestBuilder
     */
     public function credentialUserRegistrationsSummariesById(string $id): CredentialUserRegistrationsSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['credentialUserRegistrationsSummary_id'] = $id;
+        $urlTplParams['credentialUserRegistrationsSummary%2Did'] = $id;
         return new CredentialUserRegistrationsSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Delete navigation property managedTenants for tenantRelationships
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedTenantsRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function delete(?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createDeleteRequestInformation($headers, $options);
+    public function delete(?ManagedTenantsRequestBuilderDeleteRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createDeleteRequestInformation($requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -419,22 +440,24 @@ class ManagedTenantsRequestBuilder
     */
     public function deviceCompliancePolicySettingStateSummariesById(string $id): DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['deviceCompliancePolicySettingStateSummary_id'] = $id;
+        $urlTplParams['deviceCompliancePolicySettingStateSummary%2Did'] = $id;
         return new DeviceCompliancePolicySettingStateSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * The operations available to interact with the multi-tenant management platform.
-     * @param array|null $queryParameters Request query parameters
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedTenantsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function get(?array $queryParameters = null, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createGetRequestInformation($queryParameters, $headers, $options);
+    public function get(?ManagedTenantsRequestBuilderGetRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, ManagedTenant::class, $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendAsync($requestInfo, array(ManagedTenant::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -447,7 +470,7 @@ class ManagedTenantsRequestBuilder
     */
     public function managedDeviceCompliancesById(string $id): ManagedDeviceComplianceItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedDeviceCompliance_id'] = $id;
+        $urlTplParams['managedDeviceCompliance%2Did'] = $id;
         return new ManagedDeviceComplianceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -458,7 +481,7 @@ class ManagedTenantsRequestBuilder
     */
     public function managedDeviceComplianceTrendsById(string $id): ManagedDeviceComplianceTrendItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managedDeviceComplianceTrend_id'] = $id;
+        $urlTplParams['managedDeviceComplianceTrend%2Did'] = $id;
         return new ManagedDeviceComplianceTrendItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -469,7 +492,7 @@ class ManagedTenantsRequestBuilder
     */
     public function managementActionsById(string $id): ManagementActionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managementAction_id'] = $id;
+        $urlTplParams['managementAction%2Did'] = $id;
         return new ManagementActionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -480,7 +503,7 @@ class ManagedTenantsRequestBuilder
     */
     public function managementActionTenantDeploymentStatusesById(string $id): ManagementActionTenantDeploymentStatusItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managementActionTenantDeploymentStatus_id'] = $id;
+        $urlTplParams['managementActionTenantDeploymentStatus%2Did'] = $id;
         return new ManagementActionTenantDeploymentStatusItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -491,7 +514,7 @@ class ManagedTenantsRequestBuilder
     */
     public function managementIntentsById(string $id): ManagementIntentItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managementIntent_id'] = $id;
+        $urlTplParams['managementIntent%2Did'] = $id;
         return new ManagementIntentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -502,7 +525,7 @@ class ManagedTenantsRequestBuilder
     */
     public function managementTemplateCollectionsById(string $id): ManagementTemplateCollectionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managementTemplateCollection_id'] = $id;
+        $urlTplParams['managementTemplateCollection%2Did'] = $id;
         return new ManagementTemplateCollectionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -513,7 +536,7 @@ class ManagedTenantsRequestBuilder
     */
     public function managementTemplatesById(string $id): ManagementTemplateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managementTemplate_id'] = $id;
+        $urlTplParams['managementTemplate%2Did'] = $id;
         return new ManagementTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -524,7 +547,7 @@ class ManagedTenantsRequestBuilder
     */
     public function managementTemplateStepsById(string $id): ManagementTemplateStepItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managementTemplateStep_id'] = $id;
+        $urlTplParams['managementTemplateStep%2Did'] = $id;
         return new ManagementTemplateStepItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -535,22 +558,36 @@ class ManagedTenantsRequestBuilder
     */
     public function managementTemplateStepVersionsById(string $id): ManagementTemplateStepVersionItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['managementTemplateStepVersion_id'] = $id;
+        $urlTplParams['managementTemplateStepVersion%2Did'] = $id;
         return new ManagementTemplateStepVersionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.myRoles.item collection
+     * @param string $id Unique identifier of the item
+     * @return MyRoleTenantItemRequestBuilder
+    */
+    public function myRolesById(string $id): MyRoleTenantItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['myRole%2DtenantId'] = $id;
+        return new MyRoleTenantItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
      * Update the navigation property managedTenants in tenantRelationships
      * @param ManagedTenant $body 
-     * @param array<string, mixed>|null $headers Request headers
-     * @param array<string, RequestOption>|null $options Request options
+     * @param ManagedTenantsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
     */
-    public function patch(ManagedTenant $body, ?array $headers = null, ?array $options = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPatchRequestInformation($body, $headers, $options);
+    public function patch(ManagedTenant $body, ?ManagedTenantsRequestBuilderPatchRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
+        $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
         try {
-            return $this->requestAdapter->sendAsync($requestInfo, '', $responseHandler);
+            $errorMappings = [
+                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+            ];
+            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -563,7 +600,7 @@ class ManagedTenantsRequestBuilder
     */
     public function tenantGroupsById(string $id): TenantGroupItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['tenantGroup_id'] = $id;
+        $urlTplParams['tenantGroup%2Did'] = $id;
         return new TenantGroupItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -574,7 +611,7 @@ class ManagedTenantsRequestBuilder
     */
     public function tenantsById(string $id): TenantItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['tenant_id'] = $id;
+        $urlTplParams['tenant%2Did'] = $id;
         return new TenantItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -585,7 +622,7 @@ class ManagedTenantsRequestBuilder
     */
     public function tenantsCustomizedInformationById(string $id): TenantCustomizedInformationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['tenantCustomizedInformation_id'] = $id;
+        $urlTplParams['tenantCustomizedInformation%2Did'] = $id;
         return new TenantCustomizedInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -596,7 +633,7 @@ class ManagedTenantsRequestBuilder
     */
     public function tenantsDetailedInformationById(string $id): TenantDetailedInformationItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['tenantDetailedInformation_id'] = $id;
+        $urlTplParams['tenantDetailedInformation%2Did'] = $id;
         return new TenantDetailedInformationItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -607,7 +644,7 @@ class ManagedTenantsRequestBuilder
     */
     public function tenantTagsById(string $id): TenantTagItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['tenantTag_id'] = $id;
+        $urlTplParams['tenantTag%2Did'] = $id;
         return new TenantTagItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -618,7 +655,7 @@ class ManagedTenantsRequestBuilder
     */
     public function windowsDeviceMalwareStatesById(string $id): WindowsDeviceMalwareStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['windowsDeviceMalwareState_id'] = $id;
+        $urlTplParams['windowsDeviceMalwareState%2Did'] = $id;
         return new WindowsDeviceMalwareStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
@@ -629,7 +666,7 @@ class ManagedTenantsRequestBuilder
     */
     public function windowsProtectionStatesById(string $id): WindowsProtectionStateItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
-        $urlTplParams['windowsProtectionState_id'] = $id;
+        $urlTplParams['windowsProtectionState%2Did'] = $id;
         return new WindowsProtectionStateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 

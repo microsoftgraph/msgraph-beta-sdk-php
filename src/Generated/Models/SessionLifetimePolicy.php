@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SessionLifetimePolicy implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $detail The human-readable details of the conditional access session management policy applied to the sign-in. */
+    /**
+     * @var string|null $detail The human-readable details of the conditional access session management policy applied to the sign-in.
+    */
     private ?string $detail = null;
     
-    /** @var ExpirationRequirement|null $expirationRequirement If a conditional access session management policy required the user to authenticate in this sign-in event, this field describes the policy type that required authentication. The possible values are: rememberMultifactorAuthenticationOnTrustedDevices, tenantTokenLifetimePolicy, audienceTokenLifetimePolicy, signInFrequencyPeriodicReauthentication, ngcMfa, signInFrequencyEveryTime, unknownFutureValue. */
+    /**
+     * @var ExpirationRequirement|null $expirationRequirement If a conditional access session management policy required the user to authenticate in this sign-in event, this field describes the policy type that required authentication. The possible values are: rememberMultifactorAuthenticationOnTrustedDevices, tenantTokenLifetimePolicy, audienceTokenLifetimePolicy, signInFrequencyPeriodicReauthentication, ngcMfa, signInFrequencyEveryTime, unknownFutureValue.
+    */
     private ?ExpirationRequirement $expirationRequirement = null;
     
     /**
@@ -30,7 +36,7 @@ class SessionLifetimePolicy implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SessionLifetimePolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SessionLifetimePolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SessionLifetimePolicy {
         return new SessionLifetimePolicy();
     }
 
@@ -63,9 +69,10 @@ class SessionLifetimePolicy implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'detail' => function (self $o, ParseNode $n) { $o->setDetail($n->getStringValue()); },
-            'expirationRequirement' => function (self $o, ParseNode $n) { $o->setExpirationRequirement($n->getEnumValue(ExpirationRequirement::class)); },
+            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getStringValue()); },
+            'expirationRequirement' => function (ParseNode $n) use ($o) { $o->setExpirationRequirement($n->getEnumValue(ExpirationRequirement::class)); },
         ];
     }
 

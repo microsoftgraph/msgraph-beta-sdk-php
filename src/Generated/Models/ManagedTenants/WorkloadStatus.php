@@ -10,19 +10,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class WorkloadStatus implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $displayName The display name for the workload. Required. Read-only. */
+    /**
+     * @var string|null $displayName The display name for the workload. Required. Read-only.
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $offboardedDateTime The date and time the workload was offboarded. Optional. Read-only. */
+    /**
+     * @var DateTime|null $offboardedDateTime The date and time the workload was offboarded. Optional. Read-only.
+    */
     private ?DateTime $offboardedDateTime = null;
     
-    /** @var DateTime|null $onboardedDateTime The date and time the workload was onboarded. Optional. Read-only. */
+    /**
+     * @var DateTime|null $onboardedDateTime The date and time the workload was onboarded. Optional. Read-only.
+    */
     private ?DateTime $onboardedDateTime = null;
     
-    /** @var WorkloadOnboardingStatus|null $onboardingStatus The onboarding status for the workload. Possible values are: notOnboarded, onboarded, unknownFutureValue. Optional. Read-only. */
+    /**
+     * @var WorkloadOnboardingStatus|null $onboardingStatus The onboarding status for the workload. Possible values are: notOnboarded, onboarded, unknownFutureValue. Optional. Read-only.
+    */
     private ?WorkloadOnboardingStatus $onboardingStatus = null;
     
     /**
@@ -37,7 +47,7 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkloadStatus
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkloadStatus {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkloadStatus {
         return new WorkloadStatus();
     }
 
@@ -62,11 +72,12 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'offboardedDateTime' => function (self $o, ParseNode $n) { $o->setOffboardedDateTime($n->getDateTimeValue()); },
-            'onboardedDateTime' => function (self $o, ParseNode $n) { $o->setOnboardedDateTime($n->getDateTimeValue()); },
-            'onboardingStatus' => function (self $o, ParseNode $n) { $o->setOnboardingStatus($n->getEnumValue(WorkloadOnboardingStatus::class)); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'offboardedDateTime' => function (ParseNode $n) use ($o) { $o->setOffboardedDateTime($n->getDateTimeValue()); },
+            'onboardedDateTime' => function (ParseNode $n) use ($o) { $o->setOnboardedDateTime($n->getDateTimeValue()); },
+            'onboardingStatus' => function (ParseNode $n) use ($o) { $o->setOnboardingStatus($n->getEnumValue(WorkloadOnboardingStatus::class)); },
         ];
     }
 

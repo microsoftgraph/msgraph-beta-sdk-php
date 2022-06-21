@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ConditionalAccessDeviceStates implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $excludeStates States excluded from the scope of the policy. Possible values: Compliant, DomainJoined. */
+    /**
+     * @var array<string>|null $excludeStates States excluded from the scope of the policy. Possible values: Compliant, DomainJoined.
+    */
     private ?array $excludeStates = null;
     
-    /** @var array<string>|null $includeStates States in the scope of the policy. All is the only allowed value. */
+    /**
+     * @var array<string>|null $includeStates States in the scope of the policy. All is the only allowed value.
+    */
     private ?array $includeStates = null;
     
     /**
@@ -30,7 +36,7 @@ class ConditionalAccessDeviceStates implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConditionalAccessDeviceStates
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessDeviceStates {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessDeviceStates {
         return new ConditionalAccessDeviceStates();
     }
 
@@ -55,9 +61,10 @@ class ConditionalAccessDeviceStates implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'excludeStates' => function (self $o, ParseNode $n) { $o->setExcludeStates($n->getCollectionOfPrimitiveValues()); },
-            'includeStates' => function (self $o, ParseNode $n) { $o->setIncludeStates($n->getCollectionOfPrimitiveValues()); },
+            'excludeStates' => function (ParseNode $n) use ($o) { $o->setExcludeStates($n->getCollectionOfPrimitiveValues()); },
+            'includeStates' => function (ParseNode $n) use ($o) { $o->setIncludeStates($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AssignedTrainingInfo implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $assignedUserCount Number of users who were assigned the training in an attack simulation and training campaign. */
+    /**
+     * @var int|null $assignedUserCount Number of users who were assigned the training in an attack simulation and training campaign.
+    */
     private ?int $assignedUserCount = null;
     
-    /** @var int|null $completedUserCount Number of users who completed the training in an attack simulation and training campaign. */
+    /**
+     * @var int|null $completedUserCount Number of users who completed the training in an attack simulation and training campaign.
+    */
     private ?int $completedUserCount = null;
     
-    /** @var string|null $displayName Display name of the training in an attack simulation and training campaign. */
+    /**
+     * @var string|null $displayName Display name of the training in an attack simulation and training campaign.
+    */
     private ?string $displayName = null;
     
     /**
@@ -33,7 +41,7 @@ class AssignedTrainingInfo implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssignedTrainingInfo
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AssignedTrainingInfo {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssignedTrainingInfo {
         return new AssignedTrainingInfo();
     }
 
@@ -74,10 +82,11 @@ class AssignedTrainingInfo implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'assignedUserCount' => function (self $o, ParseNode $n) { $o->setAssignedUserCount($n->getIntegerValue()); },
-            'completedUserCount' => function (self $o, ParseNode $n) { $o->setCompletedUserCount($n->getIntegerValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'assignedUserCount' => function (ParseNode $n) use ($o) { $o->setAssignedUserCount($n->getIntegerValue()); },
+            'completedUserCount' => function (ParseNode $n) use ($o) { $o->setCompletedUserCount($n->getIntegerValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
         ];
     }
 

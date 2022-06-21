@@ -6,28 +6,40 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PersonInterest extends ItemFacet 
+class PersonInterest extends ItemFacet implements Parsable 
 {
-    /** @var array<string>|null $categories Contains categories a user has associated with the interest (for example, personal, recipies). */
+    /**
+     * @var array<string>|null $categories Contains categories a user has associated with the interest (for example, personal, recipies).
+    */
     private ?array $categories = null;
     
-    /** @var array<string>|null $collaborationTags Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove. */
+    /**
+     * @var array<string>|null $collaborationTags Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
+    */
     private ?array $collaborationTags = null;
     
-    /** @var string|null $description Contains a description of the interest. */
+    /**
+     * @var string|null $description Contains a description of the interest.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Contains a friendly name for the interest. */
+    /**
+     * @var string|null $displayName Contains a friendly name for the interest.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $thumbnailUrl The thumbnailUrl property */
+    /**
+     * @var string|null $thumbnailUrl The thumbnailUrl property
+    */
     private ?string $thumbnailUrl = null;
     
-    /** @var string|null $webUrl Contains a link to a web page or resource about the interest. */
+    /**
+     * @var string|null $webUrl Contains a link to a web page or resource about the interest.
+    */
     private ?string $webUrl = null;
     
     /**
-     * Instantiates a new personInterest and sets the default values.
+     * Instantiates a new PersonInterest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,7 +50,7 @@ class PersonInterest extends ItemFacet
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PersonInterest
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PersonInterest {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PersonInterest {
         return new PersonInterest();
     }
 
@@ -79,13 +91,14 @@ class PersonInterest extends ItemFacet
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (self $o, ParseNode $n) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'collaborationTags' => function (self $o, ParseNode $n) { $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'thumbnailUrl' => function (self $o, ParseNode $n) { $o->setThumbnailUrl($n->getStringValue()); },
-            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
+            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
+            'collaborationTags' => function (ParseNode $n) use ($o) { $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
+            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 

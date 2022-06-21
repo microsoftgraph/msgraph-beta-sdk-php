@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AttributeSet extends Entity 
+class AttributeSet extends Entity implements Parsable 
 {
-    /** @var string|null $description Description of the attribute set. Can be up to 128 characters long and include Unicode characters. Can be changed later. */
+    /**
+     * @var string|null $description Description of the attribute set. Can be up to 128 characters long and include Unicode characters. Can be changed later.
+    */
     private ?string $description = null;
     
-    /** @var int|null $maxAttributesPerSet Maximum number of custom security attributes that can be defined in this attribute set. Default value is null. If not specified, the administrator can add up to the maximum of 500 active attributes per tenant. Can be changed later. */
+    /**
+     * @var int|null $maxAttributesPerSet Maximum number of custom security attributes that can be defined in this attribute set. Default value is null. If not specified, the administrator can add up to the maximum of 500 active attributes per tenant. Can be changed later.
+    */
     private ?int $maxAttributesPerSet = null;
     
     /**
@@ -26,7 +30,7 @@ class AttributeSet extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AttributeSet
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AttributeSet {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AttributeSet {
         return new AttributeSet();
     }
 
@@ -43,9 +47,10 @@ class AttributeSet extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'maxAttributesPerSet' => function (self $o, ParseNode $n) { $o->setMaxAttributesPerSet($n->getIntegerValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'maxAttributesPerSet' => function (ParseNode $n) use ($o) { $o->setMaxAttributesPerSet($n->getIntegerValue()); },
         ]);
     }
 

@@ -8,33 +8,51 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class SymantecCodeSigningCertificate extends Entity 
+class SymantecCodeSigningCertificate extends Entity implements Parsable 
 {
-    /** @var StreamInterface|null $content The Windows Symantec Code-Signing Certificate in the raw data format. */
+    /**
+     * @var StreamInterface|null $content The Windows Symantec Code-Signing Certificate in the raw data format.
+    */
     private ?StreamInterface $content = null;
     
-    /** @var DateTime|null $expirationDateTime The Cert Expiration Date. */
+    /**
+     * @var DateTime|null $expirationDateTime The Cert Expiration Date.
+    */
     private ?DateTime $expirationDateTime = null;
     
-    /** @var string|null $issuer The Issuer value for the cert. */
+    /**
+     * @var string|null $issuer The Issuer value for the cert.
+    */
     private ?string $issuer = null;
     
-    /** @var string|null $issuerName The Issuer Name for the cert. */
+    /**
+     * @var string|null $issuerName The Issuer Name for the cert.
+    */
     private ?string $issuerName = null;
     
-    /** @var string|null $password The Password required for .pfx file. */
+    /**
+     * @var string|null $password The Password required for .pfx file.
+    */
     private ?string $password = null;
     
-    /** @var CertificateStatus|null $status The Cert Status Provisioned or not Provisioned. Possible values are: notProvisioned, provisioned. */
+    /**
+     * @var CertificateStatus|null $status The Cert Status Provisioned or not Provisioned. Possible values are: notProvisioned, provisioned.
+    */
     private ?CertificateStatus $status = null;
     
-    /** @var string|null $subject The Subject value for the cert. */
+    /**
+     * @var string|null $subject The Subject value for the cert.
+    */
     private ?string $subject = null;
     
-    /** @var string|null $subjectName The Subject Name for the cert. */
+    /**
+     * @var string|null $subjectName The Subject Name for the cert.
+    */
     private ?string $subjectName = null;
     
-    /** @var DateTime|null $uploadDateTime The Type of the CodeSigning Cert as Symantec Cert. */
+    /**
+     * @var DateTime|null $uploadDateTime The Type of the CodeSigning Cert as Symantec Cert.
+    */
     private ?DateTime $uploadDateTime = null;
     
     /**
@@ -49,7 +67,7 @@ class SymantecCodeSigningCertificate extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SymantecCodeSigningCertificate
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SymantecCodeSigningCertificate {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SymantecCodeSigningCertificate {
         return new SymantecCodeSigningCertificate();
     }
 
@@ -74,16 +92,17 @@ class SymantecCodeSigningCertificate extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getBinaryContent()); },
-            'expirationDateTime' => function (self $o, ParseNode $n) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'issuer' => function (self $o, ParseNode $n) { $o->setIssuer($n->getStringValue()); },
-            'issuerName' => function (self $o, ParseNode $n) { $o->setIssuerName($n->getStringValue()); },
-            'password' => function (self $o, ParseNode $n) { $o->setPassword($n->getStringValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(CertificateStatus::class)); },
-            'subject' => function (self $o, ParseNode $n) { $o->setSubject($n->getStringValue()); },
-            'subjectName' => function (self $o, ParseNode $n) { $o->setSubjectName($n->getStringValue()); },
-            'uploadDateTime' => function (self $o, ParseNode $n) { $o->setUploadDateTime($n->getDateTimeValue()); },
+            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
+            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            'issuer' => function (ParseNode $n) use ($o) { $o->setIssuer($n->getStringValue()); },
+            'issuerName' => function (ParseNode $n) use ($o) { $o->setIssuerName($n->getStringValue()); },
+            'password' => function (ParseNode $n) use ($o) { $o->setPassword($n->getStringValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CertificateStatus::class)); },
+            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
+            'subjectName' => function (ParseNode $n) use ($o) { $o->setSubjectName($n->getStringValue()); },
+            'uploadDateTime' => function (ParseNode $n) use ($o) { $o->setUploadDateTime($n->getDateTimeValue()); },
         ]);
     }
 

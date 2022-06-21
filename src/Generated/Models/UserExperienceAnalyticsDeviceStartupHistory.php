@@ -7,54 +7,86 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsDeviceStartupHistory extends Entity 
+class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Parsable 
 {
-    /** @var int|null $coreBootTimeInMs The user experience analytics device core boot time in milliseconds. */
+    /**
+     * @var int|null $coreBootTimeInMs The user experience analytics device core boot time in milliseconds.
+    */
     private ?int $coreBootTimeInMs = null;
     
-    /** @var int|null $coreLoginTimeInMs The user experience analytics device core login time in milliseconds. */
+    /**
+     * @var int|null $coreLoginTimeInMs The user experience analytics device core login time in milliseconds.
+    */
     private ?int $coreLoginTimeInMs = null;
     
-    /** @var string|null $deviceId The user experience analytics device id. */
+    /**
+     * @var string|null $deviceId The user experience analytics device id.
+    */
     private ?string $deviceId = null;
     
-    /** @var int|null $featureUpdateBootTimeInMs The user experience analytics device feature update time in milliseconds. */
+    /**
+     * @var int|null $featureUpdateBootTimeInMs The user experience analytics device feature update time in milliseconds.
+    */
     private ?int $featureUpdateBootTimeInMs = null;
     
-    /** @var int|null $groupPolicyBootTimeInMs The User experience analytics Device group policy boot time in milliseconds. */
+    /**
+     * @var int|null $groupPolicyBootTimeInMs The User experience analytics Device group policy boot time in milliseconds.
+    */
     private ?int $groupPolicyBootTimeInMs = null;
     
-    /** @var int|null $groupPolicyLoginTimeInMs The User experience analytics Device group policy login time in milliseconds. */
+    /**
+     * @var int|null $groupPolicyLoginTimeInMs The User experience analytics Device group policy login time in milliseconds.
+    */
     private ?int $groupPolicyLoginTimeInMs = null;
     
-    /** @var bool|null $isFeatureUpdate The user experience analytics device boot record is a feature update. */
+    /**
+     * @var bool|null $isFeatureUpdate The user experience analytics device boot record is a feature update.
+    */
     private ?bool $isFeatureUpdate = null;
     
-    /** @var bool|null $isFirstLogin The user experience analytics device first login. */
+    /**
+     * @var bool|null $isFirstLogin The user experience analytics device first login.
+    */
     private ?bool $isFirstLogin = null;
     
-    /** @var string|null $operatingSystemVersion The user experience analytics device boot record's operating system version. */
+    /**
+     * @var string|null $operatingSystemVersion The user experience analytics device boot record's operating system version.
+    */
     private ?string $operatingSystemVersion = null;
     
-    /** @var int|null $responsiveDesktopTimeInMs The user experience analytics responsive desktop time in milliseconds. */
+    /**
+     * @var int|null $responsiveDesktopTimeInMs The user experience analytics responsive desktop time in milliseconds.
+    */
     private ?int $responsiveDesktopTimeInMs = null;
     
-    /** @var UserExperienceAnalyticsOperatingSystemRestartCategory|null $restartCategory OS restart category. Possible values are: unknown, restartWithUpdate, restartWithoutUpdate, blueScreen, shutdownWithUpdate, shutdownWithoutUpdate, longPowerButtonPress, bootError, update. */
+    /**
+     * @var UserExperienceAnalyticsOperatingSystemRestartCategory|null $restartCategory OS restart category. Possible values are: unknown, restartWithUpdate, restartWithoutUpdate, blueScreen, shutdownWithUpdate, shutdownWithoutUpdate, longPowerButtonPress, bootError, update.
+    */
     private ?UserExperienceAnalyticsOperatingSystemRestartCategory $restartCategory = null;
     
-    /** @var string|null $restartFaultBucket OS restart fault bucket. The fault bucket is used to find additional information about a system crash. */
+    /**
+     * @var string|null $restartFaultBucket OS restart fault bucket. The fault bucket is used to find additional information about a system crash.
+    */
     private ?string $restartFaultBucket = null;
     
-    /** @var string|null $restartStopCode OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason. */
+    /**
+     * @var string|null $restartStopCode OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason.
+    */
     private ?string $restartStopCode = null;
     
-    /** @var DateTime|null $startTime The user experience analytics device boot start time. */
+    /**
+     * @var DateTime|null $startTime The user experience analytics device boot start time.
+    */
     private ?DateTime $startTime = null;
     
-    /** @var int|null $totalBootTimeInMs The user experience analytics device total boot time in milliseconds. */
+    /**
+     * @var int|null $totalBootTimeInMs The user experience analytics device total boot time in milliseconds.
+    */
     private ?int $totalBootTimeInMs = null;
     
-    /** @var int|null $totalLoginTimeInMs The user experience analytics device total login time in milliseconds. */
+    /**
+     * @var int|null $totalLoginTimeInMs The user experience analytics device total login time in milliseconds.
+    */
     private ?int $totalLoginTimeInMs = null;
     
     /**
@@ -69,7 +101,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsDeviceStartupHistory
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsDeviceStartupHistory {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsDeviceStartupHistory {
         return new UserExperienceAnalyticsDeviceStartupHistory();
     }
 
@@ -110,23 +142,24 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'coreBootTimeInMs' => function (self $o, ParseNode $n) { $o->setCoreBootTimeInMs($n->getIntegerValue()); },
-            'coreLoginTimeInMs' => function (self $o, ParseNode $n) { $o->setCoreLoginTimeInMs($n->getIntegerValue()); },
-            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
-            'featureUpdateBootTimeInMs' => function (self $o, ParseNode $n) { $o->setFeatureUpdateBootTimeInMs($n->getIntegerValue()); },
-            'groupPolicyBootTimeInMs' => function (self $o, ParseNode $n) { $o->setGroupPolicyBootTimeInMs($n->getIntegerValue()); },
-            'groupPolicyLoginTimeInMs' => function (self $o, ParseNode $n) { $o->setGroupPolicyLoginTimeInMs($n->getIntegerValue()); },
-            'isFeatureUpdate' => function (self $o, ParseNode $n) { $o->setIsFeatureUpdate($n->getBooleanValue()); },
-            'isFirstLogin' => function (self $o, ParseNode $n) { $o->setIsFirstLogin($n->getBooleanValue()); },
-            'operatingSystemVersion' => function (self $o, ParseNode $n) { $o->setOperatingSystemVersion($n->getStringValue()); },
-            'responsiveDesktopTimeInMs' => function (self $o, ParseNode $n) { $o->setResponsiveDesktopTimeInMs($n->getIntegerValue()); },
-            'restartCategory' => function (self $o, ParseNode $n) { $o->setRestartCategory($n->getEnumValue(UserExperienceAnalyticsOperatingSystemRestartCategory::class)); },
-            'restartFaultBucket' => function (self $o, ParseNode $n) { $o->setRestartFaultBucket($n->getStringValue()); },
-            'restartStopCode' => function (self $o, ParseNode $n) { $o->setRestartStopCode($n->getStringValue()); },
-            'startTime' => function (self $o, ParseNode $n) { $o->setStartTime($n->getDateTimeValue()); },
-            'totalBootTimeInMs' => function (self $o, ParseNode $n) { $o->setTotalBootTimeInMs($n->getIntegerValue()); },
-            'totalLoginTimeInMs' => function (self $o, ParseNode $n) { $o->setTotalLoginTimeInMs($n->getIntegerValue()); },
+            'coreBootTimeInMs' => function (ParseNode $n) use ($o) { $o->setCoreBootTimeInMs($n->getIntegerValue()); },
+            'coreLoginTimeInMs' => function (ParseNode $n) use ($o) { $o->setCoreLoginTimeInMs($n->getIntegerValue()); },
+            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
+            'featureUpdateBootTimeInMs' => function (ParseNode $n) use ($o) { $o->setFeatureUpdateBootTimeInMs($n->getIntegerValue()); },
+            'groupPolicyBootTimeInMs' => function (ParseNode $n) use ($o) { $o->setGroupPolicyBootTimeInMs($n->getIntegerValue()); },
+            'groupPolicyLoginTimeInMs' => function (ParseNode $n) use ($o) { $o->setGroupPolicyLoginTimeInMs($n->getIntegerValue()); },
+            'isFeatureUpdate' => function (ParseNode $n) use ($o) { $o->setIsFeatureUpdate($n->getBooleanValue()); },
+            'isFirstLogin' => function (ParseNode $n) use ($o) { $o->setIsFirstLogin($n->getBooleanValue()); },
+            'operatingSystemVersion' => function (ParseNode $n) use ($o) { $o->setOperatingSystemVersion($n->getStringValue()); },
+            'responsiveDesktopTimeInMs' => function (ParseNode $n) use ($o) { $o->setResponsiveDesktopTimeInMs($n->getIntegerValue()); },
+            'restartCategory' => function (ParseNode $n) use ($o) { $o->setRestartCategory($n->getEnumValue(UserExperienceAnalyticsOperatingSystemRestartCategory::class)); },
+            'restartFaultBucket' => function (ParseNode $n) use ($o) { $o->setRestartFaultBucket($n->getStringValue()); },
+            'restartStopCode' => function (ParseNode $n) use ($o) { $o->setRestartStopCode($n->getStringValue()); },
+            'startTime' => function (ParseNode $n) use ($o) { $o->setStartTime($n->getDateTimeValue()); },
+            'totalBootTimeInMs' => function (ParseNode $n) use ($o) { $o->setTotalBootTimeInMs($n->getIntegerValue()); },
+            'totalLoginTimeInMs' => function (ParseNode $n) use ($o) { $o->setTotalLoginTimeInMs($n->getIntegerValue()); },
         ]);
     }
 

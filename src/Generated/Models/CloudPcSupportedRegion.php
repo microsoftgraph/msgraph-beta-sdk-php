@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcSupportedRegion extends Entity 
+class CloudPcSupportedRegion extends Entity implements Parsable 
 {
-    /** @var string|null $displayName The name for the supported region. Read-only. */
+    /**
+     * @var string|null $displayName The name for the supported region. Read-only.
+    */
     private ?string $displayName = null;
     
     /**
@@ -23,7 +25,7 @@ class CloudPcSupportedRegion extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcSupportedRegion
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcSupportedRegion {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcSupportedRegion {
         return new CloudPcSupportedRegion();
     }
 
@@ -40,8 +42,9 @@ class CloudPcSupportedRegion extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
         ]);
     }
 

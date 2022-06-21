@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SimulationReportOverview implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<RecommendedAction>|null $recommendedActions List of recommended actions for a tenant to improve its security posture based on the attack simulation and training campaign attack type. */
+    /**
+     * @var array<RecommendedAction>|null $recommendedActions List of recommended actions for a tenant to improve its security posture based on the attack simulation and training campaign attack type.
+    */
     private ?array $recommendedActions = null;
     
-    /** @var int|null $resolvedTargetsCount Number of valid users in the attack simulation and training campaign. */
+    /**
+     * @var int|null $resolvedTargetsCount Number of valid users in the attack simulation and training campaign.
+    */
     private ?int $resolvedTargetsCount = null;
     
-    /** @var SimulationEventsContent|null $simulationEventsContent Summary of simulation events in the attack simulation and training campaign. */
+    /**
+     * @var SimulationEventsContent|null $simulationEventsContent Summary of simulation events in the attack simulation and training campaign.
+    */
     private ?SimulationEventsContent $simulationEventsContent = null;
     
-    /** @var TrainingEventsContent|null $trainingEventsContent Summary of assigned trainings in the attack simulation and training campaign. */
+    /**
+     * @var TrainingEventsContent|null $trainingEventsContent Summary of assigned trainings in the attack simulation and training campaign.
+    */
     private ?TrainingEventsContent $trainingEventsContent = null;
     
     /**
@@ -36,7 +46,7 @@ class SimulationReportOverview implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SimulationReportOverview
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SimulationReportOverview {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SimulationReportOverview {
         return new SimulationReportOverview();
     }
 
@@ -53,11 +63,12 @@ class SimulationReportOverview implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'recommendedActions' => function (self $o, ParseNode $n) { $o->setRecommendedActions($n->getCollectionOfObjectValues(RecommendedAction::class)); },
-            'resolvedTargetsCount' => function (self $o, ParseNode $n) { $o->setResolvedTargetsCount($n->getIntegerValue()); },
-            'simulationEventsContent' => function (self $o, ParseNode $n) { $o->setSimulationEventsContent($n->getObjectValue(SimulationEventsContent::class)); },
-            'trainingEventsContent' => function (self $o, ParseNode $n) { $o->setTrainingEventsContent($n->getObjectValue(TrainingEventsContent::class)); },
+            'recommendedActions' => function (ParseNode $n) use ($o) { $o->setRecommendedActions($n->getCollectionOfObjectValues(array(RecommendedAction::class, 'createFromDiscriminatorValue'))); },
+            'resolvedTargetsCount' => function (ParseNode $n) use ($o) { $o->setResolvedTargetsCount($n->getIntegerValue()); },
+            'simulationEventsContent' => function (ParseNode $n) use ($o) { $o->setSimulationEventsContent($n->getObjectValue(array(SimulationEventsContent::class, 'createFromDiscriminatorValue'))); },
+            'trainingEventsContent' => function (ParseNode $n) use ($o) { $o->setTrainingEventsContent($n->getObjectValue(array(TrainingEventsContent::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

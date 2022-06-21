@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RedundancyDetectionSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $isEnabled Indicates whether email threading and near duplicate detection are enabled. */
+    /**
+     * @var bool|null $isEnabled Indicates whether email threading and near duplicate detection are enabled.
+    */
     private ?bool $isEnabled = null;
     
-    /** @var int|null $maxWords Specifies the maximum number of words used for email threading and near duplicate detection. To learn more, see Minimum/maximum number of words. */
+    /**
+     * @var int|null $maxWords Specifies the maximum number of words used for email threading and near duplicate detection. To learn more, see Minimum/maximum number of words.
+    */
     private ?int $maxWords = null;
     
-    /** @var int|null $minWords Specifies the minimum number of words used for email threading and near duplicate detection. To learn more, see Minimum/maximum number of words. */
+    /**
+     * @var int|null $minWords Specifies the minimum number of words used for email threading and near duplicate detection. To learn more, see Minimum/maximum number of words.
+    */
     private ?int $minWords = null;
     
-    /** @var int|null $similarityThreshold Specifies the similarity level for documents to be put in the same near duplicate set. To learn more, see Document and email similarity threshold. */
+    /**
+     * @var int|null $similarityThreshold Specifies the similarity level for documents to be put in the same near duplicate set. To learn more, see Document and email similarity threshold.
+    */
     private ?int $similarityThreshold = null;
     
     /**
@@ -36,7 +46,7 @@ class RedundancyDetectionSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RedundancyDetectionSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RedundancyDetectionSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RedundancyDetectionSettings {
         return new RedundancyDetectionSettings();
     }
 
@@ -53,11 +63,12 @@ class RedundancyDetectionSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'isEnabled' => function (self $o, ParseNode $n) { $o->setIsEnabled($n->getBooleanValue()); },
-            'maxWords' => function (self $o, ParseNode $n) { $o->setMaxWords($n->getIntegerValue()); },
-            'minWords' => function (self $o, ParseNode $n) { $o->setMinWords($n->getIntegerValue()); },
-            'similarityThreshold' => function (self $o, ParseNode $n) { $o->setSimilarityThreshold($n->getIntegerValue()); },
+            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            'maxWords' => function (ParseNode $n) use ($o) { $o->setMaxWords($n->getIntegerValue()); },
+            'minWords' => function (ParseNode $n) use ($o) { $o->setMinWords($n->getIntegerValue()); },
+            'similarityThreshold' => function (ParseNode $n) use ($o) { $o->setSimilarityThreshold($n->getIntegerValue()); },
         ];
     }
 

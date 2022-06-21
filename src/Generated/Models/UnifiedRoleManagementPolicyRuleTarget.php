@@ -9,25 +9,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $caller The caller for the policy rule target. Allowed values are: None, Admin, EndUser. */
+    /**
+     * @var string|null $caller The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser.
+    */
     private ?string $caller = null;
     
-    /** @var array<string>|null $enforcedSettings The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings. */
+    /**
+     * @var array<string>|null $enforcedSettings The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings.
+    */
     private ?array $enforcedSettings = null;
     
-    /** @var array<string>|null $inheritableSettings The list of settings which can be inherited by child scopes. Use All for all settings. */
+    /**
+     * @var array<string>|null $inheritableSettings The list of role settings that can be inherited by child scopes. Use All for all settings.
+    */
     private ?array $inheritableSettings = null;
     
-    /** @var string|null $level The level for the policy rule target. Allowed values are: Eligibility, Assignment. */
+    /**
+     * @var string|null $level The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment.
+    */
     private ?string $level = null;
     
-    /** @var array<string>|null $operations The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew. */
+    /**
+     * @var array<string>|null $operations The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
+    */
     private ?array $operations = null;
     
-    /** @var array<DirectoryObject>|null $targetObjects The targetObjects property */
+    /**
+     * @var array<DirectoryObject>|null $targetObjects The targetObjects property
+    */
     private ?array $targetObjects = null;
     
     /**
@@ -42,7 +56,7 @@ class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Par
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRoleManagementPolicyRuleTarget
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleManagementPolicyRuleTarget {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleManagementPolicyRuleTarget {
         return new UnifiedRoleManagementPolicyRuleTarget();
     }
 
@@ -55,7 +69,7 @@ class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Par
     }
 
     /**
-     * Gets the caller property value. The caller for the policy rule target. Allowed values are: None, Admin, EndUser.
+     * Gets the caller property value. The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser.
      * @return string|null
     */
     public function getCaller(): ?string {
@@ -63,7 +77,7 @@ class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Par
     }
 
     /**
-     * Gets the enforcedSettings property value. The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings.
+     * Gets the enforcedSettings property value. The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings.
      * @return array<string>|null
     */
     public function getEnforcedSettings(): ?array {
@@ -75,18 +89,19 @@ class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Par
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'caller' => function (self $o, ParseNode $n) { $o->setCaller($n->getStringValue()); },
-            'enforcedSettings' => function (self $o, ParseNode $n) { $o->setEnforcedSettings($n->getCollectionOfPrimitiveValues()); },
-            'inheritableSettings' => function (self $o, ParseNode $n) { $o->setInheritableSettings($n->getCollectionOfPrimitiveValues()); },
-            'level' => function (self $o, ParseNode $n) { $o->setLevel($n->getStringValue()); },
-            'operations' => function (self $o, ParseNode $n) { $o->setOperations($n->getCollectionOfPrimitiveValues()); },
-            'targetObjects' => function (self $o, ParseNode $n) { $o->setTargetObjects($n->getCollectionOfObjectValues(DirectoryObject::class)); },
+            'caller' => function (ParseNode $n) use ($o) { $o->setCaller($n->getStringValue()); },
+            'enforcedSettings' => function (ParseNode $n) use ($o) { $o->setEnforcedSettings($n->getCollectionOfPrimitiveValues()); },
+            'inheritableSettings' => function (ParseNode $n) use ($o) { $o->setInheritableSettings($n->getCollectionOfPrimitiveValues()); },
+            'level' => function (ParseNode $n) use ($o) { $o->setLevel($n->getStringValue()); },
+            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfPrimitiveValues()); },
+            'targetObjects' => function (ParseNode $n) use ($o) { $o->setTargetObjects($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
     /**
-     * Gets the inheritableSettings property value. The list of settings which can be inherited by child scopes. Use All for all settings.
+     * Gets the inheritableSettings property value. The list of role settings that can be inherited by child scopes. Use All for all settings.
      * @return array<string>|null
     */
     public function getInheritableSettings(): ?array {
@@ -94,7 +109,7 @@ class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Par
     }
 
     /**
-     * Gets the level property value. The level for the policy rule target. Allowed values are: Eligibility, Assignment.
+     * Gets the level property value. The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment.
      * @return string|null
     */
     public function getLevel(): ?string {
@@ -102,7 +117,7 @@ class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Par
     }
 
     /**
-     * Gets the operations property value. The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
+     * Gets the operations property value. The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
      * @return array<string>|null
     */
     public function getOperations(): ?array {
@@ -140,7 +155,7 @@ class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Par
     }
 
     /**
-     * Sets the caller property value. The caller for the policy rule target. Allowed values are: None, Admin, EndUser.
+     * Sets the caller property value. The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser.
      *  @param string|null $value Value to set for the caller property.
     */
     public function setCaller(?string $value ): void {
@@ -148,7 +163,7 @@ class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Par
     }
 
     /**
-     * Sets the enforcedSettings property value. The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings.
+     * Sets the enforcedSettings property value. The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings.
      *  @param array<string>|null $value Value to set for the enforcedSettings property.
     */
     public function setEnforcedSettings(?array $value ): void {
@@ -156,7 +171,7 @@ class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Par
     }
 
     /**
-     * Sets the inheritableSettings property value. The list of settings which can be inherited by child scopes. Use All for all settings.
+     * Sets the inheritableSettings property value. The list of role settings that can be inherited by child scopes. Use All for all settings.
      *  @param array<string>|null $value Value to set for the inheritableSettings property.
     */
     public function setInheritableSettings(?array $value ): void {
@@ -164,7 +179,7 @@ class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Par
     }
 
     /**
-     * Sets the level property value. The level for the policy rule target. Allowed values are: Eligibility, Assignment.
+     * Sets the level property value. The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment.
      *  @param string|null $value Value to set for the level property.
     */
     public function setLevel(?string $value ): void {
@@ -172,7 +187,7 @@ class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Par
     }
 
     /**
-     * Sets the operations property value. The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
+     * Sets the operations property value. The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
      *  @param array<string>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value ): void {

@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity 
+class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity implements Parsable 
 {
-    /** @var string|null $appDisplayName The friendly name of the application for which the event occurred. */
+    /**
+     * @var string|null $appDisplayName The friendly name of the application for which the event occurred.
+    */
     private ?string $appDisplayName = null;
     
-    /** @var string|null $appPublisher The publisher of the application. */
+    /**
+     * @var string|null $appPublisher The publisher of the application.
+    */
     private ?string $appPublisher = null;
     
-    /** @var string|null $appVersion The version of the application. */
+    /**
+     * @var string|null $appVersion The version of the application.
+    */
     private ?string $appVersion = null;
     
-    /** @var string|null $deviceDisplayName The name of the device. */
+    /**
+     * @var string|null $deviceDisplayName The name of the device.
+    */
     private ?string $deviceDisplayName = null;
     
-    /** @var string|null $deviceId The id of the device. */
+    /**
+     * @var string|null $deviceId The id of the device.
+    */
     private ?string $deviceId = null;
     
-    /** @var DateTime|null $eventDateTime The time the event occurred. */
+    /**
+     * @var DateTime|null $eventDateTime The time the event occurred.
+    */
     private ?DateTime $eventDateTime = null;
     
-    /** @var string|null $eventType The type of the event. */
+    /**
+     * @var string|null $eventType The type of the event.
+    */
     private ?string $eventType = null;
     
     /**
@@ -42,7 +56,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsAppHealthDevicePerformanceDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthDevicePerformanceDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthDevicePerformanceDetails {
         return new UserExperienceAnalyticsAppHealthDevicePerformanceDetails();
     }
 
@@ -107,14 +121,15 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appDisplayName' => function (self $o, ParseNode $n) { $o->setAppDisplayName($n->getStringValue()); },
-            'appPublisher' => function (self $o, ParseNode $n) { $o->setAppPublisher($n->getStringValue()); },
-            'appVersion' => function (self $o, ParseNode $n) { $o->setAppVersion($n->getStringValue()); },
-            'deviceDisplayName' => function (self $o, ParseNode $n) { $o->setDeviceDisplayName($n->getStringValue()); },
-            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
-            'eventDateTime' => function (self $o, ParseNode $n) { $o->setEventDateTime($n->getDateTimeValue()); },
-            'eventType' => function (self $o, ParseNode $n) { $o->setEventType($n->getStringValue()); },
+            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
+            'appPublisher' => function (ParseNode $n) use ($o) { $o->setAppPublisher($n->getStringValue()); },
+            'appVersion' => function (ParseNode $n) use ($o) { $o->setAppVersion($n->getStringValue()); },
+            'deviceDisplayName' => function (ParseNode $n) use ($o) { $o->setDeviceDisplayName($n->getStringValue()); },
+            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
+            'eventDateTime' => function (ParseNode $n) use ($o) { $o->setEventDateTime($n->getDateTimeValue()); },
+            'eventType' => function (ParseNode $n) use ($o) { $o->setEventType($n->getStringValue()); },
         ]);
     }
 

@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CredentialUserRegistrationCount extends Entity 
+class CredentialUserRegistrationCount extends Entity implements Parsable 
 {
-    /** @var int|null $totalUserCount Provides the total user count in the tenant. */
+    /**
+     * @var int|null $totalUserCount Provides the total user count in the tenant.
+    */
     private ?int $totalUserCount = null;
     
-    /** @var array<UserRegistrationCount>|null $userRegistrationCounts A collection of registration count and status information for users in your tenant. */
+    /**
+     * @var array<UserRegistrationCount>|null $userRegistrationCounts A collection of registration count and status information for users in your tenant.
+    */
     private ?array $userRegistrationCounts = null;
     
     /**
@@ -26,7 +30,7 @@ class CredentialUserRegistrationCount extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CredentialUserRegistrationCount
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUserRegistrationCount {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUserRegistrationCount {
         return new CredentialUserRegistrationCount();
     }
 
@@ -35,9 +39,10 @@ class CredentialUserRegistrationCount extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'totalUserCount' => function (self $o, ParseNode $n) { $o->setTotalUserCount($n->getIntegerValue()); },
-            'userRegistrationCounts' => function (self $o, ParseNode $n) { $o->setUserRegistrationCounts($n->getCollectionOfObjectValues(UserRegistrationCount::class)); },
+            'totalUserCount' => function (ParseNode $n) use ($o) { $o->setTotalUserCount($n->getIntegerValue()); },
+            'userRegistrationCounts' => function (ParseNode $n) use ($o) { $o->setUserRegistrationCounts($n->getCollectionOfObjectValues(array(UserRegistrationCount::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

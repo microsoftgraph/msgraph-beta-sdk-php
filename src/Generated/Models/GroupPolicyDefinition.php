@@ -7,57 +7,91 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyDefinition extends Entity 
+class GroupPolicyDefinition extends Entity implements Parsable 
 {
-    /** @var GroupPolicyCategory|null $category The group policy category associated with the definition. */
+    /**
+     * @var GroupPolicyCategory|null $category The group policy category associated with the definition.
+    */
     private ?GroupPolicyCategory $category = null;
     
-    /** @var string|null $categoryPath The localized full category path for the policy. */
+    /**
+     * @var string|null $categoryPath The localized full category path for the policy.
+    */
     private ?string $categoryPath = null;
     
-    /** @var GroupPolicyDefinitionClassType|null $classType Identifies the type of groups the policy can be applied to. Possible values are: user, machine. */
+    /**
+     * @var GroupPolicyDefinitionClassType|null $classType Identifies the type of groups the policy can be applied to. Possible values are: user, machine.
+    */
     private ?GroupPolicyDefinitionClassType $classType = null;
     
-    /** @var GroupPolicyDefinitionFile|null $definitionFile The group policy file associated with the definition. */
+    /**
+     * @var GroupPolicyDefinitionFile|null $definitionFile The group policy file associated with the definition.
+    */
     private ?GroupPolicyDefinitionFile $definitionFile = null;
     
-    /** @var string|null $displayName The localized policy name. */
+    /**
+     * @var string|null $displayName The localized policy name.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $explainText The localized explanation or help text associated with the policy. The default value is empty. */
+    /**
+     * @var string|null $explainText The localized explanation or help text associated with the policy. The default value is empty.
+    */
     private ?string $explainText = null;
     
-    /** @var string|null $groupPolicyCategoryId The category id of the parent category */
+    /**
+     * @var string|null $groupPolicyCategoryId The category id of the parent category
+    */
     private ?string $groupPolicyCategoryId = null;
     
-    /** @var bool|null $hasRelatedDefinitions Signifies whether or not there are related definitions to this definition */
+    /**
+     * @var bool|null $hasRelatedDefinitions Signifies whether or not there are related definitions to this definition
+    */
     private ?bool $hasRelatedDefinitions = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $minDeviceCspVersion Minimum required CSP version for device configuration in this definition */
+    /**
+     * @var string|null $minDeviceCspVersion Minimum required CSP version for device configuration in this definition
+    */
     private ?string $minDeviceCspVersion = null;
     
-    /** @var string|null $minUserCspVersion Minimum required CSP version for user configuration in this definition */
+    /**
+     * @var string|null $minUserCspVersion Minimum required CSP version for user configuration in this definition
+    */
     private ?string $minUserCspVersion = null;
     
-    /** @var GroupPolicyDefinition|null $nextVersionDefinition Definition of the next version of this definition */
+    /**
+     * @var GroupPolicyDefinition|null $nextVersionDefinition Definition of the next version of this definition
+    */
     private ?GroupPolicyDefinition $nextVersionDefinition = null;
     
-    /** @var GroupPolicyType|null $policyType Specifies the type of group policy. Possible values are: admxBacked, admxIngested. */
+    /**
+     * @var GroupPolicyType|null $policyType Specifies the type of group policy. Possible values are: admxBacked, admxIngested.
+    */
     private ?GroupPolicyType $policyType = null;
     
-    /** @var array<GroupPolicyPresentation>|null $presentations The group policy presentations associated with the definition. */
+    /**
+     * @var array<GroupPolicyPresentation>|null $presentations The group policy presentations associated with the definition.
+    */
     private ?array $presentations = null;
     
-    /** @var GroupPolicyDefinition|null $previousVersionDefinition Definition of the previous version of this definition */
+    /**
+     * @var GroupPolicyDefinition|null $previousVersionDefinition Definition of the previous version of this definition
+    */
     private ?GroupPolicyDefinition $previousVersionDefinition = null;
     
-    /** @var string|null $supportedOn Localized string used to specify what operating system or application version is affected by the policy. */
+    /**
+     * @var string|null $supportedOn Localized string used to specify what operating system or application version is affected by the policy.
+    */
     private ?string $supportedOn = null;
     
-    /** @var string|null $version Setting definition version */
+    /**
+     * @var string|null $version Setting definition version
+    */
     private ?string $version = null;
     
     /**
@@ -72,7 +106,7 @@ class GroupPolicyDefinition extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicyDefinition
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyDefinition {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyDefinition {
         return new GroupPolicyDefinition();
     }
 
@@ -129,24 +163,25 @@ class GroupPolicyDefinition extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getObjectValue(GroupPolicyCategory::class)); },
-            'categoryPath' => function (self $o, ParseNode $n) { $o->setCategoryPath($n->getStringValue()); },
-            'classType' => function (self $o, ParseNode $n) { $o->setClassType($n->getEnumValue(GroupPolicyDefinitionClassType::class)); },
-            'definitionFile' => function (self $o, ParseNode $n) { $o->setDefinitionFile($n->getObjectValue(GroupPolicyDefinitionFile::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'explainText' => function (self $o, ParseNode $n) { $o->setExplainText($n->getStringValue()); },
-            'groupPolicyCategoryId' => function (self $o, ParseNode $n) { $o->setGroupPolicyCategoryId($n->getStringValue()); },
-            'hasRelatedDefinitions' => function (self $o, ParseNode $n) { $o->setHasRelatedDefinitions($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'minDeviceCspVersion' => function (self $o, ParseNode $n) { $o->setMinDeviceCspVersion($n->getStringValue()); },
-            'minUserCspVersion' => function (self $o, ParseNode $n) { $o->setMinUserCspVersion($n->getStringValue()); },
-            'nextVersionDefinition' => function (self $o, ParseNode $n) { $o->setNextVersionDefinition($n->getObjectValue(GroupPolicyDefinition::class)); },
-            'policyType' => function (self $o, ParseNode $n) { $o->setPolicyType($n->getEnumValue(GroupPolicyType::class)); },
-            'presentations' => function (self $o, ParseNode $n) { $o->setPresentations($n->getCollectionOfObjectValues(GroupPolicyPresentation::class)); },
-            'previousVersionDefinition' => function (self $o, ParseNode $n) { $o->setPreviousVersionDefinition($n->getObjectValue(GroupPolicyDefinition::class)); },
-            'supportedOn' => function (self $o, ParseNode $n) { $o->setSupportedOn($n->getStringValue()); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
+            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getObjectValue(array(GroupPolicyCategory::class, 'createFromDiscriminatorValue'))); },
+            'categoryPath' => function (ParseNode $n) use ($o) { $o->setCategoryPath($n->getStringValue()); },
+            'classType' => function (ParseNode $n) use ($o) { $o->setClassType($n->getEnumValue(GroupPolicyDefinitionClassType::class)); },
+            'definitionFile' => function (ParseNode $n) use ($o) { $o->setDefinitionFile($n->getObjectValue(array(GroupPolicyDefinitionFile::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'explainText' => function (ParseNode $n) use ($o) { $o->setExplainText($n->getStringValue()); },
+            'groupPolicyCategoryId' => function (ParseNode $n) use ($o) { $o->setGroupPolicyCategoryId($n->getStringValue()); },
+            'hasRelatedDefinitions' => function (ParseNode $n) use ($o) { $o->setHasRelatedDefinitions($n->getBooleanValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'minDeviceCspVersion' => function (ParseNode $n) use ($o) { $o->setMinDeviceCspVersion($n->getStringValue()); },
+            'minUserCspVersion' => function (ParseNode $n) use ($o) { $o->setMinUserCspVersion($n->getStringValue()); },
+            'nextVersionDefinition' => function (ParseNode $n) use ($o) { $o->setNextVersionDefinition($n->getObjectValue(array(GroupPolicyDefinition::class, 'createFromDiscriminatorValue'))); },
+            'policyType' => function (ParseNode $n) use ($o) { $o->setPolicyType($n->getEnumValue(GroupPolicyType::class)); },
+            'presentations' => function (ParseNode $n) use ($o) { $o->setPresentations($n->getCollectionOfObjectValues(array(GroupPolicyPresentation::class, 'createFromDiscriminatorValue'))); },
+            'previousVersionDefinition' => function (ParseNode $n) use ($o) { $o->setPreviousVersionDefinition($n->getObjectValue(array(GroupPolicyDefinition::class, 'createFromDiscriminatorValue'))); },
+            'supportedOn' => function (ParseNode $n) use ($o) { $o->setSupportedOn($n->getStringValue()); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 

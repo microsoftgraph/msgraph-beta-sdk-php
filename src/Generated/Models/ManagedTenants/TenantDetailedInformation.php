@@ -7,36 +7,56 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TenantDetailedInformation extends Entity 
+class TenantDetailedInformation extends Entity implements Parsable 
 {
-    /** @var string|null $city The city where the managed tenant is located. Optional. Read-only. */
+    /**
+     * @var string|null $city The city where the managed tenant is located. Optional. Read-only.
+    */
     private ?string $city = null;
     
-    /** @var string|null $countryCode The code for the country where the managed tenant is located. Optional. Read-only. */
+    /**
+     * @var string|null $countryCode The code for the country where the managed tenant is located. Optional. Read-only.
+    */
     private ?string $countryCode = null;
     
-    /** @var string|null $countryName The name for the country where the managed tenant is located. Optional. Read-only. */
+    /**
+     * @var string|null $countryName The name for the country where the managed tenant is located. Optional. Read-only.
+    */
     private ?string $countryName = null;
     
-    /** @var string|null $defaultDomainName The default domain name for the managed tenant. Optional. Read-only. */
+    /**
+     * @var string|null $defaultDomainName The default domain name for the managed tenant. Optional. Read-only.
+    */
     private ?string $defaultDomainName = null;
     
-    /** @var string|null $displayName The display name for the managed tenant. */
+    /**
+     * @var string|null $displayName The display name for the managed tenant.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $industryName The business industry associated with the managed tenant. Optional. Read-only. */
+    /**
+     * @var string|null $industryName The business industry associated with the managed tenant. Optional. Read-only.
+    */
     private ?string $industryName = null;
     
-    /** @var string|null $region The region where the managed tenant is located. Optional. Read-only. */
+    /**
+     * @var string|null $region The region where the managed tenant is located. Optional. Read-only.
+    */
     private ?string $region = null;
     
-    /** @var string|null $segmentName The business segment associated with the managed tenant. Optional. Read-only. */
+    /**
+     * @var string|null $segmentName The business segment associated with the managed tenant. Optional. Read-only.
+    */
     private ?string $segmentName = null;
     
-    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. */
+    /**
+     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant.
+    */
     private ?string $tenantId = null;
     
-    /** @var string|null $verticalName The vertical associated with the managed tenant. Optional. Read-only. */
+    /**
+     * @var string|null $verticalName The vertical associated with the managed tenant. Optional. Read-only.
+    */
     private ?string $verticalName = null;
     
     /**
@@ -51,7 +71,7 @@ class TenantDetailedInformation extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantDetailedInformation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantDetailedInformation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantDetailedInformation {
         return new TenantDetailedInformation();
     }
 
@@ -100,17 +120,18 @@ class TenantDetailedInformation extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'city' => function (self $o, ParseNode $n) { $o->setCity($n->getStringValue()); },
-            'countryCode' => function (self $o, ParseNode $n) { $o->setCountryCode($n->getStringValue()); },
-            'countryName' => function (self $o, ParseNode $n) { $o->setCountryName($n->getStringValue()); },
-            'defaultDomainName' => function (self $o, ParseNode $n) { $o->setDefaultDomainName($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'industryName' => function (self $o, ParseNode $n) { $o->setIndustryName($n->getStringValue()); },
-            'region' => function (self $o, ParseNode $n) { $o->setRegion($n->getStringValue()); },
-            'segmentName' => function (self $o, ParseNode $n) { $o->setSegmentName($n->getStringValue()); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
-            'verticalName' => function (self $o, ParseNode $n) { $o->setVerticalName($n->getStringValue()); },
+            'city' => function (ParseNode $n) use ($o) { $o->setCity($n->getStringValue()); },
+            'countryCode' => function (ParseNode $n) use ($o) { $o->setCountryCode($n->getStringValue()); },
+            'countryName' => function (ParseNode $n) use ($o) { $o->setCountryName($n->getStringValue()); },
+            'defaultDomainName' => function (ParseNode $n) use ($o) { $o->setDefaultDomainName($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'industryName' => function (ParseNode $n) use ($o) { $o->setIndustryName($n->getStringValue()); },
+            'region' => function (ParseNode $n) use ($o) { $o->setRegion($n->getStringValue()); },
+            'segmentName' => function (ParseNode $n) use ($o) { $o->setSegmentName($n->getStringValue()); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'verticalName' => function (ParseNode $n) use ($o) { $o->setVerticalName($n->getStringValue()); },
         ]);
     }
 

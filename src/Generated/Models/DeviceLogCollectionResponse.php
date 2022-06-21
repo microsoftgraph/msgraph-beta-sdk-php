@@ -7,30 +7,46 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceLogCollectionResponse extends Entity 
+class DeviceLogCollectionResponse extends Entity implements Parsable 
 {
-    /** @var int|null $errorCode The error code, if any. Valid values -9.22337203685478E+18 to 9.22337203685478E+18 */
+    /**
+     * @var int|null $errorCode The error code, if any. Valid values -9.22337203685478E+18 to 9.22337203685478E+18
+    */
     private ?int $errorCode = null;
     
-    /** @var DateTime|null $expirationDateTimeUTC The DateTime of the expiration of the logs */
+    /**
+     * @var DateTime|null $expirationDateTimeUTC The DateTime of the expiration of the logs
+    */
     private ?DateTime $expirationDateTimeUTC = null;
     
-    /** @var string|null $initiatedByUserPrincipalName The UPN for who initiated the request */
+    /**
+     * @var string|null $initiatedByUserPrincipalName The UPN for who initiated the request
+    */
     private ?string $initiatedByUserPrincipalName = null;
     
-    /** @var string|null $managedDeviceId The device Id */
+    /**
+     * @var string|null $managedDeviceId The device Id
+    */
     private ?string $managedDeviceId = null;
     
-    /** @var DateTime|null $receivedDateTimeUTC The DateTime the request was received */
+    /**
+     * @var DateTime|null $receivedDateTimeUTC The DateTime the request was received
+    */
     private ?DateTime $receivedDateTimeUTC = null;
     
-    /** @var DateTime|null $requestedDateTimeUTC The DateTime of the request */
+    /**
+     * @var DateTime|null $requestedDateTimeUTC The DateTime of the request
+    */
     private ?DateTime $requestedDateTimeUTC = null;
     
-    /** @var float|null $size The size of the logs. Valid values -1.79769313486232E+308 to 1.79769313486232E+308 */
+    /**
+     * @var float|null $size The size of the logs. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    */
     private ?float $size = null;
     
-    /** @var string|null $status The status of the log collection request */
+    /**
+     * @var string|null $status The status of the log collection request
+    */
     private ?string $status = null;
     
     /**
@@ -45,7 +61,7 @@ class DeviceLogCollectionResponse extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceLogCollectionResponse
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceLogCollectionResponse {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceLogCollectionResponse {
         return new DeviceLogCollectionResponse();
     }
 
@@ -70,15 +86,16 @@ class DeviceLogCollectionResponse extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'errorCode' => function (self $o, ParseNode $n) { $o->setErrorCode($n->getIntegerValue()); },
-            'expirationDateTimeUTC' => function (self $o, ParseNode $n) { $o->setExpirationDateTimeUTC($n->getDateTimeValue()); },
-            'initiatedByUserPrincipalName' => function (self $o, ParseNode $n) { $o->setInitiatedByUserPrincipalName($n->getStringValue()); },
-            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
-            'receivedDateTimeUTC' => function (self $o, ParseNode $n) { $o->setReceivedDateTimeUTC($n->getDateTimeValue()); },
-            'requestedDateTimeUTC' => function (self $o, ParseNode $n) { $o->setRequestedDateTimeUTC($n->getDateTimeValue()); },
-            'size' => function (self $o, ParseNode $n) { $o->setSize($n->getFloatValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
+            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
+            'expirationDateTimeUTC' => function (ParseNode $n) use ($o) { $o->setExpirationDateTimeUTC($n->getDateTimeValue()); },
+            'initiatedByUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setInitiatedByUserPrincipalName($n->getStringValue()); },
+            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
+            'receivedDateTimeUTC' => function (ParseNode $n) use ($o) { $o->setReceivedDateTimeUTC($n->getDateTimeValue()); },
+            'requestedDateTimeUTC' => function (ParseNode $n) use ($o) { $o->setRequestedDateTimeUTC($n->getDateTimeValue()); },
+            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getFloatValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
         ]);
     }
 

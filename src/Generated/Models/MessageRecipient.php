@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MessageRecipient extends Entity 
+class MessageRecipient extends Entity implements Parsable 
 {
-    /** @var MessageStatus|null $deliveryStatus The deliveryStatus property */
+    /**
+     * @var MessageStatus|null $deliveryStatus The deliveryStatus property
+    */
     private ?MessageStatus $deliveryStatus = null;
     
-    /** @var array<MessageEvent>|null $events The events property */
+    /**
+     * @var array<MessageEvent>|null $events The events property
+    */
     private ?array $events = null;
     
-    /** @var string|null $recipientEmail The recipientEmail property */
+    /**
+     * @var string|null $recipientEmail The recipientEmail property
+    */
     private ?string $recipientEmail = null;
     
     /**
@@ -29,7 +35,7 @@ class MessageRecipient extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MessageRecipient
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MessageRecipient {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MessageRecipient {
         return new MessageRecipient();
     }
 
@@ -54,10 +60,11 @@ class MessageRecipient extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deliveryStatus' => function (self $o, ParseNode $n) { $o->setDeliveryStatus($n->getEnumValue(MessageStatus::class)); },
-            'events' => function (self $o, ParseNode $n) { $o->setEvents($n->getCollectionOfObjectValues(MessageEvent::class)); },
-            'recipientEmail' => function (self $o, ParseNode $n) { $o->setRecipientEmail($n->getStringValue()); },
+            'deliveryStatus' => function (ParseNode $n) use ($o) { $o->setDeliveryStatus($n->getEnumValue(MessageStatus::class)); },
+            'events' => function (ParseNode $n) use ($o) { $o->setEvents($n->getCollectionOfObjectValues(array(MessageEvent::class, 'createFromDiscriminatorValue'))); },
+            'recipientEmail' => function (ParseNode $n) use ($o) { $o->setRecipientEmail($n->getStringValue()); },
         ]);
     }
 

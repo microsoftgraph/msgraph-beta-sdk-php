@@ -10,19 +10,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PropertyRule implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var RuleOperation|null $operation Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required. */
+    /**
+     * @var RuleOperation|null $operation Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.
+    */
     private ?RuleOperation $operation = null;
     
-    /** @var string|null $property The property from the externalItem schema. Required. */
+    /**
+     * @var string|null $property The property from the externalItem schema. Required.
+    */
     private ?string $property = null;
     
-    /** @var array<string>|null $values A collection with one or many strings. The specified string(s) will be matched with the specified property using the specified operation. Required. */
+    /**
+     * @var array<string>|null $values A collection with one or many strings. The specified string(s) will be matched with the specified property using the specified operation. Required.
+    */
     private ?array $values = null;
     
-    /** @var BinaryOperator|null $valuesJoinedBy The join operator for evaluating multiple propertyRules. For example, if and is specified, then all propertyRules must be true for the propertyRule to be true. Possible values are: or, and. Required. */
+    /**
+     * @var BinaryOperator|null $valuesJoinedBy The join operator for evaluating multiple propertyRules. For example, if and is specified, then all propertyRules must be true for the propertyRule to be true. Possible values are: or, and. Required.
+    */
     private ?BinaryOperator $valuesJoinedBy = null;
     
     /**
@@ -37,7 +47,7 @@ class PropertyRule implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PropertyRule
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PropertyRule {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PropertyRule {
         return new PropertyRule();
     }
 
@@ -54,11 +64,12 @@ class PropertyRule implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'operation' => function (self $o, ParseNode $n) { $o->setOperation($n->getEnumValue(RuleOperation::class)); },
-            'property' => function (self $o, ParseNode $n) { $o->setProperty($n->getStringValue()); },
-            'values' => function (self $o, ParseNode $n) { $o->setValues($n->getCollectionOfPrimitiveValues()); },
-            'valuesJoinedBy' => function (self $o, ParseNode $n) { $o->setValuesJoinedBy($n->getEnumValue(BinaryOperator::class)); },
+            'operation' => function (ParseNode $n) use ($o) { $o->setOperation($n->getEnumValue(RuleOperation::class)); },
+            'property' => function (ParseNode $n) use ($o) { $o->setProperty($n->getStringValue()); },
+            'values' => function (ParseNode $n) use ($o) { $o->setValues($n->getCollectionOfPrimitiveValues()); },
+            'valuesJoinedBy' => function (ParseNode $n) use ($o) { $o->setValuesJoinedBy($n->getEnumValue(BinaryOperator::class)); },
         ];
     }
 

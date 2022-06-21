@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UsageRight extends Entity 
+class UsageRight extends Entity implements Parsable 
 {
-    /** @var string|null $catalogId Product id corresponding to the usage right. */
+    /**
+     * @var string|null $catalogId Product id corresponding to the usage right.
+    */
     private ?string $catalogId = null;
     
-    /** @var string|null $serviceIdentifier Identifier of the service corresponding to the usage right. */
+    /**
+     * @var string|null $serviceIdentifier Identifier of the service corresponding to the usage right.
+    */
     private ?string $serviceIdentifier = null;
     
-    /** @var UsageRightState|null $state The state of the usage right. Possible values are: active, inactive, warning, suspended. */
+    /**
+     * @var UsageRightState|null $state The state of the usage right. Possible values are: active, inactive, warning, suspended.
+    */
     private ?UsageRightState $state = null;
     
     /**
@@ -29,7 +35,7 @@ class UsageRight extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UsageRight
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UsageRight {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UsageRight {
         return new UsageRight();
     }
 
@@ -46,10 +52,11 @@ class UsageRight extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'catalogId' => function (self $o, ParseNode $n) { $o->setCatalogId($n->getStringValue()); },
-            'serviceIdentifier' => function (self $o, ParseNode $n) { $o->setServiceIdentifier($n->getStringValue()); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(UsageRightState::class)); },
+            'catalogId' => function (ParseNode $n) use ($o) { $o->setCatalogId($n->getStringValue()); },
+            'serviceIdentifier' => function (ParseNode $n) use ($o) { $o->setServiceIdentifier($n->getStringValue()); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(UsageRightState::class)); },
         ]);
     }
 

@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementConfigurationPolicyAssignment extends Entity 
+class DeviceManagementConfigurationPolicyAssignment extends Entity implements Parsable 
 {
-    /** @var DeviceAndAppManagementAssignmentSource|null $source The assignment source for the device compliance policy, direct or parcel/policySet. Possible values are: direct, policySets. */
+    /**
+     * @var DeviceAndAppManagementAssignmentSource|null $source The assignment source for the device compliance policy, direct or parcel/policySet. Possible values are: direct, policySets.
+    */
     private ?DeviceAndAppManagementAssignmentSource $source = null;
     
-    /** @var string|null $sourceId The identifier of the source of the assignment. */
+    /**
+     * @var string|null $sourceId The identifier of the source of the assignment.
+    */
     private ?string $sourceId = null;
     
-    /** @var DeviceAndAppManagementAssignmentTarget|null $target The assignment target for the DeviceManagementConfigurationPolicy. */
+    /**
+     * @var DeviceAndAppManagementAssignmentTarget|null $target The assignment target for the DeviceManagementConfigurationPolicy.
+    */
     private ?DeviceAndAppManagementAssignmentTarget $target = null;
     
     /**
@@ -29,7 +35,7 @@ class DeviceManagementConfigurationPolicyAssignment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationPolicyAssignment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationPolicyAssignment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationPolicyAssignment {
         return new DeviceManagementConfigurationPolicyAssignment();
     }
 
@@ -38,10 +44,11 @@ class DeviceManagementConfigurationPolicyAssignment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'source' => function (self $o, ParseNode $n) { $o->setSource($n->getEnumValue(DeviceAndAppManagementAssignmentSource::class)); },
-            'sourceId' => function (self $o, ParseNode $n) { $o->setSourceId($n->getStringValue()); },
-            'target' => function (self $o, ParseNode $n) { $o->setTarget($n->getObjectValue(DeviceAndAppManagementAssignmentTarget::class)); },
+            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getEnumValue(DeviceAndAppManagementAssignmentSource::class)); },
+            'sourceId' => function (ParseNode $n) use ($o) { $o->setSourceId($n->getStringValue()); },
+            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

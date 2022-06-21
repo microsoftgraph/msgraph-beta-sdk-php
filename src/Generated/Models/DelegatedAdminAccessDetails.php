@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DelegatedAdminAccessDetails implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<UnifiedRole>|null $unifiedRoles The directory roles that the Microsoft partner is assigned in the customer tenant. */
+    /**
+     * @var array<UnifiedRole>|null $unifiedRoles The directory roles that the Microsoft partner is assigned in the customer tenant.
+    */
     private ?array $unifiedRoles = null;
     
     /**
@@ -27,7 +31,7 @@ class DelegatedAdminAccessDetails implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DelegatedAdminAccessDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminAccessDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminAccessDetails {
         return new DelegatedAdminAccessDetails();
     }
 
@@ -44,8 +48,9 @@ class DelegatedAdminAccessDetails implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'unifiedRoles' => function (self $o, ParseNode $n) { $o->setUnifiedRoles($n->getCollectionOfObjectValues(UnifiedRole::class)); },
+            'unifiedRoles' => function (ParseNode $n) use ($o) { $o->setUnifiedRoles($n->getCollectionOfObjectValues(array(UnifiedRole::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

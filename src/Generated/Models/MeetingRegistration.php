@@ -7,34 +7,50 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MeetingRegistration extends MeetingRegistrationBase 
+class MeetingRegistration extends MeetingRegistrationBase implements Parsable 
 {
-    /** @var array<MeetingRegistrationQuestion>|null $customQuestions Custom registration questions. */
+    /**
+     * @var array<MeetingRegistrationQuestion>|null $customQuestions Custom registration questions.
+    */
     private ?array $customQuestions = null;
     
-    /** @var string|null $description The description of the meeting. */
+    /**
+     * @var string|null $description The description of the meeting.
+    */
     private ?string $description = null;
     
-    /** @var DateTime|null $endDateTime The meeting end time in UTC. */
+    /**
+     * @var DateTime|null $endDateTime The meeting end time in UTC.
+    */
     private ?DateTime $endDateTime = null;
     
-    /** @var int|null $registrationPageViewCount The number of times the registration page has been visited. Read-only. */
+    /**
+     * @var int|null $registrationPageViewCount The number of times the registration page has been visited. Read-only.
+    */
     private ?int $registrationPageViewCount = null;
     
-    /** @var string|null $registrationPageWebUrl The URL of the registration page. Read-only. */
+    /**
+     * @var string|null $registrationPageWebUrl The URL of the registration page. Read-only.
+    */
     private ?string $registrationPageWebUrl = null;
     
-    /** @var array<MeetingSpeaker>|null $speakers The meeting speaker's information. */
+    /**
+     * @var array<MeetingSpeaker>|null $speakers The meeting speaker's information.
+    */
     private ?array $speakers = null;
     
-    /** @var DateTime|null $startDateTime The meeting start time in UTC. */
+    /**
+     * @var DateTime|null $startDateTime The meeting start time in UTC.
+    */
     private ?DateTime $startDateTime = null;
     
-    /** @var string|null $subject The subject of the meeting. */
+    /**
+     * @var string|null $subject The subject of the meeting.
+    */
     private ?string $subject = null;
     
     /**
-     * Instantiates a new meetingRegistration and sets the default values.
+     * Instantiates a new MeetingRegistration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,7 +61,7 @@ class MeetingRegistration extends MeetingRegistrationBase
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MeetingRegistration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MeetingRegistration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MeetingRegistration {
         return new MeetingRegistration();
     }
 
@@ -78,15 +94,16 @@ class MeetingRegistration extends MeetingRegistrationBase
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'customQuestions' => function (self $o, ParseNode $n) { $o->setCustomQuestions($n->getCollectionOfObjectValues(MeetingRegistrationQuestion::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'endDateTime' => function (self $o, ParseNode $n) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'registrationPageViewCount' => function (self $o, ParseNode $n) { $o->setRegistrationPageViewCount($n->getIntegerValue()); },
-            'registrationPageWebUrl' => function (self $o, ParseNode $n) { $o->setRegistrationPageWebUrl($n->getStringValue()); },
-            'speakers' => function (self $o, ParseNode $n) { $o->setSpeakers($n->getCollectionOfObjectValues(MeetingSpeaker::class)); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'subject' => function (self $o, ParseNode $n) { $o->setSubject($n->getStringValue()); },
+            'customQuestions' => function (ParseNode $n) use ($o) { $o->setCustomQuestions($n->getCollectionOfObjectValues(array(MeetingRegistrationQuestion::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
+            'registrationPageViewCount' => function (ParseNode $n) use ($o) { $o->setRegistrationPageViewCount($n->getIntegerValue()); },
+            'registrationPageWebUrl' => function (ParseNode $n) use ($o) { $o->setRegistrationPageWebUrl($n->getStringValue()); },
+            'speakers' => function (ParseNode $n) use ($o) { $o->setSpeakers($n->getCollectionOfObjectValues(array(MeetingSpeaker::class, 'createFromDiscriminatorValue'))); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
         ]);
     }
 

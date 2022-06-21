@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class WindowsApplication implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $packageSid The package security identifier that Microsoft has assigned the application. Optional. Read-only. */
+    /**
+     * @var string|null $packageSid The package security identifier that Microsoft has assigned the application. Optional. Read-only.
+    */
     private ?string $packageSid = null;
     
-    /** @var array<string>|null $redirectUris Specifies the URLs where user tokens are sent for sign-in or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. Only available for applications that support the PersonalMicrosoftAccount signInAudience. */
+    /**
+     * @var array<string>|null $redirectUris Specifies the URLs where user tokens are sent for sign-in or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. Only available for applications that support the PersonalMicrosoftAccount signInAudience.
+    */
     private ?array $redirectUris = null;
     
     /**
@@ -30,7 +36,7 @@ class WindowsApplication implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsApplication
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsApplication {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsApplication {
         return new WindowsApplication();
     }
 
@@ -47,9 +53,10 @@ class WindowsApplication implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'packageSid' => function (self $o, ParseNode $n) { $o->setPackageSid($n->getStringValue()); },
-            'redirectUris' => function (self $o, ParseNode $n) { $o->setRedirectUris($n->getCollectionOfPrimitiveValues()); },
+            'packageSid' => function (ParseNode $n) use ($o) { $o->setPackageSid($n->getStringValue()); },
+            'redirectUris' => function (ParseNode $n) use ($o) { $o->setRedirectUris($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

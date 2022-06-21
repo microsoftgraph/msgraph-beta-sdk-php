@@ -7,21 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class LongRunningOperation extends Entity 
+class LongRunningOperation extends Entity implements Parsable 
 {
-    /** @var DateTime|null $createdDateTime The createdDateTime property */
+    /**
+     * @var DateTime|null $createdDateTime The createdDateTime property
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var DateTime|null $lastActionDateTime The lastActionDateTime property */
+    /**
+     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
+    */
     private ?DateTime $lastActionDateTime = null;
     
-    /** @var string|null $resourceLocation The resourceLocation property */
+    /**
+     * @var string|null $resourceLocation The resourceLocation property
+    */
     private ?string $resourceLocation = null;
     
-    /** @var LongRunningOperationStatus|null $status The status property */
+    /**
+     * @var LongRunningOperationStatus|null $status The status property
+    */
     private ?LongRunningOperationStatus $status = null;
     
-    /** @var string|null $statusDetail The statusDetail property */
+    /**
+     * @var string|null $statusDetail The statusDetail property
+    */
     private ?string $statusDetail = null;
     
     /**
@@ -36,7 +46,14 @@ class LongRunningOperation extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LongRunningOperation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): LongRunningOperation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): LongRunningOperation {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.richLongRunningOperation': return new RichLongRunningOperation();
+            }
+        }
         return new LongRunningOperation();
     }
 
@@ -53,12 +70,13 @@ class LongRunningOperation extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'lastActionDateTime' => function (self $o, ParseNode $n) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'resourceLocation' => function (self $o, ParseNode $n) { $o->setResourceLocation($n->getStringValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)); },
-            'statusDetail' => function (self $o, ParseNode $n) { $o->setStatusDetail($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
+            'resourceLocation' => function (ParseNode $n) use ($o) { $o->setResourceLocation($n->getStringValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)); },
+            'statusDetail' => function (ParseNode $n) use ($o) { $o->setStatusDetail($n->getStringValue()); },
         ]);
     }
 

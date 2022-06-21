@@ -7,21 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Office365GroupsActivityStorage extends Entity 
+class Office365GroupsActivityStorage extends Entity implements Parsable 
 {
-    /** @var int|null $mailboxStorageUsedInBytes The storage used in group mailbox. */
+    /**
+     * @var int|null $mailboxStorageUsedInBytes The storage used in group mailbox.
+    */
     private ?int $mailboxStorageUsedInBytes = null;
     
-    /** @var Date|null $reportDate The snapshot date for Exchange and SharePoint used storage. */
+    /**
+     * @var Date|null $reportDate The snapshot date for Exchange and SharePoint used storage.
+    */
     private ?Date $reportDate = null;
     
-    /** @var string|null $reportPeriod The number of days the report covers. */
+    /**
+     * @var string|null $reportPeriod The number of days the report covers.
+    */
     private ?string $reportPeriod = null;
     
-    /** @var Date|null $reportRefreshDate The latest date of the content. */
+    /**
+     * @var Date|null $reportRefreshDate The latest date of the content.
+    */
     private ?Date $reportRefreshDate = null;
     
-    /** @var int|null $siteStorageUsedInBytes The storage used in SharePoint document library. */
+    /**
+     * @var int|null $siteStorageUsedInBytes The storage used in SharePoint document library.
+    */
     private ?int $siteStorageUsedInBytes = null;
     
     /**
@@ -36,7 +46,7 @@ class Office365GroupsActivityStorage extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Office365GroupsActivityStorage
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Office365GroupsActivityStorage {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Office365GroupsActivityStorage {
         return new Office365GroupsActivityStorage();
     }
 
@@ -45,12 +55,13 @@ class Office365GroupsActivityStorage extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'mailboxStorageUsedInBytes' => function (self $o, ParseNode $n) { $o->setMailboxStorageUsedInBytes($n->getIntegerValue()); },
-            'reportDate' => function (self $o, ParseNode $n) { $o->setReportDate($n->getDateValue()); },
-            'reportPeriod' => function (self $o, ParseNode $n) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (self $o, ParseNode $n) { $o->setReportRefreshDate($n->getDateValue()); },
-            'siteStorageUsedInBytes' => function (self $o, ParseNode $n) { $o->setSiteStorageUsedInBytes($n->getIntegerValue()); },
+            'mailboxStorageUsedInBytes' => function (ParseNode $n) use ($o) { $o->setMailboxStorageUsedInBytes($n->getIntegerValue()); },
+            'reportDate' => function (ParseNode $n) use ($o) { $o->setReportDate($n->getDateValue()); },
+            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
+            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
+            'siteStorageUsedInBytes' => function (ParseNode $n) use ($o) { $o->setSiteStorageUsedInBytes($n->getIntegerValue()); },
         ]);
     }
 

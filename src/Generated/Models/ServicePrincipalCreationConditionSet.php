@@ -6,21 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ServicePrincipalCreationConditionSet extends Entity 
+class ServicePrincipalCreationConditionSet extends Entity implements Parsable 
 {
-    /** @var array<string>|null $applicationIds The applicationIds property */
+    /**
+     * @var array<string>|null $applicationIds The applicationIds property
+    */
     private ?array $applicationIds = null;
     
-    /** @var array<string>|null $applicationPublisherIds The applicationPublisherIds property */
+    /**
+     * @var array<string>|null $applicationPublisherIds The applicationPublisherIds property
+    */
     private ?array $applicationPublisherIds = null;
     
-    /** @var bool|null $applicationsFromVerifiedPublisherOnly The applicationsFromVerifiedPublisherOnly property */
+    /**
+     * @var bool|null $applicationsFromVerifiedPublisherOnly The applicationsFromVerifiedPublisherOnly property
+    */
     private ?bool $applicationsFromVerifiedPublisherOnly = null;
     
-    /** @var array<string>|null $applicationTenantIds The applicationTenantIds property */
+    /**
+     * @var array<string>|null $applicationTenantIds The applicationTenantIds property
+    */
     private ?array $applicationTenantIds = null;
     
-    /** @var bool|null $certifiedApplicationsOnly The certifiedApplicationsOnly property */
+    /**
+     * @var bool|null $certifiedApplicationsOnly The certifiedApplicationsOnly property
+    */
     private ?bool $certifiedApplicationsOnly = null;
     
     /**
@@ -35,7 +45,7 @@ class ServicePrincipalCreationConditionSet extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ServicePrincipalCreationConditionSet
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ServicePrincipalCreationConditionSet {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ServicePrincipalCreationConditionSet {
         return new ServicePrincipalCreationConditionSet();
     }
 
@@ -84,12 +94,13 @@ class ServicePrincipalCreationConditionSet extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationIds' => function (self $o, ParseNode $n) { $o->setApplicationIds($n->getCollectionOfPrimitiveValues()); },
-            'applicationPublisherIds' => function (self $o, ParseNode $n) { $o->setApplicationPublisherIds($n->getCollectionOfPrimitiveValues()); },
-            'applicationsFromVerifiedPublisherOnly' => function (self $o, ParseNode $n) { $o->setApplicationsFromVerifiedPublisherOnly($n->getBooleanValue()); },
-            'applicationTenantIds' => function (self $o, ParseNode $n) { $o->setApplicationTenantIds($n->getCollectionOfPrimitiveValues()); },
-            'certifiedApplicationsOnly' => function (self $o, ParseNode $n) { $o->setCertifiedApplicationsOnly($n->getBooleanValue()); },
+            'applicationIds' => function (ParseNode $n) use ($o) { $o->setApplicationIds($n->getCollectionOfPrimitiveValues()); },
+            'applicationPublisherIds' => function (ParseNode $n) use ($o) { $o->setApplicationPublisherIds($n->getCollectionOfPrimitiveValues()); },
+            'applicationsFromVerifiedPublisherOnly' => function (ParseNode $n) use ($o) { $o->setApplicationsFromVerifiedPublisherOnly($n->getBooleanValue()); },
+            'applicationTenantIds' => function (ParseNode $n) use ($o) { $o->setApplicationTenantIds($n->getCollectionOfPrimitiveValues()); },
+            'certifiedApplicationsOnly' => function (ParseNode $n) use ($o) { $o->setCertifiedApplicationsOnly($n->getBooleanValue()); },
         ]);
     }
 

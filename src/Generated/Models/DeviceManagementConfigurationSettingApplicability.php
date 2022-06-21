@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementConfigurationSettingApplicability implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $description description of the setting */
+    /**
+     * @var string|null $description description of the setting
+    */
     private ?string $description = null;
     
-    /** @var DeviceManagementConfigurationDeviceMode|null $deviceMode Device Mode that setting can be applied on. Possible values are: none, kiosk. */
+    /**
+     * @var DeviceManagementConfigurationDeviceMode|null $deviceMode Device Mode that setting can be applied on. Possible values are: none, kiosk.
+    */
     private ?DeviceManagementConfigurationDeviceMode $deviceMode = null;
     
-    /** @var DeviceManagementConfigurationPlatforms|null $platform Platform setting can be applied on. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue. */
+    /**
+     * @var DeviceManagementConfigurationPlatforms|null $platform Platform setting can be applied on. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+    */
     private ?DeviceManagementConfigurationPlatforms $platform = null;
     
-    /** @var DeviceManagementConfigurationTechnologies|null $technologies Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue. */
+    /**
+     * @var DeviceManagementConfigurationTechnologies|null $technologies Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+    */
     private ?DeviceManagementConfigurationTechnologies $technologies = null;
     
     /**
@@ -36,7 +46,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementConfigurationSettingApplicability
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingApplicability {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingApplicability {
         return new DeviceManagementConfigurationSettingApplicability();
     }
 
@@ -69,11 +79,12 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'deviceMode' => function (self $o, ParseNode $n) { $o->setDeviceMode($n->getEnumValue(DeviceManagementConfigurationDeviceMode::class)); },
-            'platform' => function (self $o, ParseNode $n) { $o->setPlatform($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
-            'technologies' => function (self $o, ParseNode $n) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'deviceMode' => function (ParseNode $n) use ($o) { $o->setDeviceMode($n->getEnumValue(DeviceManagementConfigurationDeviceMode::class)); },
+            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
+            'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
         ];
     }
 
@@ -86,7 +97,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     }
 
     /**
-     * Gets the technologies property value. Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Gets the technologies property value. Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
@@ -138,7 +149,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     }
 
     /**
-     * Sets the technologies property value. Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Sets the technologies property value. Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
      *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value ): void {

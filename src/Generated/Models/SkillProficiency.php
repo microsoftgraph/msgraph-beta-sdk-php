@@ -6,28 +6,40 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SkillProficiency extends ItemFacet 
+class SkillProficiency extends ItemFacet implements Parsable 
 {
-    /** @var array<string>|null $categories Contains categories a user has associated with the skill (for example, personal, professional, hobby). */
+    /**
+     * @var array<string>|null $categories Contains categories a user has associated with the skill (for example, personal, professional, hobby).
+    */
     private ?array $categories = null;
     
-    /** @var array<string>|null $collaborationTags Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove. */
+    /**
+     * @var array<string>|null $collaborationTags Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
+    */
     private ?array $collaborationTags = null;
     
-    /** @var string|null $displayName Contains a friendly name for the skill. */
+    /**
+     * @var string|null $displayName Contains a friendly name for the skill.
+    */
     private ?string $displayName = null;
     
-    /** @var SkillProficiencyLevel|null $proficiency Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue. */
+    /**
+     * @var SkillProficiencyLevel|null $proficiency Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
+    */
     private ?SkillProficiencyLevel $proficiency = null;
     
-    /** @var string|null $thumbnailUrl The thumbnailUrl property */
+    /**
+     * @var string|null $thumbnailUrl The thumbnailUrl property
+    */
     private ?string $thumbnailUrl = null;
     
-    /** @var string|null $webUrl Contains a link to an information source about the skill. */
+    /**
+     * @var string|null $webUrl Contains a link to an information source about the skill.
+    */
     private ?string $webUrl = null;
     
     /**
-     * Instantiates a new skillProficiency and sets the default values.
+     * Instantiates a new SkillProficiency and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,7 +50,7 @@ class SkillProficiency extends ItemFacet
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SkillProficiency
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SkillProficiency {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SkillProficiency {
         return new SkillProficiency();
     }
 
@@ -71,13 +83,14 @@ class SkillProficiency extends ItemFacet
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (self $o, ParseNode $n) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'collaborationTags' => function (self $o, ParseNode $n) { $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'proficiency' => function (self $o, ParseNode $n) { $o->setProficiency($n->getEnumValue(SkillProficiencyLevel::class)); },
-            'thumbnailUrl' => function (self $o, ParseNode $n) { $o->setThumbnailUrl($n->getStringValue()); },
-            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
+            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
+            'collaborationTags' => function (ParseNode $n) use ($o) { $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'proficiency' => function (ParseNode $n) use ($o) { $o->setProficiency($n->getEnumValue(SkillProficiencyLevel::class)); },
+            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
+            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 

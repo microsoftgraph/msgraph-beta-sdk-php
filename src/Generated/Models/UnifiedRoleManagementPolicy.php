@@ -7,33 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleManagementPolicy extends Entity 
+class UnifiedRoleManagementPolicy extends Entity implements Parsable 
 {
-    /** @var string|null $description Description for the policy. */
+    /**
+     * @var string|null $description Description for the policy.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Display name for the policy. */
+    /**
+     * @var string|null $displayName Display name for the policy.
+    */
     private ?string $displayName = null;
     
-    /** @var array<UnifiedRoleManagementPolicyRule>|null $effectiveRules Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. */
+    /**
+     * @var array<UnifiedRoleManagementPolicyRule>|null $effectiveRules The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand.
+    */
     private ?array $effectiveRules = null;
     
-    /** @var bool|null $isOrganizationDefault This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory. */
+    /**
+     * @var bool|null $isOrganizationDefault This can only be set to true for a single tenant-wide policy which will apply to all scopes and roles. Set the scopeId to / and scopeType to Directory. Supports $filter (eq, ne).
+    */
     private ?bool $isOrganizationDefault = null;
     
-    /** @var Identity|null $lastModifiedBy The identity who last modified the role setting. */
+    /**
+     * @var Identity|null $lastModifiedBy The identity who last modified the role setting.
+    */
     private ?Identity $lastModifiedBy = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The time when the role setting was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The time when the role setting was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var array<UnifiedRoleManagementPolicyRule>|null $rules The collection of rules like approval rules and expiration rules. */
+    /**
+     * @var array<UnifiedRoleManagementPolicyRule>|null $rules The collection of rules like approval rules and expiration rules. Supports $expand.
+    */
     private ?array $rules = null;
     
-    /** @var string|null $scopeId The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required. */
+    /**
+     * @var string|null $scopeId The identifier of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
+    */
     private ?string $scopeId = null;
     
-    /** @var string|null $scopeType The type of the scope where the policy is created. One of Directory, DirectoryRole. Required. */
+    /**
+     * @var string|null $scopeType The type of the scope where the policy is created. One of Directory, DirectoryRole. Required.
+    */
     private ?string $scopeType = null;
     
     /**
@@ -48,7 +66,7 @@ class UnifiedRoleManagementPolicy extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRoleManagementPolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleManagementPolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleManagementPolicy {
         return new UnifiedRoleManagementPolicy();
     }
 
@@ -69,7 +87,7 @@ class UnifiedRoleManagementPolicy extends Entity
     }
 
     /**
-     * Gets the effectiveRules property value. Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval.
+     * Gets the effectiveRules property value. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand.
      * @return array<UnifiedRoleManagementPolicyRule>|null
     */
     public function getEffectiveRules(): ?array {
@@ -81,21 +99,22 @@ class UnifiedRoleManagementPolicy extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'effectiveRules' => function (self $o, ParseNode $n) { $o->setEffectiveRules($n->getCollectionOfObjectValues(UnifiedRoleManagementPolicyRule::class)); },
-            'isOrganizationDefault' => function (self $o, ParseNode $n) { $o->setIsOrganizationDefault($n->getBooleanValue()); },
-            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(Identity::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'rules' => function (self $o, ParseNode $n) { $o->setRules($n->getCollectionOfObjectValues(UnifiedRoleManagementPolicyRule::class)); },
-            'scopeId' => function (self $o, ParseNode $n) { $o->setScopeId($n->getStringValue()); },
-            'scopeType' => function (self $o, ParseNode $n) { $o->setScopeType($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'effectiveRules' => function (ParseNode $n) use ($o) { $o->setEffectiveRules($n->getCollectionOfObjectValues(array(UnifiedRoleManagementPolicyRule::class, 'createFromDiscriminatorValue'))); },
+            'isOrganizationDefault' => function (ParseNode $n) use ($o) { $o->setIsOrganizationDefault($n->getBooleanValue()); },
+            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'rules' => function (ParseNode $n) use ($o) { $o->setRules($n->getCollectionOfObjectValues(array(UnifiedRoleManagementPolicyRule::class, 'createFromDiscriminatorValue'))); },
+            'scopeId' => function (ParseNode $n) use ($o) { $o->setScopeId($n->getStringValue()); },
+            'scopeType' => function (ParseNode $n) use ($o) { $o->setScopeType($n->getStringValue()); },
         ]);
     }
 
     /**
-     * Gets the isOrganizationDefault property value. This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory.
+     * Gets the isOrganizationDefault property value. This can only be set to true for a single tenant-wide policy which will apply to all scopes and roles. Set the scopeId to / and scopeType to Directory. Supports $filter (eq, ne).
      * @return bool|null
     */
     public function getIsOrganizationDefault(): ?bool {
@@ -119,7 +138,7 @@ class UnifiedRoleManagementPolicy extends Entity
     }
 
     /**
-     * Gets the rules property value. The collection of rules like approval rules and expiration rules.
+     * Gets the rules property value. The collection of rules like approval rules and expiration rules. Supports $expand.
      * @return array<UnifiedRoleManagementPolicyRule>|null
     */
     public function getRules(): ?array {
@@ -127,7 +146,7 @@ class UnifiedRoleManagementPolicy extends Entity
     }
 
     /**
-     * Gets the scopeId property value. The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
+     * Gets the scopeId property value. The identifier of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
      * @return string|null
     */
     public function getScopeId(): ?string {
@@ -176,7 +195,7 @@ class UnifiedRoleManagementPolicy extends Entity
     }
 
     /**
-     * Sets the effectiveRules property value. Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval.
+     * Sets the effectiveRules property value. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand.
      *  @param array<UnifiedRoleManagementPolicyRule>|null $value Value to set for the effectiveRules property.
     */
     public function setEffectiveRules(?array $value ): void {
@@ -184,7 +203,7 @@ class UnifiedRoleManagementPolicy extends Entity
     }
 
     /**
-     * Sets the isOrganizationDefault property value. This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory.
+     * Sets the isOrganizationDefault property value. This can only be set to true for a single tenant-wide policy which will apply to all scopes and roles. Set the scopeId to / and scopeType to Directory. Supports $filter (eq, ne).
      *  @param bool|null $value Value to set for the isOrganizationDefault property.
     */
     public function setIsOrganizationDefault(?bool $value ): void {
@@ -208,7 +227,7 @@ class UnifiedRoleManagementPolicy extends Entity
     }
 
     /**
-     * Sets the rules property value. The collection of rules like approval rules and expiration rules.
+     * Sets the rules property value. The collection of rules like approval rules and expiration rules. Supports $expand.
      *  @param array<UnifiedRoleManagementPolicyRule>|null $value Value to set for the rules property.
     */
     public function setRules(?array $value ): void {
@@ -216,7 +235,7 @@ class UnifiedRoleManagementPolicy extends Entity
     }
 
     /**
-     * Sets the scopeId property value. The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
+     * Sets the scopeId property value. The identifier of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
      *  @param string|null $value Value to set for the scopeId property.
     */
     public function setScopeId(?string $value ): void {

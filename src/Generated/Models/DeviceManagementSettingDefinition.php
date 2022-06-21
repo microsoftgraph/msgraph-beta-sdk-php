@@ -6,39 +6,61 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementSettingDefinition extends Entity 
+class DeviceManagementSettingDefinition extends Entity implements Parsable 
 {
-    /** @var array<DeviceManagementConstraint>|null $constraints Collection of constraints for the setting value */
+    /**
+     * @var array<DeviceManagementConstraint>|null $constraints Collection of constraints for the setting value
+    */
     private ?array $constraints = null;
     
-    /** @var array<DeviceManagementSettingDependency>|null $dependencies Collection of dependencies on other settings */
+    /**
+     * @var array<DeviceManagementSettingDependency>|null $dependencies Collection of dependencies on other settings
+    */
     private ?array $dependencies = null;
     
-    /** @var string|null $description The setting's description */
+    /**
+     * @var string|null $description The setting's description
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The setting's display name */
+    /**
+     * @var string|null $displayName The setting's display name
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $documentationUrl Url to setting documentation */
+    /**
+     * @var string|null $documentationUrl Url to setting documentation
+    */
     private ?string $documentationUrl = null;
     
-    /** @var string|null $headerSubtitle subtitle of the setting header for more details about the category/section */
+    /**
+     * @var string|null $headerSubtitle subtitle of the setting header for more details about the category/section
+    */
     private ?string $headerSubtitle = null;
     
-    /** @var string|null $headerTitle title of the setting header represents a category/section of a setting/settings */
+    /**
+     * @var string|null $headerTitle title of the setting header represents a category/section of a setting/settings
+    */
     private ?string $headerTitle = null;
     
-    /** @var bool|null $isTopLevel If the setting is top level, it can be configured without the need to be wrapped in a collection or complex setting */
+    /**
+     * @var bool|null $isTopLevel If the setting is top level, it can be configured without the need to be wrapped in a collection or complex setting
+    */
     private ?bool $isTopLevel = null;
     
-    /** @var array<string>|null $keywords Keywords associated with the setting */
+    /**
+     * @var array<string>|null $keywords Keywords associated with the setting
+    */
     private ?array $keywords = null;
     
-    /** @var string|null $placeholderText Placeholder text as an example of valid input */
+    /**
+     * @var string|null $placeholderText Placeholder text as an example of valid input
+    */
     private ?string $placeholderText = null;
     
-    /** @var DeviceManangementIntentValueType|null $valueType The data type of the value. Possible values are: integer, boolean, string, complex, collection, abstractComplex. */
+    /**
+     * @var DeviceManangementIntentValueType|null $valueType The data type of the value. Possible values are: integer, boolean, string, complex, collection, abstractComplex.
+    */
     private ?DeviceManangementIntentValueType $valueType = null;
     
     /**
@@ -53,7 +75,16 @@ class DeviceManagementSettingDefinition extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementSettingDefinition
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettingDefinition {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementSettingDefinition {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deviceManagementAbstractComplexSettingDefinition': return new DeviceManagementAbstractComplexSettingDefinition();
+                case '#microsoft.graph.deviceManagementCollectionSettingDefinition': return new DeviceManagementCollectionSettingDefinition();
+                case '#microsoft.graph.deviceManagementComplexSettingDefinition': return new DeviceManagementComplexSettingDefinition();
+            }
+        }
         return new DeviceManagementSettingDefinition();
     }
 
@@ -102,18 +133,19 @@ class DeviceManagementSettingDefinition extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'constraints' => function (self $o, ParseNode $n) { $o->setConstraints($n->getCollectionOfObjectValues(DeviceManagementConstraint::class)); },
-            'dependencies' => function (self $o, ParseNode $n) { $o->setDependencies($n->getCollectionOfObjectValues(DeviceManagementSettingDependency::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'documentationUrl' => function (self $o, ParseNode $n) { $o->setDocumentationUrl($n->getStringValue()); },
-            'headerSubtitle' => function (self $o, ParseNode $n) { $o->setHeaderSubtitle($n->getStringValue()); },
-            'headerTitle' => function (self $o, ParseNode $n) { $o->setHeaderTitle($n->getStringValue()); },
-            'isTopLevel' => function (self $o, ParseNode $n) { $o->setIsTopLevel($n->getBooleanValue()); },
-            'keywords' => function (self $o, ParseNode $n) { $o->setKeywords($n->getCollectionOfPrimitiveValues()); },
-            'placeholderText' => function (self $o, ParseNode $n) { $o->setPlaceholderText($n->getStringValue()); },
-            'valueType' => function (self $o, ParseNode $n) { $o->setValueType($n->getEnumValue(DeviceManangementIntentValueType::class)); },
+            'constraints' => function (ParseNode $n) use ($o) { $o->setConstraints($n->getCollectionOfObjectValues(array(DeviceManagementConstraint::class, 'createFromDiscriminatorValue'))); },
+            'dependencies' => function (ParseNode $n) use ($o) { $o->setDependencies($n->getCollectionOfObjectValues(array(DeviceManagementSettingDependency::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'documentationUrl' => function (ParseNode $n) use ($o) { $o->setDocumentationUrl($n->getStringValue()); },
+            'headerSubtitle' => function (ParseNode $n) use ($o) { $o->setHeaderSubtitle($n->getStringValue()); },
+            'headerTitle' => function (ParseNode $n) use ($o) { $o->setHeaderTitle($n->getStringValue()); },
+            'isTopLevel' => function (ParseNode $n) use ($o) { $o->setIsTopLevel($n->getBooleanValue()); },
+            'keywords' => function (ParseNode $n) use ($o) { $o->setKeywords($n->getCollectionOfPrimitiveValues()); },
+            'placeholderText' => function (ParseNode $n) use ($o) { $o->setPlaceholderText($n->getStringValue()); },
+            'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getEnumValue(DeviceManangementIntentValueType::class)); },
         ]);
     }
 

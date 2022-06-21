@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DetectedSensitiveContentWrapper implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<DetectedSensitiveContent>|null $classification The classification property */
+    /**
+     * @var array<DetectedSensitiveContent>|null $classification The classification property
+    */
     private ?array $classification = null;
     
     /**
@@ -27,7 +31,7 @@ class DetectedSensitiveContentWrapper implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DetectedSensitiveContentWrapper
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DetectedSensitiveContentWrapper {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DetectedSensitiveContentWrapper {
         return new DetectedSensitiveContentWrapper();
     }
 
@@ -52,8 +56,9 @@ class DetectedSensitiveContentWrapper implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'classification' => function (self $o, ParseNode $n) { $o->setClassification($n->getCollectionOfObjectValues(DetectedSensitiveContent::class)); },
+            'classification' => function (ParseNode $n) use ($o) { $o->setClassification($n->getCollectionOfObjectValues(array(DetectedSensitiveContent::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

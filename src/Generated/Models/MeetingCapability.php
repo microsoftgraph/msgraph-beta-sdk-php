@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MeetingCapability implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $allowAnonymousUsersToDialOut Indicates whether anonymous users dialout is allowed in a meeting. */
+    /**
+     * @var bool|null $allowAnonymousUsersToDialOut Indicates whether anonymous users dialout is allowed in a meeting.
+    */
     private ?bool $allowAnonymousUsersToDialOut = null;
     
-    /** @var bool|null $allowAnonymousUsersToStartMeeting Indicates whether anonymous users are allowed to start a meeting. */
+    /**
+     * @var bool|null $allowAnonymousUsersToStartMeeting Indicates whether anonymous users are allowed to start a meeting.
+    */
     private ?bool $allowAnonymousUsersToStartMeeting = null;
     
-    /** @var AutoAdmittedUsersType|null $autoAdmittedUsers Possible values are: everyoneInCompany, everyone. */
+    /**
+     * @var AutoAdmittedUsersType|null $autoAdmittedUsers Possible values are: everyoneInCompany, everyone.
+    */
     private ?AutoAdmittedUsersType $autoAdmittedUsers = null;
     
     /**
@@ -33,7 +41,7 @@ class MeetingCapability implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MeetingCapability
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MeetingCapability {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MeetingCapability {
         return new MeetingCapability();
     }
 
@@ -74,10 +82,11 @@ class MeetingCapability implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'allowAnonymousUsersToDialOut' => function (self $o, ParseNode $n) { $o->setAllowAnonymousUsersToDialOut($n->getBooleanValue()); },
-            'allowAnonymousUsersToStartMeeting' => function (self $o, ParseNode $n) { $o->setAllowAnonymousUsersToStartMeeting($n->getBooleanValue()); },
-            'autoAdmittedUsers' => function (self $o, ParseNode $n) { $o->setAutoAdmittedUsers($n->getEnumValue(AutoAdmittedUsersType::class)); },
+            'allowAnonymousUsersToDialOut' => function (ParseNode $n) use ($o) { $o->setAllowAnonymousUsersToDialOut($n->getBooleanValue()); },
+            'allowAnonymousUsersToStartMeeting' => function (ParseNode $n) use ($o) { $o->setAllowAnonymousUsersToStartMeeting($n->getBooleanValue()); },
+            'autoAdmittedUsers' => function (ParseNode $n) use ($o) { $o->setAutoAdmittedUsers($n->getEnumValue(AutoAdmittedUsersType::class)); },
         ];
     }
 

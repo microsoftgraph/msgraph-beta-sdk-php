@@ -7,15 +7,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PaymentMethod extends Entity 
+class PaymentMethod extends Entity implements Parsable 
 {
-    /** @var string|null $code The code property */
+    /**
+     * @var string|null $code The code property
+    */
     private ?string $code = null;
     
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The displayName property
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
@@ -30,7 +36,7 @@ class PaymentMethod extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PaymentMethod
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PaymentMethod {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PaymentMethod {
         return new PaymentMethod();
     }
 
@@ -55,10 +61,11 @@ class PaymentMethod extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'code' => function (self $o, ParseNode $n) { $o->setCode($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

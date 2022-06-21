@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SynchronizationJobApplicationParameters implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $ruleId The identifier of a the synchronizationRule to be applied. */
+    /**
+     * @var string|null $ruleId The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
+    */
     private ?string $ruleId = null;
     
-    /** @var array<SynchronizationJobSubject>|null $subjects The identifiers of one or more objects to which a synchronizationJob is to be applied. */
+    /**
+     * @var array<SynchronizationJobSubject>|null $subjects The identifiers of one or more objects to which a synchronizationJob is to be applied.
+    */
     private ?array $subjects = null;
     
     /**
@@ -30,7 +36,7 @@ class SynchronizationJobApplicationParameters implements AdditionalDataHolder, P
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationJobApplicationParameters
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationJobApplicationParameters {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationJobApplicationParameters {
         return new SynchronizationJobApplicationParameters();
     }
 
@@ -47,14 +53,15 @@ class SynchronizationJobApplicationParameters implements AdditionalDataHolder, P
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'ruleId' => function (self $o, ParseNode $n) { $o->setRuleId($n->getStringValue()); },
-            'subjects' => function (self $o, ParseNode $n) { $o->setSubjects($n->getCollectionOfObjectValues(SynchronizationJobSubject::class)); },
+            'ruleId' => function (ParseNode $n) use ($o) { $o->setRuleId($n->getStringValue()); },
+            'subjects' => function (ParseNode $n) use ($o) { $o->setSubjects($n->getCollectionOfObjectValues(array(SynchronizationJobSubject::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
     /**
-     * Gets the ruleId property value. The identifier of a the synchronizationRule to be applied.
+     * Gets the ruleId property value. The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
      * @return string|null
     */
     public function getRuleId(): ?string {
@@ -88,7 +95,7 @@ class SynchronizationJobApplicationParameters implements AdditionalDataHolder, P
     }
 
     /**
-     * Sets the ruleId property value. The identifier of a the synchronizationRule to be applied.
+     * Sets the ruleId property value. The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
      *  @param string|null $value Value to set for the ruleId property.
     */
     public function setRuleId(?string $value ): void {

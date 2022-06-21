@@ -6,18 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MeetingRegistrationQuestion extends Entity 
+class MeetingRegistrationQuestion extends Entity implements Parsable 
 {
-    /** @var AnswerInputType|null $answerInputType Answer input type of the custom registration question. */
+    /**
+     * @var AnswerInputType|null $answerInputType Answer input type of the custom registration question.
+    */
     private ?AnswerInputType $answerInputType = null;
     
-    /** @var array<string>|null $answerOptions Answer options when answerInputType is radioButton. */
+    /**
+     * @var array<string>|null $answerOptions Answer options when answerInputType is radioButton.
+    */
     private ?array $answerOptions = null;
     
-    /** @var string|null $displayName Display name of the custom registration question. */
+    /**
+     * @var string|null $displayName Display name of the custom registration question.
+    */
     private ?string $displayName = null;
     
-    /** @var bool|null $isRequired Indicates whether the question is required. Default value is false. */
+    /**
+     * @var bool|null $isRequired Indicates whether the question is required. Default value is false.
+    */
     private ?bool $isRequired = null;
     
     /**
@@ -32,7 +40,7 @@ class MeetingRegistrationQuestion extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MeetingRegistrationQuestion
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MeetingRegistrationQuestion {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MeetingRegistrationQuestion {
         return new MeetingRegistrationQuestion();
     }
 
@@ -65,11 +73,12 @@ class MeetingRegistrationQuestion extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'answerInputType' => function (self $o, ParseNode $n) { $o->setAnswerInputType($n->getEnumValue(AnswerInputType::class)); },
-            'answerOptions' => function (self $o, ParseNode $n) { $o->setAnswerOptions($n->getCollectionOfPrimitiveValues()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'isRequired' => function (self $o, ParseNode $n) { $o->setIsRequired($n->getBooleanValue()); },
+            'answerInputType' => function (ParseNode $n) use ($o) { $o->setAnswerInputType($n->getEnumValue(AnswerInputType::class)); },
+            'answerOptions' => function (ParseNode $n) use ($o) { $o->setAnswerOptions($n->getCollectionOfPrimitiveValues()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
         ]);
     }
 

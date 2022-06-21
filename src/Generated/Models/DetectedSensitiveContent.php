@@ -6,21 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DetectedSensitiveContent extends DetectedSensitiveContentBase 
+class DetectedSensitiveContent extends DetectedSensitiveContentBase implements Parsable 
 {
-    /** @var array<ClassificationAttribute>|null $classificationAttributes The classificationAttributes property */
+    /**
+     * @var array<ClassificationAttribute>|null $classificationAttributes The classificationAttributes property
+    */
     private ?array $classificationAttributes = null;
     
-    /** @var ClassificationMethod|null $classificationMethod The classificationMethod property */
+    /**
+     * @var ClassificationMethod|null $classificationMethod The classificationMethod property
+    */
     private ?ClassificationMethod $classificationMethod = null;
     
-    /** @var array<SensitiveContentLocation>|null $matches The matches property */
+    /**
+     * @var array<SensitiveContentLocation>|null $matches The matches property
+    */
     private ?array $matches = null;
     
-    /** @var SensitiveTypeScope|null $scope The scope property */
+    /**
+     * @var SensitiveTypeScope|null $scope The scope property
+    */
     private ?SensitiveTypeScope $scope = null;
     
-    /** @var SensitiveTypeSource|null $sensitiveTypeSource The sensitiveTypeSource property */
+    /**
+     * @var SensitiveTypeSource|null $sensitiveTypeSource The sensitiveTypeSource property
+    */
     private ?SensitiveTypeSource $sensitiveTypeSource = null;
     
     /**
@@ -35,7 +45,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DetectedSensitiveContent
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DetectedSensitiveContent {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DetectedSensitiveContent {
         return new DetectedSensitiveContent();
     }
 
@@ -60,12 +70,13 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classificationAttributes' => function (self $o, ParseNode $n) { $o->setClassificationAttributes($n->getCollectionOfObjectValues(ClassificationAttribute::class)); },
-            'classificationMethod' => function (self $o, ParseNode $n) { $o->setClassificationMethod($n->getEnumValue(ClassificationMethod::class)); },
-            'matches' => function (self $o, ParseNode $n) { $o->setMatches($n->getCollectionOfObjectValues(SensitiveContentLocation::class)); },
-            'scope' => function (self $o, ParseNode $n) { $o->setScope($n->getEnumValue(SensitiveTypeScope::class)); },
-            'sensitiveTypeSource' => function (self $o, ParseNode $n) { $o->setSensitiveTypeSource($n->getEnumValue(SensitiveTypeSource::class)); },
+            'classificationAttributes' => function (ParseNode $n) use ($o) { $o->setClassificationAttributes($n->getCollectionOfObjectValues(array(ClassificationAttribute::class, 'createFromDiscriminatorValue'))); },
+            'classificationMethod' => function (ParseNode $n) use ($o) { $o->setClassificationMethod($n->getEnumValue(ClassificationMethod::class)); },
+            'matches' => function (ParseNode $n) use ($o) { $o->setMatches($n->getCollectionOfObjectValues(array(SensitiveContentLocation::class, 'createFromDiscriminatorValue'))); },
+            'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getEnumValue(SensitiveTypeScope::class)); },
+            'sensitiveTypeSource' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeSource($n->getEnumValue(SensitiveTypeSource::class)); },
         ]);
     }
 

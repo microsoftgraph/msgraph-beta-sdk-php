@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CrossTenantAccessPolicyTargetConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var CrossTenantAccessPolicyTargetConfigurationAccessType|null $accessType Defines whether access is allowed or blocked. The possible values are: allowed, blocked, unknownFutureValue. */
+    /**
+     * @var CrossTenantAccessPolicyTargetConfigurationAccessType|null $accessType Defines whether access is allowed or blocked. The possible values are: allowed, blocked, unknownFutureValue.
+    */
     private ?CrossTenantAccessPolicyTargetConfigurationAccessType $accessType = null;
     
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<CrossTenantAccessPolicyTarget>|null $targets Specifies whether to target users, groups, or applications with this rule. */
+    /**
+     * @var array<CrossTenantAccessPolicyTarget>|null $targets Specifies whether to target users, groups, or applications with this rule.
+    */
     private ?array $targets = null;
     
     /**
@@ -30,7 +36,7 @@ class CrossTenantAccessPolicyTargetConfiguration implements AdditionalDataHolder
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CrossTenantAccessPolicyTargetConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicyTargetConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicyTargetConfiguration {
         return new CrossTenantAccessPolicyTargetConfiguration();
     }
 
@@ -55,9 +61,10 @@ class CrossTenantAccessPolicyTargetConfiguration implements AdditionalDataHolder
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'accessType' => function (self $o, ParseNode $n) { $o->setAccessType($n->getEnumValue(CrossTenantAccessPolicyTargetConfigurationAccessType::class)); },
-            'targets' => function (self $o, ParseNode $n) { $o->setTargets($n->getCollectionOfObjectValues(CrossTenantAccessPolicyTarget::class)); },
+            'accessType' => function (ParseNode $n) use ($o) { $o->setAccessType($n->getEnumValue(CrossTenantAccessPolicyTargetConfigurationAccessType::class)); },
+            'targets' => function (ParseNode $n) use ($o) { $o->setTargets($n->getCollectionOfObjectValues(array(CrossTenantAccessPolicyTarget::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

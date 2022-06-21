@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SensitiveContentEvidence implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $length The length property */
+    /**
+     * @var int|null $length The length property
+    */
     private ?int $length = null;
     
-    /** @var string|null $match The match property */
+    /**
+     * @var string|null $match The match property
+    */
     private ?string $match = null;
     
-    /** @var int|null $offset The offset property */
+    /**
+     * @var int|null $offset The offset property
+    */
     private ?int $offset = null;
     
     /**
@@ -33,7 +41,7 @@ class SensitiveContentEvidence implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SensitiveContentEvidence
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SensitiveContentEvidence {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SensitiveContentEvidence {
         return new SensitiveContentEvidence();
     }
 
@@ -50,10 +58,11 @@ class SensitiveContentEvidence implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'length' => function (self $o, ParseNode $n) { $o->setLength($n->getIntegerValue()); },
-            'match' => function (self $o, ParseNode $n) { $o->setMatch($n->getStringValue()); },
-            'offset' => function (self $o, ParseNode $n) { $o->setOffset($n->getIntegerValue()); },
+            'length' => function (ParseNode $n) use ($o) { $o->setLength($n->getIntegerValue()); },
+            'match' => function (ParseNode $n) use ($o) { $o->setMatch($n->getStringValue()); },
+            'offset' => function (ParseNode $n) use ($o) { $o->setOffset($n->getIntegerValue()); },
         ];
     }
 

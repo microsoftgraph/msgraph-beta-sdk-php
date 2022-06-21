@@ -6,24 +6,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ConnectorGroup extends Entity 
+class ConnectorGroup extends Entity implements Parsable 
 {
-    /** @var array<Application>|null $applications Read-only. Nullable. */
+    /**
+     * @var array<Application>|null $applications The applications property
+    */
     private ?array $applications = null;
     
-    /** @var ConnectorGroupType|null $connectorGroupType Indicates the type of hybrid agent. This pre-set by the system. Possible values are: applicationProxy. Read-only. */
+    /**
+     * @var ConnectorGroupType|null $connectorGroupType Indicates the type of hybrid agent. This pre-set by the system. Possible values are: applicationProxy. Read-only.
+    */
     private ?ConnectorGroupType $connectorGroupType = null;
     
-    /** @var bool|null $isDefault Indicates if the connectorGroup is the default connectorGroup. Only a single connector group can be the default connectorGroup and this is pre-set by the system. Read-only. */
+    /**
+     * @var bool|null $isDefault Indicates if the connectorGroup is the default connectorGroup. Only a single connector group can be the default connectorGroup and this is pre-set by the system. Read-only.
+    */
     private ?bool $isDefault = null;
     
-    /** @var array<Connector>|null $members Read-only. Nullable. */
+    /**
+     * @var array<Connector>|null $members The members property
+    */
     private ?array $members = null;
     
-    /** @var string|null $name The name associated with the connectorGroup. */
+    /**
+     * @var string|null $name The name associated with the connectorGroup.
+    */
     private ?string $name = null;
     
-    /** @var ConnectorGroupRegion|null $region The region the connectorGroup is assigned to and will optimize traffic for. This region can only be set if no connectors or applications are assigned to the connectorGroup. The possible values are: nam (for North America), eur (for Europe), aus (for Australia), asia (for Asia), ind (for India), and unknownFutureValue. */
+    /**
+     * @var ConnectorGroupRegion|null $region The region the connectorGroup is assigned to and will optimize traffic for. This region can only be set if no connectors or applications are assigned to the connectorGroup. The possible values are: nam (for North America), eur (for Europe), aus (for Australia), asia (for Asia), ind (for India), and unknownFutureValue.
+    */
     private ?ConnectorGroupRegion $region = null;
     
     /**
@@ -38,12 +50,12 @@ class ConnectorGroup extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConnectorGroup
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ConnectorGroup {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConnectorGroup {
         return new ConnectorGroup();
     }
 
     /**
-     * Gets the applications property value. Read-only. Nullable.
+     * Gets the applications property value. The applications property
      * @return array<Application>|null
     */
     public function getApplications(): ?array {
@@ -63,13 +75,14 @@ class ConnectorGroup extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applications' => function (self $o, ParseNode $n) { $o->setApplications($n->getCollectionOfObjectValues(Application::class)); },
-            'connectorGroupType' => function (self $o, ParseNode $n) { $o->setConnectorGroupType($n->getEnumValue(ConnectorGroupType::class)); },
-            'isDefault' => function (self $o, ParseNode $n) { $o->setIsDefault($n->getBooleanValue()); },
-            'members' => function (self $o, ParseNode $n) { $o->setMembers($n->getCollectionOfObjectValues(Connector::class)); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'region' => function (self $o, ParseNode $n) { $o->setRegion($n->getEnumValue(ConnectorGroupRegion::class)); },
+            'applications' => function (ParseNode $n) use ($o) { $o->setApplications($n->getCollectionOfObjectValues(array(Application::class, 'createFromDiscriminatorValue'))); },
+            'connectorGroupType' => function (ParseNode $n) use ($o) { $o->setConnectorGroupType($n->getEnumValue(ConnectorGroupType::class)); },
+            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
+            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfObjectValues(array(Connector::class, 'createFromDiscriminatorValue'))); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'region' => function (ParseNode $n) use ($o) { $o->setRegion($n->getEnumValue(ConnectorGroupRegion::class)); },
         ]);
     }
 
@@ -82,7 +95,7 @@ class ConnectorGroup extends Entity
     }
 
     /**
-     * Gets the members property value. Read-only. Nullable.
+     * Gets the members property value. The members property
      * @return array<Connector>|null
     */
     public function getMembers(): ?array {
@@ -120,7 +133,7 @@ class ConnectorGroup extends Entity
     }
 
     /**
-     * Sets the applications property value. Read-only. Nullable.
+     * Sets the applications property value. The applications property
      *  @param array<Application>|null $value Value to set for the applications property.
     */
     public function setApplications(?array $value ): void {
@@ -144,7 +157,7 @@ class ConnectorGroup extends Entity
     }
 
     /**
-     * Sets the members property value. Read-only. Nullable.
+     * Sets the members property value. The members property
      *  @param array<Connector>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value ): void {

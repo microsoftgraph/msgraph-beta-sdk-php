@@ -7,36 +7,56 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsFeatureUpdateProfile extends Entity 
+class WindowsFeatureUpdateProfile extends Entity implements Parsable 
 {
-    /** @var array<WindowsFeatureUpdateProfileAssignment>|null $assignments The list of group assignments of the profile. */
+    /**
+     * @var array<WindowsFeatureUpdateProfileAssignment>|null $assignments The list of group assignments of the profile.
+    */
     private ?array $assignments = null;
     
-    /** @var DateTime|null $createdDateTime The date time that the profile was created. */
+    /**
+     * @var DateTime|null $createdDateTime The date time that the profile was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $deployableContentDisplayName Friendly display name of the quality update profile deployable content */
+    /**
+     * @var string|null $deployableContentDisplayName Friendly display name of the quality update profile deployable content
+    */
     private ?string $deployableContentDisplayName = null;
     
-    /** @var string|null $description The description of the profile which is specified by the user. */
+    /**
+     * @var string|null $description The description of the profile which is specified by the user.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name of the profile. */
+    /**
+     * @var string|null $displayName The display name of the profile.
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $endOfSupportDate The last supported date for a feature update */
+    /**
+     * @var DateTime|null $endOfSupportDate The last supported date for a feature update
+    */
     private ?DateTime $endOfSupportDate = null;
     
-    /** @var string|null $featureUpdateVersion The feature update version that will be deployed to the devices targeted by this profile. The version could be any supported version for example 1709, 1803 or 1809 and so on. */
+    /**
+     * @var string|null $featureUpdateVersion The feature update version that will be deployed to the devices targeted by this profile. The version could be any supported version for example 1709, 1803 or 1809 and so on.
+    */
     private ?string $featureUpdateVersion = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The date time that the profile was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The date time that the profile was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Feature Update entity. */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Feature Update entity.
+    */
     private ?array $roleScopeTagIds = null;
     
-    /** @var WindowsUpdateRolloutSettings|null $rolloutSettings The windows update rollout settings, including offer start date time, offer end date time, and days between each set of offers. */
+    /**
+     * @var WindowsUpdateRolloutSettings|null $rolloutSettings The windows update rollout settings, including offer start date time, offer end date time, and days between each set of offers.
+    */
     private ?WindowsUpdateRolloutSettings $rolloutSettings = null;
     
     /**
@@ -51,7 +71,7 @@ class WindowsFeatureUpdateProfile extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsFeatureUpdateProfile
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsFeatureUpdateProfile {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsFeatureUpdateProfile {
         return new WindowsFeatureUpdateProfile();
     }
 
@@ -116,17 +136,18 @@ class WindowsFeatureUpdateProfile extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(WindowsFeatureUpdateProfileAssignment::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deployableContentDisplayName' => function (self $o, ParseNode $n) { $o->setDeployableContentDisplayName($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'endOfSupportDate' => function (self $o, ParseNode $n) { $o->setEndOfSupportDate($n->getDateTimeValue()); },
-            'featureUpdateVersion' => function (self $o, ParseNode $n) { $o->setFeatureUpdateVersion($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'rolloutSettings' => function (self $o, ParseNode $n) { $o->setRolloutSettings($n->getObjectValue(WindowsUpdateRolloutSettings::class)); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(WindowsFeatureUpdateProfileAssignment::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'deployableContentDisplayName' => function (ParseNode $n) use ($o) { $o->setDeployableContentDisplayName($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'endOfSupportDate' => function (ParseNode $n) use ($o) { $o->setEndOfSupportDate($n->getDateTimeValue()); },
+            'featureUpdateVersion' => function (ParseNode $n) use ($o) { $o->setFeatureUpdateVersion($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'rolloutSettings' => function (ParseNode $n) use ($o) { $o->setRolloutSettings($n->getObjectValue(array(WindowsUpdateRolloutSettings::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

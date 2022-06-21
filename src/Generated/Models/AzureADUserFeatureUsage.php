@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AzureADUserFeatureUsage extends Entity 
+class AzureADUserFeatureUsage extends Entity implements Parsable 
 {
-    /** @var array<FeatureUsageDetail>|null $featureUsageDetails The featureUsageDetails property */
+    /**
+     * @var array<FeatureUsageDetail>|null $featureUsageDetails The featureUsageDetails property
+    */
     private ?array $featureUsageDetails = null;
     
-    /** @var DateTime|null $lastUpdatedDateTime The lastUpdatedDateTime property */
+    /**
+     * @var DateTime|null $lastUpdatedDateTime The lastUpdatedDateTime property
+    */
     private ?DateTime $lastUpdatedDateTime = null;
     
-    /** @var AzureADLicenseType|null $licenseAssigned The licenseAssigned property */
+    /**
+     * @var AzureADLicenseType|null $licenseAssigned The licenseAssigned property
+    */
     private ?AzureADLicenseType $licenseAssigned = null;
     
-    /** @var AzureADLicenseType|null $licenseRecommended The licenseRecommended property */
+    /**
+     * @var AzureADLicenseType|null $licenseRecommended The licenseRecommended property
+    */
     private ?AzureADLicenseType $licenseRecommended = null;
     
-    /** @var string|null $userDisplayName The userDisplayName property */
+    /**
+     * @var string|null $userDisplayName The userDisplayName property
+    */
     private ?string $userDisplayName = null;
     
-    /** @var string|null $userId The userId property */
+    /**
+     * @var string|null $userId The userId property
+    */
     private ?string $userId = null;
     
-    /** @var string|null $userPrincipalName The userPrincipalName property */
+    /**
+     * @var string|null $userPrincipalName The userPrincipalName property
+    */
     private ?string $userPrincipalName = null;
     
     /**
@@ -42,7 +56,7 @@ class AzureADUserFeatureUsage extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AzureADUserFeatureUsage
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AzureADUserFeatureUsage {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AzureADUserFeatureUsage {
         return new AzureADUserFeatureUsage();
     }
 
@@ -59,14 +73,15 @@ class AzureADUserFeatureUsage extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'featureUsageDetails' => function (self $o, ParseNode $n) { $o->setFeatureUsageDetails($n->getCollectionOfObjectValues(FeatureUsageDetail::class)); },
-            'lastUpdatedDateTime' => function (self $o, ParseNode $n) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'licenseAssigned' => function (self $o, ParseNode $n) { $o->setLicenseAssigned($n->getEnumValue(AzureADLicenseType::class)); },
-            'licenseRecommended' => function (self $o, ParseNode $n) { $o->setLicenseRecommended($n->getEnumValue(AzureADLicenseType::class)); },
-            'userDisplayName' => function (self $o, ParseNode $n) { $o->setUserDisplayName($n->getStringValue()); },
-            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'featureUsageDetails' => function (ParseNode $n) use ($o) { $o->setFeatureUsageDetails($n->getCollectionOfObjectValues(array(FeatureUsageDetail::class, 'createFromDiscriminatorValue'))); },
+            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
+            'licenseAssigned' => function (ParseNode $n) use ($o) { $o->setLicenseAssigned($n->getEnumValue(AzureADLicenseType::class)); },
+            'licenseRecommended' => function (ParseNode $n) use ($o) { $o->setLicenseRecommended($n->getEnumValue(AzureADLicenseType::class)); },
+            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
+            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

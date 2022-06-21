@@ -9,22 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $emailToSendLogsAndFeedback Email address to send logs and feedback. */
+    /**
+     * @var string|null $emailToSendLogsAndFeedback Email address to send logs and feedback.
+    */
     private ?string $emailToSendLogsAndFeedback = null;
     
-    /** @var bool|null $isAutoScreenShareEnabled True if auto screen shared is enabled. */
+    /**
+     * @var bool|null $isAutoScreenShareEnabled True if auto screen shared is enabled.
+    */
     private ?bool $isAutoScreenShareEnabled = null;
     
-    /** @var bool|null $isBluetoothBeaconingEnabled True if Bluetooth beaconing is enabled. */
+    /**
+     * @var bool|null $isBluetoothBeaconingEnabled True if Bluetooth beaconing is enabled.
+    */
     private ?bool $isBluetoothBeaconingEnabled = null;
     
-    /** @var bool|null $isHideMeetingNamesEnabled True if hiding meeting names is enabled. */
+    /**
+     * @var bool|null $isHideMeetingNamesEnabled True if hiding meeting names is enabled.
+    */
     private ?bool $isHideMeetingNamesEnabled = null;
     
-    /** @var bool|null $isSendLogsAndFeedbackEnabled True if sending logs and feedback is enabled. */
+    /**
+     * @var bool|null $isSendLogsAndFeedbackEnabled True if sending logs and feedback is enabled.
+    */
     private ?bool $isSendLogsAndFeedbackEnabled = null;
     
     /**
@@ -39,7 +51,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkFeaturesConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkFeaturesConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkFeaturesConfiguration {
         return new TeamworkFeaturesConfiguration();
     }
 
@@ -64,12 +76,13 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'emailToSendLogsAndFeedback' => function (self $o, ParseNode $n) { $o->setEmailToSendLogsAndFeedback($n->getStringValue()); },
-            'isAutoScreenShareEnabled' => function (self $o, ParseNode $n) { $o->setIsAutoScreenShareEnabled($n->getBooleanValue()); },
-            'isBluetoothBeaconingEnabled' => function (self $o, ParseNode $n) { $o->setIsBluetoothBeaconingEnabled($n->getBooleanValue()); },
-            'isHideMeetingNamesEnabled' => function (self $o, ParseNode $n) { $o->setIsHideMeetingNamesEnabled($n->getBooleanValue()); },
-            'isSendLogsAndFeedbackEnabled' => function (self $o, ParseNode $n) { $o->setIsSendLogsAndFeedbackEnabled($n->getBooleanValue()); },
+            'emailToSendLogsAndFeedback' => function (ParseNode $n) use ($o) { $o->setEmailToSendLogsAndFeedback($n->getStringValue()); },
+            'isAutoScreenShareEnabled' => function (ParseNode $n) use ($o) { $o->setIsAutoScreenShareEnabled($n->getBooleanValue()); },
+            'isBluetoothBeaconingEnabled' => function (ParseNode $n) use ($o) { $o->setIsBluetoothBeaconingEnabled($n->getBooleanValue()); },
+            'isHideMeetingNamesEnabled' => function (ParseNode $n) use ($o) { $o->setIsHideMeetingNamesEnabled($n->getBooleanValue()); },
+            'isSendLogsAndFeedbackEnabled' => function (ParseNode $n) use ($o) { $o->setIsSendLogsAndFeedbackEnabled($n->getBooleanValue()); },
         ];
     }
 

@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MonitoringSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<MonitoringRule>|null $monitoringRules Specifies the rules through which monitoring signals can trigger actions on the deployment. Rules are combined using 'or'. */
+    /**
+     * @var array<MonitoringRule>|null $monitoringRules Specifies the rules through which monitoring signals can trigger actions on the deployment. Rules are combined using 'or'.
+    */
     private ?array $monitoringRules = null;
     
     /**
@@ -27,7 +31,7 @@ class MonitoringSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MonitoringSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MonitoringSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MonitoringSettings {
         return new MonitoringSettings();
     }
 
@@ -44,8 +48,9 @@ class MonitoringSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'monitoringRules' => function (self $o, ParseNode $n) { $o->setMonitoringRules($n->getCollectionOfObjectValues(MonitoringRule::class)); },
+            'monitoringRules' => function (ParseNode $n) use ($o) { $o->setMonitoringRules($n->getCollectionOfObjectValues(array(MonitoringRule::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

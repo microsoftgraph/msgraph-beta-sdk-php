@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserSet implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $isBackup For a user in an approval stage, this property indicates whether the user is a backup fallback approver. */
+    /**
+     * @var bool|null $isBackup For a user in an approval stage, this property indicates whether the user is a backup fallback approver.
+    */
     private ?bool $isBackup = null;
     
     /**
@@ -27,7 +31,7 @@ class UserSet implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserSet
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserSet {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserSet {
         return new UserSet();
     }
 
@@ -44,8 +48,9 @@ class UserSet implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'isBackup' => function (self $o, ParseNode $n) { $o->setIsBackup($n->getBooleanValue()); },
+            'isBackup' => function (ParseNode $n) use ($o) { $o->setIsBackup($n->getBooleanValue()); },
         ];
     }
 

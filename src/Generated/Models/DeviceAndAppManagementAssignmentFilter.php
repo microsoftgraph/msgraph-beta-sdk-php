@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceAndAppManagementAssignmentFilter extends Entity 
+class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable 
 {
-    /** @var DateTime|null $createdDateTime Creation time of the Assignment Filter. */
+    /**
+     * @var DateTime|null $createdDateTime Creation time of the Assignment Filter.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description Description of the Assignment Filter. */
+    /**
+     * @var string|null $description Description of the Assignment Filter.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName DisplayName of the Assignment Filter. */
+    /**
+     * @var string|null $displayName DisplayName of the Assignment Filter.
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastModifiedDateTime Last modified time of the Assignment Filter. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime Last modified time of the Assignment Filter.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var DevicePlatformType|null $platform Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown. */
+    /**
+     * @var DevicePlatformType|null $platform Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+    */
     private ?DevicePlatformType $platform = null;
     
-    /** @var array<string>|null $roleScopeTags RoleScopeTags of the Assignment Filter. */
+    /**
+     * @var array<string>|null $roleScopeTags RoleScopeTags of the Assignment Filter.
+    */
     private ?array $roleScopeTags = null;
     
-    /** @var string|null $rule Rule definition of the Assignment Filter. */
+    /**
+     * @var string|null $rule Rule definition of the Assignment Filter.
+    */
     private ?string $rule = null;
     
     /**
@@ -42,7 +56,14 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceAndAppManagementAssignmentFilter
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAndAppManagementAssignmentFilter {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAndAppManagementAssignmentFilter {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.payloadCompatibleAssignmentFilter': return new PayloadCompatibleAssignmentFilter();
+            }
+        }
         return new DeviceAndAppManagementAssignmentFilter();
     }
 
@@ -75,14 +96,15 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'platform' => function (self $o, ParseNode $n) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
-            'roleScopeTags' => function (self $o, ParseNode $n) { $o->setRoleScopeTags($n->getCollectionOfPrimitiveValues()); },
-            'rule' => function (self $o, ParseNode $n) { $o->setRule($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
+            'roleScopeTags' => function (ParseNode $n) use ($o) { $o->setRoleScopeTags($n->getCollectionOfPrimitiveValues()); },
+            'rule' => function (ParseNode $n) use ($o) { $o->setRule($n->getStringValue()); },
         ]);
     }
 

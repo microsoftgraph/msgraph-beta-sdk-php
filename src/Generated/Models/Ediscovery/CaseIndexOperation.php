@@ -6,10 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CaseIndexOperation extends CaseOperation 
+class CaseIndexOperation extends CaseOperation implements Parsable 
 {
     /**
-     * Instantiates a new caseIndexOperation and sets the default values.
+     * Instantiates a new CaseIndexOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -20,7 +20,7 @@ class CaseIndexOperation extends CaseOperation
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CaseIndexOperation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CaseIndexOperation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CaseIndexOperation {
         return new CaseIndexOperation();
     }
 
@@ -29,6 +29,7 @@ class CaseIndexOperation extends CaseOperation
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

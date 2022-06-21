@@ -7,28 +7,40 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Custodian extends DataSourceContainer 
+class Custodian extends DataSourceContainer implements Parsable 
 {
-    /** @var DateTime|null $acknowledgedDateTime Date and time the custodian acknowledged a hold notification. */
+    /**
+     * @var DateTime|null $acknowledgedDateTime Date and time the custodian acknowledged a hold notification.
+    */
     private ?DateTime $acknowledgedDateTime = null;
     
-    /** @var bool|null $applyHoldToSources Identifies whether a custodian's sources were placed on hold during creation. */
+    /**
+     * @var bool|null $applyHoldToSources Identifies whether a custodian's sources were placed on hold during creation.
+    */
     private ?bool $applyHoldToSources = null;
     
-    /** @var string|null $email Email address of the custodian. */
+    /**
+     * @var string|null $email Email address of the custodian.
+    */
     private ?string $email = null;
     
-    /** @var array<SiteSource>|null $siteSources Data source entity for SharePoint sites associated with the custodian. */
+    /**
+     * @var array<SiteSource>|null $siteSources Data source entity for SharePoint sites associated with the custodian.
+    */
     private ?array $siteSources = null;
     
-    /** @var array<UnifiedGroupSource>|null $unifiedGroupSources Data source entity for groups associated with the custodian. */
+    /**
+     * @var array<UnifiedGroupSource>|null $unifiedGroupSources Data source entity for groups associated with the custodian.
+    */
     private ?array $unifiedGroupSources = null;
     
-    /** @var array<UserSource>|null $userSources Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site. */
+    /**
+     * @var array<UserSource>|null $userSources Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
+    */
     private ?array $userSources = null;
     
     /**
-     * Instantiates a new custodian and sets the default values.
+     * Instantiates a new Custodian and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -39,7 +51,7 @@ class Custodian extends DataSourceContainer
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Custodian
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Custodian {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Custodian {
         return new Custodian();
     }
 
@@ -72,13 +84,14 @@ class Custodian extends DataSourceContainer
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'acknowledgedDateTime' => function (self $o, ParseNode $n) { $o->setAcknowledgedDateTime($n->getDateTimeValue()); },
-            'applyHoldToSources' => function (self $o, ParseNode $n) { $o->setApplyHoldToSources($n->getBooleanValue()); },
-            'email' => function (self $o, ParseNode $n) { $o->setEmail($n->getStringValue()); },
-            'siteSources' => function (self $o, ParseNode $n) { $o->setSiteSources($n->getCollectionOfObjectValues(SiteSource::class)); },
-            'unifiedGroupSources' => function (self $o, ParseNode $n) { $o->setUnifiedGroupSources($n->getCollectionOfObjectValues(UnifiedGroupSource::class)); },
-            'userSources' => function (self $o, ParseNode $n) { $o->setUserSources($n->getCollectionOfObjectValues(UserSource::class)); },
+            'acknowledgedDateTime' => function (ParseNode $n) use ($o) { $o->setAcknowledgedDateTime($n->getDateTimeValue()); },
+            'applyHoldToSources' => function (ParseNode $n) use ($o) { $o->setApplyHoldToSources($n->getBooleanValue()); },
+            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
+            'siteSources' => function (ParseNode $n) use ($o) { $o->setSiteSources($n->getCollectionOfObjectValues(array(SiteSource::class, 'createFromDiscriminatorValue'))); },
+            'unifiedGroupSources' => function (ParseNode $n) use ($o) { $o->setUnifiedGroupSources($n->getCollectionOfObjectValues(array(UnifiedGroupSource::class, 'createFromDiscriminatorValue'))); },
+            'userSources' => function (ParseNode $n) use ($o) { $o->setUserSources($n->getCollectionOfObjectValues(array(UserSource::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

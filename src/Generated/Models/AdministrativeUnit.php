@@ -6,28 +6,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AdministrativeUnit extends DirectoryObject 
+class AdministrativeUnit extends DirectoryObject implements Parsable 
 {
-    /** @var string|null $description An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search. */
+    /**
+     * @var string|null $description An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Display name for the administrative unit. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
+    /**
+     * @var string|null $displayName Display name for the administrative unit. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+    */
     private ?string $displayName = null;
     
-    /** @var array<Extension>|null $extensions The collection of open extensions defined for this administrative unit. Nullable. */
+    /**
+     * @var array<Extension>|null $extensions The collection of open extensions defined for this administrative unit. Nullable.
+    */
     private ?array $extensions = null;
     
-    /** @var array<DirectoryObject>|null $members Users and groups that are members of this administrative unit. Supports $expand. */
+    /**
+     * @var bool|null $isMemberManagementRestricted The isMemberManagementRestricted property
+    */
+    private ?bool $isMemberManagementRestricted = null;
+    
+    /**
+     * @var array<DirectoryObject>|null $members Users and groups that are members of this administrative unit. Supports $expand.
+    */
     private ?array $members = null;
     
-    /** @var array<ScopedRoleMembership>|null $scopedRoleMembers Scoped-role members of this administrative unit. */
+    /**
+     * @var array<ScopedRoleMembership>|null $scopedRoleMembers Scoped-role members of this administrative unit.
+    */
     private ?array $scopedRoleMembers = null;
     
-    /** @var string|null $visibility Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit. */
+    /**
+     * @var string|null $visibility Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit.
+    */
     private ?string $visibility = null;
     
     /**
-     * Instantiates a new administrativeUnit and sets the default values.
+     * Instantiates a new AdministrativeUnit and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,7 +55,7 @@ class AdministrativeUnit extends DirectoryObject
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AdministrativeUnit
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AdministrativeUnit {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AdministrativeUnit {
         return new AdministrativeUnit();
     }
 
@@ -71,14 +88,24 @@ class AdministrativeUnit extends DirectoryObject
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'extensions' => function (self $o, ParseNode $n) { $o->setExtensions($n->getCollectionOfObjectValues(Extension::class)); },
-            'members' => function (self $o, ParseNode $n) { $o->setMembers($n->getCollectionOfObjectValues(DirectoryObject::class)); },
-            'scopedRoleMembers' => function (self $o, ParseNode $n) { $o->setScopedRoleMembers($n->getCollectionOfObjectValues(ScopedRoleMembership::class)); },
-            'visibility' => function (self $o, ParseNode $n) { $o->setVisibility($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'extensions' => function (ParseNode $n) use ($o) { $o->setExtensions($n->getCollectionOfObjectValues(array(Extension::class, 'createFromDiscriminatorValue'))); },
+            'isMemberManagementRestricted' => function (ParseNode $n) use ($o) { $o->setIsMemberManagementRestricted($n->getBooleanValue()); },
+            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
+            'scopedRoleMembers' => function (ParseNode $n) use ($o) { $o->setScopedRoleMembers($n->getCollectionOfObjectValues(array(ScopedRoleMembership::class, 'createFromDiscriminatorValue'))); },
+            'visibility' => function (ParseNode $n) use ($o) { $o->setVisibility($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the isMemberManagementRestricted property value. The isMemberManagementRestricted property
+     * @return bool|null
+    */
+    public function getIsMemberManagementRestricted(): ?bool {
+        return $this->isMemberManagementRestricted;
     }
 
     /**
@@ -114,6 +141,7 @@ class AdministrativeUnit extends DirectoryObject
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeCollectionOfObjectValues('extensions', $this->extensions);
+        $writer->writeBooleanValue('isMemberManagementRestricted', $this->isMemberManagementRestricted);
         $writer->writeCollectionOfObjectValues('members', $this->members);
         $writer->writeCollectionOfObjectValues('scopedRoleMembers', $this->scopedRoleMembers);
         $writer->writeStringValue('visibility', $this->visibility);
@@ -141,6 +169,14 @@ class AdministrativeUnit extends DirectoryObject
     */
     public function setExtensions(?array $value ): void {
         $this->extensions = $value;
+    }
+
+    /**
+     * Sets the isMemberManagementRestricted property value. The isMemberManagementRestricted property
+     *  @param bool|null $value Value to set for the isMemberManagementRestricted property.
+    */
+    public function setIsMemberManagementRestricted(?bool $value ): void {
+        $this->isMemberManagementRestricted = $value;
     }
 
     /**

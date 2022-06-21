@@ -6,31 +6,45 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class LanguageProficiency extends ItemFacet 
+class LanguageProficiency extends ItemFacet implements Parsable 
 {
-    /** @var string|null $displayName Contains the long-form name for the language. */
+    /**
+     * @var string|null $displayName Contains the long-form name for the language.
+    */
     private ?string $displayName = null;
     
-    /** @var LanguageProficiencyLevel|null $proficiency The proficiency property */
+    /**
+     * @var LanguageProficiencyLevel|null $proficiency The proficiency property
+    */
     private ?LanguageProficiencyLevel $proficiency = null;
     
-    /** @var LanguageProficiencyLevel|null $reading Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue. */
+    /**
+     * @var LanguageProficiencyLevel|null $reading Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+    */
     private ?LanguageProficiencyLevel $reading = null;
     
-    /** @var LanguageProficiencyLevel|null $spoken Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue. */
+    /**
+     * @var LanguageProficiencyLevel|null $spoken Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+    */
     private ?LanguageProficiencyLevel $spoken = null;
     
-    /** @var string|null $tag Contains the four-character BCP47 name for the language (en-US, no-NB, en-AU). */
+    /**
+     * @var string|null $tag Contains the four-character BCP47 name for the language (en-US, no-NB, en-AU).
+    */
     private ?string $tag = null;
     
-    /** @var string|null $thumbnailUrl The thumbnailUrl property */
+    /**
+     * @var string|null $thumbnailUrl The thumbnailUrl property
+    */
     private ?string $thumbnailUrl = null;
     
-    /** @var LanguageProficiencyLevel|null $written Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue. */
+    /**
+     * @var LanguageProficiencyLevel|null $written Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+    */
     private ?LanguageProficiencyLevel $written = null;
     
     /**
-     * Instantiates a new languageProficiency and sets the default values.
+     * Instantiates a new LanguageProficiency and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -41,7 +55,7 @@ class LanguageProficiency extends ItemFacet
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LanguageProficiency
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): LanguageProficiency {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): LanguageProficiency {
         return new LanguageProficiency();
     }
 
@@ -58,14 +72,15 @@ class LanguageProficiency extends ItemFacet
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'proficiency' => function (self $o, ParseNode $n) { $o->setProficiency($n->getEnumValue(LanguageProficiencyLevel::class)); },
-            'reading' => function (self $o, ParseNode $n) { $o->setReading($n->getEnumValue(LanguageProficiencyLevel::class)); },
-            'spoken' => function (self $o, ParseNode $n) { $o->setSpoken($n->getEnumValue(LanguageProficiencyLevel::class)); },
-            'tag' => function (self $o, ParseNode $n) { $o->setTag($n->getStringValue()); },
-            'thumbnailUrl' => function (self $o, ParseNode $n) { $o->setThumbnailUrl($n->getStringValue()); },
-            'written' => function (self $o, ParseNode $n) { $o->setWritten($n->getEnumValue(LanguageProficiencyLevel::class)); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'proficiency' => function (ParseNode $n) use ($o) { $o->setProficiency($n->getEnumValue(LanguageProficiencyLevel::class)); },
+            'reading' => function (ParseNode $n) use ($o) { $o->setReading($n->getEnumValue(LanguageProficiencyLevel::class)); },
+            'spoken' => function (ParseNode $n) use ($o) { $o->setSpoken($n->getEnumValue(LanguageProficiencyLevel::class)); },
+            'tag' => function (ParseNode $n) use ($o) { $o->setTag($n->getStringValue()); },
+            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
+            'written' => function (ParseNode $n) use ($o) { $o->setWritten($n->getEnumValue(LanguageProficiencyLevel::class)); },
         ]);
     }
 

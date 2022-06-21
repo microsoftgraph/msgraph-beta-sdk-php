@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class OfficeUserCheckinSummary implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $failedUserCount Total failed user check ins for the last 3 months. */
+    /**
+     * @var int|null $failedUserCount Total failed user check ins for the last 3 months.
+    */
     private ?int $failedUserCount = null;
     
-    /** @var int|null $succeededUserCount Total successful user check ins for the last 3 months. */
+    /**
+     * @var int|null $succeededUserCount Total successful user check ins for the last 3 months.
+    */
     private ?int $succeededUserCount = null;
     
     /**
@@ -30,7 +36,7 @@ class OfficeUserCheckinSummary implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OfficeUserCheckinSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): OfficeUserCheckinSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OfficeUserCheckinSummary {
         return new OfficeUserCheckinSummary();
     }
 
@@ -55,9 +61,10 @@ class OfficeUserCheckinSummary implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'failedUserCount' => function (self $o, ParseNode $n) { $o->setFailedUserCount($n->getIntegerValue()); },
-            'succeededUserCount' => function (self $o, ParseNode $n) { $o->setSucceededUserCount($n->getIntegerValue()); },
+            'failedUserCount' => function (ParseNode $n) use ($o) { $o->setFailedUserCount($n->getIntegerValue()); },
+            'succeededUserCount' => function (ParseNode $n) use ($o) { $o->setSucceededUserCount($n->getIntegerValue()); },
         ];
     }
 

@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessReviewPolicy extends Entity 
+class AccessReviewPolicy extends Entity implements Parsable 
 {
-    /** @var string|null $description Description for this policy. Read-only. */
+    /**
+     * @var string|null $description Description for this policy. Read-only.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Display name for this policy. Read-only. */
+    /**
+     * @var string|null $displayName Display name for this policy. Read-only.
+    */
     private ?string $displayName = null;
     
-    /** @var bool|null $isGroupOwnerManagementEnabled If true, group owners can create and manage access reviews on groups they own. */
+    /**
+     * @var bool|null $isGroupOwnerManagementEnabled If true, group owners can create and manage access reviews on groups they own.
+    */
     private ?bool $isGroupOwnerManagementEnabled = null;
     
     /**
@@ -29,7 +35,7 @@ class AccessReviewPolicy extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessReviewPolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewPolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewPolicy {
         return new AccessReviewPolicy();
     }
 
@@ -54,10 +60,11 @@ class AccessReviewPolicy extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'isGroupOwnerManagementEnabled' => function (self $o, ParseNode $n) { $o->setIsGroupOwnerManagementEnabled($n->getBooleanValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'isGroupOwnerManagementEnabled' => function (ParseNode $n) use ($o) { $o->setIsGroupOwnerManagementEnabled($n->getBooleanValue()); },
         ]);
     }
 

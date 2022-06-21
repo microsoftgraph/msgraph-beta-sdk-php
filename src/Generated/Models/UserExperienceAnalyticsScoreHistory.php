@@ -7,9 +7,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsScoreHistory extends Entity 
+class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable 
 {
-    /** @var DateTime|null $startupDateTime The user experience analytics device startup date time. */
+    /**
+     * @var DateTime|null $startupDateTime The user experience analytics device startup date time.
+    */
     private ?DateTime $startupDateTime = null;
     
     /**
@@ -24,7 +26,7 @@ class UserExperienceAnalyticsScoreHistory extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsScoreHistory
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsScoreHistory {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsScoreHistory {
         return new UserExperienceAnalyticsScoreHistory();
     }
 
@@ -33,8 +35,9 @@ class UserExperienceAnalyticsScoreHistory extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'startupDateTime' => function (self $o, ParseNode $n) { $o->setStartupDateTime($n->getDateTimeValue()); },
+            'startupDateTime' => function (ParseNode $n) use ($o) { $o->setStartupDateTime($n->getDateTimeValue()); },
         ]);
     }
 

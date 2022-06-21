@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ClassifcationErrorBase implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $code The code property */
+    /**
+     * @var string|null $code The code property
+    */
     private ?string $code = null;
     
-    /** @var ClassificationInnerError|null $innerError The innerError property */
+    /**
+     * @var ClassificationInnerError|null $innerError The innerError property
+    */
     private ?ClassificationInnerError $innerError = null;
     
-    /** @var string|null $message The message property */
+    /**
+     * @var string|null $message The message property
+    */
     private ?string $message = null;
     
-    /** @var string|null $target The target property */
+    /**
+     * @var string|null $target The target property
+    */
     private ?string $target = null;
     
     /**
@@ -36,7 +46,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ClassifcationErrorBase
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ClassifcationErrorBase {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ClassifcationErrorBase {
         return new ClassifcationErrorBase();
     }
 
@@ -61,11 +71,12 @@ class ClassifcationErrorBase implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'code' => function (self $o, ParseNode $n) { $o->setCode($n->getStringValue()); },
-            'innerError' => function (self $o, ParseNode $n) { $o->setInnerError($n->getObjectValue(ClassificationInnerError::class)); },
-            'message' => function (self $o, ParseNode $n) { $o->setMessage($n->getStringValue()); },
-            'target' => function (self $o, ParseNode $n) { $o->setTarget($n->getStringValue()); },
+            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
+            'innerError' => function (ParseNode $n) use ($o) { $o->setInnerError($n->getObjectValue(array(ClassificationInnerError::class, 'createFromDiscriminatorValue'))); },
+            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
+            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getStringValue()); },
         ];
     }
 

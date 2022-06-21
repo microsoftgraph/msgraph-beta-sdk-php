@@ -7,132 +7,221 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Device extends DirectoryObject 
+class Device extends DirectoryObject implements Parsable 
 {
-    /** @var bool|null $accountEnabled true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property. */
+    /**
+     * @var bool|null $accountEnabled true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
+    */
     private ?bool $accountEnabled = null;
     
-    /** @var array<AlternativeSecurityId>|null $alternativeSecurityIds For internal use only. Not nullable. Supports $filter (eq, not, ge, le). */
+    /**
+     * @var array<AlternativeSecurityId>|null $alternativeSecurityIds For internal use only. Not nullable. Supports $filter (eq, not, ge, le).
+    */
     private ?array $alternativeSecurityIds = null;
     
-    /** @var DateTime|null $approximateLastSignInDateTime The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderBy. */
+    /**
+     * @var DateTime|null $approximateLastSignInDateTime The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, not, ge, le, and eq on null values) and $orderBy.
+    */
     private ?DateTime $approximateLastSignInDateTime = null;
     
-    /** @var array<Command>|null $commands Set of commands sent to this device. */
+    /**
+     * @var array<Command>|null $commands Set of commands sent to this device.
+    */
     private ?array $commands = null;
     
-    /** @var DateTime|null $complianceExpirationDateTime The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /**
+     * @var DateTime|null $complianceExpirationDateTime The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    */
     private ?DateTime $complianceExpirationDateTime = null;
     
-    /** @var string|null $deviceCategory User-defined property set by Intune to automatically add devices to groups and simplify managing devices. */
+    /**
+     * @var string|null $deviceCategory User-defined property set by Intune to automatically add devices to groups and simplify managing devices.
+    */
     private ?string $deviceCategory = null;
     
-    /** @var string|null $deviceId Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith). */
+    /**
+     * @var string|null $deviceId Identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
+    */
     private ?string $deviceId = null;
     
-    /** @var string|null $deviceMetadata For internal use only. Set to null. */
+    /**
+     * @var string|null $deviceMetadata For internal use only. Set to null.
+    */
     private ?string $deviceMetadata = null;
     
-    /** @var string|null $deviceOwnership Ownership of the device. This property is set by Intune. Possible values are: unknown, company, personal. */
+    /**
+     * @var string|null $deviceOwnership Ownership of the device. This property is set by Intune. Possible values are: unknown, company, personal.
+    */
     private ?string $deviceOwnership = null;
     
-    /** @var int|null $deviceVersion For internal use only. */
+    /**
+     * @var int|null $deviceVersion For internal use only.
+    */
     private ?int $deviceVersion = null;
     
-    /** @var string|null $displayName The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
+    /**
+     * @var string|null $displayName The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $domainName The on-premises domain name of Hybrid Azure AD joined devices. This property is set by Intune. */
+    /**
+     * @var string|null $domainName The on-premises domain name of Hybrid Azure AD joined devices. This property is set by Intune.
+    */
     private ?string $domainName = null;
     
-    /** @var string|null $enrollmentProfileName Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. This property is set by Intune. */
+    /**
+     * @var string|null $enrollmentProfileName Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. This property is set by Intune.
+    */
     private ?string $enrollmentProfileName = null;
     
-    /** @var string|null $enrollmentType Enrollment type of the device. This property is set by Intune. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement. */
+    /**
+     * @var string|null $enrollmentType Enrollment type of the device. This property is set by Intune. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement.
+    */
     private ?string $enrollmentType = null;
     
-    /** @var OnPremisesExtensionAttributes|null $extensionAttributes Contains extension attributes 1-15 for the device. The individual extension attributes are not selectable. These properties are mastered in cloud and can be set during creation or update of a device object in Azure AD. Supports $filter (eq, not, startsWith, and eq on null values). */
+    /**
+     * @var OnPremisesExtensionAttributes|null $extensionAttributes Contains extension attributes 1-15 for the device. The individual extension attributes are not selectable. These properties are mastered in cloud and can be set during creation or update of a device object in Azure AD. Supports $filter (eq, not, startsWith, and eq on null values).
+    */
     private ?OnPremisesExtensionAttributes $extensionAttributes = null;
     
-    /** @var array<Extension>|null $extensions The collection of open extensions defined for the device. Read-only. Nullable. */
+    /**
+     * @var array<Extension>|null $extensions The collection of open extensions defined for the device. Read-only. Nullable.
+    */
     private ?array $extensions = null;
     
-    /** @var array<string>|null $hostnames List of hostNames for the device. */
+    /**
+     * @var array<string>|null $hostnames List of hostNames for the device.
+    */
     private ?array $hostnames = null;
     
-    /** @var bool|null $isCompliant true if the device complies with Mobile Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, not). */
+    /**
+     * @var bool|null $isCompliant true if the device complies with Mobile Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, not).
+    */
     private ?bool $isCompliant = null;
     
-    /** @var bool|null $isManaged true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, not). */
+    /**
+     * @var bool|null $isManaged true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, not).
+    */
     private ?bool $isManaged = null;
     
-    /** @var bool|null $isRooted true if device is rooted; false if device is jail-broken. This can only be updated by Intune. */
+    /**
+     * @var bool|null $isManagementRestricted The isManagementRestricted property
+    */
+    private ?bool $isManagementRestricted = null;
+    
+    /**
+     * @var bool|null $isRooted true if device is rooted; false if device is jail-broken. This can only be updated by Intune.
+    */
     private ?bool $isRooted = null;
     
-    /** @var string|null $kind Form factor of device. Only returned if user signs in with a Microsoft account as part of Project Rome. */
+    /**
+     * @var string|null $kind Form factor of device. Only returned if user signs in with a Microsoft account as part of Project Rome.
+    */
     private ?string $kind = null;
     
-    /** @var string|null $managementType Management channel of the device.  This property is set by Intune. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController. */
+    /**
+     * @var string|null $managementType Management channel of the device.  This property is set by Intune. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
+    */
     private ?string $managementType = null;
     
-    /** @var string|null $manufacturer Manufacturer of the device. Read-only. */
+    /**
+     * @var string|null $manufacturer Manufacturer of the device. Read-only.
+    */
     private ?string $manufacturer = null;
     
-    /** @var string|null $mdmAppId Application identifier used to register device into MDM. Read-only. Supports $filter (eq, ne, not, startsWith). */
+    /**
+     * @var string|null $mdmAppId Application identifier used to register device into MDM. Read-only. Supports $filter (eq, ne, not, startsWith).
+    */
     private ?string $mdmAppId = null;
     
-    /** @var array<DirectoryObject>|null $memberOf Groups that this device is a member of. Read-only. Nullable. Supports $expand. */
+    /**
+     * @var array<DirectoryObject>|null $memberOf Groups and administrative units that this device is a member of. Read-only. Nullable. Supports $expand.
+    */
     private ?array $memberOf = null;
     
-    /** @var string|null $model Model of the device. Read-only. */
+    /**
+     * @var string|null $model Model of the device. Read-only.
+    */
     private ?string $model = null;
     
-    /** @var string|null $name Friendly name of a device. Only returned if user signs in with a Microsoft account as part of Project Rome. */
+    /**
+     * @var string|null $name Friendly name of a device. Only returned if user signs in with a Microsoft account as part of Project Rome.
+    */
     private ?string $name = null;
     
-    /** @var DateTime|null $onPremisesLastSyncDateTime The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only. Supports $filter (eq, ne, not, ge, le, in). */
+    /**
+     * @var DateTime|null $onPremisesLastSyncDateTime The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only. Supports $filter (eq, ne, not, ge, le, in).
+    */
     private ?DateTime $onPremisesLastSyncDateTime = null;
     
-    /** @var bool|null $onPremisesSyncEnabled true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, not, in, and eq on null values). */
+    /**
+     * @var bool|null $onPremisesSyncEnabled true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
+    */
     private ?bool $onPremisesSyncEnabled = null;
     
-    /** @var string|null $operatingSystem The type of operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values). */
+    /**
+     * @var string|null $operatingSystem The type of operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
+    */
     private ?string $operatingSystem = null;
     
-    /** @var string|null $operatingSystemVersion The version of the operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values). */
+    /**
+     * @var string|null $operatingSystemVersion Operating system version of the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
+    */
     private ?string $operatingSystemVersion = null;
     
-    /** @var array<string>|null $physicalIds For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith). */
+    /**
+     * @var array<string>|null $physicalIds For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+    */
     private ?array $physicalIds = null;
     
-    /** @var string|null $platform Platform of device. Only returned if user signs in with a Microsoft account as part of Project Rome. Only returned if user signs in with a Microsoft account as part of Project Rome. */
+    /**
+     * @var string|null $platform Platform of device. Only returned if user signs in with a Microsoft account as part of Project Rome. Only returned if user signs in with a Microsoft account as part of Project Rome.
+    */
     private ?string $platform = null;
     
-    /** @var string|null $profileType The profile type of the device. Possible values: RegisteredDevice (default), SecureVM, Printer, Shared, IoT. */
+    /**
+     * @var string|null $profileType The profile type of the device. Possible values: RegisteredDevice (default), SecureVM, Printer, Shared, IoT.
+    */
     private ?string $profileType = null;
     
-    /** @var array<DirectoryObject>|null $registeredOwners The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand. */
+    /**
+     * @var array<DirectoryObject>|null $registeredOwners The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.
+    */
     private ?array $registeredOwners = null;
     
-    /** @var array<DirectoryObject>|null $registeredUsers Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand. */
+    /**
+     * @var array<DirectoryObject>|null $registeredUsers Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand.
+    */
     private ?array $registeredUsers = null;
     
-    /** @var DateTime|null $registrationDateTime Date and time of when the device was registered. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /**
+     * @var DateTime|null $registrationDateTime Date and time of when the device was registered. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    */
     private ?DateTime $registrationDateTime = null;
     
-    /** @var string|null $status Device is online or offline. Only returned if user signs in with a Microsoft account as part of Project Rome. */
+    /**
+     * @var string|null $status Device is online or offline. Only returned if user signs in with a Microsoft account as part of Project Rome.
+    */
     private ?string $status = null;
     
-    /** @var array<string>|null $systemLabels List of labels applied to the device by the system. */
+    /**
+     * @var array<string>|null $systemLabels List of labels applied to the device by the system. Supports $filter (eq when counting empty collections).
+    */
     private ?array $systemLabels = null;
     
-    /** @var array<DirectoryObject>|null $transitiveMemberOf Groups that the device is a member of. This operation is transitive. Supports $expand. */
+    /**
+     * @var array<DirectoryObject>|null $transitiveMemberOf Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.
+    */
     private ?array $transitiveMemberOf = null;
     
-    /** @var string|null $trustType Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory */
+    /**
+     * @var string|null $trustType Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+    */
     private ?string $trustType = null;
     
-    /** @var array<UsageRight>|null $usageRights Represents the usage rights a device has been granted. */
+    /**
+     * @var array<UsageRight>|null $usageRights Represents the usage rights a device has been granted.
+    */
     private ?array $usageRights = null;
     
     /**
@@ -147,12 +236,12 @@ class Device extends DirectoryObject
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Device
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Device {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Device {
         return new Device();
     }
 
     /**
-     * Gets the accountEnabled property value. true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
+     * Gets the accountEnabled property value. true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
      * @return bool|null
     */
     public function getAccountEnabled(): ?bool {
@@ -200,7 +289,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Gets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
+     * Gets the deviceId property value. Identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -284,49 +373,51 @@ class Device extends DirectoryObject
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accountEnabled' => function (self $o, ParseNode $n) { $o->setAccountEnabled($n->getBooleanValue()); },
-            'alternativeSecurityIds' => function (self $o, ParseNode $n) { $o->setAlternativeSecurityIds($n->getCollectionOfObjectValues(AlternativeSecurityId::class)); },
-            'approximateLastSignInDateTime' => function (self $o, ParseNode $n) { $o->setApproximateLastSignInDateTime($n->getDateTimeValue()); },
-            'commands' => function (self $o, ParseNode $n) { $o->setCommands($n->getCollectionOfObjectValues(Command::class)); },
-            'complianceExpirationDateTime' => function (self $o, ParseNode $n) { $o->setComplianceExpirationDateTime($n->getDateTimeValue()); },
-            'deviceCategory' => function (self $o, ParseNode $n) { $o->setDeviceCategory($n->getStringValue()); },
-            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
-            'deviceMetadata' => function (self $o, ParseNode $n) { $o->setDeviceMetadata($n->getStringValue()); },
-            'deviceOwnership' => function (self $o, ParseNode $n) { $o->setDeviceOwnership($n->getStringValue()); },
-            'deviceVersion' => function (self $o, ParseNode $n) { $o->setDeviceVersion($n->getIntegerValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'domainName' => function (self $o, ParseNode $n) { $o->setDomainName($n->getStringValue()); },
-            'enrollmentProfileName' => function (self $o, ParseNode $n) { $o->setEnrollmentProfileName($n->getStringValue()); },
-            'enrollmentType' => function (self $o, ParseNode $n) { $o->setEnrollmentType($n->getStringValue()); },
-            'extensionAttributes' => function (self $o, ParseNode $n) { $o->setExtensionAttributes($n->getObjectValue(OnPremisesExtensionAttributes::class)); },
-            'extensions' => function (self $o, ParseNode $n) { $o->setExtensions($n->getCollectionOfObjectValues(Extension::class)); },
-            'hostnames' => function (self $o, ParseNode $n) { $o->setHostnames($n->getCollectionOfPrimitiveValues()); },
-            'isCompliant' => function (self $o, ParseNode $n) { $o->setIsCompliant($n->getBooleanValue()); },
-            'isManaged' => function (self $o, ParseNode $n) { $o->setIsManaged($n->getBooleanValue()); },
-            'isRooted' => function (self $o, ParseNode $n) { $o->setIsRooted($n->getBooleanValue()); },
-            'kind' => function (self $o, ParseNode $n) { $o->setKind($n->getStringValue()); },
-            'managementType' => function (self $o, ParseNode $n) { $o->setManagementType($n->getStringValue()); },
-            'manufacturer' => function (self $o, ParseNode $n) { $o->setManufacturer($n->getStringValue()); },
-            'mdmAppId' => function (self $o, ParseNode $n) { $o->setMdmAppId($n->getStringValue()); },
-            'memberOf' => function (self $o, ParseNode $n) { $o->setMemberOf($n->getCollectionOfObjectValues(DirectoryObject::class)); },
-            'model' => function (self $o, ParseNode $n) { $o->setModel($n->getStringValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'onPremisesLastSyncDateTime' => function (self $o, ParseNode $n) { $o->setOnPremisesLastSyncDateTime($n->getDateTimeValue()); },
-            'onPremisesSyncEnabled' => function (self $o, ParseNode $n) { $o->setOnPremisesSyncEnabled($n->getBooleanValue()); },
-            'operatingSystem' => function (self $o, ParseNode $n) { $o->setOperatingSystem($n->getStringValue()); },
-            'operatingSystemVersion' => function (self $o, ParseNode $n) { $o->setOperatingSystemVersion($n->getStringValue()); },
-            'physicalIds' => function (self $o, ParseNode $n) { $o->setPhysicalIds($n->getCollectionOfPrimitiveValues()); },
-            'platform' => function (self $o, ParseNode $n) { $o->setPlatform($n->getStringValue()); },
-            'profileType' => function (self $o, ParseNode $n) { $o->setProfileType($n->getStringValue()); },
-            'registeredOwners' => function (self $o, ParseNode $n) { $o->setRegisteredOwners($n->getCollectionOfObjectValues(DirectoryObject::class)); },
-            'registeredUsers' => function (self $o, ParseNode $n) { $o->setRegisteredUsers($n->getCollectionOfObjectValues(DirectoryObject::class)); },
-            'registrationDateTime' => function (self $o, ParseNode $n) { $o->setRegistrationDateTime($n->getDateTimeValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
-            'systemLabels' => function (self $o, ParseNode $n) { $o->setSystemLabels($n->getCollectionOfPrimitiveValues()); },
-            'transitiveMemberOf' => function (self $o, ParseNode $n) { $o->setTransitiveMemberOf($n->getCollectionOfObjectValues(DirectoryObject::class)); },
-            'trustType' => function (self $o, ParseNode $n) { $o->setTrustType($n->getStringValue()); },
-            'usageRights' => function (self $o, ParseNode $n) { $o->setUsageRights($n->getCollectionOfObjectValues(UsageRight::class)); },
+            'accountEnabled' => function (ParseNode $n) use ($o) { $o->setAccountEnabled($n->getBooleanValue()); },
+            'alternativeSecurityIds' => function (ParseNode $n) use ($o) { $o->setAlternativeSecurityIds($n->getCollectionOfObjectValues(array(AlternativeSecurityId::class, 'createFromDiscriminatorValue'))); },
+            'approximateLastSignInDateTime' => function (ParseNode $n) use ($o) { $o->setApproximateLastSignInDateTime($n->getDateTimeValue()); },
+            'commands' => function (ParseNode $n) use ($o) { $o->setCommands($n->getCollectionOfObjectValues(array(Command::class, 'createFromDiscriminatorValue'))); },
+            'complianceExpirationDateTime' => function (ParseNode $n) use ($o) { $o->setComplianceExpirationDateTime($n->getDateTimeValue()); },
+            'deviceCategory' => function (ParseNode $n) use ($o) { $o->setDeviceCategory($n->getStringValue()); },
+            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
+            'deviceMetadata' => function (ParseNode $n) use ($o) { $o->setDeviceMetadata($n->getStringValue()); },
+            'deviceOwnership' => function (ParseNode $n) use ($o) { $o->setDeviceOwnership($n->getStringValue()); },
+            'deviceVersion' => function (ParseNode $n) use ($o) { $o->setDeviceVersion($n->getIntegerValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'domainName' => function (ParseNode $n) use ($o) { $o->setDomainName($n->getStringValue()); },
+            'enrollmentProfileName' => function (ParseNode $n) use ($o) { $o->setEnrollmentProfileName($n->getStringValue()); },
+            'enrollmentType' => function (ParseNode $n) use ($o) { $o->setEnrollmentType($n->getStringValue()); },
+            'extensionAttributes' => function (ParseNode $n) use ($o) { $o->setExtensionAttributes($n->getObjectValue(array(OnPremisesExtensionAttributes::class, 'createFromDiscriminatorValue'))); },
+            'extensions' => function (ParseNode $n) use ($o) { $o->setExtensions($n->getCollectionOfObjectValues(array(Extension::class, 'createFromDiscriminatorValue'))); },
+            'hostnames' => function (ParseNode $n) use ($o) { $o->setHostnames($n->getCollectionOfPrimitiveValues()); },
+            'isCompliant' => function (ParseNode $n) use ($o) { $o->setIsCompliant($n->getBooleanValue()); },
+            'isManaged' => function (ParseNode $n) use ($o) { $o->setIsManaged($n->getBooleanValue()); },
+            'isManagementRestricted' => function (ParseNode $n) use ($o) { $o->setIsManagementRestricted($n->getBooleanValue()); },
+            'isRooted' => function (ParseNode $n) use ($o) { $o->setIsRooted($n->getBooleanValue()); },
+            'kind' => function (ParseNode $n) use ($o) { $o->setKind($n->getStringValue()); },
+            'managementType' => function (ParseNode $n) use ($o) { $o->setManagementType($n->getStringValue()); },
+            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
+            'mdmAppId' => function (ParseNode $n) use ($o) { $o->setMdmAppId($n->getStringValue()); },
+            'memberOf' => function (ParseNode $n) use ($o) { $o->setMemberOf($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
+            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'onPremisesLastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setOnPremisesLastSyncDateTime($n->getDateTimeValue()); },
+            'onPremisesSyncEnabled' => function (ParseNode $n) use ($o) { $o->setOnPremisesSyncEnabled($n->getBooleanValue()); },
+            'operatingSystem' => function (ParseNode $n) use ($o) { $o->setOperatingSystem($n->getStringValue()); },
+            'operatingSystemVersion' => function (ParseNode $n) use ($o) { $o->setOperatingSystemVersion($n->getStringValue()); },
+            'physicalIds' => function (ParseNode $n) use ($o) { $o->setPhysicalIds($n->getCollectionOfPrimitiveValues()); },
+            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getStringValue()); },
+            'profileType' => function (ParseNode $n) use ($o) { $o->setProfileType($n->getStringValue()); },
+            'registeredOwners' => function (ParseNode $n) use ($o) { $o->setRegisteredOwners($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
+            'registeredUsers' => function (ParseNode $n) use ($o) { $o->setRegisteredUsers($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
+            'registrationDateTime' => function (ParseNode $n) use ($o) { $o->setRegistrationDateTime($n->getDateTimeValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'systemLabels' => function (ParseNode $n) use ($o) { $o->setSystemLabels($n->getCollectionOfPrimitiveValues()); },
+            'transitiveMemberOf' => function (ParseNode $n) use ($o) { $o->setTransitiveMemberOf($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
+            'trustType' => function (ParseNode $n) use ($o) { $o->setTrustType($n->getStringValue()); },
+            'usageRights' => function (ParseNode $n) use ($o) { $o->setUsageRights($n->getCollectionOfObjectValues(array(UsageRight::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -352,6 +443,14 @@ class Device extends DirectoryObject
     */
     public function getIsManaged(): ?bool {
         return $this->isManaged;
+    }
+
+    /**
+     * Gets the isManagementRestricted property value. The isManagementRestricted property
+     * @return bool|null
+    */
+    public function getIsManagementRestricted(): ?bool {
+        return $this->isManagementRestricted;
     }
 
     /**
@@ -395,7 +494,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Gets the memberOf property value. Groups that this device is a member of. Read-only. Nullable. Supports $expand.
+     * Gets the memberOf property value. Groups and administrative units that this device is a member of. Read-only. Nullable. Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getMemberOf(): ?array {
@@ -443,7 +542,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Gets the operatingSystemVersion property value. The version of the operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
+     * Gets the operatingSystemVersion property value. Operating system version of the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
      * @return string|null
     */
     public function getOperatingSystemVersion(): ?string {
@@ -451,7 +550,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Gets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
+     * Gets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
      * @return array<string>|null
     */
     public function getPhysicalIds(): ?array {
@@ -507,7 +606,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Gets the systemLabels property value. List of labels applied to the device by the system.
+     * Gets the systemLabels property value. List of labels applied to the device by the system. Supports $filter (eq when counting empty collections).
      * @return array<string>|null
     */
     public function getSystemLabels(): ?array {
@@ -515,7 +614,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Gets the transitiveMemberOf property value. Groups that the device is a member of. This operation is transitive. Supports $expand.
+     * Gets the transitiveMemberOf property value. Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveMemberOf(): ?array {
@@ -523,7 +622,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
      * @return string|null
     */
     public function getTrustType(): ?string {
@@ -563,6 +662,7 @@ class Device extends DirectoryObject
         $writer->writeCollectionOfPrimitiveValues('hostnames', $this->hostnames);
         $writer->writeBooleanValue('isCompliant', $this->isCompliant);
         $writer->writeBooleanValue('isManaged', $this->isManaged);
+        $writer->writeBooleanValue('isManagementRestricted', $this->isManagementRestricted);
         $writer->writeBooleanValue('isRooted', $this->isRooted);
         $writer->writeStringValue('kind', $this->kind);
         $writer->writeStringValue('managementType', $this->managementType);
@@ -589,7 +689,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Sets the accountEnabled property value. true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
+     * Sets the accountEnabled property value. true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
      *  @param bool|null $value Value to set for the accountEnabled property.
     */
     public function setAccountEnabled(?bool $value ): void {
@@ -637,7 +737,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Sets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
+     * Sets the deviceId property value. Identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
      *  @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value ): void {
@@ -741,6 +841,14 @@ class Device extends DirectoryObject
     }
 
     /**
+     * Sets the isManagementRestricted property value. The isManagementRestricted property
+     *  @param bool|null $value Value to set for the isManagementRestricted property.
+    */
+    public function setIsManagementRestricted(?bool $value ): void {
+        $this->isManagementRestricted = $value;
+    }
+
+    /**
      * Sets the isRooted property value. true if device is rooted; false if device is jail-broken. This can only be updated by Intune.
      *  @param bool|null $value Value to set for the isRooted property.
     */
@@ -781,7 +889,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Sets the memberOf property value. Groups that this device is a member of. Read-only. Nullable. Supports $expand.
+     * Sets the memberOf property value. Groups and administrative units that this device is a member of. Read-only. Nullable. Supports $expand.
      *  @param array<DirectoryObject>|null $value Value to set for the memberOf property.
     */
     public function setMemberOf(?array $value ): void {
@@ -829,7 +937,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Sets the operatingSystemVersion property value. The version of the operating system on the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
+     * Sets the operatingSystemVersion property value. Operating system version of the device. Required. Supports $filter (eq, ne, not, ge, le, startsWith, and eq on null values).
      *  @param string|null $value Value to set for the operatingSystemVersion property.
     */
     public function setOperatingSystemVersion(?string $value ): void {
@@ -837,7 +945,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Sets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
+     * Sets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
      *  @param array<string>|null $value Value to set for the physicalIds property.
     */
     public function setPhysicalIds(?array $value ): void {
@@ -893,7 +1001,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Sets the systemLabels property value. List of labels applied to the device by the system.
+     * Sets the systemLabels property value. List of labels applied to the device by the system. Supports $filter (eq when counting empty collections).
      *  @param array<string>|null $value Value to set for the systemLabels property.
     */
     public function setSystemLabels(?array $value ): void {
@@ -901,7 +1009,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Sets the transitiveMemberOf property value. Groups that the device is a member of. This operation is transitive. Supports $expand.
+     * Sets the transitiveMemberOf property value. Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.
      *  @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
     */
     public function setTransitiveMemberOf(?array $value ): void {
@@ -909,7 +1017,7 @@ class Device extends DirectoryObject
     }
 
     /**
-     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
      *  @param string|null $value Value to set for the trustType property.
     */
     public function setTrustType(?string $value ): void {

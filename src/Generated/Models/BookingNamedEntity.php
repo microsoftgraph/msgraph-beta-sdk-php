@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class BookingNamedEntity extends Entity 
+class BookingNamedEntity extends Entity implements Parsable 
 {
-    /** @var string|null $displayName A name for the derived entity, which interfaces with customers. */
+    /**
+     * @var string|null $displayName A name for the derived entity, which interfaces with customers.
+    */
     private ?string $displayName = null;
     
     /**
@@ -23,7 +25,16 @@ class BookingNamedEntity extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BookingNamedEntity
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): BookingNamedEntity {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): BookingNamedEntity {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.bookingBusiness': return new BookingBusiness();
+                case '#microsoft.graph.bookingPerson': return new BookingPerson();
+                case '#microsoft.graph.bookingService': return new BookingService();
+            }
+        }
         return new BookingNamedEntity();
     }
 
@@ -40,8 +51,9 @@ class BookingNamedEntity extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
         ]);
     }
 

@@ -7,42 +7,66 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementTemplate extends Entity 
+class DeviceManagementTemplate extends Entity implements Parsable 
 {
-    /** @var array<DeviceManagementTemplateSettingCategory>|null $categories Collection of setting categories within the template */
+    /**
+     * @var array<DeviceManagementTemplateSettingCategory>|null $categories Collection of setting categories within the template
+    */
     private ?array $categories = null;
     
-    /** @var string|null $description The template's description */
+    /**
+     * @var string|null $description The template's description
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The template's display name */
+    /**
+     * @var string|null $displayName The template's display name
+    */
     private ?string $displayName = null;
     
-    /** @var int|null $intentCount Number of Intents created from this template. */
+    /**
+     * @var int|null $intentCount Number of Intents created from this template.
+    */
     private ?int $intentCount = null;
     
-    /** @var bool|null $isDeprecated The template is deprecated or not. Intents cannot be created from a deprecated template. */
+    /**
+     * @var bool|null $isDeprecated The template is deprecated or not. Intents cannot be created from a deprecated template.
+    */
     private ?bool $isDeprecated = null;
     
-    /** @var array<DeviceManagementTemplate>|null $migratableTo Collection of templates this template can migrate to */
+    /**
+     * @var array<DeviceManagementTemplate>|null $migratableTo Collection of templates this template can migrate to
+    */
     private ?array $migratableTo = null;
     
-    /** @var PolicyPlatformType|null $platformType The template's platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, all. */
+    /**
+     * @var PolicyPlatformType|null $platformType The template's platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, all.
+    */
     private ?PolicyPlatformType $platformType = null;
     
-    /** @var DateTime|null $publishedDateTime When the template was published */
+    /**
+     * @var DateTime|null $publishedDateTime When the template was published
+    */
     private ?DateTime $publishedDateTime = null;
     
-    /** @var array<DeviceManagementSettingInstance>|null $settings Collection of all settings this template has */
+    /**
+     * @var array<DeviceManagementSettingInstance>|null $settings Collection of all settings this template has
+    */
     private ?array $settings = null;
     
-    /** @var DeviceManagementTemplateSubtype|null $templateSubtype The template's subtype. Possible values are: none, firewall, diskEncryption, attackSurfaceReduction, endpointDetectionReponse, accountProtection, antivirus, firewallSharedAppList, firewallSharedIpList, firewallSharedPortlist. */
+    /**
+     * @var DeviceManagementTemplateSubtype|null $templateSubtype The template's subtype. Possible values are: none, firewall, diskEncryption, attackSurfaceReduction, endpointDetectionReponse, accountProtection, antivirus, firewallSharedAppList, firewallSharedIpList, firewallSharedPortlist.
+    */
     private ?DeviceManagementTemplateSubtype $templateSubtype = null;
     
-    /** @var DeviceManagementTemplateType|null $templateType The template's type. Possible values are: securityBaseline, specializedDevices, advancedThreatProtectionSecurityBaseline, deviceConfiguration, custom, securityTemplate, microsoftEdgeSecurityBaseline, microsoftOffice365ProPlusSecurityBaseline, deviceCompliance, deviceConfigurationForOffice365, cloudPC, firewallSharedSettings. */
+    /**
+     * @var DeviceManagementTemplateType|null $templateType The template's type. Possible values are: securityBaseline, specializedDevices, advancedThreatProtectionSecurityBaseline, deviceConfiguration, custom, securityTemplate, microsoftEdgeSecurityBaseline, microsoftOffice365ProPlusSecurityBaseline, deviceCompliance, deviceConfigurationForOffice365, cloudPC, firewallSharedSettings.
+    */
     private ?DeviceManagementTemplateType $templateType = null;
     
-    /** @var string|null $versionInfo The template's version information */
+    /**
+     * @var string|null $versionInfo The template's version information
+    */
     private ?string $versionInfo = null;
     
     /**
@@ -57,7 +81,14 @@ class DeviceManagementTemplate extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementTemplate
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementTemplate {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementTemplate {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.securityBaselineTemplate': return new SecurityBaselineTemplate();
+            }
+        }
         return new DeviceManagementTemplate();
     }
 
@@ -90,19 +121,20 @@ class DeviceManagementTemplate extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (self $o, ParseNode $n) { $o->setCategories($n->getCollectionOfObjectValues(DeviceManagementTemplateSettingCategory::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'intentCount' => function (self $o, ParseNode $n) { $o->setIntentCount($n->getIntegerValue()); },
-            'isDeprecated' => function (self $o, ParseNode $n) { $o->setIsDeprecated($n->getBooleanValue()); },
-            'migratableTo' => function (self $o, ParseNode $n) { $o->setMigratableTo($n->getCollectionOfObjectValues(DeviceManagementTemplate::class)); },
-            'platformType' => function (self $o, ParseNode $n) { $o->setPlatformType($n->getEnumValue(PolicyPlatformType::class)); },
-            'publishedDateTime' => function (self $o, ParseNode $n) { $o->setPublishedDateTime($n->getDateTimeValue()); },
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getCollectionOfObjectValues(DeviceManagementSettingInstance::class)); },
-            'templateSubtype' => function (self $o, ParseNode $n) { $o->setTemplateSubtype($n->getEnumValue(DeviceManagementTemplateSubtype::class)); },
-            'templateType' => function (self $o, ParseNode $n) { $o->setTemplateType($n->getEnumValue(DeviceManagementTemplateType::class)); },
-            'versionInfo' => function (self $o, ParseNode $n) { $o->setVersionInfo($n->getStringValue()); },
+            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfObjectValues(array(DeviceManagementTemplateSettingCategory::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'intentCount' => function (ParseNode $n) use ($o) { $o->setIntentCount($n->getIntegerValue()); },
+            'isDeprecated' => function (ParseNode $n) use ($o) { $o->setIsDeprecated($n->getBooleanValue()); },
+            'migratableTo' => function (ParseNode $n) use ($o) { $o->setMigratableTo($n->getCollectionOfObjectValues(array(DeviceManagementTemplate::class, 'createFromDiscriminatorValue'))); },
+            'platformType' => function (ParseNode $n) use ($o) { $o->setPlatformType($n->getEnumValue(PolicyPlatformType::class)); },
+            'publishedDateTime' => function (ParseNode $n) use ($o) { $o->setPublishedDateTime($n->getDateTimeValue()); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'))); },
+            'templateSubtype' => function (ParseNode $n) use ($o) { $o->setTemplateSubtype($n->getEnumValue(DeviceManagementTemplateSubtype::class)); },
+            'templateType' => function (ParseNode $n) use ($o) { $o->setTemplateType($n->getEnumValue(DeviceManagementTemplateType::class)); },
+            'versionInfo' => function (ParseNode $n) use ($o) { $o->setVersionInfo($n->getStringValue()); },
         ]);
     }
 

@@ -7,36 +7,56 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ConnectedOrganization extends Entity 
+class ConnectedOrganization extends Entity implements Parsable 
 {
-    /** @var string|null $createdBy UPN of the user who created this resource. Read-only. */
+    /**
+     * @var string|null $createdBy UPN of the user who created this resource. Read-only.
+    */
     private ?string $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description The description of the connected organization. */
+    /**
+     * @var string|null $description The description of the connected organization.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name of the connected organization. Supports $filter (eq). */
+    /**
+     * @var string|null $displayName The display name of the connected organization. Supports $filter (eq).
+    */
     private ?string $displayName = null;
     
-    /** @var array<DirectoryObject>|null $externalSponsors Nullable. */
+    /**
+     * @var array<DirectoryObject>|null $externalSponsors The externalSponsors property
+    */
     private ?array $externalSponsors = null;
     
-    /** @var array<IdentitySource>|null $identitySources The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Nullable. */
+    /**
+     * @var array<IdentitySource>|null $identitySources The identity sources in this connected organization, one of azureActiveDirectoryTenant, crossCloudAzureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f').
+    */
     private ?array $identitySources = null;
     
-    /** @var array<DirectoryObject>|null $internalSponsors Nullable. */
+    /**
+     * @var array<DirectoryObject>|null $internalSponsors The internalSponsors property
+    */
     private ?array $internalSponsors = null;
     
-    /** @var string|null $modifiedBy UPN of the user who last modified this resource. Read-only. */
+    /**
+     * @var string|null $modifiedBy UPN of the user who last modified this resource. Read-only.
+    */
     private ?string $modifiedBy = null;
     
-    /** @var DateTime|null $modifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
+    /**
+     * @var DateTime|null $modifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    */
     private ?DateTime $modifiedDateTime = null;
     
-    /** @var ConnectedOrganizationState|null $state The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not.  The possible values are: configured, proposed, unknownFutureValue. */
+    /**
+     * @var ConnectedOrganizationState|null $state The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.
+    */
     private ?ConnectedOrganizationState $state = null;
     
     /**
@@ -51,7 +71,7 @@ class ConnectedOrganization extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConnectedOrganization
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ConnectedOrganization {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConnectedOrganization {
         return new ConnectedOrganization();
     }
 
@@ -88,7 +108,7 @@ class ConnectedOrganization extends Entity
     }
 
     /**
-     * Gets the externalSponsors property value. Nullable.
+     * Gets the externalSponsors property value. The externalSponsors property
      * @return array<DirectoryObject>|null
     */
     public function getExternalSponsors(): ?array {
@@ -100,22 +120,23 @@ class ConnectedOrganization extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getStringValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'externalSponsors' => function (self $o, ParseNode $n) { $o->setExternalSponsors($n->getCollectionOfObjectValues(DirectoryObject::class)); },
-            'identitySources' => function (self $o, ParseNode $n) { $o->setIdentitySources($n->getCollectionOfObjectValues(IdentitySource::class)); },
-            'internalSponsors' => function (self $o, ParseNode $n) { $o->setInternalSponsors($n->getCollectionOfObjectValues(DirectoryObject::class)); },
-            'modifiedBy' => function (self $o, ParseNode $n) { $o->setModifiedBy($n->getStringValue()); },
-            'modifiedDateTime' => function (self $o, ParseNode $n) { $o->setModifiedDateTime($n->getDateTimeValue()); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(ConnectedOrganizationState::class)); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'externalSponsors' => function (ParseNode $n) use ($o) { $o->setExternalSponsors($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
+            'identitySources' => function (ParseNode $n) use ($o) { $o->setIdentitySources($n->getCollectionOfObjectValues(array(IdentitySource::class, 'createFromDiscriminatorValue'))); },
+            'internalSponsors' => function (ParseNode $n) use ($o) { $o->setInternalSponsors($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
+            'modifiedBy' => function (ParseNode $n) use ($o) { $o->setModifiedBy($n->getStringValue()); },
+            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ConnectedOrganizationState::class)); },
         ]);
     }
 
     /**
-     * Gets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Nullable.
+     * Gets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, crossCloudAzureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f').
      * @return array<IdentitySource>|null
     */
     public function getIdentitySources(): ?array {
@@ -123,7 +144,7 @@ class ConnectedOrganization extends Entity
     }
 
     /**
-     * Gets the internalSponsors property value. Nullable.
+     * Gets the internalSponsors property value. The internalSponsors property
      * @return array<DirectoryObject>|null
     */
     public function getInternalSponsors(): ?array {
@@ -147,7 +168,7 @@ class ConnectedOrganization extends Entity
     }
 
     /**
-     * Gets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not.  The possible values are: configured, proposed, unknownFutureValue.
+     * Gets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.
      * @return ConnectedOrganizationState|null
     */
     public function getState(): ?ConnectedOrganizationState {
@@ -205,7 +226,7 @@ class ConnectedOrganization extends Entity
     }
 
     /**
-     * Sets the externalSponsors property value. Nullable.
+     * Sets the externalSponsors property value. The externalSponsors property
      *  @param array<DirectoryObject>|null $value Value to set for the externalSponsors property.
     */
     public function setExternalSponsors(?array $value ): void {
@@ -213,7 +234,7 @@ class ConnectedOrganization extends Entity
     }
 
     /**
-     * Sets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Nullable.
+     * Sets the identitySources property value. The identity sources in this connected organization, one of azureActiveDirectoryTenant, crossCloudAzureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f').
      *  @param array<IdentitySource>|null $value Value to set for the identitySources property.
     */
     public function setIdentitySources(?array $value ): void {
@@ -221,7 +242,7 @@ class ConnectedOrganization extends Entity
     }
 
     /**
-     * Sets the internalSponsors property value. Nullable.
+     * Sets the internalSponsors property value. The internalSponsors property
      *  @param array<DirectoryObject>|null $value Value to set for the internalSponsors property.
     */
     public function setInternalSponsors(?array $value ): void {
@@ -245,7 +266,7 @@ class ConnectedOrganization extends Entity
     }
 
     /**
-     * Sets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not.  The possible values are: configured, proposed, unknownFutureValue.
+     * Sets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.
      *  @param ConnectedOrganizationState|null $value Value to set for the state property.
     */
     public function setState(?ConnectedOrganizationState $value ): void {

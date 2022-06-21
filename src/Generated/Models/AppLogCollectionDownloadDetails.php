@@ -9,20 +9,28 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var AppLogDecryptionAlgorithm|null $appLogDecryptionAlgorithm DecryptionAlgorithm for Content. Possible values are: aes256. */
+    /**
+     * @var AppLogDecryptionAlgorithm|null $appLogDecryptionAlgorithm DecryptionAlgorithm for Content. Possible values are: aes256.
+    */
     private ?AppLogDecryptionAlgorithm $appLogDecryptionAlgorithm = null;
     
-    /** @var string|null $decryptionKey DecryptionKey as string */
+    /**
+     * @var string|null $decryptionKey DecryptionKey as string
+    */
     private ?string $decryptionKey = null;
     
-    /** @var string|null $downloadUrl Download SAS Url for completed AppLogUploadRequest */
+    /**
+     * @var string|null $downloadUrl Download SAS Url for completed AppLogUploadRequest
+    */
     private ?string $downloadUrl = null;
     
     /**
-     * Instantiates a new appLogCollectionDownloadDetails and sets the default values.
+     * Instantiates a new AppLogCollectionDownloadDetails and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -33,7 +41,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AppLogCollectionDownloadDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AppLogCollectionDownloadDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AppLogCollectionDownloadDetails {
         return new AppLogCollectionDownloadDetails();
     }
 
@@ -74,10 +82,11 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'appLogDecryptionAlgorithm' => function (self $o, ParseNode $n) { $o->setAppLogDecryptionAlgorithm($n->getEnumValue(AppLogDecryptionAlgorithm::class)); },
-            'decryptionKey' => function (self $o, ParseNode $n) { $o->setDecryptionKey($n->getStringValue()); },
-            'downloadUrl' => function (self $o, ParseNode $n) { $o->setDownloadUrl($n->getStringValue()); },
+            'appLogDecryptionAlgorithm' => function (ParseNode $n) use ($o) { $o->setAppLogDecryptionAlgorithm($n->getEnumValue(AppLogDecryptionAlgorithm::class)); },
+            'decryptionKey' => function (ParseNode $n) use ($o) { $o->setDecryptionKey($n->getStringValue()); },
+            'downloadUrl' => function (ParseNode $n) use ($o) { $o->setDownloadUrl($n->getStringValue()); },
         ];
     }
 

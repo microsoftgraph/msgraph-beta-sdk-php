@@ -7,18 +7,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ChromeOSOnboardingSettings extends Entity 
+class ChromeOSOnboardingSettings extends Entity implements Parsable 
 {
-    /** @var DateTime|null $lastDirectorySyncDateTime The ChromebookTenant's LastDirectorySyncDateTime */
+    /**
+     * @var DateTime|null $lastDirectorySyncDateTime The ChromebookTenant's LastDirectorySyncDateTime
+    */
     private ?DateTime $lastDirectorySyncDateTime = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The ChromebookTenant's LastModifiedDateTime */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The ChromebookTenant's LastModifiedDateTime
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var OnboardingStatus|null $onboardingStatus The ChromebookTenant's OnboardingStatus. Possible values are: unknown, inprogress, onboarded, failed, offboarding, unknownFutureValue. */
+    /**
+     * @var OnboardingStatus|null $onboardingStatus The ChromebookTenant's OnboardingStatus. Possible values are: unknown, inprogress, onboarded, failed, offboarding, unknownFutureValue.
+    */
     private ?OnboardingStatus $onboardingStatus = null;
     
-    /** @var string|null $ownerUserPrincipalName The ChromebookTenant's OwnerUserPrincipalName */
+    /**
+     * @var string|null $ownerUserPrincipalName The ChromebookTenant's OwnerUserPrincipalName
+    */
     private ?string $ownerUserPrincipalName = null;
     
     /**
@@ -33,7 +41,7 @@ class ChromeOSOnboardingSettings extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ChromeOSOnboardingSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ChromeOSOnboardingSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ChromeOSOnboardingSettings {
         return new ChromeOSOnboardingSettings();
     }
 
@@ -42,11 +50,12 @@ class ChromeOSOnboardingSettings extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastDirectorySyncDateTime' => function (self $o, ParseNode $n) { $o->setLastDirectorySyncDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'onboardingStatus' => function (self $o, ParseNode $n) { $o->setOnboardingStatus($n->getEnumValue(OnboardingStatus::class)); },
-            'ownerUserPrincipalName' => function (self $o, ParseNode $n) { $o->setOwnerUserPrincipalName($n->getStringValue()); },
+            'lastDirectorySyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastDirectorySyncDateTime($n->getDateTimeValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'onboardingStatus' => function (ParseNode $n) use ($o) { $o->setOnboardingStatus($n->getEnumValue(OnboardingStatus::class)); },
+            'ownerUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setOwnerUserPrincipalName($n->getStringValue()); },
         ]);
     }
 
