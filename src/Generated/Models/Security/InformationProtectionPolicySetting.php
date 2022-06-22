@@ -7,18 +7,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class InformationProtectionPolicySetting extends Entity 
+class InformationProtectionPolicySetting extends Entity implements Parsable 
 {
-    /** @var string|null $defaultLabelId The defaultLabelId property */
+    /**
+     * @var string|null $defaultLabelId The defaultLabelId property
+    */
     private ?string $defaultLabelId = null;
     
-    /** @var bool|null $isDowngradeJustificationRequired The isDowngradeJustificationRequired property */
+    /**
+     * @var bool|null $isDowngradeJustificationRequired The isDowngradeJustificationRequired property
+    */
     private ?bool $isDowngradeJustificationRequired = null;
     
-    /** @var bool|null $isMandatory The isMandatory property */
+    /**
+     * @var bool|null $isMandatory The isMandatory property
+    */
     private ?bool $isMandatory = null;
     
-    /** @var string|null $moreInfoUrl The moreInfoUrl property */
+    /**
+     * @var string|null $moreInfoUrl The moreInfoUrl property
+    */
     private ?string $moreInfoUrl = null;
     
     /**
@@ -33,7 +41,7 @@ class InformationProtectionPolicySetting extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return InformationProtectionPolicySetting
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): InformationProtectionPolicySetting {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): InformationProtectionPolicySetting {
         return new InformationProtectionPolicySetting();
     }
 
@@ -50,11 +58,12 @@ class InformationProtectionPolicySetting extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultLabelId' => function (self $o, ParseNode $n) { $o->setDefaultLabelId($n->getStringValue()); },
-            'isDowngradeJustificationRequired' => function (self $o, ParseNode $n) { $o->setIsDowngradeJustificationRequired($n->getBooleanValue()); },
-            'isMandatory' => function (self $o, ParseNode $n) { $o->setIsMandatory($n->getBooleanValue()); },
-            'moreInfoUrl' => function (self $o, ParseNode $n) { $o->setMoreInfoUrl($n->getStringValue()); },
+            'defaultLabelId' => function (ParseNode $n) use ($o) { $o->setDefaultLabelId($n->getStringValue()); },
+            'isDowngradeJustificationRequired' => function (ParseNode $n) use ($o) { $o->setIsDowngradeJustificationRequired($n->getBooleanValue()); },
+            'isMandatory' => function (ParseNode $n) use ($o) { $o->setIsMandatory($n->getBooleanValue()); },
+            'moreInfoUrl' => function (ParseNode $n) use ($o) { $o->setMoreInfoUrl($n->getStringValue()); },
         ]);
     }
 

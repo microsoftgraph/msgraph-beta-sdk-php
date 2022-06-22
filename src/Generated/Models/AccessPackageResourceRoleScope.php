@@ -7,24 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageResourceRoleScope extends Entity 
+class AccessPackageResourceRoleScope extends Entity implements Parsable 
 {
-    /** @var AccessPackageResourceRole|null $accessPackageResourceRole Read-only. Nullable. Supports $expand. */
+    /**
+     * @var AccessPackageResourceRole|null $accessPackageResourceRole Read-only. Nullable. Supports $expand.
+    */
     private ?AccessPackageResourceRole $accessPackageResourceRole = null;
     
-    /** @var AccessPackageResourceScope|null $accessPackageResourceScope Read-only. Nullable. */
+    /**
+     * @var AccessPackageResourceScope|null $accessPackageResourceScope The accessPackageResourceScope property
+    */
     private ?AccessPackageResourceScope $accessPackageResourceScope = null;
     
-    /** @var string|null $createdBy Read-only. */
+    /**
+     * @var string|null $createdBy The createdBy property
+    */
     private ?string $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    /**
+     * @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $modifiedBy Read-only. */
+    /**
+     * @var string|null $modifiedBy The modifiedBy property
+    */
     private ?string $modifiedBy = null;
     
-    /** @var DateTime|null $modifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
+    /**
+     * @var DateTime|null $modifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    */
     private ?DateTime $modifiedDateTime = null;
     
     /**
@@ -39,7 +51,7 @@ class AccessPackageResourceRoleScope extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageResourceRoleScope
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceRoleScope {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceRoleScope {
         return new AccessPackageResourceRoleScope();
     }
 
@@ -52,7 +64,7 @@ class AccessPackageResourceRoleScope extends Entity
     }
 
     /**
-     * Gets the accessPackageResourceScope property value. Read-only. Nullable.
+     * Gets the accessPackageResourceScope property value. The accessPackageResourceScope property
      * @return AccessPackageResourceScope|null
     */
     public function getAccessPackageResourceScope(): ?AccessPackageResourceScope {
@@ -60,7 +72,7 @@ class AccessPackageResourceRoleScope extends Entity
     }
 
     /**
-     * Gets the createdBy property value. Read-only.
+     * Gets the createdBy property value. The createdBy property
      * @return string|null
     */
     public function getCreatedBy(): ?string {
@@ -80,18 +92,19 @@ class AccessPackageResourceRoleScope extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResourceRole' => function (self $o, ParseNode $n) { $o->setAccessPackageResourceRole($n->getObjectValue(AccessPackageResourceRole::class)); },
-            'accessPackageResourceScope' => function (self $o, ParseNode $n) { $o->setAccessPackageResourceScope($n->getObjectValue(AccessPackageResourceScope::class)); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getStringValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'modifiedBy' => function (self $o, ParseNode $n) { $o->setModifiedBy($n->getStringValue()); },
-            'modifiedDateTime' => function (self $o, ParseNode $n) { $o->setModifiedDateTime($n->getDateTimeValue()); },
+            'accessPackageResourceRole' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRole($n->getObjectValue(array(AccessPackageResourceRole::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageResourceScope' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceScope($n->getObjectValue(array(AccessPackageResourceScope::class, 'createFromDiscriminatorValue'))); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'modifiedBy' => function (ParseNode $n) use ($o) { $o->setModifiedBy($n->getStringValue()); },
+            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 
     /**
-     * Gets the modifiedBy property value. Read-only.
+     * Gets the modifiedBy property value. The modifiedBy property
      * @return string|null
     */
     public function getModifiedBy(): ?string {
@@ -129,7 +142,7 @@ class AccessPackageResourceRoleScope extends Entity
     }
 
     /**
-     * Sets the accessPackageResourceScope property value. Read-only. Nullable.
+     * Sets the accessPackageResourceScope property value. The accessPackageResourceScope property
      *  @param AccessPackageResourceScope|null $value Value to set for the accessPackageResourceScope property.
     */
     public function setAccessPackageResourceScope(?AccessPackageResourceScope $value ): void {
@@ -137,7 +150,7 @@ class AccessPackageResourceRoleScope extends Entity
     }
 
     /**
-     * Sets the createdBy property value. Read-only.
+     * Sets the createdBy property value. The createdBy property
      *  @param string|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?string $value ): void {
@@ -153,7 +166,7 @@ class AccessPackageResourceRoleScope extends Entity
     }
 
     /**
-     * Sets the modifiedBy property value. Read-only.
+     * Sets the modifiedBy property value. The modifiedBy property
      *  @param string|null $value Value to set for the modifiedBy property.
     */
     public function setModifiedBy(?string $value ): void {

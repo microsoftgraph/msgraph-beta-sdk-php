@@ -6,24 +6,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsImpactingProcess extends Entity 
+class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable 
 {
-    /** @var string|null $category The category of impacting process. */
+    /**
+     * @var string|null $category The category of impacting process.
+    */
     private ?string $category = null;
     
-    /** @var string|null $description The description of process. */
+    /**
+     * @var string|null $description The description of process.
+    */
     private ?string $description = null;
     
-    /** @var string|null $deviceId The unique identifier of the impacted device. */
+    /**
+     * @var string|null $deviceId The unique identifier of the impacted device.
+    */
     private ?string $deviceId = null;
     
-    /** @var float|null $impactValue The impact value of the process. Valid values 0 to 1.79769313486232E+308 */
+    /**
+     * @var float|null $impactValue The impact value of the process. Valid values 0 to 1.79769313486232E+308
+    */
     private ?float $impactValue = null;
     
-    /** @var string|null $processName The process name. */
+    /**
+     * @var string|null $processName The process name.
+    */
     private ?string $processName = null;
     
-    /** @var string|null $publisher The publisher of the process. */
+    /**
+     * @var string|null $publisher The publisher of the process.
+    */
     private ?string $publisher = null;
     
     /**
@@ -38,7 +50,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsImpactingProcess
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsImpactingProcess {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsImpactingProcess {
         return new UserExperienceAnalyticsImpactingProcess();
     }
 
@@ -71,13 +83,14 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
-            'impactValue' => function (self $o, ParseNode $n) { $o->setImpactValue($n->getFloatValue()); },
-            'processName' => function (self $o, ParseNode $n) { $o->setProcessName($n->getStringValue()); },
-            'publisher' => function (self $o, ParseNode $n) { $o->setPublisher($n->getStringValue()); },
+            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
+            'impactValue' => function (ParseNode $n) use ($o) { $o->setImpactValue($n->getFloatValue()); },
+            'processName' => function (ParseNode $n) use ($o) { $o->setProcessName($n->getStringValue()); },
+            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
         ]);
     }
 

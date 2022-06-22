@@ -7,33 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ProgramControl extends Entity 
+class ProgramControl extends Entity implements Parsable 
 {
-    /** @var string|null $controlId The controlId of the control, in particular the identifier of an access review. Required on create. */
+    /**
+     * @var string|null $controlId The controlId of the control, in particular the identifier of an access review. Required on create.
+    */
     private ?string $controlId = null;
     
-    /** @var string|null $controlTypeId The programControlType identifies the type of program control - for example, a control linking to guest access reviews. Required on create. */
+    /**
+     * @var string|null $controlTypeId The programControlType identifies the type of program control - for example, a control linking to guest access reviews. Required on create.
+    */
     private ?string $controlTypeId = null;
     
-    /** @var DateTime|null $createdDateTime The creation date and time of the program control. */
+    /**
+     * @var DateTime|null $createdDateTime The creation date and time of the program control.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $displayName The name of the control. */
+    /**
+     * @var string|null $displayName The name of the control.
+    */
     private ?string $displayName = null;
     
-    /** @var UserIdentity|null $owner The user who created the program control. */
+    /**
+     * @var UserIdentity|null $owner The user who created the program control.
+    */
     private ?UserIdentity $owner = null;
     
-    /** @var Program|null $program The program this control is part of. */
+    /**
+     * @var Program|null $program The program this control is part of.
+    */
     private ?Program $program = null;
     
-    /** @var string|null $programId The programId of the program this control is a part of. Required on create. */
+    /**
+     * @var string|null $programId The programId of the program this control is a part of. Required on create.
+    */
     private ?string $programId = null;
     
-    /** @var ProgramResource|null $resource The resource, a group or an app, targeted by this program control's access review. */
+    /**
+     * @var ProgramResource|null $resource The resource, a group or an app, targeted by this program control's access review.
+    */
     private ?ProgramResource $resource = null;
     
-    /** @var string|null $status The life cycle status of the control. */
+    /**
+     * @var string|null $status The life cycle status of the control.
+    */
     private ?string $status = null;
     
     /**
@@ -48,7 +66,7 @@ class ProgramControl extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ProgramControl
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ProgramControl {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ProgramControl {
         return new ProgramControl();
     }
 
@@ -89,16 +107,17 @@ class ProgramControl extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'controlId' => function (self $o, ParseNode $n) { $o->setControlId($n->getStringValue()); },
-            'controlTypeId' => function (self $o, ParseNode $n) { $o->setControlTypeId($n->getStringValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'owner' => function (self $o, ParseNode $n) { $o->setOwner($n->getObjectValue(UserIdentity::class)); },
-            'program' => function (self $o, ParseNode $n) { $o->setProgram($n->getObjectValue(Program::class)); },
-            'programId' => function (self $o, ParseNode $n) { $o->setProgramId($n->getStringValue()); },
-            'resource' => function (self $o, ParseNode $n) { $o->setResource($n->getObjectValue(ProgramResource::class)); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getStringValue()); },
+            'controlId' => function (ParseNode $n) use ($o) { $o->setControlId($n->getStringValue()); },
+            'controlTypeId' => function (ParseNode $n) use ($o) { $o->setControlTypeId($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'owner' => function (ParseNode $n) use ($o) { $o->setOwner($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
+            'program' => function (ParseNode $n) use ($o) { $o->setProgram($n->getObjectValue(array(Program::class, 'createFromDiscriminatorValue'))); },
+            'programId' => function (ParseNode $n) use ($o) { $o->setProgramId($n->getStringValue()); },
+            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(ProgramResource::class, 'createFromDiscriminatorValue'))); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
         ]);
     }
 

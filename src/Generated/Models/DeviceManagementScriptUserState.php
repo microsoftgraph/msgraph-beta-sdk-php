@@ -6,18 +6,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementScriptUserState extends Entity 
+class DeviceManagementScriptUserState extends Entity implements Parsable 
 {
-    /** @var array<DeviceManagementScriptDeviceState>|null $deviceRunStates List of run states for this script across all devices of specific user. */
+    /**
+     * @var array<DeviceManagementScriptDeviceState>|null $deviceRunStates List of run states for this script across all devices of specific user.
+    */
     private ?array $deviceRunStates = null;
     
-    /** @var int|null $errorDeviceCount Error device count for specific user. */
+    /**
+     * @var int|null $errorDeviceCount Error device count for specific user.
+    */
     private ?int $errorDeviceCount = null;
     
-    /** @var int|null $successDeviceCount Success device count for specific user. */
+    /**
+     * @var int|null $successDeviceCount Success device count for specific user.
+    */
     private ?int $successDeviceCount = null;
     
-    /** @var string|null $userPrincipalName User principle name of specific user. */
+    /**
+     * @var string|null $userPrincipalName User principle name of specific user.
+    */
     private ?string $userPrincipalName = null;
     
     /**
@@ -32,7 +40,7 @@ class DeviceManagementScriptUserState extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementScriptUserState
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementScriptUserState {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementScriptUserState {
         return new DeviceManagementScriptUserState();
     }
 
@@ -57,11 +65,12 @@ class DeviceManagementScriptUserState extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceRunStates' => function (self $o, ParseNode $n) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(DeviceManagementScriptDeviceState::class)); },
-            'errorDeviceCount' => function (self $o, ParseNode $n) { $o->setErrorDeviceCount($n->getIntegerValue()); },
-            'successDeviceCount' => function (self $o, ParseNode $n) { $o->setSuccessDeviceCount($n->getIntegerValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'deviceRunStates' => function (ParseNode $n) use ($o) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(array(DeviceManagementScriptDeviceState::class, 'createFromDiscriminatorValue'))); },
+            'errorDeviceCount' => function (ParseNode $n) use ($o) { $o->setErrorDeviceCount($n->getIntegerValue()); },
+            'successDeviceCount' => function (ParseNode $n) use ($o) { $o->setSuccessDeviceCount($n->getIntegerValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

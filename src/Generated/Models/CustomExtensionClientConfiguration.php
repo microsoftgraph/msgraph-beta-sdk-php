@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CustomExtensionClientConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $timeoutInMilliseconds The max duration in milliseconds that Azure AD will wait for a response from the logic app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000. */
+    /**
+     * @var int|null $timeoutInMilliseconds The max duration in milliseconds that Azure AD will wait for a response from the logic app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
+    */
     private ?int $timeoutInMilliseconds = null;
     
     /**
@@ -27,7 +31,7 @@ class CustomExtensionClientConfiguration implements AdditionalDataHolder, Parsab
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CustomExtensionClientConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CustomExtensionClientConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomExtensionClientConfiguration {
         return new CustomExtensionClientConfiguration();
     }
 
@@ -44,8 +48,9 @@ class CustomExtensionClientConfiguration implements AdditionalDataHolder, Parsab
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'timeoutInMilliseconds' => function (self $o, ParseNode $n) { $o->setTimeoutInMilliseconds($n->getIntegerValue()); },
+            'timeoutInMilliseconds' => function (ParseNode $n) use ($o) { $o->setTimeoutInMilliseconds($n->getIntegerValue()); },
         ];
     }
 

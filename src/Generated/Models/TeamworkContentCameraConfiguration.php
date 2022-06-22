@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $isContentCameraInverted True if the content camera is inverted. */
+    /**
+     * @var bool|null $isContentCameraInverted True if the content camera is inverted.
+    */
     private ?bool $isContentCameraInverted = null;
     
-    /** @var bool|null $isContentCameraOptional True if the content camera is optional. */
+    /**
+     * @var bool|null $isContentCameraOptional True if the content camera is optional.
+    */
     private ?bool $isContentCameraOptional = null;
     
-    /** @var bool|null $isContentEnhancementEnabled True if the content enhancement is enabled. */
+    /**
+     * @var bool|null $isContentEnhancementEnabled True if the content enhancement is enabled.
+    */
     private ?bool $isContentEnhancementEnabled = null;
     
     /**
@@ -33,7 +41,7 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Parsab
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkContentCameraConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkContentCameraConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkContentCameraConfiguration {
         return new TeamworkContentCameraConfiguration();
     }
 
@@ -50,10 +58,11 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Parsab
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'isContentCameraInverted' => function (self $o, ParseNode $n) { $o->setIsContentCameraInverted($n->getBooleanValue()); },
-            'isContentCameraOptional' => function (self $o, ParseNode $n) { $o->setIsContentCameraOptional($n->getBooleanValue()); },
-            'isContentEnhancementEnabled' => function (self $o, ParseNode $n) { $o->setIsContentEnhancementEnabled($n->getBooleanValue()); },
+            'isContentCameraInverted' => function (ParseNode $n) use ($o) { $o->setIsContentCameraInverted($n->getBooleanValue()); },
+            'isContentCameraOptional' => function (ParseNode $n) use ($o) { $o->setIsContentCameraOptional($n->getBooleanValue()); },
+            'isContentEnhancementEnabled' => function (ParseNode $n) use ($o) { $o->setIsContentEnhancementEnabled($n->getBooleanValue()); },
         ];
     }
 

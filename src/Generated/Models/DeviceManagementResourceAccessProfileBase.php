@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementResourceAccessProfileBase extends Entity 
+class DeviceManagementResourceAccessProfileBase extends Entity implements Parsable 
 {
-    /** @var array<DeviceManagementResourceAccessProfileAssignment>|null $assignments The list of assignments for the device configuration profile. */
+    /**
+     * @var array<DeviceManagementResourceAccessProfileAssignment>|null $assignments The list of assignments for the device configuration profile.
+    */
     private ?array $assignments = null;
     
-    /** @var DateTime|null $creationDateTime DateTime profile was created */
+    /**
+     * @var DateTime|null $creationDateTime DateTime profile was created
+    */
     private ?DateTime $creationDateTime = null;
     
-    /** @var string|null $description Profile description */
+    /**
+     * @var string|null $description Profile description
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Profile display name */
+    /**
+     * @var string|null $displayName Profile display name
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastModifiedDateTime DateTime profile was last modified */
+    /**
+     * @var DateTime|null $lastModifiedDateTime DateTime profile was last modified
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var array<string>|null $roleScopeTagIds Scope Tags */
+    /**
+     * @var array<string>|null $roleScopeTagIds Scope Tags
+    */
     private ?array $roleScopeTagIds = null;
     
-    /** @var int|null $version Version of the profile */
+    /**
+     * @var int|null $version Version of the profile
+    */
     private ?int $version = null;
     
     /**
@@ -42,7 +56,17 @@ class DeviceManagementResourceAccessProfileBase extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementResourceAccessProfileBase
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementResourceAccessProfileBase {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementResourceAccessProfileBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windows10XCertificateProfile': return new Windows10XCertificateProfile();
+                case '#microsoft.graph.windows10XTrustedRootCertificate': return new Windows10XTrustedRootCertificate();
+                case '#microsoft.graph.windows10XVpnConfiguration': return new Windows10XVpnConfiguration();
+                case '#microsoft.graph.windows10XWifiConfiguration': return new Windows10XWifiConfiguration();
+            }
+        }
         return new DeviceManagementResourceAccessProfileBase();
     }
 
@@ -83,14 +107,15 @@ class DeviceManagementResourceAccessProfileBase extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(DeviceManagementResourceAccessProfileAssignment::class)); },
-            'creationDateTime' => function (self $o, ParseNode $n) { $o->setCreationDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getIntegerValue()); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceManagementResourceAccessProfileAssignment::class, 'createFromDiscriminatorValue'))); },
+            'creationDateTime' => function (ParseNode $n) use ($o) { $o->setCreationDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
         ]);
     }
 

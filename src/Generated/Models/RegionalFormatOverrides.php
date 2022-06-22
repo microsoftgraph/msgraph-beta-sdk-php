@@ -9,28 +9,44 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RegionalFormatOverrides implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $calendar The calendar to use, e.g., Gregorian Calendar.Returned by default. */
+    /**
+     * @var string|null $calendar The calendar to use, e.g., Gregorian Calendar.Returned by default.
+    */
     private ?string $calendar = null;
     
-    /** @var string|null $firstDayOfWeek The first day of the week to use, e.g., Sunday.Returned by default. */
+    /**
+     * @var string|null $firstDayOfWeek The first day of the week to use, e.g., Sunday.Returned by default.
+    */
     private ?string $firstDayOfWeek = null;
     
-    /** @var string|null $longDateFormat The long date time format to be used for displaying dates.Returned by default. */
+    /**
+     * @var string|null $longDateFormat The long date time format to be used for displaying dates.Returned by default.
+    */
     private ?string $longDateFormat = null;
     
-    /** @var string|null $longTimeFormat The long time format to be used for displaying time.Returned by default. */
+    /**
+     * @var string|null $longTimeFormat The long time format to be used for displaying time.Returned by default.
+    */
     private ?string $longTimeFormat = null;
     
-    /** @var string|null $shortDateFormat The short date time format to be used for displaying dates.Returned by default. */
+    /**
+     * @var string|null $shortDateFormat The short date time format to be used for displaying dates.Returned by default.
+    */
     private ?string $shortDateFormat = null;
     
-    /** @var string|null $shortTimeFormat The short time format to be used for displaying time.Returned by default. */
+    /**
+     * @var string|null $shortTimeFormat The short time format to be used for displaying time.Returned by default.
+    */
     private ?string $shortTimeFormat = null;
     
-    /** @var string|null $timeZone The timezone to be used for displaying time.Returned by default. */
+    /**
+     * @var string|null $timeZone The timezone to be used for displaying time.Returned by default.
+    */
     private ?string $timeZone = null;
     
     /**
@@ -45,7 +61,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RegionalFormatOverrides
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RegionalFormatOverrides {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RegionalFormatOverrides {
         return new RegionalFormatOverrides();
     }
 
@@ -70,14 +86,15 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'calendar' => function (self $o, ParseNode $n) { $o->setCalendar($n->getStringValue()); },
-            'firstDayOfWeek' => function (self $o, ParseNode $n) { $o->setFirstDayOfWeek($n->getStringValue()); },
-            'longDateFormat' => function (self $o, ParseNode $n) { $o->setLongDateFormat($n->getStringValue()); },
-            'longTimeFormat' => function (self $o, ParseNode $n) { $o->setLongTimeFormat($n->getStringValue()); },
-            'shortDateFormat' => function (self $o, ParseNode $n) { $o->setShortDateFormat($n->getStringValue()); },
-            'shortTimeFormat' => function (self $o, ParseNode $n) { $o->setShortTimeFormat($n->getStringValue()); },
-            'timeZone' => function (self $o, ParseNode $n) { $o->setTimeZone($n->getStringValue()); },
+            'calendar' => function (ParseNode $n) use ($o) { $o->setCalendar($n->getStringValue()); },
+            'firstDayOfWeek' => function (ParseNode $n) use ($o) { $o->setFirstDayOfWeek($n->getStringValue()); },
+            'longDateFormat' => function (ParseNode $n) use ($o) { $o->setLongDateFormat($n->getStringValue()); },
+            'longTimeFormat' => function (ParseNode $n) use ($o) { $o->setLongTimeFormat($n->getStringValue()); },
+            'shortDateFormat' => function (ParseNode $n) use ($o) { $o->setShortDateFormat($n->getStringValue()); },
+            'shortTimeFormat' => function (ParseNode $n) use ($o) { $o->setShortTimeFormat($n->getStringValue()); },
+            'timeZone' => function (ParseNode $n) use ($o) { $o->setTimeZone($n->getStringValue()); },
         ];
     }
 

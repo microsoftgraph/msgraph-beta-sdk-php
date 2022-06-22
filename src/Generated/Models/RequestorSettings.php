@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RequestorSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var bool|null $acceptRequests Indicates whether new requests are accepted on this policy. */
+    /**
+     * @var bool|null $acceptRequests Indicates whether new requests are accepted on this policy.
+    */
     private ?bool $acceptRequests = null;
     
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<UserSet>|null $allowedRequestors The users who are allowed to request on this policy, which can be singleUser, groupMembers, and connectedOrganizationMembers. */
+    /**
+     * @var array<UserSet>|null $allowedRequestors The users who are allowed to request on this policy, which can be singleUser, groupMembers, and connectedOrganizationMembers.
+    */
     private ?array $allowedRequestors = null;
     
-    /** @var string|null $scopeType Who can request. One of NoSubjects, SpecificDirectorySubjects, SpecificConnectedOrganizationSubjects, AllConfiguredConnectedOrganizationSubjects, AllExistingConnectedOrganizationSubjects, AllExistingDirectoryMemberUsers, AllExistingDirectorySubjects or AllExternalSubjects. */
+    /**
+     * @var string|null $scopeType Who can request. One of NoSubjects, SpecificDirectorySubjects, SpecificConnectedOrganizationSubjects, AllConfiguredConnectedOrganizationSubjects, AllExistingConnectedOrganizationSubjects, AllExistingDirectoryMemberUsers, AllExistingDirectorySubjects or AllExternalSubjects.
+    */
     private ?string $scopeType = null;
     
     /**
@@ -33,7 +41,7 @@ class RequestorSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RequestorSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RequestorSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RequestorSettings {
         return new RequestorSettings();
     }
 
@@ -66,10 +74,11 @@ class RequestorSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'acceptRequests' => function (self $o, ParseNode $n) { $o->setAcceptRequests($n->getBooleanValue()); },
-            'allowedRequestors' => function (self $o, ParseNode $n) { $o->setAllowedRequestors($n->getCollectionOfObjectValues(UserSet::class)); },
-            'scopeType' => function (self $o, ParseNode $n) { $o->setScopeType($n->getStringValue()); },
+            'acceptRequests' => function (ParseNode $n) use ($o) { $o->setAcceptRequests($n->getBooleanValue()); },
+            'allowedRequestors' => function (ParseNode $n) use ($o) { $o->setAllowedRequestors($n->getCollectionOfObjectValues(array(UserSet::class, 'createFromDiscriminatorValue'))); },
+            'scopeType' => function (ParseNode $n) use ($o) { $o->setScopeType($n->getStringValue()); },
         ];
     }
 

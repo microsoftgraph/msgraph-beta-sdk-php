@@ -7,24 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementAutopilotPolicyStatusDetail extends Entity 
+class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Parsable 
 {
-    /** @var DeviceManagementAutopilotPolicyComplianceStatus|null $complianceStatus The policy compliance status. Possible values are: unknown, compliant, installed, notCompliant, notInstalled, error. */
+    /**
+     * @var DeviceManagementAutopilotPolicyComplianceStatus|null $complianceStatus The policy compliance status. Possible values are: unknown, compliant, installed, notCompliant, notInstalled, error.
+    */
     private ?DeviceManagementAutopilotPolicyComplianceStatus $complianceStatus = null;
     
-    /** @var string|null $displayName The friendly name of the policy. */
+    /**
+     * @var string|null $displayName The friendly name of the policy.
+    */
     private ?string $displayName = null;
     
-    /** @var int|null $errorCode The errorode associated with the compliance or enforcement status of the policy. Error code for enforcement status takes precedence if it exists. */
+    /**
+     * @var int|null $errorCode The errorode associated with the compliance or enforcement status of the policy. Error code for enforcement status takes precedence if it exists.
+    */
     private ?int $errorCode = null;
     
-    /** @var DateTime|null $lastReportedDateTime Timestamp of the reported policy status */
+    /**
+     * @var DateTime|null $lastReportedDateTime Timestamp of the reported policy status
+    */
     private ?DateTime $lastReportedDateTime = null;
     
-    /** @var DeviceManagementAutopilotPolicyType|null $policyType The type of policy. Possible values are: unknown, application, appModel, configurationPolicy. */
+    /**
+     * @var DeviceManagementAutopilotPolicyType|null $policyType The type of policy. Possible values are: unknown, application, appModel, configurationPolicy.
+    */
     private ?DeviceManagementAutopilotPolicyType $policyType = null;
     
-    /** @var bool|null $trackedOnEnrollmentStatus Indicates if this prolicy was tracked as part of the autopilot bootstrap enrollment sync session */
+    /**
+     * @var bool|null $trackedOnEnrollmentStatus Indicates if this prolicy was tracked as part of the autopilot bootstrap enrollment sync session
+    */
     private ?bool $trackedOnEnrollmentStatus = null;
     
     /**
@@ -39,7 +51,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementAutopilotPolicyStatusDetail
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementAutopilotPolicyStatusDetail {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementAutopilotPolicyStatusDetail {
         return new DeviceManagementAutopilotPolicyStatusDetail();
     }
 
@@ -72,13 +84,14 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'complianceStatus' => function (self $o, ParseNode $n) { $o->setComplianceStatus($n->getEnumValue(DeviceManagementAutopilotPolicyComplianceStatus::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'errorCode' => function (self $o, ParseNode $n) { $o->setErrorCode($n->getIntegerValue()); },
-            'lastReportedDateTime' => function (self $o, ParseNode $n) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
-            'policyType' => function (self $o, ParseNode $n) { $o->setPolicyType($n->getEnumValue(DeviceManagementAutopilotPolicyType::class)); },
-            'trackedOnEnrollmentStatus' => function (self $o, ParseNode $n) { $o->setTrackedOnEnrollmentStatus($n->getBooleanValue()); },
+            'complianceStatus' => function (ParseNode $n) use ($o) { $o->setComplianceStatus($n->getEnumValue(DeviceManagementAutopilotPolicyComplianceStatus::class)); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
+            'lastReportedDateTime' => function (ParseNode $n) use ($o) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
+            'policyType' => function (ParseNode $n) use ($o) { $o->setPolicyType($n->getEnumValue(DeviceManagementAutopilotPolicyType::class)); },
+            'trackedOnEnrollmentStatus' => function (ParseNode $n) use ($o) { $o->setTrackedOnEnrollmentStatus($n->getBooleanValue()); },
         ]);
     }
 

@@ -7,51 +7,81 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamworkDevice extends Entity 
+class TeamworkDevice extends Entity implements Parsable 
 {
-    /** @var TeamworkDeviceActivity|null $activity The activity properties that change based on the device usage. */
+    /**
+     * @var TeamworkDeviceActivity|null $activity The activity properties that change based on the device usage.
+    */
     private ?TeamworkDeviceActivity $activity = null;
     
-    /** @var TeamworkDeviceActivityState|null $activityState The activity state of the device. The possible values are: unknown, busy, idle, unavailable, unknownFutureValue. */
+    /**
+     * @var TeamworkDeviceActivityState|null $activityState The activity state of the device. The possible values are: unknown, busy, idle, unavailable, unknownFutureValue.
+    */
     private ?TeamworkDeviceActivityState $activityState = null;
     
-    /** @var string|null $companyAssetTag The company asset tag assigned by the admin on the device. */
+    /**
+     * @var string|null $companyAssetTag The company asset tag assigned by the admin on the device.
+    */
     private ?string $companyAssetTag = null;
     
-    /** @var TeamworkDeviceConfiguration|null $configuration The configuration properties of the device. */
+    /**
+     * @var TeamworkDeviceConfiguration|null $configuration The configuration properties of the device.
+    */
     private ?TeamworkDeviceConfiguration $configuration = null;
     
-    /** @var IdentitySet|null $createdBy Identity of the user who enrolled the device to the tenant. */
+    /**
+     * @var IdentitySet|null $createdBy Identity of the user who enrolled the device to the tenant.
+    */
     private ?IdentitySet $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime The UTC date and time when the device was enrolled to the tenant. */
+    /**
+     * @var DateTime|null $createdDateTime The UTC date and time when the device was enrolled to the tenant.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var TeamworkUserIdentity|null $currentUser The signed-in user on the device. */
+    /**
+     * @var TeamworkUserIdentity|null $currentUser The signed-in user on the device.
+    */
     private ?TeamworkUserIdentity $currentUser = null;
     
-    /** @var TeamworkDeviceType|null $deviceType The type of device. The possible values are: unknown, ipPhone, teamsRoom, surfaceHub, collaborationBar, teamsDisplay, touchConsole, lowCostPhone, teamsPanel, sip, unknownFutureValue. */
+    /**
+     * @var TeamworkDeviceType|null $deviceType The type of device. The possible values are: unknown, ipPhone, teamsRoom, surfaceHub, collaborationBar, teamsDisplay, touchConsole, lowCostPhone, teamsPanel, sip, unknownFutureValue.
+    */
     private ?TeamworkDeviceType $deviceType = null;
     
-    /** @var TeamworkHardwareDetail|null $hardwareDetail The hardwareDetail property */
+    /**
+     * @var TeamworkHardwareDetail|null $hardwareDetail The hardwareDetail property
+    */
     private ?TeamworkHardwareDetail $hardwareDetail = null;
     
-    /** @var TeamworkDeviceHealth|null $health The health properties of the device. */
+    /**
+     * @var TeamworkDeviceHealth|null $health The health properties of the device.
+    */
     private ?TeamworkDeviceHealth $health = null;
     
-    /** @var TeamworkDeviceHealthStatus|null $healthStatus The health status of the device. The possible values are: unknown, offline, critical, nonUrgent, healthy, unknownFutureValue. */
+    /**
+     * @var TeamworkDeviceHealthStatus|null $healthStatus The health status of the device. The possible values are: unknown, offline, critical, nonUrgent, healthy, unknownFutureValue.
+    */
     private ?TeamworkDeviceHealthStatus $healthStatus = null;
     
-    /** @var IdentitySet|null $lastModifiedBy Identity of the user who last modified the device details. */
+    /**
+     * @var IdentitySet|null $lastModifiedBy Identity of the user who last modified the device details.
+    */
     private ?IdentitySet $lastModifiedBy = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The UTC date and time when the device detail was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The UTC date and time when the device detail was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $notes The notes added by the admin to the device. */
+    /**
+     * @var string|null $notes The notes added by the admin to the device.
+    */
     private ?string $notes = null;
     
-    /** @var array<TeamworkDeviceOperation>|null $operations The async operations on the device. */
+    /**
+     * @var array<TeamworkDeviceOperation>|null $operations The async operations on the device.
+    */
     private ?array $operations = null;
     
     /**
@@ -66,7 +96,7 @@ class TeamworkDevice extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkDevice
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDevice {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkDevice {
         return new TeamworkDevice();
     }
 
@@ -139,22 +169,23 @@ class TeamworkDevice extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (self $o, ParseNode $n) { $o->setActivity($n->getObjectValue(TeamworkDeviceActivity::class)); },
-            'activityState' => function (self $o, ParseNode $n) { $o->setActivityState($n->getEnumValue(TeamworkDeviceActivityState::class)); },
-            'companyAssetTag' => function (self $o, ParseNode $n) { $o->setCompanyAssetTag($n->getStringValue()); },
-            'configuration' => function (self $o, ParseNode $n) { $o->setConfiguration($n->getObjectValue(TeamworkDeviceConfiguration::class)); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(IdentitySet::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'currentUser' => function (self $o, ParseNode $n) { $o->setCurrentUser($n->getObjectValue(TeamworkUserIdentity::class)); },
-            'deviceType' => function (self $o, ParseNode $n) { $o->setDeviceType($n->getEnumValue(TeamworkDeviceType::class)); },
-            'hardwareDetail' => function (self $o, ParseNode $n) { $o->setHardwareDetail($n->getObjectValue(TeamworkHardwareDetail::class)); },
-            'health' => function (self $o, ParseNode $n) { $o->setHealth($n->getObjectValue(TeamworkDeviceHealth::class)); },
-            'healthStatus' => function (self $o, ParseNode $n) { $o->setHealthStatus($n->getEnumValue(TeamworkDeviceHealthStatus::class)); },
-            'lastModifiedBy' => function (self $o, ParseNode $n) { $o->setLastModifiedBy($n->getObjectValue(IdentitySet::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'notes' => function (self $o, ParseNode $n) { $o->setNotes($n->getStringValue()); },
-            'operations' => function (self $o, ParseNode $n) { $o->setOperations($n->getCollectionOfObjectValues(TeamworkDeviceOperation::class)); },
+            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getObjectValue(array(TeamworkDeviceActivity::class, 'createFromDiscriminatorValue'))); },
+            'activityState' => function (ParseNode $n) use ($o) { $o->setActivityState($n->getEnumValue(TeamworkDeviceActivityState::class)); },
+            'companyAssetTag' => function (ParseNode $n) use ($o) { $o->setCompanyAssetTag($n->getStringValue()); },
+            'configuration' => function (ParseNode $n) use ($o) { $o->setConfiguration($n->getObjectValue(array(TeamworkDeviceConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'currentUser' => function (ParseNode $n) use ($o) { $o->setCurrentUser($n->getObjectValue(array(TeamworkUserIdentity::class, 'createFromDiscriminatorValue'))); },
+            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getEnumValue(TeamworkDeviceType::class)); },
+            'hardwareDetail' => function (ParseNode $n) use ($o) { $o->setHardwareDetail($n->getObjectValue(array(TeamworkHardwareDetail::class, 'createFromDiscriminatorValue'))); },
+            'health' => function (ParseNode $n) use ($o) { $o->setHealth($n->getObjectValue(array(TeamworkDeviceHealth::class, 'createFromDiscriminatorValue'))); },
+            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(TeamworkDeviceHealthStatus::class)); },
+            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getStringValue()); },
+            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(TeamworkDeviceOperation::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

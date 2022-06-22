@@ -11,31 +11,49 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable 
 {
-    /** @var string|null $actionId The unique identifier for the workload action. Required. Read-only. */
+    /**
+     * @var string|null $actionId The unique identifier for the workload action. Required. Read-only.
+    */
     private ?string $actionId = null;
     
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $deployedPolicyId The identifier of any policy that was created by applying the workload action. Optional. Read-only. */
+    /**
+     * @var string|null $deployedPolicyId The identifier of any policy that was created by applying the workload action. Optional. Read-only.
+    */
     private ?string $deployedPolicyId = null;
     
-    /** @var GenericError|null $error The detailed information for exceptions that occur when deploying the workload action. Optional. Required. */
+    /**
+     * @var GenericError|null $error The detailed information for exceptions that occur when deploying the workload action. Optional. Required.
+    */
     private ?GenericError $error = null;
     
-    /** @var array<string>|null $excludeGroups The excludeGroups property */
+    /**
+     * @var array<string>|null $excludeGroups The excludeGroups property
+    */
     private ?array $excludeGroups = null;
     
-    /** @var bool|null $includeAllUsers The includeAllUsers property */
+    /**
+     * @var bool|null $includeAllUsers The includeAllUsers property
+    */
     private ?bool $includeAllUsers = null;
     
-    /** @var array<string>|null $includeGroups The includeGroups property */
+    /**
+     * @var array<string>|null $includeGroups The includeGroups property
+    */
     private ?array $includeGroups = null;
     
-    /** @var DateTime|null $lastDeploymentDateTime The date and time the workload action was last deployed. Optional. */
+    /**
+     * @var DateTime|null $lastDeploymentDateTime The date and time the workload action was last deployed. Optional.
+    */
     private ?DateTime $lastDeploymentDateTime = null;
     
-    /** @var WorkloadActionStatus|null $status The status of the workload action deployment. Possible values are: toAddress, completed, error, timeOut, inProgress, unknownFutureValue. Required. Read-only. */
+    /**
+     * @var WorkloadActionStatus|null $status The status of the workload action deployment. Possible values are: toAddress, completed, error, timeOut, inProgress, unknownFutureValue. Required. Read-only.
+    */
     private ?WorkloadActionStatus $status = null;
     
     /**
@@ -50,7 +68,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WorkloadActionDeploymentStatus
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WorkloadActionDeploymentStatus {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WorkloadActionDeploymentStatus {
         return new WorkloadActionDeploymentStatus();
     }
 
@@ -99,15 +117,16 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'actionId' => function (self $o, ParseNode $n) { $o->setActionId($n->getStringValue()); },
-            'deployedPolicyId' => function (self $o, ParseNode $n) { $o->setDeployedPolicyId($n->getStringValue()); },
-            'error' => function (self $o, ParseNode $n) { $o->setError($n->getObjectValue(GenericError::class)); },
-            'excludeGroups' => function (self $o, ParseNode $n) { $o->setExcludeGroups($n->getCollectionOfPrimitiveValues()); },
-            'includeAllUsers' => function (self $o, ParseNode $n) { $o->setIncludeAllUsers($n->getBooleanValue()); },
-            'includeGroups' => function (self $o, ParseNode $n) { $o->setIncludeGroups($n->getCollectionOfPrimitiveValues()); },
-            'lastDeploymentDateTime' => function (self $o, ParseNode $n) { $o->setLastDeploymentDateTime($n->getDateTimeValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(WorkloadActionStatus::class)); },
+            'actionId' => function (ParseNode $n) use ($o) { $o->setActionId($n->getStringValue()); },
+            'deployedPolicyId' => function (ParseNode $n) use ($o) { $o->setDeployedPolicyId($n->getStringValue()); },
+            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(GenericError::class, 'createFromDiscriminatorValue'))); },
+            'excludeGroups' => function (ParseNode $n) use ($o) { $o->setExcludeGroups($n->getCollectionOfPrimitiveValues()); },
+            'includeAllUsers' => function (ParseNode $n) use ($o) { $o->setIncludeAllUsers($n->getBooleanValue()); },
+            'includeGroups' => function (ParseNode $n) use ($o) { $o->setIncludeGroups($n->getCollectionOfPrimitiveValues()); },
+            'lastDeploymentDateTime' => function (ParseNode $n) use ($o) { $o->setLastDeploymentDateTime($n->getDateTimeValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(WorkloadActionStatus::class)); },
         ];
     }
 

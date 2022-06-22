@@ -7,21 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Office365GroupsActivityGroupCounts extends Entity 
+class Office365GroupsActivityGroupCounts extends Entity implements Parsable 
 {
-    /** @var int|null $active The number of active groups. A group is considered active if any of the following occurred: group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups. */
+    /**
+     * @var int|null $active The number of active groups. A group is considered active if any of the following occurred: group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups.
+    */
     private ?int $active = null;
     
-    /** @var Date|null $reportDate The date on which a number of groups were active. */
+    /**
+     * @var Date|null $reportDate The date on which a number of groups were active.
+    */
     private ?Date $reportDate = null;
     
-    /** @var string|null $reportPeriod The number of days the report covers. */
+    /**
+     * @var string|null $reportPeriod The number of days the report covers.
+    */
     private ?string $reportPeriod = null;
     
-    /** @var Date|null $reportRefreshDate The latest date of the content. */
+    /**
+     * @var Date|null $reportRefreshDate The latest date of the content.
+    */
     private ?Date $reportRefreshDate = null;
     
-    /** @var int|null $total The total number of groups. */
+    /**
+     * @var int|null $total The total number of groups.
+    */
     private ?int $total = null;
     
     /**
@@ -36,7 +46,7 @@ class Office365GroupsActivityGroupCounts extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Office365GroupsActivityGroupCounts
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Office365GroupsActivityGroupCounts {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Office365GroupsActivityGroupCounts {
         return new Office365GroupsActivityGroupCounts();
     }
 
@@ -53,12 +63,13 @@ class Office365GroupsActivityGroupCounts extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'active' => function (self $o, ParseNode $n) { $o->setActive($n->getIntegerValue()); },
-            'reportDate' => function (self $o, ParseNode $n) { $o->setReportDate($n->getDateValue()); },
-            'reportPeriod' => function (self $o, ParseNode $n) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (self $o, ParseNode $n) { $o->setReportRefreshDate($n->getDateValue()); },
-            'total' => function (self $o, ParseNode $n) { $o->setTotal($n->getIntegerValue()); },
+            'active' => function (ParseNode $n) use ($o) { $o->setActive($n->getIntegerValue()); },
+            'reportDate' => function (ParseNode $n) use ($o) { $o->setReportDate($n->getDateValue()); },
+            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
+            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
+            'total' => function (ParseNode $n) use ($o) { $o->setTotal($n->getIntegerValue()); },
         ]);
     }
 

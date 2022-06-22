@@ -10,13 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkConnection implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var TeamworkConnectionStatus|null $connectionStatus Indicates whether a component/peripheral is connected/disconnected or its state is unknown. The possible values are: unknown, connected, disconnected, unknownFutureValue. */
+    /**
+     * @var TeamworkConnectionStatus|null $connectionStatus Indicates whether a component/peripheral is connected/disconnected or its state is unknown. The possible values are: unknown, connected, disconnected, unknownFutureValue.
+    */
     private ?TeamworkConnectionStatus $connectionStatus = null;
     
-    /** @var DateTime|null $lastModifiedDateTime Time at which the state was last changed. For example, indicates connected since when the state is connected and disconnected since when the state is disconnected. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime Time at which the state was last changed. For example, indicates connected since when the state is connected and disconnected since when the state is disconnected.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
@@ -31,7 +37,7 @@ class TeamworkConnection implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkConnection
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkConnection {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkConnection {
         return new TeamworkConnection();
     }
 
@@ -56,9 +62,10 @@ class TeamworkConnection implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'connectionStatus' => function (self $o, ParseNode $n) { $o->setConnectionStatus($n->getEnumValue(TeamworkConnectionStatus::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'connectionStatus' => function (ParseNode $n) use ($o) { $o->setConnectionStatus($n->getEnumValue(TeamworkConnectionStatus::class)); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
         ];
     }
 

@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $deviceId DeviceId of device represented by this object */
+    /**
+     * @var string|null $deviceId DeviceId of device represented by this object
+    */
     private ?string $deviceId = null;
     
-    /** @var RunState|null $summarizedAppState runState for the object. Possible values are: unknown, success, fail, scriptError, pending, notApplicable. */
+    /**
+     * @var RunState|null $summarizedAppState runState for the object. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+    */
     private ?RunState $summarizedAppState = null;
     
     /**
@@ -30,7 +36,7 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagedDeviceSummarizedAppState
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceSummarizedAppState {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceSummarizedAppState {
         return new ManagedDeviceSummarizedAppState();
     }
 
@@ -55,9 +61,10 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
-            'summarizedAppState' => function (self $o, ParseNode $n) { $o->setSummarizedAppState($n->getEnumValue(RunState::class)); },
+            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
+            'summarizedAppState' => function (ParseNode $n) use ($o) { $o->setSummarizedAppState($n->getEnumValue(RunState::class)); },
         ];
     }
 

@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $allowedToCreateApps Indicates whether the default user role can create applications. */
+    /**
+     * @var bool|null $allowedToCreateApps Indicates whether the default user role can create applications.
+    */
     private ?bool $allowedToCreateApps = null;
     
-    /** @var bool|null $allowedToCreateSecurityGroups Indicates whether the default user role can create security groups. */
+    /**
+     * @var bool|null $allowedToCreateSecurityGroups Indicates whether the default user role can create security groups.
+    */
     private ?bool $allowedToCreateSecurityGroups = null;
     
-    /** @var bool|null $allowedToReadOtherUsers Indicates whether the default user role can read other users. */
+    /**
+     * @var bool|null $allowedToReadOtherUsers Indicates whether the default user role can read other users.
+    */
     private ?bool $allowedToReadOtherUsers = null;
     
     /**
@@ -33,7 +41,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DefaultUserRolePermissions
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DefaultUserRolePermissions {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DefaultUserRolePermissions {
         return new DefaultUserRolePermissions();
     }
 
@@ -74,10 +82,11 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'allowedToCreateApps' => function (self $o, ParseNode $n) { $o->setAllowedToCreateApps($n->getBooleanValue()); },
-            'allowedToCreateSecurityGroups' => function (self $o, ParseNode $n) { $o->setAllowedToCreateSecurityGroups($n->getBooleanValue()); },
-            'allowedToReadOtherUsers' => function (self $o, ParseNode $n) { $o->setAllowedToReadOtherUsers($n->getBooleanValue()); },
+            'allowedToCreateApps' => function (ParseNode $n) use ($o) { $o->setAllowedToCreateApps($n->getBooleanValue()); },
+            'allowedToCreateSecurityGroups' => function (ParseNode $n) use ($o) { $o->setAllowedToCreateSecurityGroups($n->getBooleanValue()); },
+            'allowedToReadOtherUsers' => function (ParseNode $n) use ($o) { $o->setAllowedToReadOtherUsers($n->getBooleanValue()); },
         ];
     }
 

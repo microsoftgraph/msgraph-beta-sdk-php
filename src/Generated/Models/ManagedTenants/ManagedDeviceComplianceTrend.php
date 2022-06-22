@@ -7,33 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagedDeviceComplianceTrend extends Entity 
+class ManagedDeviceComplianceTrend extends Entity implements Parsable 
 {
-    /** @var int|null $compliantDeviceCount The number of devices with a compliant status. Required. Read-only. */
+    /**
+     * @var int|null $compliantDeviceCount The number of devices with a compliant status. Required. Read-only.
+    */
     private ?int $compliantDeviceCount = null;
     
-    /** @var int|null $configManagerDeviceCount The number of devices manged by Configuration Manager. Required. Read-only. */
+    /**
+     * @var int|null $configManagerDeviceCount The number of devices manged by Configuration Manager. Required. Read-only.
+    */
     private ?int $configManagerDeviceCount = null;
     
-    /** @var string|null $countDateTime The date and time compliance snapshot was performed. Required. Read-only. */
+    /**
+     * @var string|null $countDateTime The date and time compliance snapshot was performed. Required. Read-only.
+    */
     private ?string $countDateTime = null;
     
-    /** @var int|null $errorDeviceCount The number of devices with an error status. Required. Read-only. */
+    /**
+     * @var int|null $errorDeviceCount The number of devices with an error status. Required. Read-only.
+    */
     private ?int $errorDeviceCount = null;
     
-    /** @var int|null $inGracePeriodDeviceCount The number of devices that are in a grace period status. Required. Read-only. */
+    /**
+     * @var int|null $inGracePeriodDeviceCount The number of devices that are in a grace period status. Required. Read-only.
+    */
     private ?int $inGracePeriodDeviceCount = null;
     
-    /** @var int|null $noncompliantDeviceCount The number of devices that are in a non-compliant status. Required. Read-only. */
+    /**
+     * @var int|null $noncompliantDeviceCount The number of devices that are in a non-compliant status. Required. Read-only.
+    */
     private ?int $noncompliantDeviceCount = null;
     
-    /** @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only. */
+    /**
+     * @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only.
+    */
     private ?string $tenantDisplayName = null;
     
-    /** @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only. */
+    /**
+     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
+    */
     private ?string $tenantId = null;
     
-    /** @var int|null $unknownDeviceCount The number of devices in an unknown status. Required. Read-only. */
+    /**
+     * @var int|null $unknownDeviceCount The number of devices in an unknown status. Required. Read-only.
+    */
     private ?int $unknownDeviceCount = null;
     
     /**
@@ -48,7 +66,7 @@ class ManagedDeviceComplianceTrend extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagedDeviceComplianceTrend
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceComplianceTrend {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceComplianceTrend {
         return new ManagedDeviceComplianceTrend();
     }
 
@@ -89,16 +107,17 @@ class ManagedDeviceComplianceTrend extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'compliantDeviceCount' => function (self $o, ParseNode $n) { $o->setCompliantDeviceCount($n->getIntegerValue()); },
-            'configManagerDeviceCount' => function (self $o, ParseNode $n) { $o->setConfigManagerDeviceCount($n->getIntegerValue()); },
-            'countDateTime' => function (self $o, ParseNode $n) { $o->setCountDateTime($n->getStringValue()); },
-            'errorDeviceCount' => function (self $o, ParseNode $n) { $o->setErrorDeviceCount($n->getIntegerValue()); },
-            'inGracePeriodDeviceCount' => function (self $o, ParseNode $n) { $o->setInGracePeriodDeviceCount($n->getIntegerValue()); },
-            'noncompliantDeviceCount' => function (self $o, ParseNode $n) { $o->setNoncompliantDeviceCount($n->getIntegerValue()); },
-            'tenantDisplayName' => function (self $o, ParseNode $n) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
-            'unknownDeviceCount' => function (self $o, ParseNode $n) { $o->setUnknownDeviceCount($n->getIntegerValue()); },
+            'compliantDeviceCount' => function (ParseNode $n) use ($o) { $o->setCompliantDeviceCount($n->getIntegerValue()); },
+            'configManagerDeviceCount' => function (ParseNode $n) use ($o) { $o->setConfigManagerDeviceCount($n->getIntegerValue()); },
+            'countDateTime' => function (ParseNode $n) use ($o) { $o->setCountDateTime($n->getStringValue()); },
+            'errorDeviceCount' => function (ParseNode $n) use ($o) { $o->setErrorDeviceCount($n->getIntegerValue()); },
+            'inGracePeriodDeviceCount' => function (ParseNode $n) use ($o) { $o->setInGracePeriodDeviceCount($n->getIntegerValue()); },
+            'noncompliantDeviceCount' => function (ParseNode $n) use ($o) { $o->setNoncompliantDeviceCount($n->getIntegerValue()); },
+            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'unknownDeviceCount' => function (ParseNode $n) use ($o) { $o->setUnknownDeviceCount($n->getIntegerValue()); },
         ]);
     }
 

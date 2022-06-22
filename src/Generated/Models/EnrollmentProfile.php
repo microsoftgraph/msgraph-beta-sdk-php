@@ -6,24 +6,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EnrollmentProfile extends Entity 
+class EnrollmentProfile extends Entity implements Parsable 
 {
-    /** @var string|null $configurationEndpointUrl Configuration endpoint url to use for Enrollment */
+    /**
+     * @var string|null $configurationEndpointUrl Configuration endpoint url to use for Enrollment
+    */
     private ?string $configurationEndpointUrl = null;
     
-    /** @var string|null $description Description of the profile */
+    /**
+     * @var string|null $description Description of the profile
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Name of the profile */
+    /**
+     * @var string|null $displayName Name of the profile
+    */
     private ?string $displayName = null;
     
-    /** @var bool|null $enableAuthenticationViaCompanyPortal Indicates to authenticate with Apple Setup Assistant instead of Company Portal. */
+    /**
+     * @var bool|null $enableAuthenticationViaCompanyPortal Indicates to authenticate with Apple Setup Assistant instead of Company Portal.
+    */
     private ?bool $enableAuthenticationViaCompanyPortal = null;
     
-    /** @var bool|null $requireCompanyPortalOnSetupAssistantEnrolledDevices Indicates that Company Portal is required on setup assistant enrolled devices */
+    /**
+     * @var bool|null $requireCompanyPortalOnSetupAssistantEnrolledDevices Indicates that Company Portal is required on setup assistant enrolled devices
+    */
     private ?bool $requireCompanyPortalOnSetupAssistantEnrolledDevices = null;
     
-    /** @var bool|null $requiresUserAuthentication Indicates if the profile requires user authentication */
+    /**
+     * @var bool|null $requiresUserAuthentication Indicates if the profile requires user authentication
+    */
     private ?bool $requiresUserAuthentication = null;
     
     /**
@@ -38,7 +50,15 @@ class EnrollmentProfile extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EnrollmentProfile
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): EnrollmentProfile {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): EnrollmentProfile {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.depEnrollmentBaseProfile': return new DepEnrollmentBaseProfile();
+                case '#microsoft.graph.depEnrollmentProfile': return new DepEnrollmentProfile();
+            }
+        }
         return new EnrollmentProfile();
     }
 
@@ -79,13 +99,14 @@ class EnrollmentProfile extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurationEndpointUrl' => function (self $o, ParseNode $n) { $o->setConfigurationEndpointUrl($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'enableAuthenticationViaCompanyPortal' => function (self $o, ParseNode $n) { $o->setEnableAuthenticationViaCompanyPortal($n->getBooleanValue()); },
-            'requireCompanyPortalOnSetupAssistantEnrolledDevices' => function (self $o, ParseNode $n) { $o->setRequireCompanyPortalOnSetupAssistantEnrolledDevices($n->getBooleanValue()); },
-            'requiresUserAuthentication' => function (self $o, ParseNode $n) { $o->setRequiresUserAuthentication($n->getBooleanValue()); },
+            'configurationEndpointUrl' => function (ParseNode $n) use ($o) { $o->setConfigurationEndpointUrl($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'enableAuthenticationViaCompanyPortal' => function (ParseNode $n) use ($o) { $o->setEnableAuthenticationViaCompanyPortal($n->getBooleanValue()); },
+            'requireCompanyPortalOnSetupAssistantEnrolledDevices' => function (ParseNode $n) use ($o) { $o->setRequireCompanyPortalOnSetupAssistantEnrolledDevices($n->getBooleanValue()); },
+            'requiresUserAuthentication' => function (ParseNode $n) use ($o) { $o->setRequiresUserAuthentication($n->getBooleanValue()); },
         ]);
     }
 

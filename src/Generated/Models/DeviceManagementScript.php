@@ -8,51 +8,81 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class DeviceManagementScript extends Entity 
+class DeviceManagementScript extends Entity implements Parsable 
 {
-    /** @var array<DeviceManagementScriptAssignment>|null $assignments The list of group assignments for the device management script. */
+    /**
+     * @var array<DeviceManagementScriptAssignment>|null $assignments The list of group assignments for the device management script.
+    */
     private ?array $assignments = null;
     
-    /** @var DateTime|null $createdDateTime The date and time the device management script was created. This property is read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time the device management script was created. This property is read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description Optional description for the device management script. */
+    /**
+     * @var string|null $description Optional description for the device management script.
+    */
     private ?string $description = null;
     
-    /** @var array<DeviceManagementScriptDeviceState>|null $deviceRunStates List of run states for this script across all devices. */
+    /**
+     * @var array<DeviceManagementScriptDeviceState>|null $deviceRunStates List of run states for this script across all devices.
+    */
     private ?array $deviceRunStates = null;
     
-    /** @var string|null $displayName Name of the device management script. */
+    /**
+     * @var string|null $displayName Name of the device management script.
+    */
     private ?string $displayName = null;
     
-    /** @var bool|null $enforceSignatureCheck Indicate whether the script signature needs be checked. */
+    /**
+     * @var bool|null $enforceSignatureCheck Indicate whether the script signature needs be checked.
+    */
     private ?bool $enforceSignatureCheck = null;
     
-    /** @var string|null $fileName Script file name. */
+    /**
+     * @var string|null $fileName Script file name.
+    */
     private ?string $fileName = null;
     
-    /** @var array<DeviceManagementScriptGroupAssignment>|null $groupAssignments The list of group assignments for the device management script. */
+    /**
+     * @var array<DeviceManagementScriptGroupAssignment>|null $groupAssignments The list of group assignments for the device management script.
+    */
     private ?array $groupAssignments = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The date and time the device management script was last modified. This property is read-only. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The date and time the device management script was last modified. This property is read-only.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tag IDs for this PowerShellScript instance. */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tag IDs for this PowerShellScript instance.
+    */
     private ?array $roleScopeTagIds = null;
     
-    /** @var bool|null $runAs32Bit A value indicating whether the PowerShell script should run as 32-bit */
+    /**
+     * @var bool|null $runAs32Bit A value indicating whether the PowerShell script should run as 32-bit
+    */
     private ?bool $runAs32Bit = null;
     
-    /** @var RunAsAccountType|null $runAsAccount Indicates the type of execution context. Possible values are: system, user. */
+    /**
+     * @var RunAsAccountType|null $runAsAccount Indicates the type of execution context. Possible values are: system, user.
+    */
     private ?RunAsAccountType $runAsAccount = null;
     
-    /** @var DeviceManagementScriptRunSummary|null $runSummary Run summary for device management script. */
+    /**
+     * @var DeviceManagementScriptRunSummary|null $runSummary Run summary for device management script.
+    */
     private ?DeviceManagementScriptRunSummary $runSummary = null;
     
-    /** @var StreamInterface|null $scriptContent The script content. */
+    /**
+     * @var StreamInterface|null $scriptContent The script content.
+    */
     private ?StreamInterface $scriptContent = null;
     
-    /** @var array<DeviceManagementScriptUserState>|null $userRunStates List of run states for this script across all users. */
+    /**
+     * @var array<DeviceManagementScriptUserState>|null $userRunStates List of run states for this script across all users.
+    */
     private ?array $userRunStates = null;
     
     /**
@@ -67,7 +97,7 @@ class DeviceManagementScript extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementScript
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementScript {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementScript {
         return new DeviceManagementScript();
     }
 
@@ -124,22 +154,23 @@ class DeviceManagementScript extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(DeviceManagementScriptAssignment::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'deviceRunStates' => function (self $o, ParseNode $n) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(DeviceManagementScriptDeviceState::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'enforceSignatureCheck' => function (self $o, ParseNode $n) { $o->setEnforceSignatureCheck($n->getBooleanValue()); },
-            'fileName' => function (self $o, ParseNode $n) { $o->setFileName($n->getStringValue()); },
-            'groupAssignments' => function (self $o, ParseNode $n) { $o->setGroupAssignments($n->getCollectionOfObjectValues(DeviceManagementScriptGroupAssignment::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'runAs32Bit' => function (self $o, ParseNode $n) { $o->setRunAs32Bit($n->getBooleanValue()); },
-            'runAsAccount' => function (self $o, ParseNode $n) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
-            'runSummary' => function (self $o, ParseNode $n) { $o->setRunSummary($n->getObjectValue(DeviceManagementScriptRunSummary::class)); },
-            'scriptContent' => function (self $o, ParseNode $n) { $o->setScriptContent($n->getBinaryContent()); },
-            'userRunStates' => function (self $o, ParseNode $n) { $o->setUserRunStates($n->getCollectionOfObjectValues(DeviceManagementScriptUserState::class)); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceManagementScriptAssignment::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'deviceRunStates' => function (ParseNode $n) use ($o) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(array(DeviceManagementScriptDeviceState::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'enforceSignatureCheck' => function (ParseNode $n) use ($o) { $o->setEnforceSignatureCheck($n->getBooleanValue()); },
+            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
+            'groupAssignments' => function (ParseNode $n) use ($o) { $o->setGroupAssignments($n->getCollectionOfObjectValues(array(DeviceManagementScriptGroupAssignment::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'runAs32Bit' => function (ParseNode $n) use ($o) { $o->setRunAs32Bit($n->getBooleanValue()); },
+            'runAsAccount' => function (ParseNode $n) use ($o) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
+            'runSummary' => function (ParseNode $n) use ($o) { $o->setRunSummary($n->getObjectValue(array(DeviceManagementScriptRunSummary::class, 'createFromDiscriminatorValue'))); },
+            'scriptContent' => function (ParseNode $n) use ($o) { $o->setScriptContent($n->getBinaryContent()); },
+            'userRunStates' => function (ParseNode $n) use ($o) { $o->setUserRunStates($n->getCollectionOfObjectValues(array(DeviceManagementScriptUserState::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

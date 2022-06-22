@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TimeCardEntry implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<TimeCardBreak>|null $breaks The list of breaks associated with the timeCard. */
+    /**
+     * @var array<TimeCardBreak>|null $breaks The list of breaks associated with the timeCard.
+    */
     private ?array $breaks = null;
     
-    /** @var TimeCardEvent|null $clockInEvent The clock-in event of the timeCard. */
+    /**
+     * @var TimeCardEvent|null $clockInEvent The clock-in event of the timeCard.
+    */
     private ?TimeCardEvent $clockInEvent = null;
     
-    /** @var TimeCardEvent|null $clockOutEvent The clock-out event of the timeCard. */
+    /**
+     * @var TimeCardEvent|null $clockOutEvent The clock-out event of the timeCard.
+    */
     private ?TimeCardEvent $clockOutEvent = null;
     
     /**
@@ -33,7 +41,7 @@ class TimeCardEntry implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TimeCardEntry
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TimeCardEntry {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeCardEntry {
         return new TimeCardEntry();
     }
 
@@ -74,10 +82,11 @@ class TimeCardEntry implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'breaks' => function (self $o, ParseNode $n) { $o->setBreaks($n->getCollectionOfObjectValues(TimeCardBreak::class)); },
-            'clockInEvent' => function (self $o, ParseNode $n) { $o->setClockInEvent($n->getObjectValue(TimeCardEvent::class)); },
-            'clockOutEvent' => function (self $o, ParseNode $n) { $o->setClockOutEvent($n->getObjectValue(TimeCardEvent::class)); },
+            'breaks' => function (ParseNode $n) use ($o) { $o->setBreaks($n->getCollectionOfObjectValues(array(TimeCardBreak::class, 'createFromDiscriminatorValue'))); },
+            'clockInEvent' => function (ParseNode $n) use ($o) { $o->setClockInEvent($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
+            'clockOutEvent' => function (ParseNode $n) use ($o) { $o->setClockOutEvent($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

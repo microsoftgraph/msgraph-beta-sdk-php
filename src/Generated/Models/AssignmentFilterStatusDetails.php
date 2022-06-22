@@ -9,26 +9,38 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<KeyValuePair>|null $deviceProperties Device properties used for filter evaluation during device check-in time. */
+    /**
+     * @var array<KeyValuePair>|null $deviceProperties Device properties used for filter evaluation during device check-in time.
+    */
     private ?array $deviceProperties = null;
     
-    /** @var array<AssignmentFilterEvaluationSummary>|null $evalutionSummaries Evaluation result summaries for each filter associated to device and payload */
+    /**
+     * @var array<AssignmentFilterEvaluationSummary>|null $evalutionSummaries Evaluation result summaries for each filter associated to device and payload
+    */
     private ?array $evalutionSummaries = null;
     
-    /** @var string|null $managedDeviceId Unique identifier for the device object. */
+    /**
+     * @var string|null $managedDeviceId Unique identifier for the device object.
+    */
     private ?string $managedDeviceId = null;
     
-    /** @var string|null $payloadId Unique identifier for payload object. */
+    /**
+     * @var string|null $payloadId Unique identifier for payload object.
+    */
     private ?string $payloadId = null;
     
-    /** @var string|null $userId Unique identifier for UserId object. Can be null */
+    /**
+     * @var string|null $userId Unique identifier for UserId object. Can be null
+    */
     private ?string $userId = null;
     
     /**
-     * Instantiates a new assignmentFilterStatusDetails and sets the default values.
+     * Instantiates a new AssignmentFilterStatusDetails and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -39,7 +51,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssignmentFilterStatusDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterStatusDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssignmentFilterStatusDetails {
         return new AssignmentFilterStatusDetails();
     }
 
@@ -72,12 +84,13 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'deviceProperties' => function (self $o, ParseNode $n) { $o->setDeviceProperties($n->getCollectionOfObjectValues(KeyValuePair::class)); },
-            'evalutionSummaries' => function (self $o, ParseNode $n) { $o->setEvalutionSummaries($n->getCollectionOfObjectValues(AssignmentFilterEvaluationSummary::class)); },
-            'managedDeviceId' => function (self $o, ParseNode $n) { $o->setManagedDeviceId($n->getStringValue()); },
-            'payloadId' => function (self $o, ParseNode $n) { $o->setPayloadId($n->getStringValue()); },
-            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
+            'deviceProperties' => function (ParseNode $n) use ($o) { $o->setDeviceProperties($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'evalutionSummaries' => function (ParseNode $n) use ($o) { $o->setEvalutionSummaries($n->getCollectionOfObjectValues(array(AssignmentFilterEvaluationSummary::class, 'createFromDiscriminatorValue'))); },
+            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
+            'payloadId' => function (ParseNode $n) use ($o) { $o->setPayloadId($n->getStringValue()); },
+            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
         ];
     }
 

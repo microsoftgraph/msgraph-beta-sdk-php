@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SensitivityLabelCollectionResponse implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $nextLink The nextLink property */
+    /**
+     * @var string|null $nextLink The nextLink property
+    */
     private ?string $nextLink = null;
     
-    /** @var array<SensitivityLabel>|null $value The value property */
+    /**
+     * @var array<SensitivityLabel>|null $value The value property
+    */
     private ?array $value = null;
     
     /**
@@ -30,7 +36,7 @@ class SensitivityLabelCollectionResponse implements AdditionalDataHolder, Parsab
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SensitivityLabelCollectionResponse
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SensitivityLabelCollectionResponse {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SensitivityLabelCollectionResponse {
         return new SensitivityLabelCollectionResponse();
     }
 
@@ -47,9 +53,10 @@ class SensitivityLabelCollectionResponse implements AdditionalDataHolder, Parsab
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            '@odata.nextLink' => function (self $o, ParseNode $n) { $o->setNextLink($n->getStringValue()); },
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfObjectValues(SensitivityLabel::class)); },
+            '@odata.nextLink' => function (ParseNode $n) use ($o) { $o->setOdatanextLink($n->getStringValue()); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(SensitivityLabel::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
@@ -57,7 +64,7 @@ class SensitivityLabelCollectionResponse implements AdditionalDataHolder, Parsab
      * Gets the @odata.nextLink property value. The nextLink property
      * @return string|null
     */
-    public function getNextLink(): ?string {
+    public function getOdatanextLink(): ?string {
         return $this->nextLink;
     }
 
@@ -91,7 +98,7 @@ class SensitivityLabelCollectionResponse implements AdditionalDataHolder, Parsab
      * Sets the @odata.nextLink property value. The nextLink property
      *  @param string|null $value Value to set for the nextLink property.
     */
-    public function setNextLink(?string $value ): void {
+    public function setOdatanextLink(?string $value ): void {
         $this->nextLink = $value;
     }
 

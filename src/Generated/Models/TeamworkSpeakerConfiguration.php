@@ -9,22 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var TeamworkPeripheral|null $defaultCommunicationSpeaker The defaultCommunicationSpeaker property */
+    /**
+     * @var TeamworkPeripheral|null $defaultCommunicationSpeaker The defaultCommunicationSpeaker property
+    */
     private ?TeamworkPeripheral $defaultCommunicationSpeaker = null;
     
-    /** @var TeamworkPeripheral|null $defaultSpeaker The defaultSpeaker property */
+    /**
+     * @var TeamworkPeripheral|null $defaultSpeaker The defaultSpeaker property
+    */
     private ?TeamworkPeripheral $defaultSpeaker = null;
     
-    /** @var bool|null $isCommunicationSpeakerOptional True if the communication speaker is optional. Used to compute the health state if the communication speaker is not optional. */
+    /**
+     * @var bool|null $isCommunicationSpeakerOptional True if the communication speaker is optional. Used to compute the health state if the communication speaker is not optional.
+    */
     private ?bool $isCommunicationSpeakerOptional = null;
     
-    /** @var bool|null $isSpeakerOptional True if the configured speaker is optional. Used to compute the health state if the speaker is not optional. */
+    /**
+     * @var bool|null $isSpeakerOptional True if the configured speaker is optional. Used to compute the health state if the speaker is not optional.
+    */
     private ?bool $isSpeakerOptional = null;
     
-    /** @var array<TeamworkPeripheral>|null $speakers The speakers property */
+    /**
+     * @var array<TeamworkPeripheral>|null $speakers The speakers property
+    */
     private ?array $speakers = null;
     
     /**
@@ -39,7 +51,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkSpeakerConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkSpeakerConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkSpeakerConfiguration {
         return new TeamworkSpeakerConfiguration();
     }
 
@@ -72,12 +84,13 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'defaultCommunicationSpeaker' => function (self $o, ParseNode $n) { $o->setDefaultCommunicationSpeaker($n->getObjectValue(TeamworkPeripheral::class)); },
-            'defaultSpeaker' => function (self $o, ParseNode $n) { $o->setDefaultSpeaker($n->getObjectValue(TeamworkPeripheral::class)); },
-            'isCommunicationSpeakerOptional' => function (self $o, ParseNode $n) { $o->setIsCommunicationSpeakerOptional($n->getBooleanValue()); },
-            'isSpeakerOptional' => function (self $o, ParseNode $n) { $o->setIsSpeakerOptional($n->getBooleanValue()); },
-            'speakers' => function (self $o, ParseNode $n) { $o->setSpeakers($n->getCollectionOfObjectValues(TeamworkPeripheral::class)); },
+            'defaultCommunicationSpeaker' => function (ParseNode $n) use ($o) { $o->setDefaultCommunicationSpeaker($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            'defaultSpeaker' => function (ParseNode $n) use ($o) { $o->setDefaultSpeaker($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            'isCommunicationSpeakerOptional' => function (ParseNode $n) use ($o) { $o->setIsCommunicationSpeakerOptional($n->getBooleanValue()); },
+            'isSpeakerOptional' => function (ParseNode $n) use ($o) { $o->setIsSpeakerOptional($n->getBooleanValue()); },
+            'speakers' => function (ParseNode $n) use ($o) { $o->setSpeakers($n->getCollectionOfObjectValues(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

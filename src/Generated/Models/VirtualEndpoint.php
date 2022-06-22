@@ -6,39 +6,61 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class VirtualEndpoint extends Entity 
+class VirtualEndpoint extends Entity implements Parsable 
 {
-    /** @var array<CloudPcAuditEvent>|null $auditEvents Cloud PC audit event. */
+    /**
+     * @var array<CloudPcAuditEvent>|null $auditEvents Cloud PC audit event.
+    */
     private ?array $auditEvents = null;
     
-    /** @var array<CloudPC>|null $cloudPCs Cloud managed virtual desktops. */
+    /**
+     * @var array<CloudPC>|null $cloudPCs Cloud managed virtual desktops.
+    */
     private ?array $cloudPCs = null;
     
-    /** @var array<CloudPcDeviceImage>|null $deviceImages The image resource on Cloud PC. */
+    /**
+     * @var array<CloudPcDeviceImage>|null $deviceImages The image resource on Cloud PC.
+    */
     private ?array $deviceImages = null;
     
-    /** @var array<CloudPcGalleryImage>|null $galleryImages The gallery image resource on Cloud PC. */
+    /**
+     * @var array<CloudPcGalleryImage>|null $galleryImages The gallery image resource on Cloud PC.
+    */
     private ?array $galleryImages = null;
     
-    /** @var array<CloudPcOnPremisesConnection>|null $onPremisesConnections A defined collection of Azure resource information that can be used to establish on-premises network connectivity for Cloud PCs. */
+    /**
+     * @var array<CloudPcOnPremisesConnection>|null $onPremisesConnections A defined collection of Azure resource information that can be used to establish on-premises network connectivity for Cloud PCs.
+    */
     private ?array $onPremisesConnections = null;
     
-    /** @var CloudPcOrganizationSettings|null $organizationSettings The Cloud PC organization settings for a tenant. */
+    /**
+     * @var CloudPcOrganizationSettings|null $organizationSettings The Cloud PC organization settings for a tenant.
+    */
     private ?CloudPcOrganizationSettings $organizationSettings = null;
     
-    /** @var array<CloudPcProvisioningPolicy>|null $provisioningPolicies Cloud PC provisioning policy. */
+    /**
+     * @var array<CloudPcProvisioningPolicy>|null $provisioningPolicies Cloud PC provisioning policy.
+    */
     private ?array $provisioningPolicies = null;
     
-    /** @var array<CloudPcServicePlan>|null $servicePlans Cloud PC service plans. */
+    /**
+     * @var array<CloudPcServicePlan>|null $servicePlans Cloud PC service plans.
+    */
     private ?array $servicePlans = null;
     
-    /** @var array<CloudPcSnapshot>|null $snapshots Cloud PC snapshots. */
+    /**
+     * @var array<CloudPcSnapshot>|null $snapshots Cloud PC snapshots.
+    */
     private ?array $snapshots = null;
     
-    /** @var array<CloudPcSupportedRegion>|null $supportedRegions Cloud PC supported regions. */
+    /**
+     * @var array<CloudPcSupportedRegion>|null $supportedRegions Cloud PC supported regions.
+    */
     private ?array $supportedRegions = null;
     
-    /** @var array<CloudPcUserSetting>|null $userSettings Cloud PC user settings. */
+    /**
+     * @var array<CloudPcUserSetting>|null $userSettings Cloud PC user settings.
+    */
     private ?array $userSettings = null;
     
     /**
@@ -53,7 +75,7 @@ class VirtualEndpoint extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return VirtualEndpoint
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): VirtualEndpoint {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): VirtualEndpoint {
         return new VirtualEndpoint();
     }
 
@@ -86,18 +108,19 @@ class VirtualEndpoint extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'auditEvents' => function (self $o, ParseNode $n) { $o->setAuditEvents($n->getCollectionOfObjectValues(CloudPcAuditEvent::class)); },
-            'cloudPCs' => function (self $o, ParseNode $n) { $o->setCloudPCs($n->getCollectionOfObjectValues(CloudPC::class)); },
-            'deviceImages' => function (self $o, ParseNode $n) { $o->setDeviceImages($n->getCollectionOfObjectValues(CloudPcDeviceImage::class)); },
-            'galleryImages' => function (self $o, ParseNode $n) { $o->setGalleryImages($n->getCollectionOfObjectValues(CloudPcGalleryImage::class)); },
-            'onPremisesConnections' => function (self $o, ParseNode $n) { $o->setOnPremisesConnections($n->getCollectionOfObjectValues(CloudPcOnPremisesConnection::class)); },
-            'organizationSettings' => function (self $o, ParseNode $n) { $o->setOrganizationSettings($n->getObjectValue(CloudPcOrganizationSettings::class)); },
-            'provisioningPolicies' => function (self $o, ParseNode $n) { $o->setProvisioningPolicies($n->getCollectionOfObjectValues(CloudPcProvisioningPolicy::class)); },
-            'servicePlans' => function (self $o, ParseNode $n) { $o->setServicePlans($n->getCollectionOfObjectValues(CloudPcServicePlan::class)); },
-            'snapshots' => function (self $o, ParseNode $n) { $o->setSnapshots($n->getCollectionOfObjectValues(CloudPcSnapshot::class)); },
-            'supportedRegions' => function (self $o, ParseNode $n) { $o->setSupportedRegions($n->getCollectionOfObjectValues(CloudPcSupportedRegion::class)); },
-            'userSettings' => function (self $o, ParseNode $n) { $o->setUserSettings($n->getCollectionOfObjectValues(CloudPcUserSetting::class)); },
+            'auditEvents' => function (ParseNode $n) use ($o) { $o->setAuditEvents($n->getCollectionOfObjectValues(array(CloudPcAuditEvent::class, 'createFromDiscriminatorValue'))); },
+            'cloudPCs' => function (ParseNode $n) use ($o) { $o->setCloudPCs($n->getCollectionOfObjectValues(array(CloudPC::class, 'createFromDiscriminatorValue'))); },
+            'deviceImages' => function (ParseNode $n) use ($o) { $o->setDeviceImages($n->getCollectionOfObjectValues(array(CloudPcDeviceImage::class, 'createFromDiscriminatorValue'))); },
+            'galleryImages' => function (ParseNode $n) use ($o) { $o->setGalleryImages($n->getCollectionOfObjectValues(array(CloudPcGalleryImage::class, 'createFromDiscriminatorValue'))); },
+            'onPremisesConnections' => function (ParseNode $n) use ($o) { $o->setOnPremisesConnections($n->getCollectionOfObjectValues(array(CloudPcOnPremisesConnection::class, 'createFromDiscriminatorValue'))); },
+            'organizationSettings' => function (ParseNode $n) use ($o) { $o->setOrganizationSettings($n->getObjectValue(array(CloudPcOrganizationSettings::class, 'createFromDiscriminatorValue'))); },
+            'provisioningPolicies' => function (ParseNode $n) use ($o) { $o->setProvisioningPolicies($n->getCollectionOfObjectValues(array(CloudPcProvisioningPolicy::class, 'createFromDiscriminatorValue'))); },
+            'servicePlans' => function (ParseNode $n) use ($o) { $o->setServicePlans($n->getCollectionOfObjectValues(array(CloudPcServicePlan::class, 'createFromDiscriminatorValue'))); },
+            'snapshots' => function (ParseNode $n) use ($o) { $o->setSnapshots($n->getCollectionOfObjectValues(array(CloudPcSnapshot::class, 'createFromDiscriminatorValue'))); },
+            'supportedRegions' => function (ParseNode $n) use ($o) { $o->setSupportedRegions($n->getCollectionOfObjectValues(array(CloudPcSupportedRegion::class, 'createFromDiscriminatorValue'))); },
+            'userSettings' => function (ParseNode $n) use ($o) { $o->setUserSettings($n->getCollectionOfObjectValues(array(CloudPcUserSetting::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

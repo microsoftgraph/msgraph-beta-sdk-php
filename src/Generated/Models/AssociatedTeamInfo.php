@@ -6,10 +6,10 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AssociatedTeamInfo extends TeamInfo 
+class AssociatedTeamInfo extends TeamInfo implements Parsable 
 {
     /**
-     * Instantiates a new associatedTeamInfo and sets the default values.
+     * Instantiates a new AssociatedTeamInfo and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -20,7 +20,7 @@ class AssociatedTeamInfo extends TeamInfo
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AssociatedTeamInfo
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AssociatedTeamInfo {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AssociatedTeamInfo {
         return new AssociatedTeamInfo();
     }
 
@@ -29,6 +29,7 @@ class AssociatedTeamInfo extends TeamInfo
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
         ]);
     }

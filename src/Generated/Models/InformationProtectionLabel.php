@@ -6,27 +6,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class InformationProtectionLabel extends Entity 
+class InformationProtectionLabel extends Entity implements Parsable 
 {
-    /** @var string|null $color The color that the UI should display for the label, if configured. */
+    /**
+     * @var string|null $color The color that the UI should display for the label, if configured.
+    */
     private ?string $color = null;
     
-    /** @var string|null $description The admin-defined description for the label. */
+    /**
+     * @var string|null $description The admin-defined description for the label.
+    */
     private ?string $description = null;
     
-    /** @var bool|null $isActive Indicates whether the label is active or not. Active labels should be hidden or disabled in UI. */
+    /**
+     * @var bool|null $isActive Indicates whether the label is active or not. Active labels should be hidden or disabled in UI.
+    */
     private ?bool $isActive = null;
     
-    /** @var string|null $name The plaintext name of the label. */
+    /**
+     * @var string|null $name The plaintext name of the label.
+    */
     private ?string $name = null;
     
-    /** @var ParentLabelDetails|null $parent The parent label associated with a child label. Null if label has no parent. */
+    /**
+     * @var ParentLabelDetails|null $parent The parent label associated with a child label. Null if label has no parent.
+    */
     private ?ParentLabelDetails $parent = null;
     
-    /** @var int|null $sensitivity The sensitivity value of the label, where lower is less sensitive. */
+    /**
+     * @var int|null $sensitivity The sensitivity value of the label, where lower is less sensitive.
+    */
     private ?int $sensitivity = null;
     
-    /** @var string|null $tooltip The tooltip that should be displayed for the label in a UI. */
+    /**
+     * @var string|null $tooltip The tooltip that should be displayed for the label in a UI.
+    */
     private ?string $tooltip = null;
     
     /**
@@ -41,7 +55,7 @@ class InformationProtectionLabel extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return InformationProtectionLabel
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): InformationProtectionLabel {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): InformationProtectionLabel {
         return new InformationProtectionLabel();
     }
 
@@ -66,14 +80,15 @@ class InformationProtectionLabel extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'color' => function (self $o, ParseNode $n) { $o->setColor($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'isActive' => function (self $o, ParseNode $n) { $o->setIsActive($n->getBooleanValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'parent' => function (self $o, ParseNode $n) { $o->setParent($n->getObjectValue(ParentLabelDetails::class)); },
-            'sensitivity' => function (self $o, ParseNode $n) { $o->setSensitivity($n->getIntegerValue()); },
-            'tooltip' => function (self $o, ParseNode $n) { $o->setTooltip($n->getStringValue()); },
+            'color' => function (ParseNode $n) use ($o) { $o->setColor($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(ParentLabelDetails::class, 'createFromDiscriminatorValue'))); },
+            'sensitivity' => function (ParseNode $n) use ($o) { $o->setSensitivity($n->getIntegerValue()); },
+            'tooltip' => function (ParseNode $n) use ($o) { $o->setTooltip($n->getStringValue()); },
         ]);
     }
 

@@ -9,22 +9,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PostalAddressType implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $city The city property */
+    /**
+     * @var string|null $city The city property
+    */
     private ?string $city = null;
     
-    /** @var string|null $countryLetterCode The countryLetterCode property */
+    /**
+     * @var string|null $countryLetterCode The countryLetterCode property
+    */
     private ?string $countryLetterCode = null;
     
-    /** @var string|null $postalCode The postalCode property */
+    /**
+     * @var string|null $postalCode The postalCode property
+    */
     private ?string $postalCode = null;
     
-    /** @var string|null $state The state property */
+    /**
+     * @var string|null $state The state property
+    */
     private ?string $state = null;
     
-    /** @var string|null $street The street property */
+    /**
+     * @var string|null $street The street property
+    */
     private ?string $street = null;
     
     /**
@@ -39,7 +51,7 @@ class PostalAddressType implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PostalAddressType
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PostalAddressType {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PostalAddressType {
         return new PostalAddressType();
     }
 
@@ -72,12 +84,13 @@ class PostalAddressType implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'city' => function (self $o, ParseNode $n) { $o->setCity($n->getStringValue()); },
-            'countryLetterCode' => function (self $o, ParseNode $n) { $o->setCountryLetterCode($n->getStringValue()); },
-            'postalCode' => function (self $o, ParseNode $n) { $o->setPostalCode($n->getStringValue()); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getStringValue()); },
-            'street' => function (self $o, ParseNode $n) { $o->setStreet($n->getStringValue()); },
+            'city' => function (ParseNode $n) use ($o) { $o->setCity($n->getStringValue()); },
+            'countryLetterCode' => function (ParseNode $n) use ($o) { $o->setCountryLetterCode($n->getStringValue()); },
+            'postalCode' => function (ParseNode $n) use ($o) { $o->setPostalCode($n->getStringValue()); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
+            'street' => function (ParseNode $n) use ($o) { $o->setStreet($n->getStringValue()); },
         ];
     }
 

@@ -7,12 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PolicySetAssignment extends Entity 
+class PolicySetAssignment extends Entity implements Parsable 
 {
-    /** @var DateTime|null $lastModifiedDateTime Last modified time of the PolicySetAssignment. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime Last modified time of the PolicySetAssignment.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var DeviceAndAppManagementAssignmentTarget|null $target The target group of PolicySetAssignment */
+    /**
+     * @var DeviceAndAppManagementAssignmentTarget|null $target The target group of PolicySetAssignment
+    */
     private ?DeviceAndAppManagementAssignmentTarget $target = null;
     
     /**
@@ -27,7 +31,7 @@ class PolicySetAssignment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PolicySetAssignment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PolicySetAssignment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PolicySetAssignment {
         return new PolicySetAssignment();
     }
 
@@ -36,9 +40,10 @@ class PolicySetAssignment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'target' => function (self $o, ParseNode $n) { $o->setTarget($n->getObjectValue(DeviceAndAppManagementAssignmentTarget::class)); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

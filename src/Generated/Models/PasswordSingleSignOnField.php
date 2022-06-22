@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $customizedLabel Title/label override for customization. */
+    /**
+     * @var string|null $customizedLabel Title/label override for customization.
+    */
     private ?string $customizedLabel = null;
     
-    /** @var string|null $defaultLabel Label that would be used if no customizedLabel is provided. Read only. */
+    /**
+     * @var string|null $defaultLabel Label that would be used if no customizedLabel is provided. Read only.
+    */
     private ?string $defaultLabel = null;
     
-    /** @var string|null $fieldId Id used to identity the field type. This is an internal id and possible values are param_1, param_2, param_userName, param_password. */
+    /**
+     * @var string|null $fieldId Id used to identity the field type. This is an internal id and possible values are param_1, param_2, param_userName, param_password.
+    */
     private ?string $fieldId = null;
     
-    /** @var string|null $type Type of the credential. The values can be text, password. */
+    /**
+     * @var string|null $type Type of the credential. The values can be text, password.
+    */
     private ?string $type = null;
     
     /**
@@ -36,7 +46,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PasswordSingleSignOnField
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PasswordSingleSignOnField {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PasswordSingleSignOnField {
         return new PasswordSingleSignOnField();
     }
 
@@ -69,11 +79,12 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'customizedLabel' => function (self $o, ParseNode $n) { $o->setCustomizedLabel($n->getStringValue()); },
-            'defaultLabel' => function (self $o, ParseNode $n) { $o->setDefaultLabel($n->getStringValue()); },
-            'fieldId' => function (self $o, ParseNode $n) { $o->setFieldId($n->getStringValue()); },
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getStringValue()); },
+            'customizedLabel' => function (ParseNode $n) use ($o) { $o->setCustomizedLabel($n->getStringValue()); },
+            'defaultLabel' => function (ParseNode $n) use ($o) { $o->setDefaultLabel($n->getStringValue()); },
+            'fieldId' => function (ParseNode $n) use ($o) { $o->setFieldId($n->getStringValue()); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
         ];
     }
 

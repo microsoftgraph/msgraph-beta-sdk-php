@@ -10,17 +10,23 @@ use Psr\Http\Message\StreamInterface;
 
 class BufferEncryptionResult implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var StreamInterface|null $encryptedBuffer The encryptedBuffer property */
+    /**
+     * @var StreamInterface|null $encryptedBuffer The encryptedBuffer property
+    */
     private ?StreamInterface $encryptedBuffer = null;
     
-    /** @var StreamInterface|null $publishingLicense The publishingLicense property */
+    /**
+     * @var StreamInterface|null $publishingLicense The publishingLicense property
+    */
     private ?StreamInterface $publishingLicense = null;
     
     /**
-     * Instantiates a new bufferEncryptionResult and sets the default values.
+     * Instantiates a new BufferEncryptionResult and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -31,7 +37,7 @@ class BufferEncryptionResult implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BufferEncryptionResult
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): BufferEncryptionResult {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): BufferEncryptionResult {
         return new BufferEncryptionResult();
     }
 
@@ -56,9 +62,10 @@ class BufferEncryptionResult implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'encryptedBuffer' => function (self $o, ParseNode $n) { $o->setEncryptedBuffer($n->getBinaryContent()); },
-            'publishingLicense' => function (self $o, ParseNode $n) { $o->setPublishingLicense($n->getBinaryContent()); },
+            'encryptedBuffer' => function (ParseNode $n) use ($o) { $o->setEncryptedBuffer($n->getBinaryContent()); },
+            'publishingLicense' => function (ParseNode $n) use ($o) { $o->setPublishingLicense($n->getBinaryContent()); },
         ];
     }
 

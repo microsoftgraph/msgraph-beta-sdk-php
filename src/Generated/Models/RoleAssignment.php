@@ -6,24 +6,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RoleAssignment extends Entity 
+class RoleAssignment extends Entity implements Parsable 
 {
-    /** @var string|null $description Description of the Role Assignment. */
+    /**
+     * @var string|null $description Description of the Role Assignment.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display or friendly name of the role Assignment. */
+    /**
+     * @var string|null $displayName The display or friendly name of the role Assignment.
+    */
     private ?string $displayName = null;
     
-    /** @var array<string>|null $resourceScopes List of ids of role scope member security groups.  These are IDs from Azure Active Directory. */
+    /**
+     * @var array<string>|null $resourceScopes List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
+    */
     private ?array $resourceScopes = null;
     
-    /** @var RoleDefinition|null $roleDefinition Role definition this assignment is part of. */
+    /**
+     * @var RoleDefinition|null $roleDefinition Role definition this assignment is part of.
+    */
     private ?RoleDefinition $roleDefinition = null;
     
-    /** @var array<string>|null $scopeMembers List of ids of role scope member security groups.  These are IDs from Azure Active Directory. */
+    /**
+     * @var array<string>|null $scopeMembers List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
+    */
     private ?array $scopeMembers = null;
     
-    /** @var RoleAssignmentScopeType|null $scopeType Specifies the type of scope for a Role Assignment. Default type 'ResourceScope' allows assignment of ResourceScopes. For 'AllDevices', 'AllLicensedUsers', and 'AllDevicesAndLicensedUsers', the ResourceScopes property should be left empty. Possible values are: resourceScope, allDevices, allLicensedUsers, allDevicesAndLicensedUsers. */
+    /**
+     * @var RoleAssignmentScopeType|null $scopeType Specifies the type of scope for a Role Assignment. Default type 'ResourceScope' allows assignment of ResourceScopes. For 'AllDevices', 'AllLicensedUsers', and 'AllDevicesAndLicensedUsers', the ResourceScopes property should be left empty. Possible values are: resourceScope, allDevices, allLicensedUsers, allDevicesAndLicensedUsers.
+    */
     private ?RoleAssignmentScopeType $scopeType = null;
     
     /**
@@ -38,7 +50,14 @@ class RoleAssignment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RoleAssignment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RoleAssignment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RoleAssignment {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deviceAndAppManagementRoleAssignment': return new DeviceAndAppManagementRoleAssignment();
+            }
+        }
         return new RoleAssignment();
     }
 
@@ -63,13 +82,14 @@ class RoleAssignment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'resourceScopes' => function (self $o, ParseNode $n) { $o->setResourceScopes($n->getCollectionOfPrimitiveValues()); },
-            'roleDefinition' => function (self $o, ParseNode $n) { $o->setRoleDefinition($n->getObjectValue(RoleDefinition::class)); },
-            'scopeMembers' => function (self $o, ParseNode $n) { $o->setScopeMembers($n->getCollectionOfPrimitiveValues()); },
-            'scopeType' => function (self $o, ParseNode $n) { $o->setScopeType($n->getEnumValue(RoleAssignmentScopeType::class)); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'resourceScopes' => function (ParseNode $n) use ($o) { $o->setResourceScopes($n->getCollectionOfPrimitiveValues()); },
+            'roleDefinition' => function (ParseNode $n) use ($o) { $o->setRoleDefinition($n->getObjectValue(array(RoleDefinition::class, 'createFromDiscriminatorValue'))); },
+            'scopeMembers' => function (ParseNode $n) use ($o) { $o->setScopeMembers($n->getCollectionOfPrimitiveValues()); },
+            'scopeType' => function (ParseNode $n) use ($o) { $o->setScopeType($n->getEnumValue(RoleAssignmentScopeType::class)); },
         ]);
     }
 

@@ -7,40 +7,60 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class PersonCertification extends ItemFacet 
+class PersonCertification extends ItemFacet implements Parsable 
 {
-    /** @var string|null $certificationId The referenceable identifier for the certification. */
+    /**
+     * @var string|null $certificationId The referenceable identifier for the certification.
+    */
     private ?string $certificationId = null;
     
-    /** @var string|null $description Description of the certification. */
+    /**
+     * @var string|null $description Description of the certification.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Title of the certification. */
+    /**
+     * @var string|null $displayName Title of the certification.
+    */
     private ?string $displayName = null;
     
-    /** @var Date|null $endDate The date that the certification expires. */
+    /**
+     * @var Date|null $endDate The date that the certification expires.
+    */
     private ?Date $endDate = null;
     
-    /** @var Date|null $issuedDate The date that the certification was issued. */
+    /**
+     * @var Date|null $issuedDate The date that the certification was issued.
+    */
     private ?Date $issuedDate = null;
     
-    /** @var string|null $issuingAuthority Authority which granted the certification. */
+    /**
+     * @var string|null $issuingAuthority Authority which granted the certification.
+    */
     private ?string $issuingAuthority = null;
     
-    /** @var string|null $issuingCompany Company which granted the certification. */
+    /**
+     * @var string|null $issuingCompany Company which granted the certification.
+    */
     private ?string $issuingCompany = null;
     
-    /** @var Date|null $startDate The date that the certification became valid. */
+    /**
+     * @var Date|null $startDate The date that the certification became valid.
+    */
     private ?Date $startDate = null;
     
-    /** @var string|null $thumbnailUrl URL referencing a thumbnail of the certification. */
+    /**
+     * @var string|null $thumbnailUrl URL referencing a thumbnail of the certification.
+    */
     private ?string $thumbnailUrl = null;
     
-    /** @var string|null $webUrl URL referencing the certification. */
+    /**
+     * @var string|null $webUrl URL referencing the certification.
+    */
     private ?string $webUrl = null;
     
     /**
-     * Instantiates a new personCertification and sets the default values.
+     * Instantiates a new PersonCertification and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -51,7 +71,7 @@ class PersonCertification extends ItemFacet
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PersonCertification
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PersonCertification {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PersonCertification {
         return new PersonCertification();
     }
 
@@ -92,17 +112,18 @@ class PersonCertification extends ItemFacet
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certificationId' => function (self $o, ParseNode $n) { $o->setCertificationId($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'endDate' => function (self $o, ParseNode $n) { $o->setEndDate($n->getDateValue()); },
-            'issuedDate' => function (self $o, ParseNode $n) { $o->setIssuedDate($n->getDateValue()); },
-            'issuingAuthority' => function (self $o, ParseNode $n) { $o->setIssuingAuthority($n->getStringValue()); },
-            'issuingCompany' => function (self $o, ParseNode $n) { $o->setIssuingCompany($n->getStringValue()); },
-            'startDate' => function (self $o, ParseNode $n) { $o->setStartDate($n->getDateValue()); },
-            'thumbnailUrl' => function (self $o, ParseNode $n) { $o->setThumbnailUrl($n->getStringValue()); },
-            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
+            'certificationId' => function (ParseNode $n) use ($o) { $o->setCertificationId($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'endDate' => function (ParseNode $n) use ($o) { $o->setEndDate($n->getDateValue()); },
+            'issuedDate' => function (ParseNode $n) use ($o) { $o->setIssuedDate($n->getDateValue()); },
+            'issuingAuthority' => function (ParseNode $n) use ($o) { $o->setIssuingAuthority($n->getStringValue()); },
+            'issuingCompany' => function (ParseNode $n) use ($o) { $o->setIssuingCompany($n->getStringValue()); },
+            'startDate' => function (ParseNode $n) use ($o) { $o->setStartDate($n->getDateValue()); },
+            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
+            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 

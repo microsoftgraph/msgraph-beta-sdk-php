@@ -7,48 +7,76 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DomainSecurityProfile extends Entity 
+class DomainSecurityProfile extends Entity implements Parsable 
 {
-    /** @var array<string>|null $activityGroupNames The activityGroupNames property */
+    /**
+     * @var array<string>|null $activityGroupNames The activityGroupNames property
+    */
     private ?array $activityGroupNames = null;
     
-    /** @var string|null $azureSubscriptionId The azureSubscriptionId property */
+    /**
+     * @var string|null $azureSubscriptionId The azureSubscriptionId property
+    */
     private ?string $azureSubscriptionId = null;
     
-    /** @var string|null $azureTenantId The azureTenantId property */
+    /**
+     * @var string|null $azureTenantId The azureTenantId property
+    */
     private ?string $azureTenantId = null;
     
-    /** @var int|null $countHits The countHits property */
+    /**
+     * @var int|null $countHits The countHits property
+    */
     private ?int $countHits = null;
     
-    /** @var int|null $countInOrg The countInOrg property */
+    /**
+     * @var int|null $countInOrg The countInOrg property
+    */
     private ?int $countInOrg = null;
     
-    /** @var array<ReputationCategory>|null $domainCategories The domainCategories property */
+    /**
+     * @var array<ReputationCategory>|null $domainCategories The domainCategories property
+    */
     private ?array $domainCategories = null;
     
-    /** @var DateTime|null $domainRegisteredDateTime The domainRegisteredDateTime property */
+    /**
+     * @var DateTime|null $domainRegisteredDateTime The domainRegisteredDateTime property
+    */
     private ?DateTime $domainRegisteredDateTime = null;
     
-    /** @var DateTime|null $firstSeenDateTime The firstSeenDateTime property */
+    /**
+     * @var DateTime|null $firstSeenDateTime The firstSeenDateTime property
+    */
     private ?DateTime $firstSeenDateTime = null;
     
-    /** @var DateTime|null $lastSeenDateTime The lastSeenDateTime property */
+    /**
+     * @var DateTime|null $lastSeenDateTime The lastSeenDateTime property
+    */
     private ?DateTime $lastSeenDateTime = null;
     
-    /** @var string|null $name The name property */
+    /**
+     * @var string|null $name The name property
+    */
     private ?string $name = null;
     
-    /** @var DomainRegistrant|null $registrant The registrant property */
+    /**
+     * @var DomainRegistrant|null $registrant The registrant property
+    */
     private ?DomainRegistrant $registrant = null;
     
-    /** @var string|null $riskScore The riskScore property */
+    /**
+     * @var string|null $riskScore The riskScore property
+    */
     private ?string $riskScore = null;
     
-    /** @var array<string>|null $tags The tags property */
+    /**
+     * @var array<string>|null $tags The tags property
+    */
     private ?array $tags = null;
     
-    /** @var SecurityVendorInformation|null $vendorInformation The vendorInformation property */
+    /**
+     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
+    */
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
@@ -63,7 +91,7 @@ class DomainSecurityProfile extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DomainSecurityProfile
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DomainSecurityProfile {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DomainSecurityProfile {
         return new DomainSecurityProfile();
     }
 
@@ -128,21 +156,22 @@ class DomainSecurityProfile extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activityGroupNames' => function (self $o, ParseNode $n) { $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()); },
-            'azureSubscriptionId' => function (self $o, ParseNode $n) { $o->setAzureSubscriptionId($n->getStringValue()); },
-            'azureTenantId' => function (self $o, ParseNode $n) { $o->setAzureTenantId($n->getStringValue()); },
-            'countHits' => function (self $o, ParseNode $n) { $o->setCountHits($n->getIntegerValue()); },
-            'countInOrg' => function (self $o, ParseNode $n) { $o->setCountInOrg($n->getIntegerValue()); },
-            'domainCategories' => function (self $o, ParseNode $n) { $o->setDomainCategories($n->getCollectionOfObjectValues(ReputationCategory::class)); },
-            'domainRegisteredDateTime' => function (self $o, ParseNode $n) { $o->setDomainRegisteredDateTime($n->getDateTimeValue()); },
-            'firstSeenDateTime' => function (self $o, ParseNode $n) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
-            'lastSeenDateTime' => function (self $o, ParseNode $n) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'registrant' => function (self $o, ParseNode $n) { $o->setRegistrant($n->getObjectValue(DomainRegistrant::class)); },
-            'riskScore' => function (self $o, ParseNode $n) { $o->setRiskScore($n->getStringValue()); },
-            'tags' => function (self $o, ParseNode $n) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'vendorInformation' => function (self $o, ParseNode $n) { $o->setVendorInformation($n->getObjectValue(SecurityVendorInformation::class)); },
+            'activityGroupNames' => function (ParseNode $n) use ($o) { $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()); },
+            'azureSubscriptionId' => function (ParseNode $n) use ($o) { $o->setAzureSubscriptionId($n->getStringValue()); },
+            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
+            'countHits' => function (ParseNode $n) use ($o) { $o->setCountHits($n->getIntegerValue()); },
+            'countInOrg' => function (ParseNode $n) use ($o) { $o->setCountInOrg($n->getIntegerValue()); },
+            'domainCategories' => function (ParseNode $n) use ($o) { $o->setDomainCategories($n->getCollectionOfObjectValues(array(ReputationCategory::class, 'createFromDiscriminatorValue'))); },
+            'domainRegisteredDateTime' => function (ParseNode $n) use ($o) { $o->setDomainRegisteredDateTime($n->getDateTimeValue()); },
+            'firstSeenDateTime' => function (ParseNode $n) use ($o) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
+            'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'registrant' => function (ParseNode $n) use ($o) { $o->setRegistrant($n->getObjectValue(array(DomainRegistrant::class, 'createFromDiscriminatorValue'))); },
+            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getStringValue()); },
+            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
+            'vendorInformation' => function (ParseNode $n) use ($o) { $o->setVendorInformation($n->getObjectValue(array(SecurityVendorInformation::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

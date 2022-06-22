@@ -7,30 +7,46 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Mention extends Entity 
+class Mention extends Entity implements Parsable 
 {
-    /** @var string|null $application The name of the application where the mention is created. Optional. Not used and defaulted as null for message. */
+    /**
+     * @var string|null $application The name of the application where the mention is created. Optional. Not used and defaulted as null for message.
+    */
     private ?string $application = null;
     
-    /** @var string|null $clientReference A unique identifier that represents a parent of the resource instance. Optional. Not used and defaulted as null for message. */
+    /**
+     * @var string|null $clientReference A unique identifier that represents a parent of the resource instance. Optional. Not used and defaulted as null for message.
+    */
     private ?string $clientReference = null;
     
-    /** @var EmailAddress|null $createdBy The email information of the user who made the mention. */
+    /**
+     * @var EmailAddress|null $createdBy The email information of the user who made the mention.
+    */
     private ?EmailAddress $createdBy = null;
     
-    /** @var DateTime|null $createdDateTime The date and time that the mention is created on the client. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time that the mention is created on the client.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $deepLink A deep web link to the context of the mention in the resource instance. Optional. Not used and defaulted as null for message. */
+    /**
+     * @var string|null $deepLink A deep web link to the context of the mention in the resource instance. Optional. Not used and defaulted as null for message.
+    */
     private ?string $deepLink = null;
     
-    /** @var EmailAddress|null $mentioned The mentioned property */
+    /**
+     * @var EmailAddress|null $mentioned The mentioned property
+    */
     private ?EmailAddress $mentioned = null;
     
-    /** @var string|null $mentionText Optional. Not used and defaulted as null for message. To get the mentions in a message, see the bodyPreview property of the message instead. */
+    /**
+     * @var string|null $mentionText Optional. Not used and defaulted as null for message. To get the mentions in a message, see the bodyPreview property of the message instead.
+    */
     private ?string $mentionText = null;
     
-    /** @var DateTime|null $serverCreatedDateTime The date and time that the mention is created on the server. Optional. Not used and defaulted as null for message. */
+    /**
+     * @var DateTime|null $serverCreatedDateTime The date and time that the mention is created on the server. Optional. Not used and defaulted as null for message.
+    */
     private ?DateTime $serverCreatedDateTime = null;
     
     /**
@@ -45,7 +61,7 @@ class Mention extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Mention
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Mention {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Mention {
         return new Mention();
     }
 
@@ -94,15 +110,16 @@ class Mention extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'application' => function (self $o, ParseNode $n) { $o->setApplication($n->getStringValue()); },
-            'clientReference' => function (self $o, ParseNode $n) { $o->setClientReference($n->getStringValue()); },
-            'createdBy' => function (self $o, ParseNode $n) { $o->setCreatedBy($n->getObjectValue(EmailAddress::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deepLink' => function (self $o, ParseNode $n) { $o->setDeepLink($n->getStringValue()); },
-            'mentioned' => function (self $o, ParseNode $n) { $o->setMentioned($n->getObjectValue(EmailAddress::class)); },
-            'mentionText' => function (self $o, ParseNode $n) { $o->setMentionText($n->getStringValue()); },
-            'serverCreatedDateTime' => function (self $o, ParseNode $n) { $o->setServerCreatedDateTime($n->getDateTimeValue()); },
+            'application' => function (ParseNode $n) use ($o) { $o->setApplication($n->getStringValue()); },
+            'clientReference' => function (ParseNode $n) use ($o) { $o->setClientReference($n->getStringValue()); },
+            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(EmailAddress::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'deepLink' => function (ParseNode $n) use ($o) { $o->setDeepLink($n->getStringValue()); },
+            'mentioned' => function (ParseNode $n) use ($o) { $o->setMentioned($n->getObjectValue(array(EmailAddress::class, 'createFromDiscriminatorValue'))); },
+            'mentionText' => function (ParseNode $n) use ($o) { $o->setMentionText($n->getStringValue()); },
+            'serverCreatedDateTime' => function (ParseNode $n) use ($o) { $o->setServerCreatedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

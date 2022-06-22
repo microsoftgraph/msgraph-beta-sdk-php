@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GetManagedDevicesWithAppFailuresResponse implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $value The value property */
+    /**
+     * @var array<string>|null $value The value property
+    */
     private ?array $value = null;
     
     /**
@@ -27,7 +31,7 @@ class GetManagedDevicesWithAppFailuresResponse implements AdditionalDataHolder, 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GetManagedDevicesWithAppFailuresResponse
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GetManagedDevicesWithAppFailuresResponse {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GetManagedDevicesWithAppFailuresResponse {
         return new GetManagedDevicesWithAppFailuresResponse();
     }
 
@@ -44,8 +48,9 @@ class GetManagedDevicesWithAppFailuresResponse implements AdditionalDataHolder, 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfPrimitiveValues()); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 

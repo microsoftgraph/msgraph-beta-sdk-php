@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SynchronizationJobSubject implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var SynchronizationLinkedObjects|null $links The links property */
+    /**
+     * @var SynchronizationLinkedObjects|null $links The links property
+    */
     private ?SynchronizationLinkedObjects $links = null;
     
-    /** @var string|null $objectId The identifier of an object to which a synchronizationJob  is to be applied. */
+    /**
+     * @var string|null $objectId The identifier of an object to which a synchronizationJob is to be applied. Can be one of the following: An onPremisesDistinguishedName for synchronization from Active Directory to Azure AD.The user ID for synchronization from Azure AD to a third-party.The Worker ID of the Workday worker for synchronization from Workday to either Active Directory or Azure AD.
+    */
     private ?string $objectId = null;
     
-    /** @var string|null $objectTypeName The type of the object to which a synchronizationJob  is to be applied. */
+    /**
+     * @var string|null $objectTypeName The type of the object to which a synchronizationJob is to be applied. Can be one of the following: user for synchronization from Active Directory to Azure AD.User for synchronization from Azure AD to a third-party application. Worker for synchronization from Workday to either Active Directory or Azure AD.
+    */
     private ?string $objectTypeName = null;
     
     /**
@@ -33,7 +41,7 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationJobSubject
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationJobSubject {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationJobSubject {
         return new SynchronizationJobSubject();
     }
 
@@ -50,10 +58,11 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'links' => function (self $o, ParseNode $n) { $o->setLinks($n->getObjectValue(SynchronizationLinkedObjects::class)); },
-            'objectId' => function (self $o, ParseNode $n) { $o->setObjectId($n->getStringValue()); },
-            'objectTypeName' => function (self $o, ParseNode $n) { $o->setObjectTypeName($n->getStringValue()); },
+            'links' => function (ParseNode $n) use ($o) { $o->setLinks($n->getObjectValue(array(SynchronizationLinkedObjects::class, 'createFromDiscriminatorValue'))); },
+            'objectId' => function (ParseNode $n) use ($o) { $o->setObjectId($n->getStringValue()); },
+            'objectTypeName' => function (ParseNode $n) use ($o) { $o->setObjectTypeName($n->getStringValue()); },
         ];
     }
 
@@ -66,7 +75,7 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the objectId property value. The identifier of an object to which a synchronizationJob  is to be applied.
+     * Gets the objectId property value. The identifier of an object to which a synchronizationJob is to be applied. Can be one of the following: An onPremisesDistinguishedName for synchronization from Active Directory to Azure AD.The user ID for synchronization from Azure AD to a third-party.The Worker ID of the Workday worker for synchronization from Workday to either Active Directory or Azure AD.
      * @return string|null
     */
     public function getObjectId(): ?string {
@@ -74,7 +83,7 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the objectTypeName property value. The type of the object to which a synchronizationJob  is to be applied.
+     * Gets the objectTypeName property value. The type of the object to which a synchronizationJob is to be applied. Can be one of the following: user for synchronization from Active Directory to Azure AD.User for synchronization from Azure AD to a third-party application. Worker for synchronization from Workday to either Active Directory or Azure AD.
      * @return string|null
     */
     public function getObjectTypeName(): ?string {
@@ -109,7 +118,7 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the objectId property value. The identifier of an object to which a synchronizationJob  is to be applied.
+     * Sets the objectId property value. The identifier of an object to which a synchronizationJob is to be applied. Can be one of the following: An onPremisesDistinguishedName for synchronization from Active Directory to Azure AD.The user ID for synchronization from Azure AD to a third-party.The Worker ID of the Workday worker for synchronization from Workday to either Active Directory or Azure AD.
      *  @param string|null $value Value to set for the objectId property.
     */
     public function setObjectId(?string $value ): void {
@@ -117,7 +126,7 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the objectTypeName property value. The type of the object to which a synchronizationJob  is to be applied.
+     * Sets the objectTypeName property value. The type of the object to which a synchronizationJob is to be applied. Can be one of the following: user for synchronization from Active Directory to Azure AD.User for synchronization from Azure AD to a third-party application. Worker for synchronization from Workday to either Active Directory or Azure AD.
      *  @param string|null $value Value to set for the objectTypeName property.
     */
     public function setObjectTypeName(?string $value ): void {

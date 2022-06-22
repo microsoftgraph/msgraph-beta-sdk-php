@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class LabelingOptions implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var AssignmentMethod|null $assignmentMethod The assignmentMethod property */
+    /**
+     * @var AssignmentMethod|null $assignmentMethod The assignmentMethod property
+    */
     private ?AssignmentMethod $assignmentMethod = null;
     
-    /** @var DowngradeJustification|null $downgradeJustification The downgradeJustification property */
+    /**
+     * @var DowngradeJustification|null $downgradeJustification The downgradeJustification property
+    */
     private ?DowngradeJustification $downgradeJustification = null;
     
-    /** @var array<KeyValuePair>|null $extendedProperties The extendedProperties property */
+    /**
+     * @var array<KeyValuePair>|null $extendedProperties The extendedProperties property
+    */
     private ?array $extendedProperties = null;
     
-    /** @var string|null $labelId The labelId property */
+    /**
+     * @var string|null $labelId The labelId property
+    */
     private ?string $labelId = null;
     
     /**
@@ -36,7 +46,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return LabelingOptions
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): LabelingOptions {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): LabelingOptions {
         return new LabelingOptions();
     }
 
@@ -77,11 +87,12 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'assignmentMethod' => function (self $o, ParseNode $n) { $o->setAssignmentMethod($n->getEnumValue(AssignmentMethod::class)); },
-            'downgradeJustification' => function (self $o, ParseNode $n) { $o->setDowngradeJustification($n->getObjectValue(DowngradeJustification::class)); },
-            'extendedProperties' => function (self $o, ParseNode $n) { $o->setExtendedProperties($n->getCollectionOfObjectValues(KeyValuePair::class)); },
-            'labelId' => function (self $o, ParseNode $n) { $o->setLabelId($n->getStringValue()); },
+            'assignmentMethod' => function (ParseNode $n) use ($o) { $o->setAssignmentMethod($n->getEnumValue(AssignmentMethod::class)); },
+            'downgradeJustification' => function (ParseNode $n) use ($o) { $o->setDowngradeJustification($n->getObjectValue(array(DowngradeJustification::class, 'createFromDiscriminatorValue'))); },
+            'extendedProperties' => function (ParseNode $n) use ($o) { $o->setExtendedProperties($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'labelId' => function (ParseNode $n) use ($o) { $o->setLabelId($n->getStringValue()); },
         ];
     }
 

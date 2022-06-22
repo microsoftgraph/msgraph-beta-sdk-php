@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkCameraConfiguration implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<TeamworkPeripheral>|null $cameras The cameras property */
+    /**
+     * @var array<TeamworkPeripheral>|null $cameras The cameras property
+    */
     private ?array $cameras = null;
     
-    /** @var TeamworkContentCameraConfiguration|null $contentCameraConfiguration The configuration for the content camera. */
+    /**
+     * @var TeamworkContentCameraConfiguration|null $contentCameraConfiguration The configuration for the content camera.
+    */
     private ?TeamworkContentCameraConfiguration $contentCameraConfiguration = null;
     
-    /** @var TeamworkPeripheral|null $defaultContentCamera The defaultContentCamera property */
+    /**
+     * @var TeamworkPeripheral|null $defaultContentCamera The defaultContentCamera property
+    */
     private ?TeamworkPeripheral $defaultContentCamera = null;
     
     /**
@@ -33,7 +41,7 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkCameraConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkCameraConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkCameraConfiguration {
         return new TeamworkCameraConfiguration();
     }
 
@@ -74,10 +82,11 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'cameras' => function (self $o, ParseNode $n) { $o->setCameras($n->getCollectionOfObjectValues(TeamworkPeripheral::class)); },
-            'contentCameraConfiguration' => function (self $o, ParseNode $n) { $o->setContentCameraConfiguration($n->getObjectValue(TeamworkContentCameraConfiguration::class)); },
-            'defaultContentCamera' => function (self $o, ParseNode $n) { $o->setDefaultContentCamera($n->getObjectValue(TeamworkPeripheral::class)); },
+            'cameras' => function (ParseNode $n) use ($o) { $o->setCameras($n->getCollectionOfObjectValues(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            'contentCameraConfiguration' => function (ParseNode $n) use ($o) { $o->setContentCameraConfiguration($n->getObjectValue(array(TeamworkContentCameraConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'defaultContentCamera' => function (ParseNode $n) use ($o) { $o->setDefaultContentCamera($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

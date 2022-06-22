@@ -9,34 +9,54 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RoleSuccessStatistics implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $permanentFail The permanentFail property */
+    /**
+     * @var int|null $permanentFail The permanentFail property
+    */
     private ?int $permanentFail = null;
     
-    /** @var int|null $permanentSuccess The permanentSuccess property */
+    /**
+     * @var int|null $permanentSuccess The permanentSuccess property
+    */
     private ?int $permanentSuccess = null;
     
-    /** @var int|null $removeFail The removeFail property */
+    /**
+     * @var int|null $removeFail The removeFail property
+    */
     private ?int $removeFail = null;
     
-    /** @var int|null $removeSuccess The removeSuccess property */
+    /**
+     * @var int|null $removeSuccess The removeSuccess property
+    */
     private ?int $removeSuccess = null;
     
-    /** @var string|null $roleId The roleId property */
+    /**
+     * @var string|null $roleId The roleId property
+    */
     private ?string $roleId = null;
     
-    /** @var string|null $roleName The roleName property */
+    /**
+     * @var string|null $roleName The roleName property
+    */
     private ?string $roleName = null;
     
-    /** @var int|null $temporaryFail The temporaryFail property */
+    /**
+     * @var int|null $temporaryFail The temporaryFail property
+    */
     private ?int $temporaryFail = null;
     
-    /** @var int|null $temporarySuccess The temporarySuccess property */
+    /**
+     * @var int|null $temporarySuccess The temporarySuccess property
+    */
     private ?int $temporarySuccess = null;
     
-    /** @var int|null $unknownFail The unknownFail property */
+    /**
+     * @var int|null $unknownFail The unknownFail property
+    */
     private ?int $unknownFail = null;
     
     /**
@@ -51,7 +71,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RoleSuccessStatistics
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RoleSuccessStatistics {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RoleSuccessStatistics {
         return new RoleSuccessStatistics();
     }
 
@@ -68,16 +88,17 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'permanentFail' => function (self $o, ParseNode $n) { $o->setPermanentFail($n->getIntegerValue()); },
-            'permanentSuccess' => function (self $o, ParseNode $n) { $o->setPermanentSuccess($n->getIntegerValue()); },
-            'removeFail' => function (self $o, ParseNode $n) { $o->setRemoveFail($n->getIntegerValue()); },
-            'removeSuccess' => function (self $o, ParseNode $n) { $o->setRemoveSuccess($n->getIntegerValue()); },
-            'roleId' => function (self $o, ParseNode $n) { $o->setRoleId($n->getStringValue()); },
-            'roleName' => function (self $o, ParseNode $n) { $o->setRoleName($n->getStringValue()); },
-            'temporaryFail' => function (self $o, ParseNode $n) { $o->setTemporaryFail($n->getIntegerValue()); },
-            'temporarySuccess' => function (self $o, ParseNode $n) { $o->setTemporarySuccess($n->getIntegerValue()); },
-            'unknownFail' => function (self $o, ParseNode $n) { $o->setUnknownFail($n->getIntegerValue()); },
+            'permanentFail' => function (ParseNode $n) use ($o) { $o->setPermanentFail($n->getIntegerValue()); },
+            'permanentSuccess' => function (ParseNode $n) use ($o) { $o->setPermanentSuccess($n->getIntegerValue()); },
+            'removeFail' => function (ParseNode $n) use ($o) { $o->setRemoveFail($n->getIntegerValue()); },
+            'removeSuccess' => function (ParseNode $n) use ($o) { $o->setRemoveSuccess($n->getIntegerValue()); },
+            'roleId' => function (ParseNode $n) use ($o) { $o->setRoleId($n->getStringValue()); },
+            'roleName' => function (ParseNode $n) use ($o) { $o->setRoleName($n->getStringValue()); },
+            'temporaryFail' => function (ParseNode $n) use ($o) { $o->setTemporaryFail($n->getIntegerValue()); },
+            'temporarySuccess' => function (ParseNode $n) use ($o) { $o->setTemporarySuccess($n->getIntegerValue()); },
+            'unknownFail' => function (ParseNode $n) use ($o) { $o->setUnknownFail($n->getIntegerValue()); },
         ];
     }
 

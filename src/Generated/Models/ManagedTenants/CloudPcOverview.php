@@ -8,66 +8,106 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcOverview extends Entity 
+class CloudPcOverview extends Entity implements Parsable 
 {
-    /** @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only. */
+    /**
+     * @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
+    */
     private ?DateTime $lastRefreshedDateTime = null;
     
-    /** @var int|null $numberOfCloudPcConnectionStatusFailed The number of cloud PC connections that have a status of failed. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcConnectionStatusFailed The number of cloud PC connections that have a status of failed. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcConnectionStatusFailed = null;
     
-    /** @var int|null $numberOfCloudPcConnectionStatusPassed The number of cloud PC connections that have a status of passed. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcConnectionStatusPassed The number of cloud PC connections that have a status of passed. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcConnectionStatusPassed = null;
     
-    /** @var int|null $numberOfCloudPcConnectionStatusPending The number of cloud PC connections that have a status of pending. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcConnectionStatusPending The number of cloud PC connections that have a status of pending. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcConnectionStatusPending = null;
     
-    /** @var int|null $numberOfCloudPcConnectionStatusRunning The number of cloud PC connections that have a status of running. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcConnectionStatusRunning The number of cloud PC connections that have a status of running. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcConnectionStatusRunning = null;
     
-    /** @var int|null $numberOfCloudPcConnectionStatusUnkownFutureValue The number of cloud PC connections that have a status of unknownFutureValue. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcConnectionStatusUnkownFutureValue The number of cloud PC connections that have a status of unknownFutureValue. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcConnectionStatusUnkownFutureValue = null;
     
-    /** @var int|null $numberOfCloudPcStatusDeprovisioning The number of cloud PCs that have a status of deprovisioning. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcStatusDeprovisioning The number of cloud PCs that have a status of deprovisioning. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcStatusDeprovisioning = null;
     
-    /** @var int|null $numberOfCloudPcStatusFailed The number of cloud PCs that have a status of failed. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcStatusFailed The number of cloud PCs that have a status of failed. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcStatusFailed = null;
     
-    /** @var int|null $numberOfCloudPcStatusInGracePeriod The number of cloud PCs that have a status of inGracePeriod. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcStatusInGracePeriod The number of cloud PCs that have a status of inGracePeriod. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcStatusInGracePeriod = null;
     
-    /** @var int|null $numberOfCloudPcStatusNotProvisioned The number of cloud PCs that have a status of notProvisioned. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcStatusNotProvisioned The number of cloud PCs that have a status of notProvisioned. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcStatusNotProvisioned = null;
     
-    /** @var int|null $numberOfCloudPcStatusProvisioned The number of cloud PCs that have a status of provisioned. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcStatusProvisioned The number of cloud PCs that have a status of provisioned. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcStatusProvisioned = null;
     
-    /** @var int|null $numberOfCloudPcStatusProvisioning The number of cloud PCs that have a status of provisioning. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcStatusProvisioning The number of cloud PCs that have a status of provisioning. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcStatusProvisioning = null;
     
-    /** @var int|null $numberOfCloudPcStatusUnknown The number of cloud PCs that have a status of unknown. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcStatusUnknown The number of cloud PCs that have a status of unknown. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcStatusUnknown = null;
     
-    /** @var int|null $numberOfCloudPcStatusUpgrading The number of cloud PCs that have a status of upgrading. Optional. Read-only. */
+    /**
+     * @var int|null $numberOfCloudPcStatusUpgrading The number of cloud PCs that have a status of upgrading. Optional. Read-only.
+    */
     private ?int $numberOfCloudPcStatusUpgrading = null;
     
-    /** @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only. */
+    /**
+     * @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only.
+    */
     private ?string $tenantDisplayName = null;
     
-    /** @var string|null $tenantId The tenantId property */
+    /**
+     * @var string|null $tenantId The tenantId property
+    */
     private ?string $tenantId = null;
     
-    /** @var int|null $totalBusinessLicenses The totalBusinessLicenses property */
+    /**
+     * @var int|null $totalBusinessLicenses The totalBusinessLicenses property
+    */
     private ?int $totalBusinessLicenses = null;
     
-    /** @var int|null $totalCloudPcConnectionStatus The total number of cloud PC connection statuses for the given managed tenant. Optional. Read-only. */
+    /**
+     * @var int|null $totalCloudPcConnectionStatus The total number of cloud PC connection statuses for the given managed tenant. Optional. Read-only.
+    */
     private ?int $totalCloudPcConnectionStatus = null;
     
-    /** @var int|null $totalCloudPcStatus The total number of cloud PC statues for the given managed tenant. Optional. Read-only. */
+    /**
+     * @var int|null $totalCloudPcStatus The total number of cloud PC statues for the given managed tenant. Optional. Read-only.
+    */
     private ?int $totalCloudPcStatus = null;
     
-    /** @var int|null $totalEnterpriseLicenses The totalEnterpriseLicenses property */
+    /**
+     * @var int|null $totalEnterpriseLicenses The totalEnterpriseLicenses property
+    */
     private ?int $totalEnterpriseLicenses = null;
     
     /**
@@ -82,7 +122,7 @@ class CloudPcOverview extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcOverview
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcOverview {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcOverview {
         return new CloudPcOverview();
     }
 
@@ -91,27 +131,28 @@ class CloudPcOverview extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastRefreshedDateTime' => function (self $o, ParseNode $n) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'numberOfCloudPcConnectionStatusFailed' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcConnectionStatusFailed($n->getIntegerValue()); },
-            'numberOfCloudPcConnectionStatusPassed' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcConnectionStatusPassed($n->getIntegerValue()); },
-            'numberOfCloudPcConnectionStatusPending' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcConnectionStatusPending($n->getIntegerValue()); },
-            'numberOfCloudPcConnectionStatusRunning' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcConnectionStatusRunning($n->getIntegerValue()); },
-            'numberOfCloudPcConnectionStatusUnkownFutureValue' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcConnectionStatusUnkownFutureValue($n->getIntegerValue()); },
-            'numberOfCloudPcStatusDeprovisioning' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcStatusDeprovisioning($n->getIntegerValue()); },
-            'numberOfCloudPcStatusFailed' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcStatusFailed($n->getIntegerValue()); },
-            'numberOfCloudPcStatusInGracePeriod' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcStatusInGracePeriod($n->getIntegerValue()); },
-            'numberOfCloudPcStatusNotProvisioned' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcStatusNotProvisioned($n->getIntegerValue()); },
-            'numberOfCloudPcStatusProvisioned' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcStatusProvisioned($n->getIntegerValue()); },
-            'numberOfCloudPcStatusProvisioning' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcStatusProvisioning($n->getIntegerValue()); },
-            'numberOfCloudPcStatusUnknown' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcStatusUnknown($n->getIntegerValue()); },
-            'numberOfCloudPcStatusUpgrading' => function (self $o, ParseNode $n) { $o->setNumberOfCloudPcStatusUpgrading($n->getIntegerValue()); },
-            'tenantDisplayName' => function (self $o, ParseNode $n) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
-            'totalBusinessLicenses' => function (self $o, ParseNode $n) { $o->setTotalBusinessLicenses($n->getIntegerValue()); },
-            'totalCloudPcConnectionStatus' => function (self $o, ParseNode $n) { $o->setTotalCloudPcConnectionStatus($n->getIntegerValue()); },
-            'totalCloudPcStatus' => function (self $o, ParseNode $n) { $o->setTotalCloudPcStatus($n->getIntegerValue()); },
-            'totalEnterpriseLicenses' => function (self $o, ParseNode $n) { $o->setTotalEnterpriseLicenses($n->getIntegerValue()); },
+            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
+            'numberOfCloudPcConnectionStatusFailed' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcConnectionStatusFailed($n->getIntegerValue()); },
+            'numberOfCloudPcConnectionStatusPassed' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcConnectionStatusPassed($n->getIntegerValue()); },
+            'numberOfCloudPcConnectionStatusPending' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcConnectionStatusPending($n->getIntegerValue()); },
+            'numberOfCloudPcConnectionStatusRunning' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcConnectionStatusRunning($n->getIntegerValue()); },
+            'numberOfCloudPcConnectionStatusUnkownFutureValue' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcConnectionStatusUnkownFutureValue($n->getIntegerValue()); },
+            'numberOfCloudPcStatusDeprovisioning' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcStatusDeprovisioning($n->getIntegerValue()); },
+            'numberOfCloudPcStatusFailed' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcStatusFailed($n->getIntegerValue()); },
+            'numberOfCloudPcStatusInGracePeriod' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcStatusInGracePeriod($n->getIntegerValue()); },
+            'numberOfCloudPcStatusNotProvisioned' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcStatusNotProvisioned($n->getIntegerValue()); },
+            'numberOfCloudPcStatusProvisioned' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcStatusProvisioned($n->getIntegerValue()); },
+            'numberOfCloudPcStatusProvisioning' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcStatusProvisioning($n->getIntegerValue()); },
+            'numberOfCloudPcStatusUnknown' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcStatusUnknown($n->getIntegerValue()); },
+            'numberOfCloudPcStatusUpgrading' => function (ParseNode $n) use ($o) { $o->setNumberOfCloudPcStatusUpgrading($n->getIntegerValue()); },
+            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'totalBusinessLicenses' => function (ParseNode $n) use ($o) { $o->setTotalBusinessLicenses($n->getIntegerValue()); },
+            'totalCloudPcConnectionStatus' => function (ParseNode $n) use ($o) { $o->setTotalCloudPcConnectionStatus($n->getIntegerValue()); },
+            'totalCloudPcStatus' => function (ParseNode $n) use ($o) { $o->setTotalCloudPcStatus($n->getIntegerValue()); },
+            'totalEnterpriseLicenses' => function (ParseNode $n) use ($o) { $o->setTotalEnterpriseLicenses($n->getIntegerValue()); },
         ]);
     }
 

@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class KeyLongValuePair implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $name Name for this key long value pair */
+    /**
+     * @var string|null $name Name for this key long value pair
+    */
     private ?string $name = null;
     
-    /** @var int|null $value Value for this key long value pair */
+    /**
+     * @var int|null $value Value for this key long value pair
+    */
     private ?int $value = null;
     
     /**
@@ -30,7 +36,7 @@ class KeyLongValuePair implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return KeyLongValuePair
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): KeyLongValuePair {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): KeyLongValuePair {
         return new KeyLongValuePair();
     }
 
@@ -47,9 +53,10 @@ class KeyLongValuePair implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getIntegerValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getIntegerValue()); },
         ];
     }
 

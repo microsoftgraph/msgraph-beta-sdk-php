@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkPeripheralHealth implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var TeamworkConnection|null $connection The connected state and time since the peripheral device was connected. */
+    /**
+     * @var TeamworkConnection|null $connection The connected state and time since the peripheral device was connected.
+    */
     private ?TeamworkConnection $connection = null;
     
-    /** @var bool|null $isOptional True if the peripheral is optional. Used for health computation. */
+    /**
+     * @var bool|null $isOptional True if the peripheral is optional. Used for health computation.
+    */
     private ?bool $isOptional = null;
     
-    /** @var TeamworkPeripheral|null $peripheral The peripheral property */
+    /**
+     * @var TeamworkPeripheral|null $peripheral The peripheral property
+    */
     private ?TeamworkPeripheral $peripheral = null;
     
     /**
@@ -33,7 +41,7 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkPeripheralHealth
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkPeripheralHealth {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkPeripheralHealth {
         return new TeamworkPeripheralHealth();
     }
 
@@ -58,10 +66,11 @@ class TeamworkPeripheralHealth implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'connection' => function (self $o, ParseNode $n) { $o->setConnection($n->getObjectValue(TeamworkConnection::class)); },
-            'isOptional' => function (self $o, ParseNode $n) { $o->setIsOptional($n->getBooleanValue()); },
-            'peripheral' => function (self $o, ParseNode $n) { $o->setPeripheral($n->getObjectValue(TeamworkPeripheral::class)); },
+            'connection' => function (ParseNode $n) use ($o) { $o->setConnection($n->getObjectValue(array(TeamworkConnection::class, 'createFromDiscriminatorValue'))); },
+            'isOptional' => function (ParseNode $n) use ($o) { $o->setIsOptional($n->getBooleanValue()); },
+            'peripheral' => function (ParseNode $n) use ($o) { $o->setPeripheral($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

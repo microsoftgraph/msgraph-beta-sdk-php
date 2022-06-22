@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AuthenticationMethodsRoot extends Entity 
+class AuthenticationMethodsRoot extends Entity implements Parsable 
 {
-    /** @var array<UserRegistrationDetails>|null $userRegistrationDetails Represents the state of a user's authentication methods, including which methods are registered and which features the user is registered and capable of (such as multi-factor authentication, self-service password reset, and passwordless authentication). */
+    /**
+     * @var array<UserRegistrationDetails>|null $userRegistrationDetails Represents the state of a user's authentication methods, including which methods are registered and which features the user is registered and capable of (such as multi-factor authentication, self-service password reset, and passwordless authentication).
+    */
     private ?array $userRegistrationDetails = null;
     
     /**
@@ -23,7 +25,7 @@ class AuthenticationMethodsRoot extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuthenticationMethodsRoot
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationMethodsRoot {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationMethodsRoot {
         return new AuthenticationMethodsRoot();
     }
 
@@ -32,8 +34,9 @@ class AuthenticationMethodsRoot extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userRegistrationDetails' => function (self $o, ParseNode $n) { $o->setUserRegistrationDetails($n->getCollectionOfObjectValues(UserRegistrationDetails::class)); },
+            'userRegistrationDetails' => function (ParseNode $n) use ($o) { $o->setUserRegistrationDetails($n->getCollectionOfObjectValues(array(UserRegistrationDetails::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

@@ -8,30 +8,46 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagementTemplateStepDeployment extends Entity 
+class ManagementTemplateStepDeployment extends Entity implements Parsable 
 {
-    /** @var string|null $createdByUserId The createdByUserId property */
+    /**
+     * @var string|null $createdByUserId The createdByUserId property
+    */
     private ?string $createdByUserId = null;
     
-    /** @var DateTime|null $createdDateTime The createdDateTime property */
+    /**
+     * @var DateTime|null $createdDateTime The createdDateTime property
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var GraphAPIErrorDetails|null $error The error property */
+    /**
+     * @var GraphAPIErrorDetails|null $error The error property
+    */
     private ?GraphAPIErrorDetails $error = null;
     
-    /** @var string|null $lastActionByUserId The lastActionByUserId property */
+    /**
+     * @var string|null $lastActionByUserId The lastActionByUserId property
+    */
     private ?string $lastActionByUserId = null;
     
-    /** @var DateTime|null $lastActionDateTime The lastActionDateTime property */
+    /**
+     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
+    */
     private ?DateTime $lastActionDateTime = null;
     
-    /** @var ManagementTemplateDeploymentStatus|null $status The status property */
+    /**
+     * @var ManagementTemplateDeploymentStatus|null $status The status property
+    */
     private ?ManagementTemplateDeploymentStatus $status = null;
     
-    /** @var ManagementTemplateStepVersion|null $templateStepVersion The templateStepVersion property */
+    /**
+     * @var ManagementTemplateStepVersion|null $templateStepVersion The templateStepVersion property
+    */
     private ?ManagementTemplateStepVersion $templateStepVersion = null;
     
-    /** @var string|null $tenantId The tenantId property */
+    /**
+     * @var string|null $tenantId The tenantId property
+    */
     private ?string $tenantId = null;
     
     /**
@@ -46,7 +62,7 @@ class ManagementTemplateStepDeployment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagementTemplateStepDeployment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagementTemplateStepDeployment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagementTemplateStepDeployment {
         return new ManagementTemplateStepDeployment();
     }
 
@@ -79,15 +95,16 @@ class ManagementTemplateStepDeployment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdByUserId' => function (self $o, ParseNode $n) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'error' => function (self $o, ParseNode $n) { $o->setError($n->getObjectValue(GraphAPIErrorDetails::class)); },
-            'lastActionByUserId' => function (self $o, ParseNode $n) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (self $o, ParseNode $n) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(ManagementTemplateDeploymentStatus::class)); },
-            'templateStepVersion' => function (self $o, ParseNode $n) { $o->setTemplateStepVersion($n->getObjectValue(ManagementTemplateStepVersion::class)); },
-            'tenantId' => function (self $o, ParseNode $n) { $o->setTenantId($n->getStringValue()); },
+            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(GraphAPIErrorDetails::class, 'createFromDiscriminatorValue'))); },
+            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
+            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ManagementTemplateDeploymentStatus::class)); },
+            'templateStepVersion' => function (ParseNode $n) use ($o) { $o->setTemplateStepVersion($n->getObjectValue(array(ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'))); },
+            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
         ]);
     }
 

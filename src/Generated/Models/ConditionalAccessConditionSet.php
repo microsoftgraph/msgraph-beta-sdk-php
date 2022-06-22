@@ -9,40 +9,64 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var ConditionalAccessApplications|null $applications Applications and user actions included in and excluded from the policy. Required. */
+    /**
+     * @var ConditionalAccessApplications|null $applications Applications and user actions included in and excluded from the policy. Required.
+    */
     private ?ConditionalAccessApplications $applications = null;
     
-    /** @var ConditionalAccessClientApplications|null $clientApplications Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required. */
+    /**
+     * @var ConditionalAccessClientApplications|null $clientApplications Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.
+    */
     private ?ConditionalAccessClientApplications $clientApplications = null;
     
-    /** @var array<ConditionalAccessClientApp>|null $clientAppTypes Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required. */
+    /**
+     * @var array<string>|null $clientAppTypes Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.
+    */
     private ?array $clientAppTypes = null;
     
-    /** @var ConditionalAccessDevices|null $devices Devices in the policy. */
+    /**
+     * @var ConditionalAccessDevices|null $devices Devices in the policy.
+    */
     private ?ConditionalAccessDevices $devices = null;
     
-    /** @var ConditionalAccessDeviceStates|null $deviceStates Device states in the policy. */
+    /**
+     * @var ConditionalAccessDeviceStates|null $deviceStates Device states in the policy.
+    */
     private ?ConditionalAccessDeviceStates $deviceStates = null;
     
-    /** @var ConditionalAccessLocations|null $locations Locations included in and excluded from the policy. */
+    /**
+     * @var ConditionalAccessLocations|null $locations Locations included in and excluded from the policy.
+    */
     private ?ConditionalAccessLocations $locations = null;
     
-    /** @var ConditionalAccessPlatforms|null $platforms Platforms included in and excluded from the policy. */
+    /**
+     * @var ConditionalAccessPlatforms|null $platforms Platforms included in and excluded from the policy.
+    */
     private ?ConditionalAccessPlatforms $platforms = null;
     
-    /** @var array<RiskLevel>|null $servicePrincipalRiskLevels Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue. */
+    /**
+     * @var array<string>|null $servicePrincipalRiskLevels Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue.
+    */
     private ?array $servicePrincipalRiskLevels = null;
     
-    /** @var array<RiskLevel>|null $signInRiskLevels Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
+    /**
+     * @var array<string>|null $signInRiskLevels Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
+    */
     private ?array $signInRiskLevels = null;
     
-    /** @var array<RiskLevel>|null $userRiskLevels User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
+    /**
+     * @var array<string>|null $userRiskLevels User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
+    */
     private ?array $userRiskLevels = null;
     
-    /** @var ConditionalAccessUsers|null $users Users, groups, and roles included in and excluded from the policy. Required. */
+    /**
+     * @var ConditionalAccessUsers|null $users Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
+    */
     private ?ConditionalAccessUsers $users = null;
     
     /**
@@ -57,7 +81,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConditionalAccessConditionSet
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessConditionSet {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessConditionSet {
         return new ConditionalAccessConditionSet();
     }
 
@@ -87,7 +111,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.
-     * @return array<ConditionalAccessClientApp>|null
+     * @return array<string>|null
     */
     public function getClientAppTypes(): ?array {
         return $this->clientAppTypes;
@@ -114,18 +138,19 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'applications' => function (self $o, ParseNode $n) { $o->setApplications($n->getObjectValue(ConditionalAccessApplications::class)); },
-            'clientApplications' => function (self $o, ParseNode $n) { $o->setClientApplications($n->getObjectValue(ConditionalAccessClientApplications::class)); },
-            'clientAppTypes' => function (self $o, ParseNode $n) { $o->setClientAppTypes($n->getCollectionOfEnumValues(ConditionalAccessClientApp::class)); },
-            'devices' => function (self $o, ParseNode $n) { $o->setDevices($n->getObjectValue(ConditionalAccessDevices::class)); },
-            'deviceStates' => function (self $o, ParseNode $n) { $o->setDeviceStates($n->getObjectValue(ConditionalAccessDeviceStates::class)); },
-            'locations' => function (self $o, ParseNode $n) { $o->setLocations($n->getObjectValue(ConditionalAccessLocations::class)); },
-            'platforms' => function (self $o, ParseNode $n) { $o->setPlatforms($n->getObjectValue(ConditionalAccessPlatforms::class)); },
-            'servicePrincipalRiskLevels' => function (self $o, ParseNode $n) { $o->setServicePrincipalRiskLevels($n->getCollectionOfEnumValues(RiskLevel::class)); },
-            'signInRiskLevels' => function (self $o, ParseNode $n) { $o->setSignInRiskLevels($n->getCollectionOfEnumValues(RiskLevel::class)); },
-            'userRiskLevels' => function (self $o, ParseNode $n) { $o->setUserRiskLevels($n->getCollectionOfEnumValues(RiskLevel::class)); },
-            'users' => function (self $o, ParseNode $n) { $o->setUsers($n->getObjectValue(ConditionalAccessUsers::class)); },
+            'applications' => function (ParseNode $n) use ($o) { $o->setApplications($n->getObjectValue(array(ConditionalAccessApplications::class, 'createFromDiscriminatorValue'))); },
+            'clientApplications' => function (ParseNode $n) use ($o) { $o->setClientApplications($n->getObjectValue(array(ConditionalAccessClientApplications::class, 'createFromDiscriminatorValue'))); },
+            'clientAppTypes' => function (ParseNode $n) use ($o) { $o->setClientAppTypes($n->getCollectionOfPrimitiveValues()); },
+            'devices' => function (ParseNode $n) use ($o) { $o->setDevices($n->getObjectValue(array(ConditionalAccessDevices::class, 'createFromDiscriminatorValue'))); },
+            'deviceStates' => function (ParseNode $n) use ($o) { $o->setDeviceStates($n->getObjectValue(array(ConditionalAccessDeviceStates::class, 'createFromDiscriminatorValue'))); },
+            'locations' => function (ParseNode $n) use ($o) { $o->setLocations($n->getObjectValue(array(ConditionalAccessLocations::class, 'createFromDiscriminatorValue'))); },
+            'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getObjectValue(array(ConditionalAccessPlatforms::class, 'createFromDiscriminatorValue'))); },
+            'servicePrincipalRiskLevels' => function (ParseNode $n) use ($o) { $o->setServicePrincipalRiskLevels($n->getCollectionOfPrimitiveValues()); },
+            'signInRiskLevels' => function (ParseNode $n) use ($o) { $o->setSignInRiskLevels($n->getCollectionOfPrimitiveValues()); },
+            'userRiskLevels' => function (ParseNode $n) use ($o) { $o->setUserRiskLevels($n->getCollectionOfPrimitiveValues()); },
+            'users' => function (ParseNode $n) use ($o) { $o->setUsers($n->getObjectValue(array(ConditionalAccessUsers::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
@@ -147,7 +172,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the servicePrincipalRiskLevels property value. Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue.
-     * @return array<RiskLevel>|null
+     * @return array<string>|null
     */
     public function getServicePrincipalRiskLevels(): ?array {
         return $this->servicePrincipalRiskLevels;
@@ -155,7 +180,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the signInRiskLevels property value. Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
-     * @return array<RiskLevel>|null
+     * @return array<string>|null
     */
     public function getSignInRiskLevels(): ?array {
         return $this->signInRiskLevels;
@@ -163,14 +188,14 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the userRiskLevels property value. User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
-     * @return array<RiskLevel>|null
+     * @return array<string>|null
     */
     public function getUserRiskLevels(): ?array {
         return $this->userRiskLevels;
     }
 
     /**
-     * Gets the users property value. Users, groups, and roles included in and excluded from the policy. Required.
+     * Gets the users property value. Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
      * @return ConditionalAccessUsers|null
     */
     public function getUsers(): ?ConditionalAccessUsers {
@@ -184,14 +209,14 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('applications', $this->applications);
         $writer->writeObjectValue('clientApplications', $this->clientApplications);
-        $writer->writeCollectionOfEnumValues('clientAppTypes', $this->clientAppTypes);
+        $writer->writeCollectionOfPrimitiveValues('clientAppTypes', $this->clientAppTypes);
         $writer->writeObjectValue('devices', $this->devices);
         $writer->writeObjectValue('deviceStates', $this->deviceStates);
         $writer->writeObjectValue('locations', $this->locations);
         $writer->writeObjectValue('platforms', $this->platforms);
-        $writer->writeCollectionOfEnumValues('servicePrincipalRiskLevels', $this->servicePrincipalRiskLevels);
-        $writer->writeCollectionOfEnumValues('signInRiskLevels', $this->signInRiskLevels);
-        $writer->writeCollectionOfEnumValues('userRiskLevels', $this->userRiskLevels);
+        $writer->writeCollectionOfPrimitiveValues('servicePrincipalRiskLevels', $this->servicePrincipalRiskLevels);
+        $writer->writeCollectionOfPrimitiveValues('signInRiskLevels', $this->signInRiskLevels);
+        $writer->writeCollectionOfPrimitiveValues('userRiskLevels', $this->userRiskLevels);
         $writer->writeObjectValue('users', $this->users);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -222,7 +247,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.
-     *  @param array<ConditionalAccessClientApp>|null $value Value to set for the clientAppTypes property.
+     *  @param array<string>|null $value Value to set for the clientAppTypes property.
     */
     public function setClientAppTypes(?array $value ): void {
         $this->clientAppTypes = $value;
@@ -262,7 +287,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the servicePrincipalRiskLevels property value. Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue.
-     *  @param array<RiskLevel>|null $value Value to set for the servicePrincipalRiskLevels property.
+     *  @param array<string>|null $value Value to set for the servicePrincipalRiskLevels property.
     */
     public function setServicePrincipalRiskLevels(?array $value ): void {
         $this->servicePrincipalRiskLevels = $value;
@@ -270,7 +295,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the signInRiskLevels property value. Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
-     *  @param array<RiskLevel>|null $value Value to set for the signInRiskLevels property.
+     *  @param array<string>|null $value Value to set for the signInRiskLevels property.
     */
     public function setSignInRiskLevels(?array $value ): void {
         $this->signInRiskLevels = $value;
@@ -278,14 +303,14 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the userRiskLevels property value. User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
-     *  @param array<RiskLevel>|null $value Value to set for the userRiskLevels property.
+     *  @param array<string>|null $value Value to set for the userRiskLevels property.
     */
     public function setUserRiskLevels(?array $value ): void {
         $this->userRiskLevels = $value;
     }
 
     /**
-     * Sets the users property value. Users, groups, and roles included in and excluded from the policy. Required.
+     * Sets the users property value. Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
      *  @param ConditionalAccessUsers|null $value Value to set for the users property.
     */
     public function setUsers(?ConditionalAccessUsers $value ): void {

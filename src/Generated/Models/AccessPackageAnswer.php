@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AccessPackageAnswer implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var AccessPackageQuestion|null $answeredQuestion The question the answer is for. Required and Read-only. */
+    /**
+     * @var AccessPackageQuestion|null $answeredQuestion The question the answer is for. Required and Read-only.
+    */
     private ?AccessPackageQuestion $answeredQuestion = null;
     
-    /** @var string|null $displayValue The display value of the answer. Required. */
+    /**
+     * @var string|null $displayValue The display value of the answer. Required.
+    */
     private ?string $displayValue = null;
     
     /**
@@ -30,7 +36,7 @@ class AccessPackageAnswer implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageAnswer
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageAnswer {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageAnswer {
         return new AccessPackageAnswer();
     }
 
@@ -63,9 +69,10 @@ class AccessPackageAnswer implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'answeredQuestion' => function (self $o, ParseNode $n) { $o->setAnsweredQuestion($n->getObjectValue(AccessPackageQuestion::class)); },
-            'displayValue' => function (self $o, ParseNode $n) { $o->setDisplayValue($n->getStringValue()); },
+            'answeredQuestion' => function (ParseNode $n) use ($o) { $o->setAnsweredQuestion($n->getObjectValue(array(AccessPackageQuestion::class, 'createFromDiscriminatorValue'))); },
+            'displayValue' => function (ParseNode $n) use ($o) { $o->setDisplayValue($n->getStringValue()); },
         ];
     }
 

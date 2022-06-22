@@ -10,16 +10,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class WindowsUpdateRolloutSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var DateTime|null $offerEndDateTimeInUTC The feature update's ending  of release date and time to be set, update, and displayed for a feature Update profile for example: 2020-06-09T10:00:00Z. */
+    /**
+     * @var DateTime|null $offerEndDateTimeInUTC The feature update's ending  of release date and time to be set, update, and displayed for a feature Update profile for example: 2020-06-09T10:00:00Z.
+    */
     private ?DateTime $offerEndDateTimeInUTC = null;
     
-    /** @var int|null $offerIntervalInDays The number of day(s) between each set of offers to be set, updated, and displayed for a feature update profile, for example: if OfferStartDateTimeInUTC is 2020-06-09T10:00:00Z, and OfferIntervalInDays is 1, then the next two sets of offers will be made consecutively on 2020-06-10T10:00:00Z (next day at the same specified time) and 2020-06-11T10:00:00Z (next next day at the same specified time) with 1 day in between each set of offers. */
+    /**
+     * @var int|null $offerIntervalInDays The number of day(s) between each set of offers to be set, updated, and displayed for a feature update profile, for example: if OfferStartDateTimeInUTC is 2020-06-09T10:00:00Z, and OfferIntervalInDays is 1, then the next two sets of offers will be made consecutively on 2020-06-10T10:00:00Z (next day at the same specified time) and 2020-06-11T10:00:00Z (next next day at the same specified time) with 1 day in between each set of offers.
+    */
     private ?int $offerIntervalInDays = null;
     
-    /** @var DateTime|null $offerStartDateTimeInUTC The feature update's starting date and time to be set, update, and displayed for a feature Update profile for example: 2020-06-09T10:00:00Z. */
+    /**
+     * @var DateTime|null $offerStartDateTimeInUTC The feature update's starting date and time to be set, update, and displayed for a feature Update profile for example: 2020-06-09T10:00:00Z.
+    */
     private ?DateTime $offerStartDateTimeInUTC = null;
     
     /**
@@ -34,7 +42,7 @@ class WindowsUpdateRolloutSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsUpdateRolloutSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsUpdateRolloutSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsUpdateRolloutSettings {
         return new WindowsUpdateRolloutSettings();
     }
 
@@ -51,10 +59,11 @@ class WindowsUpdateRolloutSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'offerEndDateTimeInUTC' => function (self $o, ParseNode $n) { $o->setOfferEndDateTimeInUTC($n->getDateTimeValue()); },
-            'offerIntervalInDays' => function (self $o, ParseNode $n) { $o->setOfferIntervalInDays($n->getIntegerValue()); },
-            'offerStartDateTimeInUTC' => function (self $o, ParseNode $n) { $o->setOfferStartDateTimeInUTC($n->getDateTimeValue()); },
+            'offerEndDateTimeInUTC' => function (ParseNode $n) use ($o) { $o->setOfferEndDateTimeInUTC($n->getDateTimeValue()); },
+            'offerIntervalInDays' => function (ParseNode $n) use ($o) { $o->setOfferIntervalInDays($n->getIntegerValue()); },
+            'offerStartDateTimeInUTC' => function (ParseNode $n) use ($o) { $o->setOfferStartDateTimeInUTC($n->getDateTimeValue()); },
         ];
     }
 

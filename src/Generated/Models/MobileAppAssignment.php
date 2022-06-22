@@ -6,21 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MobileAppAssignment extends Entity 
+class MobileAppAssignment extends Entity implements Parsable 
 {
-    /** @var InstallIntent|null $intent The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
+    /**
+     * @var InstallIntent|null $intent The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+    */
     private ?InstallIntent $intent = null;
     
-    /** @var MobileAppAssignmentSettings|null $settings The settings for target assignment defined by the admin. */
+    /**
+     * @var MobileAppAssignmentSettings|null $settings The settings for target assignment defined by the admin.
+    */
     private ?MobileAppAssignmentSettings $settings = null;
     
-    /** @var DeviceAndAppManagementAssignmentSource|null $source The resource type which is the source for the assignment. Possible values are: direct, policySets. */
+    /**
+     * @var DeviceAndAppManagementAssignmentSource|null $source The resource type which is the source for the assignment. Possible values are: direct, policySets.
+    */
     private ?DeviceAndAppManagementAssignmentSource $source = null;
     
-    /** @var string|null $sourceId The identifier of the source of the assignment. */
+    /**
+     * @var string|null $sourceId The identifier of the source of the assignment.
+    */
     private ?string $sourceId = null;
     
-    /** @var DeviceAndAppManagementAssignmentTarget|null $target The target group assignment defined by the admin. */
+    /**
+     * @var DeviceAndAppManagementAssignmentTarget|null $target The target group assignment defined by the admin.
+    */
     private ?DeviceAndAppManagementAssignmentTarget $target = null;
     
     /**
@@ -35,7 +45,7 @@ class MobileAppAssignment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MobileAppAssignment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppAssignment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppAssignment {
         return new MobileAppAssignment();
     }
 
@@ -44,12 +54,13 @@ class MobileAppAssignment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'intent' => function (self $o, ParseNode $n) { $o->setIntent($n->getEnumValue(InstallIntent::class)); },
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getObjectValue(MobileAppAssignmentSettings::class)); },
-            'source' => function (self $o, ParseNode $n) { $o->setSource($n->getEnumValue(DeviceAndAppManagementAssignmentSource::class)); },
-            'sourceId' => function (self $o, ParseNode $n) { $o->setSourceId($n->getStringValue()); },
-            'target' => function (self $o, ParseNode $n) { $o->setTarget($n->getObjectValue(DeviceAndAppManagementAssignmentTarget::class)); },
+            'intent' => function (ParseNode $n) use ($o) { $o->setIntent($n->getEnumValue(InstallIntent::class)); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(MobileAppAssignmentSettings::class, 'createFromDiscriminatorValue'))); },
+            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getEnumValue(DeviceAndAppManagementAssignmentSource::class)); },
+            'sourceId' => function (ParseNode $n) use ($o) { $o->setSourceId($n->getStringValue()); },
+            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

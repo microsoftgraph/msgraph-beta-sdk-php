@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CurrentLabel implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var ApplicationMode|null $applicationMode The applicationMode property */
+    /**
+     * @var ApplicationMode|null $applicationMode The applicationMode property
+    */
     private ?ApplicationMode $applicationMode = null;
     
-    /** @var string|null $id The id property */
+    /**
+     * @var string|null $id The id property
+    */
     private ?string $id = null;
     
     /**
@@ -30,7 +36,7 @@ class CurrentLabel implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CurrentLabel
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CurrentLabel {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CurrentLabel {
         return new CurrentLabel();
     }
 
@@ -55,9 +61,10 @@ class CurrentLabel implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'applicationMode' => function (self $o, ParseNode $n) { $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)); },
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
+            'applicationMode' => function (ParseNode $n) use ($o) { $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
         ];
     }
 

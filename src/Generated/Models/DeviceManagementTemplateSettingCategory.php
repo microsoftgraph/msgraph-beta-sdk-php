@@ -6,13 +6,15 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCategory 
+class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCategory implements Parsable 
 {
-    /** @var array<DeviceManagementSettingInstance>|null $recommendedSettings The settings this category contains */
+    /**
+     * @var array<DeviceManagementSettingInstance>|null $recommendedSettings The settings this category contains
+    */
     private ?array $recommendedSettings = null;
     
     /**
-     * Instantiates a new deviceManagementTemplateSettingCategory and sets the default values.
+     * Instantiates a new DeviceManagementTemplateSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -23,7 +25,7 @@ class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCat
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementTemplateSettingCategory
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementTemplateSettingCategory {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementTemplateSettingCategory {
         return new DeviceManagementTemplateSettingCategory();
     }
 
@@ -32,8 +34,9 @@ class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCat
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'recommendedSettings' => function (self $o, ParseNode $n) { $o->setRecommendedSettings($n->getCollectionOfObjectValues(DeviceManagementSettingInstance::class)); },
+            'recommendedSettings' => function (ParseNode $n) use ($o) { $o->setRecommendedSettings($n->getCollectionOfObjectValues(array(DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

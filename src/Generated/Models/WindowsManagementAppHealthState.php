@@ -7,21 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsManagementAppHealthState extends Entity 
+class WindowsManagementAppHealthState extends Entity implements Parsable 
 {
-    /** @var string|null $deviceName Name of the device on which Windows management app is installed. */
+    /**
+     * @var string|null $deviceName Name of the device on which Windows management app is installed.
+    */
     private ?string $deviceName = null;
     
-    /** @var string|null $deviceOSVersion Windows 10 OS version of the device on which Windows management app is installed. */
+    /**
+     * @var string|null $deviceOSVersion Windows 10 OS version of the device on which Windows management app is installed.
+    */
     private ?string $deviceOSVersion = null;
     
-    /** @var HealthState|null $healthState Windows management app health state. Possible values are: unknown, healthy, unhealthy. */
+    /**
+     * @var HealthState|null $healthState Windows management app health state. Possible values are: unknown, healthy, unhealthy.
+    */
     private ?HealthState $healthState = null;
     
-    /** @var string|null $installedVersion Windows management app installed version. */
+    /**
+     * @var string|null $installedVersion Windows management app installed version.
+    */
     private ?string $installedVersion = null;
     
-    /** @var DateTime|null $lastCheckInDateTime Windows management app last check-in time. */
+    /**
+     * @var DateTime|null $lastCheckInDateTime Windows management app last check-in time.
+    */
     private ?DateTime $lastCheckInDateTime = null;
     
     /**
@@ -36,7 +46,7 @@ class WindowsManagementAppHealthState extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsManagementAppHealthState
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsManagementAppHealthState {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsManagementAppHealthState {
         return new WindowsManagementAppHealthState();
     }
 
@@ -61,12 +71,13 @@ class WindowsManagementAppHealthState extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
-            'deviceOSVersion' => function (self $o, ParseNode $n) { $o->setDeviceOSVersion($n->getStringValue()); },
-            'healthState' => function (self $o, ParseNode $n) { $o->setHealthState($n->getEnumValue(HealthState::class)); },
-            'installedVersion' => function (self $o, ParseNode $n) { $o->setInstalledVersion($n->getStringValue()); },
-            'lastCheckInDateTime' => function (self $o, ParseNode $n) { $o->setLastCheckInDateTime($n->getDateTimeValue()); },
+            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
+            'deviceOSVersion' => function (ParseNode $n) use ($o) { $o->setDeviceOSVersion($n->getStringValue()); },
+            'healthState' => function (ParseNode $n) use ($o) { $o->setHealthState($n->getEnumValue(HealthState::class)); },
+            'installedVersion' => function (ParseNode $n) use ($o) { $o->setInstalledVersion($n->getStringValue()); },
+            'lastCheckInDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckInDateTime($n->getDateTimeValue()); },
         ]);
     }
 

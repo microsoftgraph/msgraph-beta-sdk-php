@@ -7,34 +7,50 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ExactMatchSessionBase extends ExactMatchJobBase 
+class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable 
 {
-    /** @var string|null $dataStoreId The dataStoreId property */
+    /**
+     * @var string|null $dataStoreId The dataStoreId property
+    */
     private ?string $dataStoreId = null;
     
-    /** @var DateTime|null $processingCompletionDateTime The processingCompletionDateTime property */
+    /**
+     * @var DateTime|null $processingCompletionDateTime The processingCompletionDateTime property
+    */
     private ?DateTime $processingCompletionDateTime = null;
     
-    /** @var int|null $remainingBlockCount The remainingBlockCount property */
+    /**
+     * @var int|null $remainingBlockCount The remainingBlockCount property
+    */
     private ?int $remainingBlockCount = null;
     
-    /** @var int|null $remainingJobCount The remainingJobCount property */
+    /**
+     * @var int|null $remainingJobCount The remainingJobCount property
+    */
     private ?int $remainingJobCount = null;
     
-    /** @var string|null $state The state property */
+    /**
+     * @var string|null $state The state property
+    */
     private ?string $state = null;
     
-    /** @var int|null $totalBlockCount The totalBlockCount property */
+    /**
+     * @var int|null $totalBlockCount The totalBlockCount property
+    */
     private ?int $totalBlockCount = null;
     
-    /** @var int|null $totalJobCount The totalJobCount property */
+    /**
+     * @var int|null $totalJobCount The totalJobCount property
+    */
     private ?int $totalJobCount = null;
     
-    /** @var DateTime|null $uploadCompletionDateTime The uploadCompletionDateTime property */
+    /**
+     * @var DateTime|null $uploadCompletionDateTime The uploadCompletionDateTime property
+    */
     private ?DateTime $uploadCompletionDateTime = null;
     
     /**
-     * Instantiates a new exactMatchSessionBase and sets the default values.
+     * Instantiates a new ExactMatchSessionBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,7 +61,14 @@ class ExactMatchSessionBase extends ExactMatchJobBase
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExactMatchSessionBase
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchSessionBase {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchSessionBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.exactMatchSession': return new ExactMatchSession();
+            }
+        }
         return new ExactMatchSessionBase();
     }
 
@@ -62,15 +85,16 @@ class ExactMatchSessionBase extends ExactMatchJobBase
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'dataStoreId' => function (self $o, ParseNode $n) { $o->setDataStoreId($n->getStringValue()); },
-            'processingCompletionDateTime' => function (self $o, ParseNode $n) { $o->setProcessingCompletionDateTime($n->getDateTimeValue()); },
-            'remainingBlockCount' => function (self $o, ParseNode $n) { $o->setRemainingBlockCount($n->getIntegerValue()); },
-            'remainingJobCount' => function (self $o, ParseNode $n) { $o->setRemainingJobCount($n->getIntegerValue()); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getStringValue()); },
-            'totalBlockCount' => function (self $o, ParseNode $n) { $o->setTotalBlockCount($n->getIntegerValue()); },
-            'totalJobCount' => function (self $o, ParseNode $n) { $o->setTotalJobCount($n->getIntegerValue()); },
-            'uploadCompletionDateTime' => function (self $o, ParseNode $n) { $o->setUploadCompletionDateTime($n->getDateTimeValue()); },
+            'dataStoreId' => function (ParseNode $n) use ($o) { $o->setDataStoreId($n->getStringValue()); },
+            'processingCompletionDateTime' => function (ParseNode $n) use ($o) { $o->setProcessingCompletionDateTime($n->getDateTimeValue()); },
+            'remainingBlockCount' => function (ParseNode $n) use ($o) { $o->setRemainingBlockCount($n->getIntegerValue()); },
+            'remainingJobCount' => function (ParseNode $n) use ($o) { $o->setRemainingJobCount($n->getIntegerValue()); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
+            'totalBlockCount' => function (ParseNode $n) use ($o) { $o->setTotalBlockCount($n->getIntegerValue()); },
+            'totalJobCount' => function (ParseNode $n) use ($o) { $o->setTotalJobCount($n->getIntegerValue()); },
+            'uploadCompletionDateTime' => function (ParseNode $n) use ($o) { $o->setUploadCompletionDateTime($n->getDateTimeValue()); },
         ]);
     }
 

@@ -6,27 +6,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamsTab extends Entity 
+class TeamsTab extends Entity implements Parsable 
 {
-    /** @var TeamsTabConfiguration|null $configuration Container for custom settings applied to a tab. The tab is considered configured only once this property is set. */
+    /**
+     * @var TeamsTabConfiguration|null $configuration Container for custom settings applied to a tab. The tab is considered configured only once this property is set.
+    */
     private ?TeamsTabConfiguration $configuration = null;
     
-    /** @var string|null $displayName Name of the tab. */
+    /**
+     * @var string|null $displayName Name of the tab.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $messageId The messageId property */
+    /**
+     * @var string|null $messageId The messageId property
+    */
     private ?string $messageId = null;
     
-    /** @var string|null $sortOrderIndex Index of the order used for sorting tabs. */
+    /**
+     * @var string|null $sortOrderIndex Index of the order used for sorting tabs.
+    */
     private ?string $sortOrderIndex = null;
     
-    /** @var TeamsApp|null $teamsApp The application that is linked to the tab. This cannot be changed after tab creation. */
+    /**
+     * @var TeamsApp|null $teamsApp The application that is linked to the tab.
+    */
     private ?TeamsApp $teamsApp = null;
     
-    /** @var string|null $teamsAppId The teamsAppId property */
+    /**
+     * @var string|null $teamsAppId The teamsAppId property
+    */
     private ?string $teamsAppId = null;
     
-    /** @var string|null $webUrl Deep link URL of the tab instance. Read only. */
+    /**
+     * @var string|null $webUrl Deep link URL of the tab instance. Read only.
+    */
     private ?string $webUrl = null;
     
     /**
@@ -41,7 +55,7 @@ class TeamsTab extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamsTab
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamsTab {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamsTab {
         return new TeamsTab();
     }
 
@@ -66,14 +80,15 @@ class TeamsTab extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configuration' => function (self $o, ParseNode $n) { $o->setConfiguration($n->getObjectValue(TeamsTabConfiguration::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'messageId' => function (self $o, ParseNode $n) { $o->setMessageId($n->getStringValue()); },
-            'sortOrderIndex' => function (self $o, ParseNode $n) { $o->setSortOrderIndex($n->getStringValue()); },
-            'teamsApp' => function (self $o, ParseNode $n) { $o->setTeamsApp($n->getObjectValue(TeamsApp::class)); },
-            'teamsAppId' => function (self $o, ParseNode $n) { $o->setTeamsAppId($n->getStringValue()); },
-            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
+            'configuration' => function (ParseNode $n) use ($o) { $o->setConfiguration($n->getObjectValue(array(TeamsTabConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'messageId' => function (ParseNode $n) use ($o) { $o->setMessageId($n->getStringValue()); },
+            'sortOrderIndex' => function (ParseNode $n) use ($o) { $o->setSortOrderIndex($n->getStringValue()); },
+            'teamsApp' => function (ParseNode $n) use ($o) { $o->setTeamsApp($n->getObjectValue(array(TeamsApp::class, 'createFromDiscriminatorValue'))); },
+            'teamsAppId' => function (ParseNode $n) use ($o) { $o->setTeamsAppId($n->getStringValue()); },
+            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 
@@ -94,7 +109,7 @@ class TeamsTab extends Entity
     }
 
     /**
-     * Gets the teamsApp property value. The application that is linked to the tab. This cannot be changed after tab creation.
+     * Gets the teamsApp property value. The application that is linked to the tab.
      * @return TeamsApp|null
     */
     public function getTeamsApp(): ?TeamsApp {
@@ -165,7 +180,7 @@ class TeamsTab extends Entity
     }
 
     /**
-     * Sets the teamsApp property value. The application that is linked to the tab. This cannot be changed after tab creation.
+     * Sets the teamsApp property value. The application that is linked to the tab.
      *  @param TeamsApp|null $value Value to set for the teamsApp property.
     */
     public function setTeamsApp(?TeamsApp $value ): void {

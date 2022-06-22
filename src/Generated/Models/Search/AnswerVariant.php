@@ -10,22 +10,34 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AnswerVariant implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $description Answer variation description shown on search results page. */
+    /**
+     * @var string|null $description Answer variation description shown on search results page.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Answer variation name displayed in search results. */
+    /**
+     * @var string|null $displayName Answer variation name displayed in search results.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $languageTag The languageTag property */
+    /**
+     * @var string|null $languageTag The languageTag property
+    */
     private ?string $languageTag = null;
     
-    /** @var DevicePlatformType|null $platform The platform property */
+    /**
+     * @var DevicePlatformType|null $platform The platform property
+    */
     private ?DevicePlatformType $platform = null;
     
-    /** @var string|null $webUrl Answer variation URL link. When users click this answer variation in search results, they will go to this URL. */
+    /**
+     * @var string|null $webUrl Answer variation URL link. When users click this answer variation in search results, they will go to this URL.
+    */
     private ?string $webUrl = null;
     
     /**
@@ -40,7 +52,7 @@ class AnswerVariant implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AnswerVariant
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AnswerVariant {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AnswerVariant {
         return new AnswerVariant();
     }
 
@@ -73,12 +85,13 @@ class AnswerVariant implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'languageTag' => function (self $o, ParseNode $n) { $o->setLanguageTag($n->getStringValue()); },
-            'platform' => function (self $o, ParseNode $n) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
-            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'languageTag' => function (ParseNode $n) use ($o) { $o->setLanguageTag($n->getStringValue()); },
+            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
+            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ];
     }
 

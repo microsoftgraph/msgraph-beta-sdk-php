@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamworkPeripheral extends Entity 
+class TeamworkPeripheral extends Entity implements Parsable 
 {
-    /** @var string|null $displayName Display name for the peripheral. */
+    /**
+     * @var string|null $displayName Display name for the peripheral.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $productId The product ID of the device. Each product from a vendor has its own ID. */
+    /**
+     * @var string|null $productId The product ID of the device. Each product from a vendor has its own ID.
+    */
     private ?string $productId = null;
     
-    /** @var string|null $vendorId The unique identifier for the vendor of the device. Each vendor has a unique ID. */
+    /**
+     * @var string|null $vendorId The unique identifier for the vendor of the device. Each vendor has a unique ID.
+    */
     private ?string $vendorId = null;
     
     /**
@@ -29,7 +35,7 @@ class TeamworkPeripheral extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkPeripheral
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkPeripheral {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkPeripheral {
         return new TeamworkPeripheral();
     }
 
@@ -46,10 +52,11 @@ class TeamworkPeripheral extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'productId' => function (self $o, ParseNode $n) { $o->setProductId($n->getStringValue()); },
-            'vendorId' => function (self $o, ParseNode $n) { $o->setVendorId($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'productId' => function (ParseNode $n) use ($o) { $o->setProductId($n->getStringValue()); },
+            'vendorId' => function (ParseNode $n) use ($o) { $o->setVendorId($n->getStringValue()); },
         ]);
     }
 

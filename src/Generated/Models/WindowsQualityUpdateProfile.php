@@ -7,33 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsQualityUpdateProfile extends Entity 
+class WindowsQualityUpdateProfile extends Entity implements Parsable 
 {
-    /** @var array<WindowsQualityUpdateProfileAssignment>|null $assignments The list of group assignments of the profile. */
+    /**
+     * @var array<WindowsQualityUpdateProfileAssignment>|null $assignments The list of group assignments of the profile.
+    */
     private ?array $assignments = null;
     
-    /** @var DateTime|null $createdDateTime The date time that the profile was created. */
+    /**
+     * @var DateTime|null $createdDateTime The date time that the profile was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $deployableContentDisplayName Friendly display name of the quality update profile deployable content */
+    /**
+     * @var string|null $deployableContentDisplayName Friendly display name of the quality update profile deployable content
+    */
     private ?string $deployableContentDisplayName = null;
     
-    /** @var string|null $description The description of the profile which is specified by the user. */
+    /**
+     * @var string|null $description The description of the profile which is specified by the user.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name for the profile. */
+    /**
+     * @var string|null $displayName The display name for the profile.
+    */
     private ?string $displayName = null;
     
-    /** @var ExpeditedWindowsQualityUpdateSettings|null $expeditedUpdateSettings Expedited update settings. */
+    /**
+     * @var ExpeditedWindowsQualityUpdateSettings|null $expeditedUpdateSettings Expedited update settings.
+    */
     private ?ExpeditedWindowsQualityUpdateSettings $expeditedUpdateSettings = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The date time that the profile was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The date time that the profile was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var string|null $releaseDateDisplayName Friendly release date to display for a Quality Update release */
+    /**
+     * @var string|null $releaseDateDisplayName Friendly release date to display for a Quality Update release
+    */
     private ?string $releaseDateDisplayName = null;
     
-    /** @var array<string>|null $roleScopeTagIds List of Scope Tags for this Quality Update entity. */
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Quality Update entity.
+    */
     private ?array $roleScopeTagIds = null;
     
     /**
@@ -48,7 +66,7 @@ class WindowsQualityUpdateProfile extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return WindowsQualityUpdateProfile
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): WindowsQualityUpdateProfile {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsQualityUpdateProfile {
         return new WindowsQualityUpdateProfile();
     }
 
@@ -105,16 +123,17 @@ class WindowsQualityUpdateProfile extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(WindowsQualityUpdateProfileAssignment::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deployableContentDisplayName' => function (self $o, ParseNode $n) { $o->setDeployableContentDisplayName($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'expeditedUpdateSettings' => function (self $o, ParseNode $n) { $o->setExpeditedUpdateSettings($n->getObjectValue(ExpeditedWindowsQualityUpdateSettings::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'releaseDateDisplayName' => function (self $o, ParseNode $n) { $o->setReleaseDateDisplayName($n->getStringValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(WindowsQualityUpdateProfileAssignment::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'deployableContentDisplayName' => function (ParseNode $n) use ($o) { $o->setDeployableContentDisplayName($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'expeditedUpdateSettings' => function (ParseNode $n) use ($o) { $o->setExpeditedUpdateSettings($n->getObjectValue(array(ExpeditedWindowsQualityUpdateSettings::class, 'createFromDiscriminatorValue'))); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'releaseDateDisplayName' => function (ParseNode $n) use ($o) { $o->setReleaseDateDisplayName($n->getStringValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

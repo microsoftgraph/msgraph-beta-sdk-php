@@ -6,21 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PrivilegedRoleSummary extends Entity 
+class PrivilegedRoleSummary extends Entity implements Parsable 
 {
-    /** @var int|null $elevatedCount The number of users that have the role assigned and the role is activated. */
+    /**
+     * @var int|null $elevatedCount The number of users that have the role assigned and the role is activated.
+    */
     private ?int $elevatedCount = null;
     
-    /** @var int|null $managedCount The number of users that have the role assigned but the role is deactivated. */
+    /**
+     * @var int|null $managedCount The number of users that have the role assigned but the role is deactivated.
+    */
     private ?int $managedCount = null;
     
-    /** @var bool|null $mfaEnabled true if the role activation requires MFA. false if the role activation doesn't require MFA. */
+    /**
+     * @var bool|null $mfaEnabled true if the role activation requires MFA. false if the role activation doesn't require MFA.
+    */
     private ?bool $mfaEnabled = null;
     
-    /** @var RoleSummaryStatus|null $status Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned. */
+    /**
+     * @var RoleSummaryStatus|null $status Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
+    */
     private ?RoleSummaryStatus $status = null;
     
-    /** @var int|null $usersCount The number of users that are assigned with the role. */
+    /**
+     * @var int|null $usersCount The number of users that are assigned with the role.
+    */
     private ?int $usersCount = null;
     
     /**
@@ -35,7 +45,7 @@ class PrivilegedRoleSummary extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PrivilegedRoleSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedRoleSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PrivilegedRoleSummary {
         return new PrivilegedRoleSummary();
     }
 
@@ -52,12 +62,13 @@ class PrivilegedRoleSummary extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'elevatedCount' => function (self $o, ParseNode $n) { $o->setElevatedCount($n->getIntegerValue()); },
-            'managedCount' => function (self $o, ParseNode $n) { $o->setManagedCount($n->getIntegerValue()); },
-            'mfaEnabled' => function (self $o, ParseNode $n) { $o->setMfaEnabled($n->getBooleanValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(RoleSummaryStatus::class)); },
-            'usersCount' => function (self $o, ParseNode $n) { $o->setUsersCount($n->getIntegerValue()); },
+            'elevatedCount' => function (ParseNode $n) use ($o) { $o->setElevatedCount($n->getIntegerValue()); },
+            'managedCount' => function (ParseNode $n) use ($o) { $o->setManagedCount($n->getIntegerValue()); },
+            'mfaEnabled' => function (ParseNode $n) use ($o) { $o->setMfaEnabled($n->getBooleanValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(RoleSummaryStatus::class)); },
+            'usersCount' => function (ParseNode $n) use ($o) { $o->setUsersCount($n->getIntegerValue()); },
         ]);
     }
 

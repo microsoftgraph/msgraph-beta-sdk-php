@@ -7,33 +7,51 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementReusablePolicySetting extends Entity 
+class DeviceManagementReusablePolicySetting extends Entity implements Parsable 
 {
-    /** @var DateTime|null $createdDateTime reusable setting creation date and time. This property is read-only. */
+    /**
+     * @var DateTime|null $createdDateTime reusable setting creation date and time. This property is read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description reusable setting description supplied by user. */
+    /**
+     * @var string|null $description reusable setting description supplied by user.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName reusable setting display name supplied by user. */
+    /**
+     * @var string|null $displayName reusable setting display name supplied by user.
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastModifiedDateTime date and time when reusable setting was last modified. This property is read-only. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime date and time when reusable setting was last modified. This property is read-only.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var array<DeviceManagementConfigurationPolicy>|null $referencingConfigurationPolicies configuration policies referencing the current reusable setting. This property is read-only. */
+    /**
+     * @var array<DeviceManagementConfigurationPolicy>|null $referencingConfigurationPolicies configuration policies referencing the current reusable setting. This property is read-only.
+    */
     private ?array $referencingConfigurationPolicies = null;
     
-    /** @var int|null $referencingConfigurationPolicyCount count of configuration policies referencing the current reusable setting. Valid values 0 to 2147483647. This property is read-only. */
+    /**
+     * @var int|null $referencingConfigurationPolicyCount count of configuration policies referencing the current reusable setting. Valid values 0 to 2147483647. This property is read-only.
+    */
     private ?int $referencingConfigurationPolicyCount = null;
     
-    /** @var string|null $settingDefinitionId setting definition id associated with this reusable setting. */
+    /**
+     * @var string|null $settingDefinitionId setting definition id associated with this reusable setting.
+    */
     private ?string $settingDefinitionId = null;
     
-    /** @var DeviceManagementConfigurationSettingInstance|null $settingInstance reusable setting configuration instance */
+    /**
+     * @var DeviceManagementConfigurationSettingInstance|null $settingInstance reusable setting configuration instance
+    */
     private ?DeviceManagementConfigurationSettingInstance $settingInstance = null;
     
-    /** @var int|null $version version number for reusable setting. Valid values 0 to 2147483647. This property is read-only. */
+    /**
+     * @var int|null $version version number for reusable setting. Valid values 0 to 2147483647. This property is read-only.
+    */
     private ?int $version = null;
     
     /**
@@ -48,7 +66,7 @@ class DeviceManagementReusablePolicySetting extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementReusablePolicySetting
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementReusablePolicySetting {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementReusablePolicySetting {
         return new DeviceManagementReusablePolicySetting();
     }
 
@@ -81,16 +99,17 @@ class DeviceManagementReusablePolicySetting extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'referencingConfigurationPolicies' => function (self $o, ParseNode $n) { $o->setReferencingConfigurationPolicies($n->getCollectionOfObjectValues(DeviceManagementConfigurationPolicy::class)); },
-            'referencingConfigurationPolicyCount' => function (self $o, ParseNode $n) { $o->setReferencingConfigurationPolicyCount($n->getIntegerValue()); },
-            'settingDefinitionId' => function (self $o, ParseNode $n) { $o->setSettingDefinitionId($n->getStringValue()); },
-            'settingInstance' => function (self $o, ParseNode $n) { $o->setSettingInstance($n->getObjectValue(DeviceManagementConfigurationSettingInstance::class)); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getIntegerValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'referencingConfigurationPolicies' => function (ParseNode $n) use ($o) { $o->setReferencingConfigurationPolicies($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationPolicy::class, 'createFromDiscriminatorValue'))); },
+            'referencingConfigurationPolicyCount' => function (ParseNode $n) use ($o) { $o->setReferencingConfigurationPolicyCount($n->getIntegerValue()); },
+            'settingDefinitionId' => function (ParseNode $n) use ($o) { $o->setSettingDefinitionId($n->getStringValue()); },
+            'settingInstance' => function (ParseNode $n) use ($o) { $o->setSettingInstance($n->getObjectValue(array(DeviceManagementConfigurationSettingInstance::class, 'createFromDiscriminatorValue'))); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
         ]);
     }
 

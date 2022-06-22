@@ -6,39 +6,61 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EscapedList extends BaseItem 
+class EscapedList extends BaseItem implements Parsable 
 {
-    /** @var array<ItemActivityOLD>|null $activities The recent activities that took place within this list. */
+    /**
+     * @var array<ItemActivityOLD>|null $activities The recent activities that took place within this list.
+    */
     private ?array $activities = null;
     
-    /** @var array<ColumnDefinition>|null $columns The collection of field definitions for this list. */
+    /**
+     * @var array<ColumnDefinition>|null $columns The collection of field definitions for this list.
+    */
     private ?array $columns = null;
     
-    /** @var array<ContentType>|null $contentTypes The collection of content types present in this list. */
+    /**
+     * @var array<ContentType>|null $contentTypes The collection of content types present in this list.
+    */
     private ?array $contentTypes = null;
     
-    /** @var string|null $displayName The displayable title of the list. */
+    /**
+     * @var string|null $displayName The displayable title of the list.
+    */
     private ?string $displayName = null;
     
-    /** @var Drive|null $drive Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem]. */
+    /**
+     * @var Drive|null $drive Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
+    */
     private ?Drive $drive = null;
     
-    /** @var ListInfo|null $EscapedList Provides additional details about the list. */
+    /**
+     * @var ListInfo|null $EscapedList Provides additional details about the list.
+    */
     private ?ListInfo $escapedList = null;
     
-    /** @var array<ListItem>|null $items All items contained in the list. */
+    /**
+     * @var array<ListItem>|null $items All items contained in the list.
+    */
     private ?array $items = null;
     
-    /** @var array<RichLongRunningOperation>|null $operations The collection of long running operations for the list. */
+    /**
+     * @var array<RichLongRunningOperation>|null $operations The collection of long running operations for the list.
+    */
     private ?array $operations = null;
     
-    /** @var SharepointIds|null $sharepointIds Returns identifiers useful for SharePoint REST compatibility. Read-only. */
+    /**
+     * @var SharepointIds|null $sharepointIds Returns identifiers useful for SharePoint REST compatibility. Read-only.
+    */
     private ?SharepointIds $sharepointIds = null;
     
-    /** @var array<Subscription>|null $subscriptions The set of subscriptions on the list. */
+    /**
+     * @var array<Subscription>|null $subscriptions The set of subscriptions on the list.
+    */
     private ?array $subscriptions = null;
     
-    /** @var SystemFacet|null $system If present, indicates that this is a system-managed list. Read-only. */
+    /**
+     * @var SystemFacet|null $system If present, indicates that this is a system-managed list. Read-only.
+    */
     private ?SystemFacet $system = null;
     
     /**
@@ -53,7 +75,7 @@ class EscapedList extends BaseItem
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EscapedList
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): EscapedList {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): EscapedList {
         return new EscapedList();
     }
 
@@ -102,18 +124,19 @@ class EscapedList extends BaseItem
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activities' => function (self $o, ParseNode $n) { $o->setActivities($n->getCollectionOfObjectValues(ItemActivityOLD::class)); },
-            'columns' => function (self $o, ParseNode $n) { $o->setColumns($n->getCollectionOfObjectValues(ColumnDefinition::class)); },
-            'contentTypes' => function (self $o, ParseNode $n) { $o->setContentTypes($n->getCollectionOfObjectValues(ContentType::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'drive' => function (self $o, ParseNode $n) { $o->setDrive($n->getObjectValue(Drive::class)); },
-            'list' => function (self $o, ParseNode $n) { $o->setEscapedList($n->getObjectValue(ListInfo::class)); },
-            'items' => function (self $o, ParseNode $n) { $o->setItems($n->getCollectionOfObjectValues(ListItem::class)); },
-            'operations' => function (self $o, ParseNode $n) { $o->setOperations($n->getCollectionOfObjectValues(RichLongRunningOperation::class)); },
-            'sharepointIds' => function (self $o, ParseNode $n) { $o->setSharepointIds($n->getObjectValue(SharepointIds::class)); },
-            'subscriptions' => function (self $o, ParseNode $n) { $o->setSubscriptions($n->getCollectionOfObjectValues(Subscription::class)); },
-            'system' => function (self $o, ParseNode $n) { $o->setSystem($n->getObjectValue(SystemFacet::class)); },
+            'activities' => function (ParseNode $n) use ($o) { $o->setActivities($n->getCollectionOfObjectValues(array(ItemActivityOLD::class, 'createFromDiscriminatorValue'))); },
+            'columns' => function (ParseNode $n) use ($o) { $o->setColumns($n->getCollectionOfObjectValues(array(ColumnDefinition::class, 'createFromDiscriminatorValue'))); },
+            'contentTypes' => function (ParseNode $n) use ($o) { $o->setContentTypes($n->getCollectionOfObjectValues(array(ContentType::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'drive' => function (ParseNode $n) use ($o) { $o->setDrive($n->getObjectValue(array(Drive::class, 'createFromDiscriminatorValue'))); },
+            'list' => function (ParseNode $n) use ($o) { $o->setList($n->getObjectValue(array(ListInfo::class, 'createFromDiscriminatorValue'))); },
+            'items' => function (ParseNode $n) use ($o) { $o->setItems($n->getCollectionOfObjectValues(array(ListItem::class, 'createFromDiscriminatorValue'))); },
+            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(RichLongRunningOperation::class, 'createFromDiscriminatorValue'))); },
+            'sharepointIds' => function (ParseNode $n) use ($o) { $o->setSharepointIds($n->getObjectValue(array(SharepointIds::class, 'createFromDiscriminatorValue'))); },
+            'subscriptions' => function (ParseNode $n) use ($o) { $o->setSubscriptions($n->getCollectionOfObjectValues(array(Subscription::class, 'createFromDiscriminatorValue'))); },
+            'system' => function (ParseNode $n) use ($o) { $o->setSystem($n->getObjectValue(array(SystemFacet::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

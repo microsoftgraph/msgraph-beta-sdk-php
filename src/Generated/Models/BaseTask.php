@@ -7,54 +7,86 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class BaseTask extends Entity 
+class BaseTask extends Entity implements Parsable 
 {
-    /** @var DateTime|null $bodyLastModifiedDateTime The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
+    /**
+     * @var DateTime|null $bodyLastModifiedDateTime The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+    */
     private ?DateTime $bodyLastModifiedDateTime = null;
     
-    /** @var array<ChecklistItem>|null $checklistItems A collection of checklistItems linked to a task. */
+    /**
+     * @var array<ChecklistItem>|null $checklistItems A collection of smaller subtasks linked to the more complex parent task.
+    */
     private ?array $checklistItems = null;
     
-    /** @var DateTime|null $completedDateTime The date when the task was finished. */
+    /**
+     * @var DateTime|null $completedDateTime The date when the task was finished.
+    */
     private ?DateTime $completedDateTime = null;
     
-    /** @var DateTime|null $createdDateTime The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $displayName The name of the task. */
+    /**
+     * @var string|null $displayName The name of the task.
+    */
     private ?string $displayName = null;
     
-    /** @var DateTimeTimeZone|null $dueDateTime The date in the specified time zone that the task is to be finished. */
+    /**
+     * @var DateTimeTimeZone|null $dueDateTime The date in the specified time zone that the task is to be finished.
+    */
     private ?DateTimeTimeZone $dueDateTime = null;
     
-    /** @var array<Extension>|null $extensions The collection of open extensions defined for the task . */
+    /**
+     * @var array<Extension>|null $extensions The collection of open extensions defined for the task .
+    */
     private ?array $extensions = null;
     
-    /** @var Importance|null $importance The importance of the task. Possible values are: low, normal, high.  The possible values are: low, normal, high. */
+    /**
+     * @var Importance|null $importance The importance of the task. Possible values are: low, normal, high.  The possible values are: low, normal, high.
+    */
     private ?Importance $importance = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var array<LinkedResource_v2>|null $linkedResources A collection of resources linked to the task. */
+    /**
+     * @var array<LinkedResource_v2>|null $linkedResources A collection of resources linked to the task.
+    */
     private ?array $linkedResources = null;
     
-    /** @var BaseTaskList|null $parentList The list which contains the task. */
+    /**
+     * @var BaseTaskList|null $parentList The list which contains the task.
+    */
     private ?BaseTaskList $parentList = null;
     
-    /** @var PatternedRecurrence|null $recurrence The recurrence pattern for the task. */
+    /**
+     * @var PatternedRecurrence|null $recurrence The recurrence pattern for the task.
+    */
     private ?PatternedRecurrence $recurrence = null;
     
-    /** @var DateTimeTimeZone|null $startDateTime The date in the specified time zone when the task is to begin. */
+    /**
+     * @var DateTimeTimeZone|null $startDateTime The date in the specified time zone when the task is to begin.
+    */
     private ?DateTimeTimeZone $startDateTime = null;
     
-    /** @var TaskStatus_v2|null $status Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed,unknownFutureValue. */
+    /**
+     * @var TaskStatus_v2|null $status Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed,unknownFutureValue.
+    */
     private ?TaskStatus_v2 $status = null;
     
-    /** @var string|null $textBody The task body in text format that typically contains information about the task. */
+    /**
+     * @var string|null $textBody The task body in text format that typically contains information about the task.
+    */
     private ?string $textBody = null;
     
-    /** @var TaskViewpoint|null $viewpoint The viewpoint property */
+    /**
+     * @var TaskViewpoint|null $viewpoint The viewpoint property
+    */
     private ?TaskViewpoint $viewpoint = null;
     
     /**
@@ -69,7 +101,14 @@ class BaseTask extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return BaseTask
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): BaseTask {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): BaseTask {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.task': return new Task();
+            }
+        }
         return new BaseTask();
     }
 
@@ -82,7 +121,7 @@ class BaseTask extends Entity
     }
 
     /**
-     * Gets the checklistItems property value. A collection of checklistItems linked to a task.
+     * Gets the checklistItems property value. A collection of smaller subtasks linked to the more complex parent task.
      * @return array<ChecklistItem>|null
     */
     public function getChecklistItems(): ?array {
@@ -134,23 +173,24 @@ class BaseTask extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bodyLastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setBodyLastModifiedDateTime($n->getDateTimeValue()); },
-            'checklistItems' => function (self $o, ParseNode $n) { $o->setChecklistItems($n->getCollectionOfObjectValues(ChecklistItem::class)); },
-            'completedDateTime' => function (self $o, ParseNode $n) { $o->setCompletedDateTime($n->getDateTimeValue()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'dueDateTime' => function (self $o, ParseNode $n) { $o->setDueDateTime($n->getObjectValue(DateTimeTimeZone::class)); },
-            'extensions' => function (self $o, ParseNode $n) { $o->setExtensions($n->getCollectionOfObjectValues(Extension::class)); },
-            'importance' => function (self $o, ParseNode $n) { $o->setImportance($n->getEnumValue(Importance::class)); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'linkedResources' => function (self $o, ParseNode $n) { $o->setLinkedResources($n->getCollectionOfObjectValues(LinkedResource_v2::class)); },
-            'parentList' => function (self $o, ParseNode $n) { $o->setParentList($n->getObjectValue(BaseTaskList::class)); },
-            'recurrence' => function (self $o, ParseNode $n) { $o->setRecurrence($n->getObjectValue(PatternedRecurrence::class)); },
-            'startDateTime' => function (self $o, ParseNode $n) { $o->setStartDateTime($n->getObjectValue(DateTimeTimeZone::class)); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(TaskStatus_v2::class)); },
-            'textBody' => function (self $o, ParseNode $n) { $o->setTextBody($n->getStringValue()); },
-            'viewpoint' => function (self $o, ParseNode $n) { $o->setViewpoint($n->getObjectValue(TaskViewpoint::class)); },
+            'bodyLastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setBodyLastModifiedDateTime($n->getDateTimeValue()); },
+            'checklistItems' => function (ParseNode $n) use ($o) { $o->setChecklistItems($n->getCollectionOfObjectValues(array(ChecklistItem::class, 'createFromDiscriminatorValue'))); },
+            'completedDateTime' => function (ParseNode $n) use ($o) { $o->setCompletedDateTime($n->getDateTimeValue()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'dueDateTime' => function (ParseNode $n) use ($o) { $o->setDueDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
+            'extensions' => function (ParseNode $n) use ($o) { $o->setExtensions($n->getCollectionOfObjectValues(array(Extension::class, 'createFromDiscriminatorValue'))); },
+            'importance' => function (ParseNode $n) use ($o) { $o->setImportance($n->getEnumValue(Importance::class)); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'linkedResources' => function (ParseNode $n) use ($o) { $o->setLinkedResources($n->getCollectionOfObjectValues(array(LinkedResource_v2::class, 'createFromDiscriminatorValue'))); },
+            'parentList' => function (ParseNode $n) use ($o) { $o->setParentList($n->getObjectValue(array(BaseTaskList::class, 'createFromDiscriminatorValue'))); },
+            'recurrence' => function (ParseNode $n) use ($o) { $o->setRecurrence($n->getObjectValue(array(PatternedRecurrence::class, 'createFromDiscriminatorValue'))); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(TaskStatus_v2::class)); },
+            'textBody' => function (ParseNode $n) use ($o) { $o->setTextBody($n->getStringValue()); },
+            'viewpoint' => function (ParseNode $n) use ($o) { $o->setViewpoint($n->getObjectValue(array(TaskViewpoint::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -259,7 +299,7 @@ class BaseTask extends Entity
     }
 
     /**
-     * Sets the checklistItems property value. A collection of checklistItems linked to a task.
+     * Sets the checklistItems property value. A collection of smaller subtasks linked to the more complex parent task.
      *  @param array<ChecklistItem>|null $value Value to set for the checklistItems property.
     */
     public function setChecklistItems(?array $value ): void {

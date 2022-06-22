@@ -8,87 +8,141 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementAutopilotEvent extends Entity 
+class DeviceManagementAutopilotEvent extends Entity implements Parsable 
 {
-    /** @var DateInterval|null $accountSetupDuration Time spent in user ESP. */
+    /**
+     * @var DateInterval|null $accountSetupDuration Time spent in user ESP.
+    */
     private ?DateInterval $accountSetupDuration = null;
     
-    /** @var WindowsAutopilotDeploymentState|null $accountSetupStatus Deployment status for the enrollment status page account setup phase. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled. */
+    /**
+     * @var WindowsAutopilotDeploymentState|null $accountSetupStatus Deployment status for the enrollment status page account setup phase. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+    */
     private ?WindowsAutopilotDeploymentState $accountSetupStatus = null;
     
-    /** @var DateInterval|null $deploymentDuration Autopilot deployment duration including enrollment. */
+    /**
+     * @var DateInterval|null $deploymentDuration Autopilot deployment duration including enrollment.
+    */
     private ?DateInterval $deploymentDuration = null;
     
-    /** @var DateTime|null $deploymentEndDateTime Deployment end time. */
+    /**
+     * @var DateTime|null $deploymentEndDateTime Deployment end time.
+    */
     private ?DateTime $deploymentEndDateTime = null;
     
-    /** @var DateTime|null $deploymentStartDateTime Deployment start time. */
+    /**
+     * @var DateTime|null $deploymentStartDateTime Deployment start time.
+    */
     private ?DateTime $deploymentStartDateTime = null;
     
-    /** @var WindowsAutopilotDeploymentState|null $deploymentState Deployment state like Success, Failure, InProgress, SuccessWithTimeout. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled. */
+    /**
+     * @var WindowsAutopilotDeploymentState|null $deploymentState Deployment state like Success, Failure, InProgress, SuccessWithTimeout. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+    */
     private ?WindowsAutopilotDeploymentState $deploymentState = null;
     
-    /** @var DateInterval|null $deploymentTotalDuration Total deployment duration from enrollment to Desktop screen. */
+    /**
+     * @var DateInterval|null $deploymentTotalDuration Total deployment duration from enrollment to Desktop screen.
+    */
     private ?DateInterval $deploymentTotalDuration = null;
     
-    /** @var string|null $deviceId Device id associated with the object */
+    /**
+     * @var string|null $deviceId Device id associated with the object
+    */
     private ?string $deviceId = null;
     
-    /** @var DateInterval|null $devicePreparationDuration Time spent in device enrollment. */
+    /**
+     * @var DateInterval|null $devicePreparationDuration Time spent in device enrollment.
+    */
     private ?DateInterval $devicePreparationDuration = null;
     
-    /** @var DateTime|null $deviceRegisteredDateTime Device registration date. */
+    /**
+     * @var DateTime|null $deviceRegisteredDateTime Device registration date.
+    */
     private ?DateTime $deviceRegisteredDateTime = null;
     
-    /** @var string|null $deviceSerialNumber Device serial number. */
+    /**
+     * @var string|null $deviceSerialNumber Device serial number.
+    */
     private ?string $deviceSerialNumber = null;
     
-    /** @var DateInterval|null $deviceSetupDuration Time spent in device ESP. */
+    /**
+     * @var DateInterval|null $deviceSetupDuration Time spent in device ESP.
+    */
     private ?DateInterval $deviceSetupDuration = null;
     
-    /** @var WindowsAutopilotDeploymentState|null $deviceSetupStatus Deployment status for the enrollment status page device setup phase. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled. */
+    /**
+     * @var WindowsAutopilotDeploymentState|null $deviceSetupStatus Deployment status for the enrollment status page device setup phase. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+    */
     private ?WindowsAutopilotDeploymentState $deviceSetupStatus = null;
     
-    /** @var string|null $enrollmentFailureDetails Enrollment failure details. */
+    /**
+     * @var string|null $enrollmentFailureDetails Enrollment failure details.
+    */
     private ?string $enrollmentFailureDetails = null;
     
-    /** @var DateTime|null $enrollmentStartDateTime Device enrollment start date. */
+    /**
+     * @var DateTime|null $enrollmentStartDateTime Device enrollment start date.
+    */
     private ?DateTime $enrollmentStartDateTime = null;
     
-    /** @var EnrollmentState|null $enrollmentState Enrollment state like Enrolled, Failed. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked. */
+    /**
+     * @var EnrollmentState|null $enrollmentState Enrollment state like Enrolled, Failed. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+    */
     private ?EnrollmentState $enrollmentState = null;
     
-    /** @var WindowsAutopilotEnrollmentType|null $enrollmentType Enrollment type. Possible values are: unknown, azureADJoinedWithAutopilotProfile, offlineDomainJoined, azureADJoinedUsingDeviceAuthWithAutopilotProfile, azureADJoinedUsingDeviceAuthWithoutAutopilotProfile, azureADJoinedWithOfflineAutopilotProfile, azureADJoinedWithWhiteGlove, offlineDomainJoinedWithWhiteGlove, offlineDomainJoinedWithOfflineAutopilotProfile. */
+    /**
+     * @var WindowsAutopilotEnrollmentType|null $enrollmentType Enrollment type. Possible values are: unknown, azureADJoinedWithAutopilotProfile, offlineDomainJoined, azureADJoinedUsingDeviceAuthWithAutopilotProfile, azureADJoinedUsingDeviceAuthWithoutAutopilotProfile, azureADJoinedWithOfflineAutopilotProfile, azureADJoinedWithWhiteGlove, offlineDomainJoinedWithWhiteGlove, offlineDomainJoinedWithOfflineAutopilotProfile.
+    */
     private ?WindowsAutopilotEnrollmentType $enrollmentType = null;
     
-    /** @var DateTime|null $eventDateTime Time when the event occurred . */
+    /**
+     * @var DateTime|null $eventDateTime Time when the event occurred .
+    */
     private ?DateTime $eventDateTime = null;
     
-    /** @var string|null $managedDeviceName Managed device name. */
+    /**
+     * @var string|null $managedDeviceName Managed device name.
+    */
     private ?string $managedDeviceName = null;
     
-    /** @var string|null $osVersion Device operating system version. */
+    /**
+     * @var string|null $osVersion Device operating system version.
+    */
     private ?string $osVersion = null;
     
-    /** @var array<DeviceManagementAutopilotPolicyStatusDetail>|null $policyStatusDetails Policy and application status details for this device. */
+    /**
+     * @var array<DeviceManagementAutopilotPolicyStatusDetail>|null $policyStatusDetails Policy and application status details for this device.
+    */
     private ?array $policyStatusDetails = null;
     
-    /** @var int|null $targetedAppCount Count of applications targeted. */
+    /**
+     * @var int|null $targetedAppCount Count of applications targeted.
+    */
     private ?int $targetedAppCount = null;
     
-    /** @var int|null $targetedPolicyCount Count of policies targeted. */
+    /**
+     * @var int|null $targetedPolicyCount Count of policies targeted.
+    */
     private ?int $targetedPolicyCount = null;
     
-    /** @var string|null $userPrincipalName User principal name used to enroll the device. */
+    /**
+     * @var string|null $userPrincipalName User principal name used to enroll the device.
+    */
     private ?string $userPrincipalName = null;
     
-    /** @var string|null $windows10EnrollmentCompletionPageConfigurationDisplayName Enrollment Status Page profile name */
+    /**
+     * @var string|null $windows10EnrollmentCompletionPageConfigurationDisplayName Enrollment Status Page profile name
+    */
     private ?string $windows10EnrollmentCompletionPageConfigurationDisplayName = null;
     
-    /** @var string|null $windows10EnrollmentCompletionPageConfigurationId Enrollment Status Page profile ID */
+    /**
+     * @var string|null $windows10EnrollmentCompletionPageConfigurationId Enrollment Status Page profile ID
+    */
     private ?string $windows10EnrollmentCompletionPageConfigurationId = null;
     
-    /** @var string|null $windowsAutopilotDeploymentProfileDisplayName Autopilot profile name. */
+    /**
+     * @var string|null $windowsAutopilotDeploymentProfileDisplayName Autopilot profile name.
+    */
     private ?string $windowsAutopilotDeploymentProfileDisplayName = null;
     
     /**
@@ -103,7 +157,7 @@ class DeviceManagementAutopilotEvent extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementAutopilotEvent
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementAutopilotEvent {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementAutopilotEvent {
         return new DeviceManagementAutopilotEvent();
     }
 
@@ -256,34 +310,35 @@ class DeviceManagementAutopilotEvent extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accountSetupDuration' => function (self $o, ParseNode $n) { $o->setAccountSetupDuration($n->getDateIntervalValue()); },
-            'accountSetupStatus' => function (self $o, ParseNode $n) { $o->setAccountSetupStatus($n->getEnumValue(WindowsAutopilotDeploymentState::class)); },
-            'deploymentDuration' => function (self $o, ParseNode $n) { $o->setDeploymentDuration($n->getDateIntervalValue()); },
-            'deploymentEndDateTime' => function (self $o, ParseNode $n) { $o->setDeploymentEndDateTime($n->getDateTimeValue()); },
-            'deploymentStartDateTime' => function (self $o, ParseNode $n) { $o->setDeploymentStartDateTime($n->getDateTimeValue()); },
-            'deploymentState' => function (self $o, ParseNode $n) { $o->setDeploymentState($n->getEnumValue(WindowsAutopilotDeploymentState::class)); },
-            'deploymentTotalDuration' => function (self $o, ParseNode $n) { $o->setDeploymentTotalDuration($n->getDateIntervalValue()); },
-            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
-            'devicePreparationDuration' => function (self $o, ParseNode $n) { $o->setDevicePreparationDuration($n->getDateIntervalValue()); },
-            'deviceRegisteredDateTime' => function (self $o, ParseNode $n) { $o->setDeviceRegisteredDateTime($n->getDateTimeValue()); },
-            'deviceSerialNumber' => function (self $o, ParseNode $n) { $o->setDeviceSerialNumber($n->getStringValue()); },
-            'deviceSetupDuration' => function (self $o, ParseNode $n) { $o->setDeviceSetupDuration($n->getDateIntervalValue()); },
-            'deviceSetupStatus' => function (self $o, ParseNode $n) { $o->setDeviceSetupStatus($n->getEnumValue(WindowsAutopilotDeploymentState::class)); },
-            'enrollmentFailureDetails' => function (self $o, ParseNode $n) { $o->setEnrollmentFailureDetails($n->getStringValue()); },
-            'enrollmentStartDateTime' => function (self $o, ParseNode $n) { $o->setEnrollmentStartDateTime($n->getDateTimeValue()); },
-            'enrollmentState' => function (self $o, ParseNode $n) { $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)); },
-            'enrollmentType' => function (self $o, ParseNode $n) { $o->setEnrollmentType($n->getEnumValue(WindowsAutopilotEnrollmentType::class)); },
-            'eventDateTime' => function (self $o, ParseNode $n) { $o->setEventDateTime($n->getDateTimeValue()); },
-            'managedDeviceName' => function (self $o, ParseNode $n) { $o->setManagedDeviceName($n->getStringValue()); },
-            'osVersion' => function (self $o, ParseNode $n) { $o->setOsVersion($n->getStringValue()); },
-            'policyStatusDetails' => function (self $o, ParseNode $n) { $o->setPolicyStatusDetails($n->getCollectionOfObjectValues(DeviceManagementAutopilotPolicyStatusDetail::class)); },
-            'targetedAppCount' => function (self $o, ParseNode $n) { $o->setTargetedAppCount($n->getIntegerValue()); },
-            'targetedPolicyCount' => function (self $o, ParseNode $n) { $o->setTargetedPolicyCount($n->getIntegerValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
-            'windows10EnrollmentCompletionPageConfigurationDisplayName' => function (self $o, ParseNode $n) { $o->setWindows10EnrollmentCompletionPageConfigurationDisplayName($n->getStringValue()); },
-            'windows10EnrollmentCompletionPageConfigurationId' => function (self $o, ParseNode $n) { $o->setWindows10EnrollmentCompletionPageConfigurationId($n->getStringValue()); },
-            'windowsAutopilotDeploymentProfileDisplayName' => function (self $o, ParseNode $n) { $o->setWindowsAutopilotDeploymentProfileDisplayName($n->getStringValue()); },
+            'accountSetupDuration' => function (ParseNode $n) use ($o) { $o->setAccountSetupDuration($n->getDateIntervalValue()); },
+            'accountSetupStatus' => function (ParseNode $n) use ($o) { $o->setAccountSetupStatus($n->getEnumValue(WindowsAutopilotDeploymentState::class)); },
+            'deploymentDuration' => function (ParseNode $n) use ($o) { $o->setDeploymentDuration($n->getDateIntervalValue()); },
+            'deploymentEndDateTime' => function (ParseNode $n) use ($o) { $o->setDeploymentEndDateTime($n->getDateTimeValue()); },
+            'deploymentStartDateTime' => function (ParseNode $n) use ($o) { $o->setDeploymentStartDateTime($n->getDateTimeValue()); },
+            'deploymentState' => function (ParseNode $n) use ($o) { $o->setDeploymentState($n->getEnumValue(WindowsAutopilotDeploymentState::class)); },
+            'deploymentTotalDuration' => function (ParseNode $n) use ($o) { $o->setDeploymentTotalDuration($n->getDateIntervalValue()); },
+            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
+            'devicePreparationDuration' => function (ParseNode $n) use ($o) { $o->setDevicePreparationDuration($n->getDateIntervalValue()); },
+            'deviceRegisteredDateTime' => function (ParseNode $n) use ($o) { $o->setDeviceRegisteredDateTime($n->getDateTimeValue()); },
+            'deviceSerialNumber' => function (ParseNode $n) use ($o) { $o->setDeviceSerialNumber($n->getStringValue()); },
+            'deviceSetupDuration' => function (ParseNode $n) use ($o) { $o->setDeviceSetupDuration($n->getDateIntervalValue()); },
+            'deviceSetupStatus' => function (ParseNode $n) use ($o) { $o->setDeviceSetupStatus($n->getEnumValue(WindowsAutopilotDeploymentState::class)); },
+            'enrollmentFailureDetails' => function (ParseNode $n) use ($o) { $o->setEnrollmentFailureDetails($n->getStringValue()); },
+            'enrollmentStartDateTime' => function (ParseNode $n) use ($o) { $o->setEnrollmentStartDateTime($n->getDateTimeValue()); },
+            'enrollmentState' => function (ParseNode $n) use ($o) { $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)); },
+            'enrollmentType' => function (ParseNode $n) use ($o) { $o->setEnrollmentType($n->getEnumValue(WindowsAutopilotEnrollmentType::class)); },
+            'eventDateTime' => function (ParseNode $n) use ($o) { $o->setEventDateTime($n->getDateTimeValue()); },
+            'managedDeviceName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceName($n->getStringValue()); },
+            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
+            'policyStatusDetails' => function (ParseNode $n) use ($o) { $o->setPolicyStatusDetails($n->getCollectionOfObjectValues(array(DeviceManagementAutopilotPolicyStatusDetail::class, 'createFromDiscriminatorValue'))); },
+            'targetedAppCount' => function (ParseNode $n) use ($o) { $o->setTargetedAppCount($n->getIntegerValue()); },
+            'targetedPolicyCount' => function (ParseNode $n) use ($o) { $o->setTargetedPolicyCount($n->getIntegerValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'windows10EnrollmentCompletionPageConfigurationDisplayName' => function (ParseNode $n) use ($o) { $o->setWindows10EnrollmentCompletionPageConfigurationDisplayName($n->getStringValue()); },
+            'windows10EnrollmentCompletionPageConfigurationId' => function (ParseNode $n) use ($o) { $o->setWindows10EnrollmentCompletionPageConfigurationId($n->getStringValue()); },
+            'windowsAutopilotDeploymentProfileDisplayName' => function (ParseNode $n) use ($o) { $o->setWindowsAutopilotDeploymentProfileDisplayName($n->getStringValue()); },
         ]);
     }
 

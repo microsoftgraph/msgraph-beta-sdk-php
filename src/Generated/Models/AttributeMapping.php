@@ -9,28 +9,44 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AttributeMapping implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $defaultValue Default value to be used in case the source property was evaluated to null. Optional. */
+    /**
+     * @var string|null $defaultValue Default value to be used in case the source property was evaluated to null. Optional.
+    */
     private ?string $defaultValue = null;
     
-    /** @var bool|null $exportMissingReferences For internal use only. */
+    /**
+     * @var bool|null $exportMissingReferences For internal use only.
+    */
     private ?bool $exportMissingReferences = null;
     
-    /** @var AttributeFlowBehavior|null $flowBehavior Defines when this attribute should be exported to the target directory. Possible values are: FlowWhenChanged and FlowAlways. Default is FlowWhenChanged. */
+    /**
+     * @var AttributeFlowBehavior|null $flowBehavior Defines when this attribute should be exported to the target directory. Possible values are: FlowWhenChanged and FlowAlways. Default is FlowWhenChanged.
+    */
     private ?AttributeFlowBehavior $flowBehavior = null;
     
-    /** @var AttributeFlowType|null $flowType Defines when this attribute should be updated in the target directory. Possible values are: Always (default), ObjectAddOnly (only when new object is created), MultiValueAddOnly (only when the change is adding new values to a multi-valued attribute). */
+    /**
+     * @var AttributeFlowType|null $flowType Defines when this attribute should be updated in the target directory. Possible values are: Always (default), ObjectAddOnly (only when new object is created), MultiValueAddOnly (only when the change is adding new values to a multi-valued attribute).
+    */
     private ?AttributeFlowType $flowType = null;
     
-    /** @var int|null $matchingPriority If higher than 0, this attribute will be used to perform an initial match of the objects between source and target directories. The synchronization engine will try to find the matching object using attribute with lowest value of matching priority first. If not found, the attribute with the next matching priority will be used, and so on a until match is found or no more matching attributes are left. Only attributes that are expected to have unique values, such as email, should be used as matching attributes. */
+    /**
+     * @var int|null $matchingPriority If higher than 0, this attribute will be used to perform an initial match of the objects between source and target directories. The synchronization engine will try to find the matching object using attribute with lowest value of matching priority first. If not found, the attribute with the next matching priority will be used, and so on a until match is found or no more matching attributes are left. Only attributes that are expected to have unique values, such as email, should be used as matching attributes.
+    */
     private ?int $matchingPriority = null;
     
-    /** @var AttributeMappingSource|null $source Defines how a value should be extracted (or transformed) from the source object. */
+    /**
+     * @var AttributeMappingSource|null $source Defines how a value should be extracted (or transformed) from the source object.
+    */
     private ?AttributeMappingSource $source = null;
     
-    /** @var string|null $targetAttributeName Name of the attribute on the target object. */
+    /**
+     * @var string|null $targetAttributeName Name of the attribute on the target object.
+    */
     private ?string $targetAttributeName = null;
     
     /**
@@ -45,7 +61,7 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AttributeMapping
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AttributeMapping {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AttributeMapping {
         return new AttributeMapping();
     }
 
@@ -78,14 +94,15 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'defaultValue' => function (self $o, ParseNode $n) { $o->setDefaultValue($n->getStringValue()); },
-            'exportMissingReferences' => function (self $o, ParseNode $n) { $o->setExportMissingReferences($n->getBooleanValue()); },
-            'flowBehavior' => function (self $o, ParseNode $n) { $o->setFlowBehavior($n->getEnumValue(AttributeFlowBehavior::class)); },
-            'flowType' => function (self $o, ParseNode $n) { $o->setFlowType($n->getEnumValue(AttributeFlowType::class)); },
-            'matchingPriority' => function (self $o, ParseNode $n) { $o->setMatchingPriority($n->getIntegerValue()); },
-            'source' => function (self $o, ParseNode $n) { $o->setSource($n->getObjectValue(AttributeMappingSource::class)); },
-            'targetAttributeName' => function (self $o, ParseNode $n) { $o->setTargetAttributeName($n->getStringValue()); },
+            'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getStringValue()); },
+            'exportMissingReferences' => function (ParseNode $n) use ($o) { $o->setExportMissingReferences($n->getBooleanValue()); },
+            'flowBehavior' => function (ParseNode $n) use ($o) { $o->setFlowBehavior($n->getEnumValue(AttributeFlowBehavior::class)); },
+            'flowType' => function (ParseNode $n) use ($o) { $o->setFlowType($n->getEnumValue(AttributeFlowType::class)); },
+            'matchingPriority' => function (ParseNode $n) use ($o) { $o->setMatchingPriority($n->getIntegerValue()); },
+            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getObjectValue(array(AttributeMappingSource::class, 'createFromDiscriminatorValue'))); },
+            'targetAttributeName' => function (ParseNode $n) use ($o) { $o->setTargetAttributeName($n->getStringValue()); },
         ];
     }
 

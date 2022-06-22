@@ -7,24 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DirectoryDefinition extends Entity 
+class DirectoryDefinition extends Entity implements Parsable 
 {
-    /** @var DirectoryDefinitionDiscoverabilities|null $discoverabilities Read only value indicating what type of discovery the app supports. Possible values are: AttributeDataTypes, AttributeNames, AttributeReadOnly, None, ReferenceAttributes, UnknownFutureValue. */
+    /**
+     * @var DirectoryDefinitionDiscoverabilities|null $discoverabilities Read only value indicating what type of discovery the app supports. Possible values are: AttributeDataTypes, AttributeNames, AttributeReadOnly, None, ReferenceAttributes, UnknownFutureValue.
+    */
     private ?DirectoryDefinitionDiscoverabilities $discoverabilities = null;
     
-    /** @var DateTime|null $discoveryDateTime Represents the discovery date and time using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
+    /**
+     * @var DateTime|null $discoveryDateTime Represents the discovery date and time using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    */
     private ?DateTime $discoveryDateTime = null;
     
-    /** @var string|null $name Name of the directory. Must be unique within the synchronization schema. Not nullable. */
+    /**
+     * @var string|null $name Name of the directory. Must be unique within the synchronization schema. Not nullable.
+    */
     private ?string $name = null;
     
-    /** @var array<ObjectDefinition>|null $objects Collection of objects supported by the directory. */
+    /**
+     * @var array<ObjectDefinition>|null $objects Collection of objects supported by the directory.
+    */
     private ?array $objects = null;
     
-    /** @var bool|null $readOnly The readOnly property */
+    /**
+     * @var bool|null $readOnly The readOnly property
+    */
     private ?bool $readOnly = null;
     
-    /** @var string|null $version Read only value that indicates version discovered. null if discovery has not yet occurred. */
+    /**
+     * @var string|null $version Read only value that indicates version discovered. null if discovery has not yet occurred.
+    */
     private ?string $version = null;
     
     /**
@@ -39,7 +51,7 @@ class DirectoryDefinition extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DirectoryDefinition
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DirectoryDefinition {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DirectoryDefinition {
         return new DirectoryDefinition();
     }
 
@@ -64,13 +76,14 @@ class DirectoryDefinition extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'discoverabilities' => function (self $o, ParseNode $n) { $o->setDiscoverabilities($n->getEnumValue(DirectoryDefinitionDiscoverabilities::class)); },
-            'discoveryDateTime' => function (self $o, ParseNode $n) { $o->setDiscoveryDateTime($n->getDateTimeValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'objects' => function (self $o, ParseNode $n) { $o->setObjects($n->getCollectionOfObjectValues(ObjectDefinition::class)); },
-            'readOnly' => function (self $o, ParseNode $n) { $o->setReadOnly($n->getBooleanValue()); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getStringValue()); },
+            'discoverabilities' => function (ParseNode $n) use ($o) { $o->setDiscoverabilities($n->getEnumValue(DirectoryDefinitionDiscoverabilities::class)); },
+            'discoveryDateTime' => function (ParseNode $n) use ($o) { $o->setDiscoveryDateTime($n->getDateTimeValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'objects' => function (ParseNode $n) use ($o) { $o->setObjects($n->getCollectionOfObjectValues(array(ObjectDefinition::class, 'createFromDiscriminatorValue'))); },
+            'readOnly' => function (ParseNode $n) use ($o) { $o->setReadOnly($n->getBooleanValue()); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
         ]);
     }
 

@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TimeClockSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var GeoCoordinates|null $approvedLocation The aprroved location of the timeClock. */
+    /**
+     * @var GeoCoordinates|null $approvedLocation The aprroved location of the timeClock.
+    */
     private ?GeoCoordinates $approvedLocation = null;
     
     /**
@@ -27,7 +31,7 @@ class TimeClockSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TimeClockSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TimeClockSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeClockSettings {
         return new TimeClockSettings();
     }
 
@@ -52,8 +56,9 @@ class TimeClockSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'approvedLocation' => function (self $o, ParseNode $n) { $o->setApprovedLocation($n->getObjectValue(GeoCoordinates::class)); },
+            'approvedLocation' => function (ParseNode $n) use ($o) { $o->setApprovedLocation($n->getObjectValue(array(GeoCoordinates::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

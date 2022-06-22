@@ -7,18 +7,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CertificateConnectorDetails extends Entity 
+class CertificateConnectorDetails extends Entity implements Parsable 
 {
-    /** @var string|null $connectorName Connector name (set during enrollment). */
+    /**
+     * @var string|null $connectorName Connector name (set during enrollment).
+    */
     private ?string $connectorName = null;
     
-    /** @var DateTime|null $enrollmentDateTime Date/time when this connector was enrolled. */
+    /**
+     * @var DateTime|null $enrollmentDateTime Date/time when this connector was enrolled.
+    */
     private ?DateTime $enrollmentDateTime = null;
     
-    /** @var DateTime|null $lastCheckinDateTime Date/time when this connector last connected to the service. */
+    /**
+     * @var DateTime|null $lastCheckinDateTime Date/time when this connector last connected to the service.
+    */
     private ?DateTime $lastCheckinDateTime = null;
     
-    /** @var string|null $machineName Name of the machine hosting this connector service. */
+    /**
+     * @var string|null $machineName Name of the machine hosting this connector service.
+    */
     private ?string $machineName = null;
     
     /**
@@ -33,7 +41,7 @@ class CertificateConnectorDetails extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CertificateConnectorDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CertificateConnectorDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CertificateConnectorDetails {
         return new CertificateConnectorDetails();
     }
 
@@ -58,11 +66,12 @@ class CertificateConnectorDetails extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'connectorName' => function (self $o, ParseNode $n) { $o->setConnectorName($n->getStringValue()); },
-            'enrollmentDateTime' => function (self $o, ParseNode $n) { $o->setEnrollmentDateTime($n->getDateTimeValue()); },
-            'lastCheckinDateTime' => function (self $o, ParseNode $n) { $o->setLastCheckinDateTime($n->getDateTimeValue()); },
-            'machineName' => function (self $o, ParseNode $n) { $o->setMachineName($n->getStringValue()); },
+            'connectorName' => function (ParseNode $n) use ($o) { $o->setConnectorName($n->getStringValue()); },
+            'enrollmentDateTime' => function (ParseNode $n) use ($o) { $o->setEnrollmentDateTime($n->getDateTimeValue()); },
+            'lastCheckinDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckinDateTime($n->getDateTimeValue()); },
+            'machineName' => function (ParseNode $n) use ($o) { $o->setMachineName($n->getStringValue()); },
         ]);
     }
 

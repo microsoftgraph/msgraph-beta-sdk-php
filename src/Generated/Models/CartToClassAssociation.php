@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CartToClassAssociation extends Entity 
+class CartToClassAssociation extends Entity implements Parsable 
 {
-    /** @var array<string>|null $classroomIds Identifiers of classrooms to be associated with device carts. */
+    /**
+     * @var array<string>|null $classroomIds Identifiers of classrooms to be associated with device carts.
+    */
     private ?array $classroomIds = null;
     
-    /** @var DateTime|null $createdDateTime DateTime the object was created. */
+    /**
+     * @var DateTime|null $createdDateTime DateTime the object was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $description Admin provided description of the CartToClassAssociation. */
+    /**
+     * @var string|null $description Admin provided description of the CartToClassAssociation.
+    */
     private ?string $description = null;
     
-    /** @var array<string>|null $deviceCartIds Identifiers of device carts to be associated with classes. */
+    /**
+     * @var array<string>|null $deviceCartIds Identifiers of device carts to be associated with classes.
+    */
     private ?array $deviceCartIds = null;
     
-    /** @var string|null $displayName Admin provided name of the device configuration. */
+    /**
+     * @var string|null $displayName Admin provided name of the device configuration.
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastModifiedDateTime DateTime the object was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime DateTime the object was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var int|null $version Version of the CartToClassAssociation. */
+    /**
+     * @var int|null $version Version of the CartToClassAssociation.
+    */
     private ?int $version = null;
     
     /**
@@ -42,7 +56,7 @@ class CartToClassAssociation extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CartToClassAssociation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CartToClassAssociation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CartToClassAssociation {
         return new CartToClassAssociation();
     }
 
@@ -91,14 +105,15 @@ class CartToClassAssociation extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classroomIds' => function (self $o, ParseNode $n) { $o->setClassroomIds($n->getCollectionOfPrimitiveValues()); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'deviceCartIds' => function (self $o, ParseNode $n) { $o->setDeviceCartIds($n->getCollectionOfPrimitiveValues()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'version' => function (self $o, ParseNode $n) { $o->setVersion($n->getIntegerValue()); },
+            'classroomIds' => function (ParseNode $n) use ($o) { $o->setClassroomIds($n->getCollectionOfPrimitiveValues()); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'deviceCartIds' => function (ParseNode $n) use ($o) { $o->setDeviceCartIds($n->getCollectionOfPrimitiveValues()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
         ]);
     }
 

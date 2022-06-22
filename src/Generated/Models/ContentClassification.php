@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ContentClassification implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $confidence The confidence property */
+    /**
+     * @var int|null $confidence The confidence property
+    */
     private ?int $confidence = null;
     
-    /** @var array<MatchLocation>|null $matches The matches property */
+    /**
+     * @var array<MatchLocation>|null $matches The matches property
+    */
     private ?array $matches = null;
     
-    /** @var string|null $sensitiveTypeId The sensitiveTypeId property */
+    /**
+     * @var string|null $sensitiveTypeId The sensitiveTypeId property
+    */
     private ?string $sensitiveTypeId = null;
     
-    /** @var int|null $uniqueCount The uniqueCount property */
+    /**
+     * @var int|null $uniqueCount The uniqueCount property
+    */
     private ?int $uniqueCount = null;
     
     /**
@@ -36,7 +46,7 @@ class ContentClassification implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ContentClassification
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ContentClassification {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ContentClassification {
         return new ContentClassification();
     }
 
@@ -61,11 +71,12 @@ class ContentClassification implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'confidence' => function (self $o, ParseNode $n) { $o->setConfidence($n->getIntegerValue()); },
-            'matches' => function (self $o, ParseNode $n) { $o->setMatches($n->getCollectionOfObjectValues(MatchLocation::class)); },
-            'sensitiveTypeId' => function (self $o, ParseNode $n) { $o->setSensitiveTypeId($n->getStringValue()); },
-            'uniqueCount' => function (self $o, ParseNode $n) { $o->setUniqueCount($n->getIntegerValue()); },
+            'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
+            'matches' => function (ParseNode $n) use ($o) { $o->setMatches($n->getCollectionOfObjectValues(array(MatchLocation::class, 'createFromDiscriminatorValue'))); },
+            'sensitiveTypeId' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeId($n->getStringValue()); },
+            'uniqueCount' => function (ParseNode $n) use ($o) { $o->setUniqueCount($n->getIntegerValue()); },
         ];
     }
 

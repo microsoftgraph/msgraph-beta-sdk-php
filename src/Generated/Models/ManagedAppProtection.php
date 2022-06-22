@@ -7,145 +7,235 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagedAppProtection extends ManagedAppPolicy 
+class ManagedAppProtection extends ManagedAppPolicy implements Parsable 
 {
-    /** @var array<ManagedAppDataIngestionLocation>|null $allowedDataIngestionLocations Data storage locations where a user may store managed data. */
+    /**
+     * @var array<string>|null $allowedDataIngestionLocations Data storage locations where a user may store managed data.
+    */
     private ?array $allowedDataIngestionLocations = null;
     
-    /** @var array<ManagedAppDataStorageLocation>|null $allowedDataStorageLocations Data storage locations where a user may store managed data. */
+    /**
+     * @var array<string>|null $allowedDataStorageLocations Data storage locations where a user may store managed data.
+    */
     private ?array $allowedDataStorageLocations = null;
     
-    /** @var ManagedAppDataTransferLevel|null $allowedInboundDataTransferSources Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
+    /**
+     * @var ManagedAppDataTransferLevel|null $allowedInboundDataTransferSources Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none.
+    */
     private ?ManagedAppDataTransferLevel $allowedInboundDataTransferSources = null;
     
-    /** @var int|null $allowedOutboundClipboardSharingExceptionLength Specify the number of characters that may be cut or copied from Org data and accounts to any application. This setting overrides the AllowedOutboundClipboardSharingLevel restriction. Default value of '0' means no exception is allowed. */
+    /**
+     * @var int|null $allowedOutboundClipboardSharingExceptionLength Specify the number of characters that may be cut or copied from Org data and accounts to any application. This setting overrides the AllowedOutboundClipboardSharingLevel restriction. Default value of '0' means no exception is allowed.
+    */
     private ?int $allowedOutboundClipboardSharingExceptionLength = null;
     
-    /** @var ManagedAppClipboardSharingLevel|null $allowedOutboundClipboardSharingLevel The level to which the clipboard may be shared between apps on the managed device. Possible values are: allApps, managedAppsWithPasteIn, managedApps, blocked. */
+    /**
+     * @var ManagedAppClipboardSharingLevel|null $allowedOutboundClipboardSharingLevel The level to which the clipboard may be shared between apps on the managed device. Possible values are: allApps, managedAppsWithPasteIn, managedApps, blocked.
+    */
     private ?ManagedAppClipboardSharingLevel $allowedOutboundClipboardSharingLevel = null;
     
-    /** @var ManagedAppDataTransferLevel|null $allowedOutboundDataTransferDestinations Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
+    /**
+     * @var ManagedAppDataTransferLevel|null $allowedOutboundDataTransferDestinations Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none.
+    */
     private ?ManagedAppDataTransferLevel $allowedOutboundDataTransferDestinations = null;
     
-    /** @var ManagedAppRemediationAction|null $appActionIfDeviceComplianceRequired Defines a managed app behavior, either block or wipe, when the device is either rooted or jailbroken, if DeviceComplianceRequired is set to true. Possible values are: block, wipe, warn. */
+    /**
+     * @var ManagedAppRemediationAction|null $appActionIfDeviceComplianceRequired Defines a managed app behavior, either block or wipe, when the device is either rooted or jailbroken, if DeviceComplianceRequired is set to true. Possible values are: block, wipe, warn.
+    */
     private ?ManagedAppRemediationAction $appActionIfDeviceComplianceRequired = null;
     
-    /** @var ManagedAppRemediationAction|null $appActionIfMaximumPinRetriesExceeded Defines a managed app behavior, either block or wipe, based on maximum number of incorrect pin retry attempts. Possible values are: block, wipe, warn. */
+    /**
+     * @var ManagedAppRemediationAction|null $appActionIfMaximumPinRetriesExceeded Defines a managed app behavior, either block or wipe, based on maximum number of incorrect pin retry attempts. Possible values are: block, wipe, warn.
+    */
     private ?ManagedAppRemediationAction $appActionIfMaximumPinRetriesExceeded = null;
     
-    /** @var ManagedAppRemediationAction|null $appActionIfUnableToAuthenticateUser If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Possible values are: block, wipe, warn. */
+    /**
+     * @var ManagedAppRemediationAction|null $appActionIfUnableToAuthenticateUser If set, it will specify what action to take in the case where the user is unable to checkin because their authentication token is invalid. This happens when the user is deleted or disabled in AAD. Possible values are: block, wipe, warn.
+    */
     private ?ManagedAppRemediationAction $appActionIfUnableToAuthenticateUser = null;
     
-    /** @var bool|null $blockDataIngestionIntoOrganizationDocuments Indicates whether a user can bring data into org documents. */
+    /**
+     * @var bool|null $blockDataIngestionIntoOrganizationDocuments Indicates whether a user can bring data into org documents.
+    */
     private ?bool $blockDataIngestionIntoOrganizationDocuments = null;
     
-    /** @var bool|null $contactSyncBlocked Indicates whether contacts can be synced to the user's device. */
+    /**
+     * @var bool|null $contactSyncBlocked Indicates whether contacts can be synced to the user's device.
+    */
     private ?bool $contactSyncBlocked = null;
     
-    /** @var bool|null $dataBackupBlocked Indicates whether the backup of a managed app's data is blocked. */
+    /**
+     * @var bool|null $dataBackupBlocked Indicates whether the backup of a managed app's data is blocked.
+    */
     private ?bool $dataBackupBlocked = null;
     
-    /** @var bool|null $deviceComplianceRequired Indicates whether device compliance is required. */
+    /**
+     * @var bool|null $deviceComplianceRequired Indicates whether device compliance is required.
+    */
     private ?bool $deviceComplianceRequired = null;
     
-    /** @var ManagedAppPhoneNumberRedirectLevel|null $dialerRestrictionLevel The classes of dialer apps that are allowed to click-to-open a phone number. Possible values are: allApps, managedApps, customApp, blocked. */
+    /**
+     * @var ManagedAppPhoneNumberRedirectLevel|null $dialerRestrictionLevel The classes of dialer apps that are allowed to click-to-open a phone number. Possible values are: allApps, managedApps, customApp, blocked.
+    */
     private ?ManagedAppPhoneNumberRedirectLevel $dialerRestrictionLevel = null;
     
-    /** @var bool|null $disableAppPinIfDevicePinIsSet Indicates whether use of the app pin is required if the device pin is set. */
+    /**
+     * @var bool|null $disableAppPinIfDevicePinIsSet Indicates whether use of the app pin is required if the device pin is set.
+    */
     private ?bool $disableAppPinIfDevicePinIsSet = null;
     
-    /** @var bool|null $fingerprintBlocked Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True. */
+    /**
+     * @var bool|null $fingerprintBlocked Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True.
+    */
     private ?bool $fingerprintBlocked = null;
     
-    /** @var DateInterval|null $gracePeriodToBlockAppsDuringOffClockHours A grace period before blocking app access during off clock hours. */
+    /**
+     * @var DateInterval|null $gracePeriodToBlockAppsDuringOffClockHours A grace period before blocking app access during off clock hours.
+    */
     private ?DateInterval $gracePeriodToBlockAppsDuringOffClockHours = null;
     
-    /** @var ManagedBrowserType|null $managedBrowser Indicates in which managed browser(s) that internet links should be opened. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. Possible values are: notConfigured, microsoftEdge. */
+    /**
+     * @var ManagedBrowserType|null $managedBrowser Indicates in which managed browser(s) that internet links should be opened. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. Possible values are: notConfigured, microsoftEdge.
+    */
     private ?ManagedBrowserType $managedBrowser = null;
     
-    /** @var bool|null $managedBrowserToOpenLinksRequired Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android) */
+    /**
+     * @var bool|null $managedBrowserToOpenLinksRequired Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)
+    */
     private ?bool $managedBrowserToOpenLinksRequired = null;
     
-    /** @var ManagedAppDeviceThreatLevel|null $maximumAllowedDeviceThreatLevel Maximum allowed device threat level, as reported by the MTD app. Possible values are: notConfigured, secured, low, medium, high. */
+    /**
+     * @var ManagedAppDeviceThreatLevel|null $maximumAllowedDeviceThreatLevel Maximum allowed device threat level, as reported by the MTD app. Possible values are: notConfigured, secured, low, medium, high.
+    */
     private ?ManagedAppDeviceThreatLevel $maximumAllowedDeviceThreatLevel = null;
     
-    /** @var int|null $maximumPinRetries Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped. */
+    /**
+     * @var int|null $maximumPinRetries Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped.
+    */
     private ?int $maximumPinRetries = null;
     
-    /** @var string|null $maximumRequiredOsVersion Versions bigger than the specified version will block the managed app from accessing company data. */
+    /**
+     * @var string|null $maximumRequiredOsVersion Versions bigger than the specified version will block the managed app from accessing company data.
+    */
     private ?string $maximumRequiredOsVersion = null;
     
-    /** @var string|null $maximumWarningOsVersion Versions bigger than the specified version will block the managed app from accessing company data. */
+    /**
+     * @var string|null $maximumWarningOsVersion Versions bigger than the specified version will block the managed app from accessing company data.
+    */
     private ?string $maximumWarningOsVersion = null;
     
-    /** @var string|null $maximumWipeOsVersion Versions bigger than the specified version will block the managed app from accessing company data. */
+    /**
+     * @var string|null $maximumWipeOsVersion Versions bigger than the specified version will block the managed app from accessing company data.
+    */
     private ?string $maximumWipeOsVersion = null;
     
-    /** @var int|null $minimumPinLength Minimum pin length required for an app-level pin if PinRequired is set to True */
+    /**
+     * @var int|null $minimumPinLength Minimum pin length required for an app-level pin if PinRequired is set to True
+    */
     private ?int $minimumPinLength = null;
     
-    /** @var string|null $minimumRequiredAppVersion Versions less than the specified version will block the managed app from accessing company data. */
+    /**
+     * @var string|null $minimumRequiredAppVersion Versions less than the specified version will block the managed app from accessing company data.
+    */
     private ?string $minimumRequiredAppVersion = null;
     
-    /** @var string|null $minimumRequiredOsVersion Versions less than the specified version will block the managed app from accessing company data. */
+    /**
+     * @var string|null $minimumRequiredOsVersion Versions less than the specified version will block the managed app from accessing company data.
+    */
     private ?string $minimumRequiredOsVersion = null;
     
-    /** @var string|null $minimumWarningAppVersion Versions less than the specified version will result in warning message on the managed app. */
+    /**
+     * @var string|null $minimumWarningAppVersion Versions less than the specified version will result in warning message on the managed app.
+    */
     private ?string $minimumWarningAppVersion = null;
     
-    /** @var string|null $minimumWarningOsVersion Versions less than the specified version will result in warning message on the managed app from accessing company data. */
+    /**
+     * @var string|null $minimumWarningOsVersion Versions less than the specified version will result in warning message on the managed app from accessing company data.
+    */
     private ?string $minimumWarningOsVersion = null;
     
-    /** @var string|null $minimumWipeAppVersion Versions less than or equal to the specified version will wipe the managed app and the associated company data. */
+    /**
+     * @var string|null $minimumWipeAppVersion Versions less than or equal to the specified version will wipe the managed app and the associated company data.
+    */
     private ?string $minimumWipeAppVersion = null;
     
-    /** @var string|null $minimumWipeOsVersion Versions less than or equal to the specified version will wipe the managed app and the associated company data. */
+    /**
+     * @var string|null $minimumWipeOsVersion Versions less than or equal to the specified version will wipe the managed app and the associated company data.
+    */
     private ?string $minimumWipeOsVersion = null;
     
-    /** @var ManagedAppRemediationAction|null $mobileThreatDefenseRemediationAction Determines what action to take if the mobile threat defense threat threshold isn't met. Warn isn't a supported value for this property. Possible values are: block, wipe, warn. */
+    /**
+     * @var ManagedAppRemediationAction|null $mobileThreatDefenseRemediationAction Determines what action to take if the mobile threat defense threat threshold isn't met. Warn isn't a supported value for this property. Possible values are: block, wipe, warn.
+    */
     private ?ManagedAppRemediationAction $mobileThreatDefenseRemediationAction = null;
     
-    /** @var ManagedAppNotificationRestriction|null $notificationRestriction Specify app notification restriction. Possible values are: allow, blockOrganizationalData, block. */
+    /**
+     * @var ManagedAppNotificationRestriction|null $notificationRestriction Specify app notification restriction. Possible values are: allow, blockOrganizationalData, block.
+    */
     private ?ManagedAppNotificationRestriction $notificationRestriction = null;
     
-    /** @var bool|null $organizationalCredentialsRequired Indicates whether organizational credentials are required for app use. */
+    /**
+     * @var bool|null $organizationalCredentialsRequired Indicates whether organizational credentials are required for app use.
+    */
     private ?bool $organizationalCredentialsRequired = null;
     
-    /** @var DateInterval|null $periodBeforePinReset TimePeriod before the all-level pin must be reset if PinRequired is set to True. */
+    /**
+     * @var DateInterval|null $periodBeforePinReset TimePeriod before the all-level pin must be reset if PinRequired is set to True.
+    */
     private ?DateInterval $periodBeforePinReset = null;
     
-    /** @var DateInterval|null $periodOfflineBeforeAccessCheck The period after which access is checked when the device is not connected to the internet. */
+    /**
+     * @var DateInterval|null $periodOfflineBeforeAccessCheck The period after which access is checked when the device is not connected to the internet.
+    */
     private ?DateInterval $periodOfflineBeforeAccessCheck = null;
     
-    /** @var DateInterval|null $periodOfflineBeforeWipeIsEnforced The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped. */
+    /**
+     * @var DateInterval|null $periodOfflineBeforeWipeIsEnforced The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.
+    */
     private ?DateInterval $periodOfflineBeforeWipeIsEnforced = null;
     
-    /** @var DateInterval|null $periodOnlineBeforeAccessCheck The period after which access is checked when the device is connected to the internet. */
+    /**
+     * @var DateInterval|null $periodOnlineBeforeAccessCheck The period after which access is checked when the device is connected to the internet.
+    */
     private ?DateInterval $periodOnlineBeforeAccessCheck = null;
     
-    /** @var ManagedAppPinCharacterSet|null $pinCharacterSet Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol. */
+    /**
+     * @var ManagedAppPinCharacterSet|null $pinCharacterSet Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol.
+    */
     private ?ManagedAppPinCharacterSet $pinCharacterSet = null;
     
-    /** @var bool|null $pinRequired Indicates whether an app-level pin is required. */
+    /**
+     * @var bool|null $pinRequired Indicates whether an app-level pin is required.
+    */
     private ?bool $pinRequired = null;
     
-    /** @var DateInterval|null $pinRequiredInsteadOfBiometricTimeout Timeout in minutes for an app pin instead of non biometrics passcode */
+    /**
+     * @var DateInterval|null $pinRequiredInsteadOfBiometricTimeout Timeout in minutes for an app pin instead of non biometrics passcode
+    */
     private ?DateInterval $pinRequiredInsteadOfBiometricTimeout = null;
     
-    /** @var int|null $previousPinBlockCount Requires a pin to be unique from the number specified in this property. */
+    /**
+     * @var int|null $previousPinBlockCount Requires a pin to be unique from the number specified in this property.
+    */
     private ?int $previousPinBlockCount = null;
     
-    /** @var bool|null $printBlocked Indicates whether printing is allowed from managed apps. */
+    /**
+     * @var bool|null $printBlocked Indicates whether printing is allowed from managed apps.
+    */
     private ?bool $printBlocked = null;
     
-    /** @var bool|null $saveAsBlocked Indicates whether users may use the 'Save As' menu item to save a copy of protected files. */
+    /**
+     * @var bool|null $saveAsBlocked Indicates whether users may use the 'Save As' menu item to save a copy of protected files.
+    */
     private ?bool $saveAsBlocked = null;
     
-    /** @var bool|null $simplePinBlocked Indicates whether simplePin is blocked. */
+    /**
+     * @var bool|null $simplePinBlocked Indicates whether simplePin is blocked.
+    */
     private ?bool $simplePinBlocked = null;
     
     /**
-     * Instantiates a new managedAppProtection and sets the default values.
+     * Instantiates a new ManagedAppProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -156,13 +246,21 @@ class ManagedAppProtection extends ManagedAppPolicy
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagedAppProtection
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagedAppProtection {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedAppProtection {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.defaultManagedAppProtection': return new DefaultManagedAppProtection();
+                case '#microsoft.graph.targetedManagedAppProtection': return new TargetedManagedAppProtection();
+            }
+        }
         return new ManagedAppProtection();
     }
 
     /**
      * Gets the allowedDataIngestionLocations property value. Data storage locations where a user may store managed data.
-     * @return array<ManagedAppDataIngestionLocation>|null
+     * @return array<string>|null
     */
     public function getAllowedDataIngestionLocations(): ?array {
         return $this->allowedDataIngestionLocations;
@@ -170,7 +268,7 @@ class ManagedAppProtection extends ManagedAppPolicy
 
     /**
      * Gets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
-     * @return array<ManagedAppDataStorageLocation>|null
+     * @return array<string>|null
     */
     public function getAllowedDataStorageLocations(): ?array {
         return $this->allowedDataStorageLocations;
@@ -285,52 +383,53 @@ class ManagedAppProtection extends ManagedAppPolicy
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedDataIngestionLocations' => function (self $o, ParseNode $n) { $o->setAllowedDataIngestionLocations($n->getCollectionOfEnumValues(ManagedAppDataIngestionLocation::class)); },
-            'allowedDataStorageLocations' => function (self $o, ParseNode $n) { $o->setAllowedDataStorageLocations($n->getCollectionOfEnumValues(ManagedAppDataStorageLocation::class)); },
-            'allowedInboundDataTransferSources' => function (self $o, ParseNode $n) { $o->setAllowedInboundDataTransferSources($n->getEnumValue(ManagedAppDataTransferLevel::class)); },
-            'allowedOutboundClipboardSharingExceptionLength' => function (self $o, ParseNode $n) { $o->setAllowedOutboundClipboardSharingExceptionLength($n->getIntegerValue()); },
-            'allowedOutboundClipboardSharingLevel' => function (self $o, ParseNode $n) { $o->setAllowedOutboundClipboardSharingLevel($n->getEnumValue(ManagedAppClipboardSharingLevel::class)); },
-            'allowedOutboundDataTransferDestinations' => function (self $o, ParseNode $n) { $o->setAllowedOutboundDataTransferDestinations($n->getEnumValue(ManagedAppDataTransferLevel::class)); },
-            'appActionIfDeviceComplianceRequired' => function (self $o, ParseNode $n) { $o->setAppActionIfDeviceComplianceRequired($n->getEnumValue(ManagedAppRemediationAction::class)); },
-            'appActionIfMaximumPinRetriesExceeded' => function (self $o, ParseNode $n) { $o->setAppActionIfMaximumPinRetriesExceeded($n->getEnumValue(ManagedAppRemediationAction::class)); },
-            'appActionIfUnableToAuthenticateUser' => function (self $o, ParseNode $n) { $o->setAppActionIfUnableToAuthenticateUser($n->getEnumValue(ManagedAppRemediationAction::class)); },
-            'blockDataIngestionIntoOrganizationDocuments' => function (self $o, ParseNode $n) { $o->setBlockDataIngestionIntoOrganizationDocuments($n->getBooleanValue()); },
-            'contactSyncBlocked' => function (self $o, ParseNode $n) { $o->setContactSyncBlocked($n->getBooleanValue()); },
-            'dataBackupBlocked' => function (self $o, ParseNode $n) { $o->setDataBackupBlocked($n->getBooleanValue()); },
-            'deviceComplianceRequired' => function (self $o, ParseNode $n) { $o->setDeviceComplianceRequired($n->getBooleanValue()); },
-            'dialerRestrictionLevel' => function (self $o, ParseNode $n) { $o->setDialerRestrictionLevel($n->getEnumValue(ManagedAppPhoneNumberRedirectLevel::class)); },
-            'disableAppPinIfDevicePinIsSet' => function (self $o, ParseNode $n) { $o->setDisableAppPinIfDevicePinIsSet($n->getBooleanValue()); },
-            'fingerprintBlocked' => function (self $o, ParseNode $n) { $o->setFingerprintBlocked($n->getBooleanValue()); },
-            'gracePeriodToBlockAppsDuringOffClockHours' => function (self $o, ParseNode $n) { $o->setGracePeriodToBlockAppsDuringOffClockHours($n->getDateIntervalValue()); },
-            'managedBrowser' => function (self $o, ParseNode $n) { $o->setManagedBrowser($n->getEnumValue(ManagedBrowserType::class)); },
-            'managedBrowserToOpenLinksRequired' => function (self $o, ParseNode $n) { $o->setManagedBrowserToOpenLinksRequired($n->getBooleanValue()); },
-            'maximumAllowedDeviceThreatLevel' => function (self $o, ParseNode $n) { $o->setMaximumAllowedDeviceThreatLevel($n->getEnumValue(ManagedAppDeviceThreatLevel::class)); },
-            'maximumPinRetries' => function (self $o, ParseNode $n) { $o->setMaximumPinRetries($n->getIntegerValue()); },
-            'maximumRequiredOsVersion' => function (self $o, ParseNode $n) { $o->setMaximumRequiredOsVersion($n->getStringValue()); },
-            'maximumWarningOsVersion' => function (self $o, ParseNode $n) { $o->setMaximumWarningOsVersion($n->getStringValue()); },
-            'maximumWipeOsVersion' => function (self $o, ParseNode $n) { $o->setMaximumWipeOsVersion($n->getStringValue()); },
-            'minimumPinLength' => function (self $o, ParseNode $n) { $o->setMinimumPinLength($n->getIntegerValue()); },
-            'minimumRequiredAppVersion' => function (self $o, ParseNode $n) { $o->setMinimumRequiredAppVersion($n->getStringValue()); },
-            'minimumRequiredOsVersion' => function (self $o, ParseNode $n) { $o->setMinimumRequiredOsVersion($n->getStringValue()); },
-            'minimumWarningAppVersion' => function (self $o, ParseNode $n) { $o->setMinimumWarningAppVersion($n->getStringValue()); },
-            'minimumWarningOsVersion' => function (self $o, ParseNode $n) { $o->setMinimumWarningOsVersion($n->getStringValue()); },
-            'minimumWipeAppVersion' => function (self $o, ParseNode $n) { $o->setMinimumWipeAppVersion($n->getStringValue()); },
-            'minimumWipeOsVersion' => function (self $o, ParseNode $n) { $o->setMinimumWipeOsVersion($n->getStringValue()); },
-            'mobileThreatDefenseRemediationAction' => function (self $o, ParseNode $n) { $o->setMobileThreatDefenseRemediationAction($n->getEnumValue(ManagedAppRemediationAction::class)); },
-            'notificationRestriction' => function (self $o, ParseNode $n) { $o->setNotificationRestriction($n->getEnumValue(ManagedAppNotificationRestriction::class)); },
-            'organizationalCredentialsRequired' => function (self $o, ParseNode $n) { $o->setOrganizationalCredentialsRequired($n->getBooleanValue()); },
-            'periodBeforePinReset' => function (self $o, ParseNode $n) { $o->setPeriodBeforePinReset($n->getDateIntervalValue()); },
-            'periodOfflineBeforeAccessCheck' => function (self $o, ParseNode $n) { $o->setPeriodOfflineBeforeAccessCheck($n->getDateIntervalValue()); },
-            'periodOfflineBeforeWipeIsEnforced' => function (self $o, ParseNode $n) { $o->setPeriodOfflineBeforeWipeIsEnforced($n->getDateIntervalValue()); },
-            'periodOnlineBeforeAccessCheck' => function (self $o, ParseNode $n) { $o->setPeriodOnlineBeforeAccessCheck($n->getDateIntervalValue()); },
-            'pinCharacterSet' => function (self $o, ParseNode $n) { $o->setPinCharacterSet($n->getEnumValue(ManagedAppPinCharacterSet::class)); },
-            'pinRequired' => function (self $o, ParseNode $n) { $o->setPinRequired($n->getBooleanValue()); },
-            'pinRequiredInsteadOfBiometricTimeout' => function (self $o, ParseNode $n) { $o->setPinRequiredInsteadOfBiometricTimeout($n->getDateIntervalValue()); },
-            'previousPinBlockCount' => function (self $o, ParseNode $n) { $o->setPreviousPinBlockCount($n->getIntegerValue()); },
-            'printBlocked' => function (self $o, ParseNode $n) { $o->setPrintBlocked($n->getBooleanValue()); },
-            'saveAsBlocked' => function (self $o, ParseNode $n) { $o->setSaveAsBlocked($n->getBooleanValue()); },
-            'simplePinBlocked' => function (self $o, ParseNode $n) { $o->setSimplePinBlocked($n->getBooleanValue()); },
+            'allowedDataIngestionLocations' => function (ParseNode $n) use ($o) { $o->setAllowedDataIngestionLocations($n->getCollectionOfPrimitiveValues()); },
+            'allowedDataStorageLocations' => function (ParseNode $n) use ($o) { $o->setAllowedDataStorageLocations($n->getCollectionOfPrimitiveValues()); },
+            'allowedInboundDataTransferSources' => function (ParseNode $n) use ($o) { $o->setAllowedInboundDataTransferSources($n->getEnumValue(ManagedAppDataTransferLevel::class)); },
+            'allowedOutboundClipboardSharingExceptionLength' => function (ParseNode $n) use ($o) { $o->setAllowedOutboundClipboardSharingExceptionLength($n->getIntegerValue()); },
+            'allowedOutboundClipboardSharingLevel' => function (ParseNode $n) use ($o) { $o->setAllowedOutboundClipboardSharingLevel($n->getEnumValue(ManagedAppClipboardSharingLevel::class)); },
+            'allowedOutboundDataTransferDestinations' => function (ParseNode $n) use ($o) { $o->setAllowedOutboundDataTransferDestinations($n->getEnumValue(ManagedAppDataTransferLevel::class)); },
+            'appActionIfDeviceComplianceRequired' => function (ParseNode $n) use ($o) { $o->setAppActionIfDeviceComplianceRequired($n->getEnumValue(ManagedAppRemediationAction::class)); },
+            'appActionIfMaximumPinRetriesExceeded' => function (ParseNode $n) use ($o) { $o->setAppActionIfMaximumPinRetriesExceeded($n->getEnumValue(ManagedAppRemediationAction::class)); },
+            'appActionIfUnableToAuthenticateUser' => function (ParseNode $n) use ($o) { $o->setAppActionIfUnableToAuthenticateUser($n->getEnumValue(ManagedAppRemediationAction::class)); },
+            'blockDataIngestionIntoOrganizationDocuments' => function (ParseNode $n) use ($o) { $o->setBlockDataIngestionIntoOrganizationDocuments($n->getBooleanValue()); },
+            'contactSyncBlocked' => function (ParseNode $n) use ($o) { $o->setContactSyncBlocked($n->getBooleanValue()); },
+            'dataBackupBlocked' => function (ParseNode $n) use ($o) { $o->setDataBackupBlocked($n->getBooleanValue()); },
+            'deviceComplianceRequired' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceRequired($n->getBooleanValue()); },
+            'dialerRestrictionLevel' => function (ParseNode $n) use ($o) { $o->setDialerRestrictionLevel($n->getEnumValue(ManagedAppPhoneNumberRedirectLevel::class)); },
+            'disableAppPinIfDevicePinIsSet' => function (ParseNode $n) use ($o) { $o->setDisableAppPinIfDevicePinIsSet($n->getBooleanValue()); },
+            'fingerprintBlocked' => function (ParseNode $n) use ($o) { $o->setFingerprintBlocked($n->getBooleanValue()); },
+            'gracePeriodToBlockAppsDuringOffClockHours' => function (ParseNode $n) use ($o) { $o->setGracePeriodToBlockAppsDuringOffClockHours($n->getDateIntervalValue()); },
+            'managedBrowser' => function (ParseNode $n) use ($o) { $o->setManagedBrowser($n->getEnumValue(ManagedBrowserType::class)); },
+            'managedBrowserToOpenLinksRequired' => function (ParseNode $n) use ($o) { $o->setManagedBrowserToOpenLinksRequired($n->getBooleanValue()); },
+            'maximumAllowedDeviceThreatLevel' => function (ParseNode $n) use ($o) { $o->setMaximumAllowedDeviceThreatLevel($n->getEnumValue(ManagedAppDeviceThreatLevel::class)); },
+            'maximumPinRetries' => function (ParseNode $n) use ($o) { $o->setMaximumPinRetries($n->getIntegerValue()); },
+            'maximumRequiredOsVersion' => function (ParseNode $n) use ($o) { $o->setMaximumRequiredOsVersion($n->getStringValue()); },
+            'maximumWarningOsVersion' => function (ParseNode $n) use ($o) { $o->setMaximumWarningOsVersion($n->getStringValue()); },
+            'maximumWipeOsVersion' => function (ParseNode $n) use ($o) { $o->setMaximumWipeOsVersion($n->getStringValue()); },
+            'minimumPinLength' => function (ParseNode $n) use ($o) { $o->setMinimumPinLength($n->getIntegerValue()); },
+            'minimumRequiredAppVersion' => function (ParseNode $n) use ($o) { $o->setMinimumRequiredAppVersion($n->getStringValue()); },
+            'minimumRequiredOsVersion' => function (ParseNode $n) use ($o) { $o->setMinimumRequiredOsVersion($n->getStringValue()); },
+            'minimumWarningAppVersion' => function (ParseNode $n) use ($o) { $o->setMinimumWarningAppVersion($n->getStringValue()); },
+            'minimumWarningOsVersion' => function (ParseNode $n) use ($o) { $o->setMinimumWarningOsVersion($n->getStringValue()); },
+            'minimumWipeAppVersion' => function (ParseNode $n) use ($o) { $o->setMinimumWipeAppVersion($n->getStringValue()); },
+            'minimumWipeOsVersion' => function (ParseNode $n) use ($o) { $o->setMinimumWipeOsVersion($n->getStringValue()); },
+            'mobileThreatDefenseRemediationAction' => function (ParseNode $n) use ($o) { $o->setMobileThreatDefenseRemediationAction($n->getEnumValue(ManagedAppRemediationAction::class)); },
+            'notificationRestriction' => function (ParseNode $n) use ($o) { $o->setNotificationRestriction($n->getEnumValue(ManagedAppNotificationRestriction::class)); },
+            'organizationalCredentialsRequired' => function (ParseNode $n) use ($o) { $o->setOrganizationalCredentialsRequired($n->getBooleanValue()); },
+            'periodBeforePinReset' => function (ParseNode $n) use ($o) { $o->setPeriodBeforePinReset($n->getDateIntervalValue()); },
+            'periodOfflineBeforeAccessCheck' => function (ParseNode $n) use ($o) { $o->setPeriodOfflineBeforeAccessCheck($n->getDateIntervalValue()); },
+            'periodOfflineBeforeWipeIsEnforced' => function (ParseNode $n) use ($o) { $o->setPeriodOfflineBeforeWipeIsEnforced($n->getDateIntervalValue()); },
+            'periodOnlineBeforeAccessCheck' => function (ParseNode $n) use ($o) { $o->setPeriodOnlineBeforeAccessCheck($n->getDateIntervalValue()); },
+            'pinCharacterSet' => function (ParseNode $n) use ($o) { $o->setPinCharacterSet($n->getEnumValue(ManagedAppPinCharacterSet::class)); },
+            'pinRequired' => function (ParseNode $n) use ($o) { $o->setPinRequired($n->getBooleanValue()); },
+            'pinRequiredInsteadOfBiometricTimeout' => function (ParseNode $n) use ($o) { $o->setPinRequiredInsteadOfBiometricTimeout($n->getDateIntervalValue()); },
+            'previousPinBlockCount' => function (ParseNode $n) use ($o) { $o->setPreviousPinBlockCount($n->getIntegerValue()); },
+            'printBlocked' => function (ParseNode $n) use ($o) { $o->setPrintBlocked($n->getBooleanValue()); },
+            'saveAsBlocked' => function (ParseNode $n) use ($o) { $o->setSaveAsBlocked($n->getBooleanValue()); },
+            'simplePinBlocked' => function (ParseNode $n) use ($o) { $o->setSimplePinBlocked($n->getBooleanValue()); },
         ]);
     }
 
@@ -580,8 +679,8 @@ class ManagedAppProtection extends ManagedAppPolicy
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfEnumValues('allowedDataIngestionLocations', $this->allowedDataIngestionLocations);
-        $writer->writeCollectionOfEnumValues('allowedDataStorageLocations', $this->allowedDataStorageLocations);
+        $writer->writeCollectionOfPrimitiveValues('allowedDataIngestionLocations', $this->allowedDataIngestionLocations);
+        $writer->writeCollectionOfPrimitiveValues('allowedDataStorageLocations', $this->allowedDataStorageLocations);
         $writer->writeEnumValue('allowedInboundDataTransferSources', $this->allowedInboundDataTransferSources);
         $writer->writeIntegerValue('allowedOutboundClipboardSharingExceptionLength', $this->allowedOutboundClipboardSharingExceptionLength);
         $writer->writeEnumValue('allowedOutboundClipboardSharingLevel', $this->allowedOutboundClipboardSharingLevel);
@@ -629,7 +728,7 @@ class ManagedAppProtection extends ManagedAppPolicy
 
     /**
      * Sets the allowedDataIngestionLocations property value. Data storage locations where a user may store managed data.
-     *  @param array<ManagedAppDataIngestionLocation>|null $value Value to set for the allowedDataIngestionLocations property.
+     *  @param array<string>|null $value Value to set for the allowedDataIngestionLocations property.
     */
     public function setAllowedDataIngestionLocations(?array $value ): void {
         $this->allowedDataIngestionLocations = $value;
@@ -637,7 +736,7 @@ class ManagedAppProtection extends ManagedAppPolicy
 
     /**
      * Sets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
-     *  @param array<ManagedAppDataStorageLocation>|null $value Value to set for the allowedDataStorageLocations property.
+     *  @param array<string>|null $value Value to set for the allowedDataStorageLocations property.
     */
     public function setAllowedDataStorageLocations(?array $value ): void {
         $this->allowedDataStorageLocations = $value;

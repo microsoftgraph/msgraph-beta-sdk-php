@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CustomerPaymentJournal extends Entity 
+class CustomerPaymentJournal extends Entity implements Parsable 
 {
-    /** @var Account|null $account The account property */
+    /**
+     * @var Account|null $account The account property
+    */
     private ?Account $account = null;
     
-    /** @var string|null $balancingAccountId The balancingAccountId property */
+    /**
+     * @var string|null $balancingAccountId The balancingAccountId property
+    */
     private ?string $balancingAccountId = null;
     
-    /** @var string|null $balancingAccountNumber The balancingAccountNumber property */
+    /**
+     * @var string|null $balancingAccountNumber The balancingAccountNumber property
+    */
     private ?string $balancingAccountNumber = null;
     
-    /** @var string|null $code The code property */
+    /**
+     * @var string|null $code The code property
+    */
     private ?string $code = null;
     
-    /** @var array<CustomerPayment>|null $customerPayments The customerPayments property */
+    /**
+     * @var array<CustomerPayment>|null $customerPayments The customerPayments property
+    */
     private ?array $customerPayments = null;
     
-    /** @var string|null $displayName The displayName property */
+    /**
+     * @var string|null $displayName The displayName property
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
@@ -42,7 +56,7 @@ class CustomerPaymentJournal extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CustomerPaymentJournal
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CustomerPaymentJournal {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomerPaymentJournal {
         return new CustomerPaymentJournal();
     }
 
@@ -99,14 +113,15 @@ class CustomerPaymentJournal extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'account' => function (self $o, ParseNode $n) { $o->setAccount($n->getObjectValue(Account::class)); },
-            'balancingAccountId' => function (self $o, ParseNode $n) { $o->setBalancingAccountId($n->getStringValue()); },
-            'balancingAccountNumber' => function (self $o, ParseNode $n) { $o->setBalancingAccountNumber($n->getStringValue()); },
-            'code' => function (self $o, ParseNode $n) { $o->setCode($n->getStringValue()); },
-            'customerPayments' => function (self $o, ParseNode $n) { $o->setCustomerPayments($n->getCollectionOfObjectValues(CustomerPayment::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'account' => function (ParseNode $n) use ($o) { $o->setAccount($n->getObjectValue(array(Account::class, 'createFromDiscriminatorValue'))); },
+            'balancingAccountId' => function (ParseNode $n) use ($o) { $o->setBalancingAccountId($n->getStringValue()); },
+            'balancingAccountNumber' => function (ParseNode $n) use ($o) { $o->setBalancingAccountNumber($n->getStringValue()); },
+            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
+            'customerPayments' => function (ParseNode $n) use ($o) { $o->setCustomerPayments($n->getCollectionOfObjectValues(array(CustomerPayment::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

@@ -9,31 +9,49 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SynchronizationRule implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $editable true if the synchronization rule can be customized; false if this rule is read-only and should not be changed. */
+    /**
+     * @var bool|null $editable true if the synchronization rule can be customized; false if this rule is read-only and should not be changed.
+    */
     private ?bool $editable = null;
     
-    /** @var string|null $id Synchronization rule identifier. Must be one of the identifiers recognized by the synchronization engine. Supported rule identifiers can be found in the synchronization template returned by the API. */
+    /**
+     * @var string|null $id Synchronization rule identifier. Must be one of the identifiers recognized by the synchronization engine. Supported rule identifiers can be found in the synchronization template returned by the API.
+    */
     private ?string $id = null;
     
-    /** @var array<StringKeyStringValuePair>|null $metadata Additional extension properties. Unless instructed explicitly by the support team, metadata values should not be changed. */
+    /**
+     * @var array<StringKeyStringValuePair>|null $metadata Additional extension properties. Unless instructed explicitly by the support team, metadata values should not be changed.
+    */
     private ?array $metadata = null;
     
-    /** @var string|null $name Human-readable name of the synchronization rule. Not nullable. */
+    /**
+     * @var string|null $name Human-readable name of the synchronization rule. Not nullable.
+    */
     private ?string $name = null;
     
-    /** @var array<ObjectMapping>|null $objectMappings Collection of object mappings supported by the rule. Tells the synchronization engine which objects should be synchronized. */
+    /**
+     * @var array<ObjectMapping>|null $objectMappings Collection of object mappings supported by the rule. Tells the synchronization engine which objects should be synchronized.
+    */
     private ?array $objectMappings = null;
     
-    /** @var int|null $priority Priority relative to other rules in the synchronizationSchema. Rules with the lowest priority number will be processed first. */
+    /**
+     * @var int|null $priority Priority relative to other rules in the synchronizationSchema. Rules with the lowest priority number will be processed first.
+    */
     private ?int $priority = null;
     
-    /** @var string|null $sourceDirectoryName Name of the source directory. Must match one of the directory definitions in synchronizationSchema. */
+    /**
+     * @var string|null $sourceDirectoryName Name of the source directory. Must match one of the directory definitions in synchronizationSchema.
+    */
     private ?string $sourceDirectoryName = null;
     
-    /** @var string|null $targetDirectoryName Name of the target directory. Must match one of the directory definitions in synchronizationSchema. */
+    /**
+     * @var string|null $targetDirectoryName Name of the target directory. Must match one of the directory definitions in synchronizationSchema.
+    */
     private ?string $targetDirectoryName = null;
     
     /**
@@ -48,7 +66,7 @@ class SynchronizationRule implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationRule
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationRule {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationRule {
         return new SynchronizationRule();
     }
 
@@ -73,15 +91,16 @@ class SynchronizationRule implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'editable' => function (self $o, ParseNode $n) { $o->setEditable($n->getBooleanValue()); },
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
-            'metadata' => function (self $o, ParseNode $n) { $o->setMetadata($n->getCollectionOfObjectValues(StringKeyStringValuePair::class)); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'objectMappings' => function (self $o, ParseNode $n) { $o->setObjectMappings($n->getCollectionOfObjectValues(ObjectMapping::class)); },
-            'priority' => function (self $o, ParseNode $n) { $o->setPriority($n->getIntegerValue()); },
-            'sourceDirectoryName' => function (self $o, ParseNode $n) { $o->setSourceDirectoryName($n->getStringValue()); },
-            'targetDirectoryName' => function (self $o, ParseNode $n) { $o->setTargetDirectoryName($n->getStringValue()); },
+            'editable' => function (ParseNode $n) use ($o) { $o->setEditable($n->getBooleanValue()); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(StringKeyStringValuePair::class, 'createFromDiscriminatorValue'))); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'objectMappings' => function (ParseNode $n) use ($o) { $o->setObjectMappings($n->getCollectionOfObjectValues(array(ObjectMapping::class, 'createFromDiscriminatorValue'))); },
+            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
+            'sourceDirectoryName' => function (ParseNode $n) use ($o) { $o->setSourceDirectoryName($n->getStringValue()); },
+            'targetDirectoryName' => function (ParseNode $n) use ($o) { $o->setTargetDirectoryName($n->getStringValue()); },
         ];
     }
 

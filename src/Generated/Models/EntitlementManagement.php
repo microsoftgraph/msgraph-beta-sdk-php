@@ -6,45 +6,71 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EntitlementManagement extends Entity 
+class EntitlementManagement extends Entity implements Parsable 
 {
-    /** @var array<Approval>|null $accessPackageAssignmentApprovals Approval stages for assignment requests. */
+    /**
+     * @var array<Approval>|null $accessPackageAssignmentApprovals Approval stages for decisions associated with access package assignment requests.
+    */
     private ?array $accessPackageAssignmentApprovals = null;
     
-    /** @var array<AccessPackageAssignmentPolicy>|null $accessPackageAssignmentPolicies Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment. */
+    /**
+     * @var array<AccessPackageAssignmentPolicy>|null $accessPackageAssignmentPolicies Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.
+    */
     private ?array $accessPackageAssignmentPolicies = null;
     
-    /** @var array<AccessPackageAssignmentRequest>|null $accessPackageAssignmentRequests Represents access package assignment requests created by or on behalf of a user. */
+    /**
+     * @var array<AccessPackageAssignmentRequest>|null $accessPackageAssignmentRequests Represents access package assignment requests created by or on behalf of a user.
+    */
     private ?array $accessPackageAssignmentRequests = null;
     
-    /** @var array<AccessPackageAssignmentResourceRole>|null $accessPackageAssignmentResourceRoles Represents the resource-specific role which a subject has been assigned through an access package assignment. */
+    /**
+     * @var array<AccessPackageAssignmentResourceRole>|null $accessPackageAssignmentResourceRoles Represents the resource-specific role which a subject has been assigned through an access package assignment.
+    */
     private ?array $accessPackageAssignmentResourceRoles = null;
     
-    /** @var array<AccessPackageAssignment>|null $accessPackageAssignments Represents the grant of an access package to a subject (user or group). */
+    /**
+     * @var array<AccessPackageAssignment>|null $accessPackageAssignments The assignment of an access package to a subject for a period of time.
+    */
     private ?array $accessPackageAssignments = null;
     
-    /** @var array<AccessPackageCatalog>|null $accessPackageCatalogs Represents a group of access packages. */
+    /**
+     * @var array<AccessPackageCatalog>|null $accessPackageCatalogs A container of access packages.
+    */
     private ?array $accessPackageCatalogs = null;
     
-    /** @var array<AccessPackageResourceEnvironment>|null $accessPackageResourceEnvironments A reference to the geolocation environment in which a resource is located. */
+    /**
+     * @var array<AccessPackageResourceEnvironment>|null $accessPackageResourceEnvironments A reference to the geolocation environment in which a resource is located.
+    */
     private ?array $accessPackageResourceEnvironments = null;
     
-    /** @var array<AccessPackageResourceRequest>|null $accessPackageResourceRequests Represents a request to add or remove a resource to or from a catalog respectively. */
+    /**
+     * @var array<AccessPackageResourceRequest>|null $accessPackageResourceRequests Represents a request to add or remove a resource to or from a catalog respectively.
+    */
     private ?array $accessPackageResourceRequests = null;
     
-    /** @var array<AccessPackageResourceRoleScope>|null $accessPackageResourceRoleScopes A reference to both a scope within a resource, and a role in that resource for that scope. */
+    /**
+     * @var array<AccessPackageResourceRoleScope>|null $accessPackageResourceRoleScopes A reference to both a scope within a resource, and a role in that resource for that scope.
+    */
     private ?array $accessPackageResourceRoleScopes = null;
     
-    /** @var array<AccessPackageResource>|null $accessPackageResources A reference to a resource associated with an access package catalog. */
+    /**
+     * @var array<AccessPackageResource>|null $accessPackageResources A reference to a resource associated with an access package catalog.
+    */
     private ?array $accessPackageResources = null;
     
-    /** @var array<AccessPackage>|null $accessPackages Represents access package objects. */
+    /**
+     * @var array<AccessPackage>|null $accessPackages Represents access package objects.
+    */
     private ?array $accessPackages = null;
     
-    /** @var array<ConnectedOrganization>|null $connectedOrganizations Represents references to a directory or domain of another organization whose users can request access. */
+    /**
+     * @var array<ConnectedOrganization>|null $connectedOrganizations Represents references to a directory or domain of another organization whose users can request access.
+    */
     private ?array $connectedOrganizations = null;
     
-    /** @var EntitlementManagementSettings|null $settings Represents the settings that control the behavior of Azure AD entitlement management. */
+    /**
+     * @var EntitlementManagementSettings|null $settings Represents the settings that control the behavior of Azure AD entitlement management.
+    */
     private ?EntitlementManagementSettings $settings = null;
     
     /**
@@ -59,12 +85,12 @@ class EntitlementManagement extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return EntitlementManagement
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): EntitlementManagement {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): EntitlementManagement {
         return new EntitlementManagement();
     }
 
     /**
-     * Gets the accessPackageAssignmentApprovals property value. Approval stages for assignment requests.
+     * Gets the accessPackageAssignmentApprovals property value. Approval stages for decisions associated with access package assignment requests.
      * @return array<Approval>|null
     */
     public function getAccessPackageAssignmentApprovals(): ?array {
@@ -96,7 +122,7 @@ class EntitlementManagement extends Entity
     }
 
     /**
-     * Gets the accessPackageAssignments property value. Represents the grant of an access package to a subject (user or group).
+     * Gets the accessPackageAssignments property value. The assignment of an access package to a subject for a period of time.
      * @return array<AccessPackageAssignment>|null
     */
     public function getAccessPackageAssignments(): ?array {
@@ -104,7 +130,7 @@ class EntitlementManagement extends Entity
     }
 
     /**
-     * Gets the accessPackageCatalogs property value. Represents a group of access packages.
+     * Gets the accessPackageCatalogs property value. A container of access packages.
      * @return array<AccessPackageCatalog>|null
     */
     public function getAccessPackageCatalogs(): ?array {
@@ -164,20 +190,21 @@ class EntitlementManagement extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageAssignmentApprovals' => function (self $o, ParseNode $n) { $o->setAccessPackageAssignmentApprovals($n->getCollectionOfObjectValues(Approval::class)); },
-            'accessPackageAssignmentPolicies' => function (self $o, ParseNode $n) { $o->setAccessPackageAssignmentPolicies($n->getCollectionOfObjectValues(AccessPackageAssignmentPolicy::class)); },
-            'accessPackageAssignmentRequests' => function (self $o, ParseNode $n) { $o->setAccessPackageAssignmentRequests($n->getCollectionOfObjectValues(AccessPackageAssignmentRequest::class)); },
-            'accessPackageAssignmentResourceRoles' => function (self $o, ParseNode $n) { $o->setAccessPackageAssignmentResourceRoles($n->getCollectionOfObjectValues(AccessPackageAssignmentResourceRole::class)); },
-            'accessPackageAssignments' => function (self $o, ParseNode $n) { $o->setAccessPackageAssignments($n->getCollectionOfObjectValues(AccessPackageAssignment::class)); },
-            'accessPackageCatalogs' => function (self $o, ParseNode $n) { $o->setAccessPackageCatalogs($n->getCollectionOfObjectValues(AccessPackageCatalog::class)); },
-            'accessPackageResourceEnvironments' => function (self $o, ParseNode $n) { $o->setAccessPackageResourceEnvironments($n->getCollectionOfObjectValues(AccessPackageResourceEnvironment::class)); },
-            'accessPackageResourceRequests' => function (self $o, ParseNode $n) { $o->setAccessPackageResourceRequests($n->getCollectionOfObjectValues(AccessPackageResourceRequest::class)); },
-            'accessPackageResourceRoleScopes' => function (self $o, ParseNode $n) { $o->setAccessPackageResourceRoleScopes($n->getCollectionOfObjectValues(AccessPackageResourceRoleScope::class)); },
-            'accessPackageResources' => function (self $o, ParseNode $n) { $o->setAccessPackageResources($n->getCollectionOfObjectValues(AccessPackageResource::class)); },
-            'accessPackages' => function (self $o, ParseNode $n) { $o->setAccessPackages($n->getCollectionOfObjectValues(AccessPackage::class)); },
-            'connectedOrganizations' => function (self $o, ParseNode $n) { $o->setConnectedOrganizations($n->getCollectionOfObjectValues(ConnectedOrganization::class)); },
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getObjectValue(EntitlementManagementSettings::class)); },
+            'accessPackageAssignmentApprovals' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentApprovals($n->getCollectionOfObjectValues(array(Approval::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageAssignmentPolicies' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentPolicies($n->getCollectionOfObjectValues(array(AccessPackageAssignmentPolicy::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageAssignmentRequests' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentRequests($n->getCollectionOfObjectValues(array(AccessPackageAssignmentRequest::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageAssignmentResourceRoles' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentResourceRoles($n->getCollectionOfObjectValues(array(AccessPackageAssignmentResourceRole::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageAssignments' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignments($n->getCollectionOfObjectValues(array(AccessPackageAssignment::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageCatalogs' => function (ParseNode $n) use ($o) { $o->setAccessPackageCatalogs($n->getCollectionOfObjectValues(array(AccessPackageCatalog::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageResourceEnvironments' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceEnvironments($n->getCollectionOfObjectValues(array(AccessPackageResourceEnvironment::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageResourceRequests' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRequests($n->getCollectionOfObjectValues(array(AccessPackageResourceRequest::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageResourceRoleScopes' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRoleScopes($n->getCollectionOfObjectValues(array(AccessPackageResourceRoleScope::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageResources' => function (ParseNode $n) use ($o) { $o->setAccessPackageResources($n->getCollectionOfObjectValues(array(AccessPackageResource::class, 'createFromDiscriminatorValue'))); },
+            'accessPackages' => function (ParseNode $n) use ($o) { $o->setAccessPackages($n->getCollectionOfObjectValues(array(AccessPackage::class, 'createFromDiscriminatorValue'))); },
+            'connectedOrganizations' => function (ParseNode $n) use ($o) { $o->setConnectedOrganizations($n->getCollectionOfObjectValues(array(ConnectedOrganization::class, 'createFromDiscriminatorValue'))); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(EntitlementManagementSettings::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -211,7 +238,7 @@ class EntitlementManagement extends Entity
     }
 
     /**
-     * Sets the accessPackageAssignmentApprovals property value. Approval stages for assignment requests.
+     * Sets the accessPackageAssignmentApprovals property value. Approval stages for decisions associated with access package assignment requests.
      *  @param array<Approval>|null $value Value to set for the accessPackageAssignmentApprovals property.
     */
     public function setAccessPackageAssignmentApprovals(?array $value ): void {
@@ -243,7 +270,7 @@ class EntitlementManagement extends Entity
     }
 
     /**
-     * Sets the accessPackageAssignments property value. Represents the grant of an access package to a subject (user or group).
+     * Sets the accessPackageAssignments property value. The assignment of an access package to a subject for a period of time.
      *  @param array<AccessPackageAssignment>|null $value Value to set for the accessPackageAssignments property.
     */
     public function setAccessPackageAssignments(?array $value ): void {
@@ -251,7 +278,7 @@ class EntitlementManagement extends Entity
     }
 
     /**
-     * Sets the accessPackageCatalogs property value. Represents a group of access packages.
+     * Sets the accessPackageCatalogs property value. A container of access packages.
      *  @param array<AccessPackageCatalog>|null $value Value to set for the accessPackageCatalogs property.
     */
     public function setAccessPackageCatalogs(?array $value ): void {

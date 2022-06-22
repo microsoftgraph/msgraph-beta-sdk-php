@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class UserExperienceAnalyticsCloudManagementDevicesSummary implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $coManagedDeviceCount Total number of  co-managed devices. */
+    /**
+     * @var int|null $coManagedDeviceCount Total number of  co-managed devices.
+    */
     private ?int $coManagedDeviceCount = null;
     
-    /** @var int|null $intuneDeviceCount The count of intune devices that are not autopilot registerd. */
+    /**
+     * @var int|null $intuneDeviceCount The count of intune devices that are not autopilot registerd.
+    */
     private ?int $intuneDeviceCount = null;
     
-    /** @var int|null $tenantAttachDeviceCount Total count of tenant attach devices. */
+    /**
+     * @var int|null $tenantAttachDeviceCount Total count of tenant attach devices.
+    */
     private ?int $tenantAttachDeviceCount = null;
     
     /**
@@ -33,7 +41,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsCloudManagementDevicesSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsCloudManagementDevicesSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsCloudManagementDevicesSummary {
         return new UserExperienceAnalyticsCloudManagementDevicesSummary();
     }
 
@@ -58,10 +66,11 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'coManagedDeviceCount' => function (self $o, ParseNode $n) { $o->setCoManagedDeviceCount($n->getIntegerValue()); },
-            'intuneDeviceCount' => function (self $o, ParseNode $n) { $o->setIntuneDeviceCount($n->getIntegerValue()); },
-            'tenantAttachDeviceCount' => function (self $o, ParseNode $n) { $o->setTenantAttachDeviceCount($n->getIntegerValue()); },
+            'coManagedDeviceCount' => function (ParseNode $n) use ($o) { $o->setCoManagedDeviceCount($n->getIntegerValue()); },
+            'intuneDeviceCount' => function (ParseNode $n) use ($o) { $o->setIntuneDeviceCount($n->getIntegerValue()); },
+            'tenantAttachDeviceCount' => function (ParseNode $n) use ($o) { $o->setTenantAttachDeviceCount($n->getIntegerValue()); },
         ];
     }
 

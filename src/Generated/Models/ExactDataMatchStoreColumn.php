@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ExactDataMatchStoreColumn implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<string>|null $ignoredDelimiters The ignoredDelimiters property */
+    /**
+     * @var array<string>|null $ignoredDelimiters The ignoredDelimiters property
+    */
     private ?array $ignoredDelimiters = null;
     
-    /** @var bool|null $isCaseInsensitive The isCaseInsensitive property */
+    /**
+     * @var bool|null $isCaseInsensitive The isCaseInsensitive property
+    */
     private ?bool $isCaseInsensitive = null;
     
-    /** @var bool|null $isSearchable The isSearchable property */
+    /**
+     * @var bool|null $isSearchable The isSearchable property
+    */
     private ?bool $isSearchable = null;
     
-    /** @var string|null $name The name property */
+    /**
+     * @var string|null $name The name property
+    */
     private ?string $name = null;
     
     /**
@@ -36,7 +46,7 @@ class ExactDataMatchStoreColumn implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExactDataMatchStoreColumn
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ExactDataMatchStoreColumn {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExactDataMatchStoreColumn {
         return new ExactDataMatchStoreColumn();
     }
 
@@ -53,11 +63,12 @@ class ExactDataMatchStoreColumn implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'ignoredDelimiters' => function (self $o, ParseNode $n) { $o->setIgnoredDelimiters($n->getCollectionOfPrimitiveValues()); },
-            'isCaseInsensitive' => function (self $o, ParseNode $n) { $o->setIsCaseInsensitive($n->getBooleanValue()); },
-            'isSearchable' => function (self $o, ParseNode $n) { $o->setIsSearchable($n->getBooleanValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'ignoredDelimiters' => function (ParseNode $n) use ($o) { $o->setIgnoredDelimiters($n->getCollectionOfPrimitiveValues()); },
+            'isCaseInsensitive' => function (ParseNode $n) use ($o) { $o->setIsCaseInsensitive($n->getBooleanValue()); },
+            'isSearchable' => function (ParseNode $n) use ($o) { $o->setIsSearchable($n->getBooleanValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
         ];
     }
 

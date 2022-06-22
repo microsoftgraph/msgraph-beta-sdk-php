@@ -9,19 +9,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceHealthScriptParameter implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $applyDefaultValueWhenNotAssigned Whether Apply DefaultValue When Not Assigned */
+    /**
+     * @var bool|null $applyDefaultValueWhenNotAssigned Whether Apply DefaultValue When Not Assigned
+    */
     private ?bool $applyDefaultValueWhenNotAssigned = null;
     
-    /** @var string|null $description The description of the param */
+    /**
+     * @var string|null $description The description of the param
+    */
     private ?string $description = null;
     
-    /** @var bool|null $isRequired Whether the param is required */
+    /**
+     * @var bool|null $isRequired Whether the param is required
+    */
     private ?bool $isRequired = null;
     
-    /** @var string|null $name The name of the param */
+    /**
+     * @var string|null $name The name of the param
+    */
     private ?string $name = null;
     
     /**
@@ -36,7 +46,7 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceHealthScriptParameter
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptParameter {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptParameter {
         return new DeviceHealthScriptParameter();
     }
 
@@ -69,11 +79,12 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'applyDefaultValueWhenNotAssigned' => function (self $o, ParseNode $n) { $o->setApplyDefaultValueWhenNotAssigned($n->getBooleanValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'isRequired' => function (self $o, ParseNode $n) { $o->setIsRequired($n->getBooleanValue()); },
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
+            'applyDefaultValueWhenNotAssigned' => function (ParseNode $n) use ($o) { $o->setApplyDefaultValueWhenNotAssigned($n->getBooleanValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
         ];
     }
 

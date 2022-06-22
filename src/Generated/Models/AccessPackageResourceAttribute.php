@@ -9,25 +9,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var AccessPackageResourceAttributeDestination|null $attributeDestination Information about how to set the attribute, currently a accessPackageUserDirectoryAttributeStore object type. */
+    /**
+     * @var AccessPackageResourceAttributeDestination|null $attributeDestination Information about how to set the attribute, currently a accessPackageUserDirectoryAttributeStore object type.
+    */
     private ?AccessPackageResourceAttributeDestination $attributeDestination = null;
     
-    /** @var string|null $attributeName The name of the attribute in the end system. If the destination is accessPackageUserDirectoryAttributeStore, then a user property such as jobTitle or a directory schema extension for the user object type, such as extension_2b676109c7c74ae2b41549205f1947ed_personalTitle. */
+    /**
+     * @var string|null $attributeName The name of the attribute in the end system. If the destination is accessPackageUserDirectoryAttributeStore, then a user property such as jobTitle or a directory schema extension for the user object type, such as extension_2b676109c7c74ae2b41549205f1947ed_personalTitle.
+    */
     private ?string $attributeName = null;
     
-    /** @var AccessPackageResourceAttributeSource|null $attributeSource Information about how to populate the attribute value when an accessPackageAssignmentRequest is being fulfilled, currently a accessPackageResourceAttributeQuestion object type. */
+    /**
+     * @var AccessPackageResourceAttributeSource|null $attributeSource Information about how to populate the attribute value when an accessPackageAssignmentRequest is being fulfilled, currently a accessPackageResourceAttributeQuestion object type.
+    */
     private ?AccessPackageResourceAttributeSource $attributeSource = null;
     
-    /** @var string|null $id Unique identifier for the attribute on the access package resource. Read-only. */
+    /**
+     * @var string|null $id Unique identifier for the attribute on the access package resource. Read-only.
+    */
     private ?string $id = null;
     
-    /** @var bool|null $isEditable Specifies whether or not an existing attribute value can be edited by the requester. */
+    /**
+     * @var bool|null $isEditable Specifies whether or not an existing attribute value can be edited by the requester.
+    */
     private ?bool $isEditable = null;
     
-    /** @var bool|null $isPersistedOnAssignmentRemoval Specifies whether the attribute will remain in the end system after an assignment ends. */
+    /**
+     * @var bool|null $isPersistedOnAssignmentRemoval Specifies whether the attribute will remain in the end system after an assignment ends.
+    */
     private ?bool $isPersistedOnAssignmentRemoval = null;
     
     /**
@@ -42,7 +56,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageResourceAttribute
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceAttribute {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceAttribute {
         return new AccessPackageResourceAttribute();
     }
 
@@ -83,13 +97,14 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'attributeDestination' => function (self $o, ParseNode $n) { $o->setAttributeDestination($n->getObjectValue(AccessPackageResourceAttributeDestination::class)); },
-            'attributeName' => function (self $o, ParseNode $n) { $o->setAttributeName($n->getStringValue()); },
-            'attributeSource' => function (self $o, ParseNode $n) { $o->setAttributeSource($n->getObjectValue(AccessPackageResourceAttributeSource::class)); },
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
-            'isEditable' => function (self $o, ParseNode $n) { $o->setIsEditable($n->getBooleanValue()); },
-            'isPersistedOnAssignmentRemoval' => function (self $o, ParseNode $n) { $o->setIsPersistedOnAssignmentRemoval($n->getBooleanValue()); },
+            'attributeDestination' => function (ParseNode $n) use ($o) { $o->setAttributeDestination($n->getObjectValue(array(AccessPackageResourceAttributeDestination::class, 'createFromDiscriminatorValue'))); },
+            'attributeName' => function (ParseNode $n) use ($o) { $o->setAttributeName($n->getStringValue()); },
+            'attributeSource' => function (ParseNode $n) use ($o) { $o->setAttributeSource($n->getObjectValue(array(AccessPackageResourceAttributeSource::class, 'createFromDiscriminatorValue'))); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'isEditable' => function (ParseNode $n) use ($o) { $o->setIsEditable($n->getBooleanValue()); },
+            'isPersistedOnAssignmentRemoval' => function (ParseNode $n) use ($o) { $o->setIsPersistedOnAssignmentRemoval($n->getBooleanValue()); },
         ];
     }
 

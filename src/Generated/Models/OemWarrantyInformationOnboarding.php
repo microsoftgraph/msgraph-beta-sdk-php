@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OemWarrantyInformationOnboarding extends Entity 
+class OemWarrantyInformationOnboarding extends Entity implements Parsable 
 {
-    /** @var bool|null $available Specifies whether warranty API is available. This property is read-only. */
+    /**
+     * @var bool|null $available Specifies whether warranty API is available. This property is read-only.
+    */
     private ?bool $available = null;
     
-    /** @var bool|null $enabled Specifies whether warranty query is enabled for given OEM. This property is read-only. */
+    /**
+     * @var bool|null $enabled Specifies whether warranty query is enabled for given OEM. This property is read-only.
+    */
     private ?bool $enabled = null;
     
-    /** @var string|null $oemName OEM name. This property is read-only. */
+    /**
+     * @var string|null $oemName OEM name. This property is read-only.
+    */
     private ?string $oemName = null;
     
     /**
@@ -29,7 +35,7 @@ class OemWarrantyInformationOnboarding extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return OemWarrantyInformationOnboarding
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): OemWarrantyInformationOnboarding {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): OemWarrantyInformationOnboarding {
         return new OemWarrantyInformationOnboarding();
     }
 
@@ -54,10 +60,11 @@ class OemWarrantyInformationOnboarding extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'available' => function (self $o, ParseNode $n) { $o->setAvailable($n->getBooleanValue()); },
-            'enabled' => function (self $o, ParseNode $n) { $o->setEnabled($n->getBooleanValue()); },
-            'oemName' => function (self $o, ParseNode $n) { $o->setOemName($n->getStringValue()); },
+            'available' => function (ParseNode $n) use ($o) { $o->setAvailable($n->getBooleanValue()); },
+            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
+            'oemName' => function (ParseNode $n) use ($o) { $o->setOemName($n->getStringValue()); },
         ]);
     }
 

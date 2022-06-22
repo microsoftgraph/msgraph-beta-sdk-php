@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamDiscoverySettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $showInTeamsSearchAndSuggestions If set to true, the team is visible via search and suggestions from the Teams client. */
+    /**
+     * @var bool|null $showInTeamsSearchAndSuggestions If set to true, the team is visible via search and suggestions from the Teams client.
+    */
     private ?bool $showInTeamsSearchAndSuggestions = null;
     
     /**
@@ -27,7 +31,7 @@ class TeamDiscoverySettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamDiscoverySettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamDiscoverySettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamDiscoverySettings {
         return new TeamDiscoverySettings();
     }
 
@@ -44,8 +48,9 @@ class TeamDiscoverySettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'showInTeamsSearchAndSuggestions' => function (self $o, ParseNode $n) { $o->setShowInTeamsSearchAndSuggestions($n->getBooleanValue()); },
+            'showInTeamsSearchAndSuggestions' => function (ParseNode $n) use ($o) { $o->setShowInTeamsSearchAndSuggestions($n->getBooleanValue()); },
         ];
     }
 

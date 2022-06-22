@@ -9,25 +9,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var TeamworkSoftwareUpdateStatus|null $adminAgentSoftwareUpdateStatus The software update available for the admin agent. */
+    /**
+     * @var TeamworkSoftwareUpdateStatus|null $adminAgentSoftwareUpdateStatus The software update available for the admin agent.
+    */
     private ?TeamworkSoftwareUpdateStatus $adminAgentSoftwareUpdateStatus = null;
     
-    /** @var TeamworkSoftwareUpdateStatus|null $companyPortalSoftwareUpdateStatus The software update available for the company portal. */
+    /**
+     * @var TeamworkSoftwareUpdateStatus|null $companyPortalSoftwareUpdateStatus The software update available for the company portal.
+    */
     private ?TeamworkSoftwareUpdateStatus $companyPortalSoftwareUpdateStatus = null;
     
-    /** @var TeamworkSoftwareUpdateStatus|null $firmwareSoftwareUpdateStatus The software update available for the firmware. */
+    /**
+     * @var TeamworkSoftwareUpdateStatus|null $firmwareSoftwareUpdateStatus The software update available for the firmware.
+    */
     private ?TeamworkSoftwareUpdateStatus $firmwareSoftwareUpdateStatus = null;
     
-    /** @var TeamworkSoftwareUpdateStatus|null $operatingSystemSoftwareUpdateStatus The software update available for the operating system. */
+    /**
+     * @var TeamworkSoftwareUpdateStatus|null $operatingSystemSoftwareUpdateStatus The software update available for the operating system.
+    */
     private ?TeamworkSoftwareUpdateStatus $operatingSystemSoftwareUpdateStatus = null;
     
-    /** @var TeamworkSoftwareUpdateStatus|null $partnerAgentSoftwareUpdateStatus The software update available for the partner agent. */
+    /**
+     * @var TeamworkSoftwareUpdateStatus|null $partnerAgentSoftwareUpdateStatus The software update available for the partner agent.
+    */
     private ?TeamworkSoftwareUpdateStatus $partnerAgentSoftwareUpdateStatus = null;
     
-    /** @var TeamworkSoftwareUpdateStatus|null $teamsClientSoftwareUpdateStatus The software update available for the Teams client. */
+    /**
+     * @var TeamworkSoftwareUpdateStatus|null $teamsClientSoftwareUpdateStatus The software update available for the Teams client.
+    */
     private ?TeamworkSoftwareUpdateStatus $teamsClientSoftwareUpdateStatus = null;
     
     /**
@@ -42,7 +56,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TeamworkSoftwareUpdateHealth
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkSoftwareUpdateHealth {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TeamworkSoftwareUpdateHealth {
         return new TeamworkSoftwareUpdateHealth();
     }
 
@@ -75,13 +89,14 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'adminAgentSoftwareUpdateStatus' => function (self $o, ParseNode $n) { $o->setAdminAgentSoftwareUpdateStatus($n->getObjectValue(TeamworkSoftwareUpdateStatus::class)); },
-            'companyPortalSoftwareUpdateStatus' => function (self $o, ParseNode $n) { $o->setCompanyPortalSoftwareUpdateStatus($n->getObjectValue(TeamworkSoftwareUpdateStatus::class)); },
-            'firmwareSoftwareUpdateStatus' => function (self $o, ParseNode $n) { $o->setFirmwareSoftwareUpdateStatus($n->getObjectValue(TeamworkSoftwareUpdateStatus::class)); },
-            'operatingSystemSoftwareUpdateStatus' => function (self $o, ParseNode $n) { $o->setOperatingSystemSoftwareUpdateStatus($n->getObjectValue(TeamworkSoftwareUpdateStatus::class)); },
-            'partnerAgentSoftwareUpdateStatus' => function (self $o, ParseNode $n) { $o->setPartnerAgentSoftwareUpdateStatus($n->getObjectValue(TeamworkSoftwareUpdateStatus::class)); },
-            'teamsClientSoftwareUpdateStatus' => function (self $o, ParseNode $n) { $o->setTeamsClientSoftwareUpdateStatus($n->getObjectValue(TeamworkSoftwareUpdateStatus::class)); },
+            'adminAgentSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setAdminAgentSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
+            'companyPortalSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setCompanyPortalSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
+            'firmwareSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setFirmwareSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
+            'operatingSystemSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setOperatingSystemSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
+            'partnerAgentSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setPartnerAgentSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
+            'teamsClientSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setTeamsClientSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

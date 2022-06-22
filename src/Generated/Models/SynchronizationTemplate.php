@@ -6,27 +6,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SynchronizationTemplate extends Entity 
+class SynchronizationTemplate extends Entity implements Parsable 
 {
-    /** @var string|null $applicationId Identifier of the application this template belongs to. */
+    /**
+     * @var string|null $applicationId Identifier of the application this template belongs to.
+    */
     private ?string $applicationId = null;
     
-    /** @var string|null $description Description of the template. */
+    /**
+     * @var string|null $description Description of the template.
+    */
     private ?string $description = null;
     
-    /** @var bool|null $discoverable true if this template should appear in the collection of templates available for the application instance (service principal). */
+    /**
+     * @var bool|null $discoverable true if this template should appear in the collection of templates available for the application instance (service principal).
+    */
     private ?bool $discoverable = null;
     
-    /** @var bool|null $EscapedDefault true if this template is recommended to be the default for the application. */
+    /**
+     * @var bool|null $EscapedDefault true if this template is recommended to be the default for the application.
+    */
     private ?bool $escapedDefault = null;
     
-    /** @var string|null $factoryTag One of the well-known factory tags supported by the synchronization engine. The factoryTag tells the synchronization engine which implementation to use when processing jobs based on this template. */
+    /**
+     * @var string|null $factoryTag One of the well-known factory tags supported by the synchronization engine. The factoryTag tells the synchronization engine which implementation to use when processing jobs based on this template.
+    */
     private ?string $factoryTag = null;
     
-    /** @var array<MetadataEntry>|null $metadata Additional extension properties. Unless mentioned explicitly, metadata values should not be changed. */
+    /**
+     * @var array<MetadataEntry>|null $metadata Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
+    */
     private ?array $metadata = null;
     
-    /** @var SynchronizationSchema|null $schema Default synchronization schema for the jobs based on this template. */
+    /**
+     * @var SynchronizationSchema|null $schema Default synchronization schema for the jobs based on this template.
+    */
     private ?SynchronizationSchema $schema = null;
     
     /**
@@ -41,7 +55,7 @@ class SynchronizationTemplate extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SynchronizationTemplate
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationTemplate {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SynchronizationTemplate {
         return new SynchronizationTemplate();
     }
 
@@ -90,14 +104,15 @@ class SynchronizationTemplate extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationId' => function (self $o, ParseNode $n) { $o->setApplicationId($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'discoverable' => function (self $o, ParseNode $n) { $o->setDiscoverable($n->getBooleanValue()); },
-            'default' => function (self $o, ParseNode $n) { $o->setEscapedDefault($n->getBooleanValue()); },
-            'factoryTag' => function (self $o, ParseNode $n) { $o->setFactoryTag($n->getStringValue()); },
-            'metadata' => function (self $o, ParseNode $n) { $o->setMetadata($n->getCollectionOfObjectValues(MetadataEntry::class)); },
-            'schema' => function (self $o, ParseNode $n) { $o->setSchema($n->getObjectValue(SynchronizationSchema::class)); },
+            'applicationId' => function (ParseNode $n) use ($o) { $o->setApplicationId($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'discoverable' => function (ParseNode $n) use ($o) { $o->setDiscoverable($n->getBooleanValue()); },
+            'default' => function (ParseNode $n) use ($o) { $o->setDefault($n->getBooleanValue()); },
+            'factoryTag' => function (ParseNode $n) use ($o) { $o->setFactoryTag($n->getStringValue()); },
+            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(MetadataEntry::class, 'createFromDiscriminatorValue'))); },
+            'schema' => function (ParseNode $n) use ($o) { $o->setSchema($n->getObjectValue(array(SynchronizationSchema::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

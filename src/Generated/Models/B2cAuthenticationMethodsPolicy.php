@@ -6,15 +6,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class B2cAuthenticationMethodsPolicy extends Entity 
+class B2cAuthenticationMethodsPolicy extends Entity implements Parsable 
 {
-    /** @var bool|null $isEmailPasswordAuthenticationEnabled The tenant admin can configure local accounts using email if the email and password authentication method is enabled. */
+    /**
+     * @var bool|null $isEmailPasswordAuthenticationEnabled The tenant admin can configure local accounts using email if the email and password authentication method is enabled.
+    */
     private ?bool $isEmailPasswordAuthenticationEnabled = null;
     
-    /** @var bool|null $isPhoneOneTimePasswordAuthenticationEnabled The tenant admin can configure local accounts using phone number if the phone number and one-time password authentication method is enabled. */
+    /**
+     * @var bool|null $isPhoneOneTimePasswordAuthenticationEnabled The tenant admin can configure local accounts using phone number if the phone number and one-time password authentication method is enabled.
+    */
     private ?bool $isPhoneOneTimePasswordAuthenticationEnabled = null;
     
-    /** @var bool|null $isUserNameAuthenticationEnabled The tenant admin can configure local accounts using username if the username and password authentication method is enabled. */
+    /**
+     * @var bool|null $isUserNameAuthenticationEnabled The tenant admin can configure local accounts using username if the username and password authentication method is enabled.
+    */
     private ?bool $isUserNameAuthenticationEnabled = null;
     
     /**
@@ -29,7 +35,7 @@ class B2cAuthenticationMethodsPolicy extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return B2cAuthenticationMethodsPolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): B2cAuthenticationMethodsPolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): B2cAuthenticationMethodsPolicy {
         return new B2cAuthenticationMethodsPolicy();
     }
 
@@ -38,10 +44,11 @@ class B2cAuthenticationMethodsPolicy extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isEmailPasswordAuthenticationEnabled' => function (self $o, ParseNode $n) { $o->setIsEmailPasswordAuthenticationEnabled($n->getBooleanValue()); },
-            'isPhoneOneTimePasswordAuthenticationEnabled' => function (self $o, ParseNode $n) { $o->setIsPhoneOneTimePasswordAuthenticationEnabled($n->getBooleanValue()); },
-            'isUserNameAuthenticationEnabled' => function (self $o, ParseNode $n) { $o->setIsUserNameAuthenticationEnabled($n->getBooleanValue()); },
+            'isEmailPasswordAuthenticationEnabled' => function (ParseNode $n) use ($o) { $o->setIsEmailPasswordAuthenticationEnabled($n->getBooleanValue()); },
+            'isPhoneOneTimePasswordAuthenticationEnabled' => function (ParseNode $n) use ($o) { $o->setIsPhoneOneTimePasswordAuthenticationEnabled($n->getBooleanValue()); },
+            'isUserNameAuthenticationEnabled' => function (ParseNode $n) use ($o) { $o->setIsUserNameAuthenticationEnabled($n->getBooleanValue()); },
         ]);
     }
 

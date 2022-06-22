@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ManagedDeviceCleanupSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $deviceInactivityBeforeRetirementInDays Number of days when the device has not contacted Intune. */
+    /**
+     * @var string|null $deviceInactivityBeforeRetirementInDays Number of days when the device has not contacted Intune.
+    */
     private ?string $deviceInactivityBeforeRetirementInDays = null;
     
     /**
@@ -27,7 +31,7 @@ class ManagedDeviceCleanupSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ManagedDeviceCleanupSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceCleanupSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ManagedDeviceCleanupSettings {
         return new ManagedDeviceCleanupSettings();
     }
 
@@ -52,8 +56,9 @@ class ManagedDeviceCleanupSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'deviceInactivityBeforeRetirementInDays' => function (self $o, ParseNode $n) { $o->setDeviceInactivityBeforeRetirementInDays($n->getStringValue()); },
+            'deviceInactivityBeforeRetirementInDays' => function (ParseNode $n) use ($o) { $o->setDeviceInactivityBeforeRetirementInDays($n->getStringValue()); },
         ];
     }
 

@@ -10,10 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GetHealthMetricTimeSeriesResponse implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<MetricTimeSeriesDataPoint>|null $value The value property */
+    /**
+     * @var array<MetricTimeSeriesDataPoint>|null $value The value property
+    */
     private ?array $value = null;
     
     /**
@@ -28,7 +32,7 @@ class GetHealthMetricTimeSeriesResponse implements AdditionalDataHolder, Parsabl
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GetHealthMetricTimeSeriesResponse
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GetHealthMetricTimeSeriesResponse {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GetHealthMetricTimeSeriesResponse {
         return new GetHealthMetricTimeSeriesResponse();
     }
 
@@ -45,8 +49,9 @@ class GetHealthMetricTimeSeriesResponse implements AdditionalDataHolder, Parsabl
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'value' => function (self $o, ParseNode $n) { $o->setValue($n->getCollectionOfObjectValues(MetricTimeSeriesDataPoint::class)); },
+            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(MetricTimeSeriesDataPoint::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

@@ -8,24 +8,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Deployment extends Entity 
+class Deployment extends Entity implements Parsable 
 {
-    /** @var DeploymentAudience|null $audience Specifies the audience to which content is deployed. */
+    /**
+     * @var DeploymentAudience|null $audience Specifies the audience to which content is deployed.
+    */
     private ?DeploymentAudience $audience = null;
     
-    /** @var DeployableContent|null $content Specifies what content to deploy. Cannot be changed. Returned by default. */
+    /**
+     * @var DeployableContent|null $content Specifies what content to deploy. Cannot be changed. Returned by default.
+    */
     private ?DeployableContent $content = null;
     
-    /** @var DateTime|null $createdDateTime The date and time the deployment was created. Returned by default. Read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time the deployment was created. Returned by default. Read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The date and time the deployment was last modified. Returned by default. Read-only. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The date and time the deployment was last modified. Returned by default. Read-only.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var DeploymentSettings|null $settings Settings specified on the specific deployment governing how to deploy content. Returned by default. */
+    /**
+     * @var DeploymentSettings|null $settings Settings specified on the specific deployment governing how to deploy content. Returned by default.
+    */
     private ?DeploymentSettings $settings = null;
     
-    /** @var DeploymentState|null $state Execution status of the deployment. Returned by default. */
+    /**
+     * @var DeploymentState|null $state Execution status of the deployment. Returned by default.
+    */
     private ?DeploymentState $state = null;
     
     /**
@@ -40,7 +52,7 @@ class Deployment extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return Deployment
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): Deployment {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): Deployment {
         return new Deployment();
     }
 
@@ -73,13 +85,14 @@ class Deployment extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'audience' => function (self $o, ParseNode $n) { $o->setAudience($n->getObjectValue(DeploymentAudience::class)); },
-            'content' => function (self $o, ParseNode $n) { $o->setContent($n->getObjectValue(DeployableContent::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'settings' => function (self $o, ParseNode $n) { $o->setSettings($n->getObjectValue(DeploymentSettings::class)); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getObjectValue(DeploymentState::class)); },
+            'audience' => function (ParseNode $n) use ($o) { $o->setAudience($n->getObjectValue(array(DeploymentAudience::class, 'createFromDiscriminatorValue'))); },
+            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getObjectValue(array(DeployableContent::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(DeploymentSettings::class, 'createFromDiscriminatorValue'))); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getObjectValue(array(DeploymentState::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

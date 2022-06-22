@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CloudPcStatusDetails implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<KeyValuePair>|null $additionalInformation Any additional information about the Cloud PC status. */
+    /**
+     * @var array<KeyValuePair>|null $additionalInformation Any additional information about the Cloud PC status.
+    */
     private ?array $additionalInformation = null;
     
-    /** @var string|null $code The code associated with the Cloud PC status. */
+    /**
+     * @var string|null $code The code associated with the Cloud PC status.
+    */
     private ?string $code = null;
     
-    /** @var string|null $message The status message. */
+    /**
+     * @var string|null $message The status message.
+    */
     private ?string $message = null;
     
     /**
@@ -33,7 +41,7 @@ class CloudPcStatusDetails implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CloudPcStatusDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcStatusDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcStatusDetails {
         return new CloudPcStatusDetails();
     }
 
@@ -66,10 +74,11 @@ class CloudPcStatusDetails implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'additionalInformation' => function (self $o, ParseNode $n) { $o->setAdditionalInformation($n->getCollectionOfObjectValues(KeyValuePair::class)); },
-            'code' => function (self $o, ParseNode $n) { $o->setCode($n->getStringValue()); },
-            'message' => function (self $o, ParseNode $n) { $o->setMessage($n->getStringValue()); },
+            'additionalInformation' => function (ParseNode $n) use ($o) { $o->setAdditionalInformation($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
+            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
         ];
     }
 

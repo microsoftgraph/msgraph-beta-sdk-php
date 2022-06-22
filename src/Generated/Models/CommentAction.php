@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class CommentAction implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var bool|null $isReply If true, this activity was a reply to an existing comment thread. */
+    /**
+     * @var bool|null $isReply If true, this activity was a reply to an existing comment thread.
+    */
     private ?bool $isReply = null;
     
-    /** @var IdentitySet|null $parentAuthor The identity of the user who started the comment thread. */
+    /**
+     * @var IdentitySet|null $parentAuthor The identity of the user who started the comment thread.
+    */
     private ?IdentitySet $parentAuthor = null;
     
-    /** @var array<IdentitySet>|null $participants The identities of the users participating in this comment thread. */
+    /**
+     * @var array<IdentitySet>|null $participants The identities of the users participating in this comment thread.
+    */
     private ?array $participants = null;
     
     /**
@@ -33,7 +41,7 @@ class CommentAction implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return CommentAction
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): CommentAction {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CommentAction {
         return new CommentAction();
     }
 
@@ -50,10 +58,11 @@ class CommentAction implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'isReply' => function (self $o, ParseNode $n) { $o->setIsReply($n->getBooleanValue()); },
-            'parentAuthor' => function (self $o, ParseNode $n) { $o->setParentAuthor($n->getObjectValue(IdentitySet::class)); },
-            'participants' => function (self $o, ParseNode $n) { $o->setParticipants($n->getCollectionOfObjectValues(IdentitySet::class)); },
+            'isReply' => function (ParseNode $n) use ($o) { $o->setIsReply($n->getBooleanValue()); },
+            'parentAuthor' => function (ParseNode $n) use ($o) { $o->setParentAuthor($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'participants' => function (ParseNode $n) use ($o) { $o->setParticipants($n->getCollectionOfObjectValues(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

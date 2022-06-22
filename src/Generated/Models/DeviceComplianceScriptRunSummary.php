@@ -7,21 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceComplianceScriptRunSummary extends Entity 
+class DeviceComplianceScriptRunSummary extends Entity implements Parsable 
 {
-    /** @var int|null $detectionScriptErrorDeviceCount Number of devices on which the detection script execution encountered an error and did not complete. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $detectionScriptErrorDeviceCount Number of devices on which the detection script execution encountered an error and did not complete. Valid values -2147483648 to 2147483647
+    */
     private ?int $detectionScriptErrorDeviceCount = null;
     
-    /** @var int|null $detectionScriptPendingDeviceCount Number of devices which have not yet run the latest version of the device compliance script. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $detectionScriptPendingDeviceCount Number of devices which have not yet run the latest version of the device compliance script. Valid values -2147483648 to 2147483647
+    */
     private ?int $detectionScriptPendingDeviceCount = null;
     
-    /** @var int|null $issueDetectedDeviceCount Number of devices for which the detection script found an issue. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $issueDetectedDeviceCount Number of devices for which the detection script found an issue. Valid values -2147483648 to 2147483647
+    */
     private ?int $issueDetectedDeviceCount = null;
     
-    /** @var DateTime|null $lastScriptRunDateTime Last run time for the script across all devices */
+    /**
+     * @var DateTime|null $lastScriptRunDateTime Last run time for the script across all devices
+    */
     private ?DateTime $lastScriptRunDateTime = null;
     
-    /** @var int|null $noIssueDetectedDeviceCount Number of devices for which the detection script did not find an issue and the device is healthy. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $noIssueDetectedDeviceCount Number of devices for which the detection script did not find an issue and the device is healthy. Valid values -2147483648 to 2147483647
+    */
     private ?int $noIssueDetectedDeviceCount = null;
     
     /**
@@ -36,7 +46,7 @@ class DeviceComplianceScriptRunSummary extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceComplianceScriptRunSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScriptRunSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScriptRunSummary {
         return new DeviceComplianceScriptRunSummary();
     }
 
@@ -61,12 +71,13 @@ class DeviceComplianceScriptRunSummary extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'detectionScriptErrorDeviceCount' => function (self $o, ParseNode $n) { $o->setDetectionScriptErrorDeviceCount($n->getIntegerValue()); },
-            'detectionScriptPendingDeviceCount' => function (self $o, ParseNode $n) { $o->setDetectionScriptPendingDeviceCount($n->getIntegerValue()); },
-            'issueDetectedDeviceCount' => function (self $o, ParseNode $n) { $o->setIssueDetectedDeviceCount($n->getIntegerValue()); },
-            'lastScriptRunDateTime' => function (self $o, ParseNode $n) { $o->setLastScriptRunDateTime($n->getDateTimeValue()); },
-            'noIssueDetectedDeviceCount' => function (self $o, ParseNode $n) { $o->setNoIssueDetectedDeviceCount($n->getIntegerValue()); },
+            'detectionScriptErrorDeviceCount' => function (ParseNode $n) use ($o) { $o->setDetectionScriptErrorDeviceCount($n->getIntegerValue()); },
+            'detectionScriptPendingDeviceCount' => function (ParseNode $n) use ($o) { $o->setDetectionScriptPendingDeviceCount($n->getIntegerValue()); },
+            'issueDetectedDeviceCount' => function (ParseNode $n) use ($o) { $o->setIssueDetectedDeviceCount($n->getIntegerValue()); },
+            'lastScriptRunDateTime' => function (ParseNode $n) use ($o) { $o->setLastScriptRunDateTime($n->getDateTimeValue()); },
+            'noIssueDetectedDeviceCount' => function (ParseNode $n) use ($o) { $o->setNoIssueDetectedDeviceCount($n->getIntegerValue()); },
         ]);
     }
 

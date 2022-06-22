@@ -9,16 +9,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $name Name for object. */
+    /**
+     * @var string|null $name Name for object.
+    */
     private ?string $name = null;
     
-    /** @var array<Windows10EditionType>|null $osEditionTypes Applicability rule OS edition type. */
+    /**
+     * @var array<string>|null $osEditionTypes Applicability rule OS edition type.
+    */
     private ?array $osEditionTypes = null;
     
-    /** @var DeviceManagementApplicabilityRuleType|null $ruleType Applicability Rule type. Possible values are: include, exclude. */
+    /**
+     * @var DeviceManagementApplicabilityRuleType|null $ruleType Applicability Rule type. Possible values are: include, exclude.
+    */
     private ?DeviceManagementApplicabilityRuleType $ruleType = null;
     
     /**
@@ -33,7 +41,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementApplicabilityRuleOsEdition
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementApplicabilityRuleOsEdition {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementApplicabilityRuleOsEdition {
         return new DeviceManagementApplicabilityRuleOsEdition();
     }
 
@@ -50,10 +58,11 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'name' => function (self $o, ParseNode $n) { $o->setName($n->getStringValue()); },
-            'osEditionTypes' => function (self $o, ParseNode $n) { $o->setOsEditionTypes($n->getCollectionOfEnumValues(Windows10EditionType::class)); },
-            'ruleType' => function (self $o, ParseNode $n) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
+            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            'osEditionTypes' => function (ParseNode $n) use ($o) { $o->setOsEditionTypes($n->getCollectionOfPrimitiveValues()); },
+            'ruleType' => function (ParseNode $n) use ($o) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
         ];
     }
 
@@ -67,7 +76,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
 
     /**
      * Gets the osEditionTypes property value. Applicability rule OS edition type.
-     * @return array<Windows10EditionType>|null
+     * @return array<string>|null
     */
     public function getOsEditionTypes(): ?array {
         return $this->osEditionTypes;
@@ -87,7 +96,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('name', $this->name);
-        $writer->writeCollectionOfEnumValues('osEditionTypes', $this->osEditionTypes);
+        $writer->writeCollectionOfPrimitiveValues('osEditionTypes', $this->osEditionTypes);
         $writer->writeEnumValue('ruleType', $this->ruleType);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -110,7 +119,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
 
     /**
      * Sets the osEditionTypes property value. Applicability rule OS edition type.
-     *  @param array<Windows10EditionType>|null $value Value to set for the osEditionTypes property.
+     *  @param array<string>|null $value Value to set for the osEditionTypes property.
     */
     public function setOsEditionTypes(?array $value ): void {
         $this->osEditionTypes = $value;

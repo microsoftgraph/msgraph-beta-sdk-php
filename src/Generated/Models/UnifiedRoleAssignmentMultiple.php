@@ -6,39 +6,61 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleAssignmentMultiple extends Entity 
+class UnifiedRoleAssignmentMultiple extends Entity implements Parsable 
 {
-    /** @var array<string>|null $appScopeIds Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only. */
+    /**
+     * @var array<string>|null $appScopeIds Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.
+    */
     private ?array $appScopeIds = null;
     
-    /** @var array<AppScope>|null $appScopes Read-only collection with details of the app specific scopes when the assignment scopes are app specific. Containment entity. Read-only. */
+    /**
+     * @var array<AppScope>|null $appScopes Read-only collection with details of the app specific scopes when the assignment scopes are app specific. Containment entity. Read-only.
+    */
     private ?array $appScopes = null;
     
-    /** @var string|null $condition The condition property */
+    /**
+     * @var string|null $condition The condition property
+    */
     private ?string $condition = null;
     
-    /** @var string|null $description Description of the role assignment. */
+    /**
+     * @var string|null $description Description of the role assignment.
+    */
     private ?string $description = null;
     
-    /** @var array<string>|null $directoryScopeIds Ids of the directory objects representing the scopes of the assignment. The scopes of an assignment determine the set of resources for which the principals have been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only. */
+    /**
+     * @var array<string>|null $directoryScopeIds Ids of the directory objects representing the scopes of the assignment. The scopes of an assignment determine the set of resources for which the principals have been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only.
+    */
     private ?array $directoryScopeIds = null;
     
-    /** @var array<DirectoryObject>|null $directoryScopes Read-only collection referencing the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand. */
+    /**
+     * @var array<DirectoryObject>|null $directoryScopes Read-only collection referencing the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
+    */
     private ?array $directoryScopes = null;
     
-    /** @var string|null $displayName Name of the role assignment. Required. */
+    /**
+     * @var string|null $displayName Name of the role assignment. Required.
+    */
     private ?string $displayName = null;
     
-    /** @var array<string>|null $principalIds Identifiers of the principals to which the assignment is granted.  Supports $filter (any operator only). */
+    /**
+     * @var array<string>|null $principalIds Identifiers of the principals to which the assignment is granted.  Supports $filter (any operator only).
+    */
     private ?array $principalIds = null;
     
-    /** @var array<DirectoryObject>|null $principals Read-only collection referencing the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand. */
+    /**
+     * @var array<DirectoryObject>|null $principals Read-only collection referencing the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.
+    */
     private ?array $principals = null;
     
-    /** @var UnifiedRoleDefinition|null $roleDefinition Specifies the roleDefinition that the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment.  Supports $filter (eq operator on id, isBuiltIn, and displayName, and startsWith operator on displayName)  and $expand. */
+    /**
+     * @var UnifiedRoleDefinition|null $roleDefinition Specifies the roleDefinition that the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment.  Supports $filter (eq operator on id, isBuiltIn, and displayName, and startsWith operator on displayName)  and $expand.
+    */
     private ?UnifiedRoleDefinition $roleDefinition = null;
     
-    /** @var string|null $roleDefinitionId Identifier of the unifiedRoleDefinition the assignment is for. */
+    /**
+     * @var string|null $roleDefinitionId Identifier of the unifiedRoleDefinition the assignment is for.
+    */
     private ?string $roleDefinitionId = null;
     
     /**
@@ -53,7 +75,7 @@ class UnifiedRoleAssignmentMultiple extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UnifiedRoleAssignmentMultiple
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleAssignmentMultiple {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleAssignmentMultiple {
         return new UnifiedRoleAssignmentMultiple();
     }
 
@@ -118,18 +140,19 @@ class UnifiedRoleAssignmentMultiple extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appScopeIds' => function (self $o, ParseNode $n) { $o->setAppScopeIds($n->getCollectionOfPrimitiveValues()); },
-            'appScopes' => function (self $o, ParseNode $n) { $o->setAppScopes($n->getCollectionOfObjectValues(AppScope::class)); },
-            'condition' => function (self $o, ParseNode $n) { $o->setCondition($n->getStringValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'directoryScopeIds' => function (self $o, ParseNode $n) { $o->setDirectoryScopeIds($n->getCollectionOfPrimitiveValues()); },
-            'directoryScopes' => function (self $o, ParseNode $n) { $o->setDirectoryScopes($n->getCollectionOfObjectValues(DirectoryObject::class)); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'principalIds' => function (self $o, ParseNode $n) { $o->setPrincipalIds($n->getCollectionOfPrimitiveValues()); },
-            'principals' => function (self $o, ParseNode $n) { $o->setPrincipals($n->getCollectionOfObjectValues(DirectoryObject::class)); },
-            'roleDefinition' => function (self $o, ParseNode $n) { $o->setRoleDefinition($n->getObjectValue(UnifiedRoleDefinition::class)); },
-            'roleDefinitionId' => function (self $o, ParseNode $n) { $o->setRoleDefinitionId($n->getStringValue()); },
+            'appScopeIds' => function (ParseNode $n) use ($o) { $o->setAppScopeIds($n->getCollectionOfPrimitiveValues()); },
+            'appScopes' => function (ParseNode $n) use ($o) { $o->setAppScopes($n->getCollectionOfObjectValues(array(AppScope::class, 'createFromDiscriminatorValue'))); },
+            'condition' => function (ParseNode $n) use ($o) { $o->setCondition($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'directoryScopeIds' => function (ParseNode $n) use ($o) { $o->setDirectoryScopeIds($n->getCollectionOfPrimitiveValues()); },
+            'directoryScopes' => function (ParseNode $n) use ($o) { $o->setDirectoryScopes($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'principalIds' => function (ParseNode $n) use ($o) { $o->setPrincipalIds($n->getCollectionOfPrimitiveValues()); },
+            'principals' => function (ParseNode $n) use ($o) { $o->setPrincipals($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
+            'roleDefinition' => function (ParseNode $n) use ($o) { $o->setRoleDefinition($n->getObjectValue(array(UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'))); },
+            'roleDefinitionId' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionId($n->getStringValue()); },
         ]);
     }
 

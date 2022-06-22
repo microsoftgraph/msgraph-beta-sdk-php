@@ -7,22 +7,32 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DelegatedAdminRelationshipOperation extends Entity 
+class DelegatedAdminRelationshipOperation extends Entity implements Parsable 
 {
-    /** @var DateTime|null $createdDateTime The time in ISO 8601 format and in UTC time when the long-running operation was created. Read-only. */
+    /**
+     * @var DateTime|null $createdDateTime The time in ISO 8601 format and in UTC time when the long-running operation was created. Read-only.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $data The data (payload) for the operation. Read-only. */
+    /**
+     * @var string|null $data The data (payload) for the operation. Read-only.
+    */
     private ?string $data = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The time in ISO 8601 format and in UTC time when the long-running operation was last modified. Read-only. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The time in ISO 8601 format and in UTC time when the long-running operation was last modified. Read-only.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var DelegatedAdminRelationshipOperationType|null $operationType The type of long-running operation. The possible values are: delegatedAdminAccessAssignmentUpdate, unknownFutureValue. Read-only. */
+    /**
+     * @var DelegatedAdminRelationshipOperationType|null $operationType The type of long-running operation. The possible values are: delegatedAdminAccessAssignmentUpdate, unknownFutureValue. Read-only.
+    */
     private ?DelegatedAdminRelationshipOperationType $operationType = null;
     
-    /** @var DelegatedAdminRelationshipOperationStatus|null $status The status of the operation. Read-only. The possible values are: notStarted, running, complete, failed, unknownFutureValue. Read-only. Supports $orderBy. */
-    private ?DelegatedAdminRelationshipOperationStatus $status = null;
+    /**
+     * @var LongRunningOperationStatus|null $status The status of the operation. Read-only. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only. Supports $orderBy.
+    */
+    private ?LongRunningOperationStatus $status = null;
     
     /**
      * Instantiates a new delegatedAdminRelationshipOperation and sets the default values.
@@ -36,7 +46,7 @@ class DelegatedAdminRelationshipOperation extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DelegatedAdminRelationshipOperation
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminRelationshipOperation {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DelegatedAdminRelationshipOperation {
         return new DelegatedAdminRelationshipOperation();
     }
 
@@ -61,12 +71,13 @@ class DelegatedAdminRelationshipOperation extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'data' => function (self $o, ParseNode $n) { $o->setData($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'operationType' => function (self $o, ParseNode $n) { $o->setOperationType($n->getEnumValue(DelegatedAdminRelationshipOperationType::class)); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(DelegatedAdminRelationshipOperationStatus::class)); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'data' => function (ParseNode $n) use ($o) { $o->setData($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'operationType' => function (ParseNode $n) use ($o) { $o->setOperationType($n->getEnumValue(DelegatedAdminRelationshipOperationType::class)); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)); },
         ]);
     }
 
@@ -87,10 +98,10 @@ class DelegatedAdminRelationshipOperation extends Entity
     }
 
     /**
-     * Gets the status property value. The status of the operation. Read-only. The possible values are: notStarted, running, complete, failed, unknownFutureValue. Read-only. Supports $orderBy.
-     * @return DelegatedAdminRelationshipOperationStatus|null
+     * Gets the status property value. The status of the operation. Read-only. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only. Supports $orderBy.
+     * @return LongRunningOperationStatus|null
     */
-    public function getStatus(): ?DelegatedAdminRelationshipOperationStatus {
+    public function getStatus(): ?LongRunningOperationStatus {
         return $this->status;
     }
 
@@ -140,10 +151,10 @@ class DelegatedAdminRelationshipOperation extends Entity
     }
 
     /**
-     * Sets the status property value. The status of the operation. Read-only. The possible values are: notStarted, running, complete, failed, unknownFutureValue. Read-only. Supports $orderBy.
-     *  @param DelegatedAdminRelationshipOperationStatus|null $value Value to set for the status property.
+     * Sets the status property value. The status of the operation. Read-only. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only. Supports $orderBy.
+     *  @param LongRunningOperationStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?DelegatedAdminRelationshipOperationStatus $value ): void {
+    public function setStatus(?LongRunningOperationStatus $value ): void {
         $this->status = $value;
     }
 

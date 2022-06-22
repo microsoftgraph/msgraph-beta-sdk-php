@@ -7,24 +7,36 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementIntentDeviceState extends Entity 
+class DeviceManagementIntentDeviceState extends Entity implements Parsable 
 {
-    /** @var string|null $deviceDisplayName Device name that is being reported */
+    /**
+     * @var string|null $deviceDisplayName Device name that is being reported
+    */
     private ?string $deviceDisplayName = null;
     
-    /** @var string|null $deviceId Device id that is being reported */
+    /**
+     * @var string|null $deviceId Device id that is being reported
+    */
     private ?string $deviceId = null;
     
-    /** @var DateTime|null $lastReportedDateTime Last modified date time of an intent report */
+    /**
+     * @var DateTime|null $lastReportedDateTime Last modified date time of an intent report
+    */
     private ?DateTime $lastReportedDateTime = null;
     
-    /** @var ComplianceStatus|null $state Device state for an intent. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
+    /**
+     * @var ComplianceStatus|null $state Device state for an intent. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+    */
     private ?ComplianceStatus $state = null;
     
-    /** @var string|null $userName The user name that is being reported on a device */
+    /**
+     * @var string|null $userName The user name that is being reported on a device
+    */
     private ?string $userName = null;
     
-    /** @var string|null $userPrincipalName The user principal name that is being reported on a device */
+    /**
+     * @var string|null $userPrincipalName The user principal name that is being reported on a device
+    */
     private ?string $userPrincipalName = null;
     
     /**
@@ -39,7 +51,7 @@ class DeviceManagementIntentDeviceState extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceManagementIntentDeviceState
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementIntentDeviceState {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementIntentDeviceState {
         return new DeviceManagementIntentDeviceState();
     }
 
@@ -64,13 +76,14 @@ class DeviceManagementIntentDeviceState extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceDisplayName' => function (self $o, ParseNode $n) { $o->setDeviceDisplayName($n->getStringValue()); },
-            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
-            'lastReportedDateTime' => function (self $o, ParseNode $n) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
-            'state' => function (self $o, ParseNode $n) { $o->setState($n->getEnumValue(ComplianceStatus::class)); },
-            'userName' => function (self $o, ParseNode $n) { $o->setUserName($n->getStringValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'deviceDisplayName' => function (ParseNode $n) use ($o) { $o->setDeviceDisplayName($n->getStringValue()); },
+            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
+            'lastReportedDateTime' => function (ParseNode $n) use ($o) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
+            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ComplianceStatus::class)); },
+            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
 

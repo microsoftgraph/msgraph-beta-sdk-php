@@ -7,27 +7,41 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyConfiguration extends Entity 
+class GroupPolicyConfiguration extends Entity implements Parsable 
 {
-    /** @var array<GroupPolicyConfigurationAssignment>|null $assignments The list of group assignments for the configuration. */
+    /**
+     * @var array<GroupPolicyConfigurationAssignment>|null $assignments The list of group assignments for the configuration.
+    */
     private ?array $assignments = null;
     
-    /** @var DateTime|null $createdDateTime The date and time the object was created. */
+    /**
+     * @var DateTime|null $createdDateTime The date and time the object was created.
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var array<GroupPolicyDefinitionValue>|null $definitionValues The list of enabled or disabled group policy definition values for the configuration. */
+    /**
+     * @var array<GroupPolicyDefinitionValue>|null $definitionValues The list of enabled or disabled group policy definition values for the configuration.
+    */
     private ?array $definitionValues = null;
     
-    /** @var string|null $description User provided description for the resource object. */
+    /**
+     * @var string|null $description User provided description for the resource object.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName User provided name for the resource object. */
+    /**
+     * @var string|null $displayName User provided name for the resource object.
+    */
     private ?string $displayName = null;
     
-    /** @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified. */
+    /**
+     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
+    */
     private ?DateTime $lastModifiedDateTime = null;
     
-    /** @var array<string>|null $roleScopeTagIds The list of scope tags for the configuration. */
+    /**
+     * @var array<string>|null $roleScopeTagIds The list of scope tags for the configuration.
+    */
     private ?array $roleScopeTagIds = null;
     
     /**
@@ -42,7 +56,7 @@ class GroupPolicyConfiguration extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GroupPolicyConfiguration
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyConfiguration {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyConfiguration {
         return new GroupPolicyConfiguration();
     }
 
@@ -91,14 +105,15 @@ class GroupPolicyConfiguration extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (self $o, ParseNode $n) { $o->setAssignments($n->getCollectionOfObjectValues(GroupPolicyConfigurationAssignment::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'definitionValues' => function (self $o, ParseNode $n) { $o->setDefinitionValues($n->getCollectionOfObjectValues(GroupPolicyDefinitionValue::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (self $o, ParseNode $n) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(GroupPolicyConfigurationAssignment::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'definitionValues' => function (ParseNode $n) use ($o) { $o->setDefinitionValues($n->getCollectionOfObjectValues(array(GroupPolicyDefinitionValue::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
 

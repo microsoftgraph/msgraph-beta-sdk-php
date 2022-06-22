@@ -10,25 +10,39 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class DeviceConfigurationTargetedUserAndDevice implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $deviceId The id of the device in the checkin. */
+    /**
+     * @var string|null $deviceId The id of the device in the checkin.
+    */
     private ?string $deviceId = null;
     
-    /** @var string|null $deviceName The name of the device in the checkin. */
+    /**
+     * @var string|null $deviceName The name of the device in the checkin.
+    */
     private ?string $deviceName = null;
     
-    /** @var DateTime|null $lastCheckinDateTime Last checkin time for this user/device pair. */
+    /**
+     * @var DateTime|null $lastCheckinDateTime Last checkin time for this user/device pair.
+    */
     private ?DateTime $lastCheckinDateTime = null;
     
-    /** @var string|null $userDisplayName The display name of the user in the checkin */
+    /**
+     * @var string|null $userDisplayName The display name of the user in the checkin
+    */
     private ?string $userDisplayName = null;
     
-    /** @var string|null $userId The id of the user in the checkin. */
+    /**
+     * @var string|null $userId The id of the user in the checkin.
+    */
     private ?string $userId = null;
     
-    /** @var string|null $userPrincipalName The UPN of the user in the checkin. */
+    /**
+     * @var string|null $userPrincipalName The UPN of the user in the checkin.
+    */
     private ?string $userPrincipalName = null;
     
     /**
@@ -43,7 +57,7 @@ class DeviceConfigurationTargetedUserAndDevice implements AdditionalDataHolder, 
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return DeviceConfigurationTargetedUserAndDevice
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfigurationTargetedUserAndDevice {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfigurationTargetedUserAndDevice {
         return new DeviceConfigurationTargetedUserAndDevice();
     }
 
@@ -76,13 +90,14 @@ class DeviceConfigurationTargetedUserAndDevice implements AdditionalDataHolder, 
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'deviceId' => function (self $o, ParseNode $n) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (self $o, ParseNode $n) { $o->setDeviceName($n->getStringValue()); },
-            'lastCheckinDateTime' => function (self $o, ParseNode $n) { $o->setLastCheckinDateTime($n->getDateTimeValue()); },
-            'userDisplayName' => function (self $o, ParseNode $n) { $o->setUserDisplayName($n->getStringValue()); },
-            'userId' => function (self $o, ParseNode $n) { $o->setUserId($n->getStringValue()); },
-            'userPrincipalName' => function (self $o, ParseNode $n) { $o->setUserPrincipalName($n->getStringValue()); },
+            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
+            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
+            'lastCheckinDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckinDateTime($n->getDateTimeValue()); },
+            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
+            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ];
     }
 

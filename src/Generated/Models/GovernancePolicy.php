@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class GovernancePolicy implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var array<GovernanceCriteria>|null $decisionMakerCriteria The decisionMakerCriteria property */
+    /**
+     * @var array<GovernanceCriteria>|null $decisionMakerCriteria The decisionMakerCriteria property
+    */
     private ?array $decisionMakerCriteria = null;
     
-    /** @var GovernanceNotificationPolicy|null $notificationPolicy The notificationPolicy property */
+    /**
+     * @var GovernanceNotificationPolicy|null $notificationPolicy The notificationPolicy property
+    */
     private ?GovernanceNotificationPolicy $notificationPolicy = null;
     
     /**
@@ -30,7 +36,7 @@ class GovernancePolicy implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return GovernancePolicy
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): GovernancePolicy {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernancePolicy {
         return new GovernancePolicy();
     }
 
@@ -55,9 +61,10 @@ class GovernancePolicy implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'decisionMakerCriteria' => function (self $o, ParseNode $n) { $o->setDecisionMakerCriteria($n->getCollectionOfObjectValues(GovernanceCriteria::class)); },
-            'notificationPolicy' => function (self $o, ParseNode $n) { $o->setNotificationPolicy($n->getObjectValue(GovernanceNotificationPolicy::class)); },
+            'decisionMakerCriteria' => function (ParseNode $n) use ($o) { $o->setDecisionMakerCriteria($n->getCollectionOfObjectValues(array(GovernanceCriteria::class, 'createFromDiscriminatorValue'))); },
+            'notificationPolicy' => function (ParseNode $n) use ($o) { $o->setNotificationPolicy($n->getObjectValue(array(GovernanceNotificationPolicy::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 

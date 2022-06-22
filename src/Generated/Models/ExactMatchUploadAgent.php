@@ -7,12 +7,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ExactMatchUploadAgent extends Entity 
+class ExactMatchUploadAgent extends Entity implements Parsable 
 {
-    /** @var DateTime|null $creationDateTime The creationDateTime property */
+    /**
+     * @var DateTime|null $creationDateTime The creationDateTime property
+    */
     private ?DateTime $creationDateTime = null;
     
-    /** @var string|null $description The description property */
+    /**
+     * @var string|null $description The description property
+    */
     private ?string $description = null;
     
     /**
@@ -27,7 +31,7 @@ class ExactMatchUploadAgent extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ExactMatchUploadAgent
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchUploadAgent {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExactMatchUploadAgent {
         return new ExactMatchUploadAgent();
     }
 
@@ -52,9 +56,10 @@ class ExactMatchUploadAgent extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'creationDateTime' => function (self $o, ParseNode $n) { $o->setCreationDateTime($n->getDateTimeValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
+            'creationDateTime' => function (ParseNode $n) use ($o) { $o->setCreationDateTime($n->getDateTimeValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
         ]);
     }
 

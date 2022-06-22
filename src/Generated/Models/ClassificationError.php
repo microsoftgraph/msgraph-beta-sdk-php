@@ -6,9 +6,11 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ClassificationError extends ClassifcationErrorBase 
+class ClassificationError extends ClassifcationErrorBase implements Parsable 
 {
-    /** @var array<ClassifcationErrorBase>|null $details The details property */
+    /**
+     * @var array<ClassifcationErrorBase>|null $details The details property
+    */
     private ?array $details = null;
     
     /**
@@ -23,7 +25,7 @@ class ClassificationError extends ClassifcationErrorBase
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ClassificationError
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ClassificationError {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ClassificationError {
         return new ClassificationError();
     }
 
@@ -40,8 +42,9 @@ class ClassificationError extends ClassifcationErrorBase
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'details' => function (self $o, ParseNode $n) { $o->setDetails($n->getCollectionOfObjectValues(ClassifcationErrorBase::class)); },
+            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getCollectionOfObjectValues(array(ClassifcationErrorBase::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

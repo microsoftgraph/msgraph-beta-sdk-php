@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MfaDetail implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $authDetail Indicates the MFA auth detail for the corresponding Sign-in activity when the MFA Required is 'Yes'. */
+    /**
+     * @var string|null $authDetail Indicates the MFA auth detail for the corresponding Sign-in activity when the MFA Required is 'Yes'.
+    */
     private ?string $authDetail = null;
     
-    /** @var string|null $authMethod Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the value) for the corresponding sign-in activity when the MFA Required field is 'Yes'. */
+    /**
+     * @var string|null $authMethod Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the value) for the corresponding sign-in activity when the MFA Required field is 'Yes'.
+    */
     private ?string $authMethod = null;
     
     /**
@@ -30,7 +36,7 @@ class MfaDetail implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MfaDetail
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MfaDetail {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MfaDetail {
         return new MfaDetail();
     }
 
@@ -63,9 +69,10 @@ class MfaDetail implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'authDetail' => function (self $o, ParseNode $n) { $o->setAuthDetail($n->getStringValue()); },
-            'authMethod' => function (self $o, ParseNode $n) { $o->setAuthMethod($n->getStringValue()); },
+            'authDetail' => function (ParseNode $n) use ($o) { $o->setAuthDetail($n->getStringValue()); },
+            'authMethod' => function (ParseNode $n) use ($o) { $o->setAuthMethod($n->getStringValue()); },
         ];
     }
 

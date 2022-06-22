@@ -7,21 +7,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity 
+class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implements Parsable 
 {
-    /** @var int|null $activeDevices Number of active devices within the tenant. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $activeDevices Number of active devices within the tenant. Valid values -2147483648 to 2147483647
+    */
     private ?int $activeDevices = null;
     
-    /** @var int|null $batteryRuntimeFair Number of devices whose active runtime is greater than 3 hours but lesser than 5 hours. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $batteryRuntimeFair Number of devices whose active runtime is greater than 3 hours but lesser than 5 hours. Valid values -2147483648 to 2147483647
+    */
     private ?int $batteryRuntimeFair = null;
     
-    /** @var int|null $batteryRuntimeGood Number of devices  whose active runtime is greater than 5 hours. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $batteryRuntimeGood Number of devices  whose active runtime is greater than 5 hours. Valid values -2147483648 to 2147483647
+    */
     private ?int $batteryRuntimeGood = null;
     
-    /** @var int|null $batteryRuntimePoor Number of devices whose active runtime is lesser than 3 hours. Valid values -2147483648 to 2147483647 */
+    /**
+     * @var int|null $batteryRuntimePoor Number of devices whose active runtime is lesser than 3 hours. Valid values -2147483648 to 2147483647
+    */
     private ?int $batteryRuntimePoor = null;
     
-    /** @var DateTime|null $lastRefreshedDateTime Recorded date time of this runtime details instance. */
+    /**
+     * @var DateTime|null $lastRefreshedDateTime Recorded date time of this runtime details instance.
+    */
     private ?DateTime $lastRefreshedDateTime = null;
     
     /**
@@ -36,7 +46,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return UserExperienceAnalyticsBatteryHealthRuntimeDetails
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBatteryHealthRuntimeDetails {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBatteryHealthRuntimeDetails {
         return new UserExperienceAnalyticsBatteryHealthRuntimeDetails();
     }
 
@@ -77,12 +87,13 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeDevices' => function (self $o, ParseNode $n) { $o->setActiveDevices($n->getIntegerValue()); },
-            'batteryRuntimeFair' => function (self $o, ParseNode $n) { $o->setBatteryRuntimeFair($n->getIntegerValue()); },
-            'batteryRuntimeGood' => function (self $o, ParseNode $n) { $o->setBatteryRuntimeGood($n->getIntegerValue()); },
-            'batteryRuntimePoor' => function (self $o, ParseNode $n) { $o->setBatteryRuntimePoor($n->getIntegerValue()); },
-            'lastRefreshedDateTime' => function (self $o, ParseNode $n) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
+            'activeDevices' => function (ParseNode $n) use ($o) { $o->setActiveDevices($n->getIntegerValue()); },
+            'batteryRuntimeFair' => function (ParseNode $n) use ($o) { $o->setBatteryRuntimeFair($n->getIntegerValue()); },
+            'batteryRuntimeGood' => function (ParseNode $n) use ($o) { $o->setBatteryRuntimeGood($n->getIntegerValue()); },
+            'batteryRuntimePoor' => function (ParseNode $n) use ($o) { $o->setBatteryRuntimePoor($n->getIntegerValue()); },
+            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
         ]);
     }
 

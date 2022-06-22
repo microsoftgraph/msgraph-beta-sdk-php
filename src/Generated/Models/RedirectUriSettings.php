@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class RedirectUriSettings implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $index Identifies the specific URI within the redirectURIs collection in SAML SSO flows. Defaults to null. The index is unique across all the redirectUris for the application. */
+    /**
+     * @var int|null $index Identifies the specific URI within the redirectURIs collection in SAML SSO flows. Defaults to null. The index is unique across all the redirectUris for the application.
+    */
     private ?int $index = null;
     
-    /** @var string|null $uri Specifies the URI that tokens are sent to. */
+    /**
+     * @var string|null $uri Specifies the URI that tokens are sent to.
+    */
     private ?string $uri = null;
     
     /**
@@ -30,7 +36,7 @@ class RedirectUriSettings implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return RedirectUriSettings
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): RedirectUriSettings {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): RedirectUriSettings {
         return new RedirectUriSettings();
     }
 
@@ -47,9 +53,10 @@ class RedirectUriSettings implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'index' => function (self $o, ParseNode $n) { $o->setIndex($n->getIntegerValue()); },
-            'uri' => function (self $o, ParseNode $n) { $o->setUri($n->getStringValue()); },
+            'index' => function (ParseNode $n) use ($o) { $o->setIndex($n->getIntegerValue()); },
+            'uri' => function (ParseNode $n) use ($o) { $o->setUri($n->getStringValue()); },
         ];
     }
 

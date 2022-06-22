@@ -9,13 +9,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class AuthenticationContext implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var AuthenticationContextDetail|null $detail Describes how the conditional access authentication context was triggered. A value of previouslySatisfied means the auth context was because the user already satisfied the requirements for that authentication context in some previous authentication event. A value of required means the user had to meet the authentication context requirement as part of the sign-in flow. The possible values are: required, previouslySatisfied, notApplicable, unknownFutureValue. */
+    /**
+     * @var AuthenticationContextDetail|null $detail Describes how the conditional access authentication context was triggered. A value of previouslySatisfied means the auth context was because the user already satisfied the requirements for that authentication context in some previous authentication event. A value of required means the user had to meet the authentication context requirement as part of the sign-in flow. The possible values are: required, previouslySatisfied, notApplicable, unknownFutureValue.
+    */
     private ?AuthenticationContextDetail $detail = null;
     
-    /** @var string|null $id The identifier of a authentication context in your tenant. */
+    /**
+     * @var string|null $id The identifier of a authentication context in your tenant.
+    */
     private ?string $id = null;
     
     /**
@@ -30,7 +36,7 @@ class AuthenticationContext implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AuthenticationContext
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationContext {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AuthenticationContext {
         return new AuthenticationContext();
     }
 
@@ -55,9 +61,10 @@ class AuthenticationContext implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'detail' => function (self $o, ParseNode $n) { $o->setDetail($n->getEnumValue(AuthenticationContextDetail::class)); },
-            'id' => function (self $o, ParseNode $n) { $o->setId($n->getStringValue()); },
+            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getEnumValue(AuthenticationContextDetail::class)); },
+            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
         ];
     }
 

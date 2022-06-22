@@ -6,21 +6,31 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageResourceRole extends Entity 
+class AccessPackageResourceRole extends Entity implements Parsable 
 {
-    /** @var AccessPackageResource|null $accessPackageResource Read-only. Nullable. */
+    /**
+     * @var AccessPackageResource|null $accessPackageResource The accessPackageResource property
+    */
     private ?AccessPackageResource $accessPackageResource = null;
     
-    /** @var string|null $description A description for the resource role. */
+    /**
+     * @var string|null $description A description for the resource role.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName The display name of the resource role such as the role defined by the application. */
+    /**
+     * @var string|null $displayName The display name of the resource role such as the role defined by the application.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $originId The unique identifier of the resource role in the origin system. For a SharePoint Online site, the originId will be the sequence number of the role in the site. */
+    /**
+     * @var string|null $originId The unique identifier of the resource role in the origin system. For a SharePoint Online site, the originId will be the sequence number of the role in the site.
+    */
     private ?string $originId = null;
     
-    /** @var string|null $originSystem The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup. */
+    /**
+     * @var string|null $originSystem The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
+    */
     private ?string $originSystem = null;
     
     /**
@@ -35,12 +45,12 @@ class AccessPackageResourceRole extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return AccessPackageResourceRole
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceRole {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceRole {
         return new AccessPackageResourceRole();
     }
 
     /**
-     * Gets the accessPackageResource property value. Read-only. Nullable.
+     * Gets the accessPackageResource property value. The accessPackageResource property
      * @return AccessPackageResource|null
     */
     public function getAccessPackageResource(): ?AccessPackageResource {
@@ -68,12 +78,13 @@ class AccessPackageResourceRole extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResource' => function (self $o, ParseNode $n) { $o->setAccessPackageResource($n->getObjectValue(AccessPackageResource::class)); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'originId' => function (self $o, ParseNode $n) { $o->setOriginId($n->getStringValue()); },
-            'originSystem' => function (self $o, ParseNode $n) { $o->setOriginSystem($n->getStringValue()); },
+            'accessPackageResource' => function (ParseNode $n) use ($o) { $o->setAccessPackageResource($n->getObjectValue(array(AccessPackageResource::class, 'createFromDiscriminatorValue'))); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'originId' => function (ParseNode $n) use ($o) { $o->setOriginId($n->getStringValue()); },
+            'originSystem' => function (ParseNode $n) use ($o) { $o->setOriginSystem($n->getStringValue()); },
         ]);
     }
 
@@ -107,7 +118,7 @@ class AccessPackageResourceRole extends Entity
     }
 
     /**
-     * Sets the accessPackageResource property value. Read-only. Nullable.
+     * Sets the accessPackageResource property value. The accessPackageResource property
      *  @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
     */
     public function setAccessPackageResource(?AccessPackageResource $value ): void {

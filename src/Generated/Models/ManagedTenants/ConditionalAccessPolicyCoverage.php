@@ -8,18 +8,26 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ConditionalAccessPolicyCoverage extends Entity 
+class ConditionalAccessPolicyCoverage extends Entity implements Parsable 
 {
-    /** @var string|null $conditionalAccessPolicyState The state for the conditional access policy. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. Read-only. */
+    /**
+     * @var string|null $conditionalAccessPolicyState The state for the conditional access policy. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. Read-only.
+    */
     private ?string $conditionalAccessPolicyState = null;
     
-    /** @var DateTime|null $latestPolicyModifiedDateTime The date and time the conditional access policy was last modified. Required. Read-only. */
+    /**
+     * @var DateTime|null $latestPolicyModifiedDateTime The date and time the conditional access policy was last modified. Required. Read-only.
+    */
     private ?DateTime $latestPolicyModifiedDateTime = null;
     
-    /** @var bool|null $requiresDeviceCompliance A flag indicating whether the conditional access policy requires device compliance. Required. Read-only. */
+    /**
+     * @var bool|null $requiresDeviceCompliance A flag indicating whether the conditional access policy requires device compliance. Required. Read-only.
+    */
     private ?bool $requiresDeviceCompliance = null;
     
-    /** @var string|null $tenantDisplayName The display name for the managed tenant. Required. Read-only. */
+    /**
+     * @var string|null $tenantDisplayName The display name for the managed tenant. Required. Read-only.
+    */
     private ?string $tenantDisplayName = null;
     
     /**
@@ -34,7 +42,7 @@ class ConditionalAccessPolicyCoverage extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ConditionalAccessPolicyCoverage
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessPolicyCoverage {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessPolicyCoverage {
         return new ConditionalAccessPolicyCoverage();
     }
 
@@ -51,11 +59,12 @@ class ConditionalAccessPolicyCoverage extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'conditionalAccessPolicyState' => function (self $o, ParseNode $n) { $o->setConditionalAccessPolicyState($n->getStringValue()); },
-            'latestPolicyModifiedDateTime' => function (self $o, ParseNode $n) { $o->setLatestPolicyModifiedDateTime($n->getDateTimeValue()); },
-            'requiresDeviceCompliance' => function (self $o, ParseNode $n) { $o->setRequiresDeviceCompliance($n->getBooleanValue()); },
-            'tenantDisplayName' => function (self $o, ParseNode $n) { $o->setTenantDisplayName($n->getStringValue()); },
+            'conditionalAccessPolicyState' => function (ParseNode $n) use ($o) { $o->setConditionalAccessPolicyState($n->getStringValue()); },
+            'latestPolicyModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLatestPolicyModifiedDateTime($n->getDateTimeValue()); },
+            'requiresDeviceCompliance' => function (ParseNode $n) use ($o) { $o->setRequiresDeviceCompliance($n->getBooleanValue()); },
+            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
         ]);
     }
 

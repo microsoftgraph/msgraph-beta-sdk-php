@@ -10,13 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SigningCertificateUpdateStatus implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $certificateUpdateResult The certificateUpdateResult property */
+    /**
+     * @var string|null $certificateUpdateResult Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status.
+    */
     private ?string $certificateUpdateResult = null;
     
-    /** @var DateTime|null $lastRunDateTime The lastRunDateTime property */
+    /**
+     * @var DateTime|null $lastRunDateTime Date and time in ISO 8601 format and in UTC time when the certificate was last updated. Read-only.
+    */
     private ?DateTime $lastRunDateTime = null;
     
     /**
@@ -31,7 +37,7 @@ class SigningCertificateUpdateStatus implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SigningCertificateUpdateStatus
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SigningCertificateUpdateStatus {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SigningCertificateUpdateStatus {
         return new SigningCertificateUpdateStatus();
     }
 
@@ -44,7 +50,7 @@ class SigningCertificateUpdateStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the certificateUpdateResult property value. The certificateUpdateResult property
+     * Gets the certificateUpdateResult property value. Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status.
      * @return string|null
     */
     public function getCertificateUpdateResult(): ?string {
@@ -56,14 +62,15 @@ class SigningCertificateUpdateStatus implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'certificateUpdateResult' => function (self $o, ParseNode $n) { $o->setCertificateUpdateResult($n->getStringValue()); },
-            'lastRunDateTime' => function (self $o, ParseNode $n) { $o->setLastRunDateTime($n->getDateTimeValue()); },
+            'certificateUpdateResult' => function (ParseNode $n) use ($o) { $o->setCertificateUpdateResult($n->getStringValue()); },
+            'lastRunDateTime' => function (ParseNode $n) use ($o) { $o->setLastRunDateTime($n->getDateTimeValue()); },
         ];
     }
 
     /**
-     * Gets the lastRunDateTime property value. The lastRunDateTime property
+     * Gets the lastRunDateTime property value. Date and time in ISO 8601 format and in UTC time when the certificate was last updated. Read-only.
      * @return DateTime|null
     */
     public function getLastRunDateTime(): ?DateTime {
@@ -89,7 +96,7 @@ class SigningCertificateUpdateStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the certificateUpdateResult property value. The certificateUpdateResult property
+     * Sets the certificateUpdateResult property value. Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status.
      *  @param string|null $value Value to set for the certificateUpdateResult property.
     */
     public function setCertificateUpdateResult(?string $value ): void {
@@ -97,7 +104,7 @@ class SigningCertificateUpdateStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the lastRunDateTime property value. The lastRunDateTime property
+     * Sets the lastRunDateTime property value. Date and time in ISO 8601 format and in UTC time when the certificate was last updated. Read-only.
      *  @param DateTime|null $value Value to set for the lastRunDateTime property.
     */
     public function setLastRunDateTime(?DateTime $value ): void {

@@ -17,4 +17,5 @@ class DeviceEnrollmentConfigurationType extends Enum {
     public const DEVICE_COMANAGEMENT_AUTHORITY_CONFIGURATION = 'deviceComanagementAuthorityConfiguration';
     public const SINGLE_PLATFORM_RESTRICTION = 'singlePlatformRestriction';
     public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
+    public const ENROLLMENT_NOTIFICATIONS_CONFIGURATION = 'enrollmentNotificationsConfiguration';
 }

@@ -6,25 +6,35 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PersonWebsite extends ItemFacet 
+class PersonWebsite extends ItemFacet implements Parsable 
 {
-    /** @var array<string>|null $categories Contains categories a user has associated with the website (for example, personal, recipes). */
+    /**
+     * @var array<string>|null $categories Contains categories a user has associated with the website (for example, personal, recipes).
+    */
     private ?array $categories = null;
     
-    /** @var string|null $description Contains a description of the website. */
+    /**
+     * @var string|null $description Contains a description of the website.
+    */
     private ?string $description = null;
     
-    /** @var string|null $displayName Contains a friendly name for the website. */
+    /**
+     * @var string|null $displayName Contains a friendly name for the website.
+    */
     private ?string $displayName = null;
     
-    /** @var string|null $thumbnailUrl The thumbnailUrl property */
+    /**
+     * @var string|null $thumbnailUrl The thumbnailUrl property
+    */
     private ?string $thumbnailUrl = null;
     
-    /** @var string|null $webUrl Contains a link to the website itself. */
+    /**
+     * @var string|null $webUrl Contains a link to the website itself.
+    */
     private ?string $webUrl = null;
     
     /**
-     * Instantiates a new personWebsite and sets the default values.
+     * Instantiates a new PersonWebsite and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +45,7 @@ class PersonWebsite extends ItemFacet
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PersonWebsite
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PersonWebsite {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PersonWebsite {
         return new PersonWebsite();
     }
 
@@ -68,12 +78,13 @@ class PersonWebsite extends ItemFacet
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (self $o, ParseNode $n) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (self $o, ParseNode $n) { $o->setDisplayName($n->getStringValue()); },
-            'thumbnailUrl' => function (self $o, ParseNode $n) { $o->setThumbnailUrl($n->getStringValue()); },
-            'webUrl' => function (self $o, ParseNode $n) { $o->setWebUrl($n->getStringValue()); },
+            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
+            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
 

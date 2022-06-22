@@ -10,16 +10,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $errorMessage Detailed error message if dynamic group processing ran into an error.  Optional. Read-only. */
+    /**
+     * @var string|null $errorMessage Detailed error message if dynamic group processing ran into an error.  Optional. Read-only.
+    */
     private ?string $errorMessage = null;
     
-    /** @var DateTime|null $lastMembershipUpdated Most recent date and time when membership of a dynamic group was updated.  Optional. Read-only. */
+    /**
+     * @var DateTime|null $lastMembershipUpdated Most recent date and time when membership of a dynamic group was updated.  Optional. Read-only.
+    */
     private ?DateTime $lastMembershipUpdated = null;
     
-    /** @var MembershipRuleProcessingStatusDetails|null $status Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.  Required. Read-only. */
+    /**
+     * @var MembershipRuleProcessingStatusDetails|null $status Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.  Required. Read-only.
+    */
     private ?MembershipRuleProcessingStatusDetails $status = null;
     
     /**
@@ -34,7 +42,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return MembershipRuleProcessingStatus
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): MembershipRuleProcessingStatus {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MembershipRuleProcessingStatus {
         return new MembershipRuleProcessingStatus();
     }
 
@@ -59,10 +67,11 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'errorMessage' => function (self $o, ParseNode $n) { $o->setErrorMessage($n->getStringValue()); },
-            'lastMembershipUpdated' => function (self $o, ParseNode $n) { $o->setLastMembershipUpdated($n->getDateTimeValue()); },
-            'status' => function (self $o, ParseNode $n) { $o->setStatus($n->getEnumValue(MembershipRuleProcessingStatusDetails::class)); },
+            'errorMessage' => function (ParseNode $n) use ($o) { $o->setErrorMessage($n->getStringValue()); },
+            'lastMembershipUpdated' => function (ParseNode $n) use ($o) { $o->setLastMembershipUpdated($n->getDateTimeValue()); },
+            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(MembershipRuleProcessingStatusDetails::class)); },
         ];
     }
 

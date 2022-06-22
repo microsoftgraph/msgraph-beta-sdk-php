@@ -7,15 +7,21 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TenantRelationship extends Entity 
+class TenantRelationship extends Entity implements Parsable 
 {
-    /** @var array<DelegatedAdminCustomer>|null $delegatedAdminCustomers The customer who has a delegated admin relationship with a Microsoft partner. */
+    /**
+     * @var array<DelegatedAdminCustomer>|null $delegatedAdminCustomers The customer who has a delegated admin relationship with a Microsoft partner.
+    */
     private ?array $delegatedAdminCustomers = null;
     
-    /** @var array<DelegatedAdminRelationship>|null $delegatedAdminRelationships The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant. */
+    /**
+     * @var array<DelegatedAdminRelationship>|null $delegatedAdminRelationships The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+    */
     private ?array $delegatedAdminRelationships = null;
     
-    /** @var ManagedTenant|null $managedTenants The operations available to interact with the multi-tenant management platform. */
+    /**
+     * @var ManagedTenant|null $managedTenants The operations available to interact with the multi-tenant management platform.
+    */
     private ?ManagedTenant $managedTenants = null;
     
     /**
@@ -30,7 +36,7 @@ class TenantRelationship extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TenantRelationship
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TenantRelationship {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TenantRelationship {
         return new TenantRelationship();
     }
 
@@ -55,10 +61,11 @@ class TenantRelationship extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'delegatedAdminCustomers' => function (self $o, ParseNode $n) { $o->setDelegatedAdminCustomers($n->getCollectionOfObjectValues(DelegatedAdminCustomer::class)); },
-            'delegatedAdminRelationships' => function (self $o, ParseNode $n) { $o->setDelegatedAdminRelationships($n->getCollectionOfObjectValues(DelegatedAdminRelationship::class)); },
-            'managedTenants' => function (self $o, ParseNode $n) { $o->setManagedTenants($n->getObjectValue(ManagedTenant::class)); },
+            'delegatedAdminCustomers' => function (ParseNode $n) use ($o) { $o->setDelegatedAdminCustomers($n->getCollectionOfObjectValues(array(DelegatedAdminCustomer::class, 'createFromDiscriminatorValue'))); },
+            'delegatedAdminRelationships' => function (ParseNode $n) use ($o) { $o->setDelegatedAdminRelationships($n->getCollectionOfObjectValues(array(DelegatedAdminRelationship::class, 'createFromDiscriminatorValue'))); },
+            'managedTenants' => function (ParseNode $n) use ($o) { $o->setManagedTenants($n->getObjectValue(array(ManagedTenant::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 

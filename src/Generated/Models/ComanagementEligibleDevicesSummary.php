@@ -9,26 +9,38 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var int|null $comanagedCount Count of devices already Co-Managed */
+    /**
+     * @var int|null $comanagedCount Count of devices already Co-Managed
+    */
     private ?int $comanagedCount = null;
     
-    /** @var int|null $eligibleButNotAzureAdJoinedCount Count of devices eligible for Co-Management but not yet joined to Azure Active Directory */
+    /**
+     * @var int|null $eligibleButNotAzureAdJoinedCount Count of devices eligible for Co-Management but not yet joined to Azure Active Directory
+    */
     private ?int $eligibleButNotAzureAdJoinedCount = null;
     
-    /** @var int|null $eligibleCount Count of devices fully eligible for Co-Management */
+    /**
+     * @var int|null $eligibleCount Count of devices fully eligible for Co-Management
+    */
     private ?int $eligibleCount = null;
     
-    /** @var int|null $ineligibleCount Count of devices ineligible for Co-Management */
+    /**
+     * @var int|null $ineligibleCount Count of devices ineligible for Co-Management
+    */
     private ?int $ineligibleCount = null;
     
-    /** @var int|null $needsOsUpdateCount Count of devices that will be eligible for Co-Management after an OS update */
+    /**
+     * @var int|null $needsOsUpdateCount Count of devices that will be eligible for Co-Management after an OS update
+    */
     private ?int $needsOsUpdateCount = null;
     
     /**
-     * Instantiates a new comanagementEligibleDevicesSummary and sets the default values.
+     * Instantiates a new ComanagementEligibleDevicesSummary and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -39,7 +51,7 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ComanagementEligibleDevicesSummary
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ComanagementEligibleDevicesSummary {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ComanagementEligibleDevicesSummary {
         return new ComanagementEligibleDevicesSummary();
     }
 
@@ -80,12 +92,13 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'comanagedCount' => function (self $o, ParseNode $n) { $o->setComanagedCount($n->getIntegerValue()); },
-            'eligibleButNotAzureAdJoinedCount' => function (self $o, ParseNode $n) { $o->setEligibleButNotAzureAdJoinedCount($n->getIntegerValue()); },
-            'eligibleCount' => function (self $o, ParseNode $n) { $o->setEligibleCount($n->getIntegerValue()); },
-            'ineligibleCount' => function (self $o, ParseNode $n) { $o->setIneligibleCount($n->getIntegerValue()); },
-            'needsOsUpdateCount' => function (self $o, ParseNode $n) { $o->setNeedsOsUpdateCount($n->getIntegerValue()); },
+            'comanagedCount' => function (ParseNode $n) use ($o) { $o->setComanagedCount($n->getIntegerValue()); },
+            'eligibleButNotAzureAdJoinedCount' => function (ParseNode $n) use ($o) { $o->setEligibleButNotAzureAdJoinedCount($n->getIntegerValue()); },
+            'eligibleCount' => function (ParseNode $n) use ($o) { $o->setEligibleCount($n->getIntegerValue()); },
+            'ineligibleCount' => function (ParseNode $n) use ($o) { $o->setIneligibleCount($n->getIntegerValue()); },
+            'needsOsUpdateCount' => function (ParseNode $n) use ($o) { $o->setNeedsOsUpdateCount($n->getIntegerValue()); },
         ];
     }
 

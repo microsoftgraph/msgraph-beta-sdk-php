@@ -6,25 +6,35 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SamlOrWsFedProvider extends IdentityProviderBase 
+class SamlOrWsFedProvider extends IdentityProviderBase implements Parsable 
 {
-    /** @var string|null $issuerUri Issuer URI of the federation server. */
+    /**
+     * @var string|null $issuerUri Issuer URI of the federation server.
+    */
     private ?string $issuerUri = null;
     
-    /** @var string|null $metadataExchangeUri URI of the metadata exchange endpoint used for authentication from rich client applications. */
+    /**
+     * @var string|null $metadataExchangeUri URI of the metadata exchange endpoint used for authentication from rich client applications.
+    */
     private ?string $metadataExchangeUri = null;
     
-    /** @var string|null $passiveSignInUri URI that web-based clients are directed to when signing in to Azure Active Directory (Azure AD) services. */
+    /**
+     * @var string|null $passiveSignInUri URI that web-based clients are directed to when signing in to Azure Active Directory (Azure AD) services.
+    */
     private ?string $passiveSignInUri = null;
     
-    /** @var AuthenticationProtocol|null $preferredAuthenticationProtocol Preferred authentication protocol. Supported values include saml or wsfed. */
+    /**
+     * @var AuthenticationProtocol|null $preferredAuthenticationProtocol Preferred authentication protocol. Supported values include saml or wsfed.
+    */
     private ?AuthenticationProtocol $preferredAuthenticationProtocol = null;
     
-    /** @var string|null $signingCertificate Current certificate used to sign tokens passed to the Microsoft identity platform. The certificate is formatted as a Base64 encoded string of the public portion of the federated IdP's token signing certificate and must be compatible with the X509Certificate2 class.   This property is used in the following scenarios:  if a rollover is required outside of the autorollover update a new federation service is being set up  if the new token signing certificate isn't present in the federation properties after the federation service certificate has been updated.   Azure AD updates certificates via an autorollover process in which it attempts to retrieve a new certificate from the federation service metadata, 30 days before expiry of the current certificate. If a new certificate isn't available, Azure AD monitors the metadata daily and will update the federation settings for the domain when a new certificate is available. */
+    /**
+     * @var string|null $signingCertificate Current certificate used to sign tokens passed to the Microsoft identity platform. The certificate is formatted as a Base64 encoded string of the public portion of the federated IdP's token signing certificate and must be compatible with the X509Certificate2 class.   This property is used in the following scenarios:  if a rollover is required outside of the autorollover update a new federation service is being set up  if the new token signing certificate isn't present in the federation properties after the federation service certificate has been updated.   Azure AD updates certificates via an autorollover process in which it attempts to retrieve a new certificate from the federation service metadata, 30 days before expiry of the current certificate. If a new certificate isn't available, Azure AD monitors the metadata daily and will update the federation settings for the domain when a new certificate is available.
+    */
     private ?string $signingCertificate = null;
     
     /**
-     * Instantiates a new samlOrWsFedProvider and sets the default values.
+     * Instantiates a new SamlOrWsFedProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +45,15 @@ class SamlOrWsFedProvider extends IdentityProviderBase
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SamlOrWsFedProvider
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SamlOrWsFedProvider {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SamlOrWsFedProvider {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.internalDomainFederation': return new InternalDomainFederation();
+                case '#microsoft.graph.samlOrWsFedExternalDomainFederation': return new SamlOrWsFedExternalDomainFederation();
+            }
+        }
         return new SamlOrWsFedProvider();
     }
 
@@ -44,12 +62,13 @@ class SamlOrWsFedProvider extends IdentityProviderBase
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'issuerUri' => function (self $o, ParseNode $n) { $o->setIssuerUri($n->getStringValue()); },
-            'metadataExchangeUri' => function (self $o, ParseNode $n) { $o->setMetadataExchangeUri($n->getStringValue()); },
-            'passiveSignInUri' => function (self $o, ParseNode $n) { $o->setPassiveSignInUri($n->getStringValue()); },
-            'preferredAuthenticationProtocol' => function (self $o, ParseNode $n) { $o->setPreferredAuthenticationProtocol($n->getEnumValue(AuthenticationProtocol::class)); },
-            'signingCertificate' => function (self $o, ParseNode $n) { $o->setSigningCertificate($n->getStringValue()); },
+            'issuerUri' => function (ParseNode $n) use ($o) { $o->setIssuerUri($n->getStringValue()); },
+            'metadataExchangeUri' => function (ParseNode $n) use ($o) { $o->setMetadataExchangeUri($n->getStringValue()); },
+            'passiveSignInUri' => function (ParseNode $n) use ($o) { $o->setPassiveSignInUri($n->getStringValue()); },
+            'preferredAuthenticationProtocol' => function (ParseNode $n) use ($o) { $o->setPreferredAuthenticationProtocol($n->getEnumValue(AuthenticationProtocol::class)); },
+            'signingCertificate' => function (ParseNode $n) use ($o) { $o->setSigningCertificate($n->getStringValue()); },
         ]);
     }
 

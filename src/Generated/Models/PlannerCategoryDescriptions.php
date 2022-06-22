@@ -9,82 +9,134 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class PlannerCategoryDescriptions implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var string|null $category1 The label associated with Category 1 */
+    /**
+     * @var string|null $category1 The label associated with Category 1
+    */
     private ?string $category1 = null;
     
-    /** @var string|null $category10 The label associated with Category 10 */
+    /**
+     * @var string|null $category10 The label associated with Category 10
+    */
     private ?string $category10 = null;
     
-    /** @var string|null $category11 The label associated with Category 11 */
+    /**
+     * @var string|null $category11 The label associated with Category 11
+    */
     private ?string $category11 = null;
     
-    /** @var string|null $category12 The label associated with Category 12 */
+    /**
+     * @var string|null $category12 The label associated with Category 12
+    */
     private ?string $category12 = null;
     
-    /** @var string|null $category13 The label associated with Category 13 */
+    /**
+     * @var string|null $category13 The label associated with Category 13
+    */
     private ?string $category13 = null;
     
-    /** @var string|null $category14 The label associated with Category 14 */
+    /**
+     * @var string|null $category14 The label associated with Category 14
+    */
     private ?string $category14 = null;
     
-    /** @var string|null $category15 The label associated with Category 15 */
+    /**
+     * @var string|null $category15 The label associated with Category 15
+    */
     private ?string $category15 = null;
     
-    /** @var string|null $category16 The label associated with Category 16 */
+    /**
+     * @var string|null $category16 The label associated with Category 16
+    */
     private ?string $category16 = null;
     
-    /** @var string|null $category17 The label associated with Category 17 */
+    /**
+     * @var string|null $category17 The label associated with Category 17
+    */
     private ?string $category17 = null;
     
-    /** @var string|null $category18 The label associated with Category 18 */
+    /**
+     * @var string|null $category18 The label associated with Category 18
+    */
     private ?string $category18 = null;
     
-    /** @var string|null $category19 The label associated with Category 19 */
+    /**
+     * @var string|null $category19 The label associated with Category 19
+    */
     private ?string $category19 = null;
     
-    /** @var string|null $category2 The label associated with Category 2 */
+    /**
+     * @var string|null $category2 The label associated with Category 2
+    */
     private ?string $category2 = null;
     
-    /** @var string|null $category20 The label associated with Category 20 */
+    /**
+     * @var string|null $category20 The label associated with Category 20
+    */
     private ?string $category20 = null;
     
-    /** @var string|null $category21 The label associated with Category 21 */
+    /**
+     * @var string|null $category21 The label associated with Category 21
+    */
     private ?string $category21 = null;
     
-    /** @var string|null $category22 The label associated with Category 22 */
+    /**
+     * @var string|null $category22 The label associated with Category 22
+    */
     private ?string $category22 = null;
     
-    /** @var string|null $category23 The label associated with Category 23 */
+    /**
+     * @var string|null $category23 The label associated with Category 23
+    */
     private ?string $category23 = null;
     
-    /** @var string|null $category24 The label associated with Category 24 */
+    /**
+     * @var string|null $category24 The label associated with Category 24
+    */
     private ?string $category24 = null;
     
-    /** @var string|null $category25 The label associated with Category 25 */
+    /**
+     * @var string|null $category25 The label associated with Category 25
+    */
     private ?string $category25 = null;
     
-    /** @var string|null $category3 The label associated with Category 3 */
+    /**
+     * @var string|null $category3 The label associated with Category 3
+    */
     private ?string $category3 = null;
     
-    /** @var string|null $category4 The label associated with Category 4 */
+    /**
+     * @var string|null $category4 The label associated with Category 4
+    */
     private ?string $category4 = null;
     
-    /** @var string|null $category5 The label associated with Category 5 */
+    /**
+     * @var string|null $category5 The label associated with Category 5
+    */
     private ?string $category5 = null;
     
-    /** @var string|null $category6 The label associated with Category 6 */
+    /**
+     * @var string|null $category6 The label associated with Category 6
+    */
     private ?string $category6 = null;
     
-    /** @var string|null $category7 The label associated with Category 7 */
+    /**
+     * @var string|null $category7 The label associated with Category 7
+    */
     private ?string $category7 = null;
     
-    /** @var string|null $category8 The label associated with Category 8 */
+    /**
+     * @var string|null $category8 The label associated with Category 8
+    */
     private ?string $category8 = null;
     
-    /** @var string|null $category9 The label associated with Category 9 */
+    /**
+     * @var string|null $category9 The label associated with Category 9
+    */
     private ?string $category9 = null;
     
     /**
@@ -99,7 +151,7 @@ class PlannerCategoryDescriptions implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PlannerCategoryDescriptions
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PlannerCategoryDescriptions {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerCategoryDescriptions {
         return new PlannerCategoryDescriptions();
     }
 
@@ -316,32 +368,33 @@ class PlannerCategoryDescriptions implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'category1' => function (self $o, ParseNode $n) { $o->setCategory1($n->getStringValue()); },
-            'category10' => function (self $o, ParseNode $n) { $o->setCategory10($n->getStringValue()); },
-            'category11' => function (self $o, ParseNode $n) { $o->setCategory11($n->getStringValue()); },
-            'category12' => function (self $o, ParseNode $n) { $o->setCategory12($n->getStringValue()); },
-            'category13' => function (self $o, ParseNode $n) { $o->setCategory13($n->getStringValue()); },
-            'category14' => function (self $o, ParseNode $n) { $o->setCategory14($n->getStringValue()); },
-            'category15' => function (self $o, ParseNode $n) { $o->setCategory15($n->getStringValue()); },
-            'category16' => function (self $o, ParseNode $n) { $o->setCategory16($n->getStringValue()); },
-            'category17' => function (self $o, ParseNode $n) { $o->setCategory17($n->getStringValue()); },
-            'category18' => function (self $o, ParseNode $n) { $o->setCategory18($n->getStringValue()); },
-            'category19' => function (self $o, ParseNode $n) { $o->setCategory19($n->getStringValue()); },
-            'category2' => function (self $o, ParseNode $n) { $o->setCategory2($n->getStringValue()); },
-            'category20' => function (self $o, ParseNode $n) { $o->setCategory20($n->getStringValue()); },
-            'category21' => function (self $o, ParseNode $n) { $o->setCategory21($n->getStringValue()); },
-            'category22' => function (self $o, ParseNode $n) { $o->setCategory22($n->getStringValue()); },
-            'category23' => function (self $o, ParseNode $n) { $o->setCategory23($n->getStringValue()); },
-            'category24' => function (self $o, ParseNode $n) { $o->setCategory24($n->getStringValue()); },
-            'category25' => function (self $o, ParseNode $n) { $o->setCategory25($n->getStringValue()); },
-            'category3' => function (self $o, ParseNode $n) { $o->setCategory3($n->getStringValue()); },
-            'category4' => function (self $o, ParseNode $n) { $o->setCategory4($n->getStringValue()); },
-            'category5' => function (self $o, ParseNode $n) { $o->setCategory5($n->getStringValue()); },
-            'category6' => function (self $o, ParseNode $n) { $o->setCategory6($n->getStringValue()); },
-            'category7' => function (self $o, ParseNode $n) { $o->setCategory7($n->getStringValue()); },
-            'category8' => function (self $o, ParseNode $n) { $o->setCategory8($n->getStringValue()); },
-            'category9' => function (self $o, ParseNode $n) { $o->setCategory9($n->getStringValue()); },
+            'category1' => function (ParseNode $n) use ($o) { $o->setCategory1($n->getStringValue()); },
+            'category10' => function (ParseNode $n) use ($o) { $o->setCategory10($n->getStringValue()); },
+            'category11' => function (ParseNode $n) use ($o) { $o->setCategory11($n->getStringValue()); },
+            'category12' => function (ParseNode $n) use ($o) { $o->setCategory12($n->getStringValue()); },
+            'category13' => function (ParseNode $n) use ($o) { $o->setCategory13($n->getStringValue()); },
+            'category14' => function (ParseNode $n) use ($o) { $o->setCategory14($n->getStringValue()); },
+            'category15' => function (ParseNode $n) use ($o) { $o->setCategory15($n->getStringValue()); },
+            'category16' => function (ParseNode $n) use ($o) { $o->setCategory16($n->getStringValue()); },
+            'category17' => function (ParseNode $n) use ($o) { $o->setCategory17($n->getStringValue()); },
+            'category18' => function (ParseNode $n) use ($o) { $o->setCategory18($n->getStringValue()); },
+            'category19' => function (ParseNode $n) use ($o) { $o->setCategory19($n->getStringValue()); },
+            'category2' => function (ParseNode $n) use ($o) { $o->setCategory2($n->getStringValue()); },
+            'category20' => function (ParseNode $n) use ($o) { $o->setCategory20($n->getStringValue()); },
+            'category21' => function (ParseNode $n) use ($o) { $o->setCategory21($n->getStringValue()); },
+            'category22' => function (ParseNode $n) use ($o) { $o->setCategory22($n->getStringValue()); },
+            'category23' => function (ParseNode $n) use ($o) { $o->setCategory23($n->getStringValue()); },
+            'category24' => function (ParseNode $n) use ($o) { $o->setCategory24($n->getStringValue()); },
+            'category25' => function (ParseNode $n) use ($o) { $o->setCategory25($n->getStringValue()); },
+            'category3' => function (ParseNode $n) use ($o) { $o->setCategory3($n->getStringValue()); },
+            'category4' => function (ParseNode $n) use ($o) { $o->setCategory4($n->getStringValue()); },
+            'category5' => function (ParseNode $n) use ($o) { $o->setCategory5($n->getStringValue()); },
+            'category6' => function (ParseNode $n) use ($o) { $o->setCategory6($n->getStringValue()); },
+            'category7' => function (ParseNode $n) use ($o) { $o->setCategory7($n->getStringValue()); },
+            'category8' => function (ParseNode $n) use ($o) { $o->setCategory8($n->getStringValue()); },
+            'category9' => function (ParseNode $n) use ($o) { $o->setCategory9($n->getStringValue()); },
         ];
     }
 

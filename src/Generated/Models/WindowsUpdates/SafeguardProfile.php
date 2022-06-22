@@ -9,10 +9,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class SafeguardProfile implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var SafeguardCategory|null $category Specifies the category of safeguards. The possible values are: likelyIssues, unknownFutureValue. */
+    /**
+     * @var SafeguardCategory|null $category Specifies the category of safeguards. The possible values are: likelyIssues, unknownFutureValue.
+    */
     private ?SafeguardCategory $category = null;
     
     /**
@@ -27,7 +31,7 @@ class SafeguardProfile implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return SafeguardProfile
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): SafeguardProfile {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): SafeguardProfile {
         return new SafeguardProfile();
     }
 
@@ -52,8 +56,9 @@ class SafeguardProfile implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'category' => function (self $o, ParseNode $n) { $o->setCategory($n->getEnumValue(SafeguardCategory::class)); },
+            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(SafeguardCategory::class)); },
         ];
     }
 

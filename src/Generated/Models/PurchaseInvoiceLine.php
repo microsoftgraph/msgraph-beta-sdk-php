@@ -7,76 +7,122 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class PurchaseInvoiceLine extends Entity 
+class PurchaseInvoiceLine extends Entity implements Parsable 
 {
-    /** @var Account|null $account The account property */
+    /**
+     * @var Account|null $account The account property
+    */
     private ?Account $account = null;
     
-    /** @var string|null $accountId The accountId property */
+    /**
+     * @var string|null $accountId The accountId property
+    */
     private ?string $accountId = null;
     
-    /** @var float|null $amountExcludingTax The amountExcludingTax property */
-    private ?float $amountExcludingTax = null;
+    /**
+     * @var string|null $amountExcludingTax The amountExcludingTax property
+    */
+    private ?string $amountExcludingTax = null;
     
-    /** @var float|null $amountIncludingTax The amountIncludingTax property */
-    private ?float $amountIncludingTax = null;
+    /**
+     * @var string|null $amountIncludingTax The amountIncludingTax property
+    */
+    private ?string $amountIncludingTax = null;
     
-    /** @var string|null $description The description property */
+    /**
+     * @var string|null $description The description property
+    */
     private ?string $description = null;
     
-    /** @var float|null $discountAmount The discountAmount property */
-    private ?float $discountAmount = null;
+    /**
+     * @var string|null $discountAmount The discountAmount property
+    */
+    private ?string $discountAmount = null;
     
-    /** @var bool|null $discountAppliedBeforeTax The discountAppliedBeforeTax property */
+    /**
+     * @var bool|null $discountAppliedBeforeTax The discountAppliedBeforeTax property
+    */
     private ?bool $discountAppliedBeforeTax = null;
     
-    /** @var float|null $discountPercent The discountPercent property */
-    private ?float $discountPercent = null;
+    /**
+     * @var string|null $discountPercent The discountPercent property
+    */
+    private ?string $discountPercent = null;
     
-    /** @var string|null $documentId The documentId property */
+    /**
+     * @var string|null $documentId The documentId property
+    */
     private ?string $documentId = null;
     
-    /** @var Date|null $expectedReceiptDate The expectedReceiptDate property */
+    /**
+     * @var Date|null $expectedReceiptDate The expectedReceiptDate property
+    */
     private ?Date $expectedReceiptDate = null;
     
-    /** @var float|null $invoiceDiscountAllocation The invoiceDiscountAllocation property */
-    private ?float $invoiceDiscountAllocation = null;
+    /**
+     * @var string|null $invoiceDiscountAllocation The invoiceDiscountAllocation property
+    */
+    private ?string $invoiceDiscountAllocation = null;
     
-    /** @var Item|null $item The item property */
+    /**
+     * @var Item|null $item The item property
+    */
     private ?Item $item = null;
     
-    /** @var string|null $itemId The itemId property */
+    /**
+     * @var string|null $itemId The itemId property
+    */
     private ?string $itemId = null;
     
-    /** @var string|null $lineType The lineType property */
+    /**
+     * @var string|null $lineType The lineType property
+    */
     private ?string $lineType = null;
     
-    /** @var float|null $netAmount The netAmount property */
-    private ?float $netAmount = null;
+    /**
+     * @var string|null $netAmount The netAmount property
+    */
+    private ?string $netAmount = null;
     
-    /** @var float|null $netAmountIncludingTax The netAmountIncludingTax property */
-    private ?float $netAmountIncludingTax = null;
+    /**
+     * @var string|null $netAmountIncludingTax The netAmountIncludingTax property
+    */
+    private ?string $netAmountIncludingTax = null;
     
-    /** @var float|null $netTaxAmount The netTaxAmount property */
-    private ?float $netTaxAmount = null;
+    /**
+     * @var string|null $netTaxAmount The netTaxAmount property
+    */
+    private ?string $netTaxAmount = null;
     
-    /** @var float|null $quantity The quantity property */
-    private ?float $quantity = null;
+    /**
+     * @var string|null $quantity The quantity property
+    */
+    private ?string $quantity = null;
     
-    /** @var int|null $sequence The sequence property */
+    /**
+     * @var int|null $sequence The sequence property
+    */
     private ?int $sequence = null;
     
-    /** @var string|null $taxCode The taxCode property */
+    /**
+     * @var string|null $taxCode The taxCode property
+    */
     private ?string $taxCode = null;
     
-    /** @var float|null $taxPercent The taxPercent property */
-    private ?float $taxPercent = null;
+    /**
+     * @var string|null $taxPercent The taxPercent property
+    */
+    private ?string $taxPercent = null;
     
-    /** @var float|null $totalTaxAmount The totalTaxAmount property */
-    private ?float $totalTaxAmount = null;
+    /**
+     * @var string|null $totalTaxAmount The totalTaxAmount property
+    */
+    private ?string $totalTaxAmount = null;
     
-    /** @var float|null $unitCost The unitCost property */
-    private ?float $unitCost = null;
+    /**
+     * @var string|null $unitCost The unitCost property
+    */
+    private ?string $unitCost = null;
     
     /**
      * Instantiates a new purchaseInvoiceLine and sets the default values.
@@ -90,7 +136,7 @@ class PurchaseInvoiceLine extends Entity
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return PurchaseInvoiceLine
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): PurchaseInvoiceLine {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PurchaseInvoiceLine {
         return new PurchaseInvoiceLine();
     }
 
@@ -112,17 +158,17 @@ class PurchaseInvoiceLine extends Entity
 
     /**
      * Gets the amountExcludingTax property value. The amountExcludingTax property
-     * @return float|null
+     * @return string|null
     */
-    public function getAmountExcludingTax(): ?float {
+    public function getAmountExcludingTax(): ?string {
         return $this->amountExcludingTax;
     }
 
     /**
      * Gets the amountIncludingTax property value. The amountIncludingTax property
-     * @return float|null
+     * @return string|null
     */
-    public function getAmountIncludingTax(): ?float {
+    public function getAmountIncludingTax(): ?string {
         return $this->amountIncludingTax;
     }
 
@@ -136,9 +182,9 @@ class PurchaseInvoiceLine extends Entity
 
     /**
      * Gets the discountAmount property value. The discountAmount property
-     * @return float|null
+     * @return string|null
     */
-    public function getDiscountAmount(): ?float {
+    public function getDiscountAmount(): ?string {
         return $this->discountAmount;
     }
 
@@ -152,9 +198,9 @@ class PurchaseInvoiceLine extends Entity
 
     /**
      * Gets the discountPercent property value. The discountPercent property
-     * @return float|null
+     * @return string|null
     */
-    public function getDiscountPercent(): ?float {
+    public function getDiscountPercent(): ?string {
         return $this->discountPercent;
     }
 
@@ -179,38 +225,39 @@ class PurchaseInvoiceLine extends Entity
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'account' => function (self $o, ParseNode $n) { $o->setAccount($n->getObjectValue(Account::class)); },
-            'accountId' => function (self $o, ParseNode $n) { $o->setAccountId($n->getStringValue()); },
-            'amountExcludingTax' => function (self $o, ParseNode $n) { $o->setAmountExcludingTax($n->getFloatValue()); },
-            'amountIncludingTax' => function (self $o, ParseNode $n) { $o->setAmountIncludingTax($n->getFloatValue()); },
-            'description' => function (self $o, ParseNode $n) { $o->setDescription($n->getStringValue()); },
-            'discountAmount' => function (self $o, ParseNode $n) { $o->setDiscountAmount($n->getFloatValue()); },
-            'discountAppliedBeforeTax' => function (self $o, ParseNode $n) { $o->setDiscountAppliedBeforeTax($n->getBooleanValue()); },
-            'discountPercent' => function (self $o, ParseNode $n) { $o->setDiscountPercent($n->getFloatValue()); },
-            'documentId' => function (self $o, ParseNode $n) { $o->setDocumentId($n->getStringValue()); },
-            'expectedReceiptDate' => function (self $o, ParseNode $n) { $o->setExpectedReceiptDate($n->getDateValue()); },
-            'invoiceDiscountAllocation' => function (self $o, ParseNode $n) { $o->setInvoiceDiscountAllocation($n->getFloatValue()); },
-            'item' => function (self $o, ParseNode $n) { $o->setItem($n->getObjectValue(Item::class)); },
-            'itemId' => function (self $o, ParseNode $n) { $o->setItemId($n->getStringValue()); },
-            'lineType' => function (self $o, ParseNode $n) { $o->setLineType($n->getStringValue()); },
-            'netAmount' => function (self $o, ParseNode $n) { $o->setNetAmount($n->getFloatValue()); },
-            'netAmountIncludingTax' => function (self $o, ParseNode $n) { $o->setNetAmountIncludingTax($n->getFloatValue()); },
-            'netTaxAmount' => function (self $o, ParseNode $n) { $o->setNetTaxAmount($n->getFloatValue()); },
-            'quantity' => function (self $o, ParseNode $n) { $o->setQuantity($n->getFloatValue()); },
-            'sequence' => function (self $o, ParseNode $n) { $o->setSequence($n->getIntegerValue()); },
-            'taxCode' => function (self $o, ParseNode $n) { $o->setTaxCode($n->getStringValue()); },
-            'taxPercent' => function (self $o, ParseNode $n) { $o->setTaxPercent($n->getFloatValue()); },
-            'totalTaxAmount' => function (self $o, ParseNode $n) { $o->setTotalTaxAmount($n->getFloatValue()); },
-            'unitCost' => function (self $o, ParseNode $n) { $o->setUnitCost($n->getFloatValue()); },
+            'account' => function (ParseNode $n) use ($o) { $o->setAccount($n->getObjectValue(array(Account::class, 'createFromDiscriminatorValue'))); },
+            'accountId' => function (ParseNode $n) use ($o) { $o->setAccountId($n->getStringValue()); },
+            'amountExcludingTax' => function (ParseNode $n) use ($o) { $o->setAmountExcludingTax($n->getStringValue()); },
+            'amountIncludingTax' => function (ParseNode $n) use ($o) { $o->setAmountIncludingTax($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'discountAmount' => function (ParseNode $n) use ($o) { $o->setDiscountAmount($n->getStringValue()); },
+            'discountAppliedBeforeTax' => function (ParseNode $n) use ($o) { $o->setDiscountAppliedBeforeTax($n->getBooleanValue()); },
+            'discountPercent' => function (ParseNode $n) use ($o) { $o->setDiscountPercent($n->getStringValue()); },
+            'documentId' => function (ParseNode $n) use ($o) { $o->setDocumentId($n->getStringValue()); },
+            'expectedReceiptDate' => function (ParseNode $n) use ($o) { $o->setExpectedReceiptDate($n->getDateValue()); },
+            'invoiceDiscountAllocation' => function (ParseNode $n) use ($o) { $o->setInvoiceDiscountAllocation($n->getStringValue()); },
+            'item' => function (ParseNode $n) use ($o) { $o->setItem($n->getObjectValue(array(Item::class, 'createFromDiscriminatorValue'))); },
+            'itemId' => function (ParseNode $n) use ($o) { $o->setItemId($n->getStringValue()); },
+            'lineType' => function (ParseNode $n) use ($o) { $o->setLineType($n->getStringValue()); },
+            'netAmount' => function (ParseNode $n) use ($o) { $o->setNetAmount($n->getStringValue()); },
+            'netAmountIncludingTax' => function (ParseNode $n) use ($o) { $o->setNetAmountIncludingTax($n->getStringValue()); },
+            'netTaxAmount' => function (ParseNode $n) use ($o) { $o->setNetTaxAmount($n->getStringValue()); },
+            'quantity' => function (ParseNode $n) use ($o) { $o->setQuantity($n->getStringValue()); },
+            'sequence' => function (ParseNode $n) use ($o) { $o->setSequence($n->getIntegerValue()); },
+            'taxCode' => function (ParseNode $n) use ($o) { $o->setTaxCode($n->getStringValue()); },
+            'taxPercent' => function (ParseNode $n) use ($o) { $o->setTaxPercent($n->getStringValue()); },
+            'totalTaxAmount' => function (ParseNode $n) use ($o) { $o->setTotalTaxAmount($n->getStringValue()); },
+            'unitCost' => function (ParseNode $n) use ($o) { $o->setUnitCost($n->getStringValue()); },
         ]);
     }
 
     /**
      * Gets the invoiceDiscountAllocation property value. The invoiceDiscountAllocation property
-     * @return float|null
+     * @return string|null
     */
-    public function getInvoiceDiscountAllocation(): ?float {
+    public function getInvoiceDiscountAllocation(): ?string {
         return $this->invoiceDiscountAllocation;
     }
 
@@ -240,33 +287,33 @@ class PurchaseInvoiceLine extends Entity
 
     /**
      * Gets the netAmount property value. The netAmount property
-     * @return float|null
+     * @return string|null
     */
-    public function getNetAmount(): ?float {
+    public function getNetAmount(): ?string {
         return $this->netAmount;
     }
 
     /**
      * Gets the netAmountIncludingTax property value. The netAmountIncludingTax property
-     * @return float|null
+     * @return string|null
     */
-    public function getNetAmountIncludingTax(): ?float {
+    public function getNetAmountIncludingTax(): ?string {
         return $this->netAmountIncludingTax;
     }
 
     /**
      * Gets the netTaxAmount property value. The netTaxAmount property
-     * @return float|null
+     * @return string|null
     */
-    public function getNetTaxAmount(): ?float {
+    public function getNetTaxAmount(): ?string {
         return $this->netTaxAmount;
     }
 
     /**
      * Gets the quantity property value. The quantity property
-     * @return float|null
+     * @return string|null
     */
-    public function getQuantity(): ?float {
+    public function getQuantity(): ?string {
         return $this->quantity;
     }
 
@@ -288,25 +335,25 @@ class PurchaseInvoiceLine extends Entity
 
     /**
      * Gets the taxPercent property value. The taxPercent property
-     * @return float|null
+     * @return string|null
     */
-    public function getTaxPercent(): ?float {
+    public function getTaxPercent(): ?string {
         return $this->taxPercent;
     }
 
     /**
      * Gets the totalTaxAmount property value. The totalTaxAmount property
-     * @return float|null
+     * @return string|null
     */
-    public function getTotalTaxAmount(): ?float {
+    public function getTotalTaxAmount(): ?string {
         return $this->totalTaxAmount;
     }
 
     /**
      * Gets the unitCost property value. The unitCost property
-     * @return float|null
+     * @return string|null
     */
-    public function getUnitCost(): ?float {
+    public function getUnitCost(): ?string {
         return $this->unitCost;
     }
 
@@ -318,27 +365,27 @@ class PurchaseInvoiceLine extends Entity
         parent::serialize($writer);
         $writer->writeObjectValue('account', $this->account);
         $writer->writeStringValue('accountId', $this->accountId);
-        $writer->writeFloatValue('amountExcludingTax', $this->amountExcludingTax);
-        $writer->writeFloatValue('amountIncludingTax', $this->amountIncludingTax);
+        $writer->writeStringValue('amountExcludingTax', $this->amountExcludingTax);
+        $writer->writeStringValue('amountIncludingTax', $this->amountIncludingTax);
         $writer->writeStringValue('description', $this->description);
-        $writer->writeFloatValue('discountAmount', $this->discountAmount);
+        $writer->writeStringValue('discountAmount', $this->discountAmount);
         $writer->writeBooleanValue('discountAppliedBeforeTax', $this->discountAppliedBeforeTax);
-        $writer->writeFloatValue('discountPercent', $this->discountPercent);
+        $writer->writeStringValue('discountPercent', $this->discountPercent);
         $writer->writeStringValue('documentId', $this->documentId);
         $writer->writeDateValue('expectedReceiptDate', $this->expectedReceiptDate);
-        $writer->writeFloatValue('invoiceDiscountAllocation', $this->invoiceDiscountAllocation);
+        $writer->writeStringValue('invoiceDiscountAllocation', $this->invoiceDiscountAllocation);
         $writer->writeObjectValue('item', $this->item);
         $writer->writeStringValue('itemId', $this->itemId);
         $writer->writeStringValue('lineType', $this->lineType);
-        $writer->writeFloatValue('netAmount', $this->netAmount);
-        $writer->writeFloatValue('netAmountIncludingTax', $this->netAmountIncludingTax);
-        $writer->writeFloatValue('netTaxAmount', $this->netTaxAmount);
-        $writer->writeFloatValue('quantity', $this->quantity);
+        $writer->writeStringValue('netAmount', $this->netAmount);
+        $writer->writeStringValue('netAmountIncludingTax', $this->netAmountIncludingTax);
+        $writer->writeStringValue('netTaxAmount', $this->netTaxAmount);
+        $writer->writeStringValue('quantity', $this->quantity);
         $writer->writeIntegerValue('sequence', $this->sequence);
         $writer->writeStringValue('taxCode', $this->taxCode);
-        $writer->writeFloatValue('taxPercent', $this->taxPercent);
-        $writer->writeFloatValue('totalTaxAmount', $this->totalTaxAmount);
-        $writer->writeFloatValue('unitCost', $this->unitCost);
+        $writer->writeStringValue('taxPercent', $this->taxPercent);
+        $writer->writeStringValue('totalTaxAmount', $this->totalTaxAmount);
+        $writer->writeStringValue('unitCost', $this->unitCost);
     }
 
     /**
@@ -359,17 +406,17 @@ class PurchaseInvoiceLine extends Entity
 
     /**
      * Sets the amountExcludingTax property value. The amountExcludingTax property
-     *  @param float|null $value Value to set for the amountExcludingTax property.
+     *  @param string|null $value Value to set for the amountExcludingTax property.
     */
-    public function setAmountExcludingTax(?float $value ): void {
+    public function setAmountExcludingTax(?string $value ): void {
         $this->amountExcludingTax = $value;
     }
 
     /**
      * Sets the amountIncludingTax property value. The amountIncludingTax property
-     *  @param float|null $value Value to set for the amountIncludingTax property.
+     *  @param string|null $value Value to set for the amountIncludingTax property.
     */
-    public function setAmountIncludingTax(?float $value ): void {
+    public function setAmountIncludingTax(?string $value ): void {
         $this->amountIncludingTax = $value;
     }
 
@@ -383,9 +430,9 @@ class PurchaseInvoiceLine extends Entity
 
     /**
      * Sets the discountAmount property value. The discountAmount property
-     *  @param float|null $value Value to set for the discountAmount property.
+     *  @param string|null $value Value to set for the discountAmount property.
     */
-    public function setDiscountAmount(?float $value ): void {
+    public function setDiscountAmount(?string $value ): void {
         $this->discountAmount = $value;
     }
 
@@ -399,9 +446,9 @@ class PurchaseInvoiceLine extends Entity
 
     /**
      * Sets the discountPercent property value. The discountPercent property
-     *  @param float|null $value Value to set for the discountPercent property.
+     *  @param string|null $value Value to set for the discountPercent property.
     */
-    public function setDiscountPercent(?float $value ): void {
+    public function setDiscountPercent(?string $value ): void {
         $this->discountPercent = $value;
     }
 
@@ -423,9 +470,9 @@ class PurchaseInvoiceLine extends Entity
 
     /**
      * Sets the invoiceDiscountAllocation property value. The invoiceDiscountAllocation property
-     *  @param float|null $value Value to set for the invoiceDiscountAllocation property.
+     *  @param string|null $value Value to set for the invoiceDiscountAllocation property.
     */
-    public function setInvoiceDiscountAllocation(?float $value ): void {
+    public function setInvoiceDiscountAllocation(?string $value ): void {
         $this->invoiceDiscountAllocation = $value;
     }
 
@@ -455,33 +502,33 @@ class PurchaseInvoiceLine extends Entity
 
     /**
      * Sets the netAmount property value. The netAmount property
-     *  @param float|null $value Value to set for the netAmount property.
+     *  @param string|null $value Value to set for the netAmount property.
     */
-    public function setNetAmount(?float $value ): void {
+    public function setNetAmount(?string $value ): void {
         $this->netAmount = $value;
     }
 
     /**
      * Sets the netAmountIncludingTax property value. The netAmountIncludingTax property
-     *  @param float|null $value Value to set for the netAmountIncludingTax property.
+     *  @param string|null $value Value to set for the netAmountIncludingTax property.
     */
-    public function setNetAmountIncludingTax(?float $value ): void {
+    public function setNetAmountIncludingTax(?string $value ): void {
         $this->netAmountIncludingTax = $value;
     }
 
     /**
      * Sets the netTaxAmount property value. The netTaxAmount property
-     *  @param float|null $value Value to set for the netTaxAmount property.
+     *  @param string|null $value Value to set for the netTaxAmount property.
     */
-    public function setNetTaxAmount(?float $value ): void {
+    public function setNetTaxAmount(?string $value ): void {
         $this->netTaxAmount = $value;
     }
 
     /**
      * Sets the quantity property value. The quantity property
-     *  @param float|null $value Value to set for the quantity property.
+     *  @param string|null $value Value to set for the quantity property.
     */
-    public function setQuantity(?float $value ): void {
+    public function setQuantity(?string $value ): void {
         $this->quantity = $value;
     }
 
@@ -503,25 +550,25 @@ class PurchaseInvoiceLine extends Entity
 
     /**
      * Sets the taxPercent property value. The taxPercent property
-     *  @param float|null $value Value to set for the taxPercent property.
+     *  @param string|null $value Value to set for the taxPercent property.
     */
-    public function setTaxPercent(?float $value ): void {
+    public function setTaxPercent(?string $value ): void {
         $this->taxPercent = $value;
     }
 
     /**
      * Sets the totalTaxAmount property value. The totalTaxAmount property
-     *  @param float|null $value Value to set for the totalTaxAmount property.
+     *  @param string|null $value Value to set for the totalTaxAmount property.
     */
-    public function setTotalTaxAmount(?float $value ): void {
+    public function setTotalTaxAmount(?string $value ): void {
         $this->totalTaxAmount = $value;
     }
 
     /**
      * Sets the unitCost property value. The unitCost property
-     *  @param float|null $value Value to set for the unitCost property.
+     *  @param string|null $value Value to set for the unitCost property.
     */
-    public function setUnitCost(?float $value ): void {
+    public function setUnitCost(?string $value ): void {
         $this->unitCost = $value;
     }
 

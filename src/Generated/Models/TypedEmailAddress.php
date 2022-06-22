@@ -6,12 +6,16 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TypedEmailAddress extends EmailAddress 
+class TypedEmailAddress extends EmailAddress implements Parsable 
 {
-    /** @var string|null $otherLabel To specify a custom type of email address, set type to other, and assign otherLabel to a custom string. For example, you may use a specific email address for your volunteer activities. Set type to other, and set otherLabel to a custom string such as Volunteer work. */
+    /**
+     * @var string|null $otherLabel To specify a custom type of email address, set type to other, and assign otherLabel to a custom string. For example, you may use a specific email address for your volunteer activities. Set type to other, and set otherLabel to a custom string such as Volunteer work.
+    */
     private ?string $otherLabel = null;
     
-    /** @var EmailType|null $type The type of email address. Possible values are: unknown, work, personal, main, other. The default value is unknown, which means address has not been set as a specific type. */
+    /**
+     * @var EmailType|null $type The type of email address. Possible values are: unknown, work, personal, main, other. The default value is unknown, which means address has not been set as a specific type.
+    */
     private ?EmailType $type = null;
     
     /**
@@ -26,7 +30,7 @@ class TypedEmailAddress extends EmailAddress
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return TypedEmailAddress
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): TypedEmailAddress {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): TypedEmailAddress {
         return new TypedEmailAddress();
     }
 
@@ -35,9 +39,10 @@ class TypedEmailAddress extends EmailAddress
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'otherLabel' => function (self $o, ParseNode $n) { $o->setOtherLabel($n->getStringValue()); },
-            'type' => function (self $o, ParseNode $n) { $o->setType($n->getEnumValue(EmailType::class)); },
+            'otherLabel' => function (ParseNode $n) use ($o) { $o->setOtherLabel($n->getStringValue()); },
+            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(EmailType::class)); },
         ]);
     }
 

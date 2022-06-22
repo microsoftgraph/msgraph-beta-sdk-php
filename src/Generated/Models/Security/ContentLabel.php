@@ -10,20 +10,28 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 class ContentLabel implements AdditionalDataHolder, Parsable 
 {
-    /** @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
     private array $additionalData;
     
-    /** @var AssignmentMethod|null $assignmentMethod The assignmentMethod property */
+    /**
+     * @var AssignmentMethod|null $assignmentMethod The assignmentMethod property
+    */
     private ?AssignmentMethod $assignmentMethod = null;
     
-    /** @var DateTime|null $createdDateTime The createdDateTime property */
+    /**
+     * @var DateTime|null $createdDateTime The createdDateTime property
+    */
     private ?DateTime $createdDateTime = null;
     
-    /** @var string|null $sensitivityLabelId The sensitivityLabelId property */
+    /**
+     * @var string|null $sensitivityLabelId The sensitivityLabelId property
+    */
     private ?string $sensitivityLabelId = null;
     
     /**
-     * Instantiates a new contentLabel and sets the default values.
+     * Instantiates a new ContentLabel and sets the default values.
     */
     public function __construct() {
         $this->additionalData = [];
@@ -34,7 +42,7 @@ class ContentLabel implements AdditionalDataHolder, Parsable
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
      * @return ContentLabel
     */
-    public function createFromDiscriminatorValue(ParseNode $parseNode): ContentLabel {
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ContentLabel {
         return new ContentLabel();
     }
 
@@ -67,10 +75,11 @@ class ContentLabel implements AdditionalDataHolder, Parsable
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
+        $o = $this;
         return  [
-            'assignmentMethod' => function (self $o, ParseNode $n) { $o->setAssignmentMethod($n->getEnumValue(AssignmentMethod::class)); },
-            'createdDateTime' => function (self $o, ParseNode $n) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'sensitivityLabelId' => function (self $o, ParseNode $n) { $o->setSensitivityLabelId($n->getStringValue()); },
+            'assignmentMethod' => function (ParseNode $n) use ($o) { $o->setAssignmentMethod($n->getEnumValue(AssignmentMethod::class)); },
+            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'sensitivityLabelId' => function (ParseNode $n) use ($o) { $o->setSensitivityLabelId($n->getStringValue()); },
         ];
     }
 
