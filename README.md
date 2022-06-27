@@ -112,7 +112,7 @@ $requestAdapter = GraphRequestAdapter::withHttpClient($httpClient)::withTokenReq
 ```
 
 
-### Call Microsoft Graph using the v1.0 endpoint and models
+### Call Microsoft Graph using the Beta endpoint and models
 
 The following is an example that shows how to fetch a user from Microsoft Graph
 
@@ -130,10 +130,10 @@ $tokenRequestContext = new ClientCredentialContext(
 );
 $scopes = ['https://graph.microsoft.com/.default'];
 $requestAdapter = GraphRequestAdapter::withTokenRequestContext($tokenRequestContext, $scopes);
-$graphServiceClient = new GraphServiceClient($requestAdapter);
+$betaGraphServiceClient = new GraphServiceClient($requestAdapter);
 
 try {
-    $response = $graphServiceClient->usersById('[userPrincipalName]')->get();
+    $response = $betaGraphServiceClient->usersById('[userPrincipalName]')->get();
     $user = $response->wait();
     echo "Hello, I am {$user->getGivenName()}";
 
@@ -160,10 +160,10 @@ $tokenRequestContext = new AuthorizationCodeContext(
 );
 $scopes = ['User.Read'];
 $requestAdapter = GraphRequestAdapter::withTokenRequestContext($tokenRequestContext);
-$graphServiceClient = new GraphServiceClient($requestAdapter);
+$betaGraphServiceClient = new GraphServiceClient($requestAdapter);
 
 try {
-    $response = $graphServiceClient->me()->get();
+    $response = $betaGraphServiceClient->me()->get();
     $user = $response->wait();
     echo "Hello, I am {$user->getGivenName()}";
 } catch (ApiException $ex) {
@@ -173,9 +173,8 @@ try {
 ```
 ## Documentation and resources
 
-* [Documentation](docs/README.md)
 
-* [Examples](docs/Examples.md)
+* [Examples](https://aka.ms/graph/sdk/php/preview/examples)
 
 * [Microsoft Graph website](https://aka.ms/graph)
 
