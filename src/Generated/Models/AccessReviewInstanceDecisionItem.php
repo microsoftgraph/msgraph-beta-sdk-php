@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessReviewInstanceDecisionItem extends Entity implements Parsable 
+class AccessReviewInstanceDecisionItem extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $accessReviewId The identifier of the accessReviewInstance parent. Supports $select. Read-only.
     */
     private ?string $accessReviewId = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var UserIdentity|null $appliedBy The identifier of the user who applied the decision. Read-only.
@@ -60,7 +66,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     private ?string $principalLink = null;
     
     /**
-     * @var DecisionItemPrincipalResourceMembership|null $principalResourceMembership The principalResourceMembership property
+     * @var DecisionItemPrincipalResourceMembership|null $principalResourceMembership Every decision item in an access review represents a principal's membership to a resource. This property provides the details of the membership. For example, whether the principal has direct access or indirect access to the resource. Supports $select. Read-only.
     */
     private ?DecisionItemPrincipalResourceMembership $principalResourceMembership = null;
     
@@ -99,6 +105,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -116,6 +123,14 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     */
     public function getAccessReviewId(): ?string {
         return $this->accessReviewId;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -218,7 +233,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the principalResourceMembership property value. The principalResourceMembership property
+     * Gets the principalResourceMembership property value. Every decision item in an access review represents a principal's membership to a resource. This property provides the details of the membership. For example, whether the principal has direct access or indirect access to the resource. Supports $select. Read-only.
      * @return DecisionItemPrincipalResourceMembership|null
     */
     public function getPrincipalResourceMembership(): ?DecisionItemPrincipalResourceMembership {
@@ -296,6 +311,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
         $writer->writeObjectValue('reviewedBy', $this->reviewedBy);
         $writer->writeDateTimeValue('reviewedDateTime', $this->reviewedDateTime);
         $writer->writeObjectValue('target', $this->target);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -304,6 +320,14 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     */
     public function setAccessReviewId(?string $value ): void {
         $this->accessReviewId = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**
@@ -379,7 +403,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the principalResourceMembership property value. The principalResourceMembership property
+     * Sets the principalResourceMembership property value. Every decision item in an access review represents a principal's membership to a resource. This property provides the details of the membership. For example, whether the principal has direct access or indirect access to the resource. Supports $select. Read-only.
      *  @param DecisionItemPrincipalResourceMembership|null $value Value to set for the principalResourceMembership property.
     */
     public function setPrincipalResourceMembership(?DecisionItemPrincipalResourceMembership $value ): void {

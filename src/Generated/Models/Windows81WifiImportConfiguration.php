@@ -2,13 +2,19 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class Windows81WifiImportConfiguration extends DeviceConfiguration implements Parsable 
+class Windows81WifiImportConfiguration extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var StreamInterface|null $payload Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
     */
@@ -29,6 +35,7 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -38,6 +45,14 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Windows81WifiImportConfiguration {
         return new Windows81WifiImportConfiguration();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -86,6 +101,15 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
         $writer->writeBinaryContent('payload', $this->payload);
         $writer->writeStringValue('payloadFileName', $this->payloadFileName);
         $writer->writeStringValue('profileName', $this->profileName);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

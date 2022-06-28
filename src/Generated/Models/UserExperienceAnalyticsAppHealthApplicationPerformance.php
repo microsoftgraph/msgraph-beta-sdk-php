@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity implements Parsable 
+class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var int|null $activeDeviceCount The number of devices where the app has been active. Valid values -2147483648 to 2147483647
     */
     private ?int $activeDeviceCount = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var int|null $appCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647
@@ -63,6 +69,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -80,6 +87,14 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
     */
     public function getActiveDeviceCount(): ?int {
         return $this->activeDeviceCount;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -190,6 +205,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
         $writer->writeStringValue('appPublisher', $this->appPublisher);
         $writer->writeIntegerValue('appUsageDuration', $this->appUsageDuration);
         $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->meanTimeToFailureInMinutes);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -198,6 +214,14 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
     */
     public function setActiveDeviceCount(?int $value ): void {
         $this->activeDeviceCount = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

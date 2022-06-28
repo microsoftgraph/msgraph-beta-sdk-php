@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements Parsable 
+class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $deviceName The device name.
     */
@@ -23,6 +29,7 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -32,6 +39,14 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): IosVppAppAssignedDeviceLicense {
         return new IosVppAppAssignedDeviceLicense();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -70,6 +85,15 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
         parent::serialize($writer);
         $writer->writeStringValue('deviceName', $this->deviceName);
         $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AppScope extends Entity implements Parsable 
+class AppScope extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $displayName Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only.
     */
@@ -23,6 +29,7 @@ class AppScope extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -32,6 +39,14 @@ class AppScope extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AppScope {
         return new AppScope();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -70,6 +85,15 @@ class AppScope extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('type', $this->type);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

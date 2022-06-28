@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class BookingBusiness extends BookingNamedEntity implements Parsable 
+class BookingBusiness extends BookingNamedEntity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var PhysicalAddress|null $address The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
     */
@@ -98,6 +104,7 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -107,6 +114,14 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): BookingBusiness {
         return new BookingBusiness();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -295,6 +310,15 @@ class BookingBusiness extends BookingNamedEntity implements Parsable
         $writer->writeCollectionOfObjectValues('services', $this->services);
         $writer->writeCollectionOfObjectValues('staffMembers', $this->staffMembers);
         $writer->writeStringValue('webSiteUrl', $this->webSiteUrl);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

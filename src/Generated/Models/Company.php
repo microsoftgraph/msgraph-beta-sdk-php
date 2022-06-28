@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Company extends Entity implements Parsable 
+class Company extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<Account>|null $accounts The accounts property
     */
     private ?array $accounts = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var array<AgedAccountsPayable>|null $agedAccountsPayable The agedAccountsPayable property
@@ -204,10 +210,11 @@ class Company extends Entity implements Parsable
     private ?array $vendors = null;
     
     /**
-     * Instantiates a new company and sets the default values.
+     * Instantiates a new Company and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -225,6 +232,14 @@ class Company extends Entity implements Parsable
     */
     public function getAccounts(): ?array {
         return $this->accounts;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -625,6 +640,7 @@ class Company extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('taxGroups', $this->taxGroups);
         $writer->writeCollectionOfObjectValues('unitsOfMeasure', $this->unitsOfMeasure);
         $writer->writeCollectionOfObjectValues('vendors', $this->vendors);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -633,6 +649,14 @@ class Company extends Entity implements Parsable
     */
     public function setAccounts(?array $value ): void {
         $this->accounts = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

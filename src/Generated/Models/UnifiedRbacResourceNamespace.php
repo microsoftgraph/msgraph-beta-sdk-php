@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRbacResourceNamespace extends Entity implements Parsable 
+class UnifiedRbacResourceNamespace extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $name Name of the resource namespace. Typically, the same name as the id property, such as microsoft.aad.b2c. Required. Supports $filter (eq, startsWith).
     */
@@ -23,6 +29,7 @@ class UnifiedRbacResourceNamespace extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -32,6 +39,14 @@ class UnifiedRbacResourceNamespace extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRbacResourceNamespace {
         return new UnifiedRbacResourceNamespace();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -70,6 +85,15 @@ class UnifiedRbacResourceNamespace extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('name', $this->name);
         $writer->writeCollectionOfObjectValues('resourceActions', $this->resourceActions);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends Entity implements Parsable 
+class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var int|null $appCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647
     */
@@ -53,6 +59,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -62,6 +69,14 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails {
         return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -160,6 +175,15 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
         $writer->writeIntegerValue('deviceCountWithCrashes', $this->deviceCountWithCrashes);
         $writer->writeBooleanValue('isLatestUsedVersion', $this->isLatestUsedVersion);
         $writer->writeBooleanValue('isMostUsedVersion', $this->isMostUsedVersion);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

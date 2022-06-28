@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsable 
+class Windows81VpnConfiguration extends WindowsVpnConfiguration implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var bool|null $applyOnlyToWindows81 Value indicating whether this policy only applies to Windows 8.1. This property is read-only.
     */
@@ -38,6 +44,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -54,6 +61,14 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
             }
         }
         return new Windows81VpnConfiguration();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -122,6 +137,15 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
         $writer->writeBooleanValue('enableSplitTunneling', $this->enableSplitTunneling);
         $writer->writeStringValue('loginGroupOrDomain', $this->loginGroupOrDomain);
         $writer->writeObjectValue('proxyServer', $this->proxyServer);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

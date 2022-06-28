@@ -27,6 +27,14 @@ class IosWebContentFilterBase implements AdditionalDataHolder, Parsable
      * @return IosWebContentFilterBase
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): IosWebContentFilterBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.iosWebContentFilterAutoFilter': return new IosWebContentFilterAutoFilter();
+                case '#microsoft.graph.iosWebContentFilterSpecificWebsitesAccess': return new IosWebContentFilterSpecificWebsitesAccess();
+            }
+        }
         return new IosWebContentFilterBase();
     }
 

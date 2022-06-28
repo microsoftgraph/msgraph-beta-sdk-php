@@ -37,6 +37,15 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
      * @return Win32LobAppRequirement
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Win32LobAppRequirement {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.win32LobAppFileSystemRequirement': return new Win32LobAppFileSystemRequirement();
+                case '#microsoft.graph.win32LobAppPowerShellScriptRequirement': return new Win32LobAppPowerShellScriptRequirement();
+                case '#microsoft.graph.win32LobAppRegistryRequirement': return new Win32LobAppRegistryRequirement();
+            }
+        }
         return new Win32LobAppRequirement();
     }
 

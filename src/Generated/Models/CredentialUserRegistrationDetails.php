@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CredentialUserRegistrationDetails extends Entity implements Parsable 
+class CredentialUserRegistrationDetails extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<string>|null $authMethods Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
     */
@@ -44,10 +50,11 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new credentialUserRegistrationDetails and sets the default values.
+     * Instantiates a new CredentialUserRegistrationDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -57,6 +64,14 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUserRegistrationDetails {
         return new CredentialUserRegistrationDetails();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -145,6 +160,15 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
         $writer->writeBooleanValue('isRegistered', $this->isRegistered);
         $writer->writeStringValue('userDisplayName', $this->userDisplayName);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

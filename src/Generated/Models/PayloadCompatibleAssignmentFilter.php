@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignmentFilter implements Parsable 
+class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignmentFilter implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var AssignmentFilterPayloadType|null $payloadType PayloadType of the Assignment Filter. Possible values are: notSet, enrollmentRestrictions.
     */
@@ -18,6 +24,7 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -27,6 +34,14 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): PayloadCompatibleAssignmentFilter {
         return new PayloadCompatibleAssignmentFilter();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -55,6 +70,15 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('payloadType', $this->payloadType);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleAssignmentMultiple extends Entity implements Parsable 
+class UnifiedRoleAssignmentMultiple extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<string>|null $appScopeIds Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.
     */
@@ -68,6 +74,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -77,6 +84,14 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UnifiedRoleAssignmentMultiple {
         return new UnifiedRoleAssignmentMultiple();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -205,6 +220,15 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('principals', $this->principals);
         $writer->writeObjectValue('roleDefinition', $this->roleDefinition);
         $writer->writeStringValue('roleDefinitionId', $this->roleDefinitionId);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

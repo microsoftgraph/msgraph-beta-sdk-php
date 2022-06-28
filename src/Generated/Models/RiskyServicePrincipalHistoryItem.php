@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements Parsable 
+class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var RiskServicePrincipalActivity|null $activity The activity related to service principal risk level change.
     */
     private ?RiskServicePrincipalActivity $activity = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $initiatedBy The identifier of the actor of the operation.
@@ -28,6 +34,7 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -45,6 +52,14 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
     */
     public function getActivity(): ?RiskServicePrincipalActivity {
         return $this->activity;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +100,7 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
         $writer->writeObjectValue('activity', $this->activity);
         $writer->writeStringValue('initiatedBy', $this->initiatedBy);
         $writer->writeStringValue('servicePrincipalId', $this->servicePrincipalId);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -93,6 +109,14 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
     */
     public function setActivity(?RiskServicePrincipalActivity $value ): void {
         $this->activity = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

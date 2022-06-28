@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable 
+class AndroidDeviceOwnerEnrollmentProfile extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $accountId Tenant GUID the enrollment profile belongs to.
     */
     private ?string $accountId = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var DateTime|null $createdDateTime Date time the enrollment profile was created.
@@ -105,10 +111,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     private ?string $wifiSsid = null;
     
     /**
-     * Instantiates a new androidDeviceOwnerEnrollmentProfile and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -126,6 +133,14 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     */
     public function getAccountId(): ?string {
         return $this->accountId;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -326,6 +341,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
         $writer->writeStringValue('wifiPassword', $this->wifiPassword);
         $writer->writeEnumValue('wifiSecurityType', $this->wifiSecurityType);
         $writer->writeStringValue('wifiSsid', $this->wifiSsid);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -334,6 +350,14 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     */
     public function setAccountId(?string $value ): void {
         $this->accountId = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

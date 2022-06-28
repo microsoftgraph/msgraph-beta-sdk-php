@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AdministrativeUnit extends DirectoryObject implements Parsable 
+class AdministrativeUnit extends DirectoryObject implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $description An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search.
     */
@@ -39,7 +45,7 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
     private ?array $scopedRoleMembers = null;
     
     /**
-     * @var string|null $visibility Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit.
+     * @var string|null $visibility Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, the default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit.
     */
     private ?string $visibility = null;
     
@@ -48,6 +54,7 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -57,6 +64,14 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AdministrativeUnit {
         return new AdministrativeUnit();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -125,7 +140,7 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the visibility property value. Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit.
+     * Gets the visibility property value. Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, the default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit.
      * @return string|null
     */
     public function getVisibility(): ?string {
@@ -145,6 +160,15 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('members', $this->members);
         $writer->writeCollectionOfObjectValues('scopedRoleMembers', $this->scopedRoleMembers);
         $writer->writeStringValue('visibility', $this->visibility);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**
@@ -196,7 +220,7 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the visibility property value. Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit.
+     * Sets the visibility property value. Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership or Public. If not set, the default behavior is Public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit.
      *  @param string|null $value Value to set for the visibility property.
     */
     public function setVisibility(?string $value ): void {

@@ -2,13 +2,19 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class AgedAccountsPayable extends Entity implements Parsable 
+class AgedAccountsPayable extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var Date|null $agedAsOfDate The agedAsOfDate property
     */
@@ -60,10 +66,11 @@ class AgedAccountsPayable extends Entity implements Parsable
     private ?string $vendorNumber = null;
     
     /**
-     * Instantiates a new agedAccountsPayable and sets the default values.
+     * Instantiates a new AgedAccountsPayable and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -73,6 +80,14 @@ class AgedAccountsPayable extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AgedAccountsPayable {
         return new AgedAccountsPayable();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -191,6 +206,15 @@ class AgedAccountsPayable extends Entity implements Parsable
         $writer->writeStringValue('period3Amount', $this->period3Amount);
         $writer->writeStringValue('periodLengthFilter', $this->periodLengthFilter);
         $writer->writeStringValue('vendorNumber', $this->vendorNumber);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

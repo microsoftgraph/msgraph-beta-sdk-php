@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRbacResourceAction extends Entity implements Parsable 
+class UnifiedRbacResourceAction extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $actionVerb HTTP method for the action, such as DELETE, GET, PATCH, POST, PUT, or null. Supports $filter (eq) but not for null values.
     */
     private ?string $actionVerb = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $description Description for the action. Supports $filter (eq).
@@ -38,6 +44,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -55,6 +62,14 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     */
     public function getActionVerb(): ?string {
         return $this->actionVerb;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -115,6 +130,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
         $writer->writeStringValue('name', $this->name);
         $writer->writeObjectValue('resourceScope', $this->resourceScope);
         $writer->writeStringValue('resourceScopeId', $this->resourceScopeId);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -123,6 +139,14 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     */
     public function setActionVerb(?string $value ): void {
         $this->actionVerb = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -2,13 +2,19 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsable 
+class Windows10VpnConfiguration extends WindowsVpnConfiguration implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<Windows10AssociatedApps>|null $associatedApps Associated Apps. This collection can contain a maximum of 10000 elements.
     */
@@ -139,6 +145,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -148,6 +155,14 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Windows10VpnConfiguration {
         return new Windows10VpnConfiguration();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -416,6 +431,15 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
         $writer->writeCollectionOfObjectValues('trafficRules', $this->trafficRules);
         $writer->writeCollectionOfPrimitiveValues('trustedNetworkDomains', $this->trustedNetworkDomains);
         $writer->writeStringValue('windowsInformationProtectionDomain', $this->windowsInformationProtectionDomain);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

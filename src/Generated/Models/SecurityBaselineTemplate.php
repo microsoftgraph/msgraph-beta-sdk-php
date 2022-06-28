@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsable 
+class SecurityBaselineTemplate extends DeviceManagementTemplate implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<SecurityBaselineCategoryStateSummary>|null $categoryDeviceStateSummaries The security baseline per category device state summary
     */
@@ -28,6 +34,7 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -37,6 +44,14 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): SecurityBaselineTemplate {
         return new SecurityBaselineTemplate();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +100,15 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
         $writer->writeCollectionOfObjectValues('categoryDeviceStateSummaries', $this->categoryDeviceStateSummaries);
         $writer->writeCollectionOfObjectValues('deviceStates', $this->deviceStates);
         $writer->writeObjectValue('deviceStateSummary', $this->deviceStateSummary);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

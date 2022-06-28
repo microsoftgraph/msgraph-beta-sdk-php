@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ConditionalAccessRoot extends Entity implements Parsable 
+class ConditionalAccessRoot extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<AuthenticationContextClassReference>|null $authenticationContextClassReferences Read-only. Nullable. Returns a collection of the specified authentication context class references.
     */
@@ -24,10 +30,11 @@ class ConditionalAccessRoot extends Entity implements Parsable
     private ?array $policies = null;
     
     /**
-     * Instantiates a new conditionalAccessRoot and sets the default values.
+     * Instantiates a new ConditionalAccessRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -37,6 +44,14 @@ class ConditionalAccessRoot extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessRoot {
         return new ConditionalAccessRoot();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +100,15 @@ class ConditionalAccessRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('authenticationContextClassReferences', $this->authenticationContextClassReferences);
         $writer->writeCollectionOfObjectValues('namedLocations', $this->namedLocations);
         $writer->writeCollectionOfObjectValues('policies', $this->policies);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RelyingPartyDetailedSummary extends Entity implements Parsable 
+class RelyingPartyDetailedSummary extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var int|null $failedSignInCount Number of failed sign in on Active Directory Federation Service in the period specified.
     */
@@ -64,10 +70,11 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     private ?int $uniqueUserCount = null;
     
     /**
-     * Instantiates a new relyingPartyDetailedSummary and sets the default values.
+     * Instantiates a new RelyingPartyDetailedSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -77,6 +84,14 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): RelyingPartyDetailedSummary {
         return new RelyingPartyDetailedSummary();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -205,6 +220,15 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
         $writer->writeIntegerValue('successfulSignInCount', $this->successfulSignInCount);
         $writer->writeIntegerValue('totalSignInCount', $this->totalSignInCount);
         $writer->writeIntegerValue('uniqueUserCount', $this->uniqueUserCount);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleEligibilityScheduleRequest extends Request implements Parsable 
+class UnifiedRoleEligibilityScheduleRequest extends Request implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $action Represents the type of the operation on the role eligibility assignment. The possible values are: AdminAssign: For administrators to assign role eligibility to users or groups to roles.AdminExtend: For administrators to extend expiring assignments.AdminUpdate: For administrators to change existing role assignments.AdminRenew: For administrators to renew expired assignments.AdminRemove: For administrators to remove users or groups from eligible roles.UserAdd: For users to activate their eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserRenew: For users to request to renew their expired eligible assignments.
     */
     private ?string $action = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var AppScope|null $appScope Read-only property with details of the app-specific scope when the assignment scope is app-specific. Containment entity.
@@ -88,6 +94,7 @@ class UnifiedRoleEligibilityScheduleRequest extends Request implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -105,6 +112,14 @@ class UnifiedRoleEligibilityScheduleRequest extends Request implements Parsable
     */
     public function getAction(): ?string {
         return $this->action;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -265,6 +280,7 @@ class UnifiedRoleEligibilityScheduleRequest extends Request implements Parsable
         $writer->writeObjectValue('targetSchedule', $this->targetSchedule);
         $writer->writeStringValue('targetScheduleId', $this->targetScheduleId);
         $writer->writeObjectValue('ticketInfo', $this->ticketInfo);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -273,6 +289,14 @@ class UnifiedRoleEligibilityScheduleRequest extends Request implements Parsable
     */
     public function setAction(?string $value ): void {
         $this->action = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

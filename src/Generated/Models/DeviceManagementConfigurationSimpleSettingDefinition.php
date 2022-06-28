@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagementConfigurationSettingDefinition implements Parsable 
+class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagementConfigurationSettingDefinition implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var DeviceManagementConfigurationSettingValue|null $defaultValue Default setting value for this setting
     */
@@ -33,6 +39,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -49,6 +56,14 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
             }
         }
         return new DeviceManagementConfigurationSimpleSettingDefinition();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -107,6 +122,15 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
         $writer->writeCollectionOfObjectValues('dependedOnBy', $this->dependedOnBy);
         $writer->writeCollectionOfObjectValues('dependentOn', $this->dependentOn);
         $writer->writeObjectValue('valueDefinition', $this->valueDefinition);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

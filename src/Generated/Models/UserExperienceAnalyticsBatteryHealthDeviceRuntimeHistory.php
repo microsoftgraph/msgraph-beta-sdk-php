@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity implements Parsable 
+class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $deviceId The unique identifier of the device, Intune DeviceID or SCCM device id.
     */
@@ -28,6 +34,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -37,6 +44,14 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory {
         return new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +100,15 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
         $writer->writeStringValue('deviceId', $this->deviceId);
         $writer->writeIntegerValue('estimatedRuntimeInMinutes', $this->estimatedRuntimeInMinutes);
         $writer->writeStringValue('runtimeDateTime', $this->runtimeDateTime);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

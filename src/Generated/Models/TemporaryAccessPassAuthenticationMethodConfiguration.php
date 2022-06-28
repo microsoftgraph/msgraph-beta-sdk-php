@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TemporaryAccessPassAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration implements Parsable 
+class TemporaryAccessPassAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var int|null $defaultLength Default length in characters of a Temporary Access Pass object. Must be between 8 and 48 characters.
     */
@@ -43,6 +49,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -52,6 +59,14 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): TemporaryAccessPassAuthenticationMethodConfiguration {
         return new TemporaryAccessPassAuthenticationMethodConfiguration();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -130,6 +145,15 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
         $writer->writeBooleanValue('isUsableOnce', $this->isUsableOnce);
         $writer->writeIntegerValue('maximumLifetimeInMinutes', $this->maximumLifetimeInMinutes);
         $writer->writeIntegerValue('minimumLifetimeInMinutes', $this->minimumLifetimeInMinutes);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

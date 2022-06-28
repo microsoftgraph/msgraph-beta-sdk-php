@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ListItem extends BaseItem implements Parsable 
+class ListItem extends BaseItem implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<ItemActivityOLD>|null $activities The list of recent activities that took place on this item.
     */
     private ?array $activities = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var ItemAnalytics|null $analytics Analytics about the view activities that took place on this item.
@@ -58,6 +64,7 @@ class ListItem extends BaseItem implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -75,6 +82,14 @@ class ListItem extends BaseItem implements Parsable
     */
     public function getActivities(): ?array {
         return $this->activities;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -175,6 +190,7 @@ class ListItem extends BaseItem implements Parsable
         $writer->writeObjectValue('fields', $this->fields);
         $writer->writeObjectValue('sharepointIds', $this->sharepointIds);
         $writer->writeCollectionOfObjectValues('versions', $this->versions);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -183,6 +199,14 @@ class ListItem extends BaseItem implements Parsable
     */
     public function setActivities(?array $value ): void {
         $this->activities = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserActivity extends Entity implements Parsable 
+class UserActivity extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $activationUrl Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
@@ -18,6 +19,11 @@ class UserActivity extends Entity implements Parsable
      * @var string|null $activitySourceHost Required. URL for the domain representing the cross-platform identity mapping for the app. Mapping is stored either as a JSON file hosted on the domain or configurable via Windows Dev Center. The JSON file is named cross-platform-app-identifiers and is hosted at root of your HTTPS domain, either at the top level domain or include a sub domain. For example: https://contoso.com or https://myapp.contoso.com but NOT https://myapp.contoso.com/somepath. You must have a unique file and domain (or sub domain) per cross-platform app identity. For example, a separate file and domain is needed for Word vs. PowerPoint.
     */
     private ?string $activitySourceHost = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $appActivityId Required. The unique activity ID in the context of the app - supplied by caller and immutable thereafter.
@@ -84,6 +90,7 @@ class UserActivity extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -109,6 +116,14 @@ class UserActivity extends Entity implements Parsable
     */
     public function getActivitySourceHost(): ?string {
         return $this->activitySourceHost;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -251,6 +266,7 @@ class UserActivity extends Entity implements Parsable
         $writer->writeEnumValue('status', $this->status);
         $writer->writeStringValue('userTimezone', $this->userTimezone);
         $writer->writeObjectValue('visualElements', $this->visualElements);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -267,6 +283,14 @@ class UserActivity extends Entity implements Parsable
     */
     public function setActivitySourceHost(?string $value ): void {
         $this->activitySourceHost = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

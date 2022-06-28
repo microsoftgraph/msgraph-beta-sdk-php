@@ -27,6 +27,14 @@ class AccessReviewApplyAction implements AdditionalDataHolder, Parsable
      * @return AccessReviewApplyAction
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewApplyAction {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.disableAndDeleteUserApplyAction': return new DisableAndDeleteUserApplyAction();
+                case '#microsoft.graph.removeAccessApplyAction': return new RemoveAccessApplyAction();
+            }
+        }
         return new AccessReviewApplyAction();
     }
 

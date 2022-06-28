@@ -4,12 +4,18 @@ namespace Microsoft\Graph\Beta\Generated\Models\Security;
 
 use DateTime;
 use Microsoft\Graph\Beta\Generated\Models\IdentitySet;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EdiscoveryCase extends EscapedCase implements Parsable 
+class EdiscoveryCase extends EscapedCase implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var IdentitySet|null $closedBy The user who closed the case.
     */
@@ -70,6 +76,7 @@ class EdiscoveryCase extends EscapedCase implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -79,6 +86,14 @@ class EdiscoveryCase extends EscapedCase implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EdiscoveryCase {
         return new EdiscoveryCase();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -207,6 +222,15 @@ class EdiscoveryCase extends EscapedCase implements Parsable
         $writer->writeCollectionOfObjectValues('searches', $this->searches);
         $writer->writeObjectValue('settings', $this->settings);
         $writer->writeCollectionOfObjectValues('tags', $this->tags);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

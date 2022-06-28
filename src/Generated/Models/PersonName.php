@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PersonName extends ItemFacet implements Parsable 
+class PersonName extends ItemFacet implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $displayName Provides an ordered rendering of firstName and lastName depending on the locale of the user or their device.
     */
@@ -68,6 +74,7 @@ class PersonName extends ItemFacet implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -77,6 +84,14 @@ class PersonName extends ItemFacet implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): PersonName {
         return new PersonName();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -205,6 +220,15 @@ class PersonName extends ItemFacet implements Parsable
         $writer->writeObjectValue('pronunciation', $this->pronunciation);
         $writer->writeStringValue('suffix', $this->suffix);
         $writer->writeStringValue('title', $this->title);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

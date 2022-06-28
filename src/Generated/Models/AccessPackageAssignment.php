@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageAssignment extends Entity implements Parsable 
+class AccessPackageAssignment extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var AccessPackage|null $accessPackage Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
@@ -33,6 +34,11 @@ class AccessPackageAssignment extends Entity implements Parsable
      * @var string|null $accessPackageId The identifier of the access package. Read-only.
     */
     private ?string $accessPackageId = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $assignmentPolicyId The identifier of the access package assignment policy. Read-only.
@@ -84,6 +90,7 @@ class AccessPackageAssignment extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -133,6 +140,14 @@ class AccessPackageAssignment extends Entity implements Parsable
     */
     public function getAccessPackageId(): ?string {
         return $this->accessPackageId;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -251,6 +266,7 @@ class AccessPackageAssignment extends Entity implements Parsable
         $writer->writeObjectValue('schedule', $this->schedule);
         $writer->writeObjectValue('target', $this->target);
         $writer->writeStringValue('targetId', $this->targetId);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -291,6 +307,14 @@ class AccessPackageAssignment extends Entity implements Parsable
     */
     public function setAccessPackageId(?string $value ): void {
         $this->accessPackageId = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

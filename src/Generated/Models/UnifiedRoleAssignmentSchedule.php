@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase implements Parsable 
+class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var UnifiedRoleEligibilitySchedule|null $activatedUsing If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
     */
     private ?UnifiedRoleEligibilitySchedule $activatedUsing = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $assignmentType Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
@@ -33,6 +39,7 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -50,6 +57,14 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase implements P
     */
     public function getActivatedUsing(): ?UnifiedRoleEligibilitySchedule {
         return $this->activatedUsing;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -100,6 +115,7 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase implements P
         $writer->writeStringValue('assignmentType', $this->assignmentType);
         $writer->writeStringValue('memberType', $this->memberType);
         $writer->writeObjectValue('scheduleInfo', $this->scheduleInfo);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -108,6 +124,14 @@ class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase implements P
     */
     public function setActivatedUsing(?UnifiedRoleEligibilitySchedule $value ): void {
         $this->activatedUsing = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

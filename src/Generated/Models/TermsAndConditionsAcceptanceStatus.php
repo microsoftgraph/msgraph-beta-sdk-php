@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TermsAndConditionsAcceptanceStatus extends Entity implements Parsable 
+class TermsAndConditionsAcceptanceStatus extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var DateTime|null $acceptedDateTime DateTime when the terms were last accepted by the user.
@@ -18,6 +19,11 @@ class TermsAndConditionsAcceptanceStatus extends Entity implements Parsable
      * @var int|null $acceptedVersion Most recent version number of the T&C accepted by the user.
     */
     private ?int $acceptedVersion = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var TermsAndConditions|null $termsAndConditions Navigation link to the terms and conditions that are assigned.
@@ -39,6 +45,7 @@ class TermsAndConditionsAcceptanceStatus extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -64,6 +71,14 @@ class TermsAndConditionsAcceptanceStatus extends Entity implements Parsable
     */
     public function getAcceptedVersion(): ?int {
         return $this->acceptedVersion;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -116,6 +131,7 @@ class TermsAndConditionsAcceptanceStatus extends Entity implements Parsable
         $writer->writeObjectValue('termsAndConditions', $this->termsAndConditions);
         $writer->writeStringValue('userDisplayName', $this->userDisplayName);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -132,6 +148,14 @@ class TermsAndConditionsAcceptanceStatus extends Entity implements Parsable
     */
     public function setAcceptedVersion(?int $value ): void {
         $this->acceptedVersion = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

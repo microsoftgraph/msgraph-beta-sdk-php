@@ -2,13 +2,19 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implements Parsable 
+class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var Enablement|null $advancedThreatProtectionAutomaticSampleSubmission Determines whether or not to enable automatic file sample submission for Microsoft Defender Advanced Threat Protection on macOS. Possible values are: notConfigured, enabled, disabled.
     */
@@ -134,6 +140,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -143,6 +150,14 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): MacOSEndpointProtectionConfiguration {
         return new MacOSEndpointProtectionConfiguration();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -401,6 +416,15 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
         $writer->writeBooleanValue('firewallEnableStealthMode', $this->firewallEnableStealthMode);
         $writer->writeEnumValue('gatekeeperAllowedAppSource', $this->gatekeeperAllowedAppSource);
         $writer->writeBooleanValue('gatekeeperBlockOverride', $this->gatekeeperBlockOverride);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

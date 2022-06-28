@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
+class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var DeviceThreatProtectionLevel|null $advancedThreatProtectionRequiredSecurityLevel MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
     */
@@ -133,6 +139,7 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -142,6 +149,14 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidWorkProfileCompliancePolicy {
         return new AndroidWorkProfileCompliancePolicy();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -400,6 +415,15 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
         $writer->writeBooleanValue('securityRequireUpToDateSecurityProviders', $this->securityRequireUpToDateSecurityProviders);
         $writer->writeBooleanValue('securityRequireVerifyApps', $this->securityRequireVerifyApps);
         $writer->writeBooleanValue('storageRequireEncryption', $this->storageRequireEncryption);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -27,6 +27,13 @@ class EducationSubmissionRecipient implements AdditionalDataHolder, Parsable
      * @return EducationSubmissionRecipient
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationSubmissionRecipient {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.educationSubmissionIndividualRecipient': return new EducationSubmissionIndividualRecipient();
+            }
+        }
         return new EducationSubmissionRecipient();
     }
 

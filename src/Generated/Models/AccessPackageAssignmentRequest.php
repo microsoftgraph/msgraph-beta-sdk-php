@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageAssignmentRequest extends Entity implements Parsable 
+class AccessPackageAssignmentRequest extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var AccessPackage|null $accessPackage The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.
@@ -18,6 +19,11 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
      * @var AccessPackageAssignment|null $accessPackageAssignment For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.  Supports $expand.
     */
     private ?AccessPackageAssignment $accessPackageAssignment = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var array<AccessPackageAnswer>|null $answers Answers provided by the requestor to accessPackageQuestions asked of them at the time of request.
@@ -84,6 +90,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -109,6 +116,14 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     */
     public function getAccessPackageAssignment(): ?AccessPackageAssignment {
         return $this->accessPackageAssignment;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -251,6 +266,7 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
         $writer->writeStringValue('requestStatus', $this->requestStatus);
         $writer->writeStringValue('requestType', $this->requestType);
         $writer->writeObjectValue('schedule', $this->schedule);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -267,6 +283,14 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     */
     public function setAccessPackageAssignment(?AccessPackageAssignment $value ): void {
         $this->accessPackageAssignment = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

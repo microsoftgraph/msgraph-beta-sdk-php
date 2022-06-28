@@ -15,7 +15,7 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, P
     private array $additionalData;
     
     /**
-     * @var DecisionItemPrincipalResourceMembershipType|null $membershipType The membershipType property
+     * @var DecisionItemPrincipalResourceMembershipType|null $membershipType Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
     */
     private ?DecisionItemPrincipalResourceMembershipType $membershipType = null;
     
@@ -55,7 +55,7 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, P
     }
 
     /**
-     * Gets the membershipType property value. The membershipType property
+     * Gets the membershipType property value. Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
      * @return DecisionItemPrincipalResourceMembershipType|null
     */
     public function getMembershipType(): ?DecisionItemPrincipalResourceMembershipType {
@@ -80,7 +80,7 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, P
     }
 
     /**
-     * Sets the membershipType property value. The membershipType property
+     * Sets the membershipType property value. Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
      *  @param DecisionItemPrincipalResourceMembershipType|null $value Value to set for the membershipType property.
     */
     public function setMembershipType(?DecisionItemPrincipalResourceMembershipType $value ): void {

@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfileBase implements Parsable 
+class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfileBase implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var bool|null $syncCalendar Toggles syncing the calendar. If set to false the calendar is turned off on the device.
     */
@@ -28,6 +34,7 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -37,6 +44,14 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidForWorkNineWorkEasConfiguration {
         return new AndroidForWorkNineWorkEasConfiguration();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +100,15 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
         $writer->writeBooleanValue('syncCalendar', $this->syncCalendar);
         $writer->writeBooleanValue('syncContacts', $this->syncContacts);
         $writer->writeBooleanValue('syncTasks', $this->syncTasks);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

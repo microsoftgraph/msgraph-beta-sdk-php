@@ -42,6 +42,13 @@ class DlpEvaluationInput implements AdditionalDataHolder, Parsable
      * @return DlpEvaluationInput
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DlpEvaluationInput {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.dlpEvaluationWindowsDevicesInput': return new DlpEvaluationWindowsDevicesInput();
+            }
+        }
         return new DlpEvaluationInput();
     }
 

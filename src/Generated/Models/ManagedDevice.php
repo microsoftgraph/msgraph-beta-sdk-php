@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ManagedDevice extends Entity implements Parsable 
+class ManagedDevice extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var bool|null $aadRegistered Whether the device is Azure Active Directory registered. This property is read-only.
@@ -18,6 +19,11 @@ class ManagedDevice extends Entity implements Parsable
      * @var string|null $activationLockBypassCode Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
     */
     private ?string $activationLockBypassCode = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $androidSecurityPatchLevel Android security patch level. This property is read-only.
@@ -455,10 +461,11 @@ class ManagedDevice extends Entity implements Parsable
     private ?int $windowsRemediatedMalwareCount = null;
     
     /**
-     * Instantiates a new managedDevice and sets the default values.
+     * Instantiates a new ManagedDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -491,6 +498,14 @@ class ManagedDevice extends Entity implements Parsable
     */
     public function getActivationLockBypassCode(): ?string {
         return $this->activationLockBypassCode;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -1383,6 +1398,7 @@ class ManagedDevice extends Entity implements Parsable
         $writer->writeIntegerValue('windowsActiveMalwareCount', $this->windowsActiveMalwareCount);
         $writer->writeObjectValue('windowsProtectionState', $this->windowsProtectionState);
         $writer->writeIntegerValue('windowsRemediatedMalwareCount', $this->windowsRemediatedMalwareCount);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -1399,6 +1415,14 @@ class ManagedDevice extends Entity implements Parsable
     */
     public function setActivationLockBypassCode(?string $value ): void {
         $this->activationLockBypassCode = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

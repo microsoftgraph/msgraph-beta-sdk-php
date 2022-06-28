@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageCatalog extends Entity implements Parsable 
+class AccessPackageCatalog extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<AccessPackageResourceRole>|null $accessPackageResourceRoles The roles in each resource in a catalog. Read-only.
@@ -28,6 +29,11 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @var array<AccessPackage>|null $accessPackages The access packages in this catalog. Read-only. Nullable. Supports $expand.
     */
     private ?array $accessPackages = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $catalogStatus Has the value Published if the access packages are available for management.
@@ -84,6 +90,7 @@ class AccessPackageCatalog extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -125,6 +132,14 @@ class AccessPackageCatalog extends Entity implements Parsable
     */
     public function getAccessPackages(): ?array {
         return $this->accessPackages;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -251,6 +266,7 @@ class AccessPackageCatalog extends Entity implements Parsable
         $writer->writeBooleanValue('isExternallyVisible', $this->isExternallyVisible);
         $writer->writeStringValue('modifiedBy', $this->modifiedBy);
         $writer->writeDateTimeValue('modifiedDateTime', $this->modifiedDateTime);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -283,6 +299,14 @@ class AccessPackageCatalog extends Entity implements Parsable
     */
     public function setAccessPackages(?array $value ): void {
         $this->accessPackages = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implements Parsable 
+class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var bool|null $isUsableForSignIn Determines if the users or groups can use this authentication method to sign in to Azure AD. The value is always true.
     */
@@ -18,6 +24,7 @@ class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implement
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -27,6 +34,14 @@ class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implement
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): SmsAuthenticationMethodTarget {
         return new SmsAuthenticationMethodTarget();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -55,6 +70,15 @@ class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implement
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('isUsableForSignIn', $this->isUsableForSignIn);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

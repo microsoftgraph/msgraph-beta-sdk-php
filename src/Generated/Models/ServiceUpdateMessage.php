@@ -3,17 +3,23 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class ServiceUpdateMessage extends ServiceAnnouncementBase implements Parsable 
+class ServiceUpdateMessage extends ServiceAnnouncementBase implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var DateTime|null $actionRequiredByDateTime The expected deadline of the action for the message.
     */
     private ?DateTime $actionRequiredByDateTime = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var array<ServiceAnnouncementAttachment>|null $attachments A collection of serviceAnnouncementAttachments.
@@ -70,6 +76,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -87,6 +94,14 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase implements Parsable
     */
     public function getActionRequiredByDateTime(): ?DateTime {
         return $this->actionRequiredByDateTime;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -207,6 +222,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase implements Parsable
         $writer->writeEnumValue('severity', $this->severity);
         $writer->writeCollectionOfPrimitiveValues('tags', $this->tags);
         $writer->writeObjectValue('viewPoint', $this->viewPoint);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -215,6 +231,14 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase implements Parsable
     */
     public function setActionRequiredByDateTime(?DateTime $value ): void {
         $this->actionRequiredByDateTime = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

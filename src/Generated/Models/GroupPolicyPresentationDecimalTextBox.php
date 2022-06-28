@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation implements Parsable 
+class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var int|null $defaultValue An unsigned integer that specifies the initial value for the decimal text box. The default value is 1.
     */
@@ -43,6 +49,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation impl
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -52,6 +59,14 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation impl
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyPresentationDecimalTextBox {
         return new GroupPolicyPresentationDecimalTextBox();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -130,6 +145,15 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation impl
         $writer->writeBooleanValue('required', $this->required);
         $writer->writeBooleanValue('spin', $this->spin);
         $writer->writeIntegerValue('spinStep', $this->spinStep);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

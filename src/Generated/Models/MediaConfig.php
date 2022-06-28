@@ -32,6 +32,14 @@ class MediaConfig implements AdditionalDataHolder, Parsable
      * @return MediaConfig
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): MediaConfig {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.appHostedMediaConfig': return new AppHostedMediaConfig();
+                case '#microsoft.graph.serviceHostedMediaConfig': return new ServiceHostedMediaConfig();
+            }
+        }
         return new MediaConfig();
     }
 

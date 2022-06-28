@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OfficeGraphInsights extends Entity implements Parsable 
+class OfficeGraphInsights extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<SharedInsight>|null $shared Access this property from the derived type itemInsights.
     */
@@ -24,10 +30,11 @@ class OfficeGraphInsights extends Entity implements Parsable
     private ?array $used = null;
     
     /**
-     * Instantiates a new officeGraphInsights and sets the default values.
+     * Instantiates a new OfficeGraphInsights and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -44,6 +51,14 @@ class OfficeGraphInsights extends Entity implements Parsable
             }
         }
         return new OfficeGraphInsights();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -92,6 +107,15 @@ class OfficeGraphInsights extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('shared', $this->shared);
         $writer->writeCollectionOfObjectValues('trending', $this->trending);
         $writer->writeCollectionOfObjectValues('used', $this->used);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

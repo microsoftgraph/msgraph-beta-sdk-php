@@ -3,12 +3,18 @@
 namespace Microsoft\Graph\Beta\Generated\Models\Search;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Bookmark extends SearchAnswer implements Parsable 
+class Bookmark extends SearchAnswer implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var DateTime|null $availabilityEndDateTime Timestamp of when the bookmark will stop to appear as a search result. Set as null for always available.
     */
@@ -69,6 +75,7 @@ class Bookmark extends SearchAnswer implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -78,6 +85,14 @@ class Bookmark extends SearchAnswer implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Bookmark {
         return new Bookmark();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -206,6 +221,15 @@ class Bookmark extends SearchAnswer implements Parsable
         $writer->writeCollectionOfPrimitiveValues('powerAppIds', $this->powerAppIds);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeCollectionOfObjectValues('targetedVariations', $this->targetedVariations);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

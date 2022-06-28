@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DelegatedAdminAccessAssignment extends Entity implements Parsable 
+class DelegatedAdminAccessAssignment extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var DelegatedAdminAccessContainer|null $accessContainer The accessContainer property
@@ -18,6 +19,11 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
      * @var DelegatedAdminAccessDetails|null $accessDetails The accessDetails property
     */
     private ?DelegatedAdminAccessDetails $accessDetails = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var DateTime|null $createdDateTime The date and time in ISO 8601 format and in UTC time when the access assignment was created. Read-only.
@@ -39,6 +45,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -64,6 +71,14 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
     */
     public function getAccessDetails(): ?DelegatedAdminAccessDetails {
         return $this->accessDetails;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -116,6 +131,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeEnumValue('status', $this->status);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -132,6 +148,14 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
     */
     public function setAccessDetails(?DelegatedAdminAccessDetails $value ): void {
         $this->accessDetails = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

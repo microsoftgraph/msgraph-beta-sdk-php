@@ -3,12 +3,18 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceConfiguration extends Entity implements Parsable 
+class DeviceConfiguration extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<DeviceConfigurationAssignment>|null $assignments The list of assignments for the device configuration profile.
     */
@@ -95,10 +101,11 @@ class DeviceConfiguration extends Entity implements Parsable
     private ?int $version = null;
     
     /**
-     * Instantiates a new deviceConfiguration and sets the default values.
+     * Instantiates a new DeviceConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -199,6 +206,14 @@ class DeviceConfiguration extends Entity implements Parsable
             }
         }
         return new DeviceConfiguration();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -387,6 +402,15 @@ class DeviceConfiguration extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('userStatuses', $this->userStatuses);
         $writer->writeObjectValue('userStatusOverview', $this->userStatusOverview);
         $writer->writeIntegerValue('version', $this->version);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

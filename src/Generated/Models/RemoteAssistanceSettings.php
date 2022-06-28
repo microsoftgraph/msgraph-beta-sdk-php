@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RemoteAssistanceSettings extends Entity implements Parsable 
+class RemoteAssistanceSettings extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var bool|null $allowSessionsToUnenrolledDevices Indicates if sessions to unenrolled devices are allowed for the account. This setting is configurable by the admin. Default value is false.
     */
@@ -19,10 +25,11 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     private ?RemoteAssistanceState $remoteAssistanceState = null;
     
     /**
-     * Instantiates a new remoteAssistanceSettings and sets the default values.
+     * Instantiates a new RemoteAssistanceSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -32,6 +39,14 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): RemoteAssistanceSettings {
         return new RemoteAssistanceSettings();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -70,6 +85,15 @@ class RemoteAssistanceSettings extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('allowSessionsToUnenrolledDevices', $this->allowSessionsToUnenrolledDevices);
         $writer->writeEnumValue('remoteAssistanceState', $this->remoteAssistanceState);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

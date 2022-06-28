@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcOrganizationSettings extends Entity implements Parsable 
+class CloudPcOrganizationSettings extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var CloudPcOperatingSystem|null $osVersion The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.
     */
@@ -24,10 +30,11 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     private ?CloudPcWindowsSettings $windowsSettings = null;
     
     /**
-     * Instantiates a new cloudPcOrganizationSettings and sets the default values.
+     * Instantiates a new CloudPcOrganizationSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -37,6 +44,14 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcOrganizationSettings {
         return new CloudPcOrganizationSettings();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +100,15 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
         $writer->writeEnumValue('osVersion', $this->osVersion);
         $writer->writeEnumValue('userAccountType', $this->userAccountType);
         $writer->writeObjectValue('windowsSettings', $this->windowsSettings);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

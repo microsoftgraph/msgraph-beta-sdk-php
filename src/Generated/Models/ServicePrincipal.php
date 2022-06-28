@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ServicePrincipal extends DirectoryObject implements Parsable 
+class ServicePrincipal extends DirectoryObject implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var bool|null $accountEnabled true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).
@@ -18,6 +19,11 @@ class ServicePrincipal extends DirectoryObject implements Parsable
      * @var array<AddIn>|null $addIns Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on.
     */
     private ?array $addIns = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var array<string>|null $alternativeNames Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities. Supports $filter (eq, not, ge, le, startsWith).
@@ -289,6 +295,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -314,6 +321,14 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     */
     public function getAddIns(): ?array {
         return $this->addIns;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -866,6 +881,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('tokenIssuancePolicies', $this->tokenIssuancePolicies);
         $writer->writeCollectionOfObjectValues('tokenLifetimePolicies', $this->tokenLifetimePolicies);
         $writer->writeCollectionOfObjectValues('transitiveMemberOf', $this->transitiveMemberOf);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -882,6 +898,14 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     */
     public function setAddIns(?array $value ): void {
         $this->addIns = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

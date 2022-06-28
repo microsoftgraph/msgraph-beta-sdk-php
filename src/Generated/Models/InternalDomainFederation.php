@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable 
+class InternalDomainFederation extends SamlOrWsFedProvider implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $activeSignInUri URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Azure Active Directory (Azure AD). Corresponds to the ActiveLogOnUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet.
     */
     private ?string $activeSignInUri = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var FederatedIdpMfaBehavior|null $federatedIdpMfaBehavior Determines whether Azure AD accepts the MFA performed by the federated IdP when a federated user accesses an application that is governed by a conditional access policy that requires MFA. The possible values are: acceptIfMfaDoneByFederatedIdp, enforceMfaByFederatedIdp, rejectMfaByFederatedIdp, unknownFutureValue. For more information, see federatedIdpMfaBehavior values.
@@ -48,6 +54,7 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -65,6 +72,14 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
     */
     public function getActiveSignInUri(): ?string {
         return $this->activeSignInUri;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -145,6 +160,7 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
         $writer->writeEnumValue('promptLoginBehavior', $this->promptLoginBehavior);
         $writer->writeObjectValue('signingCertificateUpdateStatus', $this->signingCertificateUpdateStatus);
         $writer->writeStringValue('signOutUri', $this->signOutUri);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -153,6 +169,14 @@ class InternalDomainFederation extends SamlOrWsFedProvider implements Parsable
     */
     public function setActiveSignInUri(?string $value ): void {
         $this->activeSignInUri = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

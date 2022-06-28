@@ -2,22 +2,29 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PersistentBrowserSessionControl extends ConditionalAccessSessionControl implements Parsable 
+class PersistentBrowserSessionControl extends ConditionalAccessSessionControl implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var PersistentBrowserSessionMode|null $mode Possible values are: always, never.
     */
     private ?PersistentBrowserSessionMode $mode = null;
     
     /**
-     * Instantiates a new persistentBrowserSessionControl and sets the default values.
+     * Instantiates a new PersistentBrowserSessionControl and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -27,6 +34,14 @@ class PersistentBrowserSessionControl extends ConditionalAccessSessionControl im
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): PersistentBrowserSessionControl {
         return new PersistentBrowserSessionControl();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -55,6 +70,15 @@ class PersistentBrowserSessionControl extends ConditionalAccessSessionControl im
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('mode', $this->mode);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

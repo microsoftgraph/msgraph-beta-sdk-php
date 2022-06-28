@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
+class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentConfiguration implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var bool|null $allowDeviceResetOnInstallFailure Allow or block device reset on installation failure
     */
@@ -63,6 +69,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -72,6 +79,14 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Windows10EnrollmentCompletionPageConfiguration {
         return new Windows10EnrollmentCompletionPageConfiguration();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -190,6 +205,15 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
         $writer->writeCollectionOfPrimitiveValues('selectedMobileAppIds', $this->selectedMobileAppIds);
         $writer->writeBooleanValue('showInstallationProgress', $this->showInstallationProgress);
         $writer->writeBooleanValue('trackInstallProgressForAutopilotOnly', $this->trackInstallProgressForAutopilotOnly);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Profile extends Entity implements Parsable 
+class Profile extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<UserAccountInformation>|null $account The account property
     */
     private ?array $account = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var array<ItemAddress>|null $addresses Represents details of addresses associated with the user.
@@ -104,10 +110,11 @@ class Profile extends Entity implements Parsable
     private ?array $websites = null;
     
     /**
-     * Instantiates a new profile and sets the default values.
+     * Instantiates a new Profile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -125,6 +132,14 @@ class Profile extends Entity implements Parsable
     */
     public function getAccount(): ?array {
         return $this->account;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -325,6 +340,7 @@ class Profile extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('skills', $this->skills);
         $writer->writeCollectionOfObjectValues('webAccounts', $this->webAccounts);
         $writer->writeCollectionOfObjectValues('websites', $this->websites);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -333,6 +349,14 @@ class Profile extends Entity implements Parsable
     */
     public function setAccount(?array $value ): void {
         $this->account = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

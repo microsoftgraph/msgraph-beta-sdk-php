@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsInformationProtection extends ManagedAppPolicy implements Parsable 
+class WindowsInformationProtection extends ManagedAppPolicy implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<TargetedManagedAppPolicyAssignment>|null $assignments Navigation property to list of security groups targeted for policy.
     */
@@ -138,6 +144,7 @@ class WindowsInformationProtection extends ManagedAppPolicy implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -155,6 +162,14 @@ class WindowsInformationProtection extends ManagedAppPolicy implements Parsable
             }
         }
         return new WindowsInformationProtection();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -423,6 +438,15 @@ class WindowsInformationProtection extends ManagedAppPolicy implements Parsable
         $writer->writeBooleanValue('revokeOnUnenrollDisabled', $this->revokeOnUnenrollDisabled);
         $writer->writeStringValue('rightsManagementServicesTemplateId', $this->rightsManagementServicesTemplateId);
         $writer->writeCollectionOfObjectValues('smbAutoEncryptedFileExtensions', $this->smbAutoEncryptedFileExtensions);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

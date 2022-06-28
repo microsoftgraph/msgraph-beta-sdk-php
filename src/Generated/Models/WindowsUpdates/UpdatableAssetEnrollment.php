@@ -27,6 +27,13 @@ class UpdatableAssetEnrollment implements AdditionalDataHolder, Parsable
      * @return UpdatableAssetEnrollment
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UpdatableAssetEnrollment {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windowsUpdates.updateManagementEnrollment': return new UpdateManagementEnrollment();
+            }
+        }
         return new UpdatableAssetEnrollment();
     }
 

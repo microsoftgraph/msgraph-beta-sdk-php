@@ -27,6 +27,13 @@ class AccessReviewNotificationRecipientScope implements AdditionalDataHolder, Pa
      * @return AccessReviewNotificationRecipientScope
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewNotificationRecipientScope {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.accessReviewNotificationRecipientQueryScope': return new AccessReviewNotificationRecipientQueryScope();
+            }
+        }
         return new AccessReviewNotificationRecipientScope();
     }
 

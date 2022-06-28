@@ -2,17 +2,23 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
-class SharedPCConfiguration extends DeviceConfiguration implements Parsable 
+class SharedPCConfiguration extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var SharedPCAccountManagerPolicy|null $accountManagerPolicy Specifies how accounts are managed on a shared PC. Only applies when disableAccountManager is false.
     */
     private ?SharedPCAccountManagerPolicy $accountManagerPolicy = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var SharedPCAllowedAccountType|null $allowedAccounts Indicates which type of accounts are allowed to use on a shared PC. Possible values are: notConfigured, guest, domain.
@@ -104,6 +110,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -121,6 +128,14 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     */
     public function getAccountManagerPolicy(): ?SharedPCAccountManagerPolicy {
         return $this->accountManagerPolicy;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -311,6 +326,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeEnumValue('setEduPolicies', $this->setEduPolicies);
         $writer->writeEnumValue('setPowerPolicies', $this->setPowerPolicies);
         $writer->writeEnumValue('signInOnResume', $this->signInOnResume);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -319,6 +335,14 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     */
     public function setAccountManagerPolicy(?SharedPCAccountManagerPolicy $value ): void {
         $this->accountManagerPolicy = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

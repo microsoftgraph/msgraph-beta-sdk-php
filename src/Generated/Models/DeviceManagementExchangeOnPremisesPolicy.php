@@ -2,17 +2,23 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsable 
+class DeviceManagementExchangeOnPremisesPolicy extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<DeviceManagementExchangeAccessRule>|null $accessRules The list of device access rules in Exchange. The access rules apply globally to the entire Exchange organization
     */
     private ?array $accessRules = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var OnPremisesConditionalAccessSettings|null $conditionalAccessSettings The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
@@ -39,6 +45,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -56,6 +63,14 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     */
     public function getAccessRules(): ?array {
         return $this->accessRules;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -116,6 +131,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
         $writer->writeEnumValue('defaultAccessLevel', $this->defaultAccessLevel);
         $writer->writeCollectionOfObjectValues('knownDeviceClasses', $this->knownDeviceClasses);
         $writer->writeBinaryContent('notificationContent', $this->notificationContent);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -124,6 +140,14 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     */
     public function setAccessRules(?array $value ): void {
         $this->accessRules = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

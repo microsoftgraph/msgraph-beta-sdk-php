@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Parsable 
+class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var int|null $activeDevices Number of active devices for using that app over a 14-day period. Valid values -2147483648 to 2147483647
     */
     private ?int $activeDevices = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $appDisplayName User friendly display name for the app. Eg: Outlook
@@ -43,6 +49,7 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -60,6 +67,14 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
     */
     public function getActiveDevices(): ?int {
         return $this->activeDevices;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -130,6 +145,7 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
         $writer->writeStringValue('appPublisher', $this->appPublisher);
         $writer->writeFloatValue('batteryUsagePercentage', $this->batteryUsagePercentage);
         $writer->writeBooleanValue('isForegroundApp', $this->isForegroundApp);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -138,6 +154,14 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
     */
     public function setActiveDevices(?int $value ): void {
         $this->activeDevices = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

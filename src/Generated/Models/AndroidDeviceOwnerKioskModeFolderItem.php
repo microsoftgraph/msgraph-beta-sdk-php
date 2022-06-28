@@ -2,17 +2,24 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AndroidDeviceOwnerKioskModeFolderItem extends AndroidDeviceOwnerKioskModeHomeScreenItem implements Parsable 
+class AndroidDeviceOwnerKioskModeFolderItem extends AndroidDeviceOwnerKioskModeHomeScreenItem implements AdditionalDataHolder, Parsable 
 {
     /**
-     * Instantiates a new androidDeviceOwnerKioskModeFolderItem and sets the default values.
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
+    /**
+     * Instantiates a new AndroidDeviceOwnerKioskModeFolderItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -21,7 +28,23 @@ class AndroidDeviceOwnerKioskModeFolderItem extends AndroidDeviceOwnerKioskModeH
      * @return AndroidDeviceOwnerKioskModeFolderItem
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidDeviceOwnerKioskModeFolderItem {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.androidDeviceOwnerKioskModeApp': return new AndroidDeviceOwnerKioskModeApp();
+                case '#microsoft.graph.androidDeviceOwnerKioskModeWeblink': return new AndroidDeviceOwnerKioskModeWeblink();
+            }
+        }
         return new AndroidDeviceOwnerKioskModeFolderItem();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -40,6 +63,15 @@ class AndroidDeviceOwnerKioskModeFolderItem extends AndroidDeviceOwnerKioskModeH
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
 }

@@ -27,6 +27,14 @@ class EdgeSearchEngineBase implements AdditionalDataHolder, Parsable
      * @return EdgeSearchEngineBase
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EdgeSearchEngineBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.edgeSearchEngine': return new EdgeSearchEngine();
+                case '#microsoft.graph.edgeSearchEngineCustom': return new EdgeSearchEngineCustom();
+            }
+        }
         return new EdgeSearchEngineBase();
     }
 

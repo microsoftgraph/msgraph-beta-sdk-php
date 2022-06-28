@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EducationAssignment extends Entity implements Parsable 
+class EducationAssignment extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var EducationAddedStudentAction|null $addedStudentAction Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.
     */
     private ?EducationAddedStudentAction $addedStudentAction = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var EducationAddToCalendarOptions|null $addToCalendarAction Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
@@ -140,10 +146,11 @@ class EducationAssignment extends Entity implements Parsable
     private ?string $webUrl = null;
     
     /**
-     * Instantiates a new educationAssignment and sets the default values.
+     * Instantiates a new EducationAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -161,6 +168,14 @@ class EducationAssignment extends Entity implements Parsable
     */
     public function getAddedStudentAction(): ?EducationAddedStudentAction {
         return $this->addedStudentAction;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -431,6 +446,7 @@ class EducationAssignment extends Entity implements Parsable
         $writer->writeEnumValue('status', $this->status);
         $writer->writeCollectionOfObjectValues('submissions', $this->submissions);
         $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -439,6 +455,14 @@ class EducationAssignment extends Entity implements Parsable
     */
     public function setAddedStudentAction(?EducationAddedStudentAction $value ): void {
         $this->addedStudentAction = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

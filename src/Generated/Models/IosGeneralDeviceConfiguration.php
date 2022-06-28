@@ -2,11 +2,12 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IosGeneralDeviceConfiguration extends DeviceConfiguration implements Parsable 
+class IosGeneralDeviceConfiguration extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var bool|null $accountBlockModification Indicates whether or not to allow account modification when the device is in supervised mode.
@@ -17,6 +18,11 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration implements Parsa
      * @var bool|null $activationLockAllowWhenSupervised Indicates whether or not to allow activation lock when the device is in the supervised mode.
     */
     private ?bool $activationLockAllowWhenSupervised = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var bool|null $airDropBlocked Indicates whether or not to allow AirDrop when the device is in supervised mode.
@@ -948,6 +954,7 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -973,6 +980,14 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration implements Parsa
     */
     public function getActivationLockAllowWhenSupervised(): ?bool {
         return $this->activationLockAllowWhenSupervised;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -2845,6 +2860,7 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration implements Parsa
         $writer->writeBooleanValue('wiFiConnectOnlyToConfiguredNetworks', $this->wiFiConnectOnlyToConfiguredNetworks);
         $writer->writeBooleanValue('wiFiConnectToAllowedNetworksOnlyForced', $this->wiFiConnectToAllowedNetworksOnlyForced);
         $writer->writeBooleanValue('wifiPowerOnForced', $this->wifiPowerOnForced);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -2861,6 +2877,14 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration implements Parsa
     */
     public function setActivationLockAllowWhenSupervised(?bool $value ): void {
         $this->activationLockAllowWhenSupervised = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

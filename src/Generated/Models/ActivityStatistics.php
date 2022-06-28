@@ -3,17 +3,23 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateInterval;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class ActivityStatistics extends Entity implements Parsable 
+class ActivityStatistics extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var AnalyticsActivityType|null $activity The type of activity for which statistics are returned. The possible values are: call, chat, email, focus, and meeting.
     */
     private ?AnalyticsActivityType $activity = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var DateInterval|null $duration Total hours spent on the activity. The value is represented in ISO 8601 format for durations.
@@ -40,6 +46,7 @@ class ActivityStatistics extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -68,6 +75,14 @@ class ActivityStatistics extends Entity implements Parsable
     */
     public function getActivity(): ?AnalyticsActivityType {
         return $this->activity;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -128,6 +143,7 @@ class ActivityStatistics extends Entity implements Parsable
         $writer->writeDateValue('endDate', $this->endDate);
         $writer->writeDateValue('startDate', $this->startDate);
         $writer->writeStringValue('timeZoneUsed', $this->timeZoneUsed);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -136,6 +152,14 @@ class ActivityStatistics extends Entity implements Parsable
     */
     public function setActivity(?AnalyticsActivityType $value ): void {
         $this->activity = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

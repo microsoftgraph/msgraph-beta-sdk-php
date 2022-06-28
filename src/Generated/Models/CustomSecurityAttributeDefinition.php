@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CustomSecurityAttributeDefinition extends Entity implements Parsable 
+class CustomSecurityAttributeDefinition extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<AllowedValue>|null $allowedValues Values that are predefined for this custom security attribute.This navigation property is not returned by default and must be specified in an $expand query. For example, /directory/customSecurityAttributeDefinitions?$expand=allowedValues.
     */
@@ -58,6 +64,7 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -67,6 +74,14 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomSecurityAttributeDefinition {
         return new CustomSecurityAttributeDefinition();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -175,6 +190,15 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
         $writer->writeStringValue('status', $this->status);
         $writer->writeStringValue('type', $this->type);
         $writer->writeBooleanValue('usePreDefinedValuesOnly', $this->usePreDefinedValuesOnly);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

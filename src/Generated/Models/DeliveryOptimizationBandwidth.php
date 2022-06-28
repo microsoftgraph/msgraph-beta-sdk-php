@@ -27,6 +27,15 @@ class DeliveryOptimizationBandwidth implements AdditionalDataHolder, Parsable
      * @return DeliveryOptimizationBandwidth
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeliveryOptimizationBandwidth {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deliveryOptimizationBandwidthAbsolute': return new DeliveryOptimizationBandwidthAbsolute();
+                case '#microsoft.graph.deliveryOptimizationBandwidthHoursWithPercentage': return new DeliveryOptimizationBandwidthHoursWithPercentage();
+                case '#microsoft.graph.deliveryOptimizationBandwidthPercentage': return new DeliveryOptimizationBandwidthPercentage();
+            }
+        }
         return new DeliveryOptimizationBandwidth();
     }
 

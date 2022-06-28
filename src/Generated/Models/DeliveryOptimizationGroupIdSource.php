@@ -27,6 +27,14 @@ class DeliveryOptimizationGroupIdSource implements AdditionalDataHolder, Parsabl
      * @return DeliveryOptimizationGroupIdSource
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeliveryOptimizationGroupIdSource {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deliveryOptimizationGroupIdCustom': return new DeliveryOptimizationGroupIdCustom();
+                case '#microsoft.graph.deliveryOptimizationGroupIdSourceOptions': return new DeliveryOptimizationGroupIdSourceOptions();
+            }
+        }
         return new DeliveryOptimizationGroupIdSource();
     }
 

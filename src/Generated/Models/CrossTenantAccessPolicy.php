@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase implements Parsable 
+class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<string>|null $allowedCloudEndpoints Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
     */
@@ -28,6 +34,7 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -37,6 +44,14 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicy {
         return new CrossTenantAccessPolicy();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +100,15 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
         $writer->writeCollectionOfPrimitiveValues('allowedCloudEndpoints', $this->allowedCloudEndpoints);
         $writer->writeObjectValue('default', $this->escapedDefault);
         $writer->writeCollectionOfObjectValues('partners', $this->partners);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

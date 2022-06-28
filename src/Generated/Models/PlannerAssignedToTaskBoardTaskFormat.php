@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PlannerAssignedToTaskBoardTaskFormat extends PlannerDelta implements Parsable 
+class PlannerAssignedToTaskBoardTaskFormat extends PlannerDelta implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var PlannerOrderHintsByAssignee|null $orderHintsByAssignee Dictionary of hints used to order tasks on the AssignedTo view of the Task Board. The key of each entry is one of the users the task is assigned to and the value is the order hint. The format of each value is defined as outlined here.
     */
@@ -23,6 +29,7 @@ class PlannerAssignedToTaskBoardTaskFormat extends PlannerDelta implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -32,6 +39,14 @@ class PlannerAssignedToTaskBoardTaskFormat extends PlannerDelta implements Parsa
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): PlannerAssignedToTaskBoardTaskFormat {
         return new PlannerAssignedToTaskBoardTaskFormat();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -70,6 +85,15 @@ class PlannerAssignedToTaskBoardTaskFormat extends PlannerDelta implements Parsa
         parent::serialize($writer);
         $writer->writeObjectValue('orderHintsByAssignee', $this->orderHintsByAssignee);
         $writer->writeStringValue('unassignedOrderHint', $this->unassignedOrderHint);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

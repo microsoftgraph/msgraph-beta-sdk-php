@@ -32,6 +32,13 @@ class StatusBase implements AdditionalDataHolder, Parsable
      * @return StatusBase
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): StatusBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.statusDetails': return new StatusDetails();
+            }
+        }
         return new StatusBase();
     }
 

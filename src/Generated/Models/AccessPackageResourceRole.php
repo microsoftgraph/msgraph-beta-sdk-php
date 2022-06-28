@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessPackageResourceRole extends Entity implements Parsable 
+class AccessPackageResourceRole extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var AccessPackageResource|null $accessPackageResource The accessPackageResource property
     */
     private ?AccessPackageResource $accessPackageResource = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $description A description for the resource role.
@@ -38,6 +44,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -55,6 +62,14 @@ class AccessPackageResourceRole extends Entity implements Parsable
     */
     public function getAccessPackageResource(): ?AccessPackageResource {
         return $this->accessPackageResource;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -115,6 +130,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('originId', $this->originId);
         $writer->writeStringValue('originSystem', $this->originSystem);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -123,6 +139,14 @@ class AccessPackageResourceRole extends Entity implements Parsable
     */
     public function setAccessPackageResource(?AccessPackageResource $value ): void {
         $this->accessPackageResource = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -27,6 +27,14 @@ class DeliveryOptimizationMaxCacheSize implements AdditionalDataHolder, Parsable
      * @return DeliveryOptimizationMaxCacheSize
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeliveryOptimizationMaxCacheSize {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deliveryOptimizationMaxCacheSizeAbsolute': return new DeliveryOptimizationMaxCacheSizeAbsolute();
+                case '#microsoft.graph.deliveryOptimizationMaxCacheSizePercentage': return new DeliveryOptimizationMaxCacheSizePercentage();
+            }
+        }
         return new DeliveryOptimizationMaxCacheSize();
     }
 

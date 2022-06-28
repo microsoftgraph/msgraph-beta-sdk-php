@@ -4,11 +4,12 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateInterval;
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementAutopilotEvent extends Entity implements Parsable 
+class DeviceManagementAutopilotEvent extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var DateInterval|null $accountSetupDuration Time spent in user ESP.
@@ -19,6 +20,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @var WindowsAutopilotDeploymentState|null $accountSetupStatus Deployment status for the enrollment status page account setup phase. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
     */
     private ?WindowsAutopilotDeploymentState $accountSetupStatus = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var DateInterval|null $deploymentDuration Autopilot deployment duration including enrollment.
@@ -146,10 +152,11 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     private ?string $windowsAutopilotDeploymentProfileDisplayName = null;
     
     /**
-     * Instantiates a new deviceManagementAutopilotEvent and sets the default values.
+     * Instantiates a new DeviceManagementAutopilotEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -175,6 +182,14 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     */
     public function getAccountSetupStatus(): ?WindowsAutopilotDeploymentState {
         return $this->accountSetupStatus;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -447,6 +462,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
         $writer->writeStringValue('windows10EnrollmentCompletionPageConfigurationDisplayName', $this->windows10EnrollmentCompletionPageConfigurationDisplayName);
         $writer->writeStringValue('windows10EnrollmentCompletionPageConfigurationId', $this->windows10EnrollmentCompletionPageConfigurationId);
         $writer->writeStringValue('windowsAutopilotDeploymentProfileDisplayName', $this->windowsAutopilotDeploymentProfileDisplayName);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -463,6 +479,14 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     */
     public function setAccountSetupStatus(?WindowsAutopilotDeploymentState $value ): void {
         $this->accountSetupStatus = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

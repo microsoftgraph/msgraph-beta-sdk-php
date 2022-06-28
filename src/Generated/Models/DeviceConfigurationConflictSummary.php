@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceConfigurationConflictSummary extends Entity implements Parsable 
+class DeviceConfigurationConflictSummary extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<SettingSource>|null $conflictingDeviceConfigurations The set of policies in conflict with the given setting
     */
@@ -24,10 +30,11 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
     private ?int $deviceCheckinsImpacted = null;
     
     /**
-     * Instantiates a new deviceConfigurationConflictSummary and sets the default values.
+     * Instantiates a new DeviceConfigurationConflictSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -37,6 +44,14 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceConfigurationConflictSummary {
         return new DeviceConfigurationConflictSummary();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +100,15 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('conflictingDeviceConfigurations', $this->conflictingDeviceConfigurations);
         $writer->writeCollectionOfPrimitiveValues('contributingSettings', $this->contributingSettings);
         $writer->writeIntegerValue('deviceCheckinsImpacted', $this->deviceCheckinsImpacted);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

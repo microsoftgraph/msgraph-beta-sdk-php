@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements Parsable 
+class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var bool|null $connectAutomatically Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
     */
@@ -38,6 +44,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -54,6 +61,14 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements Par
             }
         }
         return new AndroidForWorkWiFiConfiguration();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -122,6 +137,15 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration implements Par
         $writer->writeStringValue('networkName', $this->networkName);
         $writer->writeStringValue('ssid', $this->ssid);
         $writer->writeEnumValue('wiFiSecurityType', $this->wiFiSecurityType);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

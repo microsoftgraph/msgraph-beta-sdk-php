@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserSettings extends Entity implements Parsable 
+class UserSettings extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var ContactMergeSuggestions|null $contactMergeSuggestions The user's settings for the visibility of merge suggestion for the duplicate contacts in the user's contact list.
     */
@@ -39,10 +45,11 @@ class UserSettings extends Entity implements Parsable
     private ?ShiftPreferences $shiftPreferences = null;
     
     /**
-     * Instantiates a new userSettings and sets the default values.
+     * Instantiates a new UserSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -52,6 +59,14 @@ class UserSettings extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UserSettings {
         return new UserSettings();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -130,6 +145,15 @@ class UserSettings extends Entity implements Parsable
         $writer->writeObjectValue('itemInsights', $this->itemInsights);
         $writer->writeObjectValue('regionalAndLanguageSettings', $this->regionalAndLanguageSettings);
         $writer->writeObjectValue('shiftPreferences', $this->shiftPreferences);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Parsable 
+class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var bool|null $autoPilotProfileAssigned The user experience analytics work from anywhere intune device's autopilotProfileAssigned.
     */
@@ -183,6 +189,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -192,6 +199,14 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsWorkFromAnywhereDevice {
         return new UserExperienceAnalyticsWorkFromAnywhereDevice();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -550,6 +565,15 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
         $writer->writeEnumValue('upgradeEligibility', $this->upgradeEligibility);
         $writer->writeFloatValue('windowsScore', $this->windowsScore);
         $writer->writeFloatValue('workFromAnywhereScore', $this->workFromAnywhereScore);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

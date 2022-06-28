@@ -2,22 +2,29 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements Parsable 
+class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var float|null $points Number of points a teacher is giving this submission object.
     */
     private ?float $points = null;
     
     /**
-     * Instantiates a new educationAssignmentPointsGrade and sets the default values.
+     * Instantiates a new EducationAssignmentPointsGrade and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -27,6 +34,14 @@ class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationAssignmentPointsGrade {
         return new EducationAssignmentPointsGrade();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -55,6 +70,15 @@ class EducationAssignmentPointsGrade extends EducationAssignmentGrade implements
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeFloatValue('points', $this->points);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

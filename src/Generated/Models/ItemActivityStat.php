@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ItemActivityStat extends Entity implements Parsable 
+class ItemActivityStat extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var ItemActionStat|null $access Statistics about the access actions in this interval. Read-only.
@@ -18,6 +19,11 @@ class ItemActivityStat extends Entity implements Parsable
      * @var array<ItemActivity>|null $activities Exposes the itemActivities represented in this itemActivityStat resource.
     */
     private ?array $activities = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var ItemActionStat|null $create Statistics about the create actions in this interval. Read-only.
@@ -64,6 +70,7 @@ class ItemActivityStat extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -89,6 +96,14 @@ class ItemActivityStat extends Entity implements Parsable
     */
     public function getActivities(): ?array {
         return $this->activities;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -191,6 +206,7 @@ class ItemActivityStat extends Entity implements Parsable
         $writer->writeBooleanValue('isTrending', $this->isTrending);
         $writer->writeObjectValue('move', $this->move);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -207,6 +223,14 @@ class ItemActivityStat extends Entity implements Parsable
     */
     public function setActivities(?array $value ): void {
         $this->activities = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

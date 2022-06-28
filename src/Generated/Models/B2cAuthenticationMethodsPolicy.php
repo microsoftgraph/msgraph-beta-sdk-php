@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class B2cAuthenticationMethodsPolicy extends Entity implements Parsable 
+class B2cAuthenticationMethodsPolicy extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var bool|null $isEmailPasswordAuthenticationEnabled The tenant admin can configure local accounts using email if the email and password authentication method is enabled.
     */
@@ -24,10 +30,11 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
     private ?bool $isUserNameAuthenticationEnabled = null;
     
     /**
-     * Instantiates a new b2cAuthenticationMethodsPolicy and sets the default values.
+     * Instantiates a new B2cAuthenticationMethodsPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -37,6 +44,14 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): B2cAuthenticationMethodsPolicy {
         return new B2cAuthenticationMethodsPolicy();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +100,15 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
         $writer->writeBooleanValue('isEmailPasswordAuthenticationEnabled', $this->isEmailPasswordAuthenticationEnabled);
         $writer->writeBooleanValue('isPhoneOneTimePasswordAuthenticationEnabled', $this->isPhoneOneTimePasswordAuthenticationEnabled);
         $writer->writeBooleanValue('isUserNameAuthenticationEnabled', $this->isUserNameAuthenticationEnabled);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

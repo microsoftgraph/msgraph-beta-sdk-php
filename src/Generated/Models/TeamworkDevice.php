@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TeamworkDevice extends Entity implements Parsable 
+class TeamworkDevice extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var TeamworkDeviceActivity|null $activity The activity properties that change based on the device usage.
@@ -18,6 +19,11 @@ class TeamworkDevice extends Entity implements Parsable
      * @var TeamworkDeviceActivityState|null $activityState The activity state of the device. The possible values are: unknown, busy, idle, unavailable, unknownFutureValue.
     */
     private ?TeamworkDeviceActivityState $activityState = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $companyAssetTag The company asset tag assigned by the admin on the device.
@@ -89,6 +95,7 @@ class TeamworkDevice extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -114,6 +121,14 @@ class TeamworkDevice extends Entity implements Parsable
     */
     public function getActivityState(): ?TeamworkDeviceActivityState {
         return $this->activityState;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -266,6 +281,7 @@ class TeamworkDevice extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('notes', $this->notes);
         $writer->writeCollectionOfObjectValues('operations', $this->operations);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -282,6 +298,14 @@ class TeamworkDevice extends Entity implements Parsable
     */
     public function setActivityState(?TeamworkDeviceActivityState $value ): void {
         $this->activityState = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

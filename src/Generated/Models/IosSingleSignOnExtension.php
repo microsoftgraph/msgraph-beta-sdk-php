@@ -2,17 +2,24 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IosSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
+class IosSingleSignOnExtension extends SingleSignOnExtension implements AdditionalDataHolder, Parsable 
 {
     /**
-     * Instantiates a new iosSingleSignOnExtension and sets the default values.
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
+    /**
+     * Instantiates a new IosSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -21,7 +28,25 @@ class IosSingleSignOnExtension extends SingleSignOnExtension implements Parsable
      * @return IosSingleSignOnExtension
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): IosSingleSignOnExtension {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.iosAzureAdSingleSignOnExtension': return new IosAzureAdSingleSignOnExtension();
+                case '#microsoft.graph.iosCredentialSingleSignOnExtension': return new IosCredentialSingleSignOnExtension();
+                case '#microsoft.graph.iosKerberosSingleSignOnExtension': return new IosKerberosSingleSignOnExtension();
+                case '#microsoft.graph.iosRedirectSingleSignOnExtension': return new IosRedirectSingleSignOnExtension();
+            }
+        }
         return new IosSingleSignOnExtension();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -40,6 +65,15 @@ class IosSingleSignOnExtension extends SingleSignOnExtension implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
 }

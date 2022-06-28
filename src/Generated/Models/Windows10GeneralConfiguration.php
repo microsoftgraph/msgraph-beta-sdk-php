@@ -2,13 +2,14 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 use Psr\Http\Message\StreamInterface;
 
-class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsable 
+class Windows10GeneralConfiguration extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var bool|null $accountsBlockAddingNonMicrosoftAccountEmail Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.
@@ -19,6 +20,11 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @var Enablement|null $activateAppsWithVoice Specifies if Windows apps can be activated by voice. Possible values are: notConfigured, enabled, disabled.
     */
     private ?Enablement $activateAppsWithVoice = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var bool|null $antiTheftModeBlocked Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only).
@@ -1430,6 +1436,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -1455,6 +1462,14 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
     */
     public function getActivateAppsWithVoice(): ?Enablement {
         return $this->activateAppsWithVoice;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -4287,6 +4302,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
         $writer->writeBooleanValue('wirelessDisplayBlockProjectionToThisDevice', $this->wirelessDisplayBlockProjectionToThisDevice);
         $writer->writeBooleanValue('wirelessDisplayBlockUserInputFromReceiver', $this->wirelessDisplayBlockUserInputFromReceiver);
         $writer->writeBooleanValue('wirelessDisplayRequirePinForPairing', $this->wirelessDisplayRequirePinForPairing);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -4303,6 +4319,14 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
     */
     public function setActivateAppsWithVoice(?Enablement $value ): void {
         $this->activateAppsWithVoice = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

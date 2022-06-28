@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SignInFrequencySessionControl extends ConditionalAccessSessionControl implements Parsable 
+class SignInFrequencySessionControl extends ConditionalAccessSessionControl implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var SignInFrequencyAuthenticationType|null $authenticationType The possible values are primaryAndSecondaryAuthentication, secondaryAuthentication, unknownFutureValue.
     */
@@ -29,10 +35,11 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl impl
     private ?int $value = null;
     
     /**
-     * Instantiates a new signInFrequencySessionControl and sets the default values.
+     * Instantiates a new SignInFrequencySessionControl and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -42,6 +49,14 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl impl
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): SignInFrequencySessionControl {
         return new SignInFrequencySessionControl();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -100,6 +115,15 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl impl
         $writer->writeEnumValue('frequencyInterval', $this->frequencyInterval);
         $writer->writeEnumValue('type', $this->type);
         $writer->writeIntegerValue('value', $this->value);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

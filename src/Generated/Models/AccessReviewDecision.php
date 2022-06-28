@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AccessReviewDecision extends Entity implements Parsable 
+class AccessReviewDecision extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $accessRecommendation The feature- generated recommendation shown to the reviewer, one of Approve, Deny or NotAvailable.
@@ -18,6 +19,11 @@ class AccessReviewDecision extends Entity implements Parsable
      * @var string|null $accessReviewId The feature-generated id of the access review.
     */
     private ?string $accessReviewId = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var UserIdentity|null $appliedBy When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was auto-applied, the userPrincipalName is empty.
@@ -59,6 +65,7 @@ class AccessReviewDecision extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -84,6 +91,14 @@ class AccessReviewDecision extends Entity implements Parsable
     */
     public function getAccessReviewId(): ?string {
         return $this->accessReviewId;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -176,6 +191,7 @@ class AccessReviewDecision extends Entity implements Parsable
         $writer->writeObjectValue('reviewedBy', $this->reviewedBy);
         $writer->writeDateTimeValue('reviewedDateTime', $this->reviewedDateTime);
         $writer->writeStringValue('reviewResult', $this->reviewResult);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -192,6 +208,14 @@ class AccessReviewDecision extends Entity implements Parsable
     */
     public function setAccessReviewId(?string $value ): void {
         $this->accessReviewId = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

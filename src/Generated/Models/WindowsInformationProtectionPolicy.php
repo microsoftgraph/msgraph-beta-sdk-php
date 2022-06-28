@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsInformationProtectionPolicy extends WindowsInformationProtection implements Parsable 
+class WindowsInformationProtectionPolicy extends WindowsInformationProtection implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var int|null $daysWithoutContactBeforeUnenroll Offline interval before app data is wiped (days)
     */
@@ -73,6 +79,7 @@ class WindowsInformationProtectionPolicy extends WindowsInformationProtection im
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -82,6 +89,14 @@ class WindowsInformationProtectionPolicy extends WindowsInformationProtection im
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionPolicy {
         return new WindowsInformationProtectionPolicy();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -220,6 +235,15 @@ class WindowsInformationProtectionPolicy extends WindowsInformationProtection im
         $writer->writeEnumValue('pinUppercaseLetters', $this->pinUppercaseLetters);
         $writer->writeBooleanValue('revokeOnMdmHandoffDisabled', $this->revokeOnMdmHandoffDisabled);
         $writer->writeBooleanValue('windowsHelloForBusinessBlocked', $this->windowsHelloForBusinessBlocked);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

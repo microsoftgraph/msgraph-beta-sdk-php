@@ -2,11 +2,12 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ItemActivityOLD extends Entity implements Parsable 
+class ItemActivityOLD extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var ItemActionSet|null $action The action property
@@ -17,6 +18,11 @@ class ItemActivityOLD extends Entity implements Parsable
      * @var IdentitySet|null $actor The actor property
     */
     private ?IdentitySet $actor = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var DriveItem|null $driveItem The driveItem property
@@ -38,6 +44,7 @@ class ItemActivityOLD extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -63,6 +70,14 @@ class ItemActivityOLD extends Entity implements Parsable
     */
     public function getActor(): ?IdentitySet {
         return $this->actor;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -115,6 +130,7 @@ class ItemActivityOLD extends Entity implements Parsable
         $writer->writeObjectValue('driveItem', $this->driveItem);
         $writer->writeObjectValue('listItem', $this->listItem);
         $writer->writeObjectValue('times', $this->times);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -131,6 +147,14 @@ class ItemActivityOLD extends Entity implements Parsable
     */
     public function setActor(?IdentitySet $value ): void {
         $this->actor = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

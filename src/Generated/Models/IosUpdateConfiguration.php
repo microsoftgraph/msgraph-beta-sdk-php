@@ -2,12 +2,13 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
-class IosUpdateConfiguration extends DeviceConfiguration implements Parsable 
+class IosUpdateConfiguration extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var Time|null $activeHoursEnd Active Hours End (active hours mean the time window when updates install should not happen)
@@ -18,6 +19,11 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @var Time|null $activeHoursStart Active Hours Start (active hours mean the time window when updates install should not happen)
     */
     private ?Time $activeHoursStart = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var array<CustomUpdateTimeWindow>|null $customUpdateTimeWindows If update schedule type is set to use time window scheduling, custom time windows when updates will be scheduled. This collection can contain a maximum of 20 elements.
@@ -59,6 +65,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -84,6 +91,14 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
     */
     public function getActiveHoursStart(): ?Time {
         return $this->activeHoursStart;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -176,6 +191,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeCollectionOfPrimitiveValues('scheduledInstallDays', $this->scheduledInstallDays);
         $writer->writeEnumValue('updateScheduleType', $this->updateScheduleType);
         $writer->writeIntegerValue('utcTimeOffsetInMinutes', $this->utcTimeOffsetInMinutes);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -192,6 +208,14 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
     */
     public function setActiveHoursStart(?Time $value ): void {
         $this->activeHoursStart = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

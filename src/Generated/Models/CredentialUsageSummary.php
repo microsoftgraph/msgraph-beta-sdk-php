@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CredentialUsageSummary extends Entity implements Parsable 
+class CredentialUsageSummary extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var UsageAuthMethod|null $authMethod Represents the authentication method that the user used. Possible values are:email, mobileSMS, mobileCall, officePhone, securityQuestion (only used for self-service password reset), appNotification, appCode, alternateMobileCall (supported only in registration), fido, appPassword, unknownFutureValue.
     */
@@ -29,10 +35,11 @@ class CredentialUsageSummary extends Entity implements Parsable
     private ?int $successfulActivityCount = null;
     
     /**
-     * Instantiates a new credentialUsageSummary and sets the default values.
+     * Instantiates a new CredentialUsageSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -42,6 +49,14 @@ class CredentialUsageSummary extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CredentialUsageSummary {
         return new CredentialUsageSummary();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -100,6 +115,15 @@ class CredentialUsageSummary extends Entity implements Parsable
         $writer->writeIntegerValue('failureActivityCount', $this->failureActivityCount);
         $writer->writeEnumValue('feature', $this->feature);
         $writer->writeIntegerValue('successfulActivityCount', $this->successfulActivityCount);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

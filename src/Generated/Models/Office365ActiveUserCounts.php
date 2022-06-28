@@ -2,13 +2,19 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Office365ActiveUserCounts extends Entity implements Parsable 
+class Office365ActiveUserCounts extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var int|null $exchange The number of active users in Exchange. Any user who can read and send email is considered an active user.
     */
@@ -60,10 +66,11 @@ class Office365ActiveUserCounts extends Entity implements Parsable
     private ?int $yammer = null;
     
     /**
-     * Instantiates a new office365ActiveUserCounts and sets the default values.
+     * Instantiates a new Office365ActiveUserCounts and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -73,6 +80,14 @@ class Office365ActiveUserCounts extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Office365ActiveUserCounts {
         return new Office365ActiveUserCounts();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -191,6 +206,15 @@ class Office365ActiveUserCounts extends Entity implements Parsable
         $writer->writeIntegerValue('skypeForBusiness', $this->skypeForBusiness);
         $writer->writeIntegerValue('teams', $this->teams);
         $writer->writeIntegerValue('yammer', $this->yammer);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

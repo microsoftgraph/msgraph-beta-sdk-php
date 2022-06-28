@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ApplicationTemplate extends Entity implements Parsable 
+class ApplicationTemplate extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<string>|null $categories The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.
     */
@@ -54,10 +60,11 @@ class ApplicationTemplate extends Entity implements Parsable
     private ?array $supportedSingleSignOnModes = null;
     
     /**
-     * Instantiates a new applicationTemplate and sets the default values.
+     * Instantiates a new ApplicationTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -67,6 +74,14 @@ class ApplicationTemplate extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ApplicationTemplate {
         return new ApplicationTemplate();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -175,6 +190,15 @@ class ApplicationTemplate extends Entity implements Parsable
         $writer->writeStringValue('publisher', $this->publisher);
         $writer->writeCollectionOfPrimitiveValues('supportedProvisioningTypes', $this->supportedProvisioningTypes);
         $writer->writeCollectionOfPrimitiveValues('supportedSingleSignOnModes', $this->supportedSingleSignOnModes);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

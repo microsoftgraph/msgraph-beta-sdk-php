@@ -42,6 +42,17 @@ class IdentitySet implements AdditionalDataHolder, Parsable
      * @return IdentitySet
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): IdentitySet {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.chatMessageFromIdentitySet': return new ChatMessageFromIdentitySet();
+                case '#microsoft.graph.chatMessageMentionedIdentitySet': return new ChatMessageMentionedIdentitySet();
+                case '#microsoft.graph.chatMessageReactionIdentitySet': return new ChatMessageReactionIdentitySet();
+                case '#microsoft.graph.communicationsIdentitySet': return new CommunicationsIdentitySet();
+                case '#microsoft.graph.sharePointIdentitySet': return new SharePointIdentitySet();
+            }
+        }
         return new IdentitySet();
     }
 

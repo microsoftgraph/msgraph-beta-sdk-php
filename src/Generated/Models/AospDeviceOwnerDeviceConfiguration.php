@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements Parsable 
+class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var bool|null $appsBlockInstallFromUnknownSources Indicates whether or not the user is allowed to enable unknown sources setting. When set to true, user is not allowed to enable unknown sources settings.
     */
@@ -83,6 +89,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -92,6 +99,14 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AospDeviceOwnerDeviceConfiguration {
         return new AospDeviceOwnerDeviceConfiguration();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -250,6 +265,15 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
         $writer->writeBooleanValue('storageBlockExternalMedia', $this->storageBlockExternalMedia);
         $writer->writeBooleanValue('storageBlockUsbFileTransfer', $this->storageBlockUsbFileTransfer);
         $writer->writeBooleanValue('wifiBlockEditConfigurations', $this->wifiBlockEditConfigurations);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

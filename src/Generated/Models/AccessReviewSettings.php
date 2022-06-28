@@ -72,6 +72,13 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
      * @return AccessReviewSettings
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewSettings {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.businessFlowSettings': return new BusinessFlowSettings();
+            }
+        }
         return new AccessReviewSettings();
     }
 

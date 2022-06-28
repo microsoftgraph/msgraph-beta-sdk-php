@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DirectoryAudit extends Entity implements Parsable 
+class DirectoryAudit extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var DateTime|null $activityDateTime Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
@@ -18,6 +19,11 @@ class DirectoryAudit extends Entity implements Parsable
      * @var string|null $activityDisplayName Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list.
     */
     private ?string $activityDisplayName = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var array<KeyValue>|null $additionalDetails Indicates additional details on the activity.
@@ -74,6 +80,7 @@ class DirectoryAudit extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -99,6 +106,14 @@ class DirectoryAudit extends Entity implements Parsable
     */
     public function getActivityDisplayName(): ?string {
         return $this->activityDisplayName;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -221,6 +236,7 @@ class DirectoryAudit extends Entity implements Parsable
         $writer->writeStringValue('resultReason', $this->resultReason);
         $writer->writeCollectionOfObjectValues('targetResources', $this->targetResources);
         $writer->writeStringValue('userAgent', $this->userAgent);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -237,6 +253,14 @@ class DirectoryAudit extends Entity implements Parsable
     */
     public function setActivityDisplayName(?string $value ): void {
         $this->activityDisplayName = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class FileSecurityProfile extends Entity implements Parsable 
+class FileSecurityProfile extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<string>|null $activityGroupNames The activityGroupNames property
     */
     private ?array $activityGroupNames = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $azureSubscriptionId The azureSubscriptionId property
@@ -90,10 +96,11 @@ class FileSecurityProfile extends Entity implements Parsable
     private ?array $vulnerabilityStates = null;
     
     /**
-     * Instantiates a new fileSecurityProfile and sets the default values.
+     * Instantiates a new FileSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -111,6 +118,14 @@ class FileSecurityProfile extends Entity implements Parsable
     */
     public function getActivityGroupNames(): ?array {
         return $this->activityGroupNames;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -281,6 +296,7 @@ class FileSecurityProfile extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('tags', $this->tags);
         $writer->writeObjectValue('vendorInformation', $this->vendorInformation);
         $writer->writeCollectionOfObjectValues('vulnerabilityStates', $this->vulnerabilityStates);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -289,6 +305,14 @@ class FileSecurityProfile extends Entity implements Parsable
     */
     public function setActivityGroupNames(?array $value ): void {
         $this->activityGroupNames = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

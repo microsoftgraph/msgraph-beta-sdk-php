@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PersonInterest extends ItemFacet implements Parsable 
+class PersonInterest extends ItemFacet implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<string>|null $categories Contains categories a user has associated with the interest (for example, personal, recipies).
     */
@@ -43,6 +49,7 @@ class PersonInterest extends ItemFacet implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -52,6 +59,14 @@ class PersonInterest extends ItemFacet implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): PersonInterest {
         return new PersonInterest();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -130,6 +145,15 @@ class PersonInterest extends ItemFacet implements Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('thumbnailUrl', $this->thumbnailUrl);
         $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

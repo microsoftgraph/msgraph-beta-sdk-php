@@ -42,6 +42,13 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
      * @return DeviceComplianceScriptError
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceComplianceScriptError {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deviceComplianceScriptRuleError': return new DeviceComplianceScriptRuleError();
+            }
+        }
         return new DeviceComplianceScriptError();
     }
 

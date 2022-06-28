@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MobilityManagementPolicy extends Entity implements Parsable 
+class MobilityManagementPolicy extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var PolicyScope|null $appliesTo Indicates the user scope of the mobility management policy. Possible values are: none, all, selected.
     */
@@ -49,10 +55,11 @@ class MobilityManagementPolicy extends Entity implements Parsable
     private ?string $termsOfUseUrl = null;
     
     /**
-     * Instantiates a new mobilityManagementPolicy and sets the default values.
+     * Instantiates a new MobilityManagementPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -62,6 +69,14 @@ class MobilityManagementPolicy extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): MobilityManagementPolicy {
         return new MobilityManagementPolicy();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -160,6 +175,15 @@ class MobilityManagementPolicy extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('includedGroups', $this->includedGroups);
         $writer->writeBooleanValue('isValid', $this->isValid);
         $writer->writeStringValue('termsOfUseUrl', $this->termsOfUseUrl);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

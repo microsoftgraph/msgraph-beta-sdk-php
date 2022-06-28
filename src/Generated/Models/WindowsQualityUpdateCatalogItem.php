@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implements Parsable 
+class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var WindowsQualityUpdateClassification|null $classification Classification of the quality update. Possible values are: all, security, nonSecurity.
     */
@@ -28,6 +34,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -37,6 +44,14 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsQualityUpdateCatalogItem {
         return new WindowsQualityUpdateCatalogItem();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +100,15 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
         $writer->writeEnumValue('classification', $this->classification);
         $writer->writeBooleanValue('isExpeditable', $this->isExpeditable);
         $writer->writeStringValue('kbArticleId', $this->kbArticleId);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

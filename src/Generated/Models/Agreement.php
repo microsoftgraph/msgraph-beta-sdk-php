@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateInterval;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Agreement extends Entity implements Parsable 
+class Agreement extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<AgreementAcceptance>|null $acceptances Read-only. Information about acceptances of this agreement.
     */
     private ?array $acceptances = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $displayName Display name of the agreement. The display name is used for internal tracking of the agreement but is not shown to end users who view the agreement. Supports $filter (eq).
@@ -54,6 +60,7 @@ class Agreement extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -71,6 +78,14 @@ class Agreement extends Entity implements Parsable
     */
     public function getAcceptances(): ?array {
         return $this->acceptances;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -161,6 +176,7 @@ class Agreement extends Entity implements Parsable
         $writer->writeBooleanValue('isViewingBeforeAcceptanceRequired', $this->isViewingBeforeAcceptanceRequired);
         $writer->writeObjectValue('termsExpiration', $this->termsExpiration);
         $writer->writeDateIntervalValue('userReacceptRequiredFrequency', $this->userReacceptRequiredFrequency);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -169,6 +185,14 @@ class Agreement extends Entity implements Parsable
     */
     public function setAcceptances(?array $value ): void {
         $this->acceptances = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

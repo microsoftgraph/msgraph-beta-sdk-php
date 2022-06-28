@@ -27,6 +27,13 @@ class CustomExtensionEndpointConfiguration implements AdditionalDataHolder, Pars
      * @return CustomExtensionEndpointConfiguration
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomExtensionEndpointConfiguration {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.logicAppTriggerEndpointConfiguration': return new LogicAppTriggerEndpointConfiguration();
+            }
+        }
         return new CustomExtensionEndpointConfiguration();
     }
 

@@ -2,13 +2,19 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
-class MicrosoftTunnelSite extends Entity implements Parsable 
+class MicrosoftTunnelSite extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $description The MicrosoftTunnelSite's description
     */
@@ -70,10 +76,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     private ?int $upgradeWindowUtcOffsetInMinutes = null;
     
     /**
-     * Instantiates a new microsoftTunnelSite and sets the default values.
+     * Instantiates a new MicrosoftTunnelSite and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -83,6 +90,14 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): MicrosoftTunnelSite {
         return new MicrosoftTunnelSite();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -221,6 +236,15 @@ class MicrosoftTunnelSite extends Entity implements Parsable
         $writer->writeTimeValue('upgradeWindowEndTime', $this->upgradeWindowEndTime);
         $writer->writeTimeValue('upgradeWindowStartTime', $this->upgradeWindowStartTime);
         $writer->writeIntegerValue('upgradeWindowUtcOffsetInMinutes', $this->upgradeWindowUtcOffsetInMinutes);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

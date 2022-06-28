@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity implements Parsable 
+class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var int|null $batteryAgeInDays Estimated battery age. Unit in days. Valid values -2147483648 to 2147483647
     */
@@ -58,6 +64,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -67,6 +74,14 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsBatteryHealthDevicePerformance {
         return new UserExperienceAnalyticsBatteryHealthDevicePerformance();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -175,6 +190,15 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
         $writer->writeStringValue('manufacturer', $this->manufacturer);
         $writer->writeIntegerValue('maxCapacityPercentage', $this->maxCapacityPercentage);
         $writer->writeStringValue('model', $this->model);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

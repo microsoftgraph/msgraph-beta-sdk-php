@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ReportRoot extends Entity implements Parsable 
+class ReportRoot extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<ApplicationSignInDetailedSummary>|null $applicationSignInDetailedSummary Represents a detailed summary of an application sign-in.
     */
@@ -64,15 +70,21 @@ class ReportRoot extends Entity implements Parsable
     private ?array $monthlyPrintUsageSummariesByUser = null;
     
     /**
+     * @var SecurityReportsRoot|null $security The security property
+    */
+    private ?SecurityReportsRoot $security = null;
+    
+    /**
      * @var array<UserCredentialUsageDetails>|null $userCredentialUsageDetails Represents the self-service password reset (SSPR) usage for a given tenant.
     */
     private ?array $userCredentialUsageDetails = null;
     
     /**
-     * Instantiates a new reportRoot and sets the default values.
+     * Instantiates a new ReportRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -82,6 +94,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ReportRoot {
         return new ReportRoot();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -158,6 +178,7 @@ class ReportRoot extends Entity implements Parsable
             'monthlyPrintUsageByUser' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
             'monthlyPrintUsageSummariesByPrinter' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues(array(PrintUsageByPrinter::class, 'createFromDiscriminatorValue'))); },
             'monthlyPrintUsageSummariesByUser' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageSummariesByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
+            'security' => function (ParseNode $n) use ($o) { $o->setSecurity($n->getObjectValue(array(SecurityReportsRoot::class, 'createFromDiscriminatorValue'))); },
             'userCredentialUsageDetails' => function (ParseNode $n) use ($o) { $o->setUserCredentialUsageDetails($n->getCollectionOfObjectValues(array(UserCredentialUsageDetails::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
@@ -195,6 +216,14 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the security property value. The security property
+     * @return SecurityReportsRoot|null
+    */
+    public function getSecurity(): ?SecurityReportsRoot {
+        return $this->security;
+    }
+
+    /**
      * Gets the userCredentialUsageDetails property value. Represents the self-service password reset (SSPR) usage for a given tenant.
      * @return array<UserCredentialUsageDetails>|null
     */
@@ -219,7 +248,17 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageByUser', $this->monthlyPrintUsageByUser);
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByPrinter', $this->monthlyPrintUsageSummariesByPrinter);
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByUser', $this->monthlyPrintUsageSummariesByUser);
+        $writer->writeObjectValue('security', $this->security);
         $writer->writeCollectionOfObjectValues('userCredentialUsageDetails', $this->userCredentialUsageDetails);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**
@@ -308,6 +347,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setMonthlyPrintUsageSummariesByUser(?array $value ): void {
         $this->monthlyPrintUsageSummariesByUser = $value;
+    }
+
+    /**
+     * Sets the security property value. The security property
+     *  @param SecurityReportsRoot|null $value Value to set for the security property.
+    */
+    public function setSecurity(?SecurityReportsRoot $value ): void {
+        $this->security = $value;
     }
 
     /**

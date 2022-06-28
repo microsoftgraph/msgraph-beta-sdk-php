@@ -3,12 +3,18 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TimeOffRequest extends ScheduleChangeRequest implements Parsable 
+class TimeOffRequest extends ScheduleChangeRequest implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var DateTime|null $endDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     */
@@ -29,6 +35,7 @@ class TimeOffRequest extends ScheduleChangeRequest implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -38,6 +45,14 @@ class TimeOffRequest extends ScheduleChangeRequest implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeOffRequest {
         return new TimeOffRequest();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -86,6 +101,15 @@ class TimeOffRequest extends ScheduleChangeRequest implements Parsable
         $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
         $writer->writeStringValue('timeOffReasonId', $this->timeOffReasonId);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

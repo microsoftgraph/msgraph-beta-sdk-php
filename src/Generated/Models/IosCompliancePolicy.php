@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
+class IosCompliancePolicy extends DeviceCompliancePolicy implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var DeviceThreatProtectionLevel|null $advancedThreatProtectionRequiredSecurityLevel MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
     */
@@ -108,6 +114,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -117,6 +124,14 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): IosCompliancePolicy {
         return new IosCompliancePolicy();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -325,6 +340,15 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
         $writer->writeEnumValue('passcodeRequiredType', $this->passcodeRequiredType);
         $writer->writeCollectionOfObjectValues('restrictedApps', $this->restrictedApps);
         $writer->writeBooleanValue('securityBlockJailbrokenDevices', $this->securityBlockJailbrokenDevices);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

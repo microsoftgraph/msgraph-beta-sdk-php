@@ -152,6 +152,7 @@ use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\I
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByPrinter\MonthlyPrintUsageSummariesByPrinterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder as MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageSummariesByUserItemPrintUsageByUserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\MonthlyPrintUsageSummariesByUser\MonthlyPrintUsageSummariesByUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\Security\SecurityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserCredentialUsageDetails\Item\UserCredentialUsageDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\UserCredentialUsageDetails\UserCredentialUsageDetailsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -251,6 +252,13 @@ class ReportsRequestBuilder
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
+    
+    /**
+     * The security property
+    */
+    public function security(): SecurityRequestBuilder {
+        return new SecurityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder

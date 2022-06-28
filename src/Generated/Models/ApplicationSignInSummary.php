@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ApplicationSignInSummary extends Entity implements Parsable 
+class ApplicationSignInSummary extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $appDisplayName Name of the application that the user signed into.
     */
@@ -29,10 +35,11 @@ class ApplicationSignInSummary extends Entity implements Parsable
     private ?float $successPercentage = null;
     
     /**
-     * Instantiates a new applicationSignInSummary and sets the default values.
+     * Instantiates a new ApplicationSignInSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -42,6 +49,14 @@ class ApplicationSignInSummary extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ApplicationSignInSummary {
         return new ApplicationSignInSummary();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -100,6 +115,15 @@ class ApplicationSignInSummary extends Entity implements Parsable
         $writer->writeIntegerValue('failedSignInCount', $this->failedSignInCount);
         $writer->writeIntegerValue('successfulSignInCount', $this->successfulSignInCount);
         $writer->writeFloatValue('successPercentage', $this->successPercentage);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

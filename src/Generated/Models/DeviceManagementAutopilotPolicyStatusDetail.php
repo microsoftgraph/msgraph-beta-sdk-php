@@ -3,12 +3,18 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Parsable 
+class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var DeviceManagementAutopilotPolicyComplianceStatus|null $complianceStatus The policy compliance status. Possible values are: unknown, compliant, installed, notCompliant, notInstalled, error.
     */
@@ -44,6 +50,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -53,6 +60,14 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementAutopilotPolicyStatusDetail {
         return new DeviceManagementAutopilotPolicyStatusDetail();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -131,6 +146,15 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
         $writer->writeDateTimeValue('lastReportedDateTime', $this->lastReportedDateTime);
         $writer->writeEnumValue('policyType', $this->policyType);
         $writer->writeBooleanValue('trackedOnEnrollmentStatus', $this->trackedOnEnrollmentStatus);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

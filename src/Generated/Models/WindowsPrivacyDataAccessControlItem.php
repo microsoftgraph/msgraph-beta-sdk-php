@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable 
+class WindowsPrivacyDataAccessControlItem extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var WindowsPrivacyDataAccessLevel|null $accessLevel This indicates an access level for the privacy data category to which the specified application will be given to. Possible values are: notConfigured, forceAllow, forceDeny, userInControl.
     */
     private ?WindowsPrivacyDataAccessLevel $accessLevel = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $appDisplayName The Package Family Name of a Windows app. When set, the access level applies to the specified application.
@@ -33,6 +39,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -50,6 +57,14 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
     */
     public function getAccessLevel(): ?WindowsPrivacyDataAccessLevel {
         return $this->accessLevel;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -100,6 +115,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
         $writer->writeStringValue('appDisplayName', $this->appDisplayName);
         $writer->writeStringValue('appPackageFamilyName', $this->appPackageFamilyName);
         $writer->writeEnumValue('dataCategory', $this->dataCategory);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -108,6 +124,14 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
     */
     public function setAccessLevel(?WindowsPrivacyDataAccessLevel $value ): void {
         $this->accessLevel = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

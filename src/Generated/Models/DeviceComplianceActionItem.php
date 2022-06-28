@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceComplianceActionItem extends Entity implements Parsable 
+class DeviceComplianceActionItem extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var DeviceComplianceActionType|null $actionType What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
     */
     private ?DeviceComplianceActionType $actionType = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var int|null $gracePeriodHours Number of hours to wait till the action will be enforced. Valid values 0 to 8760
@@ -33,6 +39,7 @@ class DeviceComplianceActionItem extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -50,6 +57,14 @@ class DeviceComplianceActionItem extends Entity implements Parsable
     */
     public function getActionType(): ?DeviceComplianceActionType {
         return $this->actionType;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -100,6 +115,7 @@ class DeviceComplianceActionItem extends Entity implements Parsable
         $writer->writeIntegerValue('gracePeriodHours', $this->gracePeriodHours);
         $writer->writeCollectionOfPrimitiveValues('notificationMessageCCList', $this->notificationMessageCCList);
         $writer->writeStringValue('notificationTemplateId', $this->notificationTemplateId);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -108,6 +124,14 @@ class DeviceComplianceActionItem extends Entity implements Parsable
     */
     public function setActionType(?DeviceComplianceActionType $value ): void {
         $this->actionType = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

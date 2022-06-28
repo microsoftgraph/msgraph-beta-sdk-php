@@ -3,12 +3,18 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends Entity implements Parsable 
+class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var int|null $appCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647
     */
@@ -54,6 +60,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -63,6 +70,14 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId {
         return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -161,6 +176,15 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
         $writer->writeStringValue('deviceDisplayName', $this->deviceDisplayName);
         $writer->writeStringValue('deviceId', $this->deviceId);
         $writer->writeDateTimeValue('processedDateTime', $this->processedDateTime);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

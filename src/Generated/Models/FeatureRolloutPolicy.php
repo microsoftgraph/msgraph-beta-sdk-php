@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class FeatureRolloutPolicy extends Entity implements Parsable 
+class FeatureRolloutPolicy extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<DirectoryObject>|null $appliesTo Nullable. Specifies a list of directoryObjects that feature is enabled for.
     */
@@ -43,6 +49,7 @@ class FeatureRolloutPolicy extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -52,6 +59,14 @@ class FeatureRolloutPolicy extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): FeatureRolloutPolicy {
         return new FeatureRolloutPolicy();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -130,6 +145,15 @@ class FeatureRolloutPolicy extends Entity implements Parsable
         $writer->writeEnumValue('feature', $this->feature);
         $writer->writeBooleanValue('isAppliedToOrganization', $this->isAppliedToOrganization);
         $writer->writeBooleanValue('isEnabled', $this->isEnabled);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ProvisionedIdentity extends Identity implements Parsable 
+class ProvisionedIdentity extends Identity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var DetailsInfo|null $details Details of the identity.
     */
@@ -19,10 +25,11 @@ class ProvisionedIdentity extends Identity implements Parsable
     private ?string $identityType = null;
     
     /**
-     * Instantiates a new provisionedIdentity and sets the default values.
+     * Instantiates a new ProvisionedIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -32,6 +39,14 @@ class ProvisionedIdentity extends Identity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ProvisionedIdentity {
         return new ProvisionedIdentity();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -70,6 +85,15 @@ class ProvisionedIdentity extends Identity implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('details', $this->details);
         $writer->writeStringValue('identityType', $this->identityType);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

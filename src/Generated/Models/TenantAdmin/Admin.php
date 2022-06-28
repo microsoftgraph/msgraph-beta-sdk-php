@@ -17,6 +17,11 @@ class Admin implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
+     * @var AdminReportSettings|null $reportSettings The reportSettings property
+    */
+    private ?AdminReportSettings $reportSettings = null;
+    
+    /**
      * @var ServiceAnnouncement|null $serviceAnnouncement A container for service communications resources. Read-only.
     */
     private ?ServiceAnnouncement $serviceAnnouncement = null;
@@ -62,10 +67,19 @@ class Admin implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'reportSettings' => function (ParseNode $n) use ($o) { $o->setReportSettings($n->getObjectValue(array(AdminReportSettings::class, 'createFromDiscriminatorValue'))); },
             'serviceAnnouncement' => function (ParseNode $n) use ($o) { $o->setServiceAnnouncement($n->getObjectValue(array(ServiceAnnouncement::class, 'createFromDiscriminatorValue'))); },
             'sharepoint' => function (ParseNode $n) use ($o) { $o->setSharepoint($n->getObjectValue(array(Sharepoint::class, 'createFromDiscriminatorValue'))); },
             'windows' => function (ParseNode $n) use ($o) { $o->setWindows($n->getObjectValue(array(Windows::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the reportSettings property value. The reportSettings property
+     * @return AdminReportSettings|null
+    */
+    public function getReportSettings(): ?AdminReportSettings {
+        return $this->reportSettings;
     }
 
     /**
@@ -97,6 +111,7 @@ class Admin implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('reportSettings', $this->reportSettings);
         $writer->writeObjectValue('serviceAnnouncement', $this->serviceAnnouncement);
         $writer->writeObjectValue('sharepoint', $this->sharepoint);
         $writer->writeObjectValue('windows', $this->windows);
@@ -109,6 +124,14 @@ class Admin implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the reportSettings property value. The reportSettings property
+     *  @param AdminReportSettings|null $value Value to set for the reportSettings property.
+    */
+    public function setReportSettings(?AdminReportSettings $value ): void {
+        $this->reportSettings = $value;
     }
 
     /**

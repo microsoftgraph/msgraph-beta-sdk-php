@@ -3,17 +3,23 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class SalesQuote extends Entity implements Parsable 
+class SalesQuote extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var Date|null $acceptedDate The acceptedDate property
     */
     private ?Date $acceptedDate = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var PostalAddressType|null $billingPostalAddress The billingPostalAddress property
@@ -191,10 +197,11 @@ class SalesQuote extends Entity implements Parsable
     private ?Date $validUntilDate = null;
     
     /**
-     * Instantiates a new salesQuote and sets the default values.
+     * Instantiates a new SalesQuote and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -212,6 +219,14 @@ class SalesQuote extends Entity implements Parsable
     */
     public function getAcceptedDate(): ?Date {
         return $this->acceptedDate;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -582,6 +597,7 @@ class SalesQuote extends Entity implements Parsable
         $writer->writeStringValue('totalAmountIncludingTax', $this->totalAmountIncludingTax);
         $writer->writeStringValue('totalTaxAmount', $this->totalTaxAmount);
         $writer->writeDateValue('validUntilDate', $this->validUntilDate);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -590,6 +606,14 @@ class SalesQuote extends Entity implements Parsable
     */
     public function setAcceptedDate(?Date $value ): void {
         $this->acceptedDate = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

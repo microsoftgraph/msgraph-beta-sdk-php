@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implements Parsable 
+class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Scale for the Certificate Validity Period. Possible values are: days, months, years.
     */
@@ -48,6 +54,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -64,6 +71,14 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
             }
         }
         return new WindowsPhone81CertificateProfileBase();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -152,6 +167,15 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
         $writer->writeIntegerValue('renewalThresholdPercentage', $this->renewalThresholdPercentage);
         $writer->writeEnumValue('subjectAlternativeNameType', $this->subjectAlternativeNameType);
         $writer->writeEnumValue('subjectNameFormat', $this->subjectNameFormat);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

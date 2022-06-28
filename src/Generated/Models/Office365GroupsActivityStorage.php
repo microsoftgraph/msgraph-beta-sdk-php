@@ -2,13 +2,19 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Office365GroupsActivityStorage extends Entity implements Parsable 
+class Office365GroupsActivityStorage extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var int|null $mailboxStorageUsedInBytes The storage used in group mailbox.
     */
@@ -35,10 +41,11 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
     private ?int $siteStorageUsedInBytes = null;
     
     /**
-     * Instantiates a new office365GroupsActivityStorage and sets the default values.
+     * Instantiates a new Office365GroupsActivityStorage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -48,6 +55,14 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Office365GroupsActivityStorage {
         return new Office365GroupsActivityStorage();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -116,6 +131,15 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
         $writer->writeStringValue('reportPeriod', $this->reportPeriod);
         $writer->writeDateValue('reportRefreshDate', $this->reportRefreshDate);
         $writer->writeIntegerValue('siteStorageUsedInBytes', $this->siteStorageUsedInBytes);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

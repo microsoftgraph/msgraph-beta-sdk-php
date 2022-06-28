@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SecureScore extends Entity implements Parsable 
+class SecureScore extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var int|null $activeUserCount Active user count of the given tenant.
     */
     private ?int $activeUserCount = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var array<AverageComparativeScore>|null $averageComparativeScores Average score by different scopes (for example, average by industry, average by seating) and control category (Identity, Data, Device, Apps, Infrastructure) within the scope.
@@ -60,10 +66,11 @@ class SecureScore extends Entity implements Parsable
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
-     * Instantiates a new secureScore and sets the default values.
+     * Instantiates a new SecureScore and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -81,6 +88,14 @@ class SecureScore extends Entity implements Parsable
     */
     public function getActiveUserCount(): ?int {
         return $this->activeUserCount;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -191,6 +206,7 @@ class SecureScore extends Entity implements Parsable
         $writer->writeIntegerValue('licensedUserCount', $this->licensedUserCount);
         $writer->writeFloatValue('maxScore', $this->maxScore);
         $writer->writeObjectValue('vendorInformation', $this->vendorInformation);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -199,6 +215,14 @@ class SecureScore extends Entity implements Parsable
     */
     public function setActiveUserCount(?int $value ): void {
         $this->activeUserCount = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

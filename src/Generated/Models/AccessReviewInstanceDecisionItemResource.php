@@ -42,6 +42,15 @@ class AccessReviewInstanceDecisionItemResource implements AdditionalDataHolder, 
      * @return AccessReviewInstanceDecisionItemResource
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewInstanceDecisionItemResource {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource': return new AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource();
+                case '#microsoft.graph.accessReviewInstanceDecisionItemAzureRoleResource': return new AccessReviewInstanceDecisionItemAzureRoleResource();
+                case '#microsoft.graph.accessReviewInstanceDecisionItemServicePrincipalResource': return new AccessReviewInstanceDecisionItemServicePrincipalResource();
+            }
+        }
         return new AccessReviewInstanceDecisionItemResource();
     }
 

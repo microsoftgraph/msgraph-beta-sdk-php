@@ -4,11 +4,12 @@ namespace Microsoft\Graph\Beta\Generated\Models\ManagedTenants;
 
 use DateTime;
 use Microsoft\Graph\Beta\Generated\Models\Entity;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AuditEvent extends Entity implements Parsable 
+class AuditEvent extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $activity A string which uniquely represents the operation that occurred. Required. Read-only.
@@ -24,6 +25,11 @@ class AuditEvent extends Entity implements Parsable
      * @var string|null $activityId The identifier of the activity request that made the audit event. Required. Read-only.
     */
     private ?string $activityId = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $category A category which represents a logical grouping of activities. Required. Read-only.
@@ -80,6 +86,7 @@ class AuditEvent extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -113,6 +120,14 @@ class AuditEvent extends Entity implements Parsable
     */
     public function getActivityId(): ?string {
         return $this->activityId;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -237,6 +252,7 @@ class AuditEvent extends Entity implements Parsable
         $writer->writeStringValue('requestUrl', $this->requestUrl);
         $writer->writeStringValue('tenantIds', $this->tenantIds);
         $writer->writeStringValue('tenantNames', $this->tenantNames);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -261,6 +277,14 @@ class AuditEvent extends Entity implements Parsable
     */
     public function setActivityId(?string $value ): void {
         $this->activityId = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

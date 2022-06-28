@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration implements Parsable 
+class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var int|null $backgroundDownloadFromHttpDelayInSeconds Specifies number of seconds to delay an HTTP source in a background download that is allowed to use peer-to-peer. Valid values 0 to 4294967295
     */
@@ -98,6 +104,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -107,6 +114,14 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDeliveryOptimizationConfiguration {
         return new WindowsDeliveryOptimizationConfiguration();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -295,6 +310,15 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
         $writer->writeStringValue('modifyCacheLocation', $this->modifyCacheLocation);
         $writer->writeEnumValue('restrictPeerSelectionBy', $this->restrictPeerSelectionBy);
         $writer->writeEnumValue('vpnPeerCaching', $this->vpnPeerCaching);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -5,16 +5,22 @@ namespace Microsoft\Graph\Beta\Generated\Models;
 use Microsoft\Graph\Beta\Generated\Models\Search\Acronym;
 use Microsoft\Graph\Beta\Generated\Models\Search\Bookmark;
 use Microsoft\Graph\Beta\Generated\Models\Search\Qna;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class SearchEntity extends Entity implements Parsable 
+class SearchEntity extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<Acronym>|null $acronyms Administrative answer in Microsoft Search results to define common acronyms in a organization.
     */
     private ?array $acronyms = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var array<Bookmark>|null $bookmarks Administrative answer in Microsoft Search results for common search queries in an organization.
@@ -27,10 +33,11 @@ class SearchEntity extends Entity implements Parsable
     private ?array $qnas = null;
     
     /**
-     * Instantiates a new searchEntity and sets the default values.
+     * Instantiates a new SearchEntity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -48,6 +55,14 @@ class SearchEntity extends Entity implements Parsable
     */
     public function getAcronyms(): ?array {
         return $this->acronyms;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -88,6 +103,7 @@ class SearchEntity extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('acronyms', $this->acronyms);
         $writer->writeCollectionOfObjectValues('bookmarks', $this->bookmarks);
         $writer->writeCollectionOfObjectValues('qnas', $this->qnas);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -96,6 +112,14 @@ class SearchEntity extends Entity implements Parsable
     */
     public function setAcronyms(?array $value ): void {
         $this->acronyms = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

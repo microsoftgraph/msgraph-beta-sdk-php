@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity implements Parsable 
+class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var int|null $deviceCount User experience analytics device startup process summarized count.
     */
@@ -53,6 +59,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -62,6 +69,14 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsDeviceStartupProcessPerformance {
         return new UserExperienceAnalyticsDeviceStartupProcessPerformance();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -160,6 +175,15 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
         $writer->writeStringValue('publisher', $this->publisher);
         $writer->writeIntegerValue('totalImpactInMs', $this->totalImpactInMs);
         $writer->writeIntegerValue('totalImpactInMs2', $this->totalImpactInMs2);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

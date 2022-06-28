@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Parsable 
+class CrossTenantAccessPolicyConfigurationDefault extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var CrossTenantAccessPolicyB2BSetting|null $b2bCollaborationInbound Defines your default configuration for users from other organizations accessing your resources via Azure AD B2B collaboration.
     */
@@ -43,6 +49,7 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -52,6 +59,14 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicyConfigurationDefault {
         return new CrossTenantAccessPolicyConfigurationDefault();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -130,6 +145,15 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
         $writer->writeObjectValue('b2bDirectConnectOutbound', $this->b2bDirectConnectOutbound);
         $writer->writeObjectValue('inboundTrust', $this->inboundTrust);
         $writer->writeBooleanValue('isServiceDefault', $this->isServiceDefault);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

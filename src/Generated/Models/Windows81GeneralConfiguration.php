@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Windows81GeneralConfiguration extends DeviceConfiguration implements Parsable 
+class Windows81GeneralConfiguration extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var bool|null $accountsBlockAddingNonMicrosoftAccountEmail Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.
     */
     private ?bool $accountsBlockAddingNonMicrosoftAccountEmail = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var bool|null $applyOnlyToWindows81 Value indicating whether this policy only applies to Windows 8.1. This property is read-only.
@@ -188,6 +194,7 @@ class Windows81GeneralConfiguration extends DeviceConfiguration implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -205,6 +212,14 @@ class Windows81GeneralConfiguration extends DeviceConfiguration implements Parsa
     */
     public function getAccountsBlockAddingNonMicrosoftAccountEmail(): ?bool {
         return $this->accountsBlockAddingNonMicrosoftAccountEmail;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -565,6 +580,7 @@ class Windows81GeneralConfiguration extends DeviceConfiguration implements Parsa
         $writer->writeBooleanValue('updatesRequireAutomaticUpdates', $this->updatesRequireAutomaticUpdates);
         $writer->writeEnumValue('userAccountControlSettings', $this->userAccountControlSettings);
         $writer->writeStringValue('workFoldersUrl', $this->workFoldersUrl);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -573,6 +589,14 @@ class Windows81GeneralConfiguration extends DeviceConfiguration implements Parsa
     */
     public function setAccountsBlockAddingNonMicrosoftAccountEmail(?bool $value ): void {
         $this->accountsBlockAddingNonMicrosoftAccountEmail = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

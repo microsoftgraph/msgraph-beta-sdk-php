@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ResourceOperation extends Entity implements Parsable 
+class ResourceOperation extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $actionName Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.
     */
     private ?string $actionName = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $description Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal.
@@ -34,10 +40,11 @@ class ResourceOperation extends Entity implements Parsable
     private ?string $resourceName = null;
     
     /**
-     * Instantiates a new resourceOperation and sets the default values.
+     * Instantiates a new ResourceOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -55,6 +62,14 @@ class ResourceOperation extends Entity implements Parsable
     */
     public function getActionName(): ?string {
         return $this->actionName;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -115,6 +130,7 @@ class ResourceOperation extends Entity implements Parsable
         $writer->writeBooleanValue('enabledForScopeValidation', $this->enabledForScopeValidation);
         $writer->writeStringValue('resource', $this->resource);
         $writer->writeStringValue('resourceName', $this->resourceName);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -123,6 +139,14 @@ class ResourceOperation extends Entity implements Parsable
     */
     public function setActionName(?string $value ): void {
         $this->actionName = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

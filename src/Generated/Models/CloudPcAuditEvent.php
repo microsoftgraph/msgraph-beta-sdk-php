@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CloudPcAuditEvent extends Entity implements Parsable 
+class CloudPcAuditEvent extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $activity Friendly name of the activity. Optional.
@@ -40,6 +41,11 @@ class CloudPcAuditEvent extends Entity implements Parsable
     private ?CloudPcAuditActor $actor = null;
     
     /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
+    /**
      * @var CloudPcAuditCategory|null $category Audit category. Read-only.
     */
     private ?CloudPcAuditCategory $category = null;
@@ -65,10 +71,11 @@ class CloudPcAuditEvent extends Entity implements Parsable
     private ?array $resources = null;
     
     /**
-     * Instantiates a new cloudPcAuditEvent and sets the default values.
+     * Instantiates a new CloudPcAuditEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -126,6 +133,14 @@ class CloudPcAuditEvent extends Entity implements Parsable
     */
     public function getActor(): ?CloudPcAuditActor {
         return $this->actor;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -206,6 +221,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
         $writer->writeStringValue('correlationId', $this->correlationId);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeCollectionOfObjectValues('resources', $this->resources);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -254,6 +270,14 @@ class CloudPcAuditEvent extends Entity implements Parsable
     */
     public function setActor(?CloudPcAuditActor $value ): void {
         $this->actor = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

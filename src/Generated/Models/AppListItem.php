@@ -47,6 +47,13 @@ class AppListItem implements AdditionalDataHolder, Parsable
      * @return AppListItem
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AppListItem {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.appleAppListItem': return new AppleAppListItem();
+            }
+        }
         return new AppListItem();
     }
 

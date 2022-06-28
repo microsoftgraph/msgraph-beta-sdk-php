@@ -27,6 +27,22 @@ class MobileAppAssignmentSettings implements AdditionalDataHolder, Parsable
      * @return MobileAppAssignmentSettings
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppAssignmentSettings {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.androidManagedStoreAppAssignmentSettings': return new AndroidManagedStoreAppAssignmentSettings();
+                case '#microsoft.graph.iosLobAppAssignmentSettings': return new IosLobAppAssignmentSettings();
+                case '#microsoft.graph.iosStoreAppAssignmentSettings': return new IosStoreAppAssignmentSettings();
+                case '#microsoft.graph.iosVppAppAssignmentSettings': return new IosVppAppAssignmentSettings();
+                case '#microsoft.graph.macOsLobAppAssignmentSettings': return new MacOsLobAppAssignmentSettings();
+                case '#microsoft.graph.macOsVppAppAssignmentSettings': return new MacOsVppAppAssignmentSettings();
+                case '#microsoft.graph.microsoftStoreForBusinessAppAssignmentSettings': return new MicrosoftStoreForBusinessAppAssignmentSettings();
+                case '#microsoft.graph.win32LobAppAssignmentSettings': return new Win32LobAppAssignmentSettings();
+                case '#microsoft.graph.windowsAppXAppAssignmentSettings': return new WindowsAppXAppAssignmentSettings();
+                case '#microsoft.graph.windowsUniversalAppXAppAssignmentSettings': return new WindowsUniversalAppXAppAssignmentSettings();
+            }
+        }
         return new MobileAppAssignmentSettings();
     }
 

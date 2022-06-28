@@ -32,6 +32,15 @@ class DlpActionInfo implements AdditionalDataHolder, Parsable
      * @return DlpActionInfo
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DlpActionInfo {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.blockAccessAction': return new BlockAccessAction();
+                case '#microsoft.graph.deviceRestrictionAction': return new DeviceRestrictionAction();
+                case '#microsoft.graph.notifyUserAction': return new NotifyUserAction();
+            }
+        }
         return new DlpActionInfo();
     }
 

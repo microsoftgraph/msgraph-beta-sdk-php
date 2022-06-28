@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable 
+class Fido2AuthenticationMethod extends AuthenticationMethod implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $aaGuid Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator.
     */
     private ?string $aaGuid = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var array<string>|null $attestationCertificates The attestation certificate(s) attached to this security key.
@@ -49,6 +55,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -66,6 +73,14 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     */
     public function getAaGuid(): ?string {
         return $this->aaGuid;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -146,6 +161,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
         $writer->writeDateTimeValue('creationDateTime', $this->creationDateTime);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('model', $this->model);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -154,6 +170,14 @@ class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable
     */
     public function setAaGuid(?string $value ): void {
         $this->aaGuid = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

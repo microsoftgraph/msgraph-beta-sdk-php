@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DelegatedAdminRelationshipRequest extends Entity implements Parsable 
+class DelegatedAdminRelationshipRequest extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var DelegatedAdminRelationshipRequestAction|null $action The action to be performed on the delegated admin relationship.
     */
     private ?DelegatedAdminRelationshipRequestAction $action = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var DateTime|null $createdDateTime The date and time in ISO 8601 format and in UTC time when the relationship request was created. Read-only.
@@ -34,6 +40,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -51,6 +58,14 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
     */
     public function getAction(): ?DelegatedAdminRelationshipRequestAction {
         return $this->action;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -101,6 +116,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeEnumValue('status', $this->status);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -109,6 +125,14 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
     */
     public function setAction(?DelegatedAdminRelationshipRequestAction $value ): void {
         $this->action = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

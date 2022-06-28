@@ -2,12 +2,13 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class SalesOrderLine extends Entity implements Parsable 
+class SalesOrderLine extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var Account|null $account The account property
@@ -18,6 +19,11 @@ class SalesOrderLine extends Entity implements Parsable
      * @var string|null $accountId The accountId property
     */
     private ?string $accountId = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $amountExcludingTax The amountExcludingTax property
@@ -154,6 +160,7 @@ class SalesOrderLine extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -179,6 +186,14 @@ class SalesOrderLine extends Entity implements Parsable
     */
     public function getAccountId(): ?string {
         return $this->accountId;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -461,6 +476,7 @@ class SalesOrderLine extends Entity implements Parsable
         $writer->writeStringValue('totalTaxAmount', $this->totalTaxAmount);
         $writer->writeStringValue('unitOfMeasureId', $this->unitOfMeasureId);
         $writer->writeStringValue('unitPrice', $this->unitPrice);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -477,6 +493,14 @@ class SalesOrderLine extends Entity implements Parsable
     */
     public function setAccountId(?string $value ): void {
         $this->accountId = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

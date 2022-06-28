@@ -2,11 +2,12 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EntitlementManagement extends Entity implements Parsable 
+class EntitlementManagement extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<Approval>|null $accessPackageAssignmentApprovals Approval stages for decisions associated with access package assignment requests.
@@ -64,6 +65,11 @@ class EntitlementManagement extends Entity implements Parsable
     private ?array $accessPackages = null;
     
     /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
+    /**
      * @var array<ConnectedOrganization>|null $connectedOrganizations Represents references to a directory or domain of another organization whose users can request access.
     */
     private ?array $connectedOrganizations = null;
@@ -74,10 +80,11 @@ class EntitlementManagement extends Entity implements Parsable
     private ?EntitlementManagementSettings $settings = null;
     
     /**
-     * Instantiates a new entitlementManagement and sets the default values.
+     * Instantiates a new EntitlementManagement and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -178,6 +185,14 @@ class EntitlementManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
+    }
+
+    /**
      * Gets the connectedOrganizations property value. Represents references to a directory or domain of another organization whose users can request access.
      * @return array<ConnectedOrganization>|null
     */
@@ -235,6 +250,7 @@ class EntitlementManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('accessPackages', $this->accessPackages);
         $writer->writeCollectionOfObjectValues('connectedOrganizations', $this->connectedOrganizations);
         $writer->writeObjectValue('settings', $this->settings);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -323,6 +339,14 @@ class EntitlementManagement extends Entity implements Parsable
     */
     public function setAccessPackages(?array $value ): void {
         $this->accessPackages = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

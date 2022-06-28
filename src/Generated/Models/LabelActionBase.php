@@ -32,6 +32,17 @@ class LabelActionBase implements AdditionalDataHolder, Parsable
      * @return LabelActionBase
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): LabelActionBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.encryptContent': return new EncryptContent();
+                case '#microsoft.graph.markContent': return new MarkContent();
+                case '#microsoft.graph.protectGroup': return new ProtectGroup();
+                case '#microsoft.graph.protectOnlineMeetingAction': return new ProtectOnlineMeetingAction();
+                case '#microsoft.graph.protectSite': return new ProtectSite();
+            }
+        }
         return new LabelActionBase();
     }
 

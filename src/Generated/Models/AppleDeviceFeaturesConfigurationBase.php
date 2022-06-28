@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implements Parsable 
+class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<AirPrintDestination>|null $airPrintDestinations An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements.
     */
@@ -18,6 +24,7 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -35,6 +42,14 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
             }
         }
         return new AppleDeviceFeaturesConfigurationBase();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -63,6 +78,15 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('airPrintDestinations', $this->airPrintDestinations);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

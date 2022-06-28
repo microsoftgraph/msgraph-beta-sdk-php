@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RiskyServicePrincipal extends Entity implements Parsable 
+class RiskyServicePrincipal extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var bool|null $accountEnabled true if the service principal account is enabled; otherwise, false.
     */
     private ?bool $accountEnabled = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $appId The globally unique identifier for the associated application (its appId property), if any.
@@ -60,10 +66,11 @@ class RiskyServicePrincipal extends Entity implements Parsable
     private ?string $servicePrincipalType = null;
     
     /**
-     * Instantiates a new riskyServicePrincipal and sets the default values.
+     * Instantiates a new RiskyServicePrincipal and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -88,6 +95,14 @@ class RiskyServicePrincipal extends Entity implements Parsable
     */
     public function getAccountEnabled(): ?bool {
         return $this->accountEnabled;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -198,6 +213,7 @@ class RiskyServicePrincipal extends Entity implements Parsable
         $writer->writeEnumValue('riskLevel', $this->riskLevel);
         $writer->writeEnumValue('riskState', $this->riskState);
         $writer->writeStringValue('servicePrincipalType', $this->servicePrincipalType);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -206,6 +222,14 @@ class RiskyServicePrincipal extends Entity implements Parsable
     */
     public function setAccountEnabled(?bool $value ): void {
         $this->accountEnabled = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

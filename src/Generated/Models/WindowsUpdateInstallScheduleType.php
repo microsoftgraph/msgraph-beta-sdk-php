@@ -27,6 +27,14 @@ class WindowsUpdateInstallScheduleType implements AdditionalDataHolder, Parsable
      * @return WindowsUpdateInstallScheduleType
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsUpdateInstallScheduleType {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windowsUpdateActiveHoursInstall': return new WindowsUpdateActiveHoursInstall();
+                case '#microsoft.graph.windowsUpdateScheduledInstall': return new WindowsUpdateScheduledInstall();
+            }
+        }
         return new WindowsUpdateInstallScheduleType();
     }
 

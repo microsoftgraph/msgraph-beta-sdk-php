@@ -3,12 +3,18 @@
 namespace Microsoft\Graph\Beta\Generated\Models\Security;
 
 use Microsoft\Graph\Beta\Generated\Models\Entity;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class InformationProtectionPolicySetting extends Entity implements Parsable 
+class InformationProtectionPolicySetting extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $defaultLabelId The defaultLabelId property
     */
@@ -34,6 +40,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -43,6 +50,14 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): InformationProtectionPolicySetting {
         return new InformationProtectionPolicySetting();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -101,6 +116,15 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
         $writer->writeBooleanValue('isDowngradeJustificationRequired', $this->isDowngradeJustificationRequired);
         $writer->writeBooleanValue('isMandatory', $this->isMandatory);
         $writer->writeStringValue('moreInfoUrl', $this->moreInfoUrl);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

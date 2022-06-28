@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity implements Parsable 
+class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var int|null $activeDevices Number of active devices within the tenant. Valid values -2147483648 to 2147483647
     */
     private ?int $activeDevices = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var int|null $batteryCapacityFair Number of devices whose battery maximum capacity is greater than 50% but lesser than 80%. Valid values -2147483648 to 2147483647
@@ -39,6 +45,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -56,6 +63,14 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
     */
     public function getActiveDevices(): ?int {
         return $this->activeDevices;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -116,6 +131,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
         $writer->writeIntegerValue('batteryCapacityGood', $this->batteryCapacityGood);
         $writer->writeIntegerValue('batteryCapacityPoor', $this->batteryCapacityPoor);
         $writer->writeDateTimeValue('lastRefreshedDateTime', $this->lastRefreshedDateTime);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -124,6 +140,14 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
     */
     public function setActiveDevices(?int $value ): void {
         $this->activeDevices = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

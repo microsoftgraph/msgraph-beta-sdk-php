@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Device extends DirectoryObject implements Parsable 
+class Device extends DirectoryObject implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var bool|null $accountEnabled true if the account is enabled; otherwise, false. Default is true.  Supports $filter (eq, ne, not, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
     */
     private ?bool $accountEnabled = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var array<AlternativeSecurityId>|null $alternativeSecurityIds For internal use only. Not nullable. Supports $filter (eq, not, ge, le).
@@ -229,6 +235,7 @@ class Device extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -246,6 +253,14 @@ class Device extends DirectoryObject implements Parsable
     */
     public function getAccountEnabled(): ?bool {
         return $this->accountEnabled;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -686,6 +701,7 @@ class Device extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('transitiveMemberOf', $this->transitiveMemberOf);
         $writer->writeStringValue('trustType', $this->trustType);
         $writer->writeCollectionOfObjectValues('usageRights', $this->usageRights);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -694,6 +710,14 @@ class Device extends DirectoryObject implements Parsable
     */
     public function setAccountEnabled(?bool $value ): void {
         $this->accountEnabled = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

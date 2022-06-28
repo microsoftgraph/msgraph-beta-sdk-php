@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TermsOfUseContainer extends Entity implements Parsable 
+class TermsOfUseContainer extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<AgreementAcceptance>|null $agreementAcceptances Represents the current status of a user's response to a company's customizable terms of use agreement.
     */
@@ -19,10 +25,11 @@ class TermsOfUseContainer extends Entity implements Parsable
     private ?array $agreements = null;
     
     /**
-     * Instantiates a new termsOfUseContainer and sets the default values.
+     * Instantiates a new TermsOfUseContainer and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -32,6 +39,14 @@ class TermsOfUseContainer extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): TermsOfUseContainer {
         return new TermsOfUseContainer();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -70,6 +85,15 @@ class TermsOfUseContainer extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('agreementAcceptances', $this->agreementAcceptances);
         $writer->writeCollectionOfObjectValues('agreements', $this->agreements);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

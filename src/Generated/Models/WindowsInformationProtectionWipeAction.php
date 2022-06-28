@@ -3,12 +3,18 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class WindowsInformationProtectionWipeAction extends Entity implements Parsable 
+class WindowsInformationProtectionWipeAction extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var DateTime|null $lastCheckInDateTime Last checkin time of the device that was targeted by this wipe action.
     */
@@ -40,10 +46,11 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
     private ?string $targetedUserId = null;
     
     /**
-     * Instantiates a new windowsInformationProtectionWipeAction and sets the default values.
+     * Instantiates a new WindowsInformationProtectionWipeAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -53,6 +60,14 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionWipeAction {
         return new WindowsInformationProtectionWipeAction();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -131,6 +146,15 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
         $writer->writeStringValue('targetedDeviceName', $this->targetedDeviceName);
         $writer->writeStringValue('targetedDeviceRegistrationId', $this->targetedDeviceRegistrationId);
         $writer->writeStringValue('targetedUserId', $this->targetedUserId);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

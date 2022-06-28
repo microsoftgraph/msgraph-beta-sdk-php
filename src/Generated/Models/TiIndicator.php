@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class TiIndicator extends Entity implements Parsable 
+class TiIndicator extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var TiAction|null $action The action to apply if the indicator is matched from within the targetProduct security tool. Possible values are: unknown, allow, block, alert. Required.
@@ -18,6 +19,11 @@ class TiIndicator extends Entity implements Parsable
      * @var array<string>|null $activityGroupNames The cyber threat intelligence name(s) for the parties responsible for the malicious activity covered by the threat indicator.
     */
     private ?array $activityGroupNames = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $additionalInformation A catchall area into which extra data from the indicator not covered by the other tiIndicator properties may be placed. Data placed into additionalInformation will typically not be utilized by the targetProduct security tool.
@@ -300,10 +306,11 @@ class TiIndicator extends Entity implements Parsable
     private ?string $userAgent = null;
     
     /**
-     * Instantiates a new tiIndicator and sets the default values.
+     * Instantiates a new TiIndicator and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -329,6 +336,14 @@ class TiIndicator extends Entity implements Parsable
     */
     public function getActivityGroupNames(): ?array {
         return $this->activityGroupNames;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -911,6 +926,7 @@ class TiIndicator extends Entity implements Parsable
         $writer->writeEnumValue('tlpLevel', $this->tlpLevel);
         $writer->writeStringValue('url', $this->url);
         $writer->writeStringValue('userAgent', $this->userAgent);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -927,6 +943,14 @@ class TiIndicator extends Entity implements Parsable
     */
     public function setActivityGroupNames(?array $value ): void {
         $this->activityGroupNames = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

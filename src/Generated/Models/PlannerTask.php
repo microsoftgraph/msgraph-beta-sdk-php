@@ -3,16 +3,22 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class PlannerTask extends PlannerDelta implements Parsable 
+class PlannerTask extends PlannerDelta implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var int|null $activeChecklistItemCount Number of checklist items with value set to false, representing incomplete items.
     */
     private ?int $activeChecklistItemCount = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var PlannerAppliedCategories|null $appliedCategories The categories to which the task has been applied. See applied Categories for possible values.
@@ -144,6 +150,7 @@ class PlannerTask extends PlannerDelta implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -161,6 +168,14 @@ class PlannerTask extends PlannerDelta implements Parsable
     */
     public function getActiveChecklistItemCount(): ?int {
         return $this->activeChecklistItemCount;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -431,6 +446,7 @@ class PlannerTask extends PlannerDelta implements Parsable
         $writer->writeIntegerValue('referenceCount', $this->referenceCount);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
         $writer->writeStringValue('title', $this->title);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -439,6 +455,14 @@ class PlannerTask extends PlannerDelta implements Parsable
     */
     public function setActiveChecklistItemCount(?int $value ): void {
         $this->activeChecklistItemCount = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -3,11 +3,12 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class RemoteActionAudit extends Entity implements Parsable 
+class RemoteActionAudit extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var RemoteAction|null $action The action name. Possible values are: unknown, factoryReset, removeCompanyData, resetPasscode, remoteLock, enableLostMode, disableLostMode, locateDevice, rebootNow, recoverPasscode, cleanWindowsDevice, logoutSharedAppleDeviceActiveUser, quickScan, fullScan, windowsDefenderUpdateSignatures, factoryResetKeepEnrollmentData, updateDeviceAccount, automaticRedeployment, shutDown, rotateBitLockerKeys, rotateFileVaultKey, getFileVaultKey, setDeviceName, activateDeviceEsim.
@@ -18,6 +19,11 @@ class RemoteActionAudit extends Entity implements Parsable
      * @var ActionState|null $actionState Action state. Possible values are: none, pending, canceled, active, done, failed, notSupported.
     */
     private ?ActionState $actionState = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $deviceDisplayName Intune device name.
@@ -59,6 +65,7 @@ class RemoteActionAudit extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -84,6 +91,14 @@ class RemoteActionAudit extends Entity implements Parsable
     */
     public function getActionState(): ?ActionState {
         return $this->actionState;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -176,6 +191,7 @@ class RemoteActionAudit extends Entity implements Parsable
         $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
         $writer->writeDateTimeValue('requestDateTime', $this->requestDateTime);
         $writer->writeStringValue('userName', $this->userName);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -192,6 +208,14 @@ class RemoteActionAudit extends Entity implements Parsable
     */
     public function setActionState(?ActionState $value ): void {
         $this->actionState = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

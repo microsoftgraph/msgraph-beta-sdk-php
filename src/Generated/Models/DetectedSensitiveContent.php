@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DetectedSensitiveContent extends DetectedSensitiveContentBase implements Parsable 
+class DetectedSensitiveContent extends DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<ClassificationAttribute>|null $classificationAttributes The classificationAttributes property
     */
@@ -34,10 +40,11 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
     private ?SensitiveTypeSource $sensitiveTypeSource = null;
     
     /**
-     * Instantiates a new detectedSensitiveContent and sets the default values.
+     * Instantiates a new DetectedSensitiveContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -46,7 +53,22 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return DetectedSensitiveContent
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DetectedSensitiveContent {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.machineLearningDetectedSensitiveContent': return new MachineLearningDetectedSensitiveContent();
+            }
+        }
         return new DetectedSensitiveContent();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -115,6 +137,15 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
         $writer->writeCollectionOfObjectValues('matches', $this->matches);
         $writer->writeEnumValue('scope', $this->scope);
         $writer->writeEnumValue('sensitiveTypeSource', $this->sensitiveTypeSource);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

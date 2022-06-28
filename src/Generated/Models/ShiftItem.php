@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class ShiftItem extends ScheduleEntity implements Parsable 
+class ShiftItem extends ScheduleEntity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<ShiftActivity>|null $activities An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
     */
     private ?array $activities = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var string|null $displayName The shift label of the shiftItem.
@@ -24,10 +30,11 @@ class ShiftItem extends ScheduleEntity implements Parsable
     private ?string $notes = null;
     
     /**
-     * Instantiates a new shiftItem and sets the default values.
+     * Instantiates a new ShiftItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -36,6 +43,13 @@ class ShiftItem extends ScheduleEntity implements Parsable
      * @return ShiftItem
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ShiftItem {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.openShiftItem': return new OpenShiftItem();
+            }
+        }
         return new ShiftItem();
     }
 
@@ -45,6 +59,14 @@ class ShiftItem extends ScheduleEntity implements Parsable
     */
     public function getActivities(): ?array {
         return $this->activities;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +107,7 @@ class ShiftItem extends ScheduleEntity implements Parsable
         $writer->writeCollectionOfObjectValues('activities', $this->activities);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('notes', $this->notes);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -93,6 +116,14 @@ class ShiftItem extends ScheduleEntity implements Parsable
     */
     public function setActivities(?array $value ): void {
         $this->activities = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

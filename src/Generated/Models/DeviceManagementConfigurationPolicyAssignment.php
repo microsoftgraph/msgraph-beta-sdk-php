@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class DeviceManagementConfigurationPolicyAssignment extends Entity implements Parsable 
+class DeviceManagementConfigurationPolicyAssignment extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var DeviceAndAppManagementAssignmentSource|null $source The assignment source for the device compliance policy, direct or parcel/policySet. Possible values are: direct, policySets.
     */
@@ -28,6 +34,7 @@ class DeviceManagementConfigurationPolicyAssignment extends Entity implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -37,6 +44,14 @@ class DeviceManagementConfigurationPolicyAssignment extends Entity implements Pa
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationPolicyAssignment {
         return new DeviceManagementConfigurationPolicyAssignment();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -85,6 +100,15 @@ class DeviceManagementConfigurationPolicyAssignment extends Entity implements Pa
         $writer->writeEnumValue('source', $this->source);
         $writer->writeStringValue('sourceId', $this->sourceId);
         $writer->writeObjectValue('target', $this->target);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

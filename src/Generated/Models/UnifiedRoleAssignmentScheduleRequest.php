@@ -2,11 +2,12 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class UnifiedRoleAssignmentScheduleRequest extends Request implements Parsable 
+class UnifiedRoleAssignmentScheduleRequest extends Request implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var string|null $action Represents the type of the operation on the role assignment request. The possible values are: adminAssign, adminUpdate, adminRemove, selfActivate, selfDeactivate, adminExtend, adminRenew, selfExtend, selfRenew, unknownFutureValue. adminAssign: For administrators to assign roles to principals.adminRemove: For administrators to remove principals from roles. adminUpdate: For administrators to change existing role assignments.adminExtend: For administrators to extend expiring assignments.adminRenew: For administrators to renew expired assignments.selfActivate: For principals to activate their assignments.selfDeactivate: For principals to deactivate their active assignments.selfExtend: For principals to request to extend their expiring assignments.selfRenew: For principals to request to renew their expired assignments.
@@ -17,6 +18,11 @@ class UnifiedRoleAssignmentScheduleRequest extends Request implements Parsable
      * @var UnifiedRoleEligibilitySchedule|null $activatedUsing If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it's null. Supports $expand.
     */
     private ?UnifiedRoleEligibilitySchedule $activatedUsing = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var AppScope|null $appScope Read-only property with details of the app-specific scope when the assignment is scoped to an app. Nullable. Supports $expand.
@@ -93,6 +99,7 @@ class UnifiedRoleAssignmentScheduleRequest extends Request implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -118,6 +125,14 @@ class UnifiedRoleAssignmentScheduleRequest extends Request implements Parsable
     */
     public function getActivatedUsing(): ?UnifiedRoleEligibilitySchedule {
         return $this->activatedUsing;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -280,6 +295,7 @@ class UnifiedRoleAssignmentScheduleRequest extends Request implements Parsable
         $writer->writeObjectValue('targetSchedule', $this->targetSchedule);
         $writer->writeStringValue('targetScheduleId', $this->targetScheduleId);
         $writer->writeObjectValue('ticketInfo', $this->ticketInfo);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -296,6 +312,14 @@ class UnifiedRoleAssignmentScheduleRequest extends Request implements Parsable
     */
     public function setActivatedUsing(?UnifiedRoleEligibilitySchedule $value ): void {
         $this->activatedUsing = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

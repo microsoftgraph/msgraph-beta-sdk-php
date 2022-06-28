@@ -5,12 +5,18 @@ namespace Microsoft\Graph\Beta\Generated\Models\CallRecords;
 use DateTime;
 use Microsoft\Graph\Beta\Generated\Models\Entity;
 use Microsoft\Graph\Beta\Generated\Models\IdentitySet;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CallRecord extends Entity implements Parsable 
+class CallRecord extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var DateTime|null $endDateTime UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     */
@@ -66,6 +72,7 @@ class CallRecord extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -75,6 +82,14 @@ class CallRecord extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CallRecord {
         return new CallRecord();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -193,6 +208,15 @@ class CallRecord extends Entity implements Parsable
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
         $writer->writeEnumValue('type', $this->type);
         $writer->writeIntegerValue('version', $this->version);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

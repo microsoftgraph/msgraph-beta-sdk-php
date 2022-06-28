@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Parsable 
+class OpenIdConnectIdentityProvider extends IdentityProviderBase implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var ClaimsMapping|null $claimsMapping After the OIDC provider sends an ID token back to Azure AD, Azure AD needs to be able to map the claims from the received token to the claims that Azure AD recognizes and uses. This complex type captures that mapping. Required.
     */
@@ -53,6 +59,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -62,6 +69,14 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): OpenIdConnectIdentityProvider {
         return new OpenIdConnectIdentityProvider();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -160,6 +175,15 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
         $writer->writeEnumValue('responseMode', $this->responseMode);
         $writer->writeEnumValue('responseType', $this->responseType);
         $writer->writeStringValue('scope', $this->scope);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

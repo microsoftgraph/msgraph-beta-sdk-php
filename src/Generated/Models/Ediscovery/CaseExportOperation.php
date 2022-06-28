@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\Ediscovery;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class CaseExportOperation extends CaseOperation implements Parsable 
+class CaseExportOperation extends CaseOperation implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $azureBlobContainer The name of the Azure storage location where the export will be stored. This only applies to exports stored in your own Azure storage location.
     */
@@ -53,6 +59,7 @@ class CaseExportOperation extends CaseOperation implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -62,6 +69,14 @@ class CaseExportOperation extends CaseOperation implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CaseExportOperation {
         return new CaseExportOperation();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -160,6 +175,15 @@ class CaseExportOperation extends CaseOperation implements Parsable
         $writer->writeStringValue('outputFolderId', $this->outputFolderId);
         $writer->writeStringValue('outputName', $this->outputName);
         $writer->writeObjectValue('reviewSet', $this->reviewSet);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

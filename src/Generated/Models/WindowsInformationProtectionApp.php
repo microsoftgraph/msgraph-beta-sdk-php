@@ -52,6 +52,14 @@ class WindowsInformationProtectionApp implements AdditionalDataHolder, Parsable
      * @return WindowsInformationProtectionApp
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsInformationProtectionApp {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windowsInformationProtectionDesktopApp': return new WindowsInformationProtectionDesktopApp();
+                case '#microsoft.graph.windowsInformationProtectionStoreApp': return new WindowsInformationProtectionStoreApp();
+            }
+        }
         return new WindowsInformationProtectionApp();
     }
 

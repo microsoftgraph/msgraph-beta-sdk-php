@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
+class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var bool|null $activeFirewallRequired Require active firewall on Windows devices.
     */
     private ?bool $activeFirewallRequired = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var bool|null $bitLockerEnabled Require devices to be reported healthy by Windows Device Health Attestation - bit locker is enabled
@@ -103,6 +109,7 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -120,6 +127,14 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
     */
     public function getActiveFirewallRequired(): ?bool {
         return $this->activeFirewallRequired;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -310,6 +325,7 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
         $writer->writeBooleanValue('secureBootEnabled', $this->secureBootEnabled);
         $writer->writeBooleanValue('storageRequireEncryption', $this->storageRequireEncryption);
         $writer->writeCollectionOfObjectValues('validOperatingSystemBuildRanges', $this->validOperatingSystemBuildRanges);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -318,6 +334,14 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
     */
     public function setActiveFirewallRequired(?bool $value ): void {
         $this->activeFirewallRequired = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

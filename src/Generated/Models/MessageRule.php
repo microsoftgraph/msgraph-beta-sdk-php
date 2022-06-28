@@ -2,16 +2,22 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class MessageRule extends Entity implements Parsable 
+class MessageRule extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var MessageRuleActions|null $actions Actions to be taken on a message when the corresponding conditions are fulfilled.
     */
     private ?MessageRuleActions $actions = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var MessageRulePredicates|null $conditions Conditions that when fulfilled, will trigger the corresponding actions for that rule.
@@ -53,6 +59,7 @@ class MessageRule extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -70,6 +77,14 @@ class MessageRule extends Entity implements Parsable
     */
     public function getActions(): ?MessageRuleActions {
         return $this->actions;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -160,6 +175,7 @@ class MessageRule extends Entity implements Parsable
         $writer->writeBooleanValue('isEnabled', $this->isEnabled);
         $writer->writeBooleanValue('isReadOnly', $this->isReadOnly);
         $writer->writeIntegerValue('sequence', $this->sequence);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -168,6 +184,14 @@ class MessageRule extends Entity implements Parsable
     */
     public function setActions(?MessageRuleActions $value ): void {
         $this->actions = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

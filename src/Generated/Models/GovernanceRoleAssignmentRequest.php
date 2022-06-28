@@ -3,12 +3,18 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GovernanceRoleAssignmentRequest extends Entity implements Parsable 
+class GovernanceRoleAssignmentRequest extends Entity implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $assignmentState Required. The state of the assignment. The possible values are: Eligible (for eligible assignment),  Active (if it is directly assigned), Active (by administrators, or activated on an eligible assignment by the users).
     */
@@ -75,10 +81,11 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
     private ?string $type = null;
     
     /**
-     * Instantiates a new governanceRoleAssignmentRequest and sets the default values.
+     * Instantiates a new GovernanceRoleAssignmentRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -88,6 +95,14 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceRoleAssignmentRequest {
         return new GovernanceRoleAssignmentRequest();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -236,6 +251,15 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
         $writer->writeObjectValue('subject', $this->subject);
         $writer->writeStringValue('subjectId', $this->subjectId);
         $writer->writeStringValue('type', $this->type);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

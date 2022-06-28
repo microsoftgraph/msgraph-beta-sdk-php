@@ -2,17 +2,23 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\Date;
 
-class Office365GroupsActivityFileCounts extends Entity implements Parsable 
+class Office365GroupsActivityFileCounts extends Entity implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var int|null $active The number of files that were viewed, edited, shared, or synced in the group's SharePoint document library.
     */
     private ?int $active = null;
+    
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
     
     /**
      * @var Date|null $reportDate The date on which a number of files were active in the group's SharePoint site.
@@ -35,10 +41,11 @@ class Office365GroupsActivityFileCounts extends Entity implements Parsable
     private ?int $total = null;
     
     /**
-     * Instantiates a new office365GroupsActivityFileCounts and sets the default values.
+     * Instantiates a new Office365GroupsActivityFileCounts and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -56,6 +63,14 @@ class Office365GroupsActivityFileCounts extends Entity implements Parsable
     */
     public function getActive(): ?int {
         return $this->active;
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -116,6 +131,7 @@ class Office365GroupsActivityFileCounts extends Entity implements Parsable
         $writer->writeStringValue('reportPeriod', $this->reportPeriod);
         $writer->writeDateValue('reportRefreshDate', $this->reportRefreshDate);
         $writer->writeIntegerValue('total', $this->total);
+        $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
@@ -124,6 +140,14 @@ class Office365GroupsActivityFileCounts extends Entity implements Parsable
     */
     public function setActive(?int $value ): void {
         $this->active = $value;
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -3,13 +3,19 @@
 namespace Microsoft\Graph\Beta\Generated\Models;
 
 use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Psr\Http\Message\StreamInterface;
 
-class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implements Parsable 
+class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var StreamInterface|null $content The contents of the uploaded ADMX file.
     */
@@ -45,6 +51,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -54,6 +61,14 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): GroupPolicyUploadedDefinitionFile {
         return new GroupPolicyUploadedDefinitionFile();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -132,6 +147,15 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
         $writer->writeCollectionOfObjectValues('groupPolicyUploadedLanguageFiles', $this->groupPolicyUploadedLanguageFiles);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeDateTimeValue('uploadDateTime', $this->uploadDateTime);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\Security;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EdiscoveryHoldPolicy extends PolicyBase implements Parsable 
+class EdiscoveryHoldPolicy extends PolicyBase implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var string|null $contentQuery KQL query that specifies content to be held in the specified locations. To learn more, see Keyword queries and search conditions for Content Search and eDiscovery.  To hold all content in the specified locations, leave contentQuery blank.
     */
@@ -38,6 +44,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -47,6 +54,14 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EdiscoveryHoldPolicy {
         return new EdiscoveryHoldPolicy();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -115,6 +130,15 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
         $writer->writeBooleanValue('isEnabled', $this->isEnabled);
         $writer->writeCollectionOfObjectValues('siteSources', $this->siteSources);
         $writer->writeCollectionOfObjectValues('userSources', $this->userSources);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

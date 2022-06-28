@@ -32,6 +32,16 @@ class Win32LobAppRule implements AdditionalDataHolder, Parsable
      * @return Win32LobAppRule
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Win32LobAppRule {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.win32LobAppFileSystemRule': return new Win32LobAppFileSystemRule();
+                case '#microsoft.graph.win32LobAppPowerShellScriptRule': return new Win32LobAppPowerShellScriptRule();
+                case '#microsoft.graph.win32LobAppProductCodeRule': return new Win32LobAppProductCodeRule();
+                case '#microsoft.graph.win32LobAppRegistryRule': return new Win32LobAppRegistryRule();
+            }
+        }
         return new Win32LobAppRule();
     }
 

@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models\Security;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements Parsable 
+class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var DataSource|null $dataSource User source or SharePoint site data source as non-custodial data source.
     */
@@ -23,6 +29,7 @@ class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->additionalData = [];
     }
 
     /**
@@ -32,6 +39,14 @@ class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements Pa
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EdiscoveryNoncustodialDataSource {
         return new EdiscoveryNoncustodialDataSource();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -70,6 +85,15 @@ class EdiscoveryNoncustodialDataSource extends DataSourceContainer implements Pa
         parent::serialize($writer);
         $writer->writeObjectValue('dataSource', $this->dataSource);
         $writer->writeObjectValue('lastIndexOperation', $this->lastIndexOperation);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**

@@ -27,6 +27,13 @@ class BookingCustomerInformationBase implements AdditionalDataHolder, Parsable
      * @return BookingCustomerInformationBase
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): BookingCustomerInformationBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.bookingCustomerInformation': return new BookingCustomerInformation();
+            }
+        }
         return new BookingCustomerInformationBase();
     }
 
