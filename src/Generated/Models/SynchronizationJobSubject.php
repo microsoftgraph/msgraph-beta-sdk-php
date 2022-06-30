@@ -15,7 +15,7 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var SynchronizationLinkedObjects|null $links The links property
+     * @var SynchronizationLinkedObjects|null $links Principals that you would like to provision.
     */
     private ?SynchronizationLinkedObjects $links = null;
     
@@ -25,7 +25,7 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
     private ?string $objectId = null;
     
     /**
-     * @var string|null $objectTypeName The type of the object to which a synchronizationJob is to be applied. Can be one of the following: user for synchronization from Active Directory to Azure AD.User for synchronization from Azure AD to a third-party application. Worker for synchronization from Workday to either Active Directory or Azure AD.
+     * @var string|null $objectTypeName The type of the object to which a synchronizationJob is to be applied. Can be one of the following: user for synchronizing between Active Directory and Azure AD.User for synchronizing a user between Azure AD and a third-party application. Worker for synchronization a user between Workday and either Active Directory or Azure AD.Group for synchronizing a group between Azure AD and a third-party application.
     */
     private ?string $objectTypeName = null;
     
@@ -67,7 +67,7 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the links property value. The links property
+     * Gets the links property value. Principals that you would like to provision.
      * @return SynchronizationLinkedObjects|null
     */
     public function getLinks(): ?SynchronizationLinkedObjects {
@@ -83,7 +83,7 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the objectTypeName property value. The type of the object to which a synchronizationJob is to be applied. Can be one of the following: user for synchronization from Active Directory to Azure AD.User for synchronization from Azure AD to a third-party application. Worker for synchronization from Workday to either Active Directory or Azure AD.
+     * Gets the objectTypeName property value. The type of the object to which a synchronizationJob is to be applied. Can be one of the following: user for synchronizing between Active Directory and Azure AD.User for synchronizing a user between Azure AD and a third-party application. Worker for synchronization a user between Workday and either Active Directory or Azure AD.Group for synchronizing a group between Azure AD and a third-party application.
      * @return string|null
     */
     public function getObjectTypeName(): ?string {
@@ -110,7 +110,7 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the links property value. The links property
+     * Sets the links property value. Principals that you would like to provision.
      *  @param SynchronizationLinkedObjects|null $value Value to set for the links property.
     */
     public function setLinks(?SynchronizationLinkedObjects $value ): void {
@@ -126,7 +126,7 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the objectTypeName property value. The type of the object to which a synchronizationJob is to be applied. Can be one of the following: user for synchronization from Active Directory to Azure AD.User for synchronization from Azure AD to a third-party application. Worker for synchronization from Workday to either Active Directory or Azure AD.
+     * Sets the objectTypeName property value. The type of the object to which a synchronizationJob is to be applied. Can be one of the following: user for synchronizing between Active Directory and Azure AD.User for synchronizing a user between Azure AD and a third-party application. Worker for synchronization a user between Workday and either Active Directory or Azure AD.Group for synchronizing a group between Azure AD and a third-party application.
      *  @param string|null $value Value to set for the objectTypeName property.
     */
     public function setObjectTypeName(?string $value ): void {

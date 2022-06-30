@@ -25,7 +25,7 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
     private ?array $schemaItems = null;
     
     /**
-     * Instantiates a new androidManagedStoreAppConfigurationSchema and sets the default values.
+     * Instantiates a new AndroidManagedStoreAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();

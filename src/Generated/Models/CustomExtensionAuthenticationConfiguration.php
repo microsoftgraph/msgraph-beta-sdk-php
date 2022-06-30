@@ -27,6 +27,13 @@ class CustomExtensionAuthenticationConfiguration implements AdditionalDataHolder
      * @return CustomExtensionAuthenticationConfiguration
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CustomExtensionAuthenticationConfiguration {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.azureAdTokenAuthentication': return new AzureAdTokenAuthentication();
+            }
+        }
         return new CustomExtensionAuthenticationConfiguration();
     }
 

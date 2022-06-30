@@ -27,6 +27,16 @@ class IdentitySource implements AdditionalDataHolder, Parsable
      * @return IdentitySource
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): IdentitySource {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.azureActiveDirectoryTenant': return new AzureActiveDirectoryTenant();
+                case '#microsoft.graph.crossCloudAzureActiveDirectoryTenant': return new CrossCloudAzureActiveDirectoryTenant();
+                case '#microsoft.graph.domainIdentitySource': return new DomainIdentitySource();
+                case '#microsoft.graph.externalDomainFederation': return new ExternalDomainFederation();
+            }
+        }
         return new IdentitySource();
     }
 

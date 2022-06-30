@@ -14,7 +14,7 @@ class PersistentBrowserSessionControl extends ConditionalAccessSessionControl im
     private ?PersistentBrowserSessionMode $mode = null;
     
     /**
-     * Instantiates a new persistentBrowserSessionControl and sets the default values.
+     * Instantiates a new PersistentBrowserSessionControl and sets the default values.
     */
     public function __construct() {
         parent::__construct();

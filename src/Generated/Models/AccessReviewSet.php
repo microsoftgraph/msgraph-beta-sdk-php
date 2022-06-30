@@ -29,7 +29,7 @@ class AccessReviewSet extends Entity implements Parsable
     private ?AccessReviewPolicy $policy = null;
     
     /**
-     * Instantiates a new accessReviewSet and sets the default values.
+     * Instantiates a new AccessReviewSet and sets the default values.
     */
     public function __construct() {
         parent::__construct();

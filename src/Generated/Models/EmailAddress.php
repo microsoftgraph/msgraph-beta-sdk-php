@@ -37,6 +37,13 @@ class EmailAddress implements AdditionalDataHolder, Parsable
      * @return EmailAddress
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EmailAddress {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.typedEmailAddress': return new TypedEmailAddress();
+            }
+        }
         return new EmailAddress();
     }
 

@@ -59,7 +59,7 @@ class Invitation extends Entity implements Parsable
     private ?string $status = null;
     
     /**
-     * Instantiates a new invitation and sets the default values.
+     * Instantiates a new Invitation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

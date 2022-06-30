@@ -61,7 +61,7 @@ class CloudPcDeviceImage extends Entity implements Parsable
     private ?string $version = null;
     
     /**
-     * Instantiates a new cloudPcDeviceImage and sets the default values.
+     * Instantiates a new CloudPcDeviceImage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

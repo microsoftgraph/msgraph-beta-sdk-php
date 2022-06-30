@@ -27,6 +27,27 @@ class InformationProtectionAction implements AdditionalDataHolder, Parsable
      * @return InformationProtectionAction
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): InformationProtectionAction {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.security.addContentFooterAction': return new AddContentFooterAction();
+                case '#microsoft.graph.security.addContentHeaderAction': return new AddContentHeaderAction();
+                case '#microsoft.graph.security.addWatermarkAction': return new AddWatermarkAction();
+                case '#microsoft.graph.security.applyLabelAction': return new ApplyLabelAction();
+                case '#microsoft.graph.security.customAction': return new CustomAction();
+                case '#microsoft.graph.security.justifyAction': return new JustifyAction();
+                case '#microsoft.graph.security.metadataAction': return new MetadataAction();
+                case '#microsoft.graph.security.protectAdhocAction': return new ProtectAdhocAction();
+                case '#microsoft.graph.security.protectByTemplateAction': return new ProtectByTemplateAction();
+                case '#microsoft.graph.security.protectDoNotForwardAction': return new ProtectDoNotForwardAction();
+                case '#microsoft.graph.security.recommendLabelAction': return new RecommendLabelAction();
+                case '#microsoft.graph.security.removeContentFooterAction': return new RemoveContentFooterAction();
+                case '#microsoft.graph.security.removeContentHeaderAction': return new RemoveContentHeaderAction();
+                case '#microsoft.graph.security.removeProtectionAction': return new RemoveProtectionAction();
+                case '#microsoft.graph.security.removeWatermarkAction': return new RemoveWatermarkAction();
+            }
+        }
         return new InformationProtectionAction();
     }
 

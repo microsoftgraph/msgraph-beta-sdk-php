@@ -29,7 +29,7 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl impl
     private ?int $value = null;
     
     /**
-     * Instantiates a new signInFrequencySessionControl and sets the default values.
+     * Instantiates a new SignInFrequencySessionControl and sets the default values.
     */
     public function __construct() {
         parent::__construct();

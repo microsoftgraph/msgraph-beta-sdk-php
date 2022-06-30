@@ -14,7 +14,7 @@ class DirectoryRoleAccessReviewPolicy extends Entity implements Parsable
     private ?AccessReviewScheduleSettings $settings = null;
     
     /**
-     * Instantiates a new directoryRoleAccessReviewPolicy and sets the default values.
+     * Instantiates a new DirectoryRoleAccessReviewPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

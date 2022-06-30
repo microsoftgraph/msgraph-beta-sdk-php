@@ -27,6 +27,13 @@ class Prompt implements AdditionalDataHolder, Parsable
      * @return Prompt
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Prompt {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.mediaPrompt': return new MediaPrompt();
+            }
+        }
         return new Prompt();
     }
 

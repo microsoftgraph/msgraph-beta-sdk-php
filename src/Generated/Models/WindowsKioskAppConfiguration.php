@@ -27,6 +27,15 @@ class WindowsKioskAppConfiguration implements AdditionalDataHolder, Parsable
      * @return WindowsKioskAppConfiguration
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsKioskAppConfiguration {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windowsKioskMultipleApps': return new WindowsKioskMultipleApps();
+                case '#microsoft.graph.windowsKioskSingleUWPApp': return new WindowsKioskSingleUWPApp();
+                case '#microsoft.graph.windowsKioskSingleWin32App': return new WindowsKioskSingleWin32App();
+            }
+        }
         return new WindowsKioskAppConfiguration();
     }
 

@@ -90,7 +90,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     private ?int $totalLoginTimeInMs = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsDeviceStartupHistory and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDeviceStartupHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

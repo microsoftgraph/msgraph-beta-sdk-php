@@ -150,6 +150,7 @@ use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummari
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByPrinter\MonthlyPrintUsageSummariesByPrinterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByUser\Item\PrintUsageByUserItemRequestBuilder as MicrosoftGraphBetaGeneratedEscapedPrintReportsMonthlyPrintUsageSummariesByUserItemPrintUsageByUserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\MonthlyPrintUsageSummariesByUser\MonthlyPrintUsageSummariesByUserRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\Security\SecurityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\UserCredentialUsageDetails\Item\UserCredentialUsageDetailsItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\UserCredentialUsageDetails\UserCredentialUsageDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -251,6 +252,13 @@ class ReportsRequestBuilder
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
+    
+    /**
+     * The security property
+    */
+    public function security(): SecurityRequestBuilder {
+        return new SecurityRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder

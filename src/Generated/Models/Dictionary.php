@@ -27,6 +27,13 @@ class Dictionary implements AdditionalDataHolder, Parsable
      * @return Dictionary
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Dictionary {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.resultTemplateDictionary': return new ResultTemplateDictionary();
+            }
+        }
         return new Dictionary();
     }
 

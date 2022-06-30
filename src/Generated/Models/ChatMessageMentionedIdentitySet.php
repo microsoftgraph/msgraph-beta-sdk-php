@@ -19,7 +19,7 @@ class ChatMessageMentionedIdentitySet extends IdentitySet implements Parsable
     private ?TeamworkTagIdentity $tag = null;
     
     /**
-     * Instantiates a new chatMessageMentionedIdentitySet and sets the default values.
+     * Instantiates a new ChatMessageMentionedIdentitySet and sets the default values.
     */
     public function __construct() {
         parent::__construct();

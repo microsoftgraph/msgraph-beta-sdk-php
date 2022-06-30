@@ -32,6 +32,15 @@ class DeviceManagementConfigurationSettingValue implements AdditionalDataHolder,
      * @return DeviceManagementConfigurationSettingValue
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingValue {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deviceManagementConfigurationChoiceSettingValue': return new DeviceManagementConfigurationChoiceSettingValue();
+                case '#microsoft.graph.deviceManagementConfigurationGroupSettingValue': return new DeviceManagementConfigurationGroupSettingValue();
+                case '#microsoft.graph.deviceManagementConfigurationSimpleSettingValue': return new DeviceManagementConfigurationSimpleSettingValue();
+            }
+        }
         return new DeviceManagementConfigurationSettingValue();
     }
 

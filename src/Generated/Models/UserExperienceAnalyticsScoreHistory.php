@@ -15,7 +15,7 @@ class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable
     private ?DateTime $startupDateTime = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsScoreHistory and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsScoreHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

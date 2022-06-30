@@ -65,7 +65,7 @@ class GovernanceResource extends Entity implements Parsable
     private ?string $type = null;
     
     /**
-     * Instantiates a new governanceResource and sets the default values.
+     * Instantiates a new GovernanceResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

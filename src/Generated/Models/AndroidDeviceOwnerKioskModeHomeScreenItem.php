@@ -27,6 +27,14 @@ class AndroidDeviceOwnerKioskModeHomeScreenItem implements AdditionalDataHolder,
      * @return AndroidDeviceOwnerKioskModeHomeScreenItem
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidDeviceOwnerKioskModeHomeScreenItem {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.androidDeviceOwnerKioskModeFolderItem': return new AndroidDeviceOwnerKioskModeFolderItem();
+                case '#microsoft.graph.androidDeviceOwnerKioskModeManagedFolderReference': return new AndroidDeviceOwnerKioskModeManagedFolderReference();
+            }
+        }
         return new AndroidDeviceOwnerKioskModeHomeScreenItem();
     }
 

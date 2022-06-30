@@ -24,7 +24,7 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
     private ?string $servicePrincipalId = null;
     
     /**
-     * Instantiates a new RiskyServicePrincipalHistoryItem and sets the default values.
+     * Instantiates a new riskyServicePrincipalHistoryItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

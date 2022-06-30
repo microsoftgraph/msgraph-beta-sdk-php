@@ -37,6 +37,20 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
      * @return DeviceManagementConfigurationSettingInstance
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingInstance {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionInstance': return new DeviceManagementConfigurationChoiceSettingCollectionInstance();
+                case '#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance': return new DeviceManagementConfigurationChoiceSettingInstance();
+                case '#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance': return new DeviceManagementConfigurationGroupSettingCollectionInstance();
+                case '#microsoft.graph.deviceManagementConfigurationGroupSettingInstance': return new DeviceManagementConfigurationGroupSettingInstance();
+                case '#microsoft.graph.deviceManagementConfigurationSettingGroupCollectionInstance': return new DeviceManagementConfigurationSettingGroupCollectionInstance();
+                case '#microsoft.graph.deviceManagementConfigurationSettingGroupInstance': return new DeviceManagementConfigurationSettingGroupInstance();
+                case '#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance': return new DeviceManagementConfigurationSimpleSettingCollectionInstance();
+                case '#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance': return new DeviceManagementConfigurationSimpleSettingInstance();
+            }
+        }
         return new DeviceManagementConfigurationSettingInstance();
     }
 

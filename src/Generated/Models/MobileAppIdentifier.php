@@ -27,6 +27,16 @@ class MobileAppIdentifier implements AdditionalDataHolder, Parsable
      * @return MobileAppIdentifier
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppIdentifier {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.androidMobileAppIdentifier': return new AndroidMobileAppIdentifier();
+                case '#microsoft.graph.iosMobileAppIdentifier': return new IosMobileAppIdentifier();
+                case '#microsoft.graph.macAppIdentifier': return new MacAppIdentifier();
+                case '#microsoft.graph.windowsAppIdentifier': return new WindowsAppIdentifier();
+            }
+        }
         return new MobileAppIdentifier();
     }
 

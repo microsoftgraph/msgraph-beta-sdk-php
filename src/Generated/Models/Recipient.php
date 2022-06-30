@@ -32,6 +32,13 @@ class Recipient implements AdditionalDataHolder, Parsable
      * @return Recipient
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Recipient {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.attendeeBase': return new AttendeeBase();
+            }
+        }
         return new Recipient();
     }
 

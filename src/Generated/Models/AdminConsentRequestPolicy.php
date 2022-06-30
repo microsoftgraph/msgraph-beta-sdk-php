@@ -39,7 +39,7 @@ class AdminConsentRequestPolicy extends Entity implements Parsable
     private ?int $version = null;
     
     /**
-     * Instantiates a new adminConsentRequestPolicy and sets the default values.
+     * Instantiates a new AdminConsentRequestPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

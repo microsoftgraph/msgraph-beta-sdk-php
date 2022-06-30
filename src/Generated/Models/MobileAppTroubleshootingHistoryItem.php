@@ -38,6 +38,17 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
      * @return MobileAppTroubleshootingHistoryItem
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): MobileAppTroubleshootingHistoryItem {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.mobileAppTroubleshootingAppPolicyCreationHistory': return new MobileAppTroubleshootingAppPolicyCreationHistory();
+                case '#microsoft.graph.mobileAppTroubleshootingAppStateHistory': return new MobileAppTroubleshootingAppStateHistory();
+                case '#microsoft.graph.mobileAppTroubleshootingAppTargetHistory': return new MobileAppTroubleshootingAppTargetHistory();
+                case '#microsoft.graph.mobileAppTroubleshootingAppUpdateHistory': return new MobileAppTroubleshootingAppUpdateHistory();
+                case '#microsoft.graph.mobileAppTroubleshootingDeviceCheckinHistory': return new MobileAppTroubleshootingDeviceCheckinHistory();
+            }
+        }
         return new MobileAppTroubleshootingHistoryItem();
     }
 

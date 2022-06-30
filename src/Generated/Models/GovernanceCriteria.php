@@ -27,6 +27,15 @@ class GovernanceCriteria implements AdditionalDataHolder, Parsable
      * @return GovernanceCriteria
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): GovernanceCriteria {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.groupMembershipGovernanceCriteria': return new GroupMembershipGovernanceCriteria();
+                case '#microsoft.graph.roleMembershipGovernanceCriteria': return new RoleMembershipGovernanceCriteria();
+                case '#microsoft.graph.userGovernanceCriteria': return new UserGovernanceCriteria();
+            }
+        }
         return new GovernanceCriteria();
     }
 

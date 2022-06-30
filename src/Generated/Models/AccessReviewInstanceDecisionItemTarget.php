@@ -27,6 +27,14 @@ class AccessReviewInstanceDecisionItemTarget implements AdditionalDataHolder, Pa
      * @return AccessReviewInstanceDecisionItemTarget
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewInstanceDecisionItemTarget {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.accessReviewInstanceDecisionItemServicePrincipalTarget': return new AccessReviewInstanceDecisionItemServicePrincipalTarget();
+                case '#microsoft.graph.accessReviewInstanceDecisionItemUserTarget': return new AccessReviewInstanceDecisionItemUserTarget();
+            }
+        }
         return new AccessReviewInstanceDecisionItemTarget();
     }
 

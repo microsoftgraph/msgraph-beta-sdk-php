@@ -32,6 +32,13 @@ class DlpNotification implements AdditionalDataHolder, Parsable
      * @return DlpNotification
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DlpNotification {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.dlpWindowsDevicesNotification': return new DlpWindowsDevicesNotification();
+            }
+        }
         return new DlpNotification();
     }
 

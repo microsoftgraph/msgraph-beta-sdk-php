@@ -54,7 +54,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     private ?float $workFromAnywhereScore = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereModelPerformance and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereModelPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

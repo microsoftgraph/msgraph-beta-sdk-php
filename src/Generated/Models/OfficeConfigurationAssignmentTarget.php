@@ -27,6 +27,13 @@ class OfficeConfigurationAssignmentTarget implements AdditionalDataHolder, Parsa
      * @return OfficeConfigurationAssignmentTarget
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): OfficeConfigurationAssignmentTarget {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.officeConfigurationGroupAssignmentTarget': return new OfficeConfigurationGroupAssignmentTarget();
+            }
+        }
         return new OfficeConfigurationAssignmentTarget();
     }
 

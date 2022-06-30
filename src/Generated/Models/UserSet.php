@@ -32,6 +32,18 @@ class UserSet implements AdditionalDataHolder, Parsable
      * @return UserSet
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UserSet {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.connectedOrganizationMembers': return new ConnectedOrganizationMembers();
+                case '#microsoft.graph.externalSponsors': return new ExternalSponsors();
+                case '#microsoft.graph.groupMembers': return new GroupMembers();
+                case '#microsoft.graph.internalSponsors': return new InternalSponsors();
+                case '#microsoft.graph.requestorManager': return new RequestorManager();
+                case '#microsoft.graph.singleUser': return new SingleUser();
+            }
+        }
         return new UserSet();
     }
 

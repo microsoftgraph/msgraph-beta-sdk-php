@@ -34,7 +34,7 @@ class CustomCalloutExtension extends Entity implements Parsable
     private ?CustomExtensionEndpointConfiguration $endpointConfiguration = null;
     
     /**
-     * Instantiates a new customCalloutExtension and sets the default values.
+     * Instantiates a new CustomCalloutExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

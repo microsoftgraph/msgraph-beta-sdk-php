@@ -19,7 +19,7 @@ class UserIdentity extends Identity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new userIdentity and sets the default values.
+     * Instantiates a new UserIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -31,6 +31,13 @@ class UserIdentity extends Identity implements Parsable
      * @return UserIdentity
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UserIdentity {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.auditUserIdentity': return new AuditUserIdentity();
+            }
+        }
         return new UserIdentity();
     }
 

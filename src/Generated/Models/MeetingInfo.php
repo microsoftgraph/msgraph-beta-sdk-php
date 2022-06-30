@@ -32,6 +32,15 @@ class MeetingInfo implements AdditionalDataHolder, Parsable
      * @return MeetingInfo
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): MeetingInfo {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.joinMeetingIdMeetingInfo': return new JoinMeetingIdMeetingInfo();
+                case '#microsoft.graph.organizerMeetingInfo': return new OrganizerMeetingInfo();
+                case '#microsoft.graph.tokenMeetingInfo': return new TokenMeetingInfo();
+            }
+        }
         return new MeetingInfo();
     }
 

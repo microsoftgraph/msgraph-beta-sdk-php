@@ -27,6 +27,27 @@ class DeviceManagementConstraint implements AdditionalDataHolder, Parsable
      * @return DeviceManagementConstraint
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConstraint {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deviceManagementEnumConstraint': return new DeviceManagementEnumConstraint();
+                case '#microsoft.graph.deviceManagementIntentSettingSecretConstraint': return new DeviceManagementIntentSettingSecretConstraint();
+                case '#microsoft.graph.deviceManagementSettingAbstractImplementationConstraint': return new DeviceManagementSettingAbstractImplementationConstraint();
+                case '#microsoft.graph.deviceManagementSettingAppConstraint': return new DeviceManagementSettingAppConstraint();
+                case '#microsoft.graph.deviceManagementSettingBooleanConstraint': return new DeviceManagementSettingBooleanConstraint();
+                case '#microsoft.graph.deviceManagementSettingCollectionConstraint': return new DeviceManagementSettingCollectionConstraint();
+                case '#microsoft.graph.deviceManagementSettingEnrollmentTypeConstraint': return new DeviceManagementSettingEnrollmentTypeConstraint();
+                case '#microsoft.graph.deviceManagementSettingFileConstraint': return new DeviceManagementSettingFileConstraint();
+                case '#microsoft.graph.deviceManagementSettingIntegerConstraint': return new DeviceManagementSettingIntegerConstraint();
+                case '#microsoft.graph.deviceManagementSettingProfileConstraint': return new DeviceManagementSettingProfileConstraint();
+                case '#microsoft.graph.deviceManagementSettingRegexConstraint': return new DeviceManagementSettingRegexConstraint();
+                case '#microsoft.graph.deviceManagementSettingRequiredConstraint': return new DeviceManagementSettingRequiredConstraint();
+                case '#microsoft.graph.deviceManagementSettingSddlConstraint': return new DeviceManagementSettingSddlConstraint();
+                case '#microsoft.graph.deviceManagementSettingStringLengthConstraint': return new DeviceManagementSettingStringLengthConstraint();
+                case '#microsoft.graph.deviceManagementSettingXmlConstraint': return new DeviceManagementSettingXmlConstraint();
+            }
+        }
         return new DeviceManagementConstraint();
     }
 

@@ -70,7 +70,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
     private ?CloudPcGalleryImageStatus $status = null;
     
     /**
-     * Instantiates a new cloudPcGalleryImage and sets the default values.
+     * Instantiates a new CloudPcGalleryImage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

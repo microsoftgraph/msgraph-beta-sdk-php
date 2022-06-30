@@ -32,6 +32,13 @@ class TimeZoneBase implements AdditionalDataHolder, Parsable
      * @return TimeZoneBase
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): TimeZoneBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.customTimeZone': return new CustomTimeZone();
+            }
+        }
         return new TimeZoneBase();
     }
 

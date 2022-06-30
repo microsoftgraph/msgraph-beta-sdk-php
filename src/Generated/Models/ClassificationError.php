@@ -14,7 +14,7 @@ class ClassificationError extends ClassifcationErrorBase implements Parsable
     private ?array $details = null;
     
     /**
-     * Instantiates a new classificationError and sets the default values.
+     * Instantiates a new ClassificationError and sets the default values.
     */
     public function __construct() {
         parent::__construct();

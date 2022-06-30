@@ -64,7 +64,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     private ?int $uniqueUserCount = null;
     
     /**
-     * Instantiates a new relyingPartyDetailedSummary and sets the default values.
+     * Instantiates a new RelyingPartyDetailedSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

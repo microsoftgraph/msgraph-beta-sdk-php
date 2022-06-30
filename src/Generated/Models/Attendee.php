@@ -19,7 +19,7 @@ class Attendee extends AttendeeBase implements Parsable
     private ?ResponseStatus $status = null;
     
     /**
-     * Instantiates a new attendee and sets the default values.
+     * Instantiates a new Attendee and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -52,6 +52,19 @@ class OmaSetting implements AdditionalDataHolder, Parsable
      * @return OmaSetting
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): OmaSetting {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.omaSettingBase64': return new OmaSettingBase64();
+                case '#microsoft.graph.omaSettingBoolean': return new OmaSettingBoolean();
+                case '#microsoft.graph.omaSettingDateTime': return new OmaSettingDateTime();
+                case '#microsoft.graph.omaSettingFloatingPoint': return new OmaSettingFloatingPoint();
+                case '#microsoft.graph.omaSettingInteger': return new OmaSettingInteger();
+                case '#microsoft.graph.omaSettingString': return new OmaSettingString();
+                case '#microsoft.graph.omaSettingStringXml': return new OmaSettingStringXml();
+            }
+        }
         return new OmaSetting();
     }
 

@@ -35,7 +35,7 @@ class Office365GroupsActivityFileCounts extends Entity implements Parsable
     private ?int $total = null;
     
     /**
-     * Instantiates a new office365GroupsActivityFileCounts and sets the default values.
+     * Instantiates a new Office365GroupsActivityFileCounts and sets the default values.
     */
     public function __construct() {
         parent::__construct();

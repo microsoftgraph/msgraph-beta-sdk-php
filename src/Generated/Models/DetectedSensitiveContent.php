@@ -34,7 +34,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
     private ?SensitiveTypeSource $sensitiveTypeSource = null;
     
     /**
-     * Instantiates a new detectedSensitiveContent and sets the default values.
+     * Instantiates a new DetectedSensitiveContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,6 +46,13 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return DetectedSensitiveContent
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DetectedSensitiveContent {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.machineLearningDetectedSensitiveContent': return new MachineLearningDetectedSensitiveContent();
+            }
+        }
         return new DetectedSensitiveContent();
     }
 

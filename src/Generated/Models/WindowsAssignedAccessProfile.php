@@ -40,7 +40,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
     private ?array $userAccounts = null;
     
     /**
-     * Instantiates a new windowsAssignedAccessProfile and sets the default values.
+     * Instantiates a new WindowsAssignedAccessProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

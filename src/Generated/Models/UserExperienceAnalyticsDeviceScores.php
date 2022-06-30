@@ -54,7 +54,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
     private ?float $workFromAnywhereScore = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsDeviceScores and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsDeviceScores and sets the default values.
     */
     public function __construct() {
         parent::__construct();

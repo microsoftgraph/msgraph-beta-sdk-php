@@ -133,6 +133,14 @@ class TeleconferenceDeviceMediaQuality implements AdditionalDataHolder, Parsable
      * @return TeleconferenceDeviceMediaQuality
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): TeleconferenceDeviceMediaQuality {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.teleconferenceDeviceAudioQuality': return new TeleconferenceDeviceAudioQuality();
+                case '#microsoft.graph.teleconferenceDeviceVideoQuality': return new TeleconferenceDeviceVideoQuality();
+            }
+        }
         return new TeleconferenceDeviceMediaQuality();
     }
 

@@ -130,7 +130,7 @@ class SalesInvoiceLine extends Entity implements Parsable
     private ?string $unitPrice = null;
     
     /**
-     * Instantiates a new salesInvoiceLine and sets the default values.
+     * Instantiates a new SalesInvoiceLine and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -19,7 +19,7 @@ class TypedEmailAddress extends EmailAddress implements Parsable
     private ?EmailType $type = null;
     
     /**
-     * Instantiates a new typedEmailAddress and sets the default values.
+     * Instantiates a new TypedEmailAddress and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -34,7 +34,7 @@ class AuditLogRoot extends Entity implements Parsable
     private ?array $signIns = null;
     
     /**
-     * Instantiates a new auditLogRoot and sets the default values.
+     * Instantiates a new AuditLogRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();

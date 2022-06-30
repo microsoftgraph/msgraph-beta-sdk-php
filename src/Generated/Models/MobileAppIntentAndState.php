@@ -24,7 +24,7 @@ class MobileAppIntentAndState extends Entity implements Parsable
     private ?string $userId = null;
     
     /**
-     * Instantiates a new mobileAppIntentAndState and sets the default values.
+     * Instantiates a new MobileAppIntentAndState and sets the default values.
     */
     public function __construct() {
         parent::__construct();

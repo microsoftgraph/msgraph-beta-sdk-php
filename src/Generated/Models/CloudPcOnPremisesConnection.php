@@ -89,7 +89,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     private ?string $virtualNetworkId = null;
     
     /**
-     * Instantiates a new cloudPcOnPremisesConnection and sets the default values.
+     * Instantiates a new CloudPcOnPremisesConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

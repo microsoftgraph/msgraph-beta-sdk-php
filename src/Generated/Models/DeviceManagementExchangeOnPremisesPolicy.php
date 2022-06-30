@@ -35,7 +35,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     private ?StreamInterface $notificationContent = null;
     
     /**
-     * Instantiates a new deviceManagementExchangeOnPremisesPolicy and sets the default values.
+     * Instantiates a new DeviceManagementExchangeOnPremisesPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

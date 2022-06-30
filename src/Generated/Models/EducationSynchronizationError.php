@@ -40,7 +40,7 @@ class EducationSynchronizationError extends Entity implements Parsable
     private ?string $reportableIdentifier = null;
     
     /**
-     * Instantiates a new educationSynchronizationError and sets the default values.
+     * Instantiates a new EducationSynchronizationError and sets the default values.
     */
     public function __construct() {
         parent::__construct();

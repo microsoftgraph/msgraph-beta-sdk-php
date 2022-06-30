@@ -39,7 +39,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     private ?int $userDeviceQuota = null;
     
     /**
-     * Instantiates a new deviceRegistrationPolicy and sets the default values.
+     * Instantiates a new DeviceRegistrationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

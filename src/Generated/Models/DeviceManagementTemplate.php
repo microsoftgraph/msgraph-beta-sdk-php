@@ -70,7 +70,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
     private ?string $versionInfo = null;
     
     /**
-     * Instantiates a new deviceManagementTemplate and sets the default values.
+     * Instantiates a new DeviceManagementTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

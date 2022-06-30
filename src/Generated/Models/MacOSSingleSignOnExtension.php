@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new macOSSingleSignOnExtension and sets the default values.
+     * Instantiates a new MacOSSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -21,6 +21,16 @@ class MacOSSingleSignOnExtension extends SingleSignOnExtension implements Parsab
      * @return MacOSSingleSignOnExtension
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): MacOSSingleSignOnExtension {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.macOSAzureAdSingleSignOnExtension': return new MacOSAzureAdSingleSignOnExtension();
+                case '#microsoft.graph.macOSCredentialSingleSignOnExtension': return new MacOSCredentialSingleSignOnExtension();
+                case '#microsoft.graph.macOSKerberosSingleSignOnExtension': return new MacOSKerberosSingleSignOnExtension();
+                case '#microsoft.graph.macOSRedirectSingleSignOnExtension': return new MacOSRedirectSingleSignOnExtension();
+            }
+        }
         return new MacOSSingleSignOnExtension();
     }
 

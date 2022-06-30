@@ -29,7 +29,7 @@ class OutlookUser extends Entity implements Parsable
     private ?array $tasks = null;
     
     /**
-     * Instantiates a new outlookUser and sets the default values.
+     * Instantiates a new OutlookUser and sets the default values.
     */
     public function __construct() {
         parent::__construct();

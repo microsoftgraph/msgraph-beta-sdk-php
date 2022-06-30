@@ -47,6 +47,15 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, Parsable
      * @return DeviceHealthScriptParameter
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptParameter {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deviceHealthScriptBooleanParameter': return new DeviceHealthScriptBooleanParameter();
+                case '#microsoft.graph.deviceHealthScriptIntegerParameter': return new DeviceHealthScriptIntegerParameter();
+                case '#microsoft.graph.deviceHealthScriptStringParameter': return new DeviceHealthScriptStringParameter();
+            }
+        }
         return new DeviceHealthScriptParameter();
     }
 

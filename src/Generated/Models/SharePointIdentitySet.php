@@ -24,7 +24,7 @@ class SharePointIdentitySet extends IdentitySet implements Parsable
     private ?SharePointIdentity $siteUser = null;
     
     /**
-     * Instantiates a new sharePointIdentitySet and sets the default values.
+     * Instantiates a new SharePointIdentitySet and sets the default values.
     */
     public function __construct() {
         parent::__construct();

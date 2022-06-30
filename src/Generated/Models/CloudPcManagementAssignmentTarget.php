@@ -27,6 +27,13 @@ class CloudPcManagementAssignmentTarget implements AdditionalDataHolder, Parsabl
      * @return CloudPcManagementAssignmentTarget
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcManagementAssignmentTarget {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.cloudPcManagementGroupAssignmentTarget': return new CloudPcManagementGroupAssignmentTarget();
+            }
+        }
         return new CloudPcManagementAssignmentTarget();
     }
 

@@ -191,7 +191,7 @@ class SalesQuote extends Entity implements Parsable
     private ?Date $validUntilDate = null;
     
     /**
-     * Instantiates a new salesQuote and sets the default values.
+     * Instantiates a new SalesQuote and sets the default values.
     */
     public function __construct() {
         parent::__construct();

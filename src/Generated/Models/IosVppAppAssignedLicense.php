@@ -29,7 +29,7 @@ class IosVppAppAssignedLicense extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new iosVppAppAssignedLicense and sets the default values.
+     * Instantiates a new IosVppAppAssignedLicense and sets the default values.
     */
     public function __construct() {
         parent::__construct();

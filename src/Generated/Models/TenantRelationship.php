@@ -25,7 +25,7 @@ class TenantRelationship extends Entity implements Parsable
     private ?ManagedTenant $managedTenants = null;
     
     /**
-     * Instantiates a new tenantRelationship and sets the default values.
+     * Instantiates a new TenantRelationship and sets the default values.
     */
     public function __construct() {
         parent::__construct();

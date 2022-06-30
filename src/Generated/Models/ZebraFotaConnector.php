@@ -35,7 +35,7 @@ class ZebraFotaConnector extends Entity implements Parsable
     private ?ZebraFotaConnectorState $state = null;
     
     /**
-     * Instantiates a new zebraFotaConnector and sets the default values.
+     * Instantiates a new ZebraFotaConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();

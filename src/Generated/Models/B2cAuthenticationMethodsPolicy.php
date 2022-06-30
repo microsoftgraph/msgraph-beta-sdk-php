@@ -24,7 +24,7 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
     private ?bool $isUserNameAuthenticationEnabled = null;
     
     /**
-     * Instantiates a new b2cAuthenticationMethodsPolicy and sets the default values.
+     * Instantiates a new B2cAuthenticationMethodsPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

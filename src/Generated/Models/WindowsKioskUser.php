@@ -27,6 +27,19 @@ class WindowsKioskUser implements AdditionalDataHolder, Parsable
      * @return WindowsKioskUser
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsKioskUser {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windowsKioskActiveDirectoryGroup': return new WindowsKioskActiveDirectoryGroup();
+                case '#microsoft.graph.windowsKioskAutologon': return new WindowsKioskAutologon();
+                case '#microsoft.graph.windowsKioskAzureADGroup': return new WindowsKioskAzureADGroup();
+                case '#microsoft.graph.windowsKioskAzureADUser': return new WindowsKioskAzureADUser();
+                case '#microsoft.graph.windowsKioskLocalGroup': return new WindowsKioskLocalGroup();
+                case '#microsoft.graph.windowsKioskLocalUser': return new WindowsKioskLocalUser();
+                case '#microsoft.graph.windowsKioskVisitor': return new WindowsKioskVisitor();
+            }
+        }
         return new WindowsKioskUser();
     }
 

@@ -67,6 +67,13 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @return ParentLabelDetails
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ParentLabelDetails {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.labelDetails': return new LabelDetails();
+            }
+        }
         return new ParentLabelDetails();
     }
 

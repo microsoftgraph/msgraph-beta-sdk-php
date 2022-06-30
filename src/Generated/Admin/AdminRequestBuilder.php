@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Admin\ReportSettings\ReportSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\ServiceAnnouncementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Sharepoint\SharepointRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Windows\WindowsRequestBuilder;
@@ -24,6 +25,13 @@ class AdminRequestBuilder
      * @var array<string, mixed> $pathParameters Path parameters for the request
     */
     private array $pathParameters;
+    
+    /**
+     * The reportSettings property
+    */
+    public function reportSettings(): ReportSettingsRequestBuilder {
+        return new ReportSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.

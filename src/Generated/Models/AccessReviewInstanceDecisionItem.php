@@ -60,7 +60,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     private ?string $principalLink = null;
     
     /**
-     * @var DecisionItemPrincipalResourceMembership|null $principalResourceMembership The principalResourceMembership property
+     * @var DecisionItemPrincipalResourceMembership|null $principalResourceMembership Every decision item in an access review represents a principal's membership to a resource. This property provides the details of the membership. For example, whether the principal has direct access or indirect access to the resource. Supports $select. Read-only.
     */
     private ?DecisionItemPrincipalResourceMembership $principalResourceMembership = null;
     
@@ -218,7 +218,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the principalResourceMembership property value. The principalResourceMembership property
+     * Gets the principalResourceMembership property value. Every decision item in an access review represents a principal's membership to a resource. This property provides the details of the membership. For example, whether the principal has direct access or indirect access to the resource. Supports $select. Read-only.
      * @return DecisionItemPrincipalResourceMembership|null
     */
     public function getPrincipalResourceMembership(): ?DecisionItemPrincipalResourceMembership {
@@ -379,7 +379,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the principalResourceMembership property value. The principalResourceMembership property
+     * Sets the principalResourceMembership property value. Every decision item in an access review represents a principal's membership to a resource. This property provides the details of the membership. For example, whether the principal has direct access or indirect access to the resource. Supports $select. Read-only.
      *  @param DecisionItemPrincipalResourceMembership|null $value Value to set for the principalResourceMembership property.
     */
     public function setPrincipalResourceMembership(?DecisionItemPrincipalResourceMembership $value ): void {

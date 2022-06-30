@@ -53,6 +53,20 @@ class EducationResource implements AdditionalDataHolder, Parsable
      * @return EducationResource
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationResource {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.educationExcelResource': return new EducationExcelResource();
+                case '#microsoft.graph.educationExternalResource': return new EducationExternalResource();
+                case '#microsoft.graph.educationFileResource': return new EducationFileResource();
+                case '#microsoft.graph.educationLinkResource': return new EducationLinkResource();
+                case '#microsoft.graph.educationMediaResource': return new EducationMediaResource();
+                case '#microsoft.graph.educationPowerPointResource': return new EducationPowerPointResource();
+                case '#microsoft.graph.educationTeamsAppResource': return new EducationTeamsAppResource();
+                case '#microsoft.graph.educationWordResource': return new EducationWordResource();
+            }
+        }
         return new EducationResource();
     }
 

@@ -55,7 +55,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
     private ?string $status = null;
     
     /**
-     * Instantiates a new teamworkDeviceOperation and sets the default values.
+     * Instantiates a new TeamworkDeviceOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

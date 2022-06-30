@@ -14,7 +14,7 @@ class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError implem
     private ?string $settingName = null;
     
     /**
-     * Instantiates a new deviceComplianceScriptRuleError and sets the default values.
+     * Instantiates a new DeviceComplianceScriptRuleError and sets the default values.
     */
     public function __construct() {
         parent::__construct();

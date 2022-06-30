@@ -27,6 +27,14 @@ class SubjectRightsRequestMailboxLocation implements AdditionalDataHolder, Parsa
      * @return SubjectRightsRequestMailboxLocation
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): SubjectRightsRequestMailboxLocation {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.subjectRightsRequestAllMailboxLocation': return new SubjectRightsRequestAllMailboxLocation();
+                case '#microsoft.graph.subjectRightsRequestEnumeratedMailboxLocation': return new SubjectRightsRequestEnumeratedMailboxLocation();
+            }
+        }
         return new SubjectRightsRequestMailboxLocation();
     }
 

@@ -37,6 +37,14 @@ class CallOptions implements AdditionalDataHolder, Parsable
      * @return CallOptions
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CallOptions {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.incomingCallOptions': return new IncomingCallOptions();
+                case '#microsoft.graph.outgoingCallOptions': return new OutgoingCallOptions();
+            }
+        }
         return new CallOptions();
     }
 

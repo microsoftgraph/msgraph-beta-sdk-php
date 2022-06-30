@@ -106,7 +106,7 @@ class DeviceHealthScript extends Entity implements Parsable
     private ?string $version = null;
     
     /**
-     * Instantiates a new deviceHealthScript and sets the default values.
+     * Instantiates a new DeviceHealthScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();

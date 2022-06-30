@@ -32,6 +32,14 @@ class WindowsDeviceAccount implements AdditionalDataHolder, Parsable
      * @return WindowsDeviceAccount
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): WindowsDeviceAccount {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windowsDeviceADAccount': return new WindowsDeviceADAccount();
+                case '#microsoft.graph.windowsDeviceAzureADAccount': return new WindowsDeviceAzureADAccount();
+            }
+        }
         return new WindowsDeviceAccount();
     }
 
