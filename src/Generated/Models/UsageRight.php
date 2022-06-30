@@ -24,7 +24,7 @@ class UsageRight extends Entity implements Parsable
     private ?UsageRightState $state = null;
     
     /**
-     * Instantiates a new usageRight and sets the default values.
+     * Instantiates a new UsageRight and sets the default values.
     */
     public function __construct() {
         parent::__construct();

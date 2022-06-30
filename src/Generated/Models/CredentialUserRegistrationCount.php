@@ -19,7 +19,7 @@ class CredentialUserRegistrationCount extends Entity implements Parsable
     private ?array $userRegistrationCounts = null;
     
     /**
-     * Instantiates a new credentialUserRegistrationCount and sets the default values.
+     * Instantiates a new CredentialUserRegistrationCount and sets the default values.
     */
     public function __construct() {
         parent::__construct();

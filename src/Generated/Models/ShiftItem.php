@@ -24,7 +24,7 @@ class ShiftItem extends ScheduleEntity implements Parsable
     private ?string $notes = null;
     
     /**
-     * Instantiates a new shiftItem and sets the default values.
+     * Instantiates a new ShiftItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -36,6 +36,13 @@ class ShiftItem extends ScheduleEntity implements Parsable
      * @return ShiftItem
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ShiftItem {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.openShiftItem': return new OpenShiftItem();
+            }
+        }
         return new ShiftItem();
     }
 

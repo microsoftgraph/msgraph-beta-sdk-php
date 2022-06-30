@@ -54,7 +54,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     private ?string $osVersion = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByOSVersion and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion and sets the default values.
     */
     public function __construct() {
         parent::__construct();

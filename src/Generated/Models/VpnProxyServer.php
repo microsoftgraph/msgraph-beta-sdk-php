@@ -42,6 +42,14 @@ class VpnProxyServer implements AdditionalDataHolder, Parsable
      * @return VpnProxyServer
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): VpnProxyServer {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windows10VpnProxyServer': return new Windows10VpnProxyServer();
+                case '#microsoft.graph.windows81VpnProxyServer': return new Windows81VpnProxyServer();
+            }
+        }
         return new VpnProxyServer();
     }
 

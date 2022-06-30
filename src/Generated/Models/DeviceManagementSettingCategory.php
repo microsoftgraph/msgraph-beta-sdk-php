@@ -24,7 +24,7 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
     private ?array $settingDefinitions = null;
     
     /**
-     * Instantiates a new deviceManagementSettingCategory and sets the default values.
+     * Instantiates a new DeviceManagementSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -27,6 +27,13 @@ class DeployableContent implements AdditionalDataHolder, Parsable
      * @return DeployableContent
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeployableContent {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windowsUpdates.softwareUpdateReference': return new SoftwareUpdateReference();
+            }
+        }
         return new DeployableContent();
     }
 

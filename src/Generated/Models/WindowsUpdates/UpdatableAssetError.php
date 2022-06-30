@@ -27,6 +27,13 @@ class UpdatableAssetError implements AdditionalDataHolder, Parsable
      * @return UpdatableAssetError
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UpdatableAssetError {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windowsUpdates.azureADDeviceRegistrationError': return new AzureADDeviceRegistrationError();
+            }
+        }
         return new UpdatableAssetError();
     }
 

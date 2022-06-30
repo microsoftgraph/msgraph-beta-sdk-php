@@ -48,6 +48,21 @@ class DeviceActionResult implements AdditionalDataHolder, Parsable
      * @return DeviceActionResult
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceActionResult {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.activateDeviceEsimActionResult': return new ActivateDeviceEsimActionResult();
+                case '#microsoft.graph.configurationManagerActionResult': return new ConfigurationManagerActionResult();
+                case '#microsoft.graph.deleteUserFromSharedAppleDeviceActionResult': return new DeleteUserFromSharedAppleDeviceActionResult();
+                case '#microsoft.graph.locateDeviceActionResult': return new LocateDeviceActionResult();
+                case '#microsoft.graph.remoteLockActionResult': return new RemoteLockActionResult();
+                case '#microsoft.graph.resetPasscodeActionResult': return new ResetPasscodeActionResult();
+                case '#microsoft.graph.revokeAppleVppLicensesActionResult': return new RevokeAppleVppLicensesActionResult();
+                case '#microsoft.graph.rotateBitLockerKeysDeviceActionResult': return new RotateBitLockerKeysDeviceActionResult();
+                case '#microsoft.graph.windowsDefenderScanActionResult': return new WindowsDefenderScanActionResult();
+            }
+        }
         return new DeviceActionResult();
     }
 

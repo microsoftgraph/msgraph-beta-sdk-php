@@ -20,7 +20,7 @@ class DeploymentAudience extends Entity implements Parsable
     private ?array $members = null;
     
     /**
-     * Instantiates a new deploymentAudience and sets the default values.
+     * Instantiates a new DeploymentAudience and sets the default values.
     */
     public function __construct() {
         parent::__construct();

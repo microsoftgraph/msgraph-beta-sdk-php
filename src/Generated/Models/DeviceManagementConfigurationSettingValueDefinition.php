@@ -27,6 +27,14 @@ class DeviceManagementConfigurationSettingValueDefinition implements AdditionalD
      * @return DeviceManagementConfigurationSettingValueDefinition
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingValueDefinition {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deviceManagementConfigurationIntegerSettingValueDefinition': return new DeviceManagementConfigurationIntegerSettingValueDefinition();
+                case '#microsoft.graph.deviceManagementConfigurationStringSettingValueDefinition': return new DeviceManagementConfigurationStringSettingValueDefinition();
+            }
+        }
         return new DeviceManagementConfigurationSettingValueDefinition();
     }
 

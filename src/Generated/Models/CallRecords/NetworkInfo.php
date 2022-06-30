@@ -95,7 +95,7 @@ class NetworkInfo implements AdditionalDataHolder, Parsable
     private ?string $subnet = null;
     
     /**
-     * @var array<TraceRouteHop>|null $traceRouteHops List of network trace route hops collected for this media stream.
+     * @var array<TraceRouteHop>|null $traceRouteHops List of network trace route hops collected for this media stream.*
     */
     private ?array $traceRouteHops = null;
     
@@ -333,7 +333,7 @@ class NetworkInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the traceRouteHops property value. List of network trace route hops collected for this media stream.
+     * Gets the traceRouteHops property value. List of network trace route hops collected for this media stream.*
      * @return array<TraceRouteHop>|null
     */
     public function getTraceRouteHops(): ?array {
@@ -583,7 +583,7 @@ class NetworkInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the traceRouteHops property value. List of network trace route hops collected for this media stream.
+     * Sets the traceRouteHops property value. List of network trace route hops collected for this media stream.*
      *  @param array<TraceRouteHop>|null $value Value to set for the traceRouteHops property.
     */
     public function setTraceRouteHops(?array $value ): void {

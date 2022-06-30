@@ -27,6 +27,27 @@ class InformationProtectionAction implements AdditionalDataHolder, Parsable
      * @return InformationProtectionAction
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): InformationProtectionAction {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.addContentFooterAction': return new AddContentFooterAction();
+                case '#microsoft.graph.addContentHeaderAction': return new AddContentHeaderAction();
+                case '#microsoft.graph.addWatermarkAction': return new AddWatermarkAction();
+                case '#microsoft.graph.applyLabelAction': return new ApplyLabelAction();
+                case '#microsoft.graph.customAction': return new CustomAction();
+                case '#microsoft.graph.justifyAction': return new JustifyAction();
+                case '#microsoft.graph.metadataAction': return new MetadataAction();
+                case '#microsoft.graph.protectAdhocAction': return new ProtectAdhocAction();
+                case '#microsoft.graph.protectByTemplateAction': return new ProtectByTemplateAction();
+                case '#microsoft.graph.protectDoNotForwardAction': return new ProtectDoNotForwardAction();
+                case '#microsoft.graph.recommendLabelAction': return new RecommendLabelAction();
+                case '#microsoft.graph.removeContentFooterAction': return new RemoveContentFooterAction();
+                case '#microsoft.graph.removeContentHeaderAction': return new RemoveContentHeaderAction();
+                case '#microsoft.graph.removeProtectionAction': return new RemoveProtectionAction();
+                case '#microsoft.graph.removeWatermarkAction': return new RemoveWatermarkAction();
+            }
+        }
         return new InformationProtectionAction();
     }
 

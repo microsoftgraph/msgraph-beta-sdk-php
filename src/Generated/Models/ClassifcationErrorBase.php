@@ -47,6 +47,13 @@ class ClassifcationErrorBase implements AdditionalDataHolder, Parsable
      * @return ClassifcationErrorBase
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ClassifcationErrorBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.classificationError': return new ClassificationError();
+            }
+        }
         return new ClassifcationErrorBase();
     }
 

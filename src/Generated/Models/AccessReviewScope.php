@@ -27,6 +27,15 @@ class AccessReviewScope implements AdditionalDataHolder, Parsable
      * @return AccessReviewScope
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewScope {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.accessReviewQueryScope': return new AccessReviewQueryScope();
+                case '#microsoft.graph.accessReviewReviewerScope': return new AccessReviewReviewerScope();
+                case '#microsoft.graph.principalResourceMembershipsScope': return new PrincipalResourceMembershipsScope();
+            }
+        }
         return new AccessReviewScope();
     }
 

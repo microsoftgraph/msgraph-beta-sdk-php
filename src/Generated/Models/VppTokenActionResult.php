@@ -48,6 +48,13 @@ class VppTokenActionResult implements AdditionalDataHolder, Parsable
      * @return VppTokenActionResult
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): VppTokenActionResult {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.vppTokenRevokeLicensesActionResult': return new VppTokenRevokeLicensesActionResult();
+            }
+        }
         return new VppTokenActionResult();
     }
 

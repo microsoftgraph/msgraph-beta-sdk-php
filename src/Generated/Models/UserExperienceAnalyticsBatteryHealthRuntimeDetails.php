@@ -35,7 +35,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
     private ?DateTime $lastRefreshedDateTime = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsBatteryHealthRuntimeDetails and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsBatteryHealthRuntimeDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();

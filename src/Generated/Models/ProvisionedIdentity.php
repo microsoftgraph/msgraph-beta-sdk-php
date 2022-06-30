@@ -19,7 +19,7 @@ class ProvisionedIdentity extends Identity implements Parsable
     private ?string $identityType = null;
     
     /**
-     * Instantiates a new provisionedIdentity and sets the default values.
+     * Instantiates a new ProvisionedIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

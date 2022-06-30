@@ -37,6 +37,13 @@ class AccessPackageAnswer implements AdditionalDataHolder, Parsable
      * @return AccessPackageAnswer
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageAnswer {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.accessPackageAnswerString': return new AccessPackageAnswerString();
+            }
+        }
         return new AccessPackageAnswer();
     }
 

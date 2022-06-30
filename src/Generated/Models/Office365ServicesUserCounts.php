@@ -90,7 +90,7 @@ class Office365ServicesUserCounts extends Entity implements Parsable
     private ?int $yammerInactive = null;
     
     /**
-     * Instantiates a new office365ServicesUserCounts and sets the default values.
+     * Instantiates a new Office365ServicesUserCounts and sets the default values.
     */
     public function __construct() {
         parent::__construct();

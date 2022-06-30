@@ -20,7 +20,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
     private ?SynchronizationJobSubject $manager = null;
     
     /**
-     * @var array<SynchronizationJobSubject>|null $members The members property
+     * @var array<SynchronizationJobSubject>|null $members All group members that you would like to provision.
     */
     private ?array $members = null;
     
@@ -75,7 +75,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the members property value. The members property
+     * Gets the members property value. All group members that you would like to provision.
      * @return array<SynchronizationJobSubject>|null
     */
     public function getMembers(): ?array {
@@ -118,7 +118,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the members property value. The members property
+     * Sets the members property value. All group members that you would like to provision.
      *  @param array<SynchronizationJobSubject>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value ): void {

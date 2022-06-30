@@ -32,6 +32,13 @@ class ActionResultPart implements AdditionalDataHolder, Parsable
      * @return ActionResultPart
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ActionResultPart {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.aadUserConversationMemberResult': return new AadUserConversationMemberResult();
+            }
+        }
         return new ActionResultPart();
     }
 

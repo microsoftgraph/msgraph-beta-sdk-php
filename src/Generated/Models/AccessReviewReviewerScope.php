@@ -24,7 +24,7 @@ class AccessReviewReviewerScope extends AccessReviewScope implements Parsable
     private ?string $queryType = null;
     
     /**
-     * Instantiates a new accessReviewReviewerScope and sets the default values.
+     * Instantiates a new AccessReviewReviewerScope and sets the default values.
     */
     public function __construct() {
         parent::__construct();

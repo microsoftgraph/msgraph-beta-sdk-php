@@ -27,6 +27,14 @@ class UserExperienceAnalyticsInsightValue implements AdditionalDataHolder, Parsa
      * @return UserExperienceAnalyticsInsightValue
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UserExperienceAnalyticsInsightValue {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.insightValueDouble': return new InsightValueDouble();
+                case '#microsoft.graph.insightValueInt': return new InsightValueInt();
+            }
+        }
         return new UserExperienceAnalyticsInsightValue();
     }
 

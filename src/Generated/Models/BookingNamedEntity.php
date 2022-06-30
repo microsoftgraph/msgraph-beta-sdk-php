@@ -14,7 +14,7 @@ class BookingNamedEntity extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * Instantiates a new bookingNamedEntity and sets the default values.
+     * Instantiates a new BookingNamedEntity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

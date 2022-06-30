@@ -32,6 +32,14 @@ class IosHomeScreenItem implements AdditionalDataHolder, Parsable
      * @return IosHomeScreenItem
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): IosHomeScreenItem {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.iosHomeScreenApp': return new IosHomeScreenApp();
+                case '#microsoft.graph.iosHomeScreenFolder': return new IosHomeScreenFolder();
+            }
+        }
         return new IosHomeScreenItem();
     }
 

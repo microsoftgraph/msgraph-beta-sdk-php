@@ -27,6 +27,16 @@ class EdgeHomeButtonConfiguration implements AdditionalDataHolder, Parsable
      * @return EdgeHomeButtonConfiguration
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EdgeHomeButtonConfiguration {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.edgeHomeButtonHidden': return new EdgeHomeButtonHidden();
+                case '#microsoft.graph.edgeHomeButtonLoadsStartPage': return new EdgeHomeButtonLoadsStartPage();
+                case '#microsoft.graph.edgeHomeButtonOpensCustomURL': return new EdgeHomeButtonOpensCustomURL();
+                case '#microsoft.graph.edgeHomeButtonOpensNewTab': return new EdgeHomeButtonOpensNewTab();
+            }
+        }
         return new EdgeHomeButtonConfiguration();
     }
 

@@ -130,7 +130,7 @@ class Office365ActiveUserDetail extends Entity implements Parsable
     private ?Date $yammerLicenseAssignDate = null;
     
     /**
-     * Instantiates a new office365ActiveUserDetail and sets the default values.
+     * Instantiates a new Office365ActiveUserDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();

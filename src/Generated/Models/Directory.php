@@ -64,7 +64,7 @@ class Directory extends Entity implements Parsable
     private ?array $sharedEmailDomains = null;
     
     /**
-     * Instantiates a new directory and sets the default values.
+     * Instantiates a new Directory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

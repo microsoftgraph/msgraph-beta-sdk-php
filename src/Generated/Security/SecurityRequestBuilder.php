@@ -22,6 +22,7 @@ use Microsoft\Graph\Beta\Generated\Security\HostSecurityProfiles\Item\HostSecuri
 use Microsoft\Graph\Beta\Generated\Security\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\Item\IpSecurityProfileItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\Item\ProviderTenantSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\ProviderTenantSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScoreControlProfiles\Item\SecureScoreControlProfileItemRequestBuilder;
@@ -34,6 +35,8 @@ use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\Item\SubjectRi
 use Microsoft\Graph\Beta\Generated\Security\SubjectRightsRequests\SubjectRightsRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\Item\TiIndicatorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\TiIndicators\TiIndicatorsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Triggers\TriggersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\TriggerTypes\TriggerTypesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\UserSecurityProfiles\Item\UserSecurityProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\UserSecurityProfiles\UserSecurityProfilesRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -110,6 +113,13 @@ class SecurityRequestBuilder
     }
     
     /**
+     * The labels property
+    */
+    public function labels(): LabelsRequestBuilder {
+        return new LabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * @var array<string, mixed> $pathParameters Path parameters for the request
     */
     private array $pathParameters;
@@ -159,6 +169,20 @@ class SecurityRequestBuilder
     */
     public function tiIndicators(): TiIndicatorsRequestBuilder {
         return new TiIndicatorsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The triggers property
+    */
+    public function triggers(): TriggersRequestBuilder {
+        return new TriggersRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The triggerTypes property
+    */
+    public function triggerTypes(): TriggerTypesRequestBuilder {
+        return new TriggerTypesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

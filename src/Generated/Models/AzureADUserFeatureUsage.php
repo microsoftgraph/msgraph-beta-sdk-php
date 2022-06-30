@@ -45,7 +45,7 @@ class AzureADUserFeatureUsage extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new azureADUserFeatureUsage and sets the default values.
+     * Instantiates a new AzureADUserFeatureUsage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

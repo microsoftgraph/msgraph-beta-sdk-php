@@ -27,6 +27,16 @@ class Win32LobAppDetection implements AdditionalDataHolder, Parsable
      * @return Win32LobAppDetection
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Win32LobAppDetection {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.win32LobAppFileSystemDetection': return new Win32LobAppFileSystemDetection();
+                case '#microsoft.graph.win32LobAppPowerShellScriptDetection': return new Win32LobAppPowerShellScriptDetection();
+                case '#microsoft.graph.win32LobAppProductCodeDetection': return new Win32LobAppProductCodeDetection();
+                case '#microsoft.graph.win32LobAppRegistryDetection': return new Win32LobAppRegistryDetection();
+            }
+        }
         return new Win32LobAppDetection();
     }
 

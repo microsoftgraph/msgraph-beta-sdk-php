@@ -27,6 +27,14 @@ class SubjectRightsRequestSiteLocation implements AdditionalDataHolder, Parsable
      * @return SubjectRightsRequestSiteLocation
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): SubjectRightsRequestSiteLocation {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.subjectRightsRequestAllSiteLocation': return new SubjectRightsRequestAllSiteLocation();
+                case '#microsoft.graph.subjectRightsRequestEnumeratedSiteLocation': return new SubjectRightsRequestEnumeratedSiteLocation();
+            }
+        }
         return new SubjectRightsRequestSiteLocation();
     }
 

@@ -865,7 +865,7 @@ class DeviceManagement extends Entity implements Parsable
     private ?array $zebraFotaDeployments = null;
     
     /**
-     * Instantiates a new deviceManagement and sets the default values.
+     * Instantiates a new DeviceManagement and sets the default values.
     */
     public function __construct() {
         parent::__construct();

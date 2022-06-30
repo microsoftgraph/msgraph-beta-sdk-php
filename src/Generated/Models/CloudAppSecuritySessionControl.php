@@ -14,7 +14,7 @@ class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl imp
     private ?CloudAppSecuritySessionControlType $cloudAppSecurityType = null;
     
     /**
-     * Instantiates a new cloudAppSecuritySessionControl and sets the default values.
+     * Instantiates a new CloudAppSecuritySessionControl and sets the default values.
     */
     public function __construct() {
         parent::__construct();

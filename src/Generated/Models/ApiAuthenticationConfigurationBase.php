@@ -27,6 +27,15 @@ class ApiAuthenticationConfigurationBase implements AdditionalDataHolder, Parsab
      * @return ApiAuthenticationConfigurationBase
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ApiAuthenticationConfigurationBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.basicAuthentication': return new BasicAuthentication();
+                case '#microsoft.graph.clientCertificateAuthentication': return new ClientCertificateAuthentication();
+                case '#microsoft.graph.pkcs12Certificate': return new Pkcs12Certificate();
+            }
+        }
         return new ApiAuthenticationConfigurationBase();
     }
 

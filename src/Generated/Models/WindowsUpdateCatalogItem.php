@@ -25,7 +25,7 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
     private ?DateTime $releaseDateTime = null;
     
     /**
-     * Instantiates a new windowsUpdateCatalogItem and sets the default values.
+     * Instantiates a new WindowsUpdateCatalogItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

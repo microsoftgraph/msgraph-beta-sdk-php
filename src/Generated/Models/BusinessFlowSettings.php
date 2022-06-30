@@ -14,7 +14,7 @@ class BusinessFlowSettings extends AccessReviewSettings implements Parsable
     private ?int $durationInDays = null;
     
     /**
-     * Instantiates a new businessFlowSettings and sets the default values.
+     * Instantiates a new BusinessFlowSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

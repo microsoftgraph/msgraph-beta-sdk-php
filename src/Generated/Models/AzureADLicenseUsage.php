@@ -20,7 +20,7 @@ class AzureADLicenseUsage extends Entity implements Parsable
     private ?DateTime $snapshotDateTime = null;
     
     /**
-     * Instantiates a new azureADLicenseUsage and sets the default values.
+     * Instantiates a new AzureADLicenseUsage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

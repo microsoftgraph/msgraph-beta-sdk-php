@@ -74,7 +74,7 @@ class MailFolder extends Entity implements Parsable
     private ?string $wellKnownName = null;
     
     /**
-     * Instantiates a new mailFolder and sets the default values.
+     * Instantiates a new MailFolder and sets the default values.
     */
     public function __construct() {
         parent::__construct();

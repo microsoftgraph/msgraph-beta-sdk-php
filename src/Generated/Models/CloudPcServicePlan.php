@@ -39,7 +39,7 @@ class CloudPcServicePlan extends Entity implements Parsable
     private ?int $vCpuCount = null;
     
     /**
-     * Instantiates a new cloudPcServicePlan and sets the default values.
+     * Instantiates a new CloudPcServicePlan and sets the default values.
     */
     public function __construct() {
         parent::__construct();

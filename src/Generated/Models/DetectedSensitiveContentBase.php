@@ -52,6 +52,14 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * @return DetectedSensitiveContentBase
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DetectedSensitiveContentBase {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.detectedSensitiveContent': return new DetectedSensitiveContent();
+                case '#microsoft.graph.exactMatchDetectedSensitiveContent': return new ExactMatchDetectedSensitiveContent();
+            }
+        }
         return new DetectedSensitiveContentBase();
     }
 

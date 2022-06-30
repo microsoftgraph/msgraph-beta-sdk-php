@@ -27,6 +27,16 @@ class IpRange implements AdditionalDataHolder, Parsable
      * @return IpRange
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): IpRange {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.iPv4CidrRange': return new IPv4CidrRange();
+                case '#microsoft.graph.iPv4Range': return new IPv4Range();
+                case '#microsoft.graph.iPv6CidrRange': return new IPv6CidrRange();
+                case '#microsoft.graph.iPv6Range': return new IPv6Range();
+            }
+        }
         return new IpRange();
     }
 

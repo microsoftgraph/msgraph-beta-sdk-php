@@ -70,7 +70,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     private ?DateTime $processedDateTime = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsAppHealthDevicePerformance and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsAppHealthDevicePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

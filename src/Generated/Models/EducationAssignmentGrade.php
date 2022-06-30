@@ -38,6 +38,13 @@ class EducationAssignmentGrade implements AdditionalDataHolder, Parsable
      * @return EducationAssignmentGrade
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationAssignmentGrade {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.educationAssignmentPointsGrade': return new EducationAssignmentPointsGrade();
+            }
+        }
         return new EducationAssignmentGrade();
     }
 

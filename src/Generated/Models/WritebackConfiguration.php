@@ -32,6 +32,13 @@ class WritebackConfiguration implements AdditionalDataHolder, Parsable
      * @return WritebackConfiguration
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): WritebackConfiguration {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.groupWritebackConfiguration': return new GroupWritebackConfiguration();
+            }
+        }
         return new WritebackConfiguration();
     }
 

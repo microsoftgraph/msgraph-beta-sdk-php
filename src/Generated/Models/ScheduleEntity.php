@@ -43,6 +43,14 @@ class ScheduleEntity implements AdditionalDataHolder, Parsable
      * @return ScheduleEntity
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ScheduleEntity {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.shiftItem': return new ShiftItem();
+                case '#microsoft.graph.timeOffItem': return new TimeOffItem();
+            }
+        }
         return new ScheduleEntity();
     }
 

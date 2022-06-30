@@ -27,6 +27,13 @@ class AccessPackageResourceAttributeDestination implements AdditionalDataHolder,
      * @return AccessPackageResourceAttributeDestination
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceAttributeDestination {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.accessPackageUserDirectoryAttributeStore': return new AccessPackageUserDirectoryAttributeStore();
+            }
+        }
         return new AccessPackageResourceAttributeDestination();
     }
 

@@ -14,7 +14,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * Instantiates a new cloudPcSupportedRegion and sets the default values.
+     * Instantiates a new CloudPcSupportedRegion and sets the default values.
     */
     public function __construct() {
         parent::__construct();

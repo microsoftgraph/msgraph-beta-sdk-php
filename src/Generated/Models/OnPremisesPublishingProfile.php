@@ -44,7 +44,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     private ?array $publishedResources = null;
     
     /**
-     * Instantiates a new onPremisesPublishingProfile and sets the default values.
+     * Instantiates a new OnPremisesPublishingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

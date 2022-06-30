@@ -15,12 +15,12 @@ class Identity implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $displayName The display name of the identity. This property is read-only.
+     * @var string|null $displayName The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
     */
     private ?string $displayName = null;
     
     /**
-     * @var string|null $id The identifier of the identity. This property is read-only.
+     * @var string|null $id Unique identifier for the identity.
     */
     private ?string $id = null;
     
@@ -37,6 +37,32 @@ class Identity implements AdditionalDataHolder, Parsable
      * @return Identity
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Identity {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.azureCommunicationServicesUserIdentity': return new AzureCommunicationServicesUserIdentity();
+                case '#microsoft.graph.communicationsApplicationIdentity': return new CommunicationsApplicationIdentity();
+                case '#microsoft.graph.communicationsApplicationInstanceIdentity': return new CommunicationsApplicationInstanceIdentity();
+                case '#microsoft.graph.communicationsEncryptedIdentity': return new CommunicationsEncryptedIdentity();
+                case '#microsoft.graph.communicationsGuestIdentity': return new CommunicationsGuestIdentity();
+                case '#microsoft.graph.communicationsPhoneIdentity': return new CommunicationsPhoneIdentity();
+                case '#microsoft.graph.communicationsUserIdentity': return new CommunicationsUserIdentity();
+                case '#microsoft.graph.emailIdentity': return new EmailIdentity();
+                case '#microsoft.graph.initiator': return new Initiator();
+                case '#microsoft.graph.programResource': return new ProgramResource();
+                case '#microsoft.graph.provisionedIdentity': return new ProvisionedIdentity();
+                case '#microsoft.graph.provisioningServicePrincipal': return new ProvisioningServicePrincipal();
+                case '#microsoft.graph.provisioningSystem': return new ProvisioningSystem();
+                case '#microsoft.graph.servicePrincipalIdentity': return new ServicePrincipalIdentity();
+                case '#microsoft.graph.sharePointIdentity': return new SharePointIdentity();
+                case '#microsoft.graph.teamworkApplicationIdentity': return new TeamworkApplicationIdentity();
+                case '#microsoft.graph.teamworkConversationIdentity': return new TeamworkConversationIdentity();
+                case '#microsoft.graph.teamworkTagIdentity': return new TeamworkTagIdentity();
+                case '#microsoft.graph.teamworkUserIdentity': return new TeamworkUserIdentity();
+                case '#microsoft.graph.userIdentity': return new UserIdentity();
+            }
+        }
         return new Identity();
     }
 
@@ -49,7 +75,7 @@ class Identity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name of the identity. This property is read-only.
+     * Gets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -69,7 +95,7 @@ class Identity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the id property value. The identifier of the identity. This property is read-only.
+     * Gets the id property value. Unique identifier for the identity.
      * @return string|null
     */
     public function getId(): ?string {
@@ -95,7 +121,7 @@ class Identity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name of the identity. This property is read-only.
+     * Sets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -103,7 +129,7 @@ class Identity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the id property value. The identifier of the identity. This property is read-only.
+     * Sets the id property value. Unique identifier for the identity.
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {

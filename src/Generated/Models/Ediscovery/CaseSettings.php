@@ -25,7 +25,7 @@ class CaseSettings extends Entity implements Parsable
     private ?TopicModelingSettings $topicModeling = null;
     
     /**
-     * Instantiates a new caseSettings and sets the default values.
+     * Instantiates a new CaseSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

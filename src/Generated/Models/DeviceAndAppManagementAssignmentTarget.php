@@ -37,6 +37,16 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
      * @return DeviceAndAppManagementAssignmentTarget
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceAndAppManagementAssignmentTarget {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.allDevicesAssignmentTarget': return new AllDevicesAssignmentTarget();
+                case '#microsoft.graph.allLicensedUsersAssignmentTarget': return new AllLicensedUsersAssignmentTarget();
+                case '#microsoft.graph.configurationManagerCollectionAssignmentTarget': return new ConfigurationManagerCollectionAssignmentTarget();
+                case '#microsoft.graph.groupAssignmentTarget': return new GroupAssignmentTarget();
+            }
+        }
         return new DeviceAndAppManagementAssignmentTarget();
     }
 

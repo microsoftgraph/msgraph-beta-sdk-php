@@ -27,6 +27,14 @@ class EducationIdentitySynchronizationConfiguration implements AdditionalDataHol
      * @return EducationIdentitySynchronizationConfiguration
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationIdentitySynchronizationConfiguration {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.educationIdentityCreationConfiguration': return new EducationIdentityCreationConfiguration();
+                case '#microsoft.graph.educationIdentityMatchingConfiguration': return new EducationIdentityMatchingConfiguration();
+            }
+        }
         return new EducationIdentitySynchronizationConfiguration();
     }
 

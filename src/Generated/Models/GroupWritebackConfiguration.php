@@ -14,7 +14,7 @@ class GroupWritebackConfiguration extends WritebackConfiguration implements Pars
     private ?string $onPremisesGroupType = null;
     
     /**
-     * Instantiates a new groupWritebackConfiguration and sets the default values.
+     * Instantiates a new GroupWritebackConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -39,7 +39,7 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
     private ?array $users = null;
     
     /**
-     * Instantiates a new continuousAccessEvaluationPolicy and sets the default values.
+     * Instantiates a new ContinuousAccessEvaluationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

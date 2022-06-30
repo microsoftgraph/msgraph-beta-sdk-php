@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerKioskModeFolderItem extends AndroidDeviceOwnerKioskModeHomeScreenItem implements Parsable 
 {
     /**
-     * Instantiates a new androidDeviceOwnerKioskModeFolderItem and sets the default values.
+     * Instantiates a new AndroidDeviceOwnerKioskModeFolderItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -21,6 +21,14 @@ class AndroidDeviceOwnerKioskModeFolderItem extends AndroidDeviceOwnerKioskModeH
      * @return AndroidDeviceOwnerKioskModeFolderItem
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidDeviceOwnerKioskModeFolderItem {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.androidDeviceOwnerKioskModeApp': return new AndroidDeviceOwnerKioskModeApp();
+                case '#microsoft.graph.androidDeviceOwnerKioskModeWeblink': return new AndroidDeviceOwnerKioskModeWeblink();
+            }
+        }
         return new AndroidDeviceOwnerKioskModeFolderItem();
     }
 

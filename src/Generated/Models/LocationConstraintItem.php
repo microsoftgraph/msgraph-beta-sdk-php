@@ -14,7 +14,7 @@ class LocationConstraintItem extends Location implements Parsable
     private ?bool $resolveAvailability = null;
     
     /**
-     * Instantiates a new locationConstraintItem and sets the default values.
+     * Instantiates a new LocationConstraintItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();

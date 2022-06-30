@@ -27,6 +27,13 @@ class AccessReviewRecommendationInsightSetting implements AdditionalDataHolder, 
      * @return AccessReviewRecommendationInsightSetting
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessReviewRecommendationInsightSetting {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.userLastSignInRecommendationInsightSetting': return new UserLastSignInRecommendationInsightSetting();
+            }
+        }
         return new AccessReviewRecommendationInsightSetting();
     }
 

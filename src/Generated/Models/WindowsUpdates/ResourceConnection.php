@@ -15,7 +15,7 @@ class ResourceConnection extends Entity implements Parsable
     private ?ResourceConnectionState $state = null;
     
     /**
-     * Instantiates a new resourceConnection and sets the default values.
+     * Instantiates a new ResourceConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -27,6 +27,14 @@ class AndroidDeviceOwnerGlobalProxy implements AdditionalDataHolder, Parsable
      * @return AndroidDeviceOwnerGlobalProxy
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidDeviceOwnerGlobalProxy {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.androidDeviceOwnerGlobalProxyAutoConfig': return new AndroidDeviceOwnerGlobalProxyAutoConfig();
+                case '#microsoft.graph.androidDeviceOwnerGlobalProxyDirect': return new AndroidDeviceOwnerGlobalProxyDirect();
+            }
+        }
         return new AndroidDeviceOwnerGlobalProxy();
     }
 

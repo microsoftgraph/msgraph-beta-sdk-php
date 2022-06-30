@@ -84,7 +84,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     private ?CloudPcWindowsSettings $windowsSettings = null;
     
     /**
-     * Instantiates a new cloudPcProvisioningPolicy and sets the default values.
+     * Instantiates a new CloudPcProvisioningPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

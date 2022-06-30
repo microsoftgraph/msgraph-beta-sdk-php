@@ -37,6 +37,14 @@ class UserAgent implements AdditionalDataHolder, Parsable
      * @return UserAgent
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): UserAgent {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.callRecords.clientUserAgent': return new ClientUserAgent();
+                case '#microsoft.graph.callRecords.serviceUserAgent': return new ServiceUserAgent();
+            }
+        }
         return new UserAgent();
     }
 

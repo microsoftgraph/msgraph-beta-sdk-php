@@ -35,7 +35,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
     private ?int $siteStorageUsedInBytes = null;
     
     /**
-     * Instantiates a new office365GroupsActivityStorage and sets the default values.
+     * Instantiates a new Office365GroupsActivityStorage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

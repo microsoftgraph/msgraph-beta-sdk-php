@@ -70,7 +70,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     private ?array $targetGroupIds = null;
     
     /**
-     * Instantiates a new androidManagedStoreAccountEnterpriseSettings and sets the default values.
+     * Instantiates a new AndroidManagedStoreAccountEnterpriseSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

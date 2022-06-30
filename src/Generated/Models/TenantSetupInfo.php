@@ -39,7 +39,7 @@ class TenantSetupInfo extends Entity implements Parsable
     private ?string $userRolesActions = null;
     
     /**
-     * Instantiates a new tenantSetupInfo and sets the default values.
+     * Instantiates a new TenantSetupInfo and sets the default values.
     */
     public function __construct() {
         parent::__construct();

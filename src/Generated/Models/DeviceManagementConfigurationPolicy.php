@@ -75,7 +75,7 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
     private ?DeviceManagementConfigurationPolicyTemplateReference $templateReference = null;
     
     /**
-     * Instantiates a new deviceManagementConfigurationPolicy and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

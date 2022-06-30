@@ -30,7 +30,7 @@ class CloudPcSnapshot extends Entity implements Parsable
     private ?CloudPcSnapshotStatus $status = null;
     
     /**
-     * Instantiates a new cloudPcSnapshot and sets the default values.
+     * Instantiates a new CloudPcSnapshot and sets the default values.
     */
     public function __construct() {
         parent::__construct();

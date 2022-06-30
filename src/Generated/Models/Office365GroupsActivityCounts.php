@@ -45,7 +45,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
     private ?int $yammerMessagesRead = null;
     
     /**
-     * Instantiates a new office365GroupsActivityCounts and sets the default values.
+     * Instantiates a new Office365GroupsActivityCounts and sets the default values.
     */
     public function __construct() {
         parent::__construct();

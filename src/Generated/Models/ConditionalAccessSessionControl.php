@@ -32,6 +32,16 @@ class ConditionalAccessSessionControl implements AdditionalDataHolder, Parsable
      * @return ConditionalAccessSessionControl
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ConditionalAccessSessionControl {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.applicationEnforcedRestrictionsSessionControl': return new ApplicationEnforcedRestrictionsSessionControl();
+                case '#microsoft.graph.cloudAppSecuritySessionControl': return new CloudAppSecuritySessionControl();
+                case '#microsoft.graph.persistentBrowserSessionControl': return new PersistentBrowserSessionControl();
+                case '#microsoft.graph.signInFrequencySessionControl': return new SignInFrequencySessionControl();
+            }
+        }
         return new ConditionalAccessSessionControl();
     }
 

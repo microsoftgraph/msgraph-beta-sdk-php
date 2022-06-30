@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
     /**
-     * Instantiates a new iosSingleSignOnExtension and sets the default values.
+     * Instantiates a new IosSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -21,6 +21,16 @@ class IosSingleSignOnExtension extends SingleSignOnExtension implements Parsable
      * @return IosSingleSignOnExtension
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): IosSingleSignOnExtension {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.iosAzureAdSingleSignOnExtension': return new IosAzureAdSingleSignOnExtension();
+                case '#microsoft.graph.iosCredentialSingleSignOnExtension': return new IosCredentialSingleSignOnExtension();
+                case '#microsoft.graph.iosKerberosSingleSignOnExtension': return new IosKerberosSingleSignOnExtension();
+                case '#microsoft.graph.iosRedirectSingleSignOnExtension': return new IosRedirectSingleSignOnExtension();
+            }
+        }
         return new IosSingleSignOnExtension();
     }
 

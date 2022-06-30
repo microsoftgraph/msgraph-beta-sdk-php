@@ -64,12 +64,17 @@ class ReportRoot extends Entity implements Parsable
     private ?array $monthlyPrintUsageSummariesByUser = null;
     
     /**
+     * @var SecurityReportsRoot|null $security The security property
+    */
+    private ?SecurityReportsRoot $security = null;
+    
+    /**
      * @var array<UserCredentialUsageDetails>|null $userCredentialUsageDetails Represents the self-service password reset (SSPR) usage for a given tenant.
     */
     private ?array $userCredentialUsageDetails = null;
     
     /**
-     * Instantiates a new reportRoot and sets the default values.
+     * Instantiates a new ReportRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -158,6 +163,7 @@ class ReportRoot extends Entity implements Parsable
             'monthlyPrintUsageByUser' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
             'monthlyPrintUsageSummariesByPrinter' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues(array(PrintUsageByPrinter::class, 'createFromDiscriminatorValue'))); },
             'monthlyPrintUsageSummariesByUser' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageSummariesByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
+            'security' => function (ParseNode $n) use ($o) { $o->setSecurity($n->getObjectValue(array(SecurityReportsRoot::class, 'createFromDiscriminatorValue'))); },
             'userCredentialUsageDetails' => function (ParseNode $n) use ($o) { $o->setUserCredentialUsageDetails($n->getCollectionOfObjectValues(array(UserCredentialUsageDetails::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
@@ -195,6 +201,14 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the security property value. The security property
+     * @return SecurityReportsRoot|null
+    */
+    public function getSecurity(): ?SecurityReportsRoot {
+        return $this->security;
+    }
+
+    /**
      * Gets the userCredentialUsageDetails property value. Represents the self-service password reset (SSPR) usage for a given tenant.
      * @return array<UserCredentialUsageDetails>|null
     */
@@ -219,6 +233,7 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageByUser', $this->monthlyPrintUsageByUser);
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByPrinter', $this->monthlyPrintUsageSummariesByPrinter);
         $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByUser', $this->monthlyPrintUsageSummariesByUser);
+        $writer->writeObjectValue('security', $this->security);
         $writer->writeCollectionOfObjectValues('userCredentialUsageDetails', $this->userCredentialUsageDetails);
     }
 
@@ -308,6 +323,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setMonthlyPrintUsageSummariesByUser(?array $value ): void {
         $this->monthlyPrintUsageSummariesByUser = $value;
+    }
+
+    /**
+     * Sets the security property value. The security property
+     *  @param SecurityReportsRoot|null $value Value to set for the security property.
+    */
+    public function setSecurity(?SecurityReportsRoot $value ): void {
+        $this->security = $value;
     }
 
     /**

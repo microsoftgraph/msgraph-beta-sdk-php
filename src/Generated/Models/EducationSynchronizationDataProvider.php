@@ -27,6 +27,15 @@ class EducationSynchronizationDataProvider implements AdditionalDataHolder, Pars
      * @return EducationSynchronizationDataProvider
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): EducationSynchronizationDataProvider {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.educationCsvDataProvider': return new EducationCsvDataProvider();
+                case '#microsoft.graph.educationOneRosterApiDataProvider': return new EducationOneRosterApiDataProvider();
+                case '#microsoft.graph.educationPowerSchoolDataProvider': return new EducationPowerSchoolDataProvider();
+            }
+        }
         return new EducationSynchronizationDataProvider();
     }
 

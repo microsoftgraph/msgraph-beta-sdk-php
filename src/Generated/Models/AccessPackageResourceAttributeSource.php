@@ -27,6 +27,13 @@ class AccessPackageResourceAttributeSource implements AdditionalDataHolder, Pars
      * @return AccessPackageResourceAttributeSource
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AccessPackageResourceAttributeSource {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.accessPackageResourceAttributeQuestion': return new AccessPackageResourceAttributeQuestion();
+            }
+        }
         return new AccessPackageResourceAttributeSource();
     }
 

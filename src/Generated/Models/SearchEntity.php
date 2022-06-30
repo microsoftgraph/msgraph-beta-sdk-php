@@ -27,7 +27,7 @@ class SearchEntity extends Entity implements Parsable
     private ?array $qnas = null;
     
     /**
-     * Instantiates a new searchEntity and sets the default values.
+     * Instantiates a new SearchEntity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

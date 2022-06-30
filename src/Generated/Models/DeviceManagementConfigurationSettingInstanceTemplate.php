@@ -42,6 +42,18 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
      * @return DeviceManagementConfigurationSettingInstanceTemplate
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceManagementConfigurationSettingInstanceTemplate {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionInstanceTemplate': return new DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate();
+                case '#microsoft.graph.deviceManagementConfigurationChoiceSettingInstanceTemplate': return new DeviceManagementConfigurationChoiceSettingInstanceTemplate();
+                case '#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstanceTemplate': return new DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate();
+                case '#microsoft.graph.deviceManagementConfigurationGroupSettingInstanceTemplate': return new DeviceManagementConfigurationGroupSettingInstanceTemplate();
+                case '#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstanceTemplate': return new DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate();
+                case '#microsoft.graph.deviceManagementConfigurationSimpleSettingInstanceTemplate': return new DeviceManagementConfigurationSimpleSettingInstanceTemplate();
+            }
+        }
         return new DeviceManagementConfigurationSettingInstanceTemplate();
     }
 

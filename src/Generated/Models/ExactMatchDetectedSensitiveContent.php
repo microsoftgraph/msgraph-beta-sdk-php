@@ -14,7 +14,7 @@ class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase im
     private ?array $matches = null;
     
     /**
-     * Instantiates a new exactMatchDetectedSensitiveContent and sets the default values.
+     * Instantiates a new ExactMatchDetectedSensitiveContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -42,6 +42,13 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
      * @return DeploymentSettings
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeploymentSettings {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.windowsUpdates.windowsDeploymentSettings': return new WindowsDeploymentSettings();
+            }
+        }
         return new DeploymentSettings();
     }
 

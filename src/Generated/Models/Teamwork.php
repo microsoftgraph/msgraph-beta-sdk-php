@@ -29,7 +29,7 @@ class Teamwork extends Entity implements Parsable
     private ?array $workforceIntegrations = null;
     
     /**
-     * Instantiates a new teamwork and sets the default values.
+     * Instantiates a new Teamwork and sets the default values.
     */
     public function __construct() {
         parent::__construct();

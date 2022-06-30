@@ -32,6 +32,14 @@ class Endpoint implements AdditionalDataHolder, Parsable
      * @return Endpoint
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Endpoint {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.callRecords.participantEndpoint': return new ParticipantEndpoint();
+                case '#microsoft.graph.callRecords.serviceEndpoint': return new ServiceEndpoint();
+            }
+        }
         return new Endpoint();
     }
 

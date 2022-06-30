@@ -67,6 +67,13 @@ class Location implements AdditionalDataHolder, Parsable
      * @return Location
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): Location {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.locationConstraintItem': return new LocationConstraintItem();
+            }
+        }
         return new Location();
     }
 

@@ -24,7 +24,7 @@ class LicenseDetails extends Entity implements Parsable
     private ?string $skuPartNumber = null;
     
     /**
-     * Instantiates a new licenseDetails and sets the default values.
+     * Instantiates a new LicenseDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();

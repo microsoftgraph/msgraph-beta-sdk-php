@@ -32,6 +32,14 @@ class DeviceHealthScriptRunSchedule implements AdditionalDataHolder, Parsable
      * @return DeviceHealthScriptRunSchedule
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): DeviceHealthScriptRunSchedule {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.deviceHealthScriptHourlySchedule': return new DeviceHealthScriptHourlySchedule();
+                case '#microsoft.graph.deviceHealthScriptTimeSchedule': return new DeviceHealthScriptTimeSchedule();
+            }
+        }
         return new DeviceHealthScriptRunSchedule();
     }
 

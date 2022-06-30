@@ -27,6 +27,17 @@ class SingleSignOnExtension implements AdditionalDataHolder, Parsable
      * @return SingleSignOnExtension
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): SingleSignOnExtension {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.credentialSingleSignOnExtension': return new CredentialSingleSignOnExtension();
+                case '#microsoft.graph.iosSingleSignOnExtension': return new IosSingleSignOnExtension();
+                case '#microsoft.graph.kerberosSingleSignOnExtension': return new KerberosSingleSignOnExtension();
+                case '#microsoft.graph.macOSSingleSignOnExtension': return new MacOSSingleSignOnExtension();
+                case '#microsoft.graph.redirectSingleSignOnExtension': return new RedirectSingleSignOnExtension();
+            }
+        }
         return new SingleSignOnExtension();
     }
 

@@ -14,7 +14,7 @@ class Windows10VpnProxyServer extends VpnProxyServer implements Parsable
     private ?bool $bypassProxyServerForLocalAddress = null;
     
     /**
-     * Instantiates a new windows10VpnProxyServer and sets the default values.
+     * Instantiates a new Windows10VpnProxyServer and sets the default values.
     */
     public function __construct() {
         parent::__construct();
