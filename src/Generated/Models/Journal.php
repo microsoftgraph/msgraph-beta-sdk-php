@@ -45,7 +45,7 @@ class Journal extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * Instantiates a new Journal and sets the default values.
+     * Instantiates a new journal and sets the default values.
     */
     public function __construct() {
         parent::__construct();

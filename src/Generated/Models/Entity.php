@@ -159,6 +159,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.cloudPcAuditEvent': return new CloudPcAuditEvent();
                 case '#microsoft.graph.cloudPCConnectivityIssue': return new CloudPCConnectivityIssue();
                 case '#microsoft.graph.cloudPcDeviceImage': return new CloudPcDeviceImage();
+                case '#microsoft.graph.cloudPcExternalPartnerSetting': return new CloudPcExternalPartnerSetting();
                 case '#microsoft.graph.cloudPcGalleryImage': return new CloudPcGalleryImage();
                 case '#microsoft.graph.cloudPcOnPremisesConnection': return new CloudPcOnPremisesConnection();
                 case '#microsoft.graph.cloudPcOrganizationSettings': return new CloudPcOrganizationSettings();
@@ -642,6 +643,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.secureScore': return new SecureScore();
                 case '#microsoft.graph.secureScoreControlProfile': return new SecureScoreControlProfile();
                 case '#microsoft.graph.security': return new Security();
+                case '#microsoft.graph.security.alert': return new Alert();
                 case '#microsoft.graph.security.case': return new EscapedCase();
                 case '#microsoft.graph.security.caseOperation': return new CaseOperation();
                 case '#microsoft.graph.security.casesRoot': return new CasesRoot();
@@ -651,6 +653,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.security.dispositionReviewStage': return new DispositionReviewStage();
                 case '#microsoft.graph.security.ediscoveryCaseSettings': return new EdiscoveryCaseSettings();
                 case '#microsoft.graph.security.file': return new File();
+                case '#microsoft.graph.security.incident': return new Incident();
                 case '#microsoft.graph.security.informationProtection': return new InformationProtection();
                 case '#microsoft.graph.security.informationProtectionPolicySetting': return new InformationProtectionPolicySetting();
                 case '#microsoft.graph.security.labelsRoot': return new LabelsRoot();

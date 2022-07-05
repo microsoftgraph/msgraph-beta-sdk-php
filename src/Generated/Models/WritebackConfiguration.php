@@ -15,7 +15,7 @@ class WritebackConfiguration implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var bool|null $isEnabled The isEnabled property
+     * @var bool|null $isEnabled Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
     */
     private ?bool $isEnabled = null;
     
@@ -62,7 +62,7 @@ class WritebackConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -87,7 +87,7 @@ class WritebackConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value ): void {

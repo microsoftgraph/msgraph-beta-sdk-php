@@ -20,7 +20,7 @@ class ExactMatchUploadAgent extends Entity implements Parsable
     private ?string $description = null;
     
     /**
-     * Instantiates a new ExactMatchUploadAgent and sets the default values.
+     * Instantiates a new exactMatchUploadAgent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -30,7 +30,7 @@ class TaxGroup extends Entity implements Parsable
     private ?string $taxType = null;
     
     /**
-     * Instantiates a new taxGroup and sets the default values.
+     * Instantiates a new TaxGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
