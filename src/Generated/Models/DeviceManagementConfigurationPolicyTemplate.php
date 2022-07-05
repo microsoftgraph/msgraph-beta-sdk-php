@@ -69,7 +69,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     private ?int $version = null;
     
     /**
-     * Instantiates a new DeviceManagementConfigurationPolicyTemplate and sets the default values.
+     * Instantiates a new deviceManagementConfigurationPolicyTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

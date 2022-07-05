@@ -44,7 +44,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
     private ?int $unknownUserCount = null;
     
     /**
-     * Instantiates a new DeviceConfigurationUserStateSummary and sets the default values.
+     * Instantiates a new deviceConfigurationUserStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

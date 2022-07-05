@@ -72,7 +72,7 @@ class CompanyInformation extends Entity implements Parsable
     private ?string $website = null;
     
     /**
-     * Instantiates a new companyInformation and sets the default values.
+     * Instantiates a new CompanyInformation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

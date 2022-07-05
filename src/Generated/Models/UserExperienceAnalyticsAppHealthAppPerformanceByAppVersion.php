@@ -44,7 +44,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion extends Entity 
     private ?int $meanTimeToFailureInMinutes = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByAppVersion and sets the default values.
     */
     public function __construct() {
         parent::__construct();

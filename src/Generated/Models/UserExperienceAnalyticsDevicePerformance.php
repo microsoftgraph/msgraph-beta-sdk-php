@@ -109,7 +109,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
     private ?float $startupPerformanceScore = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsDevicePerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDevicePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

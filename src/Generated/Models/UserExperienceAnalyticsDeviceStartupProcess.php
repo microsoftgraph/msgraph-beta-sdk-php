@@ -34,7 +34,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
     private ?int $startupImpactInMs = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceStartupProcess and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceStartupProcess and sets the default values.
     */
     public function __construct() {
         parent::__construct();

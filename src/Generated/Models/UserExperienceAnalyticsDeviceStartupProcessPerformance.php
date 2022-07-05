@@ -49,7 +49,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     private ?int $totalImpactInMs2 = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceStartupProcessPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceStartupProcessPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

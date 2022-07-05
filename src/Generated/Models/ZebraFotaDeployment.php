@@ -34,7 +34,7 @@ class ZebraFotaDeployment extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * Instantiates a new ZebraFotaDeployment and sets the default values.
+     * Instantiates a new zebraFotaDeployment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -32,7 +32,7 @@ class ReviewSet extends Entity implements Parsable
     private ?array $queries = null;
     
     /**
-     * Instantiates a new reviewSet and sets the default values.
+     * Instantiates a new ReviewSet and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -14,7 +14,7 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Pa
     private ?array $metricDevices = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereMetric and sets the default values.
+     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

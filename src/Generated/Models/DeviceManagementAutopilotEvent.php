@@ -146,7 +146,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     private ?string $windowsAutopilotDeploymentProfileDisplayName = null;
     
     /**
-     * Instantiates a new DeviceManagementAutopilotEvent and sets the default values.
+     * Instantiates a new deviceManagementAutopilotEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

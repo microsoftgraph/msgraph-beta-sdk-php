@@ -400,7 +400,7 @@ class Group extends DirectoryObject implements Parsable
     private ?string $visibility = null;
     
     /**
-     * @var GroupWritebackConfiguration|null $writebackConfiguration The writebackConfiguration property
+     * @var GroupWritebackConfiguration|null $writebackConfiguration Specifies whether or not a group is configured to write back group object properties to on-premise Active Directory. These properties are used when group writeback is configured in the Azure AD Connect sync client.
     */
     private ?GroupWritebackConfiguration $writebackConfiguration = null;
     
@@ -1134,7 +1134,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the writebackConfiguration property value. The writebackConfiguration property
+     * Gets the writebackConfiguration property value. Specifies whether or not a group is configured to write back group object properties to on-premise Active Directory. These properties are used when group writeback is configured in the Azure AD Connect sync client.
      * @return GroupWritebackConfiguration|null
     */
     public function getWritebackConfiguration(): ?GroupWritebackConfiguration {
@@ -1853,7 +1853,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the writebackConfiguration property value. The writebackConfiguration property
+     * Sets the writebackConfiguration property value. Specifies whether or not a group is configured to write back group object properties to on-premise Active Directory. These properties are used when group writeback is configured in the Azure AD Connect sync client.
      *  @param GroupWritebackConfiguration|null $value Value to set for the writebackConfiguration property.
     */
     public function setWritebackConfiguration(?GroupWritebackConfiguration $value ): void {

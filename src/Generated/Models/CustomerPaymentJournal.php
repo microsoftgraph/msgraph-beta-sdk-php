@@ -45,7 +45,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * Instantiates a new customerPaymentJournal and sets the default values.
+     * Instantiates a new CustomerPaymentJournal and sets the default values.
     */
     public function __construct() {
         parent::__construct();

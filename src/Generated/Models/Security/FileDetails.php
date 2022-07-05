@@ -1,0 +1,251 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models\Security;
+
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class FileDetails implements AdditionalDataHolder, Parsable 
+{
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
+    /**
+     * @var string|null $fileName The fileName property
+    */
+    private ?string $fileName = null;
+    
+    /**
+     * @var string|null $filePath The filePath property
+    */
+    private ?string $filePath = null;
+    
+    /**
+     * @var string|null $filePublisher The filePublisher property
+    */
+    private ?string $filePublisher = null;
+    
+    /**
+     * @var int|null $fileSize The fileSize property
+    */
+    private ?int $fileSize = null;
+    
+    /**
+     * @var string|null $issuer The issuer property
+    */
+    private ?string $issuer = null;
+    
+    /**
+     * @var string|null $sha1 The sha1 property
+    */
+    private ?string $sha1 = null;
+    
+    /**
+     * @var string|null $sha256 The sha256 property
+    */
+    private ?string $sha256 = null;
+    
+    /**
+     * @var string|null $signer The signer property
+    */
+    private ?string $signer = null;
+    
+    /**
+     * Instantiates a new fileDetails and sets the default values.
+    */
+    public function __construct() {
+        $this->additionalData = [];
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return FileDetails
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): FileDetails {
+        return new FileDetails();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return  [
+            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
+            'filePath' => function (ParseNode $n) use ($o) { $o->setFilePath($n->getStringValue()); },
+            'filePublisher' => function (ParseNode $n) use ($o) { $o->setFilePublisher($n->getStringValue()); },
+            'fileSize' => function (ParseNode $n) use ($o) { $o->setFileSize($n->getIntegerValue()); },
+            'issuer' => function (ParseNode $n) use ($o) { $o->setIssuer($n->getStringValue()); },
+            'sha1' => function (ParseNode $n) use ($o) { $o->setSha1($n->getStringValue()); },
+            'sha256' => function (ParseNode $n) use ($o) { $o->setSha256($n->getStringValue()); },
+            'signer' => function (ParseNode $n) use ($o) { $o->setSigner($n->getStringValue()); },
+        ];
+    }
+
+    /**
+     * Gets the fileName property value. The fileName property
+     * @return string|null
+    */
+    public function getFileName(): ?string {
+        return $this->fileName;
+    }
+
+    /**
+     * Gets the filePath property value. The filePath property
+     * @return string|null
+    */
+    public function getFilePath(): ?string {
+        return $this->filePath;
+    }
+
+    /**
+     * Gets the filePublisher property value. The filePublisher property
+     * @return string|null
+    */
+    public function getFilePublisher(): ?string {
+        return $this->filePublisher;
+    }
+
+    /**
+     * Gets the fileSize property value. The fileSize property
+     * @return int|null
+    */
+    public function getFileSize(): ?int {
+        return $this->fileSize;
+    }
+
+    /**
+     * Gets the issuer property value. The issuer property
+     * @return string|null
+    */
+    public function getIssuer(): ?string {
+        return $this->issuer;
+    }
+
+    /**
+     * Gets the sha1 property value. The sha1 property
+     * @return string|null
+    */
+    public function getSha1(): ?string {
+        return $this->sha1;
+    }
+
+    /**
+     * Gets the sha256 property value. The sha256 property
+     * @return string|null
+    */
+    public function getSha256(): ?string {
+        return $this->sha256;
+    }
+
+    /**
+     * Gets the signer property value. The signer property
+     * @return string|null
+    */
+    public function getSigner(): ?string {
+        return $this->signer;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('fileName', $this->fileName);
+        $writer->writeStringValue('filePath', $this->filePath);
+        $writer->writeStringValue('filePublisher', $this->filePublisher);
+        $writer->writeIntegerValue('fileSize', $this->fileSize);
+        $writer->writeStringValue('issuer', $this->issuer);
+        $writer->writeStringValue('sha1', $this->sha1);
+        $writer->writeStringValue('sha256', $this->sha256);
+        $writer->writeStringValue('signer', $this->signer);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the fileName property value. The fileName property
+     *  @param string|null $value Value to set for the fileName property.
+    */
+    public function setFileName(?string $value ): void {
+        $this->fileName = $value;
+    }
+
+    /**
+     * Sets the filePath property value. The filePath property
+     *  @param string|null $value Value to set for the filePath property.
+    */
+    public function setFilePath(?string $value ): void {
+        $this->filePath = $value;
+    }
+
+    /**
+     * Sets the filePublisher property value. The filePublisher property
+     *  @param string|null $value Value to set for the filePublisher property.
+    */
+    public function setFilePublisher(?string $value ): void {
+        $this->filePublisher = $value;
+    }
+
+    /**
+     * Sets the fileSize property value. The fileSize property
+     *  @param int|null $value Value to set for the fileSize property.
+    */
+    public function setFileSize(?int $value ): void {
+        $this->fileSize = $value;
+    }
+
+    /**
+     * Sets the issuer property value. The issuer property
+     *  @param string|null $value Value to set for the issuer property.
+    */
+    public function setIssuer(?string $value ): void {
+        $this->issuer = $value;
+    }
+
+    /**
+     * Sets the sha1 property value. The sha1 property
+     *  @param string|null $value Value to set for the sha1 property.
+    */
+    public function setSha1(?string $value ): void {
+        $this->sha1 = $value;
+    }
+
+    /**
+     * Sets the sha256 property value. The sha256 property
+     *  @param string|null $value Value to set for the sha256 property.
+    */
+    public function setSha256(?string $value ): void {
+        $this->sha256 = $value;
+    }
+
+    /**
+     * Sets the signer property value. The signer property
+     *  @param string|null $value Value to set for the signer property.
+    */
+    public function setSigner(?string $value ): void {
+        $this->signer = $value;
+    }
+
+}

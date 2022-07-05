@@ -77,7 +77,7 @@ class LegalHold extends Entity implements Parsable
     private ?array $userSources = null;
     
     /**
-     * Instantiates a new legalHold and sets the default values.
+     * Instantiates a new LegalHold and sets the default values.
     */
     public function __construct() {
         parent::__construct();

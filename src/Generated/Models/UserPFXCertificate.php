@@ -71,7 +71,7 @@ class UserPFXCertificate extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new UserPFXCertificate and sets the default values.
+     * Instantiates a new userPFXCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

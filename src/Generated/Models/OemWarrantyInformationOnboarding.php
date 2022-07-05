@@ -24,7 +24,7 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
     private ?string $oemName = null;
     
     /**
-     * Instantiates a new OemWarrantyInformationOnboarding and sets the default values.
+     * Instantiates a new oemWarrantyInformationOnboarding and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Teamwork extends Entity implements Parsable 
 {
     /**
-     * @var array<DeletedTeam>|null $deletedTeams The deletedTeams property
+     * @var array<DeletedTeam>|null $deletedTeams A collection of deleted teams.
     */
     private ?array $deletedTeams = null;
     
@@ -45,7 +45,7 @@ class Teamwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the deletedTeams property value. The deletedTeams property
+     * Gets the deletedTeams property value. A collection of deleted teams.
      * @return array<DeletedTeam>|null
     */
     public function getDeletedTeams(): ?array {
@@ -103,7 +103,7 @@ class Teamwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the deletedTeams property value. The deletedTeams property
+     * Sets the deletedTeams property value. A collection of deleted teams.
      *  @param array<DeletedTeam>|null $value Value to set for the deletedTeams property.
     */
     public function setDeletedTeams(?array $value ): void {

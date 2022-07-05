@@ -34,7 +34,7 @@ class SitePage extends BaseItem implements Parsable
     private ?array $webParts = null;
     
     /**
-     * Instantiates a new sitePage and sets the default values.
+     * Instantiates a new SitePage and sets the default values.
     */
     public function __construct() {
         parent::__construct();

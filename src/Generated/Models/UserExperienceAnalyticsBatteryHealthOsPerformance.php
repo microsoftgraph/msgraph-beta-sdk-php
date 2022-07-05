@@ -39,7 +39,7 @@ class UserExperienceAnalyticsBatteryHealthOsPerformance extends Entity implement
     private ?string $osVersion = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthOsPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthOsPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

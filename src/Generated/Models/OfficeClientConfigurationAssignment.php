@@ -14,7 +14,7 @@ class OfficeClientConfigurationAssignment extends Entity implements Parsable
     private ?OfficeConfigurationAssignmentTarget $target = null;
     
     /**
-     * Instantiates a new officeClientConfigurationAssignment and sets the default values.
+     * Instantiates a new OfficeClientConfigurationAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

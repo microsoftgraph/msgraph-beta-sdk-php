@@ -29,7 +29,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
     private ?int $unhealthyThreshold = null;
     
     /**
-     * Instantiates a new MicrosoftTunnelHealthThreshold and sets the default values.
+     * Instantiates a new microsoftTunnelHealthThreshold and sets the default values.
     */
     public function __construct() {
         parent::__construct();

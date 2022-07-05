@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UpdatableAsset extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new UpdatableAsset and sets the default values.
+     * Instantiates a new updatableAsset and sets the default values.
     */
     public function __construct() {
         parent::__construct();

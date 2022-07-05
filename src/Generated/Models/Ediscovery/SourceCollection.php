@@ -77,7 +77,7 @@ class SourceCollection extends Entity implements Parsable
     private ?array $noncustodialSources = null;
     
     /**
-     * Instantiates a new sourceCollection and sets the default values.
+     * Instantiates a new SourceCollection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

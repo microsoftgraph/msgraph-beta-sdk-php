@@ -14,6 +14,11 @@ class Participant extends Entity implements Parsable
     private ?ParticipantInfo $info = null;
     
     /**
+     * @var bool|null $isIdentityAnonymized The isIdentityAnonymized property
+    */
+    private ?bool $isIdentityAnonymized = null;
+    
+    /**
      * @var bool|null $isInLobby true if the participant is in lobby.
     */
     private ?bool $isInLobby = null;
@@ -62,6 +67,7 @@ class Participant extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'info' => function (ParseNode $n) use ($o) { $o->setInfo($n->getObjectValue(array(ParticipantInfo::class, 'createFromDiscriminatorValue'))); },
+            'isIdentityAnonymized' => function (ParseNode $n) use ($o) { $o->setIsIdentityAnonymized($n->getBooleanValue()); },
             'isInLobby' => function (ParseNode $n) use ($o) { $o->setIsInLobby($n->getBooleanValue()); },
             'isMuted' => function (ParseNode $n) use ($o) { $o->setIsMuted($n->getBooleanValue()); },
             'mediaStreams' => function (ParseNode $n) use ($o) { $o->setMediaStreams($n->getCollectionOfObjectValues(array(MediaStream::class, 'createFromDiscriminatorValue'))); },
@@ -76,6 +82,14 @@ class Participant extends Entity implements Parsable
     */
     public function getInfo(): ?ParticipantInfo {
         return $this->info;
+    }
+
+    /**
+     * Gets the isIdentityAnonymized property value. The isIdentityAnonymized property
+     * @return bool|null
+    */
+    public function getIsIdentityAnonymized(): ?bool {
+        return $this->isIdentityAnonymized;
     }
 
     /**
@@ -125,6 +139,7 @@ class Participant extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('info', $this->info);
+        $writer->writeBooleanValue('isIdentityAnonymized', $this->isIdentityAnonymized);
         $writer->writeBooleanValue('isInLobby', $this->isInLobby);
         $writer->writeBooleanValue('isMuted', $this->isMuted);
         $writer->writeCollectionOfObjectValues('mediaStreams', $this->mediaStreams);
@@ -138,6 +153,14 @@ class Participant extends Entity implements Parsable
     */
     public function setInfo(?ParticipantInfo $value ): void {
         $this->info = $value;
+    }
+
+    /**
+     * Sets the isIdentityAnonymized property value. The isIdentityAnonymized property
+     *  @param bool|null $value Value to set for the isIdentityAnonymized property.
+    */
+    public function setIsIdentityAnonymized(?bool $value ): void {
+        $this->isIdentityAnonymized = $value;
     }
 
     /**

@@ -110,7 +110,7 @@ class CloudPC extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new CloudPC and sets the default values.
+     * Instantiates a new cloudPC and sets the default values.
     */
     public function __construct() {
         parent::__construct();

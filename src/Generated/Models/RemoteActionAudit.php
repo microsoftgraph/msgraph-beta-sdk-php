@@ -55,7 +55,7 @@ class RemoteActionAudit extends Entity implements Parsable
     private ?string $userName = null;
     
     /**
-     * Instantiates a new RemoteActionAudit and sets the default values.
+     * Instantiates a new remoteActionAudit and sets the default values.
     */
     public function __construct() {
         parent::__construct();
