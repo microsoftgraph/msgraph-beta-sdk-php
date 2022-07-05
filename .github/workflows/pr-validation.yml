@@ -25,20 +25,10 @@ jobs:
         composer validate
     - name: Install dependencies
       run: |
-        composer install
+        composer install -a
     - name: Run tests
       run : |
-        vendor/bin/phpunit --exclude-group functional
-  run-static-analysis:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Composer validate
+        vendor/bin/phpunit --coverage-text
+    - name: Run static analysis
       run: |
-        composer validate
-    - name: Composer install
-      run: |
-        composer install
-    - name: Run static analysis 
-      run: |
-          vendor/bin/phpstan analyse --memory-limit=1G --error-format=github
+        vendor/bin/phpstan analyse --memory-limit=1G --error-format=github

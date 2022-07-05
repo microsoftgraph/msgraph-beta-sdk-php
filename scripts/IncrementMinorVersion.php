@@ -4,21 +4,22 @@
  * Licensed under the MIT License.  See License in the project root
  * for license information.
  *
- * Bumps up the minor version in src/GraphConstants.php & README based on the latest published package version on Packagist
+ * Bumps up the minor version in src/Core/GraphConstants.php & README based on the latest published package version on Packagist
  *
  * Assumptions:
  *  - Script is run from the repo root
  *  - Script is run on a Unix environment (affects file path separator to files)
  *  - Packagist returns tagged versions in descending order (latest release first)
-*/
+ */
 
-const CONSTANTS_FILEPATH = "./src/GraphConstants.php";
+const GRAPH_CONSTANTS_FILEPATH = "./src/GraphConstants.php";
 const SDK_VERSION_VAR_NAME = "SDK_VERSION"; # Name of version variable in GraphConstants.php
-const PACKAGE_NAME = "microsoft-graph-beta";
-const PACKAGIST_ENDPOINT = "https://packagist.org/packages/microsoft/".PACKAGE_NAME.".json";
-const CONSTANTS_README_FILEPATH = "./README.md";
+const PACKAGIST_ENDPOINT = "https://packagist.org/packages/microsoft/microsoft-graph-beta.json";
+const README_FILEPATH = "./README.md";
 
-function getLatestPackagistVersion(): string
+$filePathsToUpdate = [GRAPH_CONSTANTS_FILEPATH, README_FILEPATH];
+
+function getLatestMinorPackagistVersion(string $majorVersion): string
 {
     $handle = curl_init();
     curl_setopt($handle, CURLOPT_URL, PACKAGIST_ENDPOINT);
@@ -46,10 +47,28 @@ function getLatestPackagistVersion(): string
     $versions = $responseJson["package"]["versions"];
     foreach ($versions as $version => $versionMetadata) {
         # Ignore branch versions
-        if (!preg_match('/^dev-.*/', $version)) {
-            # First non-branch version is the latest based on payload structure
-            echo "Latest packagist version: {$version}\n";
-            return $version;
+        if (!preg_match('/^dev-.*|.*-dev$/', $version)) {
+            $split = explode('.', $version);
+            if (!empty($split) && $split[0] === $majorVersion) {
+                # Non-branch versions are returned in descending order.
+                echo "Latest packagist version: {$version}\n";
+                return $version;
+            }
+        }
+    }
+    return '';
+}
+
+function getCurrentSdkVersion()
+{
+    $fileContents = file_get_contents(GRAPH_CONSTANTS_FILEPATH);
+    if ($fileContents) {
+        $pattern = '/'. SDK_VERSION_VAR_NAME . '\s+=\s+".+"/';
+        $regexMatches = [];
+        preg_match($pattern, $fileContents, $regexMatches);
+        if ($regexMatches && $regexMatches[0]) {
+            $split = explode('"', $regexMatches[0]);
+            return $split[1];
         }
     }
 }
@@ -64,37 +83,24 @@ function incrementMinorVersion(string $version): string
     return implode(".", $splitVersion);
 }
 
-function updateGraphConstants(string $version)
+function updateFiles(string $filePath, string $currentVersion, string $bumpedVersion)
 {
-    $fileContents = file_get_contents(CONSTANTS_FILEPATH);
+    $fileContents = file_get_contents($filePath);
     if ($fileContents) {
-        $pattern = '/'. SDK_VERSION_VAR_NAME . '\s+=\s+".+"/';
-        $replacement = SDK_VERSION_VAR_NAME . ' = "' . $version . '"';
-        if (!file_put_contents(CONSTANTS_FILEPATH, preg_replace($pattern, $replacement, $fileContents))) {
-            throw new Exception("Unable to find and replace SDK version variable ". SDK_VERSION_VAR_NAME);
-        }
-        echo "Successfully updated " . CONSTANTS_FILEPATH . "\n";
-        return;
-    }
-    throw new Exception("Could not read GraphConstants.php at ". CONSTANTS_FILEPATH);
-}
-
-function updateReadMe(string $version)
-{
-    $fileContents = file_get_contents(CONSTANTS_README_FILEPATH);
-    if ($fileContents) {
-        $pattern = sprintf('/"microsoft\/%s":\s+".+"/', PACKAGE_NAME);
-        $replacement = sprintf("\"microsoft/%s\": \"^{$version}\"", PACKAGE_NAME);
-        if (!file_put_contents(CONSTANTS_README_FILEPATH, preg_replace($pattern, $replacement, $fileContents))) {
+        $pattern = '/'.$currentVersion.'/';
+        if (!file_put_contents($filePath, preg_replace($pattern, $bumpedVersion, $fileContents))) {
             throw new Exception("Unable to find and replace SDK version");
         }
-        echo "Successfully updated README\n";
+        echo "Successfully updated {$filePath}\n";
         return;
     }
-    throw new Exception("Could not read README.md at " . CONSTANTS_README_FILEPATH);
+    throw new Exception("Could not read contents at " . $filePath);
 }
 
-$version = incrementMinorVersion(getLatestPackagistVersion());
-echo "Version after minor increment: {$version}\n";
-updateGraphConstants($version);
-updateReadMe($version);
+$currentSdkVersion = getCurrentSdkVersion();
+$currentMajorVersion = explode('.', $currentSdkVersion)[0];
+$bumpedSdkVersion = incrementMinorVersion(getLatestMinorPackagistVersion($currentMajorVersion));
+echo "Version after minor increment: {$bumpedSdkVersion}\n";
+foreach ($filePathsToUpdate as $path) {
+    updateFiles($path, $currentSdkVersion, $bumpedSdkVersion);
+}
