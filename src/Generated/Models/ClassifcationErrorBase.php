@@ -35,6 +35,11 @@ class ClassifcationErrorBase implements AdditionalDataHolder, Parsable
     private ?string $target = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new classifcationErrorBase and sets the default values.
     */
     public function __construct() {
@@ -84,6 +89,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, Parsable
             'innerError' => function (ParseNode $n) use ($o) { $o->setInnerError($n->getObjectValue(array(ClassificationInnerError::class, 'createFromDiscriminatorValue'))); },
             'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
             'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -104,6 +110,14 @@ class ClassifcationErrorBase implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Gets the target property value. The target property
      * @return string|null
     */
@@ -120,6 +134,7 @@ class ClassifcationErrorBase implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('innerError', $this->innerError);
         $writer->writeStringValue('message', $this->message);
         $writer->writeStringValue('target', $this->target);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -153,6 +168,14 @@ class ClassifcationErrorBase implements AdditionalDataHolder, Parsable
     */
     public function setMessage(?string $value ): void {
         $this->message = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

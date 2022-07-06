@@ -50,6 +50,11 @@ class ItemFacet extends Entity implements Parsable
     private ?PersonDataSources $source = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new itemFacet and sets the default values.
     */
     public function __construct() {
@@ -130,6 +135,7 @@ class ItemFacet extends Entity implements Parsable
             'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getObjectValue(array(PersonDataSources::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -166,6 +172,14 @@ class ItemFacet extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Gets the source property value. Where the values within an entity originated if synced from another service.
      * @return PersonDataSources|null
     */
@@ -187,6 +201,7 @@ class ItemFacet extends Entity implements Parsable
         $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeObjectValue('source', $this->source);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -243,6 +258,14 @@ class ItemFacet extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
         $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

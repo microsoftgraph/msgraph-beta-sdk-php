@@ -29,6 +29,11 @@ class Place extends Entity implements Parsable
     private ?string $phone = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new Place and sets the default values.
     */
     public function __construct() {
@@ -79,6 +84,7 @@ class Place extends Entity implements Parsable
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'geoCoordinates' => function (ParseNode $n) use ($o) { $o->setGeoCoordinates($n->getObjectValue(array(OutlookGeoCoordinates::class, 'createFromDiscriminatorValue'))); },
             'phone' => function (ParseNode $n) use ($o) { $o->setPhone($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -88,6 +94,14 @@ class Place extends Entity implements Parsable
     */
     public function getGeoCoordinates(): ?OutlookGeoCoordinates {
         return $this->geoCoordinates;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -108,6 +122,7 @@ class Place extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeObjectValue('geoCoordinates', $this->geoCoordinates);
         $writer->writeStringValue('phone', $this->phone);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -132,6 +147,14 @@ class Place extends Entity implements Parsable
     */
     public function setGeoCoordinates(?OutlookGeoCoordinates $value ): void {
         $this->geoCoordinates = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

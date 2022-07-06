@@ -59,6 +59,11 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
     private ?string $placeholderText = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var DeviceManangementIntentValueType|null $valueType The data type of the value. Possible values are: integer, boolean, string, complex, collection, abstractComplex.
     */
     private ?DeviceManangementIntentValueType $valueType = null;
@@ -145,6 +150,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
             'isTopLevel' => function (ParseNode $n) use ($o) { $o->setIsTopLevel($n->getBooleanValue()); },
             'keywords' => function (ParseNode $n) use ($o) { $o->setKeywords($n->getCollectionOfPrimitiveValues()); },
             'placeholderText' => function (ParseNode $n) use ($o) { $o->setPlaceholderText($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getEnumValue(DeviceManangementIntentValueType::class)); },
         ]);
     }
@@ -182,6 +188,14 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Gets the placeholderText property value. Placeholder text as an example of valid input
      * @return string|null
     */
@@ -213,6 +227,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
         $writer->writeBooleanValue('isTopLevel', $this->isTopLevel);
         $writer->writeCollectionOfPrimitiveValues('keywords', $this->keywords);
         $writer->writeStringValue('placeholderText', $this->placeholderText);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeEnumValue('valueType', $this->valueType);
     }
 
@@ -286,6 +301,14 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
     */
     public function setKeywords(?array $value ): void {
         $this->keywords = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

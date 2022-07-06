@@ -34,6 +34,11 @@ class SamlOrWsFedProvider extends IdentityProviderBase implements Parsable
     private ?string $signingCertificate = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new SamlOrWsFedProvider and sets the default values.
     */
     public function __construct() {
@@ -69,6 +74,7 @@ class SamlOrWsFedProvider extends IdentityProviderBase implements Parsable
             'passiveSignInUri' => function (ParseNode $n) use ($o) { $o->setPassiveSignInUri($n->getStringValue()); },
             'preferredAuthenticationProtocol' => function (ParseNode $n) use ($o) { $o->setPreferredAuthenticationProtocol($n->getEnumValue(AuthenticationProtocol::class)); },
             'signingCertificate' => function (ParseNode $n) use ($o) { $o->setSigningCertificate($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -86,6 +92,14 @@ class SamlOrWsFedProvider extends IdentityProviderBase implements Parsable
     */
     public function getMetadataExchangeUri(): ?string {
         return $this->metadataExchangeUri;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -123,6 +137,7 @@ class SamlOrWsFedProvider extends IdentityProviderBase implements Parsable
         $writer->writeStringValue('passiveSignInUri', $this->passiveSignInUri);
         $writer->writeEnumValue('preferredAuthenticationProtocol', $this->preferredAuthenticationProtocol);
         $writer->writeStringValue('signingCertificate', $this->signingCertificate);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -139,6 +154,14 @@ class SamlOrWsFedProvider extends IdentityProviderBase implements Parsable
     */
     public function setMetadataExchangeUri(?string $value ): void {
         $this->metadataExchangeUri = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

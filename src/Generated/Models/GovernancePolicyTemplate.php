@@ -24,7 +24,7 @@ class GovernancePolicyTemplate extends Entity implements Parsable
     private ?BusinessFlowSettings $settings = null;
     
     /**
-     * Instantiates a new GovernancePolicyTemplate and sets the default values.
+     * Instantiates a new governancePolicyTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

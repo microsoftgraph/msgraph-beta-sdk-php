@@ -80,6 +80,11 @@ class DeviceConfiguration extends Entity implements Parsable
     private ?bool $supportsScopeTags = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var array<DeviceConfigurationUserStatus>|null $userStatuses Device configuration installation status by user.
     */
     private ?array $userStatuses = null;
@@ -302,6 +307,7 @@ class DeviceConfiguration extends Entity implements Parsable
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
             'supportsScopeTags' => function (ParseNode $n) use ($o) { $o->setSupportsScopeTags($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'userStatuses' => function (ParseNode $n) use ($o) { $o->setUserStatuses($n->getCollectionOfObjectValues(array(DeviceConfigurationUserStatus::class, 'createFromDiscriminatorValue'))); },
             'userStatusOverview' => function (ParseNode $n) use ($o) { $o->setUserStatusOverview($n->getObjectValue(array(DeviceConfigurationUserOverview::class, 'createFromDiscriminatorValue'))); },
             'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
@@ -322,6 +328,14 @@ class DeviceConfiguration extends Entity implements Parsable
     */
     public function getLastModifiedDateTime(): ?DateTime {
         return $this->lastModifiedDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -384,6 +398,7 @@ class DeviceConfiguration extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeBooleanValue('supportsScopeTags', $this->supportsScopeTags);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeCollectionOfObjectValues('userStatuses', $this->userStatuses);
         $writer->writeObjectValue('userStatusOverview', $this->userStatusOverview);
         $writer->writeIntegerValue('version', $this->version);
@@ -483,6 +498,14 @@ class DeviceConfiguration extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
         $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

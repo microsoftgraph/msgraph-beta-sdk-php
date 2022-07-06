@@ -44,6 +44,11 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
     private ?array $targetedMobileApps = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var string|null $userDomain Zscaler only. Enter a static domain to pre-populate the login field with in the Zscaler app. If this is left empty, the user's Azure Active Directory domain will be used instead.
     */
     private ?string $userDomain = null;
@@ -109,6 +114,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
             'microsoftTunnelSiteId' => function (ParseNode $n) use ($o) { $o->setMicrosoftTunnelSiteId($n->getStringValue()); },
             'strictEnforcement' => function (ParseNode $n) use ($o) { $o->setStrictEnforcement($n->getBooleanValue()); },
             'targetedMobileApps' => function (ParseNode $n) use ($o) { $o->setTargetedMobileApps($n->getCollectionOfObjectValues(array(AppListItem::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'userDomain' => function (ParseNode $n) use ($o) { $o->setUserDomain($n->getStringValue()); },
         ]);
     }
@@ -127,6 +133,14 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
     */
     public function getMicrosoftTunnelSiteId(): ?string {
         return $this->microsoftTunnelSiteId;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -166,6 +180,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
         $writer->writeStringValue('microsoftTunnelSiteId', $this->microsoftTunnelSiteId);
         $writer->writeBooleanValue('strictEnforcement', $this->strictEnforcement);
         $writer->writeCollectionOfObjectValues('targetedMobileApps', $this->targetedMobileApps);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeStringValue('userDomain', $this->userDomain);
     }
 
@@ -207,6 +222,14 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
     */
     public function setMicrosoftTunnelSiteId(?string $value ): void {
         $this->microsoftTunnelSiteId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

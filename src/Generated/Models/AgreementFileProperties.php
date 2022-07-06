@@ -45,6 +45,11 @@ class AgreementFileProperties extends Entity implements Parsable
     private ?string $language = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new agreementFileProperties and sets the default values.
     */
     public function __construct() {
@@ -99,6 +104,7 @@ class AgreementFileProperties extends Entity implements Parsable
             'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
             'isMajorVersion' => function (ParseNode $n) use ($o) { $o->setIsMajorVersion($n->getBooleanValue()); },
             'language' => function (ParseNode $n) use ($o) { $o->setLanguage($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -143,6 +149,14 @@ class AgreementFileProperties extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -155,6 +169,7 @@ class AgreementFileProperties extends Entity implements Parsable
         $writer->writeBooleanValue('isDefault', $this->isDefault);
         $writer->writeBooleanValue('isMajorVersion', $this->isMajorVersion);
         $writer->writeStringValue('language', $this->language);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -211,6 +226,14 @@ class AgreementFileProperties extends Entity implements Parsable
     */
     public function setLanguage(?string $value ): void {
         $this->language = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

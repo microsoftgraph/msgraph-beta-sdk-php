@@ -36,6 +36,11 @@ class ActivityStatistics extends Entity implements Parsable
     private ?string $timeZoneUsed = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new activityStatistics and sets the default values.
     */
     public function __construct() {
@@ -98,7 +103,16 @@ class ActivityStatistics extends Entity implements Parsable
             'endDate' => function (ParseNode $n) use ($o) { $o->setEndDate($n->getDateValue()); },
             'startDate' => function (ParseNode $n) use ($o) { $o->setStartDate($n->getDateValue()); },
             'timeZoneUsed' => function (ParseNode $n) use ($o) { $o->setTimeZoneUsed($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -128,6 +142,7 @@ class ActivityStatistics extends Entity implements Parsable
         $writer->writeDateValue('endDate', $this->endDate);
         $writer->writeDateValue('startDate', $this->startDate);
         $writer->writeStringValue('timeZoneUsed', $this->timeZoneUsed);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -152,6 +167,14 @@ class ActivityStatistics extends Entity implements Parsable
     */
     public function setEndDate(?Date $value ): void {
         $this->endDate = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

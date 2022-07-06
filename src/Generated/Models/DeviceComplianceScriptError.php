@@ -30,6 +30,11 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
     private ?string $message = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new deviceComplianceScriptError and sets the default values.
     */
     public function __construct() {
@@ -86,6 +91,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
             'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getEnumValue(Code::class)); },
             'deviceComplianceScriptRulesValidationError' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceScriptRulesValidationError($n->getEnumValue(DeviceComplianceScriptRulesValidationError::class)); },
             'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -98,6 +104,14 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -105,6 +119,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('code', $this->code);
         $writer->writeEnumValue('deviceComplianceScriptRulesValidationError', $this->deviceComplianceScriptRulesValidationError);
         $writer->writeStringValue('message', $this->message);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -138,6 +153,14 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
     */
     public function setMessage(?string $value ): void {
         $this->message = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

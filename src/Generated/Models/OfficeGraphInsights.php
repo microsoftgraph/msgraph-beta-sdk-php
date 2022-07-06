@@ -19,6 +19,11 @@ class OfficeGraphInsights extends Entity implements Parsable
     private ?array $trending = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var array<UsedInsight>|null $used Access this property from the derived type itemInsights.
     */
     private ?array $used = null;
@@ -55,8 +60,17 @@ class OfficeGraphInsights extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'shared' => function (ParseNode $n) use ($o) { $o->setShared($n->getCollectionOfObjectValues(array(SharedInsight::class, 'createFromDiscriminatorValue'))); },
             'trending' => function (ParseNode $n) use ($o) { $o->setTrending($n->getCollectionOfObjectValues(array(Trending::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'used' => function (ParseNode $n) use ($o) { $o->setUsed($n->getCollectionOfObjectValues(array(UsedInsight::class, 'createFromDiscriminatorValue'))); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -91,7 +105,16 @@ class OfficeGraphInsights extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('shared', $this->shared);
         $writer->writeCollectionOfObjectValues('trending', $this->trending);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeCollectionOfObjectValues('used', $this->used);
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

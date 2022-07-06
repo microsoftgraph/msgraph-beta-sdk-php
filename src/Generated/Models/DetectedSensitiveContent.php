@@ -34,6 +34,11 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
     private ?SensitiveTypeSource $sensitiveTypeSource = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new DetectedSensitiveContent and sets the default values.
     */
     public function __construct() {
@@ -84,6 +89,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
             'matches' => function (ParseNode $n) use ($o) { $o->setMatches($n->getCollectionOfObjectValues(array(SensitiveContentLocation::class, 'createFromDiscriminatorValue'))); },
             'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getEnumValue(SensitiveTypeScope::class)); },
             'sensitiveTypeSource' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeSource($n->getEnumValue(SensitiveTypeSource::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -93,6 +99,14 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
     */
     public function getMatches(): ?array {
         return $this->matches;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -122,6 +136,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
         $writer->writeCollectionOfObjectValues('matches', $this->matches);
         $writer->writeEnumValue('scope', $this->scope);
         $writer->writeEnumValue('sensitiveTypeSource', $this->sensitiveTypeSource);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -146,6 +161,14 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
     */
     public function setMatches(?array $value ): void {
         $this->matches = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

@@ -34,6 +34,11 @@ class CustomCalloutExtension extends Entity implements Parsable
     private ?CustomExtensionEndpointConfiguration $endpointConfiguration = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new CustomCalloutExtension and sets the default values.
     */
     public function __construct() {
@@ -108,7 +113,16 @@ class CustomCalloutExtension extends Entity implements Parsable
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'endpointConfiguration' => function (ParseNode $n) use ($o) { $o->setEndpointConfiguration($n->getObjectValue(array(CustomExtensionEndpointConfiguration::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -122,6 +136,7 @@ class CustomCalloutExtension extends Entity implements Parsable
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeObjectValue('endpointConfiguration', $this->endpointConfiguration);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -162,6 +177,14 @@ class CustomCalloutExtension extends Entity implements Parsable
     */
     public function setEndpointConfiguration(?CustomExtensionEndpointConfiguration $value ): void {
         $this->endpointConfiguration = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

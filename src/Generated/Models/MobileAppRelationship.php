@@ -34,6 +34,11 @@ class MobileAppRelationship extends Entity implements Parsable
     private ?MobileAppRelationshipType $targetType = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new mobileAppRelationship and sets the default values.
     */
     public function __construct() {
@@ -69,7 +74,16 @@ class MobileAppRelationship extends Entity implements Parsable
             'targetId' => function (ParseNode $n) use ($o) { $o->setTargetId($n->getStringValue()); },
             'targetPublisher' => function (ParseNode $n) use ($o) { $o->setTargetPublisher($n->getStringValue()); },
             'targetType' => function (ParseNode $n) use ($o) { $o->setTargetType($n->getEnumValue(MobileAppRelationshipType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -123,6 +137,15 @@ class MobileAppRelationship extends Entity implements Parsable
         $writer->writeStringValue('targetId', $this->targetId);
         $writer->writeStringValue('targetPublisher', $this->targetPublisher);
         $writer->writeEnumValue('targetType', $this->targetType);
+        $writer->writeStringValue('@odata.type', $this->type);
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

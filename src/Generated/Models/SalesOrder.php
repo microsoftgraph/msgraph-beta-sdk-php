@@ -186,7 +186,7 @@ class SalesOrder extends Entity implements Parsable
     private ?string $totalTaxAmount = null;
     
     /**
-     * Instantiates a new salesOrder and sets the default values.
+     * Instantiates a new SalesOrder and sets the default values.
     */
     public function __construct() {
         parent::__construct();

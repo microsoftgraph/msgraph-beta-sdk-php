@@ -14,6 +14,11 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
     private ?string $customDomainName = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var DomainNameSource|null $userDomainNameSource UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.
     */
     private ?DomainNameSource $userDomainNameSource = null;
@@ -69,10 +74,19 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'customDomainName' => function (ParseNode $n) use ($o) { $o->setCustomDomainName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'userDomainNameSource' => function (ParseNode $n) use ($o) { $o->setUserDomainNameSource($n->getEnumValue(DomainNameSource::class)); },
             'usernameAADSource' => function (ParseNode $n) use ($o) { $o->setUsernameAADSource($n->getEnumValue(UsernameSource::class)); },
             'usernameSource' => function (ParseNode $n) use ($o) { $o->setUsernameSource($n->getEnumValue(UserEmailSource::class)); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -106,6 +120,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('customDomainName', $this->customDomainName);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeEnumValue('userDomainNameSource', $this->userDomainNameSource);
         $writer->writeEnumValue('usernameAADSource', $this->usernameAADSource);
         $writer->writeEnumValue('usernameSource', $this->usernameSource);
@@ -117,6 +132,14 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
     */
     public function setCustomDomainName(?string $value ): void {
         $this->customDomainName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

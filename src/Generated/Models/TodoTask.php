@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TodoTask extends Entity implements Parsable 
 {
     /**
-     * @var array<AttachmentBase>|null $attachments The attachments property
+     * @var array<AttachmentBase>|null $attachments A collection of file attachments for the task.
     */
     private ?array $attachments = null;
     
@@ -60,7 +60,7 @@ class TodoTask extends Entity implements Parsable
     private ?array $extensions = null;
     
     /**
-     * @var bool|null $hasAttachments The hasAttachments property
+     * @var bool|null $hasAttachments Indicates whether the task has attachments.
     */
     private ?bool $hasAttachments = null;
     
@@ -95,6 +95,11 @@ class TodoTask extends Entity implements Parsable
     private ?DateTimeTimeZone $reminderDateTime = null;
     
     /**
+     * @var DateTimeTimeZone|null $startDateTime The startDateTime property
+    */
+    private ?DateTimeTimeZone $startDateTime = null;
+    
+    /**
      * @var TaskStatus|null $status Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
     */
     private ?TaskStatus $status = null;
@@ -121,7 +126,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the attachments property value. The attachments property
+     * Gets the attachments property value. A collection of file attachments for the task.
      * @return array<AttachmentBase>|null
     */
     public function getAttachments(): ?array {
@@ -224,13 +229,14 @@ class TodoTask extends Entity implements Parsable
             'linkedResources' => function (ParseNode $n) use ($o) { $o->setLinkedResources($n->getCollectionOfObjectValues(array(LinkedResource::class, 'createFromDiscriminatorValue'))); },
             'recurrence' => function (ParseNode $n) use ($o) { $o->setRecurrence($n->getObjectValue(array(PatternedRecurrence::class, 'createFromDiscriminatorValue'))); },
             'reminderDateTime' => function (ParseNode $n) use ($o) { $o->setReminderDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(TaskStatus::class)); },
             'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
         ]);
     }
 
     /**
-     * Gets the hasAttachments property value. The hasAttachments property
+     * Gets the hasAttachments property value. Indicates whether the task has attachments.
      * @return bool|null
     */
     public function getHasAttachments(): ?bool {
@@ -286,6 +292,14 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
+     * Gets the startDateTime property value. The startDateTime property
+     * @return DateTimeTimeZone|null
+    */
+    public function getStartDateTime(): ?DateTimeTimeZone {
+        return $this->startDateTime;
+    }
+
+    /**
      * Gets the status property value. Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
      * @return TaskStatus|null
     */
@@ -324,12 +338,13 @@ class TodoTask extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('linkedResources', $this->linkedResources);
         $writer->writeObjectValue('recurrence', $this->recurrence);
         $writer->writeObjectValue('reminderDateTime', $this->reminderDateTime);
+        $writer->writeObjectValue('startDateTime', $this->startDateTime);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeStringValue('title', $this->title);
     }
 
     /**
-     * Sets the attachments property value. The attachments property
+     * Sets the attachments property value. A collection of file attachments for the task.
      *  @param array<AttachmentBase>|null $value Value to set for the attachments property.
     */
     public function setAttachments(?array $value ): void {
@@ -409,7 +424,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the hasAttachments property value. The hasAttachments property
+     * Sets the hasAttachments property value. Indicates whether the task has attachments.
      *  @param bool|null $value Value to set for the hasAttachments property.
     */
     public function setHasAttachments(?bool $value ): void {
@@ -462,6 +477,14 @@ class TodoTask extends Entity implements Parsable
     */
     public function setReminderDateTime(?DateTimeTimeZone $value ): void {
         $this->reminderDateTime = $value;
+    }
+
+    /**
+     * Sets the startDateTime property value. The startDateTime property
+     *  @param DateTimeTimeZone|null $value Value to set for the startDateTime property.
+    */
+    public function setStartDateTime(?DateTimeTimeZone $value ): void {
+        $this->startDateTime = $value;
     }
 
     /**

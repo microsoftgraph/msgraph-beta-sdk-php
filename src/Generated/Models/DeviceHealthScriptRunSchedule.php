@@ -20,6 +20,11 @@ class DeviceHealthScriptRunSchedule implements AdditionalDataHolder, Parsable
     private ?int $interval = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new deviceHealthScriptRunSchedule and sets the default values.
     */
     public function __construct() {
@@ -59,6 +64,7 @@ class DeviceHealthScriptRunSchedule implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'interval' => function (ParseNode $n) use ($o) { $o->setInterval($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -71,11 +77,20 @@ class DeviceHealthScriptRunSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('interval', $this->interval);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -93,6 +108,14 @@ class DeviceHealthScriptRunSchedule implements AdditionalDataHolder, Parsable
     */
     public function setInterval(?int $value ): void {
         $this->interval = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

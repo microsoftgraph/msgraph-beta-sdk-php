@@ -85,6 +85,11 @@ class BaseTask extends Entity implements Parsable
     private ?string $textBody = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var TaskViewpoint|null $viewpoint The viewpoint property
     */
     private ?TaskViewpoint $viewpoint = null;
@@ -190,6 +195,7 @@ class BaseTask extends Entity implements Parsable
             'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(TaskStatus_v2::class)); },
             'textBody' => function (ParseNode $n) use ($o) { $o->setTextBody($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'viewpoint' => function (ParseNode $n) use ($o) { $o->setViewpoint($n->getObjectValue(array(TaskViewpoint::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
@@ -216,6 +222,14 @@ class BaseTask extends Entity implements Parsable
     */
     public function getLinkedResources(): ?array {
         return $this->linkedResources;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -287,6 +301,7 @@ class BaseTask extends Entity implements Parsable
         $writer->writeObjectValue('startDateTime', $this->startDateTime);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeStringValue('textBody', $this->textBody);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeObjectValue('viewpoint', $this->viewpoint);
     }
 
@@ -368,6 +383,14 @@ class BaseTask extends Entity implements Parsable
     */
     public function setLinkedResources(?array $value ): void {
         $this->linkedResources = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

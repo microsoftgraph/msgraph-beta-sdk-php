@@ -14,6 +14,11 @@ class GroupAssignmentTarget extends DeviceAndAppManagementAssignmentTarget imple
     private ?string $groupId = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new GroupAssignmentTarget and sets the default values.
     */
     public function __construct() {
@@ -44,6 +49,7 @@ class GroupAssignmentTarget extends DeviceAndAppManagementAssignmentTarget imple
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'groupId' => function (ParseNode $n) use ($o) { $o->setGroupId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -56,12 +62,21 @@ class GroupAssignmentTarget extends DeviceAndAppManagementAssignmentTarget imple
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('groupId', $this->groupId);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -70,6 +85,14 @@ class GroupAssignmentTarget extends DeviceAndAppManagementAssignmentTarget imple
     */
     public function setGroupId(?string $value ): void {
         $this->groupId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

@@ -120,6 +120,11 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     private ?string $squareLogoRelativeUrl = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var string|null $usernameHintText A string that shows as the hint in the username textbox on the sign-in screen. This text must be a Unicode, without links or code, and can't exceed 64 characters.
     */
     private ?string $usernameHintText = null;
@@ -313,6 +318,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
             'signInPageText' => function (ParseNode $n) use ($o) { $o->setSignInPageText($n->getStringValue()); },
             'squareLogo' => function (ParseNode $n) use ($o) { $o->setSquareLogo($n->getBinaryContent()); },
             'squareLogoRelativeUrl' => function (ParseNode $n) use ($o) { $o->setSquareLogoRelativeUrl($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'usernameHintText' => function (ParseNode $n) use ($o) { $o->setUsernameHintText($n->getStringValue()); },
         ]);
     }
@@ -331,6 +337,14 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     */
     public function getLoginPageTextVisibilitySettings(): ?LoginPageTextVisibilitySettings {
         return $this->loginPageTextVisibilitySettings;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -393,6 +407,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
         $writer->writeStringValue('signInPageText', $this->signInPageText);
         $writer->writeBinaryContent('squareLogo', $this->squareLogo);
         $writer->writeStringValue('squareLogoRelativeUrl', $this->squareLogoRelativeUrl);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeStringValue('usernameHintText', $this->usernameHintText);
     }
 
@@ -546,6 +561,14 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     */
     public function setLoginPageTextVisibilitySettings(?LoginPageTextVisibilitySettings $value ): void {
         $this->loginPageTextVisibilitySettings = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

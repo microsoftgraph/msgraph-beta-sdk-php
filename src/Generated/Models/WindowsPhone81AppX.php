@@ -49,6 +49,11 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
     private ?string $phonePublisherId = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new WindowsPhone81AppX and sets the default values.
     */
     public function __construct() {
@@ -94,6 +99,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
             'minimumSupportedOperatingSystem' => function (ParseNode $n) use ($o) { $o->setMinimumSupportedOperatingSystem($n->getObjectValue(array(WindowsMinimumOperatingSystem::class, 'createFromDiscriminatorValue'))); },
             'phoneProductIdentifier' => function (ParseNode $n) use ($o) { $o->setPhoneProductIdentifier($n->getStringValue()); },
             'phonePublisherId' => function (ParseNode $n) use ($o) { $o->setPhonePublisherId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -138,6 +144,14 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Gets the phoneProductIdentifier property value. The Phone Product Identifier.
      * @return string|null
     */
@@ -167,6 +181,7 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->minimumSupportedOperatingSystem);
         $writer->writeStringValue('phoneProductIdentifier', $this->phoneProductIdentifier);
         $writer->writeStringValue('phonePublisherId', $this->phonePublisherId);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -215,6 +230,14 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
     */
     public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value ): void {
         $this->minimumSupportedOperatingSystem = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

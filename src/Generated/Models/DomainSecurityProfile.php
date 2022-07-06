@@ -80,7 +80,7 @@ class DomainSecurityProfile extends Entity implements Parsable
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
-     * Instantiates a new domainSecurityProfile and sets the default values.
+     * Instantiates a new DomainSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

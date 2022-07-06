@@ -25,6 +25,11 @@ class IdentitySet implements AdditionalDataHolder, Parsable
     private ?Identity $device = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var Identity|null $user Optional. The user associated with this action.
     */
     private ?Identity $user = null;
@@ -89,8 +94,17 @@ class IdentitySet implements AdditionalDataHolder, Parsable
         return  [
             'application' => function (ParseNode $n) use ($o) { $o->setApplication($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
             'device' => function (ParseNode $n) use ($o) { $o->setDevice($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'user' => function (ParseNode $n) use ($o) { $o->setUser($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -108,6 +122,7 @@ class IdentitySet implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('application', $this->application);
         $writer->writeObjectValue('device', $this->device);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeObjectValue('user', $this->user);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -134,6 +149,14 @@ class IdentitySet implements AdditionalDataHolder, Parsable
     */
     public function setDevice(?Identity $value ): void {
         $this->device = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

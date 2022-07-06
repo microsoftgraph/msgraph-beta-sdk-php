@@ -14,6 +14,11 @@ class UserIdentity extends Identity implements Parsable
     private ?string $ipAddress = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var string|null $userPrincipalName The userPrincipalName attribute of the user.
     */
     private ?string $userPrincipalName = null;
@@ -49,6 +54,7 @@ class UserIdentity extends Identity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
     }
@@ -59,6 +65,14 @@ class UserIdentity extends Identity implements Parsable
     */
     public function getIpAddress(): ?string {
         return $this->ipAddress;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -76,6 +90,7 @@ class UserIdentity extends Identity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('ipAddress', $this->ipAddress);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
     }
 
@@ -85,6 +100,14 @@ class UserIdentity extends Identity implements Parsable
     */
     public function setIpAddress(?string $value ): void {
         $this->ipAddress = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

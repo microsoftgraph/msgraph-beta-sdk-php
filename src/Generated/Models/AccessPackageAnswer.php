@@ -25,6 +25,11 @@ class AccessPackageAnswer implements AdditionalDataHolder, Parsable
     private ?string $displayValue = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new accessPackageAnswer and sets the default values.
     */
     public function __construct() {
@@ -80,7 +85,16 @@ class AccessPackageAnswer implements AdditionalDataHolder, Parsable
         return  [
             'answeredQuestion' => function (ParseNode $n) use ($o) { $o->setAnsweredQuestion($n->getObjectValue(array(AccessPackageQuestion::class, 'createFromDiscriminatorValue'))); },
             'displayValue' => function (ParseNode $n) use ($o) { $o->setDisplayValue($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -90,6 +104,7 @@ class AccessPackageAnswer implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('answeredQuestion', $this->answeredQuestion);
         $writer->writeStringValue('displayValue', $this->displayValue);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -115,6 +130,14 @@ class AccessPackageAnswer implements AdditionalDataHolder, Parsable
     */
     public function setDisplayValue(?string $value ): void {
         $this->displayValue = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

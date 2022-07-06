@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamsAppSettings extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $isChatResourceSpecificConsentEnabled The isChatResourceSpecificConsentEnabled property
+     * @var bool|null $isChatResourceSpecificConsentEnabled Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. If true, Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. If false, the installation of any Teams app that requires resource-specific permissions in a chat or a meeting will be blocked.
     */
     private ?bool $isChatResourceSpecificConsentEnabled = null;
     
@@ -41,7 +41,7 @@ class TeamsAppSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the isChatResourceSpecificConsentEnabled property value. The isChatResourceSpecificConsentEnabled property
+     * Gets the isChatResourceSpecificConsentEnabled property value. Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. If true, Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. If false, the installation of any Teams app that requires resource-specific permissions in a chat or a meeting will be blocked.
      * @return bool|null
     */
     public function getIsChatResourceSpecificConsentEnabled(): ?bool {
@@ -58,7 +58,7 @@ class TeamsAppSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the isChatResourceSpecificConsentEnabled property value. The isChatResourceSpecificConsentEnabled property
+     * Sets the isChatResourceSpecificConsentEnabled property value. Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. If true, Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. If false, the installation of any Teams app that requires resource-specific permissions in a chat or a meeting will be blocked.
      *  @param bool|null $value Value to set for the isChatResourceSpecificConsentEnabled property.
     */
     public function setIsChatResourceSpecificConsentEnabled(?bool $value ): void {

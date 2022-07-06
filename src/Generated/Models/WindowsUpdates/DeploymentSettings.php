@@ -30,6 +30,11 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
     private ?SafeguardSettings $safeguard = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new deploymentSettings and sets the default values.
     */
     public function __construct() {
@@ -70,6 +75,7 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
             'monitoring' => function (ParseNode $n) use ($o) { $o->setMonitoring($n->getObjectValue(array(MonitoringSettings::class, 'createFromDiscriminatorValue'))); },
             'rollout' => function (ParseNode $n) use ($o) { $o->setRollout($n->getObjectValue(array(RolloutSettings::class, 'createFromDiscriminatorValue'))); },
             'safeguard' => function (ParseNode $n) use ($o) { $o->setSafeguard($n->getObjectValue(array(SafeguardSettings::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -79,6 +85,14 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
     */
     public function getMonitoring(): ?MonitoringSettings {
         return $this->monitoring;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -105,6 +119,7 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('monitoring', $this->monitoring);
         $writer->writeObjectValue('rollout', $this->rollout);
         $writer->writeObjectValue('safeguard', $this->safeguard);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -122,6 +137,14 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
     */
     public function setMonitoring(?MonitoringSettings $value ): void {
         $this->monitoring = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

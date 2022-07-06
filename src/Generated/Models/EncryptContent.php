@@ -14,6 +14,11 @@ class EncryptContent extends LabelActionBase implements Parsable
     private ?EncryptWith $encryptWith = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new EncryptContent and sets the default values.
     */
     public function __construct() {
@@ -53,7 +58,16 @@ class EncryptContent extends LabelActionBase implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'encryptWith' => function (ParseNode $n) use ($o) { $o->setEncryptWith($n->getEnumValue(EncryptWith::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -63,6 +77,7 @@ class EncryptContent extends LabelActionBase implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('encryptWith', $this->encryptWith);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -71,6 +86,14 @@ class EncryptContent extends LabelActionBase implements Parsable
     */
     public function setEncryptWith(?EncryptWith $value ): void {
         $this->encryptWith = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

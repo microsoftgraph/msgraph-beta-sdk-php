@@ -35,6 +35,11 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, Parsable
     private ?string $name = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new deviceHealthScriptParameter and sets the default values.
     */
     public function __construct() {
@@ -94,6 +99,7 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, Parsable
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -114,6 +120,14 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -122,6 +136,7 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('description', $this->description);
         $writer->writeBooleanValue('isRequired', $this->isRequired);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -163,6 +178,14 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

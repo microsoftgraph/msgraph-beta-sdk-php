@@ -25,6 +25,11 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
     private ?array $servers = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new WindowsVpnConfiguration and sets the default values.
     */
     public function __construct() {
@@ -74,7 +79,16 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
             'connectionName' => function (ParseNode $n) use ($o) { $o->setConnectionName($n->getStringValue()); },
             'customXml' => function (ParseNode $n) use ($o) { $o->setCustomXml($n->getBinaryContent()); },
             'servers' => function (ParseNode $n) use ($o) { $o->setServers($n->getCollectionOfObjectValues(array(VpnServer::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -94,6 +108,7 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeStringValue('connectionName', $this->connectionName);
         $writer->writeBinaryContent('customXml', $this->customXml);
         $writer->writeCollectionOfObjectValues('servers', $this->servers);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -110,6 +125,14 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
     */
     public function setCustomXml(?StreamInterface $value ): void {
         $this->customXml = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

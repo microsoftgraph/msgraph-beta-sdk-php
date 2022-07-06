@@ -24,6 +24,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     private ?bool $allowLogCollectionOnInstallFailure = null;
     
     /**
+     * @var bool|null $allowNonBlockingAppInstallation Install all required apps as non blocking apps during white glove
+    */
+    private ?bool $allowNonBlockingAppInstallation = null;
+    
+    /**
      * @var bool|null $blockDeviceSetupRetryByUser Allow the user to retry the setup on installation failure
     */
     private ?bool $blockDeviceSetupRetryByUser = null;
@@ -99,6 +104,14 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
+     * Gets the allowNonBlockingAppInstallation property value. Install all required apps as non blocking apps during white glove
+     * @return bool|null
+    */
+    public function getAllowNonBlockingAppInstallation(): ?bool {
+        return $this->allowNonBlockingAppInstallation;
+    }
+
+    /**
      * Gets the blockDeviceSetupRetryByUser property value. Allow the user to retry the setup on installation failure
      * @return bool|null
     */
@@ -132,6 +145,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
             'allowDeviceResetOnInstallFailure' => function (ParseNode $n) use ($o) { $o->setAllowDeviceResetOnInstallFailure($n->getBooleanValue()); },
             'allowDeviceUseOnInstallFailure' => function (ParseNode $n) use ($o) { $o->setAllowDeviceUseOnInstallFailure($n->getBooleanValue()); },
             'allowLogCollectionOnInstallFailure' => function (ParseNode $n) use ($o) { $o->setAllowLogCollectionOnInstallFailure($n->getBooleanValue()); },
+            'allowNonBlockingAppInstallation' => function (ParseNode $n) use ($o) { $o->setAllowNonBlockingAppInstallation($n->getBooleanValue()); },
             'blockDeviceSetupRetryByUser' => function (ParseNode $n) use ($o) { $o->setBlockDeviceSetupRetryByUser($n->getBooleanValue()); },
             'customErrorMessage' => function (ParseNode $n) use ($o) { $o->setCustomErrorMessage($n->getStringValue()); },
             'disableUserStatusTrackingAfterFirstUser' => function (ParseNode $n) use ($o) { $o->setDisableUserStatusTrackingAfterFirstUser($n->getBooleanValue()); },
@@ -183,6 +197,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
         $writer->writeBooleanValue('allowDeviceResetOnInstallFailure', $this->allowDeviceResetOnInstallFailure);
         $writer->writeBooleanValue('allowDeviceUseOnInstallFailure', $this->allowDeviceUseOnInstallFailure);
         $writer->writeBooleanValue('allowLogCollectionOnInstallFailure', $this->allowLogCollectionOnInstallFailure);
+        $writer->writeBooleanValue('allowNonBlockingAppInstallation', $this->allowNonBlockingAppInstallation);
         $writer->writeBooleanValue('blockDeviceSetupRetryByUser', $this->blockDeviceSetupRetryByUser);
         $writer->writeStringValue('customErrorMessage', $this->customErrorMessage);
         $writer->writeBooleanValue('disableUserStatusTrackingAfterFirstUser', $this->disableUserStatusTrackingAfterFirstUser);
@@ -214,6 +229,14 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     */
     public function setAllowLogCollectionOnInstallFailure(?bool $value ): void {
         $this->allowLogCollectionOnInstallFailure = $value;
+    }
+
+    /**
+     * Sets the allowNonBlockingAppInstallation property value. Install all required apps as non blocking apps during white glove
+     *  @param bool|null $value Value to set for the allowNonBlockingAppInstallation property.
+    */
+    public function setAllowNonBlockingAppInstallation(?bool $value ): void {
+        $this->allowNonBlockingAppInstallation = $value;
     }
 
     /**

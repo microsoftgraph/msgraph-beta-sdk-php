@@ -35,6 +35,11 @@ class AppListItem implements AdditionalDataHolder, Parsable
     private ?string $publisher = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new appListItem and sets the default values.
     */
     public function __construct() {
@@ -92,6 +97,7 @@ class AppListItem implements AdditionalDataHolder, Parsable
             'appStoreUrl' => function (ParseNode $n) use ($o) { $o->setAppStoreUrl($n->getStringValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
             'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -101,6 +107,14 @@ class AppListItem implements AdditionalDataHolder, Parsable
     */
     public function getName(): ?string {
         return $this->name;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -120,6 +134,7 @@ class AppListItem implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('appStoreUrl', $this->appStoreUrl);
         $writer->writeStringValue('name', $this->name);
         $writer->writeStringValue('publisher', $this->publisher);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -153,6 +168,14 @@ class AppListItem implements AdditionalDataHolder, Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

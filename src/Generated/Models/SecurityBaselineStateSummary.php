@@ -34,6 +34,11 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
     private ?int $secureCount = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var int|null $unknownCount Number of unknown devices
     */
     private ?int $unknownCount = null;
@@ -89,6 +94,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
             'notApplicableCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableCount($n->getIntegerValue()); },
             'notSecureCount' => function (ParseNode $n) use ($o) { $o->setNotSecureCount($n->getIntegerValue()); },
             'secureCount' => function (ParseNode $n) use ($o) { $o->setSecureCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'unknownCount' => function (ParseNode $n) use ($o) { $o->setUnknownCount($n->getIntegerValue()); },
         ]);
     }
@@ -107,6 +113,14 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
     */
     public function getNotSecureCount(): ?int {
         return $this->notSecureCount;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -136,6 +150,7 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
         $writer->writeIntegerValue('notApplicableCount', $this->notApplicableCount);
         $writer->writeIntegerValue('notSecureCount', $this->notSecureCount);
         $writer->writeIntegerValue('secureCount', $this->secureCount);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeIntegerValue('unknownCount', $this->unknownCount);
     }
 
@@ -169,6 +184,14 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
     */
     public function setNotSecureCount(?int $value ): void {
         $this->notSecureCount = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

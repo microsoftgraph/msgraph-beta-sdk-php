@@ -24,6 +24,11 @@ class BaseTaskList extends Entity implements Parsable
     private ?array $tasks = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new baseTaskList and sets the default values.
     */
     public function __construct() {
@@ -73,7 +78,16 @@ class BaseTaskList extends Entity implements Parsable
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'extensions' => function (ParseNode $n) use ($o) { $o->setExtensions($n->getCollectionOfObjectValues(array(Extension::class, 'createFromDiscriminatorValue'))); },
             'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(BaseTask::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -93,6 +107,7 @@ class BaseTaskList extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeCollectionOfObjectValues('extensions', $this->extensions);
         $writer->writeCollectionOfObjectValues('tasks', $this->tasks);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -109,6 +124,14 @@ class BaseTaskList extends Entity implements Parsable
     */
     public function setExtensions(?array $value ): void {
         $this->extensions = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

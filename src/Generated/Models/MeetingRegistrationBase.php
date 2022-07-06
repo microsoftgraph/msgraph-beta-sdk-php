@@ -19,6 +19,11 @@ class MeetingRegistrationBase extends Entity implements Parsable
     private ?array $registrants = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new meetingRegistrationBase and sets the default values.
     */
     public function __construct() {
@@ -59,7 +64,16 @@ class MeetingRegistrationBase extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'allowedRegistrant' => function (ParseNode $n) use ($o) { $o->setAllowedRegistrant($n->getEnumValue(MeetingAudience::class)); },
             'registrants' => function (ParseNode $n) use ($o) { $o->setRegistrants($n->getCollectionOfObjectValues(array(MeetingRegistrantBase::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -78,6 +92,7 @@ class MeetingRegistrationBase extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('allowedRegistrant', $this->allowedRegistrant);
         $writer->writeCollectionOfObjectValues('registrants', $this->registrants);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -86,6 +101,14 @@ class MeetingRegistrationBase extends Entity implements Parsable
     */
     public function setAllowedRegistrant(?MeetingAudience $value ): void {
         $this->allowedRegistrant = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

@@ -29,6 +29,11 @@ class MobileLobApp extends MobileApp implements Parsable
     private ?int $size = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new MobileLobApp and sets the default values.
     */
     public function __construct() {
@@ -87,6 +92,7 @@ class MobileLobApp extends MobileApp implements Parsable
             'contentVersions' => function (ParseNode $n) use ($o) { $o->setContentVersions($n->getCollectionOfObjectValues(array(MobileAppContent::class, 'createFromDiscriminatorValue'))); },
             'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
             'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -96,6 +102,14 @@ class MobileLobApp extends MobileApp implements Parsable
     */
     public function getFileName(): ?string {
         return $this->fileName;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -116,6 +130,7 @@ class MobileLobApp extends MobileApp implements Parsable
         $writer->writeCollectionOfObjectValues('contentVersions', $this->contentVersions);
         $writer->writeStringValue('fileName', $this->fileName);
         $writer->writeIntegerValue('size', $this->size);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -140,6 +155,14 @@ class MobileLobApp extends MobileApp implements Parsable
     */
     public function setFileName(?string $value ): void {
         $this->fileName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

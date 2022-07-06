@@ -85,6 +85,11 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     private ?array $roleScopeTagIds = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new WindowsAutopilotDeploymentProfile and sets the default values.
     */
     public function __construct() {
@@ -210,6 +215,7 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
             'managementServiceAppId' => function (ParseNode $n) use ($o) { $o->setManagementServiceAppId($n->getStringValue()); },
             'outOfBoxExperienceSettings' => function (ParseNode $n) use ($o) { $o->setOutOfBoxExperienceSettings($n->getObjectValue(array(OutOfBoxExperienceSettings::class, 'createFromDiscriminatorValue'))); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -235,6 +241,14 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     */
     public function getManagementServiceAppId(): ?string {
         return $this->managementServiceAppId;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -274,6 +288,7 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
         $writer->writeStringValue('managementServiceAppId', $this->managementServiceAppId);
         $writer->writeObjectValue('outOfBoxExperienceSettings', $this->outOfBoxExperienceSettings);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -378,6 +393,14 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     */
     public function setManagementServiceAppId(?string $value ): void {
         $this->managementServiceAppId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobApp extends MobileLobApp implements Parsable 
 {
     /**
+     * @var bool|null $allowAvailableUninstall When TRUE, indicates that uninstall is supported from the company portal for the Windows app (Win32) with an Available assignment. When FALSE, indicates that uninstall is not supported for the Windows app (Win32) with an Available assignment. Default value is FALSE.
+    */
+    private ?bool $allowAvailableUninstall = null;
+    
+    /**
      * @var WindowsArchitecture|null $applicableArchitectures The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
     */
     private ?WindowsArchitecture $applicableArchitectures = null;
@@ -110,6 +115,14 @@ class Win32LobApp extends MobileLobApp implements Parsable
     }
 
     /**
+     * Gets the allowAvailableUninstall property value. When TRUE, indicates that uninstall is supported from the company portal for the Windows app (Win32) with an Available assignment. When FALSE, indicates that uninstall is not supported for the Windows app (Win32) with an Available assignment. Default value is FALSE.
+     * @return bool|null
+    */
+    public function getAllowAvailableUninstall(): ?bool {
+        return $this->allowAvailableUninstall;
+    }
+
+    /**
      * Gets the applicableArchitectures property value. The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
      * @return WindowsArchitecture|null
     */
@@ -140,6 +153,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'allowAvailableUninstall' => function (ParseNode $n) use ($o) { $o->setAllowAvailableUninstall($n->getBooleanValue()); },
             'applicableArchitectures' => function (ParseNode $n) use ($o) { $o->setApplicableArchitectures($n->getEnumValue(WindowsArchitecture::class)); },
             'detectionRules' => function (ParseNode $n) use ($o) { $o->setDetectionRules($n->getCollectionOfObjectValues(array(Win32LobAppDetection::class, 'createFromDiscriminatorValue'))); },
             'displayVersion' => function (ParseNode $n) use ($o) { $o->setDisplayVersion($n->getStringValue()); },
@@ -278,6 +292,7 @@ class Win32LobApp extends MobileLobApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeBooleanValue('allowAvailableUninstall', $this->allowAvailableUninstall);
         $writer->writeEnumValue('applicableArchitectures', $this->applicableArchitectures);
         $writer->writeCollectionOfObjectValues('detectionRules', $this->detectionRules);
         $writer->writeStringValue('displayVersion', $this->displayVersion);
@@ -295,6 +310,14 @@ class Win32LobApp extends MobileLobApp implements Parsable
         $writer->writeCollectionOfObjectValues('rules', $this->rules);
         $writer->writeStringValue('setupFilePath', $this->setupFilePath);
         $writer->writeStringValue('uninstallCommandLine', $this->uninstallCommandLine);
+    }
+
+    /**
+     * Sets the allowAvailableUninstall property value. When TRUE, indicates that uninstall is supported from the company portal for the Windows app (Win32) with an Available assignment. When FALSE, indicates that uninstall is not supported for the Windows app (Win32) with an Available assignment. Default value is FALSE.
+     *  @param bool|null $value Value to set for the allowAvailableUninstall property.
+    */
+    public function setAllowAvailableUninstall(?bool $value ): void {
+        $this->allowAvailableUninstall = $value;
     }
 
     /**

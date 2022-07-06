@@ -15,22 +15,22 @@ class AttachmentInfo implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var AttachmentType|null $attachmentType The attachmentType property
+     * @var AttachmentType|null $attachmentType The type of the attachment. The possible values are: file, item, reference. Required.
     */
     private ?AttachmentType $attachmentType = null;
     
     /**
-     * @var string|null $contentType The contentType property
+     * @var string|null $contentType The nature of the data in the attachment. Optional.
     */
     private ?string $contentType = null;
     
     /**
-     * @var string|null $name The name property
+     * @var string|null $name The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
     */
     private ?string $name = null;
     
     /**
-     * @var int|null $size The size property
+     * @var int|null $size The length of the attachment in bytes. Required.
     */
     private ?int $size = null;
     
@@ -59,7 +59,7 @@ class AttachmentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the attachmentType property value. The attachmentType property
+     * Gets the attachmentType property value. The type of the attachment. The possible values are: file, item, reference. Required.
      * @return AttachmentType|null
     */
     public function getAttachmentType(): ?AttachmentType {
@@ -67,7 +67,7 @@ class AttachmentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the contentType property value. The contentType property
+     * Gets the contentType property value. The nature of the data in the attachment. Optional.
      * @return string|null
     */
     public function getContentType(): ?string {
@@ -89,7 +89,7 @@ class AttachmentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
      * @return string|null
     */
     public function getName(): ?string {
@@ -97,7 +97,7 @@ class AttachmentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the size property value. The size property
+     * Gets the size property value. The length of the attachment in bytes. Required.
      * @return int|null
     */
     public function getSize(): ?int {
@@ -125,7 +125,7 @@ class AttachmentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the attachmentType property value. The attachmentType property
+     * Sets the attachmentType property value. The type of the attachment. The possible values are: file, item, reference. Required.
      *  @param AttachmentType|null $value Value to set for the attachmentType property.
     */
     public function setAttachmentType(?AttachmentType $value ): void {
@@ -133,7 +133,7 @@ class AttachmentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the contentType property value. The contentType property
+     * Sets the contentType property value. The nature of the data in the attachment. Optional.
      *  @param string|null $value Value to set for the contentType property.
     */
     public function setContentType(?string $value ): void {
@@ -141,7 +141,7 @@ class AttachmentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {
@@ -149,7 +149,7 @@ class AttachmentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the size property value. The size property
+     * Sets the size property value. The length of the attachment in bytes. Required.
      *  @param int|null $value Value to set for the size property.
     */
     public function setSize(?int $value ): void {

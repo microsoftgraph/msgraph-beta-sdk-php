@@ -161,6 +161,11 @@ class Message extends OutlookItem implements Parsable
     private ?array $toRecipients = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var ItemBody|null $uniqueBody The uniqueBody property
     */
     private ?ItemBody $uniqueBody = null;
@@ -305,6 +310,7 @@ class Message extends OutlookItem implements Parsable
             'singleValueExtendedProperties' => function (ParseNode $n) use ($o) { $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues(array(SingleValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'))); },
             'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
             'toRecipients' => function (ParseNode $n) use ($o) { $o->setToRecipients($n->getCollectionOfObjectValues(array(Recipient::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'uniqueBody' => function (ParseNode $n) use ($o) { $o->setUniqueBody($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
             'unsubscribeData' => function (ParseNode $n) use ($o) { $o->setUnsubscribeData($n->getCollectionOfPrimitiveValues()); },
             'unsubscribeEnabled' => function (ParseNode $n) use ($o) { $o->setUnsubscribeEnabled($n->getBooleanValue()); },
@@ -422,6 +428,14 @@ class Message extends OutlookItem implements Parsable
     */
     public function getMultiValueExtendedProperties(): ?array {
         return $this->multiValueExtendedProperties;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -556,6 +570,7 @@ class Message extends OutlookItem implements Parsable
         $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->singleValueExtendedProperties);
         $writer->writeStringValue('subject', $this->subject);
         $writer->writeCollectionOfObjectValues('toRecipients', $this->toRecipients);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeObjectValue('uniqueBody', $this->uniqueBody);
         $writer->writeCollectionOfPrimitiveValues('unsubscribeData', $this->unsubscribeData);
         $writer->writeBooleanValue('unsubscribeEnabled', $this->unsubscribeEnabled);
@@ -736,6 +751,14 @@ class Message extends OutlookItem implements Parsable
     */
     public function setMultiValueExtendedProperties(?array $value ): void {
         $this->multiValueExtendedProperties = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

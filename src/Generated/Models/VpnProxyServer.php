@@ -30,6 +30,11 @@ class VpnProxyServer implements AdditionalDataHolder, Parsable
     private ?int $port = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new vpnProxyServer and sets the default values.
     */
     public function __construct() {
@@ -87,7 +92,16 @@ class VpnProxyServer implements AdditionalDataHolder, Parsable
             'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getStringValue()); },
             'automaticConfigurationScriptUrl' => function (ParseNode $n) use ($o) { $o->setAutomaticConfigurationScriptUrl($n->getStringValue()); },
             'port' => function (ParseNode $n) use ($o) { $o->setPort($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -106,6 +120,7 @@ class VpnProxyServer implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('address', $this->address);
         $writer->writeStringValue('automaticConfigurationScriptUrl', $this->automaticConfigurationScriptUrl);
         $writer->writeIntegerValue('port', $this->port);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -131,6 +146,14 @@ class VpnProxyServer implements AdditionalDataHolder, Parsable
     */
     public function setAutomaticConfigurationScriptUrl(?string $value ): void {
         $this->automaticConfigurationScriptUrl = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

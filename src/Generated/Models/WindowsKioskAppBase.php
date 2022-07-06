@@ -35,6 +35,11 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
     private ?WindowsAppStartLayoutTileSize $startLayoutTileSize = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new windowsKioskAppBase and sets the default values.
     */
     public function __construct() {
@@ -94,6 +99,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
             'autoLaunch' => function (ParseNode $n) use ($o) { $o->setAutoLaunch($n->getBooleanValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
             'startLayoutTileSize' => function (ParseNode $n) use ($o) { $o->setStartLayoutTileSize($n->getEnumValue(WindowsAppStartLayoutTileSize::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -103,6 +109,14 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
     */
     public function getName(): ?string {
         return $this->name;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -122,6 +136,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('autoLaunch', $this->autoLaunch);
         $writer->writeStringValue('name', $this->name);
         $writer->writeEnumValue('startLayoutTileSize', $this->startLayoutTileSize);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -155,6 +170,14 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

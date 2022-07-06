@@ -60,6 +60,11 @@ class RiskyServicePrincipal extends Entity implements Parsable
     private ?string $servicePrincipalType = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new RiskyServicePrincipal and sets the default values.
     */
     public function __construct() {
@@ -123,6 +128,7 @@ class RiskyServicePrincipal extends Entity implements Parsable
             'riskLevel' => function (ParseNode $n) use ($o) { $o->setRiskLevel($n->getEnumValue(RiskLevel::class)); },
             'riskState' => function (ParseNode $n) use ($o) { $o->setRiskState($n->getEnumValue(RiskState::class)); },
             'servicePrincipalType' => function (ParseNode $n) use ($o) { $o->setServicePrincipalType($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -140,6 +146,14 @@ class RiskyServicePrincipal extends Entity implements Parsable
     */
     public function getIsProcessing(): ?bool {
         return $this->isProcessing;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -198,6 +212,7 @@ class RiskyServicePrincipal extends Entity implements Parsable
         $writer->writeEnumValue('riskLevel', $this->riskLevel);
         $writer->writeEnumValue('riskState', $this->riskState);
         $writer->writeStringValue('servicePrincipalType', $this->servicePrincipalType);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -238,6 +253,14 @@ class RiskyServicePrincipal extends Entity implements Parsable
     */
     public function setIsProcessing(?bool $value ): void {
         $this->isProcessing = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

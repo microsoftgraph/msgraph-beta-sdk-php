@@ -44,6 +44,11 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     private ?SubjectNameFormat $subjectNameFormat = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new windowsPhone81CertificateProfileBase and sets the default values.
     */
     public function __construct() {
@@ -104,6 +109,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
             'renewalThresholdPercentage' => function (ParseNode $n) use ($o) { $o->setRenewalThresholdPercentage($n->getIntegerValue()); },
             'subjectAlternativeNameType' => function (ParseNode $n) use ($o) { $o->setSubjectAlternativeNameType($n->getEnumValue(SubjectAlternativeNameType::class)); },
             'subjectNameFormat' => function (ParseNode $n) use ($o) { $o->setSubjectNameFormat($n->getEnumValue(SubjectNameFormat::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -113,6 +119,14 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     */
     public function getKeyStorageProvider(): ?KeyStorageProviderOption {
         return $this->keyStorageProvider;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -152,6 +166,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
         $writer->writeIntegerValue('renewalThresholdPercentage', $this->renewalThresholdPercentage);
         $writer->writeEnumValue('subjectAlternativeNameType', $this->subjectAlternativeNameType);
         $writer->writeEnumValue('subjectNameFormat', $this->subjectNameFormat);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -184,6 +199,14 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     */
     public function setKeyStorageProvider(?KeyStorageProviderOption $value ): void {
         $this->keyStorageProvider = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

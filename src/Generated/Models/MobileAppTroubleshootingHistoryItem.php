@@ -26,6 +26,11 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
     private ?DeviceManagementTroubleshootingErrorDetails $troubleshootingErrorDetails = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new mobileAppTroubleshootingHistoryItem and sets the default values.
     */
     public function __construct() {
@@ -69,6 +74,7 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
         return  [
             'occurrenceDateTime' => function (ParseNode $n) use ($o) { $o->setOccurrenceDateTime($n->getDateTimeValue()); },
             'troubleshootingErrorDetails' => function (ParseNode $n) use ($o) { $o->setTroubleshootingErrorDetails($n->getObjectValue(array(DeviceManagementTroubleshootingErrorDetails::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -78,6 +84,14 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
     */
     public function getOccurrenceDateTime(): ?DateTime {
         return $this->occurrenceDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -95,6 +109,7 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('occurrenceDateTime', $this->occurrenceDateTime);
         $writer->writeObjectValue('troubleshootingErrorDetails', $this->troubleshootingErrorDetails);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -112,6 +127,14 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
     */
     public function setOccurrenceDateTime(?DateTime $value ): void {
         $this->occurrenceDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

@@ -95,7 +95,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
-     * Instantiates a new cloudAppSecurityProfile and sets the default values.
+     * Instantiates a new CloudAppSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

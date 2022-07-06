@@ -60,6 +60,11 @@ class DeviceAppManagementTask extends Entity implements Parsable
     private ?DeviceAppManagementTaskStatus $status = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new deviceAppManagementTask and sets the default values.
     */
     public function __construct() {
@@ -165,7 +170,16 @@ class DeviceAppManagementTask extends Entity implements Parsable
             'dueDateTime' => function (ParseNode $n) use ($o) { $o->setDueDateTime($n->getDateTimeValue()); },
             'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getEnumValue(DeviceAppManagementTaskPriority::class)); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DeviceAppManagementTaskStatus::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -200,6 +214,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
         $writer->writeDateTimeValue('dueDateTime', $this->dueDateTime);
         $writer->writeEnumValue('priority', $this->priority);
         $writer->writeEnumValue('status', $this->status);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -264,6 +279,14 @@ class DeviceAppManagementTask extends Entity implements Parsable
     */
     public function setDueDateTime(?DateTime $value ): void {
         $this->dueDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

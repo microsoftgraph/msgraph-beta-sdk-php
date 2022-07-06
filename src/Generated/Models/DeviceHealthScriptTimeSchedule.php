@@ -15,6 +15,11 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule imple
     private ?Time $time = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var bool|null $useUtc Indicate if the time is Utc or client local time.
     */
     private ?bool $useUtc = null;
@@ -51,8 +56,17 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule imple
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'time' => function (ParseNode $n) use ($o) { $o->setTime($n->getTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'useUtc' => function (ParseNode $n) use ($o) { $o->setUseUtc($n->getBooleanValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -78,7 +92,16 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule imple
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeTimeValue('time', $this->time);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeBooleanValue('useUtc', $this->useUtc);
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

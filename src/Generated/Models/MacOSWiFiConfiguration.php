@@ -54,6 +54,11 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     private ?string $ssid = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var WiFiSecurityType|null $wiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
     */
     private ?WiFiSecurityType $wiFiSecurityType = null;
@@ -113,6 +118,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
             'proxyManualPort' => function (ParseNode $n) use ($o) { $o->setProxyManualPort($n->getIntegerValue()); },
             'proxySettings' => function (ParseNode $n) use ($o) { $o->setProxySettings($n->getEnumValue(WiFiProxySetting::class)); },
             'ssid' => function (ParseNode $n) use ($o) { $o->setSsid($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'wiFiSecurityType' => function (ParseNode $n) use ($o) { $o->setWiFiSecurityType($n->getEnumValue(WiFiSecurityType::class)); },
         ]);
     }
@@ -123,6 +129,14 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     */
     public function getNetworkName(): ?string {
         return $this->networkName;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -196,6 +210,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeIntegerValue('proxyManualPort', $this->proxyManualPort);
         $writer->writeEnumValue('proxySettings', $this->proxySettings);
         $writer->writeStringValue('ssid', $this->ssid);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeEnumValue('wiFiSecurityType', $this->wiFiSecurityType);
     }
 
@@ -221,6 +236,14 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     */
     public function setNetworkName(?string $value ): void {
         $this->networkName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

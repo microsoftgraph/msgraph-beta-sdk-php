@@ -35,6 +35,11 @@ class LongRunningOperation extends Entity implements Parsable
     private ?string $statusDetail = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new longRunningOperation and sets the default values.
     */
     public function __construct() {
@@ -77,6 +82,7 @@ class LongRunningOperation extends Entity implements Parsable
             'resourceLocation' => function (ParseNode $n) use ($o) { $o->setResourceLocation($n->getStringValue()); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)); },
             'statusDetail' => function (ParseNode $n) use ($o) { $o->setStatusDetail($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -86,6 +92,14 @@ class LongRunningOperation extends Entity implements Parsable
     */
     public function getLastActionDateTime(): ?DateTime {
         return $this->lastActionDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -123,6 +137,7 @@ class LongRunningOperation extends Entity implements Parsable
         $writer->writeStringValue('resourceLocation', $this->resourceLocation);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeStringValue('statusDetail', $this->statusDetail);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -139,6 +154,14 @@ class LongRunningOperation extends Entity implements Parsable
     */
     public function setLastActionDateTime(?DateTime $value ): void {
         $this->lastActionDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

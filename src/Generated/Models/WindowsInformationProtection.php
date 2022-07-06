@@ -134,6 +134,11 @@ class WindowsInformationProtection extends ManagedAppPolicy implements Parsable
     private ?array $smbAutoEncryptedFileExtensions = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new WindowsInformationProtection and sets the default values.
     */
     public function __construct() {
@@ -309,6 +314,7 @@ class WindowsInformationProtection extends ManagedAppPolicy implements Parsable
             'revokeOnUnenrollDisabled' => function (ParseNode $n) use ($o) { $o->setRevokeOnUnenrollDisabled($n->getBooleanValue()); },
             'rightsManagementServicesTemplateId' => function (ParseNode $n) use ($o) { $o->setRightsManagementServicesTemplateId($n->getStringValue()); },
             'smbAutoEncryptedFileExtensions' => function (ParseNode $n) use ($o) { $o->setSmbAutoEncryptedFileExtensions($n->getCollectionOfObjectValues(array(WindowsInformationProtectionResourceCollection::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -342,6 +348,14 @@ class WindowsInformationProtection extends ManagedAppPolicy implements Parsable
     */
     public function getNeutralDomainResources(): ?array {
         return $this->neutralDomainResources;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -423,6 +437,7 @@ class WindowsInformationProtection extends ManagedAppPolicy implements Parsable
         $writer->writeBooleanValue('revokeOnUnenrollDisabled', $this->revokeOnUnenrollDisabled);
         $writer->writeStringValue('rightsManagementServicesTemplateId', $this->rightsManagementServicesTemplateId);
         $writer->writeCollectionOfObjectValues('smbAutoEncryptedFileExtensions', $this->smbAutoEncryptedFileExtensions);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -575,6 +590,14 @@ class WindowsInformationProtection extends ManagedAppPolicy implements Parsable
     */
     public function setNeutralDomainResources(?array $value ): void {
         $this->neutralDomainResources = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

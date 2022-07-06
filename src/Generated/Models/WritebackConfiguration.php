@@ -15,9 +15,14 @@ class WritebackConfiguration implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var bool|null $isEnabled The isEnabled property
+     * @var bool|null $isEnabled Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
     */
     private ?bool $isEnabled = null;
+    
+    /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
     
     /**
      * Instantiates a new writebackConfiguration and sets the default values.
@@ -58,15 +63,24 @@ class WritebackConfiguration implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
         return $this->isEnabled;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -75,6 +89,7 @@ class WritebackConfiguration implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isEnabled', $this->isEnabled);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -87,11 +102,19 @@ class WritebackConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value ): void {
         $this->isEnabled = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

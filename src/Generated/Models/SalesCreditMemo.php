@@ -171,7 +171,7 @@ class SalesCreditMemo extends Entity implements Parsable
     private ?string $totalTaxAmount = null;
     
     /**
-     * Instantiates a new salesCreditMemo and sets the default values.
+     * Instantiates a new SalesCreditMemo and sets the default values.
     */
     public function __construct() {
         parent::__construct();

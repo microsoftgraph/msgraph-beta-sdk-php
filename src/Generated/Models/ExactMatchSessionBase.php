@@ -45,6 +45,11 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
     private ?int $totalJobCount = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var DateTime|null $uploadCompletionDateTime The uploadCompletionDateTime property
     */
     private ?DateTime $uploadCompletionDateTime = null;
@@ -94,8 +99,17 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
             'totalBlockCount' => function (ParseNode $n) use ($o) { $o->setTotalBlockCount($n->getIntegerValue()); },
             'totalJobCount' => function (ParseNode $n) use ($o) { $o->setTotalJobCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'uploadCompletionDateTime' => function (ParseNode $n) use ($o) { $o->setUploadCompletionDateTime($n->getDateTimeValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -167,6 +181,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
         $writer->writeStringValue('state', $this->state);
         $writer->writeIntegerValue('totalBlockCount', $this->totalBlockCount);
         $writer->writeIntegerValue('totalJobCount', $this->totalJobCount);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeDateTimeValue('uploadCompletionDateTime', $this->uploadCompletionDateTime);
     }
 
@@ -176,6 +191,14 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
     */
     public function setDataStoreId(?string $value ): void {
         $this->dataStoreId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

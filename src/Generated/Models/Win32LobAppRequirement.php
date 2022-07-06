@@ -25,6 +25,11 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
     private ?Win32LobAppDetectionOperator $operator = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new win32LobAppRequirement and sets the default values.
     */
     public function __construct() {
@@ -74,7 +79,16 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
         return  [
             'detectionValue' => function (ParseNode $n) use ($o) { $o->setDetectionValue($n->getStringValue()); },
             'operator' => function (ParseNode $n) use ($o) { $o->setOperator($n->getEnumValue(Win32LobAppDetectionOperator::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -92,6 +106,7 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('detectionValue', $this->detectionValue);
         $writer->writeEnumValue('operator', $this->operator);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -109,6 +124,14 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
     */
     public function setDetectionValue(?string $value ): void {
         $this->detectionValue = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

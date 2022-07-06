@@ -20,6 +20,11 @@ class TeamworkHostedContent extends Entity implements Parsable
     private ?string $contentType = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new teamworkHostedContent and sets the default values.
     */
     public function __construct() {
@@ -67,7 +72,16 @@ class TeamworkHostedContent extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'contentBytes' => function (ParseNode $n) use ($o) { $o->setContentBytes($n->getBinaryContent()); },
             'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -78,6 +92,7 @@ class TeamworkHostedContent extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBinaryContent('contentBytes', $this->contentBytes);
         $writer->writeStringValue('contentType', $this->contentType);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -94,6 +109,14 @@ class TeamworkHostedContent extends Entity implements Parsable
     */
     public function setContentType(?string $value ): void {
         $this->contentType = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

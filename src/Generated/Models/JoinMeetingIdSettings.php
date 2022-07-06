@@ -15,17 +15,17 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var bool|null $isPasscodeRequired The isPasscodeRequired property
+     * @var bool|null $isPasscodeRequired Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
     */
     private ?bool $isPasscodeRequired = null;
     
     /**
-     * @var string|null $joinMeetingId The joinMeetingId property
+     * @var string|null $joinMeetingId The meeting ID to be used to join a meeting. Optional. Read-only.
     */
     private ?string $joinMeetingId = null;
     
     /**
-     * @var string|null $passcode The passcode property
+     * @var string|null $passcode The passcode to join a meeting.  Optional. Read-only.
     */
     private ?string $passcode = null;
     
@@ -67,7 +67,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the isPasscodeRequired property value. The isPasscodeRequired property
+     * Gets the isPasscodeRequired property value. Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
      * @return bool|null
     */
     public function getIsPasscodeRequired(): ?bool {
@@ -75,7 +75,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the joinMeetingId property value. The joinMeetingId property
+     * Gets the joinMeetingId property value. The meeting ID to be used to join a meeting. Optional. Read-only.
      * @return string|null
     */
     public function getJoinMeetingId(): ?string {
@@ -83,7 +83,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the passcode property value. The passcode property
+     * Gets the passcode property value. The passcode to join a meeting.  Optional. Read-only.
      * @return string|null
     */
     public function getPasscode(): ?string {
@@ -110,7 +110,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isPasscodeRequired property value. The isPasscodeRequired property
+     * Sets the isPasscodeRequired property value. Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
      *  @param bool|null $value Value to set for the isPasscodeRequired property.
     */
     public function setIsPasscodeRequired(?bool $value ): void {
@@ -118,7 +118,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the joinMeetingId property value. The joinMeetingId property
+     * Sets the joinMeetingId property value. The meeting ID to be used to join a meeting. Optional. Read-only.
      *  @param string|null $value Value to set for the joinMeetingId property.
     */
     public function setJoinMeetingId(?string $value ): void {
@@ -126,7 +126,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the passcode property value. The passcode property
+     * Sets the passcode property value. The passcode to join a meeting.  Optional. Read-only.
      *  @param string|null $value Value to set for the passcode property.
     */
     public function setPasscode(?string $value ): void {

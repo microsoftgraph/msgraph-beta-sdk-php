@@ -30,6 +30,11 @@ class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
     private ?string $senderShiftId = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new OfferShiftRequest and sets the default values.
     */
     public function __construct() {
@@ -63,7 +68,16 @@ class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
             'recipientActionMessage' => function (ParseNode $n) use ($o) { $o->setRecipientActionMessage($n->getStringValue()); },
             'recipientUserId' => function (ParseNode $n) use ($o) { $o->setRecipientUserId($n->getStringValue()); },
             'senderShiftId' => function (ParseNode $n) use ($o) { $o->setSenderShiftId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -108,6 +122,15 @@ class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
         $writer->writeStringValue('recipientActionMessage', $this->recipientActionMessage);
         $writer->writeStringValue('recipientUserId', $this->recipientUserId);
         $writer->writeStringValue('senderShiftId', $this->senderShiftId);
+        $writer->writeStringValue('@odata.type', $this->type);
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

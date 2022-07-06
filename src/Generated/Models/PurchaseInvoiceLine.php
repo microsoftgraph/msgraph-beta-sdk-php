@@ -125,7 +125,7 @@ class PurchaseInvoiceLine extends Entity implements Parsable
     private ?string $unitCost = null;
     
     /**
-     * Instantiates a new purchaseInvoiceLine and sets the default values.
+     * Instantiates a new PurchaseInvoiceLine and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -60,6 +60,11 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
     private ?bool $remindersEnabled = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new accessReviewSettings and sets the default values.
     */
     public function __construct() {
@@ -146,6 +151,7 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
             'mailNotificationsEnabled' => function (ParseNode $n) use ($o) { $o->setMailNotificationsEnabled($n->getBooleanValue()); },
             'recurrenceSettings' => function (ParseNode $n) use ($o) { $o->setRecurrenceSettings($n->getObjectValue(array(AccessReviewRecurrenceSettings::class, 'createFromDiscriminatorValue'))); },
             'remindersEnabled' => function (ParseNode $n) use ($o) { $o->setRemindersEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -163,6 +169,14 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
     */
     public function getMailNotificationsEnabled(): ?bool {
         return $this->mailNotificationsEnabled;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -195,6 +209,7 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('mailNotificationsEnabled', $this->mailNotificationsEnabled);
         $writer->writeObjectValue('recurrenceSettings', $this->recurrenceSettings);
         $writer->writeBooleanValue('remindersEnabled', $this->remindersEnabled);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -260,6 +275,14 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
     */
     public function setMailNotificationsEnabled(?bool $value ): void {
         $this->mailNotificationsEnabled = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

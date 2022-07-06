@@ -24,6 +24,11 @@ class AccessReviewQueryScope extends AccessReviewScope implements Parsable
     private ?string $queryType = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new AccessReviewQueryScope and sets the default values.
     */
     public function __construct() {
@@ -56,7 +61,16 @@ class AccessReviewQueryScope extends AccessReviewScope implements Parsable
             'query' => function (ParseNode $n) use ($o) { $o->setQuery($n->getStringValue()); },
             'queryRoot' => function (ParseNode $n) use ($o) { $o->setQueryRoot($n->getStringValue()); },
             'queryType' => function (ParseNode $n) use ($o) { $o->setQueryType($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -92,6 +106,15 @@ class AccessReviewQueryScope extends AccessReviewScope implements Parsable
         $writer->writeStringValue('query', $this->query);
         $writer->writeStringValue('queryRoot', $this->queryRoot);
         $writer->writeStringValue('queryType', $this->queryType);
+        $writer->writeStringValue('@odata.type', $this->type);
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

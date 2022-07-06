@@ -125,6 +125,11 @@ class MobileApp extends Entity implements Parsable
     private ?int $supersedingAppCount = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var int|null $uploadState The upload state.
     */
     private ?int $uploadState = null;
@@ -269,6 +274,7 @@ class MobileApp extends Entity implements Parsable
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
             'supersededAppCount' => function (ParseNode $n) use ($o) { $o->setSupersededAppCount($n->getIntegerValue()); },
             'supersedingAppCount' => function (ParseNode $n) use ($o) { $o->setSupersedingAppCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'uploadState' => function (ParseNode $n) use ($o) { $o->setUploadState($n->getIntegerValue()); },
             'userStatuses' => function (ParseNode $n) use ($o) { $o->setUserStatuses($n->getCollectionOfObjectValues(array(UserAppInstallStatus::class, 'createFromDiscriminatorValue'))); },
         ]);
@@ -328,6 +334,14 @@ class MobileApp extends Entity implements Parsable
     */
     public function getNotes(): ?string {
         return $this->notes;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -439,6 +453,7 @@ class MobileApp extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeIntegerValue('supersededAppCount', $this->supersededAppCount);
         $writer->writeIntegerValue('supersedingAppCount', $this->supersedingAppCount);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeIntegerValue('uploadState', $this->uploadState);
         $writer->writeCollectionOfObjectValues('userStatuses', $this->userStatuses);
     }
@@ -561,6 +576,14 @@ class MobileApp extends Entity implements Parsable
     */
     public function setNotes(?string $value ): void {
         $this->notes = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

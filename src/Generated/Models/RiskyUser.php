@@ -45,6 +45,11 @@ class RiskyUser extends Entity implements Parsable
     private ?RiskState $riskState = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var string|null $userDisplayName Risky user display name.
     */
     private ?string $userDisplayName = null;
@@ -91,6 +96,7 @@ class RiskyUser extends Entity implements Parsable
             'riskLastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setRiskLastUpdatedDateTime($n->getDateTimeValue()); },
             'riskLevel' => function (ParseNode $n) use ($o) { $o->setRiskLevel($n->getEnumValue(RiskLevel::class)); },
             'riskState' => function (ParseNode $n) use ($o) { $o->setRiskState($n->getEnumValue(RiskState::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
             'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
@@ -118,6 +124,14 @@ class RiskyUser extends Entity implements Parsable
     */
     public function getIsProcessing(): ?bool {
         return $this->isProcessing;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -181,6 +195,7 @@ class RiskyUser extends Entity implements Parsable
         $writer->writeDateTimeValue('riskLastUpdatedDateTime', $this->riskLastUpdatedDateTime);
         $writer->writeEnumValue('riskLevel', $this->riskLevel);
         $writer->writeEnumValue('riskState', $this->riskState);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeStringValue('userDisplayName', $this->userDisplayName);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
     }
@@ -207,6 +222,14 @@ class RiskyUser extends Entity implements Parsable
     */
     public function setIsProcessing(?bool $value ): void {
         $this->isProcessing = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

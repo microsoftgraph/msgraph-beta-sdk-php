@@ -55,6 +55,11 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
     private ?string $tooltip = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new parentLabelDetails and sets the default values.
     */
     public function __construct() {
@@ -116,6 +121,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
             'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(ParentLabelDetails::class, 'createFromDiscriminatorValue'))); },
             'sensitivity' => function (ParseNode $n) use ($o) { $o->setSensitivity($n->getIntegerValue()); },
             'tooltip' => function (ParseNode $n) use ($o) { $o->setTooltip($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -141,6 +147,14 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
     */
     public function getName(): ?string {
         return $this->name;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -180,6 +194,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('parent', $this->parent);
         $writer->writeIntegerValue('sensitivity', $this->sensitivity);
         $writer->writeStringValue('tooltip', $this->tooltip);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -229,6 +244,14 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

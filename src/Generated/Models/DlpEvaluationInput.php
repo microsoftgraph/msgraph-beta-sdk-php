@@ -30,6 +30,11 @@ class DlpEvaluationInput implements AdditionalDataHolder, Parsable
     private ?array $discoveredSensitiveTypes = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new dlpEvaluationInput and sets the default values.
     */
     public function __construct() {
@@ -94,7 +99,16 @@ class DlpEvaluationInput implements AdditionalDataHolder, Parsable
             'accessScope' => function (ParseNode $n) use ($o) { $o->setAccessScope($n->getEnumValue(AccessScope::class)); },
             'currentLabel' => function (ParseNode $n) use ($o) { $o->setCurrentLabel($n->getObjectValue(array(CurrentLabel::class, 'createFromDiscriminatorValue'))); },
             'discoveredSensitiveTypes' => function (ParseNode $n) use ($o) { $o->setDiscoveredSensitiveTypes($n->getCollectionOfObjectValues(array(DiscoveredSensitiveType::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -105,6 +119,7 @@ class DlpEvaluationInput implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('accessScope', $this->accessScope);
         $writer->writeObjectValue('currentLabel', $this->currentLabel);
         $writer->writeCollectionOfObjectValues('discoveredSensitiveTypes', $this->discoveredSensitiveTypes);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -138,6 +153,14 @@ class DlpEvaluationInput implements AdditionalDataHolder, Parsable
     */
     public function setDiscoveredSensitiveTypes(?array $value ): void {
         $this->discoveredSensitiveTypes = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

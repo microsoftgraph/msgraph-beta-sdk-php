@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupWritebackConfiguration extends WritebackConfiguration implements Parsable 
 {
     /**
-     * @var string|null $onPremisesGroupType The onPremisesGroupType property
+     * @var string|null $onPremisesGroupType Indicates the target on-premise group type the cloud object will be written back as. Nullable. The possible values are: universalDistributionGroup, universalSecurityGroup, universalMailEnabledSecurityGroup.If the cloud group is a unified (Microsoft 365) group, this property can be one of the following: universalDistributionGroup, universalSecurityGroup, universalMailEnabledSecurityGroup. Azure AD security groups can be written back as universalSecurityGroup. If isEnabled or the NewUnifiedGroupWritebackDefault group setting is true but this property is not explicitly configured: Microsoft 365 groups will be written back as universalDistributionGroup by defaultSecurity groups will be written back as universalSecurityGroup by default
     */
     private ?string $onPremisesGroupType = null;
     
@@ -41,7 +41,7 @@ class GroupWritebackConfiguration extends WritebackConfiguration implements Pars
     }
 
     /**
-     * Gets the onPremisesGroupType property value. The onPremisesGroupType property
+     * Gets the onPremisesGroupType property value. Indicates the target on-premise group type the cloud object will be written back as. Nullable. The possible values are: universalDistributionGroup, universalSecurityGroup, universalMailEnabledSecurityGroup.If the cloud group is a unified (Microsoft 365) group, this property can be one of the following: universalDistributionGroup, universalSecurityGroup, universalMailEnabledSecurityGroup. Azure AD security groups can be written back as universalSecurityGroup. If isEnabled or the NewUnifiedGroupWritebackDefault group setting is true but this property is not explicitly configured: Microsoft 365 groups will be written back as universalDistributionGroup by defaultSecurity groups will be written back as universalSecurityGroup by default
      * @return string|null
     */
     public function getOnPremisesGroupType(): ?string {
@@ -58,7 +58,7 @@ class GroupWritebackConfiguration extends WritebackConfiguration implements Pars
     }
 
     /**
-     * Sets the onPremisesGroupType property value. The onPremisesGroupType property
+     * Sets the onPremisesGroupType property value. Indicates the target on-premise group type the cloud object will be written back as. Nullable. The possible values are: universalDistributionGroup, universalSecurityGroup, universalMailEnabledSecurityGroup.If the cloud group is a unified (Microsoft 365) group, this property can be one of the following: universalDistributionGroup, universalSecurityGroup, universalMailEnabledSecurityGroup. Azure AD security groups can be written back as universalSecurityGroup. If isEnabled or the NewUnifiedGroupWritebackDefault group setting is true but this property is not explicitly configured: Microsoft 365 groups will be written back as universalDistributionGroup by defaultSecurity groups will be written back as universalSecurityGroup by default
      *  @param string|null $value Value to set for the onPremisesGroupType property.
     */
     public function setOnPremisesGroupType(?string $value ): void {

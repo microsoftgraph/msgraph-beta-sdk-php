@@ -34,6 +34,11 @@ class DomainDnsRecord extends Entity implements Parsable
     private ?int $ttl = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new domainDnsRecord and sets the default values.
     */
     public function __construct() {
@@ -72,6 +77,7 @@ class DomainDnsRecord extends Entity implements Parsable
             'recordType' => function (ParseNode $n) use ($o) { $o->setRecordType($n->getStringValue()); },
             'supportedService' => function (ParseNode $n) use ($o) { $o->setSupportedService($n->getStringValue()); },
             'ttl' => function (ParseNode $n) use ($o) { $o->setTtl($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -89,6 +95,14 @@ class DomainDnsRecord extends Entity implements Parsable
     */
     public function getLabel(): ?string {
         return $this->label;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -126,6 +140,7 @@ class DomainDnsRecord extends Entity implements Parsable
         $writer->writeStringValue('recordType', $this->recordType);
         $writer->writeStringValue('supportedService', $this->supportedService);
         $writer->writeIntegerValue('ttl', $this->ttl);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -142,6 +157,14 @@ class DomainDnsRecord extends Entity implements Parsable
     */
     public function setLabel(?string $value ): void {
         $this->label = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

@@ -35,6 +35,11 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
     private ?DeviceManagementTroubleshootingErrorDetails $troubleshootingErrorDetails = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new DeviceManagementTroubleshootingEvent and sets the default values.
     */
     public function __construct() {
@@ -103,7 +108,16 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
             'eventDateTime' => function (ParseNode $n) use ($o) { $o->setEventDateTime($n->getDateTimeValue()); },
             'eventName' => function (ParseNode $n) use ($o) { $o->setEventName($n->getStringValue()); },
             'troubleshootingErrorDetails' => function (ParseNode $n) use ($o) { $o->setTroubleshootingErrorDetails($n->getObjectValue(array(DeviceManagementTroubleshootingErrorDetails::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -125,6 +139,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
         $writer->writeDateTimeValue('eventDateTime', $this->eventDateTime);
         $writer->writeStringValue('eventName', $this->eventName);
         $writer->writeObjectValue('troubleshootingErrorDetails', $this->troubleshootingErrorDetails);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -157,6 +172,14 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
     */
     public function setEventName(?string $value ): void {
         $this->eventName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

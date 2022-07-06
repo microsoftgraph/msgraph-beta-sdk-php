@@ -84,6 +84,11 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     private ?DeviceManagementConfigurationSettingUsage $settingUsage = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var DeviceManagementConfigurationControlType|null $uxBehavior Setting control type representation in the UX. Possible values are: default, dropdown, smallTextBox, largeTextBox, toggle, multiheaderGrid, contextPane.
     */
     private ?DeviceManagementConfigurationControlType $uxBehavior = null;
@@ -194,6 +199,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
             'referredSettingInformationList' => function (ParseNode $n) use ($o) { $o->setReferredSettingInformationList($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationReferredSettingInformation::class, 'createFromDiscriminatorValue'))); },
             'rootDefinitionId' => function (ParseNode $n) use ($o) { $o->setRootDefinitionId($n->getStringValue()); },
             'settingUsage' => function (ParseNode $n) use ($o) { $o->setSettingUsage($n->getEnumValue(DeviceManagementConfigurationSettingUsage::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'uxBehavior' => function (ParseNode $n) use ($o) { $o->setUxBehavior($n->getEnumValue(DeviceManagementConfigurationControlType::class)); },
             'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
             'visibility' => function (ParseNode $n) use ($o) { $o->setVisibility($n->getEnumValue(DeviceManagementConfigurationSettingVisibility::class)); },
@@ -238,6 +244,14 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     */
     public function getOccurrence(): ?DeviceManagementConfigurationSettingOccurrence {
         return $this->occurrence;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -317,6 +331,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
         $writer->writeCollectionOfObjectValues('referredSettingInformationList', $this->referredSettingInformationList);
         $writer->writeStringValue('rootDefinitionId', $this->rootDefinitionId);
         $writer->writeEnumValue('settingUsage', $this->settingUsage);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeEnumValue('uxBehavior', $this->uxBehavior);
         $writer->writeStringValue('version', $this->version);
         $writer->writeEnumValue('visibility', $this->visibility);
@@ -408,6 +423,14 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     */
     public function setOccurrence(?DeviceManagementConfigurationSettingOccurrence $value ): void {
         $this->occurrence = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

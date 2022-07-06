@@ -50,6 +50,11 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     private ?Platform $platform = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new ImportedDeviceIdentity and sets the default values.
     */
     public function __construct() {
@@ -111,6 +116,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
             'lastContactedDateTime' => function (ParseNode $n) use ($o) { $o->setLastContactedDateTime($n->getDateTimeValue()); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(Platform::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -147,6 +153,14 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Gets the platform property value. The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
      * @return Platform|null
     */
@@ -168,6 +182,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
         $writer->writeDateTimeValue('lastContactedDateTime', $this->lastContactedDateTime);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeEnumValue('platform', $this->platform);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -224,6 +239,14 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
         $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**
