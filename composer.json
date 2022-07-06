@@ -12,9 +12,8 @@
 		}
 	],
 	"require": {
-		"php": "^8.0 || ^7.3",
-		"microsoft/microsoft-graph-core": "2.0.0-RC3",
-		"ext-json": "*"
+		"php": "^8.0 || ^7.4",
+		"microsoft/microsoft-graph-core": "2.0.0-RC4"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^8.0 || ^9.0",
@@ -22,12 +21,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Beta\\Microsoft\\Graph\\": "src/"
+			"Microsoft\\Graph\\Beta\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Microsoft\\Graph\\Test\\": "tests/"
+			"Microsoft\\Graph\\Beta\\Test\\": "tests/"
 		}
 	}
 }

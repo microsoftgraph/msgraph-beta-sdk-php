@@ -12,10 +12,9 @@ name: "create beta pull request"
 on:
   push:
     branches:
-      - "beta/pipelinebuild/*"
+      - "kiota/beta/pipelinebuild/*"
     paths:
-      - 'src/**/*.php'
-      - '!src/GraphConstants.php'
+      - 'src/Generated/**'
 
 defaults:
   run:
@@ -26,19 +25,19 @@ jobs:
   bump-minor-version:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    
+    - uses: actions/checkout@v3
+
     - name: Git config user
       run: |
         git config --global user.email "GraphTooling@service.microsoft.com"
         git config --global user.name "Microsoft Graph DevX Tooling"
-    
+
     - name: Run increment script
       run: php scripts/IncrementMinorVersion.php
 
     - name: Commit and push changes if any
       run: if git commit -am "Bump up minor version"; then git push origin $GITHUB_REF; fi
-        
+
   create-pull-request:
     needs: bump-minor-version
     # The type of runner that the job will run on
@@ -48,7 +47,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2.3.4
+    - uses: actions/checkout@v3
 
     # Create a pull request [1]
     - name: Create PR using the GitHub REST API via hub
