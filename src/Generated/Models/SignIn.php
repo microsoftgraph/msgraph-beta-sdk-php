@@ -280,6 +280,11 @@ class SignIn extends Entity implements Parsable
     private ?TokenIssuerType $tokenIssuerType = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var string|null $uniqueTokenIdentifier A unique base64 encoded request identifier used to track tokens issued by Azure AD as they are redeemed at resource providers.
     */
     private ?string $uniqueTokenIdentifier = null;
@@ -553,6 +558,7 @@ class SignIn extends Entity implements Parsable
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getObjectValue(array(SignInStatus::class, 'createFromDiscriminatorValue'))); },
             'tokenIssuerName' => function (ParseNode $n) use ($o) { $o->setTokenIssuerName($n->getStringValue()); },
             'tokenIssuerType' => function (ParseNode $n) use ($o) { $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'uniqueTokenIdentifier' => function (ParseNode $n) use ($o) { $o->setUniqueTokenIdentifier($n->getStringValue()); },
             'userAgent' => function (ParseNode $n) use ($o) { $o->setUserAgent($n->getStringValue()); },
             'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
@@ -648,6 +654,14 @@ class SignIn extends Entity implements Parsable
     */
     public function getNetworkLocationDetails(): ?array {
         return $this->networkLocationDetails;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -942,6 +956,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeObjectValue('status', $this->status);
         $writer->writeStringValue('tokenIssuerName', $this->tokenIssuerName);
         $writer->writeEnumValue('tokenIssuerType', $this->tokenIssuerType);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeStringValue('uniqueTokenIdentifier', $this->uniqueTokenIdentifier);
         $writer->writeStringValue('userAgent', $this->userAgent);
         $writer->writeStringValue('userDisplayName', $this->userDisplayName);
@@ -1196,6 +1211,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setNetworkLocationDetails(?array $value ): void {
         $this->networkLocationDetails = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

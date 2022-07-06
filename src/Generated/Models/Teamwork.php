@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Teamwork extends Entity implements Parsable 
 {
     /**
-     * @var array<DeletedTeam>|null $deletedTeams The deletedTeams property
+     * @var array<DeletedTeam>|null $deletedTeams A collection of deleted teams.
     */
     private ?array $deletedTeams = null;
     
@@ -19,7 +19,7 @@ class Teamwork extends Entity implements Parsable
     private ?array $devices = null;
     
     /**
-     * @var TeamsAppSettings|null $teamsAppSettings The teamsAppSettings property
+     * @var TeamsAppSettings|null $teamsAppSettings Represents tenant-wide settings for all Teams apps in the tenant.
     */
     private ?TeamsAppSettings $teamsAppSettings = null;
     
@@ -45,7 +45,7 @@ class Teamwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the deletedTeams property value. The deletedTeams property
+     * Gets the deletedTeams property value. A collection of deleted teams.
      * @return array<DeletedTeam>|null
     */
     public function getDeletedTeams(): ?array {
@@ -75,7 +75,7 @@ class Teamwork extends Entity implements Parsable
     }
 
     /**
-     * Gets the teamsAppSettings property value. The teamsAppSettings property
+     * Gets the teamsAppSettings property value. Represents tenant-wide settings for all Teams apps in the tenant.
      * @return TeamsAppSettings|null
     */
     public function getTeamsAppSettings(): ?TeamsAppSettings {
@@ -103,7 +103,7 @@ class Teamwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the deletedTeams property value. The deletedTeams property
+     * Sets the deletedTeams property value. A collection of deleted teams.
      *  @param array<DeletedTeam>|null $value Value to set for the deletedTeams property.
     */
     public function setDeletedTeams(?array $value ): void {
@@ -119,7 +119,7 @@ class Teamwork extends Entity implements Parsable
     }
 
     /**
-     * Sets the teamsAppSettings property value. The teamsAppSettings property
+     * Sets the teamsAppSettings property value. Represents tenant-wide settings for all Teams apps in the tenant.
      *  @param TeamsAppSettings|null $value Value to set for the teamsAppSettings property.
     */
     public function setTeamsAppSettings(?TeamsAppSettings $value ): void {

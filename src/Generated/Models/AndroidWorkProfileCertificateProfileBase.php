@@ -44,6 +44,11 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
     private ?SubjectNameFormat $subjectNameFormat = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new AndroidWorkProfileCertificateProfileBase and sets the default values.
     */
     public function __construct() {
@@ -105,7 +110,16 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
             'rootCertificate' => function (ParseNode $n) use ($o) { $o->setRootCertificate($n->getObjectValue(array(AndroidWorkProfileTrustedRootCertificate::class, 'createFromDiscriminatorValue'))); },
             'subjectAlternativeNameType' => function (ParseNode $n) use ($o) { $o->setSubjectAlternativeNameType($n->getEnumValue(SubjectAlternativeNameType::class)); },
             'subjectNameFormat' => function (ParseNode $n) use ($o) { $o->setSubjectNameFormat($n->getEnumValue(SubjectNameFormat::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -153,6 +167,7 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
         $writer->writeObjectValue('rootCertificate', $this->rootCertificate);
         $writer->writeEnumValue('subjectAlternativeNameType', $this->subjectAlternativeNameType);
         $writer->writeEnumValue('subjectNameFormat', $this->subjectNameFormat);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -177,6 +192,14 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
     */
     public function setExtendedKeyUsages(?array $value ): void {
         $this->extendedKeyUsages = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

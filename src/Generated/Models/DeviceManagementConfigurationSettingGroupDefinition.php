@@ -24,6 +24,11 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
     private ?array $dependentOn = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new DeviceManagementConfigurationSettingGroupDefinition and sets the default values.
     */
     public function __construct() {
@@ -80,7 +85,16 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
             'childIds' => function (ParseNode $n) use ($o) { $o->setChildIds($n->getCollectionOfPrimitiveValues()); },
             'dependedOnBy' => function (ParseNode $n) use ($o) { $o->setDependedOnBy($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingDependedOnBy::class, 'createFromDiscriminatorValue'))); },
             'dependentOn' => function (ParseNode $n) use ($o) { $o->setDependentOn($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationDependentOn::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -92,6 +106,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
         $writer->writeCollectionOfPrimitiveValues('childIds', $this->childIds);
         $writer->writeCollectionOfObjectValues('dependedOnBy', $this->dependedOnBy);
         $writer->writeCollectionOfObjectValues('dependentOn', $this->dependentOn);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -116,6 +131,14 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
     */
     public function setDependentOn(?array $value ): void {
         $this->dependentOn = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

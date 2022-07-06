@@ -54,7 +54,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
     private ?string $userName = null;
     
     /**
-     * Instantiates a new restrictedAppsViolation and sets the default values.
+     * Instantiates a new RestrictedAppsViolation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -40,6 +40,11 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
     private ?AccessPackageLocalizedContent $text = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new accessPackageQuestion and sets the default values.
     */
     public function __construct() {
@@ -83,6 +88,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
             'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
             'sequence' => function (ParseNode $n) use ($o) { $o->setSequence($n->getIntegerValue()); },
             'text' => function (ParseNode $n) use ($o) { $o->setText($n->getObjectValue(array(AccessPackageLocalizedContent::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -111,6 +117,14 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Gets the sequence property value. Relative position of this question when displaying a list of questions to the requestor.
      * @return int|null
     */
@@ -136,6 +150,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('isRequired', $this->isRequired);
         $writer->writeIntegerValue('sequence', $this->sequence);
         $writer->writeObjectValue('text', $this->text);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -169,6 +184,14 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
     */
     public function setIsRequired(?bool $value ): void {
         $this->isRequired = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

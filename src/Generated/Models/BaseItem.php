@@ -60,6 +60,11 @@ class BaseItem extends Entity implements Parsable
     private ?ItemReference $parentReference = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var string|null $webUrl URL that displays the resource in the browser. Read-only.
     */
     private ?string $webUrl = null;
@@ -150,6 +155,7 @@ class BaseItem extends Entity implements Parsable
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
             'parentReference' => function (ParseNode $n) use ($o) { $o->setParentReference($n->getObjectValue(array(ItemReference::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
@@ -187,6 +193,14 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Gets the parentReference property value. Parent information, if the item has a parent. Read-write.
      * @return ItemReference|null
     */
@@ -218,6 +232,7 @@ class BaseItem extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('name', $this->name);
         $writer->writeObjectValue('parentReference', $this->parentReference);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeStringValue('webUrl', $this->webUrl);
     }
 
@@ -291,6 +306,14 @@ class BaseItem extends Entity implements Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

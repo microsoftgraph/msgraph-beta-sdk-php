@@ -75,6 +75,11 @@ class ManagedEBook extends Entity implements Parsable
     private ?string $publisher = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var array<UserInstallStateSummary>|null $userStateSummary The list of installation states for this eBook.
     */
     private ?array $userStateSummary = null;
@@ -170,6 +175,7 @@ class ManagedEBook extends Entity implements Parsable
             'privacyInformationUrl' => function (ParseNode $n) use ($o) { $o->setPrivacyInformationUrl($n->getStringValue()); },
             'publishedDateTime' => function (ParseNode $n) use ($o) { $o->setPublishedDateTime($n->getDateTimeValue()); },
             'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'userStateSummary' => function (ParseNode $n) use ($o) { $o->setUserStateSummary($n->getCollectionOfObjectValues(array(UserInstallStateSummary::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
@@ -204,6 +210,14 @@ class ManagedEBook extends Entity implements Parsable
     */
     public function getLastModifiedDateTime(): ?DateTime {
         return $this->lastModifiedDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -257,6 +271,7 @@ class ManagedEBook extends Entity implements Parsable
         $writer->writeStringValue('privacyInformationUrl', $this->privacyInformationUrl);
         $writer->writeDateTimeValue('publishedDateTime', $this->publishedDateTime);
         $writer->writeStringValue('publisher', $this->publisher);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeCollectionOfObjectValues('userStateSummary', $this->userStateSummary);
     }
 
@@ -338,6 +353,14 @@ class ManagedEBook extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
         $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

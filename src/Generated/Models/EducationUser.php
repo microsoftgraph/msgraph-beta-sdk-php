@@ -200,7 +200,7 @@ class EducationUser extends Entity implements Parsable
     private ?string $userType = null;
     
     /**
-     * Instantiates a new educationUser and sets the default values.
+     * Instantiates a new EducationUser and sets the default values.
     */
     public function __construct() {
         parent::__construct();

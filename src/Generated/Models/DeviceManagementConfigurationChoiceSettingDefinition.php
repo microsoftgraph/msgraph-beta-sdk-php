@@ -19,6 +19,11 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     private ?array $options = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new DeviceManagementConfigurationChoiceSettingDefinition and sets the default values.
     */
     public function __construct() {
@@ -58,7 +63,16 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
         return array_merge(parent::getFieldDeserializers(), [
             'defaultOptionId' => function (ParseNode $n) use ($o) { $o->setDefaultOptionId($n->getStringValue()); },
             'options' => function (ParseNode $n) use ($o) { $o->setOptions($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationOptionDefinition::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -77,6 +91,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
         parent::serialize($writer);
         $writer->writeStringValue('defaultOptionId', $this->defaultOptionId);
         $writer->writeCollectionOfObjectValues('options', $this->options);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -85,6 +100,14 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     */
     public function setDefaultOptionId(?string $value ): void {
         $this->defaultOptionId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

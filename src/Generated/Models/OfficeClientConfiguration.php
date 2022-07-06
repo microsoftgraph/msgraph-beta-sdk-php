@@ -40,6 +40,11 @@ class OfficeClientConfiguration extends Entity implements Parsable
     private ?int $priority = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var OfficeUserCheckinSummary|null $userCheckinSummary User check-in summary for the policy.
     */
     private ?OfficeUserCheckinSummary $userCheckinSummary = null;
@@ -118,9 +123,18 @@ class OfficeClientConfiguration extends Entity implements Parsable
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'policyPayload' => function (ParseNode $n) use ($o) { $o->setPolicyPayload($n->getBinaryContent()); },
             'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'userCheckinSummary' => function (ParseNode $n) use ($o) { $o->setUserCheckinSummary($n->getObjectValue(array(OfficeUserCheckinSummary::class, 'createFromDiscriminatorValue'))); },
             'userPreferencePayload' => function (ParseNode $n) use ($o) { $o->setUserPreferencePayload($n->getBinaryContent()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -167,6 +181,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeBinaryContent('policyPayload', $this->policyPayload);
         $writer->writeIntegerValue('priority', $this->priority);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeObjectValue('userCheckinSummary', $this->userCheckinSummary);
         $writer->writeBinaryContent('userPreferencePayload', $this->userPreferencePayload);
     }
@@ -201,6 +216,14 @@ class OfficeClientConfiguration extends Entity implements Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

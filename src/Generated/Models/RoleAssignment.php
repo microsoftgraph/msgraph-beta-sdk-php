@@ -39,6 +39,11 @@ class RoleAssignment extends Entity implements Parsable
     private ?RoleAssignmentScopeType $scopeType = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new RoleAssignment and sets the default values.
     */
     public function __construct() {
@@ -90,7 +95,16 @@ class RoleAssignment extends Entity implements Parsable
             'roleDefinition' => function (ParseNode $n) use ($o) { $o->setRoleDefinition($n->getObjectValue(array(RoleDefinition::class, 'createFromDiscriminatorValue'))); },
             'scopeMembers' => function (ParseNode $n) use ($o) { $o->setScopeMembers($n->getCollectionOfPrimitiveValues()); },
             'scopeType' => function (ParseNode $n) use ($o) { $o->setScopeType($n->getEnumValue(RoleAssignmentScopeType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -137,6 +151,7 @@ class RoleAssignment extends Entity implements Parsable
         $writer->writeObjectValue('roleDefinition', $this->roleDefinition);
         $writer->writeCollectionOfPrimitiveValues('scopeMembers', $this->scopeMembers);
         $writer->writeEnumValue('scopeType', $this->scopeType);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -153,6 +168,14 @@ class RoleAssignment extends Entity implements Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

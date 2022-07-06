@@ -19,6 +19,11 @@ class ManagedEBookAssignment extends Entity implements Parsable
     private ?DeviceAndAppManagementAssignmentTarget $target = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new managedEBookAssignment and sets the default values.
     */
     public function __construct() {
@@ -50,6 +55,7 @@ class ManagedEBookAssignment extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'installIntent' => function (ParseNode $n) use ($o) { $o->setInstallIntent($n->getEnumValue(InstallIntent::class)); },
             'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -59,6 +65,14 @@ class ManagedEBookAssignment extends Entity implements Parsable
     */
     public function getInstallIntent(): ?InstallIntent {
         return $this->installIntent;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -77,6 +91,7 @@ class ManagedEBookAssignment extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('installIntent', $this->installIntent);
         $writer->writeObjectValue('target', $this->target);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -85,6 +100,14 @@ class ManagedEBookAssignment extends Entity implements Parsable
     */
     public function setInstallIntent(?InstallIntent $value ): void {
         $this->installIntent = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

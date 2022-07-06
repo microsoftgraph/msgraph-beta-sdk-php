@@ -49,6 +49,11 @@ class RoleDefinition extends Entity implements Parsable
     private ?array $roleScopeTagIds = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new roleDefinition and sets the default values.
     */
     public function __construct() {
@@ -102,6 +107,7 @@ class RoleDefinition extends Entity implements Parsable
             'roleAssignments' => function (ParseNode $n) use ($o) { $o->setRoleAssignments($n->getCollectionOfObjectValues(array(RoleAssignment::class, 'createFromDiscriminatorValue'))); },
             'rolePermissions' => function (ParseNode $n) use ($o) { $o->setRolePermissions($n->getCollectionOfObjectValues(array(RolePermission::class, 'createFromDiscriminatorValue'))); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -119,6 +125,14 @@ class RoleDefinition extends Entity implements Parsable
     */
     public function getIsBuiltInRoleDefinition(): ?bool {
         return $this->isBuiltInRoleDefinition;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -167,6 +181,7 @@ class RoleDefinition extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('roleAssignments', $this->roleAssignments);
         $writer->writeCollectionOfObjectValues('rolePermissions', $this->rolePermissions);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -199,6 +214,14 @@ class RoleDefinition extends Entity implements Parsable
     */
     public function setIsBuiltInRoleDefinition(?bool $value ): void {
         $this->isBuiltInRoleDefinition = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

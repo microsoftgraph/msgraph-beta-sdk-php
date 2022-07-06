@@ -20,6 +20,11 @@ class ConversationMember extends Entity implements Parsable
     private ?array $roles = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var DateTime|null $visibleHistoryStartDateTime The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat.
     */
     private ?DateTime $visibleHistoryStartDateTime = null;
@@ -68,8 +73,17 @@ class ConversationMember extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'roles' => function (ParseNode $n) use ($o) { $o->setRoles($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'visibleHistoryStartDateTime' => function (ParseNode $n) use ($o) { $o->setVisibleHistoryStartDateTime($n->getDateTimeValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -96,6 +110,7 @@ class ConversationMember extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeCollectionOfPrimitiveValues('roles', $this->roles);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeDateTimeValue('visibleHistoryStartDateTime', $this->visibleHistoryStartDateTime);
     }
 
@@ -105,6 +120,14 @@ class ConversationMember extends Entity implements Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

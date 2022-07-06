@@ -20,6 +20,11 @@ class MeetingInfo implements AdditionalDataHolder, Parsable
     private ?bool $allowConversationWithoutHost = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new meetingInfo and sets the default values.
     */
     public function __construct() {
@@ -68,7 +73,16 @@ class MeetingInfo implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'allowConversationWithoutHost' => function (ParseNode $n) use ($o) { $o->setAllowConversationWithoutHost($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -77,6 +91,7 @@ class MeetingInfo implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('allowConversationWithoutHost', $this->allowConversationWithoutHost);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -94,6 +109,14 @@ class MeetingInfo implements AdditionalDataHolder, Parsable
     */
     public function setAllowConversationWithoutHost(?bool $value ): void {
         $this->allowConversationWithoutHost = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

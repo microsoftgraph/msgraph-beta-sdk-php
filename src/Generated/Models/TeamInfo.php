@@ -24,6 +24,11 @@ class TeamInfo extends Entity implements Parsable
     private ?string $tenantId = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new teamInfo and sets the default values.
     */
     public function __construct() {
@@ -65,7 +70,16 @@ class TeamInfo extends Entity implements Parsable
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'team' => function (ParseNode $n) use ($o) { $o->setTeam($n->getObjectValue(array(Team::class, 'createFromDiscriminatorValue'))); },
             'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -93,6 +107,7 @@ class TeamInfo extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeObjectValue('team', $this->team);
         $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -101,6 +116,14 @@ class TeamInfo extends Entity implements Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

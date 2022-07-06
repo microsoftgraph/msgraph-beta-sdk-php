@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosVppAppAssignedLicense extends Entity implements Parsable 
 {
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var string|null $userEmailAddress The user email address.
     */
     private ?string $userEmailAddress = null;
@@ -29,7 +34,7 @@ class IosVppAppAssignedLicense extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new IosVppAppAssignedLicense and sets the default values.
+     * Instantiates a new iosVppAppAssignedLicense and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,11 +64,20 @@ class IosVppAppAssignedLicense extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'userEmailAddress' => function (ParseNode $n) use ($o) { $o->setUserEmailAddress($n->getStringValue()); },
             'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
             'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
             'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -104,10 +118,19 @@ class IosVppAppAssignedLicense extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeStringValue('userEmailAddress', $this->userEmailAddress);
         $writer->writeStringValue('userId', $this->userId);
         $writer->writeStringValue('userName', $this->userName);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

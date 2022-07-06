@@ -48,6 +48,11 @@ class CaseOperation extends Entity implements Parsable
     private ?CaseOperationStatus $status = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new caseOperation and sets the default values.
     */
     public function __construct() {
@@ -122,7 +127,16 @@ class CaseOperation extends Entity implements Parsable
             'percentProgress' => function (ParseNode $n) use ($o) { $o->setPercentProgress($n->getIntegerValue()); },
             'resultInfo' => function (ParseNode $n) use ($o) { $o->setResultInfo($n->getObjectValue(array(ResultInfo::class, 'createFromDiscriminatorValue'))); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CaseOperationStatus::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -162,6 +176,7 @@ class CaseOperation extends Entity implements Parsable
         $writer->writeIntegerValue('percentProgress', $this->percentProgress);
         $writer->writeObjectValue('resultInfo', $this->resultInfo);
         $writer->writeEnumValue('status', $this->status);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -194,6 +209,14 @@ class CaseOperation extends Entity implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value ): void {
         $this->createdDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

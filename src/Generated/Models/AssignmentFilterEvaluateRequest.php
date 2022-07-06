@@ -30,6 +30,11 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
     private ?string $rule = null;
     
     /**
+     * @var string|null $search Search keyword applied to scope found devices.
+    */
+    private ?string $search = null;
+    
+    /**
      * @var int|null $skip Number of records to skip. Default value is 0
     */
     private ?int $skip = null;
@@ -73,6 +78,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
             'orderBy' => function (ParseNode $n) use ($o) { $o->setOrderBy($n->getCollectionOfPrimitiveValues()); },
             'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
             'rule' => function (ParseNode $n) use ($o) { $o->setRule($n->getStringValue()); },
+            'search' => function (ParseNode $n) use ($o) { $o->setSearch($n->getStringValue()); },
             'skip' => function (ParseNode $n) use ($o) { $o->setSkip($n->getIntegerValue()); },
             'top' => function (ParseNode $n) use ($o) { $o->setTop($n->getIntegerValue()); },
         ];
@@ -103,6 +109,14 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the search property value. Search keyword applied to scope found devices.
+     * @return string|null
+    */
+    public function getSearch(): ?string {
+        return $this->search;
+    }
+
+    /**
      * Gets the skip property value. Number of records to skip. Default value is 0
      * @return int|null
     */
@@ -126,6 +140,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfPrimitiveValues('orderBy', $this->orderBy);
         $writer->writeEnumValue('platform', $this->platform);
         $writer->writeStringValue('rule', $this->rule);
+        $writer->writeStringValue('search', $this->search);
         $writer->writeIntegerValue('skip', $this->skip);
         $writer->writeIntegerValue('top', $this->top);
         $writer->writeAdditionalData($this->additionalData);
@@ -161,6 +176,14 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
     */
     public function setRule(?string $value ): void {
         $this->rule = $value;
+    }
+
+    /**
+     * Sets the search property value. Search keyword applied to scope found devices.
+     *  @param string|null $value Value to set for the search property.
+    */
+    public function setSearch(?string $value ): void {
+        $this->search = $value;
     }
 
     /**

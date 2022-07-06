@@ -50,6 +50,11 @@ class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsable
     private ?ScheduleChangeState $state = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new ScheduleChangeRequest and sets the default values.
     */
     public function __construct() {
@@ -97,6 +102,7 @@ class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsable
             'senderMessage' => function (ParseNode $n) use ($o) { $o->setSenderMessage($n->getStringValue()); },
             'senderUserId' => function (ParseNode $n) use ($o) { $o->setSenderUserId($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ScheduleChangeState::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -122,6 +128,14 @@ class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsable
     */
     public function getManagerUserId(): ?string {
         return $this->managerUserId;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -170,6 +184,7 @@ class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsable
         $writer->writeStringValue('senderMessage', $this->senderMessage);
         $writer->writeStringValue('senderUserId', $this->senderUserId);
         $writer->writeEnumValue('state', $this->state);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -202,6 +217,14 @@ class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsable
     */
     public function setManagerUserId(?string $value ): void {
         $this->managerUserId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

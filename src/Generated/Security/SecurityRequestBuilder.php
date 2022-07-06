@@ -7,8 +7,10 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Security;
+use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Alerts_v2RequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Alerts_v2\Item\AlertItemRequestBuilder as MicrosoftGraphBetaGeneratedSecurityAlerts_v2ItemAlertItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Alerts\AlertsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Security\Alerts\Item\AlertItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Alerts\Item\AlertItemRequestBuilder as MicrosoftGraphBetaGeneratedSecurityAlertsItemAlertItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\AttackSimulation\AttackSimulationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Cases\CasesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\CloudAppSecurityProfiles\CloudAppSecurityProfilesRequestBuilder;
@@ -19,12 +21,15 @@ use Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\FileSecurityPro
 use Microsoft\Graph\Beta\Generated\Security\FileSecurityProfiles\Item\FileSecurityProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\HostSecurityProfiles\HostSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\HostSecurityProfiles\Item\HostSecurityProfileItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Incidents\IncidentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\Incidents\Item\IncidentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\InformationProtection\InformationProtectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\IpSecurityProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\IpSecurityProfiles\Item\IpSecurityProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\Labels\LabelsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\Item\ProviderTenantSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\ProviderTenantSettings\ProviderTenantSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Security\RunHuntingQuery\RunHuntingQueryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScoreControlProfiles\Item\SecureScoreControlProfileItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScoreControlProfiles\SecureScoreControlProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Security\SecureScores\Item\SecureScoreItemRequestBuilder;
@@ -54,6 +59,13 @@ class SecurityRequestBuilder
     */
     public function alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The alerts_v2 property
+    */
+    public function alerts_v2(): Alerts_v2RequestBuilder {
+        return new Alerts_v2RequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -99,6 +111,13 @@ class SecurityRequestBuilder
     }
     
     /**
+     * The incidents property
+    */
+    public function incidents(): IncidentsRequestBuilder {
+        return new IncidentsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * The informationProtection property
     */
     public function informationProtection(): InformationProtectionRequestBuilder {
@@ -135,6 +154,13 @@ class SecurityRequestBuilder
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
+    
+    /**
+     * The runHuntingQuery property
+    */
+    public function runHuntingQuery(): RunHuntingQueryRequestBuilder {
+        return new RunHuntingQueryRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * The secureScoreControlProfiles property
@@ -198,14 +224,25 @@ class SecurityRequestBuilder
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.alerts.item collection
+     * Gets an item from the Microsoft\Graph\Beta\Generated.security.alerts_v2.item collection
      * @param string $id Unique identifier of the item
-     * @return AlertItemRequestBuilder
+     * @return MicrosoftGraphBetaGeneratedSecurityAlerts_v2ItemAlertItemRequestBuilder
     */
-    public function alertsById(string $id): AlertItemRequestBuilder {
+    public function alerts_v2ById(string $id): MicrosoftGraphBetaGeneratedSecurityAlerts_v2ItemAlertItemRequestBuilder {
         $urlTplParams = $this->pathParameters;
         $urlTplParams['alert%2Did'] = $id;
-        return new AlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
+        return new MicrosoftGraphBetaGeneratedSecurityAlerts_v2ItemAlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.security.alerts.item collection
+     * @param string $id Unique identifier of the item
+     * @return MicrosoftGraphBetaGeneratedSecurityAlertsItemAlertItemRequestBuilder
+    */
+    public function alertsById(string $id): MicrosoftGraphBetaGeneratedSecurityAlertsItemAlertItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['alert%2Did'] = $id;
+        return new MicrosoftGraphBetaGeneratedSecurityAlertsItemAlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -328,6 +365,17 @@ class SecurityRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['hostSecurityProfile%2Did'] = $id;
         return new HostSecurityProfileItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.security.incidents.item collection
+     * @param string $id Unique identifier of the item
+     * @return IncidentItemRequestBuilder
+    */
+    public function incidentsById(string $id): IncidentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['incident%2Did'] = $id;
+        return new IncidentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -26,6 +26,11 @@ class CatalogEntry extends Entity implements Parsable
     private ?DateTime $releaseDateTime = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new catalogEntry and sets the default values.
     */
     public function __construct() {
@@ -74,7 +79,16 @@ class CatalogEntry extends Entity implements Parsable
             'deployableUntilDateTime' => function (ParseNode $n) use ($o) { $o->setDeployableUntilDateTime($n->getDateTimeValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'releaseDateTime' => function (ParseNode $n) use ($o) { $o->setReleaseDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -94,6 +108,7 @@ class CatalogEntry extends Entity implements Parsable
         $writer->writeDateTimeValue('deployableUntilDateTime', $this->deployableUntilDateTime);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeDateTimeValue('releaseDateTime', $this->releaseDateTime);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -110,6 +125,14 @@ class CatalogEntry extends Entity implements Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

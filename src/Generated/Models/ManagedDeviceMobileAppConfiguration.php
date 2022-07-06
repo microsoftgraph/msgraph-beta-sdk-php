@@ -55,6 +55,11 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
     private ?array $targetedMobileApps = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var array<ManagedDeviceMobileAppConfigurationUserStatus>|null $userStatuses List of ManagedDeviceMobileAppConfigurationUserStatus.
     */
     private ?array $userStatuses = null;
@@ -158,6 +163,7 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
             'targetedMobileApps' => function (ParseNode $n) use ($o) { $o->setTargetedMobileApps($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'userStatuses' => function (ParseNode $n) use ($o) { $o->setUserStatuses($n->getCollectionOfObjectValues(array(ManagedDeviceMobileAppConfigurationUserStatus::class, 'createFromDiscriminatorValue'))); },
             'userStatusSummary' => function (ParseNode $n) use ($o) { $o->setUserStatusSummary($n->getObjectValue(array(ManagedDeviceMobileAppConfigurationUserSummary::class, 'createFromDiscriminatorValue'))); },
             'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
@@ -170,6 +176,14 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
     */
     public function getLastModifiedDateTime(): ?DateTime {
         return $this->lastModifiedDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -227,6 +241,7 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeCollectionOfPrimitiveValues('targetedMobileApps', $this->targetedMobileApps);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeCollectionOfObjectValues('userStatuses', $this->userStatuses);
         $writer->writeObjectValue('userStatusSummary', $this->userStatusSummary);
         $writer->writeIntegerValue('version', $this->version);
@@ -286,6 +301,14 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
         $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

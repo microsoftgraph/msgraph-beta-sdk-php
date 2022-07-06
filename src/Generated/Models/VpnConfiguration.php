@@ -34,6 +34,11 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
     private ?array $servers = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new VpnConfiguration and sets the default values.
     */
     public function __construct() {
@@ -84,7 +89,16 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
             'realm' => function (ParseNode $n) use ($o) { $o->setRealm($n->getStringValue()); },
             'role' => function (ParseNode $n) use ($o) { $o->setRole($n->getStringValue()); },
             'servers' => function (ParseNode $n) use ($o) { $o->setServers($n->getCollectionOfObjectValues(array(VpnServer::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -122,6 +136,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeStringValue('realm', $this->realm);
         $writer->writeStringValue('role', $this->role);
         $writer->writeCollectionOfObjectValues('servers', $this->servers);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -138,6 +153,14 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
     */
     public function setConnectionName(?string $value ): void {
         $this->connectionName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

@@ -119,6 +119,11 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     private ?VpnServer $server = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new AppleVpnConfiguration and sets the default values.
     */
     public function __construct() {
@@ -267,6 +272,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
             'role' => function (ParseNode $n) use ($o) { $o->setRole($n->getStringValue()); },
             'safariDomains' => function (ParseNode $n) use ($o) { $o->setSafariDomains($n->getCollectionOfPrimitiveValues()); },
             'server' => function (ParseNode $n) use ($o) { $o->setServer($n->getObjectValue(array(VpnServer::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -284,6 +290,14 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     */
     public function getLoginGroupOrDomain(): ?string {
         return $this->loginGroupOrDomain;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -378,6 +392,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeStringValue('role', $this->role);
         $writer->writeCollectionOfPrimitiveValues('safariDomains', $this->safariDomains);
         $writer->writeObjectValue('server', $this->server);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -490,6 +505,14 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     */
     public function setLoginGroupOrDomain(?string $value ): void {
         $this->loginGroupOrDomain = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

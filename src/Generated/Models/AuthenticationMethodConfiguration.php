@@ -14,6 +14,11 @@ class AuthenticationMethodConfiguration extends Entity implements Parsable
     private ?AuthenticationMethodState $state = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new AuthenticationMethodConfiguration and sets the default values.
     */
     public function __construct() {
@@ -49,7 +54,16 @@ class AuthenticationMethodConfiguration extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(AuthenticationMethodState::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -67,6 +81,15 @@ class AuthenticationMethodConfiguration extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('state', $this->state);
+        $writer->writeStringValue('@odata.type', $this->type);
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

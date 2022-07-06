@@ -14,6 +14,11 @@ class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable
     private ?int $gracePeriodInMinutes = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new AndroidDeviceComplianceLocalActionBase and sets the default values.
     */
     public function __construct() {
@@ -45,6 +50,7 @@ class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'gracePeriodInMinutes' => function (ParseNode $n) use ($o) { $o->setGracePeriodInMinutes($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -57,12 +63,21 @@ class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeIntegerValue('gracePeriodInMinutes', $this->gracePeriodInMinutes);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -71,6 +86,14 @@ class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable
     */
     public function setGracePeriodInMinutes(?int $value ): void {
         $this->gracePeriodInMinutes = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

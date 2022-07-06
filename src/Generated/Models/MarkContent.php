@@ -24,6 +24,11 @@ class MarkContent extends LabelActionBase implements Parsable
     private ?string $text = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new MarkContent and sets the default values.
     */
     public function __construct() {
@@ -58,6 +63,7 @@ class MarkContent extends LabelActionBase implements Parsable
             'fontColor' => function (ParseNode $n) use ($o) { $o->setFontColor($n->getStringValue()); },
             'fontSize' => function (ParseNode $n) use ($o) { $o->setFontSize($n->getIntegerValue()); },
             'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -78,6 +84,14 @@ class MarkContent extends LabelActionBase implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Gets the text property value. The text property
      * @return string|null
     */
@@ -94,6 +108,7 @@ class MarkContent extends LabelActionBase implements Parsable
         $writer->writeStringValue('fontColor', $this->fontColor);
         $writer->writeIntegerValue('fontSize', $this->fontSize);
         $writer->writeStringValue('text', $this->text);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -110,6 +125,14 @@ class MarkContent extends LabelActionBase implements Parsable
     */
     public function setFontSize(?int $value ): void {
         $this->fontSize = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

@@ -30,6 +30,11 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
     private ?string $settingInstanceTemplateId = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new deviceManagementConfigurationSettingInstanceTemplate and sets the default values.
     */
     public function __construct() {
@@ -75,6 +80,7 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
             'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
             'settingDefinitionId' => function (ParseNode $n) use ($o) { $o->setSettingDefinitionId($n->getStringValue()); },
             'settingInstanceTemplateId' => function (ParseNode $n) use ($o) { $o->setSettingInstanceTemplateId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -84,6 +90,14 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
     */
     public function getIsRequired(): ?bool {
         return $this->isRequired;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -110,6 +124,7 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
         $writer->writeBooleanValue('isRequired', $this->isRequired);
         $writer->writeStringValue('settingDefinitionId', $this->settingDefinitionId);
         $writer->writeStringValue('settingInstanceTemplateId', $this->settingInstanceTemplateId);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -127,6 +142,14 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
     */
     public function setIsRequired(?bool $value ): void {
         $this->isRequired = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

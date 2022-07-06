@@ -20,6 +20,11 @@ class Entity implements AdditionalDataHolder, Parsable
     private ?string $id = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new entity and sets the default values.
     */
     public function __construct() {
@@ -159,6 +164,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.cloudPcAuditEvent': return new CloudPcAuditEvent();
                 case '#microsoft.graph.cloudPCConnectivityIssue': return new CloudPCConnectivityIssue();
                 case '#microsoft.graph.cloudPcDeviceImage': return new CloudPcDeviceImage();
+                case '#microsoft.graph.cloudPcExternalPartnerSetting': return new CloudPcExternalPartnerSetting();
                 case '#microsoft.graph.cloudPcGalleryImage': return new CloudPcGalleryImage();
                 case '#microsoft.graph.cloudPcOnPremisesConnection': return new CloudPcOnPremisesConnection();
                 case '#microsoft.graph.cloudPcOrganizationSettings': return new CloudPcOrganizationSettings();
@@ -642,6 +648,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.secureScore': return new SecureScore();
                 case '#microsoft.graph.secureScoreControlProfile': return new SecureScoreControlProfile();
                 case '#microsoft.graph.security': return new Security();
+                case '#microsoft.graph.security.alert': return new Alert();
                 case '#microsoft.graph.security.case': return new EscapedCase();
                 case '#microsoft.graph.security.caseOperation': return new CaseOperation();
                 case '#microsoft.graph.security.casesRoot': return new CasesRoot();
@@ -651,6 +658,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.security.dispositionReviewStage': return new DispositionReviewStage();
                 case '#microsoft.graph.security.ediscoveryCaseSettings': return new EdiscoveryCaseSettings();
                 case '#microsoft.graph.security.file': return new File();
+                case '#microsoft.graph.security.incident': return new Incident();
                 case '#microsoft.graph.security.informationProtection': return new InformationProtection();
                 case '#microsoft.graph.security.informationProtectionPolicySetting': return new InformationProtectionPolicySetting();
                 case '#microsoft.graph.security.labelsRoot': return new LabelsRoot();
@@ -934,6 +942,7 @@ class Entity implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
     }
 
@@ -946,11 +955,20 @@ class Entity implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('id', $this->id);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -968,6 +986,14 @@ class Entity implements AdditionalDataHolder, Parsable
     */
     public function setId(?string $value ): void {
         $this->id = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

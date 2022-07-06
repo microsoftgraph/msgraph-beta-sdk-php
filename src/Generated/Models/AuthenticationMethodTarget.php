@@ -19,6 +19,11 @@ class AuthenticationMethodTarget extends Entity implements Parsable
     private ?AuthenticationMethodTargetType $targetType = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new authenticationMethodTarget and sets the default values.
     */
     public function __construct() {
@@ -51,6 +56,7 @@ class AuthenticationMethodTarget extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'isRegistrationRequired' => function (ParseNode $n) use ($o) { $o->setIsRegistrationRequired($n->getBooleanValue()); },
             'targetType' => function (ParseNode $n) use ($o) { $o->setTargetType($n->getEnumValue(AuthenticationMethodTargetType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -60,6 +66,14 @@ class AuthenticationMethodTarget extends Entity implements Parsable
     */
     public function getIsRegistrationRequired(): ?bool {
         return $this->isRegistrationRequired;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -78,6 +92,7 @@ class AuthenticationMethodTarget extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeBooleanValue('isRegistrationRequired', $this->isRegistrationRequired);
         $writer->writeEnumValue('targetType', $this->targetType);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -86,6 +101,14 @@ class AuthenticationMethodTarget extends Entity implements Parsable
     */
     public function setIsRegistrationRequired(?bool $value ): void {
         $this->isRegistrationRequired = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

@@ -39,6 +39,11 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     private ?bool $requireSsl = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var AndroidUsernameSource|null $usernameSource Username attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: username, userPrincipalName, samAccountName, primarySmtpAddress.
     */
     private ?AndroidUsernameSource $usernameSource = null;
@@ -104,6 +109,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
             'hostName' => function (ParseNode $n) use ($o) { $o->setHostName($n->getStringValue()); },
             'identityCertificate' => function (ParseNode $n) use ($o) { $o->setIdentityCertificate($n->getObjectValue(array(AndroidForWorkCertificateProfileBase::class, 'createFromDiscriminatorValue'))); },
             'requireSsl' => function (ParseNode $n) use ($o) { $o->setRequireSsl($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'usernameSource' => function (ParseNode $n) use ($o) { $o->setUsernameSource($n->getEnumValue(AndroidUsernameSource::class)); },
         ]);
     }
@@ -122,6 +128,14 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     */
     public function getIdentityCertificate(): ?AndroidForWorkCertificateProfileBase {
         return $this->identityCertificate;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -152,6 +166,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
         $writer->writeStringValue('hostName', $this->hostName);
         $writer->writeObjectValue('identityCertificate', $this->identityCertificate);
         $writer->writeBooleanValue('requireSsl', $this->requireSsl);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeEnumValue('usernameSource', $this->usernameSource);
     }
 
@@ -193,6 +208,14 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     */
     public function setIdentityCertificate(?AndroidForWorkCertificateProfileBase $value ): void {
         $this->identityCertificate = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

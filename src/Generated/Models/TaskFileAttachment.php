@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
 class TaskFileAttachment extends AttachmentBase implements Parsable 
 {
     /**
-     * @var StreamInterface|null $contentBytes The contentBytes property
+     * @var StreamInterface|null $contentBytes The base64-encoded contents of the file.
     */
     private ?StreamInterface $contentBytes = null;
     
@@ -31,7 +31,7 @@ class TaskFileAttachment extends AttachmentBase implements Parsable
     }
 
     /**
-     * Gets the contentBytes property value. The contentBytes property
+     * Gets the contentBytes property value. The base64-encoded contents of the file.
      * @return StreamInterface|null
     */
     public function getContentBytes(): ?StreamInterface {
@@ -59,7 +59,7 @@ class TaskFileAttachment extends AttachmentBase implements Parsable
     }
 
     /**
-     * Sets the contentBytes property value. The contentBytes property
+     * Sets the contentBytes property value. The base64-encoded contents of the file.
      *  @param StreamInterface|null $value Value to set for the contentBytes property.
     */
     public function setContentBytes(?StreamInterface $value ): void {

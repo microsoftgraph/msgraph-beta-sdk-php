@@ -65,6 +65,11 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     private ?string $serialNumber = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new importedAppleDeviceIdentity and sets the default values.
     */
     public function __construct() {
@@ -137,6 +142,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
             'requestedEnrollmentProfileAssignmentDateTime' => function (ParseNode $n) use ($o) { $o->setRequestedEnrollmentProfileAssignmentDateTime($n->getDateTimeValue()); },
             'requestedEnrollmentProfileId' => function (ParseNode $n) use ($o) { $o->setRequestedEnrollmentProfileId($n->getStringValue()); },
             'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -162,6 +168,14 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     */
     public function getLastContactedDateTime(): ?DateTime {
         return $this->lastContactedDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -213,6 +227,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
         $writer->writeDateTimeValue('requestedEnrollmentProfileAssignmentDateTime', $this->requestedEnrollmentProfileAssignmentDateTime);
         $writer->writeStringValue('requestedEnrollmentProfileId', $this->requestedEnrollmentProfileId);
         $writer->writeStringValue('serialNumber', $this->serialNumber);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -269,6 +284,14 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     */
     public function setLastContactedDateTime(?DateTime $value ): void {
         $this->lastContactedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

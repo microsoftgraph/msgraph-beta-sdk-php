@@ -15,6 +15,11 @@ class DirectoryObject extends Entity implements Parsable
     private ?DateTime $deletedDateTime = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new directoryObject and sets the default values.
     */
     public function __construct() {
@@ -69,7 +74,16 @@ class DirectoryObject extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'deletedDateTime' => function (ParseNode $n) use ($o) { $o->setDeletedDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -79,6 +93,7 @@ class DirectoryObject extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeDateTimeValue('deletedDateTime', $this->deletedDateTime);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -87,6 +102,14 @@ class DirectoryObject extends Entity implements Parsable
     */
     public function setDeletedDateTime(?DateTime $value ): void {
         $this->deletedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

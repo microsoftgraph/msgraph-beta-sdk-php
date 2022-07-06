@@ -65,6 +65,11 @@ class DeviceManagementTemplate extends Entity implements Parsable
     private ?DeviceManagementTemplateType $templateType = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var string|null $versionInfo The template's version information
     */
     private ?string $versionInfo = null;
@@ -134,6 +139,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
             'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'))); },
             'templateSubtype' => function (ParseNode $n) use ($o) { $o->setTemplateSubtype($n->getEnumValue(DeviceManagementTemplateSubtype::class)); },
             'templateType' => function (ParseNode $n) use ($o) { $o->setTemplateType($n->getEnumValue(DeviceManagementTemplateType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'versionInfo' => function (ParseNode $n) use ($o) { $o->setVersionInfo($n->getStringValue()); },
         ]);
     }
@@ -160,6 +166,14 @@ class DeviceManagementTemplate extends Entity implements Parsable
     */
     public function getMigratableTo(): ?array {
         return $this->migratableTo;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -227,6 +241,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('settings', $this->settings);
         $writer->writeEnumValue('templateSubtype', $this->templateSubtype);
         $writer->writeEnumValue('templateType', $this->templateType);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeStringValue('versionInfo', $this->versionInfo);
     }
 
@@ -276,6 +291,14 @@ class DeviceManagementTemplate extends Entity implements Parsable
     */
     public function setMigratableTo(?array $value ): void {
         $this->migratableTo = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

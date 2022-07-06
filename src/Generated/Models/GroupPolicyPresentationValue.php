@@ -30,6 +30,11 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
     private ?GroupPolicyPresentation $presentation = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new groupPolicyPresentationValue and sets the default values.
     */
     public function __construct() {
@@ -84,6 +89,7 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
             'definitionValue' => function (ParseNode $n) use ($o) { $o->setDefinitionValue($n->getObjectValue(array(GroupPolicyDefinitionValue::class, 'createFromDiscriminatorValue'))); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'presentation' => function (ParseNode $n) use ($o) { $o->setPresentation($n->getObjectValue(array(GroupPolicyPresentation::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -93,6 +99,14 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
     */
     public function getLastModifiedDateTime(): ?DateTime {
         return $this->lastModifiedDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -113,6 +127,7 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
         $writer->writeObjectValue('definitionValue', $this->definitionValue);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeObjectValue('presentation', $this->presentation);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -137,6 +152,14 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
         $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

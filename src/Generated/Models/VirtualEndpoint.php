@@ -24,6 +24,11 @@ class VirtualEndpoint extends Entity implements Parsable
     private ?array $deviceImages = null;
     
     /**
+     * @var array<CloudPcExternalPartnerSetting>|null $externalPartnerSettings The externalPartnerSettings property
+    */
+    private ?array $externalPartnerSettings = null;
+    
+    /**
      * @var array<CloudPcGalleryImage>|null $galleryImages The gallery image resource on Cloud PC.
     */
     private ?array $galleryImages = null;
@@ -104,6 +109,14 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
+     * Gets the externalPartnerSettings property value. The externalPartnerSettings property
+     * @return array<CloudPcExternalPartnerSetting>|null
+    */
+    public function getExternalPartnerSettings(): ?array {
+        return $this->externalPartnerSettings;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -113,6 +126,7 @@ class VirtualEndpoint extends Entity implements Parsable
             'auditEvents' => function (ParseNode $n) use ($o) { $o->setAuditEvents($n->getCollectionOfObjectValues(array(CloudPcAuditEvent::class, 'createFromDiscriminatorValue'))); },
             'cloudPCs' => function (ParseNode $n) use ($o) { $o->setCloudPCs($n->getCollectionOfObjectValues(array(CloudPC::class, 'createFromDiscriminatorValue'))); },
             'deviceImages' => function (ParseNode $n) use ($o) { $o->setDeviceImages($n->getCollectionOfObjectValues(array(CloudPcDeviceImage::class, 'createFromDiscriminatorValue'))); },
+            'externalPartnerSettings' => function (ParseNode $n) use ($o) { $o->setExternalPartnerSettings($n->getCollectionOfObjectValues(array(CloudPcExternalPartnerSetting::class, 'createFromDiscriminatorValue'))); },
             'galleryImages' => function (ParseNode $n) use ($o) { $o->setGalleryImages($n->getCollectionOfObjectValues(array(CloudPcGalleryImage::class, 'createFromDiscriminatorValue'))); },
             'onPremisesConnections' => function (ParseNode $n) use ($o) { $o->setOnPremisesConnections($n->getCollectionOfObjectValues(array(CloudPcOnPremisesConnection::class, 'createFromDiscriminatorValue'))); },
             'organizationSettings' => function (ParseNode $n) use ($o) { $o->setOrganizationSettings($n->getObjectValue(array(CloudPcOrganizationSettings::class, 'createFromDiscriminatorValue'))); },
@@ -197,6 +211,7 @@ class VirtualEndpoint extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('auditEvents', $this->auditEvents);
         $writer->writeCollectionOfObjectValues('cloudPCs', $this->cloudPCs);
         $writer->writeCollectionOfObjectValues('deviceImages', $this->deviceImages);
+        $writer->writeCollectionOfObjectValues('externalPartnerSettings', $this->externalPartnerSettings);
         $writer->writeCollectionOfObjectValues('galleryImages', $this->galleryImages);
         $writer->writeCollectionOfObjectValues('onPremisesConnections', $this->onPremisesConnections);
         $writer->writeObjectValue('organizationSettings', $this->organizationSettings);
@@ -229,6 +244,14 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function setDeviceImages(?array $value ): void {
         $this->deviceImages = $value;
+    }
+
+    /**
+     * Sets the externalPartnerSettings property value. The externalPartnerSettings property
+     *  @param array<CloudPcExternalPartnerSetting>|null $value Value to set for the externalPartnerSettings property.
+    */
+    public function setExternalPartnerSettings(?array $value ): void {
+        $this->externalPartnerSettings = $value;
     }
 
     /**

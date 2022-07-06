@@ -72,6 +72,11 @@ class File extends Entity implements Parsable
     private ?string $subjectTitle = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new file and sets the default values.
     */
     public function __construct() {
@@ -145,6 +150,7 @@ class File extends Entity implements Parsable
             'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
             'sourceType' => function (ParseNode $n) use ($o) { $o->setSourceType($n->getEnumValue(SourceType::class)); },
             'subjectTitle' => function (ParseNode $n) use ($o) { $o->setSubjectTitle($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -162,6 +168,14 @@ class File extends Entity implements Parsable
     */
     public function getName(): ?string {
         return $this->name;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -230,6 +244,7 @@ class File extends Entity implements Parsable
         $writer->writeIntegerValue('size', $this->size);
         $writer->writeEnumValue('sourceType', $this->sourceType);
         $writer->writeStringValue('subjectTitle', $this->subjectTitle);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -278,6 +293,14 @@ class File extends Entity implements Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

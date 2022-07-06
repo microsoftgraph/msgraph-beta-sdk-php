@@ -100,7 +100,7 @@ class TransitiveMemberOfRequestBuilder
     }
 
     /**
-     * Get transitiveMemberOf from users
+     * The groups, including nested groups, and directory roles that a user is a member of. Nullable.
      * @param TransitiveMemberOfRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -125,7 +125,7 @@ class TransitiveMemberOfRequestBuilder
     }
 
     /**
-     * Get transitiveMemberOf from users
+     * The groups, including nested groups, and directory roles that a user is a member of. Nullable.
      * @param TransitiveMemberOfRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

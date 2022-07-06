@@ -29,6 +29,11 @@ class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable
     private ?string $ssid = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var AndroidWiFiSecurityType|null $wiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaEnterprise, wpa2Enterprise.
     */
     private ?AndroidWiFiSecurityType $wiFiSecurityType = null;
@@ -83,6 +88,7 @@ class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable
             'connectWhenNetworkNameIsHidden' => function (ParseNode $n) use ($o) { $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()); },
             'networkName' => function (ParseNode $n) use ($o) { $o->setNetworkName($n->getStringValue()); },
             'ssid' => function (ParseNode $n) use ($o) { $o->setSsid($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'wiFiSecurityType' => function (ParseNode $n) use ($o) { $o->setWiFiSecurityType($n->getEnumValue(AndroidWiFiSecurityType::class)); },
         ]);
     }
@@ -93,6 +99,14 @@ class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable
     */
     public function getNetworkName(): ?string {
         return $this->networkName;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -121,6 +135,7 @@ class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable
         $writer->writeBooleanValue('connectWhenNetworkNameIsHidden', $this->connectWhenNetworkNameIsHidden);
         $writer->writeStringValue('networkName', $this->networkName);
         $writer->writeStringValue('ssid', $this->ssid);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeEnumValue('wiFiSecurityType', $this->wiFiSecurityType);
     }
 
@@ -146,6 +161,14 @@ class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable
     */
     public function setNetworkName(?string $value ): void {
         $this->networkName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

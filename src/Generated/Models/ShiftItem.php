@@ -24,6 +24,11 @@ class ShiftItem extends ScheduleEntity implements Parsable
     private ?string $notes = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new ShiftItem and sets the default values.
     */
     public function __construct() {
@@ -72,6 +77,7 @@ class ShiftItem extends ScheduleEntity implements Parsable
             'activities' => function (ParseNode $n) use ($o) { $o->setActivities($n->getCollectionOfObjectValues(array(ShiftActivity::class, 'createFromDiscriminatorValue'))); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -84,6 +90,14 @@ class ShiftItem extends ScheduleEntity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -92,6 +106,7 @@ class ShiftItem extends ScheduleEntity implements Parsable
         $writer->writeCollectionOfObjectValues('activities', $this->activities);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('notes', $this->notes);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -116,6 +131,14 @@ class ShiftItem extends ScheduleEntity implements Parsable
     */
     public function setNotes(?string $value ): void {
         $this->notes = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

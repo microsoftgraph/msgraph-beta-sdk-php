@@ -34,6 +34,11 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     private ?Windows81VpnProxyServer $proxyServer = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new Windows81VpnConfiguration and sets the default values.
     */
     public function __construct() {
@@ -92,6 +97,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
             'enableSplitTunneling' => function (ParseNode $n) use ($o) { $o->setEnableSplitTunneling($n->getBooleanValue()); },
             'loginGroupOrDomain' => function (ParseNode $n) use ($o) { $o->setLoginGroupOrDomain($n->getStringValue()); },
             'proxyServer' => function (ParseNode $n) use ($o) { $o->setProxyServer($n->getObjectValue(array(Windows81VpnProxyServer::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -101,6 +107,14 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     */
     public function getLoginGroupOrDomain(): ?string {
         return $this->loginGroupOrDomain;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -122,6 +136,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
         $writer->writeBooleanValue('enableSplitTunneling', $this->enableSplitTunneling);
         $writer->writeStringValue('loginGroupOrDomain', $this->loginGroupOrDomain);
         $writer->writeObjectValue('proxyServer', $this->proxyServer);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -154,6 +169,14 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     */
     public function setLoginGroupOrDomain(?string $value ): void {
         $this->loginGroupOrDomain = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

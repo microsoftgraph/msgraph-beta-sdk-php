@@ -25,6 +25,11 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
     private ?DeviceAndAppManagementAssignmentFilterType $deviceAndAppManagementAssignmentFilterType = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new deviceAndAppManagementAssignmentTarget and sets the default values.
     */
     public function __construct() {
@@ -83,7 +88,16 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
         return  [
             'deviceAndAppManagementAssignmentFilterId' => function (ParseNode $n) use ($o) { $o->setDeviceAndAppManagementAssignmentFilterId($n->getStringValue()); },
             'deviceAndAppManagementAssignmentFilterType' => function (ParseNode $n) use ($o) { $o->setDeviceAndAppManagementAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -93,6 +107,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('deviceAndAppManagementAssignmentFilterId', $this->deviceAndAppManagementAssignmentFilterId);
         $writer->writeEnumValue('deviceAndAppManagementAssignmentFilterType', $this->deviceAndAppManagementAssignmentFilterType);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -118,6 +133,14 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
     */
     public function setDeviceAndAppManagementAssignmentFilterType(?DeviceAndAppManagementAssignmentFilterType $value ): void {
         $this->deviceAndAppManagementAssignmentFilterType = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

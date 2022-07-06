@@ -29,6 +29,11 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality 
     private ?float $averageOutboundFrameRate = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new TeleconferenceDeviceVideoQuality and sets the default values.
     */
     public function __construct() {
@@ -94,7 +99,16 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality 
             'averageInboundFrameRate' => function (ParseNode $n) use ($o) { $o->setAverageInboundFrameRate($n->getFloatValue()); },
             'averageOutboundBitRate' => function (ParseNode $n) use ($o) { $o->setAverageOutboundBitRate($n->getFloatValue()); },
             'averageOutboundFrameRate' => function (ParseNode $n) use ($o) { $o->setAverageOutboundFrameRate($n->getFloatValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -107,6 +121,7 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality 
         $writer->writeFloatValue('averageInboundFrameRate', $this->averageInboundFrameRate);
         $writer->writeFloatValue('averageOutboundBitRate', $this->averageOutboundBitRate);
         $writer->writeFloatValue('averageOutboundFrameRate', $this->averageOutboundFrameRate);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -139,6 +154,14 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality 
     */
     public function setAverageOutboundFrameRate(?float $value ): void {
         $this->averageOutboundFrameRate = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

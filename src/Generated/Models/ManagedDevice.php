@@ -50,6 +50,11 @@ class ManagedDevice extends Entity implements Parsable
     private ?bool $azureADRegistered = null;
     
     /**
+     * @var bool|null $bootstrapTokenEscrowed Reports if the managed device has an escrowed Bootstrap Token. This is only for macOS devices. If FALSE, no bootstrap token is escrowed. If TRUE, the device has escrowed a bootstrap token with Intune. This property is read-only.
+    */
+    private ?bool $bootstrapTokenEscrowed = null;
+    
+    /**
      * @var ChassisType|null $chassisType Chassis type of the device. This property is read-only. Possible values are: unknown, desktop, laptop, worksWorkstation, enterpriseServer, phone, tablet, mobileOther, mobileUnknown.
     */
     private ?ChassisType $chassisType = null;
@@ -123,6 +128,11 @@ class ManagedDevice extends Entity implements Parsable
      * @var DeviceEnrollmentType|null $deviceEnrollmentType Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
     */
     private ?DeviceEnrollmentType $deviceEnrollmentType = null;
+    
+    /**
+     * @var bool|null $deviceFirmwareConfigurationInterfaceManaged Indicates whether the device is DFCI managed. When TRUE the device is DFCI managed. When FALSE, the device is not DFCI managed. The default value is FALSE.
+    */
+    private ?bool $deviceFirmwareConfigurationInterfaceManaged = null;
     
     /**
      * @var DeviceHealthAttestationState|null $deviceHealthAttestationState The device health attestation state. This property is read-only.
@@ -405,6 +415,11 @@ class ManagedDevice extends Entity implements Parsable
     private ?int $totalStorageSpaceInBytes = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var string|null $udid Unique Device Identifier for iOS and macOS devices. This property is read-only.
     */
     private ?string $udid = null;
@@ -542,6 +557,14 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
+     * Gets the bootstrapTokenEscrowed property value. Reports if the managed device has an escrowed Bootstrap Token. This is only for macOS devices. If FALSE, no bootstrap token is escrowed. If TRUE, the device has escrowed a bootstrap token with Intune. This property is read-only.
+     * @return bool|null
+    */
+    public function getBootstrapTokenEscrowed(): ?bool {
+        return $this->bootstrapTokenEscrowed;
+    }
+
+    /**
      * Gets the chassisType property value. Chassis type of the device. This property is read-only. Possible values are: unknown, desktop, laptop, worksWorkstation, enterpriseServer, phone, tablet, mobileOther, mobileUnknown.
      * @return ChassisType|null
     */
@@ -659,6 +682,14 @@ class ManagedDevice extends Entity implements Parsable
     */
     public function getDeviceEnrollmentType(): ?DeviceEnrollmentType {
         return $this->deviceEnrollmentType;
+    }
+
+    /**
+     * Gets the deviceFirmwareConfigurationInterfaceManaged property value. Indicates whether the device is DFCI managed. When TRUE the device is DFCI managed. When FALSE, the device is not DFCI managed. The default value is FALSE.
+     * @return bool|null
+    */
+    public function getDeviceFirmwareConfigurationInterfaceManaged(): ?bool {
+        return $this->deviceFirmwareConfigurationInterfaceManaged;
     }
 
     /**
@@ -788,6 +819,7 @@ class ManagedDevice extends Entity implements Parsable
             'azureActiveDirectoryDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureActiveDirectoryDeviceId($n->getStringValue()); },
             'azureADDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureADDeviceId($n->getStringValue()); },
             'azureADRegistered' => function (ParseNode $n) use ($o) { $o->setAzureADRegistered($n->getBooleanValue()); },
+            'bootstrapTokenEscrowed' => function (ParseNode $n) use ($o) { $o->setBootstrapTokenEscrowed($n->getBooleanValue()); },
             'chassisType' => function (ParseNode $n) use ($o) { $o->setChassisType($n->getEnumValue(ChassisType::class)); },
             'chromeOSDeviceInfo' => function (ParseNode $n) use ($o) { $o->setChromeOSDeviceInfo($n->getCollectionOfObjectValues(array(ChromeOSDeviceProperty::class, 'createFromDiscriminatorValue'))); },
             'cloudPcRemoteActionResults' => function (ParseNode $n) use ($o) { $o->setCloudPcRemoteActionResults($n->getCollectionOfObjectValues(array(CloudPcRemoteActionResult::class, 'createFromDiscriminatorValue'))); },
@@ -803,6 +835,7 @@ class ManagedDevice extends Entity implements Parsable
             'deviceCompliancePolicyStates' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicyStates($n->getCollectionOfObjectValues(array(DeviceCompliancePolicyState::class, 'createFromDiscriminatorValue'))); },
             'deviceConfigurationStates' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationStates($n->getCollectionOfObjectValues(array(DeviceConfigurationState::class, 'createFromDiscriminatorValue'))); },
             'deviceEnrollmentType' => function (ParseNode $n) use ($o) { $o->setDeviceEnrollmentType($n->getEnumValue(DeviceEnrollmentType::class)); },
+            'deviceFirmwareConfigurationInterfaceManaged' => function (ParseNode $n) use ($o) { $o->setDeviceFirmwareConfigurationInterfaceManaged($n->getBooleanValue()); },
             'deviceHealthAttestationState' => function (ParseNode $n) use ($o) { $o->setDeviceHealthAttestationState($n->getObjectValue(array(DeviceHealthAttestationState::class, 'createFromDiscriminatorValue'))); },
             'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
             'deviceRegistrationState' => function (ParseNode $n) use ($o) { $o->setDeviceRegistrationState($n->getEnumValue(DeviceRegistrationState::class)); },
@@ -859,6 +892,7 @@ class ManagedDevice extends Entity implements Parsable
             'specificationVersion' => function (ParseNode $n) use ($o) { $o->setSpecificationVersion($n->getStringValue()); },
             'subscriberCarrier' => function (ParseNode $n) use ($o) { $o->setSubscriberCarrier($n->getStringValue()); },
             'totalStorageSpaceInBytes' => function (ParseNode $n) use ($o) { $o->setTotalStorageSpaceInBytes($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'udid' => function (ParseNode $n) use ($o) { $o->setUdid($n->getStringValue()); },
             'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
             'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
@@ -1046,6 +1080,14 @@ class ManagedDevice extends Entity implements Parsable
     */
     public function getNotes(): ?string {
         return $this->notes;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -1302,6 +1344,7 @@ class ManagedDevice extends Entity implements Parsable
         $writer->writeStringValue('azureActiveDirectoryDeviceId', $this->azureActiveDirectoryDeviceId);
         $writer->writeStringValue('azureADDeviceId', $this->azureADDeviceId);
         $writer->writeBooleanValue('azureADRegistered', $this->azureADRegistered);
+        $writer->writeBooleanValue('bootstrapTokenEscrowed', $this->bootstrapTokenEscrowed);
         $writer->writeEnumValue('chassisType', $this->chassisType);
         $writer->writeCollectionOfObjectValues('chromeOSDeviceInfo', $this->chromeOSDeviceInfo);
         $writer->writeCollectionOfObjectValues('cloudPcRemoteActionResults', $this->cloudPcRemoteActionResults);
@@ -1317,6 +1360,7 @@ class ManagedDevice extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceCompliancePolicyStates', $this->deviceCompliancePolicyStates);
         $writer->writeCollectionOfObjectValues('deviceConfigurationStates', $this->deviceConfigurationStates);
         $writer->writeEnumValue('deviceEnrollmentType', $this->deviceEnrollmentType);
+        $writer->writeBooleanValue('deviceFirmwareConfigurationInterfaceManaged', $this->deviceFirmwareConfigurationInterfaceManaged);
         $writer->writeObjectValue('deviceHealthAttestationState', $this->deviceHealthAttestationState);
         $writer->writeStringValue('deviceName', $this->deviceName);
         $writer->writeEnumValue('deviceRegistrationState', $this->deviceRegistrationState);
@@ -1373,6 +1417,7 @@ class ManagedDevice extends Entity implements Parsable
         $writer->writeStringValue('specificationVersion', $this->specificationVersion);
         $writer->writeStringValue('subscriberCarrier', $this->subscriberCarrier);
         $writer->writeIntegerValue('totalStorageSpaceInBytes', $this->totalStorageSpaceInBytes);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeStringValue('udid', $this->udid);
         $writer->writeStringValue('userDisplayName', $this->userDisplayName);
         $writer->writeStringValue('userId', $this->userId);
@@ -1447,6 +1492,14 @@ class ManagedDevice extends Entity implements Parsable
     */
     public function setAzureADRegistered(?bool $value ): void {
         $this->azureADRegistered = $value;
+    }
+
+    /**
+     * Sets the bootstrapTokenEscrowed property value. Reports if the managed device has an escrowed Bootstrap Token. This is only for macOS devices. If FALSE, no bootstrap token is escrowed. If TRUE, the device has escrowed a bootstrap token with Intune. This property is read-only.
+     *  @param bool|null $value Value to set for the bootstrapTokenEscrowed property.
+    */
+    public function setBootstrapTokenEscrowed(?bool $value ): void {
+        $this->bootstrapTokenEscrowed = $value;
     }
 
     /**
@@ -1567,6 +1620,14 @@ class ManagedDevice extends Entity implements Parsable
     */
     public function setDeviceEnrollmentType(?DeviceEnrollmentType $value ): void {
         $this->deviceEnrollmentType = $value;
+    }
+
+    /**
+     * Sets the deviceFirmwareConfigurationInterfaceManaged property value. Indicates whether the device is DFCI managed. When TRUE the device is DFCI managed. When FALSE, the device is not DFCI managed. The default value is FALSE.
+     *  @param bool|null $value Value to set for the deviceFirmwareConfigurationInterfaceManaged property.
+    */
+    public function setDeviceFirmwareConfigurationInterfaceManaged(?bool $value ): void {
+        $this->deviceFirmwareConfigurationInterfaceManaged = $value;
     }
 
     /**
@@ -1855,6 +1916,14 @@ class ManagedDevice extends Entity implements Parsable
     */
     public function setNotes(?string $value ): void {
         $this->notes = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

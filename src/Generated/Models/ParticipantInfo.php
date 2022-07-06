@@ -35,6 +35,11 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
     private ?string $languageId = null;
     
     /**
+     * @var IdentitySet|null $nonAnonymizedIdentity The nonAnonymizedIdentity property
+    */
+    private ?IdentitySet $nonAnonymizedIdentity = null;
+    
+    /**
      * @var string|null $participantId The participant ID of the participant. Read-only.
     */
     private ?string $participantId = null;
@@ -100,6 +105,7 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
             'endpointType' => function (ParseNode $n) use ($o) { $o->setEndpointType($n->getEnumValue(EndpointType::class)); },
             'identity' => function (ParseNode $n) use ($o) { $o->setIdentity($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
             'languageId' => function (ParseNode $n) use ($o) { $o->setLanguageId($n->getStringValue()); },
+            'nonAnonymizedIdentity' => function (ParseNode $n) use ($o) { $o->setNonAnonymizedIdentity($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
             'participantId' => function (ParseNode $n) use ($o) { $o->setParticipantId($n->getStringValue()); },
             'platformId' => function (ParseNode $n) use ($o) { $o->setPlatformId($n->getStringValue()); },
             'region' => function (ParseNode $n) use ($o) { $o->setRegion($n->getStringValue()); },
@@ -120,6 +126,14 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
     */
     public function getLanguageId(): ?string {
         return $this->languageId;
+    }
+
+    /**
+     * Gets the nonAnonymizedIdentity property value. The nonAnonymizedIdentity property
+     * @return IdentitySet|null
+    */
+    public function getNonAnonymizedIdentity(): ?IdentitySet {
+        return $this->nonAnonymizedIdentity;
     }
 
     /**
@@ -155,6 +169,7 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('endpointType', $this->endpointType);
         $writer->writeObjectValue('identity', $this->identity);
         $writer->writeStringValue('languageId', $this->languageId);
+        $writer->writeObjectValue('nonAnonymizedIdentity', $this->nonAnonymizedIdentity);
         $writer->writeStringValue('participantId', $this->participantId);
         $writer->writeStringValue('platformId', $this->platformId);
         $writer->writeStringValue('region', $this->region);
@@ -199,6 +214,14 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
     */
     public function setLanguageId(?string $value ): void {
         $this->languageId = $value;
+    }
+
+    /**
+     * Sets the nonAnonymizedIdentity property value. The nonAnonymizedIdentity property
+     *  @param IdentitySet|null $value Value to set for the nonAnonymizedIdentity property.
+    */
+    public function setNonAnonymizedIdentity(?IdentitySet $value ): void {
+        $this->nonAnonymizedIdentity = $value;
     }
 
     /**

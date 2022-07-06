@@ -20,6 +20,11 @@ class MediaConfig implements AdditionalDataHolder, Parsable
     private ?bool $removeFromDefaultAudioGroup = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new mediaConfig and sets the default values.
     */
     public function __construct() {
@@ -59,7 +64,16 @@ class MediaConfig implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'removeFromDefaultAudioGroup' => function (ParseNode $n) use ($o) { $o->setRemoveFromDefaultAudioGroup($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -76,6 +90,7 @@ class MediaConfig implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('removeFromDefaultAudioGroup', $this->removeFromDefaultAudioGroup);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -85,6 +100,14 @@ class MediaConfig implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

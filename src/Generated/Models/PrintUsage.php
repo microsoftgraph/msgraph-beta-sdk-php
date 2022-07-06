@@ -25,6 +25,11 @@ class PrintUsage extends Entity implements Parsable
     private ?int $incompleteJobCount = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var Date|null $usageDate The usageDate property
     */
     private ?Date $usageDate = null;
@@ -79,6 +84,7 @@ class PrintUsage extends Entity implements Parsable
             'completedBlackAndWhiteJobCount' => function (ParseNode $n) use ($o) { $o->setCompletedBlackAndWhiteJobCount($n->getIntegerValue()); },
             'completedColorJobCount' => function (ParseNode $n) use ($o) { $o->setCompletedColorJobCount($n->getIntegerValue()); },
             'incompleteJobCount' => function (ParseNode $n) use ($o) { $o->setIncompleteJobCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'usageDate' => function (ParseNode $n) use ($o) { $o->setUsageDate($n->getDateValue()); },
         ]);
     }
@@ -89,6 +95,14 @@ class PrintUsage extends Entity implements Parsable
     */
     public function getIncompleteJobCount(): ?int {
         return $this->incompleteJobCount;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -108,6 +122,7 @@ class PrintUsage extends Entity implements Parsable
         $writer->writeIntegerValue('completedBlackAndWhiteJobCount', $this->completedBlackAndWhiteJobCount);
         $writer->writeIntegerValue('completedColorJobCount', $this->completedColorJobCount);
         $writer->writeIntegerValue('incompleteJobCount', $this->incompleteJobCount);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeDateValue('usageDate', $this->usageDate);
     }
 
@@ -133,6 +148,14 @@ class PrintUsage extends Entity implements Parsable
     */
     public function setIncompleteJobCount(?int $value ): void {
         $this->incompleteJobCount = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

@@ -24,6 +24,11 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     private ?array $dependentOn = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var DeviceManagementConfigurationSettingValueDefinition|null $valueDefinition Definition of the value for this setting
     */
     private ?DeviceManagementConfigurationSettingValueDefinition $valueDefinition = null;
@@ -85,8 +90,17 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
             'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getObjectValue(array(DeviceManagementConfigurationSettingValue::class, 'createFromDiscriminatorValue'))); },
             'dependedOnBy' => function (ParseNode $n) use ($o) { $o->setDependedOnBy($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingDependedOnBy::class, 'createFromDiscriminatorValue'))); },
             'dependentOn' => function (ParseNode $n) use ($o) { $o->setDependentOn($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationDependentOn::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'valueDefinition' => function (ParseNode $n) use ($o) { $o->setValueDefinition($n->getObjectValue(array(DeviceManagementConfigurationSettingValueDefinition::class, 'createFromDiscriminatorValue'))); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -106,6 +120,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
         $writer->writeObjectValue('defaultValue', $this->defaultValue);
         $writer->writeCollectionOfObjectValues('dependedOnBy', $this->dependedOnBy);
         $writer->writeCollectionOfObjectValues('dependentOn', $this->dependentOn);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeObjectValue('valueDefinition', $this->valueDefinition);
     }
 
@@ -131,6 +146,14 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     */
     public function setDependentOn(?array $value ): void {
         $this->dependentOn = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

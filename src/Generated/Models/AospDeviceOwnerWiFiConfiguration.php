@@ -39,6 +39,11 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
     private ?string $ssid = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var AospDeviceOwnerWiFiSecurityType|null $wiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wep, wpaPersonal, wpaEnterprise.
     */
     private ?AospDeviceOwnerWiFiSecurityType $wiFiSecurityType = null;
@@ -95,6 +100,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
             'preSharedKey' => function (ParseNode $n) use ($o) { $o->setPreSharedKey($n->getStringValue()); },
             'preSharedKeyIsSet' => function (ParseNode $n) use ($o) { $o->setPreSharedKeyIsSet($n->getBooleanValue()); },
             'ssid' => function (ParseNode $n) use ($o) { $o->setSsid($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'wiFiSecurityType' => function (ParseNode $n) use ($o) { $o->setWiFiSecurityType($n->getEnumValue(AospDeviceOwnerWiFiSecurityType::class)); },
         ]);
     }
@@ -105,6 +111,14 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
     */
     public function getNetworkName(): ?string {
         return $this->networkName;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -151,6 +165,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
         $writer->writeStringValue('preSharedKey', $this->preSharedKey);
         $writer->writeBooleanValue('preSharedKeyIsSet', $this->preSharedKeyIsSet);
         $writer->writeStringValue('ssid', $this->ssid);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeEnumValue('wiFiSecurityType', $this->wiFiSecurityType);
     }
 
@@ -176,6 +191,14 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
     */
     public function setNetworkName(?string $value ): void {
         $this->networkName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

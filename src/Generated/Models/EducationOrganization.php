@@ -29,6 +29,11 @@ class EducationOrganization extends Entity implements Parsable
     private ?string $externalSourceDetail = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new educationOrganization and sets the default values.
     */
     public function __construct() {
@@ -94,7 +99,16 @@ class EducationOrganization extends Entity implements Parsable
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'externalSource' => function (ParseNode $n) use ($o) { $o->setExternalSource($n->getEnumValue(EducationExternalSource::class)); },
             'externalSourceDetail' => function (ParseNode $n) use ($o) { $o->setExternalSourceDetail($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -107,6 +121,7 @@ class EducationOrganization extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeEnumValue('externalSource', $this->externalSource);
         $writer->writeStringValue('externalSourceDetail', $this->externalSourceDetail);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -139,6 +154,14 @@ class EducationOrganization extends Entity implements Parsable
     */
     public function setExternalSourceDetail(?string $value ): void {
         $this->externalSourceDetail = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

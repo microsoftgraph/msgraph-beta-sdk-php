@@ -29,6 +29,11 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
     private ?AppManagementLevel $targetedAppManagementLevels = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new TargetedManagedAppProtection and sets the default values.
     */
     public function __construct() {
@@ -79,6 +84,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
             'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(TargetedManagedAppPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
             'isAssigned' => function (ParseNode $n) use ($o) { $o->setIsAssigned($n->getBooleanValue()); },
             'targetedAppManagementLevels' => function (ParseNode $n) use ($o) { $o->setTargetedAppManagementLevels($n->getEnumValue(AppManagementLevel::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -88,6 +94,14 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
     */
     public function getIsAssigned(): ?bool {
         return $this->isAssigned;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -108,6 +122,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
         $writer->writeBooleanValue('isAssigned', $this->isAssigned);
         $writer->writeEnumValue('targetedAppManagementLevels', $this->targetedAppManagementLevels);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -132,6 +147,14 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
     */
     public function setIsAssigned(?bool $value ): void {
         $this->isAssigned = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

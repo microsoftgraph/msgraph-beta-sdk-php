@@ -19,6 +19,11 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
     private ?array $extendedKeyUsages = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new Windows81CertificateProfileBase and sets the default values.
     */
     public function __construct() {
@@ -66,7 +71,16 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
         return array_merge(parent::getFieldDeserializers(), [
             'customSubjectAlternativeNames' => function (ParseNode $n) use ($o) { $o->setCustomSubjectAlternativeNames($n->getCollectionOfObjectValues(array(CustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'))); },
             'extendedKeyUsages' => function (ParseNode $n) use ($o) { $o->setExtendedKeyUsages($n->getCollectionOfObjectValues(array(ExtendedKeyUsage::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -77,6 +91,7 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('customSubjectAlternativeNames', $this->customSubjectAlternativeNames);
         $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->extendedKeyUsages);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -93,6 +108,14 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
     */
     public function setExtendedKeyUsages(?array $value ): void {
         $this->extendedKeyUsages = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceManagementConfigurationSettingValueDefinition implements Parsable 
 {
     /**
+     * @var array<string>|null $fileTypes Supported file types for this setting.
+    */
+    private ?array $fileTypes = null;
+    
+    /**
      * @var DeviceManagementConfigurationStringFormat|null $format Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
     */
     private ?DeviceManagementConfigurationStringFormat $format = null;
@@ -56,12 +61,21 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'fileTypes' => function (ParseNode $n) use ($o) { $o->setFileTypes($n->getCollectionOfPrimitiveValues()); },
             'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getEnumValue(DeviceManagementConfigurationStringFormat::class)); },
             'inputValidationSchema' => function (ParseNode $n) use ($o) { $o->setInputValidationSchema($n->getStringValue()); },
             'isSecret' => function (ParseNode $n) use ($o) { $o->setIsSecret($n->getBooleanValue()); },
             'maximumLength' => function (ParseNode $n) use ($o) { $o->setMaximumLength($n->getIntegerValue()); },
             'minimumLength' => function (ParseNode $n) use ($o) { $o->setMinimumLength($n->getIntegerValue()); },
         ]);
+    }
+
+    /**
+     * Gets the fileTypes property value. Supported file types for this setting.
+     * @return array<string>|null
+    */
+    public function getFileTypes(): ?array {
+        return $this->fileTypes;
     }
 
     /**
@@ -110,11 +124,20 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfPrimitiveValues('fileTypes', $this->fileTypes);
         $writer->writeEnumValue('format', $this->format);
         $writer->writeStringValue('inputValidationSchema', $this->inputValidationSchema);
         $writer->writeBooleanValue('isSecret', $this->isSecret);
         $writer->writeIntegerValue('maximumLength', $this->maximumLength);
         $writer->writeIntegerValue('minimumLength', $this->minimumLength);
+    }
+
+    /**
+     * Sets the fileTypes property value. Supported file types for this setting.
+     *  @param array<string>|null $value Value to set for the fileTypes property.
+    */
+    public function setFileTypes(?array $value ): void {
+        $this->fileTypes = $value;
     }
 
     /**

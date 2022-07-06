@@ -35,6 +35,11 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
     private ?int $recommendedConfidence = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var int|null $uniqueCount The uniqueCount property
     */
     private ?int $uniqueCount = null;
@@ -98,6 +103,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
             'recommendedConfidence' => function (ParseNode $n) use ($o) { $o->setRecommendedConfidence($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'uniqueCount' => function (ParseNode $n) use ($o) { $o->setUniqueCount($n->getIntegerValue()); },
         ];
     }
@@ -108,6 +114,14 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
     */
     public function getId(): ?string {
         return $this->id;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -135,6 +149,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('id', $this->id);
         $writer->writeIntegerValue('recommendedConfidence', $this->recommendedConfidence);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeIntegerValue('uniqueCount', $this->uniqueCount);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -169,6 +184,14 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
     */
     public function setId(?string $value ): void {
         $this->id = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

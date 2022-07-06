@@ -24,6 +24,11 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
     private ?array $settingDefinitions = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new DeviceManagementSettingCategory and sets the default values.
     */
     public function __construct() {
@@ -65,6 +70,7 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'hasRequiredSetting' => function (ParseNode $n) use ($o) { $o->setHasRequiredSetting($n->getBooleanValue()); },
             'settingDefinitions' => function (ParseNode $n) use ($o) { $o->setSettingDefinitions($n->getCollectionOfObjectValues(array(DeviceManagementSettingDefinition::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -74,6 +80,14 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
     */
     public function getHasRequiredSetting(): ?bool {
         return $this->hasRequiredSetting;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -93,6 +107,7 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeBooleanValue('hasRequiredSetting', $this->hasRequiredSetting);
         $writer->writeCollectionOfObjectValues('settingDefinitions', $this->settingDefinitions);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -109,6 +124,14 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
     */
     public function setHasRequiredSetting(?bool $value ): void {
         $this->hasRequiredSetting = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

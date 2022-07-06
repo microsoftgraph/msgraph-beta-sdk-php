@@ -14,6 +14,11 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration impleme
     private ?bool $enableExpeditedCheckin = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new AppleExpeditedCheckinConfigurationBase and sets the default values.
     */
     public function __construct() {
@@ -52,7 +57,16 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration impleme
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'enableExpeditedCheckin' => function (ParseNode $n) use ($o) { $o->setEnableExpeditedCheckin($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -62,6 +76,7 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration impleme
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('enableExpeditedCheckin', $this->enableExpeditedCheckin);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -70,6 +85,14 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration impleme
     */
     public function setEnableExpeditedCheckin(?bool $value ): void {
         $this->enableExpeditedCheckin = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

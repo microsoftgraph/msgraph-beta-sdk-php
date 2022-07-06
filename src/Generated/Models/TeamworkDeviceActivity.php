@@ -35,7 +35,7 @@ class TeamworkDeviceActivity extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * Instantiates a new TeamworkDeviceActivity and sets the default values.
+     * Instantiates a new teamworkDeviceActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();

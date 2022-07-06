@@ -35,6 +35,11 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     private ?DeviceManagementConfigurationTechnologies $technologies = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new deviceManagementConfigurationSettingApplicability and sets the default values.
     */
     public function __construct() {
@@ -93,7 +98,16 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
             'deviceMode' => function (ParseNode $n) use ($o) { $o->setDeviceMode($n->getEnumValue(DeviceManagementConfigurationDeviceMode::class)); },
             'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
             'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -121,6 +135,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
         $writer->writeEnumValue('deviceMode', $this->deviceMode);
         $writer->writeEnumValue('platform', $this->platform);
         $writer->writeEnumValue('technologies', $this->technologies);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -146,6 +161,14 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     */
     public function setDeviceMode(?DeviceManagementConfigurationDeviceMode $value ): void {
         $this->deviceMode = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

@@ -50,6 +50,11 @@ class ThreatAssessmentRequest extends Entity implements Parsable
     private ?ThreatAssessmentStatus $status = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new threatAssessmentRequest and sets the default values.
     */
     public function __construct() {
@@ -130,7 +135,16 @@ class ThreatAssessmentRequest extends Entity implements Parsable
             'requestSource' => function (ParseNode $n) use ($o) { $o->setRequestSource($n->getEnumValue(ThreatAssessmentRequestSource::class)); },
             'results' => function (ParseNode $n) use ($o) { $o->setResults($n->getCollectionOfObjectValues(array(ThreatAssessmentResult::class, 'createFromDiscriminatorValue'))); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ThreatAssessmentStatus::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -171,6 +185,7 @@ class ThreatAssessmentRequest extends Entity implements Parsable
         $writer->writeEnumValue('requestSource', $this->requestSource);
         $writer->writeCollectionOfObjectValues('results', $this->results);
         $writer->writeEnumValue('status', $this->status);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -211,6 +226,14 @@ class ThreatAssessmentRequest extends Entity implements Parsable
     */
     public function setExpectedAssessment(?ThreatExpectedAssessment $value ): void {
         $this->expectedAssessment = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

@@ -36,6 +36,11 @@ class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable
     private ?Time $time = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var int|null $year Represents how frequently in terms of years the change from daylight saving time to standard time occurs. For example, a value of 0 means every year.
     */
     private ?int $year = null;
@@ -98,6 +103,7 @@ class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable
             'dayOfWeek' => function (ParseNode $n) use ($o) { $o->setDayOfWeek($n->getEnumValue(DayOfWeek::class)); },
             'month' => function (ParseNode $n) use ($o) { $o->setMonth($n->getIntegerValue()); },
             'time' => function (ParseNode $n) use ($o) { $o->setTime($n->getTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'year' => function (ParseNode $n) use ($o) { $o->setYear($n->getIntegerValue()); },
         ];
     }
@@ -108,6 +114,14 @@ class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable
     */
     public function getMonth(): ?int {
         return $this->month;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -135,6 +149,7 @@ class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('dayOfWeek', $this->dayOfWeek);
         $writer->writeIntegerValue('month', $this->month);
         $writer->writeTimeValue('time', $this->time);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeIntegerValue('year', $this->year);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -169,6 +184,14 @@ class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable
     */
     public function setMonth(?int $value ): void {
         $this->month = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

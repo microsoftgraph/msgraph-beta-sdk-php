@@ -95,6 +95,11 @@ class ManagedAppRegistration extends Entity implements Parsable
     private ?string $platformVersion = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var string|null $userId The user Id to who this app registration belongs.
     */
     private ?string $userId = null;
@@ -232,6 +237,7 @@ class ManagedAppRegistration extends Entity implements Parsable
             'managementSdkVersion' => function (ParseNode $n) use ($o) { $o->setManagementSdkVersion($n->getStringValue()); },
             'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(ManagedAppOperation::class, 'createFromDiscriminatorValue'))); },
             'platformVersion' => function (ParseNode $n) use ($o) { $o->setPlatformVersion($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
             'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
         ]);
@@ -275,6 +281,14 @@ class ManagedAppRegistration extends Entity implements Parsable
     */
     public function getManagementSdkVersion(): ?string {
         return $this->managementSdkVersion;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -332,6 +346,7 @@ class ManagedAppRegistration extends Entity implements Parsable
         $writer->writeStringValue('managementSdkVersion', $this->managementSdkVersion);
         $writer->writeCollectionOfObjectValues('operations', $this->operations);
         $writer->writeStringValue('platformVersion', $this->platformVersion);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeStringValue('userId', $this->userId);
         $writer->writeStringValue('version', $this->version);
     }
@@ -454,6 +469,14 @@ class ManagedAppRegistration extends Entity implements Parsable
     */
     public function setManagementSdkVersion(?string $value ): void {
         $this->managementSdkVersion = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

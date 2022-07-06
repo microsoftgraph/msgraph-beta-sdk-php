@@ -70,7 +70,7 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     private ?string $userId = null;
     
     /**
-     * Instantiates a new privilegedRoleAssignmentRequest and sets the default values.
+     * Instantiates a new PrivilegedRoleAssignmentRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();

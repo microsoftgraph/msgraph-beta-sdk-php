@@ -14,6 +14,11 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
     private ?array $airPrintDestinations = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new AppleDeviceFeaturesConfigurationBase and sets the default values.
     */
     public function __construct() {
@@ -53,7 +58,16 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'airPrintDestinations' => function (ParseNode $n) use ($o) { $o->setAirPrintDestinations($n->getCollectionOfObjectValues(array(AirPrintDestination::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -63,6 +77,7 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('airPrintDestinations', $this->airPrintDestinations);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -71,6 +86,14 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
     */
     public function setAirPrintDestinations(?array $value ): void {
         $this->airPrintDestinations = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

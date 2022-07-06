@@ -1,0 +1,160 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models;
+
+use DateTime;
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class CloudPcHealthCheckItem implements AdditionalDataHolder, Parsable 
+{
+    /**
+     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
+    /**
+     * @var string|null $additionalDetails The additionalDetails property
+    */
+    private ?string $additionalDetails = null;
+    
+    /**
+     * @var string|null $displayName The displayName property
+    */
+    private ?string $displayName = null;
+    
+    /**
+     * @var DateTime|null $lastHealthCheckDateTime The lastHealthCheckDateTime property
+    */
+    private ?DateTime $lastHealthCheckDateTime = null;
+    
+    /**
+     * @var CloudPcConnectivityEventResult|null $result The result property
+    */
+    private ?CloudPcConnectivityEventResult $result = null;
+    
+    /**
+     * Instantiates a new cloudPcHealthCheckItem and sets the default values.
+    */
+    public function __construct() {
+        $this->additionalData = [];
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return CloudPcHealthCheckItem
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): CloudPcHealthCheckItem {
+        return new CloudPcHealthCheckItem();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
+    }
+
+    /**
+     * Gets the additionalDetails property value. The additionalDetails property
+     * @return string|null
+    */
+    public function getAdditionalDetails(): ?string {
+        return $this->additionalDetails;
+    }
+
+    /**
+     * Gets the displayName property value. The displayName property
+     * @return string|null
+    */
+    public function getDisplayName(): ?string {
+        return $this->displayName;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return  [
+            'additionalDetails' => function (ParseNode $n) use ($o) { $o->setAdditionalDetails($n->getStringValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'lastHealthCheckDateTime' => function (ParseNode $n) use ($o) { $o->setLastHealthCheckDateTime($n->getDateTimeValue()); },
+            'result' => function (ParseNode $n) use ($o) { $o->setResult($n->getEnumValue(CloudPcConnectivityEventResult::class)); },
+        ];
+    }
+
+    /**
+     * Gets the lastHealthCheckDateTime property value. The lastHealthCheckDateTime property
+     * @return DateTime|null
+    */
+    public function getLastHealthCheckDateTime(): ?DateTime {
+        return $this->lastHealthCheckDateTime;
+    }
+
+    /**
+     * Gets the result property value. The result property
+     * @return CloudPcConnectivityEventResult|null
+    */
+    public function getResult(): ?CloudPcConnectivityEventResult {
+        return $this->result;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('additionalDetails', $this->additionalDetails);
+        $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeDateTimeValue('lastHealthCheckDateTime', $this->lastHealthCheckDateTime);
+        $writer->writeEnumValue('result', $this->result);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the additionalDetails property value. The additionalDetails property
+     *  @param string|null $value Value to set for the additionalDetails property.
+    */
+    public function setAdditionalDetails(?string $value ): void {
+        $this->additionalDetails = $value;
+    }
+
+    /**
+     * Sets the displayName property value. The displayName property
+     *  @param string|null $value Value to set for the displayName property.
+    */
+    public function setDisplayName(?string $value ): void {
+        $this->displayName = $value;
+    }
+
+    /**
+     * Sets the lastHealthCheckDateTime property value. The lastHealthCheckDateTime property
+     *  @param DateTime|null $value Value to set for the lastHealthCheckDateTime property.
+    */
+    public function setLastHealthCheckDateTime(?DateTime $value ): void {
+        $this->lastHealthCheckDateTime = $value;
+    }
+
+    /**
+     * Sets the result property value. The result property
+     *  @param CloudPcConnectivityEventResult|null $value Value to set for the result property.
+    */
+    public function setResult(?CloudPcConnectivityEventResult $value ): void {
+        $this->result = $value;
+    }
+
+}

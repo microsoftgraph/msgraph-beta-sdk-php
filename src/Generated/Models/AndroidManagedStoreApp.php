@@ -49,6 +49,11 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     private ?int $totalLicenseCount = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var int|null $usedLicenseCount The number of VPP licenses in use.
     */
     private ?int $usedLicenseCount = null;
@@ -115,6 +120,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
             'packageId' => function (ParseNode $n) use ($o) { $o->setPackageId($n->getStringValue()); },
             'supportsOemConfig' => function (ParseNode $n) use ($o) { $o->setSupportsOemConfig($n->getBooleanValue()); },
             'totalLicenseCount' => function (ParseNode $n) use ($o) { $o->setTotalLicenseCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'usedLicenseCount' => function (ParseNode $n) use ($o) { $o->setUsedLicenseCount($n->getIntegerValue()); },
         ]);
     }
@@ -133,6 +139,14 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     */
     public function getIsSystemApp(): ?bool {
         return $this->isSystemApp;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -181,6 +195,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
         $writer->writeStringValue('packageId', $this->packageId);
         $writer->writeBooleanValue('supportsOemConfig', $this->supportsOemConfig);
         $writer->writeIntegerValue('totalLicenseCount', $this->totalLicenseCount);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeIntegerValue('usedLicenseCount', $this->usedLicenseCount);
     }
 
@@ -222,6 +237,14 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     */
     public function setIsSystemApp(?bool $value ): void {
         $this->isSystemApp = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

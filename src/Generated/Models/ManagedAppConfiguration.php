@@ -14,6 +14,11 @@ class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable
     private ?array $customSettings = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new ManagedAppConfiguration and sets the default values.
     */
     public function __construct() {
@@ -52,7 +57,16 @@ class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'customSettings' => function (ParseNode $n) use ($o) { $o->setCustomSettings($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -62,6 +76,7 @@ class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('customSettings', $this->customSettings);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -70,6 +85,14 @@ class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable
     */
     public function setCustomSettings(?array $value ): void {
         $this->customSettings = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }

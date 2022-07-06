@@ -246,7 +246,7 @@ class User extends DirectoryObject implements Parsable
     private ?array $events = null;
     
     /**
-     * @var array<Extension>|null $extensions The collection of open extensions defined for the user. Nullable.
+     * @var array<Extension>|null $extensions The collection of open extensions defined for the user. Supports $expand. Nullable.
     */
     private ?array $extensions = null;
     
@@ -461,7 +461,7 @@ class User extends DirectoryObject implements Parsable
     private ?string $onPremisesDomainName = null;
     
     /**
-     * @var OnPremisesExtensionAttributes|null $onPremisesExtensionAttributes Contains extensionAttributes1-15 for the user. The individual extension attributes are neither selectable nor filterable. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. These extension attributes are also known as Exchange custom attributes 1-15. Returned only on $select.
+     * @var OnPremisesExtensionAttributes|null $onPremisesExtensionAttributes Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
     */
     private ?OnPremisesExtensionAttributes $onPremisesExtensionAttributes = null;
     
@@ -501,7 +501,7 @@ class User extends DirectoryObject implements Parsable
     private ?string $onPremisesUserPrincipalName = null;
     
     /**
-     * @var array<string>|null $otherMails A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, and counting empty collections).
+     * @var array<string>|null $otherMails A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, and counting empty collections).
     */
     private ?array $otherMails = null;
     
@@ -631,7 +631,7 @@ class User extends DirectoryObject implements Parsable
     private ?Security $security = null;
     
     /**
-     * @var string|null $securityIdentifier The securityIdentifier property
+     * @var string|null $securityIdentifier Security identifier (SID) of the user, used in Windows scenarios. Read-only. Returned by default. Supports $select and $filter (eq, not, ge, le, startsWith).
     */
     private ?string $securityIdentifier = null;
     
@@ -691,7 +691,7 @@ class User extends DirectoryObject implements Parsable
     private ?Todo $todo = null;
     
     /**
-     * @var array<DirectoryObject>|null $transitiveMemberOf The transitiveMemberOf property
+     * @var array<DirectoryObject>|null $transitiveMemberOf The groups, including nested groups, and directory roles that a user is a member of. Nullable.
     */
     private ?array $transitiveMemberOf = null;
     
@@ -1110,7 +1110,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the extensions property value. The collection of open extensions defined for the user. Nullable.
+     * Gets the extensions property value. The collection of open extensions defined for the user. Supports $expand. Nullable.
      * @return array<Extension>|null
     */
     public function getExtensions(): ?array {
@@ -1607,7 +1607,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. The individual extension attributes are neither selectable nor filterable. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. These extension attributes are also known as Exchange custom attributes 1-15. Returned only on $select.
+     * Gets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
      * @return OnPremisesExtensionAttributes|null
     */
     public function getOnPremisesExtensionAttributes(): ?OnPremisesExtensionAttributes {
@@ -1671,7 +1671,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, and counting empty collections).
+     * Gets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, and counting empty collections).
      * @return array<string>|null
     */
     public function getOtherMails(): ?array {
@@ -1887,7 +1887,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the securityIdentifier property value. The securityIdentifier property
+     * Gets the securityIdentifier property value. Security identifier (SID) of the user, used in Windows scenarios. Read-only. Returned by default. Supports $select and $filter (eq, not, ge, le, startsWith).
      * @return string|null
     */
     public function getSecurityIdentifier(): ?string {
@@ -1983,7 +1983,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Gets the transitiveMemberOf property value. The groups, including nested groups, and directory roles that a user is a member of. Nullable.
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveMemberOf(): ?array {
@@ -2558,7 +2558,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the extensions property value. The collection of open extensions defined for the user. Nullable.
+     * Sets the extensions property value. The collection of open extensions defined for the user. Supports $expand. Nullable.
      *  @param array<Extension>|null $value Value to set for the extensions property.
     */
     public function setExtensions(?array $value ): void {
@@ -2902,7 +2902,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. The individual extension attributes are neither selectable nor filterable. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. These extension attributes are also known as Exchange custom attributes 1-15. Returned only on $select.
+     * Sets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
      *  @param OnPremisesExtensionAttributes|null $value Value to set for the onPremisesExtensionAttributes property.
     */
     public function setOnPremisesExtensionAttributes(?OnPremisesExtensionAttributes $value ): void {
@@ -2966,7 +2966,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, and counting empty collections).
+     * Sets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, and counting empty collections).
      *  @param array<string>|null $value Value to set for the otherMails property.
     */
     public function setOtherMails(?array $value ): void {
@@ -3182,7 +3182,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the securityIdentifier property value. The securityIdentifier property
+     * Sets the securityIdentifier property value. Security identifier (SID) of the user, used in Windows scenarios. Read-only. Returned by default. Supports $select and $filter (eq, not, ge, le, startsWith).
      *  @param string|null $value Value to set for the securityIdentifier property.
     */
     public function setSecurityIdentifier(?string $value ): void {
@@ -3278,7 +3278,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Sets the transitiveMemberOf property value. The groups, including nested groups, and directory roles that a user is a member of. Nullable.
      *  @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
     */
     public function setTransitiveMemberOf(?array $value ): void {

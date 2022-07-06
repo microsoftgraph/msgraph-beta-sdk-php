@@ -31,6 +31,11 @@ class SearchAnswer extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * @var string|null $webUrl Search answer URL link. When users click this search answer in search results, they will go to this URL.
     */
     private ?string $webUrl = null;
@@ -87,6 +92,7 @@ class SearchAnswer extends Entity implements Parsable
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
             'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ]);
     }
@@ -108,6 +114,14 @@ class SearchAnswer extends Entity implements Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
+    }
+
+    /**
      * Gets the webUrl property value. Search answer URL link. When users click this search answer in search results, they will go to this URL.
      * @return string|null
     */
@@ -125,6 +139,7 @@ class SearchAnswer extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeStringValue('webUrl', $this->webUrl);
     }
 
@@ -158,6 +173,14 @@ class SearchAnswer extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
         $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

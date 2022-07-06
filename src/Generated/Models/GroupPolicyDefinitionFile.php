@@ -60,6 +60,11 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
     private ?string $targetPrefix = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new groupPolicyDefinitionFile and sets the default values.
     */
     public function __construct() {
@@ -123,6 +128,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
             'revision' => function (ParseNode $n) use ($o) { $o->setRevision($n->getStringValue()); },
             'targetNamespace' => function (ParseNode $n) use ($o) { $o->setTargetNamespace($n->getStringValue()); },
             'targetPrefix' => function (ParseNode $n) use ($o) { $o->setTargetPrefix($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -148,6 +154,14 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
     */
     public function getLastModifiedDateTime(): ?DateTime {
         return $this->lastModifiedDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -198,6 +212,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
         $writer->writeStringValue('revision', $this->revision);
         $writer->writeStringValue('targetNamespace', $this->targetNamespace);
         $writer->writeStringValue('targetPrefix', $this->targetPrefix);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -246,6 +261,14 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
         $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

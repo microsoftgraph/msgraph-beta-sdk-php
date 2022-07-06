@@ -45,6 +45,11 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     private ?string $rule = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new deviceAndAppManagementAssignmentFilter and sets the default values.
     */
     public function __construct() {
@@ -105,6 +110,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
             'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
             'roleScopeTags' => function (ParseNode $n) use ($o) { $o->setRoleScopeTags($n->getCollectionOfPrimitiveValues()); },
             'rule' => function (ParseNode $n) use ($o) { $o->setRule($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ]);
     }
 
@@ -114,6 +120,14 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     */
     public function getLastModifiedDateTime(): ?DateTime {
         return $this->lastModifiedDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -153,6 +167,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
         $writer->writeEnumValue('platform', $this->platform);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTags', $this->roleScopeTags);
         $writer->writeStringValue('rule', $this->rule);
+        $writer->writeStringValue('@odata.type', $this->type);
     }
 
     /**
@@ -185,6 +200,14 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
         $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
     /**

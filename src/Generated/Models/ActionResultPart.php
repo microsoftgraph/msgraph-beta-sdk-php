@@ -20,6 +20,11 @@ class ActionResultPart implements AdditionalDataHolder, Parsable
     private ?PublicError $error = null;
     
     /**
+     * @var string|null $type The type property
+    */
+    private ?string $type = null;
+    
+    /**
      * Instantiates a new actionResultPart and sets the default values.
     */
     public function __construct() {
@@ -66,7 +71,16 @@ class ActionResultPart implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(PublicError::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdatatype($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The type property
+     * @return string|null
+    */
+    public function getOdatatype(): ?string {
+        return $this->type;
     }
 
     /**
@@ -75,6 +89,7 @@ class ActionResultPart implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('error', $this->error);
+        $writer->writeStringValue('@odata.type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -92,6 +107,14 @@ class ActionResultPart implements AdditionalDataHolder, Parsable
     */
     public function setError(?PublicError $value ): void {
         $this->error = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The type property
+     *  @param string|null $value Value to set for the type property.
+    */
+    public function setOdatatype(?string $value ): void {
+        $this->type = $value;
     }
 
 }
