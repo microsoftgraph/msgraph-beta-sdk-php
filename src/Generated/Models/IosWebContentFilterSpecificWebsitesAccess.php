@@ -23,6 +23,7 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosWebContentFilterSpecificWebsitesAccess');
     }
 
     /**

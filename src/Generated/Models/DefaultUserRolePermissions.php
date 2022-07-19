@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,10 +30,16 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
     private ?bool $allowedToReadOtherUsers = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new defaultUserRolePermissions and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.defaultUserRolePermissions');
     }
 
     /**
@@ -87,7 +93,16 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
             'allowedToCreateApps' => function (ParseNode $n) use ($o) { $o->setAllowedToCreateApps($n->getBooleanValue()); },
             'allowedToCreateSecurityGroups' => function (ParseNode $n) use ($o) { $o->setAllowedToCreateSecurityGroups($n->getBooleanValue()); },
             'allowedToReadOtherUsers' => function (ParseNode $n) use ($o) { $o->setAllowedToReadOtherUsers($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('allowedToCreateApps', $this->allowedToCreateApps);
         $writer->writeBooleanValue('allowedToCreateSecurityGroups', $this->allowedToCreateSecurityGroups);
         $writer->writeBooleanValue('allowedToReadOtherUsers', $this->allowedToReadOtherUsers);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -131,6 +147,14 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
     */
     public function setAllowedToReadOtherUsers(?bool $value ): void {
         $this->allowedToReadOtherUsers = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -31,6 +31,11 @@ class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable
     private ?string $ipAddress = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $osPlatformDeviceDetails The operating system, platform, and device details of the user for the training event.
     */
     private ?string $osPlatformDeviceDetails = null;
@@ -44,7 +49,8 @@ class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable
      * Instantiates a new userTrainingContentEventInfo and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.userTrainingContentEventInfo');
     }
 
     /**
@@ -90,6 +96,7 @@ class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable
             'browser' => function (ParseNode $n) use ($o) { $o->setBrowser($n->getStringValue()); },
             'contentDateTime' => function (ParseNode $n) use ($o) { $o->setContentDateTime($n->getDateTimeValue()); },
             'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'osPlatformDeviceDetails' => function (ParseNode $n) use ($o) { $o->setOsPlatformDeviceDetails($n->getStringValue()); },
             'potentialScoreImpact' => function (ParseNode $n) use ($o) { $o->setPotentialScoreImpact($n->getFloatValue()); },
         ];
@@ -101,6 +108,14 @@ class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable
     */
     public function getIpAddress(): ?string {
         return $this->ipAddress;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -127,6 +142,7 @@ class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('browser', $this->browser);
         $writer->writeDateTimeValue('contentDateTime', $this->contentDateTime);
         $writer->writeStringValue('ipAddress', $this->ipAddress);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('osPlatformDeviceDetails', $this->osPlatformDeviceDetails);
         $writer->writeFloatValue('potentialScoreImpact', $this->potentialScoreImpact);
         $writer->writeAdditionalData($this->additionalData);
@@ -162,6 +178,14 @@ class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable
     */
     public function setIpAddress(?string $value ): void {
         $this->ipAddress = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

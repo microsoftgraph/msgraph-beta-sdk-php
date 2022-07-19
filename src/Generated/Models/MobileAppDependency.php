@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppDependency extends MobileAppRelationship implements Parsable 
 {
     /**
-     * @var MobileAppDependencyType|null $dependencyType The type of dependency relationship between the parent and child apps. Possible values are: detect, autoInstall.
+     * @var MobileAppDependencyType|null $dependencyType Indicates the dependency type associated with a relationship between two mobile apps.
     */
     private ?MobileAppDependencyType $dependencyType = null;
     
@@ -28,6 +28,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mobileAppDependency');
     }
 
     /**
@@ -40,7 +41,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
     }
 
     /**
-     * Gets the dependencyType property value. The type of dependency relationship between the parent and child apps. Possible values are: detect, autoInstall.
+     * Gets the dependencyType property value. Indicates the dependency type associated with a relationship between two mobile apps.
      * @return MobileAppDependencyType|null
     */
     public function getDependencyType(): ?MobileAppDependencyType {
@@ -88,7 +89,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
     }
 
     /**
-     * Sets the dependencyType property value. The type of dependency relationship between the parent and child apps. Possible values are: detect, autoInstall.
+     * Sets the dependencyType property value. Indicates the dependency type associated with a relationship between two mobile apps.
      *  @param MobileAppDependencyType|null $value Value to set for the dependencyType property.
     */
     public function setDependencyType(?MobileAppDependencyType $value ): void {

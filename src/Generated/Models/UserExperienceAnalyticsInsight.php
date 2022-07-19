@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsInsight implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,7 +20,12 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, Parsable
     private ?string $insightId = null;
     
     /**
-     * @var UserExperienceAnalyticsInsightSeverity|null $severity The value of the user experience analytics insight. Possible values are: none, informational, warning, error.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var UserExperienceAnalyticsInsightSeverity|null $severity The severity property
     */
     private ?UserExperienceAnalyticsInsightSeverity $severity = null;
     
@@ -38,7 +43,8 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, Parsable
      * Instantiates a new userExperienceAnalyticsInsight and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsInsight');
     }
 
     /**
@@ -66,6 +72,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'insightId' => function (ParseNode $n) use ($o) { $o->setInsightId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'severity' => function (ParseNode $n) use ($o) { $o->setSeverity($n->getEnumValue(UserExperienceAnalyticsInsightSeverity::class)); },
             'userExperienceAnalyticsMetricId' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsMetricId($n->getStringValue()); },
             'values' => function (ParseNode $n) use ($o) { $o->setValues($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsInsightValue::class, 'createFromDiscriminatorValue'))); },
@@ -81,7 +88,15 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the severity property value. The value of the user experience analytics insight. Possible values are: none, informational, warning, error.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the severity property value. The severity property
      * @return UserExperienceAnalyticsInsightSeverity|null
     */
     public function getSeverity(): ?UserExperienceAnalyticsInsightSeverity {
@@ -110,6 +125,7 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('insightId', $this->insightId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('severity', $this->severity);
         $writer->writeStringValue('userExperienceAnalyticsMetricId', $this->userExperienceAnalyticsMetricId);
         $writer->writeCollectionOfObjectValues('values', $this->values);
@@ -133,7 +149,15 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the severity property value. The value of the user experience analytics insight. Possible values are: none, informational, warning, error.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the severity property value. The severity property
      *  @param UserExperienceAnalyticsInsightSeverity|null $value Value to set for the severity property.
     */
     public function setSeverity(?UserExperienceAnalyticsInsightSeverity $value ): void {

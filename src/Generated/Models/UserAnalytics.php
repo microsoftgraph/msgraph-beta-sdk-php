@@ -19,10 +19,11 @@ class UserAnalytics extends Entity implements Parsable
     private ?Settings $settings = null;
     
     /**
-     * Instantiates a new UserAnalytics and sets the default values.
+     * Instantiates a new userAnalytics and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userAnalytics');
     }
 
     /**

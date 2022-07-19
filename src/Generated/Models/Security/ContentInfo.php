@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ContentInfo implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     private ?array $metadata = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var ContentState|null $state The state property
     */
     private ?ContentState $state = null;
@@ -38,7 +43,8 @@ class ContentInfo implements AdditionalDataHolder, Parsable
      * Instantiates a new contentInfo and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.security.contentInfo');
     }
 
     /**
@@ -76,6 +82,7 @@ class ContentInfo implements AdditionalDataHolder, Parsable
             'contentFormat' => function (ParseNode $n) use ($o) { $o->setContentFormat($n->getStringValue()); },
             'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
             'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ContentState::class)); },
         ];
     }
@@ -97,6 +104,14 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the state property value. The state property
      * @return ContentState|null
     */
@@ -112,6 +127,7 @@ class ContentInfo implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('contentFormat', $this->contentFormat);
         $writer->writeStringValue('identifier', $this->identifier);
         $writer->writeCollectionOfObjectValues('metadata', $this->metadata);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -146,6 +162,14 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     */
     public function setMetadata(?array $value ): void {
         $this->metadata = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

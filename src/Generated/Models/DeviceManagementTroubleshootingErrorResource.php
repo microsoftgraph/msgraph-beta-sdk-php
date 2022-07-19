@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHold
      * @var string|null $link The link to the web resource. Can contain any of the following formatters: {{UPN}}, {{DeviceGUID}}, {{UserGUID}}
     */
     private ?string $link = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $text Not yet documented
@@ -28,7 +33,8 @@ class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHold
      * Instantiates a new deviceManagementTroubleshootingErrorResource and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementTroubleshootingErrorResource');
     }
 
     /**
@@ -56,6 +62,7 @@ class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHold
         $o = $this;
         return  [
             'link' => function (ParseNode $n) use ($o) { $o->setLink($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
         ];
     }
@@ -66,6 +73,14 @@ class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHold
     */
     public function getLink(): ?string {
         return $this->link;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHold
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('link', $this->link);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('text', $this->text);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHold
     */
     public function setLink(?string $value ): void {
         $this->link = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

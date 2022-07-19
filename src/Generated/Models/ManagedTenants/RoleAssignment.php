@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RoleAssignment implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class RoleAssignment implements AdditionalDataHolder, Parsable
      * @var DelegatedPrivilegeStatus|null $assignmentType The type of the admin relationship(s) associated with the role assignment. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges.
     */
     private ?DelegatedPrivilegeStatus $assignmentType = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<RoleDefinition>|null $roles The collection of roles assigned.
@@ -28,7 +33,8 @@ class RoleAssignment implements AdditionalDataHolder, Parsable
      * Instantiates a new roleAssignment and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedTenants.roleAssignment');
     }
 
     /**
@@ -64,8 +70,17 @@ class RoleAssignment implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'assignmentType' => function (ParseNode $n) use ($o) { $o->setAssignmentType($n->getEnumValue(DelegatedPrivilegeStatus::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'roles' => function (ParseNode $n) use ($o) { $o->setRoles($n->getCollectionOfObjectValues(array(RoleDefinition::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class RoleAssignment implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('assignmentType', $this->assignmentType);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('roles', $this->roles);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class RoleAssignment implements AdditionalDataHolder, Parsable
     */
     public function setAssignmentType(?DelegatedPrivilegeStatus $value ): void {
         $this->assignmentType = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -25,10 +25,11 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
     private ?string $metricType = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsMetricHistory and sets the default values.
+     * Instantiates a new userExperienceAnalyticsMetricHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsMetricHistory');
     }
 
     /**

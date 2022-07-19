@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IdentityContainer implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -45,6 +45,11 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     private ?array $identityProviders = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var array<IdentityUserFlowAttribute>|null $userFlowAttributes Represents entry point for identity userflow attributes.
     */
     private ?array $userFlowAttributes = null;
@@ -58,7 +63,8 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * Instantiates a new IdentityContainer and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.identityContainer');
     }
 
     /**
@@ -131,6 +137,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
             'conditionalAccess' => function (ParseNode $n) use ($o) { $o->setConditionalAccess($n->getObjectValue(array(ConditionalAccessRoot::class, 'createFromDiscriminatorValue'))); },
             'continuousAccessEvaluationPolicy' => function (ParseNode $n) use ($o) { $o->setContinuousAccessEvaluationPolicy($n->getObjectValue(array(ContinuousAccessEvaluationPolicy::class, 'createFromDiscriminatorValue'))); },
             'identityProviders' => function (ParseNode $n) use ($o) { $o->setIdentityProviders($n->getCollectionOfObjectValues(array(IdentityProviderBase::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userFlowAttributes' => function (ParseNode $n) use ($o) { $o->setUserFlowAttributes($n->getCollectionOfObjectValues(array(IdentityUserFlowAttribute::class, 'createFromDiscriminatorValue'))); },
             'userFlows' => function (ParseNode $n) use ($o) { $o->setUserFlows($n->getCollectionOfObjectValues(array(IdentityUserFlow::class, 'createFromDiscriminatorValue'))); },
         ];
@@ -142,6 +149,14 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     */
     public function getIdentityProviders(): ?array {
         return $this->identityProviders;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -171,6 +186,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('conditionalAccess', $this->conditionalAccess);
         $writer->writeObjectValue('continuousAccessEvaluationPolicy', $this->continuousAccessEvaluationPolicy);
         $writer->writeCollectionOfObjectValues('identityProviders', $this->identityProviders);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('userFlowAttributes', $this->userFlowAttributes);
         $writer->writeCollectionOfObjectValues('userFlows', $this->userFlows);
         $writer->writeAdditionalData($this->additionalData);
@@ -230,6 +246,14 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     */
     public function setIdentityProviders(?array $value ): void {
         $this->identityProviders = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

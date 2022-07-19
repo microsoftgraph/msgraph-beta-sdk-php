@@ -74,7 +74,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     private ?array $contentCachingClientListenRanges = null;
     
     /**
-     * @var MacOSContentCachingClientPolicy|null $contentCachingClientPolicy Determines the method in which content caching servers will listen for clients. Possible values are: notConfigured, clientsInLocalNetwork, clientsWithSamePublicIpAddress, clientsInCustomLocalNetworks, clientsInCustomLocalNetworksWithFallback.
+     * @var MacOSContentCachingClientPolicy|null $contentCachingClientPolicy Determines which clients a content cache will serve.
     */
     private ?MacOSContentCachingClientPolicy $contentCachingClientPolicy = null;
     
@@ -119,7 +119,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     private ?array $contentCachingParents = null;
     
     /**
-     * @var MacOSContentCachingParentSelectionPolicy|null $contentCachingParentSelectionPolicy Determines the method in which content caching servers will select parents if multiple are present. Possible values are: notConfigured, roundRobin, firstAvailable, urlPathHash, random, stickyAvailable.
+     * @var MacOSContentCachingParentSelectionPolicy|null $contentCachingParentSelectionPolicy Determines how content caches select a parent cache.
     */
     private ?MacOSContentCachingParentSelectionPolicy $contentCachingParentSelectionPolicy = null;
     
@@ -134,7 +134,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     private ?array $contentCachingPeerListenRanges = null;
     
     /**
-     * @var MacOSContentCachingPeerPolicy|null $contentCachingPeerPolicy Determines the method in which content caches peer with other caches. Possible values are: notConfigured, peersInLocalNetwork, peersWithSamePublicIpAddress, peersInCustomLocalNetworks.
+     * @var MacOSContentCachingPeerPolicy|null $contentCachingPeerPolicy Determines which content caches other content caches will peer with.
     */
     private ?MacOSContentCachingPeerPolicy $contentCachingPeerPolicy = null;
     
@@ -154,7 +154,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     private ?bool $contentCachingShowAlerts = null;
     
     /**
-     * @var MacOSContentCachingType|null $contentCachingType Determines what type of content is allowed to be cached by Apple's content caching service. Possible values are: notConfigured, userContentOnly, sharedContentOnly.
+     * @var MacOSContentCachingType|null $contentCachingType Indicates the type of content allowed to be cached by Apple's content caching service.
     */
     private ?MacOSContentCachingType $contentCachingType = null;
     
@@ -223,6 +223,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOSDeviceFeaturesConfiguration');
     }
 
     /**
@@ -339,7 +340,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     }
 
     /**
-     * Gets the contentCachingClientPolicy property value. Determines the method in which content caching servers will listen for clients. Possible values are: notConfigured, clientsInLocalNetwork, clientsWithSamePublicIpAddress, clientsInCustomLocalNetworks, clientsInCustomLocalNetworksWithFallback.
+     * Gets the contentCachingClientPolicy property value. Determines which clients a content cache will serve.
      * @return MacOSContentCachingClientPolicy|null
     */
     public function getContentCachingClientPolicy(): ?MacOSContentCachingClientPolicy {
@@ -411,7 +412,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     }
 
     /**
-     * Gets the contentCachingParentSelectionPolicy property value. Determines the method in which content caching servers will select parents if multiple are present. Possible values are: notConfigured, roundRobin, firstAvailable, urlPathHash, random, stickyAvailable.
+     * Gets the contentCachingParentSelectionPolicy property value. Determines how content caches select a parent cache.
      * @return MacOSContentCachingParentSelectionPolicy|null
     */
     public function getContentCachingParentSelectionPolicy(): ?MacOSContentCachingParentSelectionPolicy {
@@ -435,7 +436,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     }
 
     /**
-     * Gets the contentCachingPeerPolicy property value. Determines the method in which content caches peer with other caches. Possible values are: notConfigured, peersInLocalNetwork, peersWithSamePublicIpAddress, peersInCustomLocalNetworks.
+     * Gets the contentCachingPeerPolicy property value. Determines which content caches other content caches will peer with.
      * @return MacOSContentCachingPeerPolicy|null
     */
     public function getContentCachingPeerPolicy(): ?MacOSContentCachingPeerPolicy {
@@ -467,7 +468,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     }
 
     /**
-     * Gets the contentCachingType property value. Determines what type of content is allowed to be cached by Apple's content caching service. Possible values are: notConfigured, userContentOnly, sharedContentOnly.
+     * Gets the contentCachingType property value. Indicates the type of content allowed to be cached by Apple's content caching service.
      * @return MacOSContentCachingType|null
     */
     public function getContentCachingType(): ?MacOSContentCachingType {
@@ -777,7 +778,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     }
 
     /**
-     * Sets the contentCachingClientPolicy property value. Determines the method in which content caching servers will listen for clients. Possible values are: notConfigured, clientsInLocalNetwork, clientsWithSamePublicIpAddress, clientsInCustomLocalNetworks, clientsInCustomLocalNetworksWithFallback.
+     * Sets the contentCachingClientPolicy property value. Determines which clients a content cache will serve.
      *  @param MacOSContentCachingClientPolicy|null $value Value to set for the contentCachingClientPolicy property.
     */
     public function setContentCachingClientPolicy(?MacOSContentCachingClientPolicy $value ): void {
@@ -849,7 +850,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     }
 
     /**
-     * Sets the contentCachingParentSelectionPolicy property value. Determines the method in which content caching servers will select parents if multiple are present. Possible values are: notConfigured, roundRobin, firstAvailable, urlPathHash, random, stickyAvailable.
+     * Sets the contentCachingParentSelectionPolicy property value. Determines how content caches select a parent cache.
      *  @param MacOSContentCachingParentSelectionPolicy|null $value Value to set for the contentCachingParentSelectionPolicy property.
     */
     public function setContentCachingParentSelectionPolicy(?MacOSContentCachingParentSelectionPolicy $value ): void {
@@ -873,7 +874,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     }
 
     /**
-     * Sets the contentCachingPeerPolicy property value. Determines the method in which content caches peer with other caches. Possible values are: notConfigured, peersInLocalNetwork, peersWithSamePublicIpAddress, peersInCustomLocalNetworks.
+     * Sets the contentCachingPeerPolicy property value. Determines which content caches other content caches will peer with.
      *  @param MacOSContentCachingPeerPolicy|null $value Value to set for the contentCachingPeerPolicy property.
     */
     public function setContentCachingPeerPolicy(?MacOSContentCachingPeerPolicy $value ): void {
@@ -905,7 +906,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     }
 
     /**
-     * Sets the contentCachingType property value. Determines what type of content is allowed to be cached by Apple's content caching service. Possible values are: notConfigured, userContentOnly, sharedContentOnly.
+     * Sets the contentCachingType property value. Indicates the type of content allowed to be cached by Apple's content caching service.
      *  @param MacOSContentCachingType|null $value Value to set for the contentCachingType property.
     */
     public function setContentCachingType(?MacOSContentCachingType $value ): void {

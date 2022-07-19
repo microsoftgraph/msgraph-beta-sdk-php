@@ -75,10 +75,11 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
     private ?string $type = null;
     
     /**
-     * Instantiates a new GovernanceRoleAssignmentRequest and sets the default values.
+     * Instantiates a new governanceRoleAssignmentRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.governanceRoleAssignmentRequest');
     }
 
     /**

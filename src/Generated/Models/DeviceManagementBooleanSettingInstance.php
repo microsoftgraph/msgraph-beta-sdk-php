@@ -18,6 +18,7 @@ class DeviceManagementBooleanSettingInstance extends DeviceManagementSettingInst
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementBooleanSettingInstance');
     }
 
     /**

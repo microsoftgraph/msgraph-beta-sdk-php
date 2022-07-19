@@ -55,10 +55,11 @@ class WindowsQualityUpdateProfile extends Entity implements Parsable
     private ?array $roleScopeTagIds = null;
     
     /**
-     * Instantiates a new WindowsQualityUpdateProfile and sets the default values.
+     * Instantiates a new windowsQualityUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsQualityUpdateProfile');
     }
 
     /**

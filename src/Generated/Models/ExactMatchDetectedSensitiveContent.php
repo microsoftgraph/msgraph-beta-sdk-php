@@ -18,6 +18,7 @@ class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase im
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.exactMatchDetectedSensitiveContent');
     }
 
     /**

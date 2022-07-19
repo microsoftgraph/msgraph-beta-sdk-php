@@ -13,6 +13,7 @@ class WindowsUpdateReference extends SoftwareUpdateReference implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdates.windowsUpdateReference');
     }
 
     /**
@@ -25,6 +26,7 @@ class WindowsUpdateReference extends SoftwareUpdateReference implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.windowsUpdates.expeditedQualityUpdateReference': return new ExpeditedQualityUpdateReference();
                 case '#microsoft.graph.windowsUpdates.featureUpdateReference': return new FeatureUpdateReference();
                 case '#microsoft.graph.windowsUpdates.qualityUpdateReference': return new QualityUpdateReference();
             }

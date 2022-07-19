@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EscapedPrint implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
      * @var array<PrintConnector>|null $connectors The list of available print connectors.
     */
     private ?array $connectors = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<PrintOperation>|null $operations The list of print long running operations.
@@ -63,7 +68,8 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
      * Instantiates a new EscapedPrint and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.print');
     }
 
     /**
@@ -99,6 +105,7 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'connectors' => function (ParseNode $n) use ($o) { $o->setConnectors($n->getCollectionOfObjectValues(array(PrintConnector::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(PrintOperation::class, 'createFromDiscriminatorValue'))); },
             'printers' => function (ParseNode $n) use ($o) { $o->setPrinters($n->getCollectionOfObjectValues(array(Printer::class, 'createFromDiscriminatorValue'))); },
             'printerShares' => function (ParseNode $n) use ($o) { $o->setPrinterShares($n->getCollectionOfObjectValues(array(PrinterShare::class, 'createFromDiscriminatorValue'))); },
@@ -108,6 +115,14 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
             'shares' => function (ParseNode $n) use ($o) { $o->setShares($n->getCollectionOfObjectValues(array(PrinterShare::class, 'createFromDiscriminatorValue'))); },
             'taskDefinitions' => function (ParseNode $n) use ($o) { $o->setTaskDefinitions($n->getCollectionOfObjectValues(array(PrintTaskDefinition::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -180,6 +195,7 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('connectors', $this->connectors);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('operations', $this->operations);
         $writer->writeCollectionOfObjectValues('printers', $this->printers);
         $writer->writeCollectionOfObjectValues('printerShares', $this->printerShares);
@@ -205,6 +221,14 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
     */
     public function setConnectors(?array $value ): void {
         $this->connectors = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

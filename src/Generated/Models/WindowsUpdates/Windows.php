@@ -15,10 +15,11 @@ class Windows extends Entity implements Parsable
     private ?Updates $updates = null;
     
     /**
-     * Instantiates a new Windows and sets the default values.
+     * Instantiates a new windows and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdates.windows');
     }
 
     /**

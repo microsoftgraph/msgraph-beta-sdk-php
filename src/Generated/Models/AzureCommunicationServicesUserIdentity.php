@@ -18,6 +18,7 @@ class AzureCommunicationServicesUserIdentity extends Identity implements Parsabl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.azureCommunicationServicesUserIdentity');
     }
 
     /**

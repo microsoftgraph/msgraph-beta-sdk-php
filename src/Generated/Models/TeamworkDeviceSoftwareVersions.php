@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, Parsable
      * @var string|null $firmwareSoftwareVersion The software version for the firmware running on the device.
     */
     private ?string $firmwareSoftwareVersion = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $operatingSystemSoftwareVersion The software version for the operating system on the device.
@@ -43,7 +48,8 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkDeviceSoftwareVersions and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkDeviceSoftwareVersions');
     }
 
     /**
@@ -80,6 +86,7 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, Parsable
         return  [
             'adminAgentSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setAdminAgentSoftwareVersion($n->getStringValue()); },
             'firmwareSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setFirmwareSoftwareVersion($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'operatingSystemSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setOperatingSystemSoftwareVersion($n->getStringValue()); },
             'partnerAgentSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setPartnerAgentSoftwareVersion($n->getStringValue()); },
             'teamsClientSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setTeamsClientSoftwareVersion($n->getStringValue()); },
@@ -92,6 +99,14 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, Parsable
     */
     public function getFirmwareSoftwareVersion(): ?string {
         return $this->firmwareSoftwareVersion;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -125,6 +140,7 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('adminAgentSoftwareVersion', $this->adminAgentSoftwareVersion);
         $writer->writeStringValue('firmwareSoftwareVersion', $this->firmwareSoftwareVersion);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('operatingSystemSoftwareVersion', $this->operatingSystemSoftwareVersion);
         $writer->writeStringValue('partnerAgentSoftwareVersion', $this->partnerAgentSoftwareVersion);
         $writer->writeStringValue('teamsClientSoftwareVersion', $this->teamsClientSoftwareVersion);
@@ -153,6 +169,14 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, Parsable
     */
     public function setFirmwareSoftwareVersion(?string $value ): void {
         $this->firmwareSoftwareVersion = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

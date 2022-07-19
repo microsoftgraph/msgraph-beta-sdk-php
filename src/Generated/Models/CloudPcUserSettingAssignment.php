@@ -20,10 +20,11 @@ class CloudPcUserSettingAssignment extends Entity implements Parsable
     private ?CloudPcManagementAssignmentTarget $target = null;
     
     /**
-     * Instantiates a new CloudPcUserSettingAssignment and sets the default values.
+     * Instantiates a new cloudPcUserSettingAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.cloudPcUserSettingAssignment');
     }
 
     /**

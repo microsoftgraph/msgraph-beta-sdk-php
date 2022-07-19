@@ -10,17 +10,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AdminConsent implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var AdminConsentState|null $shareAPNSData The admin consent state of sharing user and device data to Apple. Possible values are: notConfigured, granted, notGranted.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var AdminConsentState|null $shareAPNSData Admin consent state.
     */
     private ?AdminConsentState $shareAPNSData = null;
     
     /**
-     * @var AdminConsentState|null $shareUserExperienceAnalyticsData Gets or sets the admin consent for sharing User experience analytics data. Possible values are: notConfigured, granted, notGranted.
+     * @var AdminConsentState|null $shareUserExperienceAnalyticsData Admin consent state.
     */
     private ?AdminConsentState $shareUserExperienceAnalyticsData = null;
     
@@ -28,7 +33,8 @@ class AdminConsent implements AdditionalDataHolder, Parsable
      * Instantiates a new adminConsent and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.adminConsent');
     }
 
     /**
@@ -55,13 +61,22 @@ class AdminConsent implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'shareAPNSData' => function (ParseNode $n) use ($o) { $o->setShareAPNSData($n->getEnumValue(AdminConsentState::class)); },
             'shareUserExperienceAnalyticsData' => function (ParseNode $n) use ($o) { $o->setShareUserExperienceAnalyticsData($n->getEnumValue(AdminConsentState::class)); },
         ];
     }
 
     /**
-     * Gets the shareAPNSData property value. The admin consent state of sharing user and device data to Apple. Possible values are: notConfigured, granted, notGranted.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the shareAPNSData property value. Admin consent state.
      * @return AdminConsentState|null
     */
     public function getShareAPNSData(): ?AdminConsentState {
@@ -69,7 +84,7 @@ class AdminConsent implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the shareUserExperienceAnalyticsData property value. Gets or sets the admin consent for sharing User experience analytics data. Possible values are: notConfigured, granted, notGranted.
+     * Gets the shareUserExperienceAnalyticsData property value. Admin consent state.
      * @return AdminConsentState|null
     */
     public function getShareUserExperienceAnalyticsData(): ?AdminConsentState {
@@ -81,6 +96,7 @@ class AdminConsent implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('shareAPNSData', $this->shareAPNSData);
         $writer->writeEnumValue('shareUserExperienceAnalyticsData', $this->shareUserExperienceAnalyticsData);
         $writer->writeAdditionalData($this->additionalData);
@@ -95,7 +111,15 @@ class AdminConsent implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the shareAPNSData property value. The admin consent state of sharing user and device data to Apple. Possible values are: notConfigured, granted, notGranted.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the shareAPNSData property value. Admin consent state.
      *  @param AdminConsentState|null $value Value to set for the shareAPNSData property.
     */
     public function setShareAPNSData(?AdminConsentState $value ): void {
@@ -103,7 +127,7 @@ class AdminConsent implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the shareUserExperienceAnalyticsData property value. Gets or sets the admin consent for sharing User experience analytics data. Possible values are: notConfigured, granted, notGranted.
+     * Sets the shareUserExperienceAnalyticsData property value. Admin consent state.
      *  @param AdminConsentState|null $value Value to set for the shareUserExperienceAnalyticsData property.
     */
     public function setShareUserExperienceAnalyticsData(?AdminConsentState $value ): void {

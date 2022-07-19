@@ -30,12 +30,12 @@ class DeviceManagementPartner extends Entity implements Parsable
     private ?DateTime $lastHeartbeatDateTime = null;
     
     /**
-     * @var DeviceManagementPartnerAppType|null $partnerAppType Partner App type. Possible values are: unknown, singleTenantApp, multiTenantApp.
+     * @var DeviceManagementPartnerAppType|null $partnerAppType Partner App Type.
     */
     private ?DeviceManagementPartnerAppType $partnerAppType = null;
     
     /**
-     * @var DeviceManagementPartnerTenantState|null $partnerState Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
+     * @var DeviceManagementPartnerTenantState|null $partnerState Partner state of this tenant.
     */
     private ?DeviceManagementPartnerTenantState $partnerState = null;
     
@@ -65,10 +65,11 @@ class DeviceManagementPartner extends Entity implements Parsable
     private ?DateTime $whenPartnerDevicesWillBeRemovedDateTime = null;
     
     /**
-     * Instantiates a new DeviceManagementPartner and sets the default values.
+     * Instantiates a new deviceManagementPartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementPartner');
     }
 
     /**
@@ -134,7 +135,7 @@ class DeviceManagementPartner extends Entity implements Parsable
     }
 
     /**
-     * Gets the partnerAppType property value. Partner App type. Possible values are: unknown, singleTenantApp, multiTenantApp.
+     * Gets the partnerAppType property value. Partner App Type.
      * @return DeviceManagementPartnerAppType|null
     */
     public function getPartnerAppType(): ?DeviceManagementPartnerAppType {
@@ -142,7 +143,7 @@ class DeviceManagementPartner extends Entity implements Parsable
     }
 
     /**
-     * Gets the partnerState property value. Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
+     * Gets the partnerState property value. Partner state of this tenant.
      * @return DeviceManagementPartnerTenantState|null
     */
     public function getPartnerState(): ?DeviceManagementPartnerTenantState {
@@ -241,7 +242,7 @@ class DeviceManagementPartner extends Entity implements Parsable
     }
 
     /**
-     * Sets the partnerAppType property value. Partner App type. Possible values are: unknown, singleTenantApp, multiTenantApp.
+     * Sets the partnerAppType property value. Partner App Type.
      *  @param DeviceManagementPartnerAppType|null $value Value to set for the partnerAppType property.
     */
     public function setPartnerAppType(?DeviceManagementPartnerAppType $value ): void {
@@ -249,7 +250,7 @@ class DeviceManagementPartner extends Entity implements Parsable
     }
 
     /**
-     * Sets the partnerState property value. Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
+     * Sets the partnerState property value. Partner state of this tenant.
      *  @param DeviceManagementPartnerTenantState|null $value Value to set for the partnerState property.
     */
     public function setPartnerState(?DeviceManagementPartnerTenantState $value ): void {

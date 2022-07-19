@@ -25,12 +25,12 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
     private ?string $productKey = null;
     
     /**
-     * @var MacOSSoftwareUpdateState|null $state State of the software update. Possible values are: success, downloading, downloaded, installing, idle, available, scheduled, downloadFailed, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installInsufficientSpace, installInsufficientPower, installFailed, commandFailed.
+     * @var MacOSSoftwareUpdateState|null $state MacOS Software Update State
     */
     private ?MacOSSoftwareUpdateState $state = null;
     
     /**
-     * @var MacOSSoftwareUpdateCategory|null $updateCategory Software update category. Possible values are: critical, configurationDataFile, firmware, other.
+     * @var MacOSSoftwareUpdateCategory|null $updateCategory MacOS Software Update Category
     */
     private ?MacOSSoftwareUpdateCategory $updateCategory = null;
     
@@ -44,6 +44,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOSSoftwareUpdateStateSummary');
     }
 
     /**
@@ -96,7 +97,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. State of the software update. Possible values are: success, downloading, downloaded, installing, idle, available, scheduled, downloadFailed, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installInsufficientSpace, installInsufficientPower, installFailed, commandFailed.
+     * Gets the state property value. MacOS Software Update State
      * @return MacOSSoftwareUpdateState|null
     */
     public function getState(): ?MacOSSoftwareUpdateState {
@@ -104,7 +105,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the updateCategory property value. Software update category. Possible values are: critical, configurationDataFile, firmware, other.
+     * Gets the updateCategory property value. MacOS Software Update Category
      * @return MacOSSoftwareUpdateCategory|null
     */
     public function getUpdateCategory(): ?MacOSSoftwareUpdateCategory {
@@ -158,7 +159,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. State of the software update. Possible values are: success, downloading, downloaded, installing, idle, available, scheduled, downloadFailed, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installInsufficientSpace, installInsufficientPower, installFailed, commandFailed.
+     * Sets the state property value. MacOS Software Update State
      *  @param MacOSSoftwareUpdateState|null $value Value to set for the state property.
     */
     public function setState(?MacOSSoftwareUpdateState $value ): void {
@@ -166,7 +167,7 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the updateCategory property value. Software update category. Possible values are: critical, configurationDataFile, firmware, other.
+     * Sets the updateCategory property value. MacOS Software Update Category
      *  @param MacOSSoftwareUpdateCategory|null $value Value to set for the updateCategory property.
     */
     public function setUpdateCategory(?MacOSSoftwareUpdateCategory $value ): void {

@@ -13,6 +13,7 @@ class RetentionDurationForever extends RetentionDuration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.retentionDurationForever');
     }
 
     /**

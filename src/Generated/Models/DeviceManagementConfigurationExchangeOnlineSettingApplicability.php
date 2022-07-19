@@ -13,6 +13,7 @@ class DeviceManagementConfigurationExchangeOnlineSettingApplicability extends De
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationExchangeOnlineSettingApplicability');
     }
 
     /**

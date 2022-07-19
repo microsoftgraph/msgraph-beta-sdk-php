@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosNotificationSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var IosNotificationAlertType|null $alertType Indicates the type of alert for notifications for this app. Possible values are: deviceDefault, banner, modal, none.
+     * @var IosNotificationAlertType|null $alertType Notification Settings Alert Type.
     */
     private ?IosNotificationAlertType $alertType = null;
     
@@ -40,7 +40,12 @@ class IosNotificationSettings implements AdditionalDataHolder, Parsable
     private ?bool $enabled = null;
     
     /**
-     * @var IosNotificationPreviewVisibility|null $previewVisibility Overrides the notification preview policy set by the user on an iOS device. Possible values are: notConfigured, alwaysShow, hideWhenLocked, neverShow.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var IosNotificationPreviewVisibility|null $previewVisibility Determines when notification previews are visible on an iOS device. Previews can include things like text (from Messages and Mail) and invitation details (from Calendar). When configured, it will override the user's defined preview settings.
     */
     private ?IosNotificationPreviewVisibility $previewVisibility = null;
     
@@ -68,7 +73,8 @@ class IosNotificationSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new iosNotificationSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.iosNotificationSettings');
     }
 
     /**
@@ -89,7 +95,7 @@ class IosNotificationSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the alertType property value. Indicates the type of alert for notifications for this app. Possible values are: deviceDefault, banner, modal, none.
+     * Gets the alertType property value. Notification Settings Alert Type.
      * @return IosNotificationAlertType|null
     */
     public function getAlertType(): ?IosNotificationAlertType {
@@ -140,6 +146,7 @@ class IosNotificationSettings implements AdditionalDataHolder, Parsable
             'badgesEnabled' => function (ParseNode $n) use ($o) { $o->setBadgesEnabled($n->getBooleanValue()); },
             'bundleID' => function (ParseNode $n) use ($o) { $o->setBundleID($n->getStringValue()); },
             'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'previewVisibility' => function (ParseNode $n) use ($o) { $o->setPreviewVisibility($n->getEnumValue(IosNotificationPreviewVisibility::class)); },
             'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
             'showInNotificationCenter' => function (ParseNode $n) use ($o) { $o->setShowInNotificationCenter($n->getBooleanValue()); },
@@ -149,7 +156,15 @@ class IosNotificationSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the previewVisibility property value. Overrides the notification preview policy set by the user on an iOS device. Possible values are: notConfigured, alwaysShow, hideWhenLocked, neverShow.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the previewVisibility property value. Determines when notification previews are visible on an iOS device. Previews can include things like text (from Messages and Mail) and invitation details (from Calendar). When configured, it will override the user's defined preview settings.
      * @return IosNotificationPreviewVisibility|null
     */
     public function getPreviewVisibility(): ?IosNotificationPreviewVisibility {
@@ -198,6 +213,7 @@ class IosNotificationSettings implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('badgesEnabled', $this->badgesEnabled);
         $writer->writeStringValue('bundleID', $this->bundleID);
         $writer->writeBooleanValue('enabled', $this->enabled);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('previewVisibility', $this->previewVisibility);
         $writer->writeStringValue('publisher', $this->publisher);
         $writer->writeBooleanValue('showInNotificationCenter', $this->showInNotificationCenter);
@@ -215,7 +231,7 @@ class IosNotificationSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the alertType property value. Indicates the type of alert for notifications for this app. Possible values are: deviceDefault, banner, modal, none.
+     * Sets the alertType property value. Notification Settings Alert Type.
      *  @param IosNotificationAlertType|null $value Value to set for the alertType property.
     */
     public function setAlertType(?IosNotificationAlertType $value ): void {
@@ -255,7 +271,15 @@ class IosNotificationSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the previewVisibility property value. Overrides the notification preview policy set by the user on an iOS device. Possible values are: notConfigured, alwaysShow, hideWhenLocked, neverShow.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the previewVisibility property value. Determines when notification previews are visible on an iOS device. Previews can include things like text (from Messages and Mail) and invitation details (from Calendar). When configured, it will override the user's defined preview settings.
      *  @param IosNotificationPreviewVisibility|null $value Value to set for the previewVisibility property.
     */
     public function setPreviewVisibility(?IosNotificationPreviewVisibility $value ): void {

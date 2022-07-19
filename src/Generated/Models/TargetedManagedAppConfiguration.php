@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements Parsable 
 {
     /**
-     * @var TargetedManagedAppGroupType|null $appGroupType Public Apps selection: group or individual
+     * @var TargetedManagedAppGroupType|null $appGroupType Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps
     */
     private ?TargetedManagedAppGroupType $appGroupType = null;
     
@@ -43,6 +43,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.targetedManagedAppConfiguration');
     }
 
     /**
@@ -55,7 +56,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
     }
 
     /**
-     * Gets the appGroupType property value. Public Apps selection: group or individual
+     * Gets the appGroupType property value. Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps
      * @return TargetedManagedAppGroupType|null
     */
     public function getAppGroupType(): ?TargetedManagedAppGroupType {
@@ -133,7 +134,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
     }
 
     /**
-     * Sets the appGroupType property value. Public Apps selection: group or individual
+     * Sets the appGroupType property value. Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps
      *  @param TargetedManagedAppGroupType|null $value Value to set for the appGroupType property.
     */
     public function setAppGroupType(?TargetedManagedAppGroupType $value ): void {

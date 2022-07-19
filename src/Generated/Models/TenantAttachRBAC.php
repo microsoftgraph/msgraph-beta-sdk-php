@@ -9,10 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantAttachRBAC extends Entity implements Parsable 
 {
     /**
-     * Instantiates a new TenantAttachRBAC and sets the default values.
+     * Instantiates a new tenantAttachRBAC and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.tenantAttachRBAC');
     }
 
     /**

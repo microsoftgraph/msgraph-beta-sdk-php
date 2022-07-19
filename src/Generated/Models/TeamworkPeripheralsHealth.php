@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,6 +35,11 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
     private ?TeamworkPeripheralHealth $microphoneHealth = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var TeamworkPeripheralHealth|null $roomCameraHealth The health details about the room camera.
     */
     private ?TeamworkPeripheralHealth $roomCameraHealth = null;
@@ -48,7 +53,8 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkPeripheralsHealth and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkPeripheralsHealth');
     }
 
     /**
@@ -103,6 +109,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
             'contentCameraHealth' => function (ParseNode $n) use ($o) { $o->setContentCameraHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
             'displayHealthCollection' => function (ParseNode $n) use ($o) { $o->setDisplayHealthCollection($n->getCollectionOfObjectValues(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
             'microphoneHealth' => function (ParseNode $n) use ($o) { $o->setMicrophoneHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'roomCameraHealth' => function (ParseNode $n) use ($o) { $o->setRoomCameraHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
             'speakerHealth' => function (ParseNode $n) use ($o) { $o->setSpeakerHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
         ];
@@ -114,6 +121,14 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
     */
     public function getMicrophoneHealth(): ?TeamworkPeripheralHealth {
         return $this->microphoneHealth;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -141,6 +156,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('contentCameraHealth', $this->contentCameraHealth);
         $writer->writeCollectionOfObjectValues('displayHealthCollection', $this->displayHealthCollection);
         $writer->writeObjectValue('microphoneHealth', $this->microphoneHealth);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('roomCameraHealth', $this->roomCameraHealth);
         $writer->writeObjectValue('speakerHealth', $this->speakerHealth);
         $writer->writeAdditionalData($this->additionalData);
@@ -184,6 +200,14 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
     */
     public function setMicrophoneHealth(?TeamworkPeripheralHealth $value ): void {
         $this->microphoneHealth = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

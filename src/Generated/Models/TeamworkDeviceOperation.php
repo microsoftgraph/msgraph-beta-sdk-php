@@ -40,7 +40,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
     private ?DateTime $lastActionDateTime = null;
     
     /**
-     * @var TeamworkDeviceOperationType|null $operationType Type of async operation on a device. The possible values are: deviceRestart, configUpdate, deviceDiagnostics, softwareUpdate, deviceManagementAgentConfigUpdate, remoteLogin, remoteLogout, unknownFutureValue.
+     * @var TeamworkDeviceOperationType|null $operationType The operationType property
     */
     private ?TeamworkDeviceOperationType $operationType = null;
     
@@ -55,10 +55,11 @@ class TeamworkDeviceOperation extends Entity implements Parsable
     private ?string $status = null;
     
     /**
-     * Instantiates a new TeamworkDeviceOperation and sets the default values.
+     * Instantiates a new teamworkDeviceOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.teamworkDeviceOperation');
     }
 
     /**
@@ -138,7 +139,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the operationType property value. Type of async operation on a device. The possible values are: deviceRestart, configUpdate, deviceDiagnostics, softwareUpdate, deviceManagementAgentConfigUpdate, remoteLogin, remoteLogout, unknownFutureValue.
+     * Gets the operationType property value. The operationType property
      * @return TeamworkDeviceOperationType|null
     */
     public function getOperationType(): ?TeamworkDeviceOperationType {
@@ -227,7 +228,7 @@ class TeamworkDeviceOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the operationType property value. Type of async operation on a device. The possible values are: deviceRestart, configUpdate, deviceDiagnostics, softwareUpdate, deviceManagementAgentConfigUpdate, remoteLogin, remoteLogout, unknownFutureValue.
+     * Sets the operationType property value. The operationType property
      *  @param TeamworkDeviceOperationType|null $value Value to set for the operationType property.
     */
     public function setOperationType(?TeamworkDeviceOperationType $value ): void {

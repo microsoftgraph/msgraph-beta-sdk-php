@@ -12,12 +12,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Admin implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var AdminReportSettings|null $reportSettings The reportSettings property
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var AdminReportSettings|null $reportSettings A container for administrative resources to manage reports.
     */
     private ?AdminReportSettings $reportSettings = null;
     
@@ -40,7 +45,8 @@ class Admin implements AdditionalDataHolder, Parsable
      * Instantiates a new Admin and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.admin');
     }
 
     /**
@@ -67,6 +73,7 @@ class Admin implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'reportSettings' => function (ParseNode $n) use ($o) { $o->setReportSettings($n->getObjectValue(array(AdminReportSettings::class, 'createFromDiscriminatorValue'))); },
             'serviceAnnouncement' => function (ParseNode $n) use ($o) { $o->setServiceAnnouncement($n->getObjectValue(array(ServiceAnnouncement::class, 'createFromDiscriminatorValue'))); },
             'sharepoint' => function (ParseNode $n) use ($o) { $o->setSharepoint($n->getObjectValue(array(Sharepoint::class, 'createFromDiscriminatorValue'))); },
@@ -75,7 +82,15 @@ class Admin implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the reportSettings property value. The reportSettings property
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the reportSettings property value. A container for administrative resources to manage reports.
      * @return AdminReportSettings|null
     */
     public function getReportSettings(): ?AdminReportSettings {
@@ -111,6 +126,7 @@ class Admin implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('reportSettings', $this->reportSettings);
         $writer->writeObjectValue('serviceAnnouncement', $this->serviceAnnouncement);
         $writer->writeObjectValue('sharepoint', $this->sharepoint);
@@ -127,7 +143,15 @@ class Admin implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the reportSettings property value. The reportSettings property
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the reportSettings property value. A container for administrative resources to manage reports.
      *  @param AdminReportSettings|null $value Value to set for the reportSettings property.
     */
     public function setReportSettings(?AdminReportSettings $value ): void {

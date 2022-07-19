@@ -18,6 +18,7 @@ class ExactMatchDataStore extends ExactMatchDataStoreBase implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.exactMatchDataStore');
     }
 
     /**

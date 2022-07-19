@@ -13,6 +13,7 @@ class DeviceManagementSettingXmlConstraint extends DeviceManagementConstraint im
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementSettingXmlConstraint');
     }
 
     /**

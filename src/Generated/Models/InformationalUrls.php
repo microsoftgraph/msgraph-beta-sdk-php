@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InformationalUrls implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class InformationalUrls implements AdditionalDataHolder, Parsable
      * @var string|null $appSignUpUrl The appSignUpUrl property
     */
     private ?string $appSignUpUrl = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $singleSignOnDocumentationUrl The singleSignOnDocumentationUrl property
@@ -28,7 +33,8 @@ class InformationalUrls implements AdditionalDataHolder, Parsable
      * Instantiates a new informationalUrls and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.informationalUrls');
     }
 
     /**
@@ -64,8 +70,17 @@ class InformationalUrls implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'appSignUpUrl' => function (ParseNode $n) use ($o) { $o->setAppSignUpUrl($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'singleSignOnDocumentationUrl' => function (ParseNode $n) use ($o) { $o->setSingleSignOnDocumentationUrl($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class InformationalUrls implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('appSignUpUrl', $this->appSignUpUrl);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('singleSignOnDocumentationUrl', $this->singleSignOnDocumentationUrl);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class InformationalUrls implements AdditionalDataHolder, Parsable
     */
     public function setAppSignUpUrl(?string $value ): void {
         $this->appSignUpUrl = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

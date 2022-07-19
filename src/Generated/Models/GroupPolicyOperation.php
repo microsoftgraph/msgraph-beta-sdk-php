@@ -15,12 +15,12 @@ class GroupPolicyOperation extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var GroupPolicyOperationStatus|null $operationStatus The group policy operation status. Possible values are: unknown, inProgress, success, failed.
+     * @var GroupPolicyOperationStatus|null $operationStatus Type of Group Policy operation status.
     */
     private ?GroupPolicyOperationStatus $operationStatus = null;
     
     /**
-     * @var GroupPolicyOperationType|null $operationType The type of group policy operation. Possible values are: none, upload, uploadNewVersion, addLanguageFiles, removeLanguageFiles, updateLanguageFiles, remove.
+     * @var GroupPolicyOperationType|null $operationType Type of Group Policy operation.
     */
     private ?GroupPolicyOperationType $operationType = null;
     
@@ -34,6 +34,7 @@ class GroupPolicyOperation extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyOperation');
     }
 
     /**
@@ -68,7 +69,7 @@ class GroupPolicyOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the operationStatus property value. The group policy operation status. Possible values are: unknown, inProgress, success, failed.
+     * Gets the operationStatus property value. Type of Group Policy operation status.
      * @return GroupPolicyOperationStatus|null
     */
     public function getOperationStatus(): ?GroupPolicyOperationStatus {
@@ -76,7 +77,7 @@ class GroupPolicyOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the operationType property value. The type of group policy operation. Possible values are: none, upload, uploadNewVersion, addLanguageFiles, removeLanguageFiles, updateLanguageFiles, remove.
+     * Gets the operationType property value. Type of Group Policy operation.
      * @return GroupPolicyOperationType|null
     */
     public function getOperationType(): ?GroupPolicyOperationType {
@@ -112,7 +113,7 @@ class GroupPolicyOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the operationStatus property value. The group policy operation status. Possible values are: unknown, inProgress, success, failed.
+     * Sets the operationStatus property value. Type of Group Policy operation status.
      *  @param GroupPolicyOperationStatus|null $value Value to set for the operationStatus property.
     */
     public function setOperationStatus(?GroupPolicyOperationStatus $value ): void {
@@ -120,7 +121,7 @@ class GroupPolicyOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the operationType property value. The type of group policy operation. Possible values are: none, upload, uploadNewVersion, addLanguageFiles, removeLanguageFiles, updateLanguageFiles, remove.
+     * Sets the operationType property value. Type of Group Policy operation.
      *  @param GroupPolicyOperationType|null $value Value to set for the operationType property.
     */
     public function setOperationType(?GroupPolicyOperationType $value ): void {

@@ -15,7 +15,7 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
     private ?bool $acquiredByPrinter = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,6 +35,11 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
     private ?bool $isAcquiredByPrinter = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var PrintJobProcessingState|null $processingState The processingState property
     */
     private ?PrintJobProcessingState $processingState = null;
@@ -45,7 +50,7 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
     private ?string $processingStateDescription = null;
     
     /**
-     * @var PrintJobProcessingState|null $state The print job's current processing state. Valid values are described in the following table. Read-only.
+     * @var PrintJobProcessingState|null $state The state property
     */
     private ?PrintJobProcessingState $state = null;
     
@@ -53,7 +58,8 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new printJobStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.printJobStatus');
     }
 
     /**
@@ -108,6 +114,7 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getCollectionOfPrimitiveValues()); },
             'isAcquiredByPrinter' => function (ParseNode $n) use ($o) { $o->setIsAcquiredByPrinter($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'processingState' => function (ParseNode $n) use ($o) { $o->setProcessingState($n->getEnumValue(PrintJobProcessingState::class)); },
             'processingStateDescription' => function (ParseNode $n) use ($o) { $o->setProcessingStateDescription($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(PrintJobProcessingState::class)); },
@@ -120,6 +127,14 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
     */
     public function getIsAcquiredByPrinter(): ?bool {
         return $this->isAcquiredByPrinter;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -139,7 +154,7 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the state property value. The print job's current processing state. Valid values are described in the following table. Read-only.
+     * Gets the state property value. The state property
      * @return PrintJobProcessingState|null
     */
     public function getState(): ?PrintJobProcessingState {
@@ -155,6 +170,7 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('description', $this->description);
         $writer->writeCollectionOfPrimitiveValues('details', $this->details);
         $writer->writeBooleanValue('isAcquiredByPrinter', $this->isAcquiredByPrinter);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('processingState', $this->processingState);
         $writer->writeStringValue('processingStateDescription', $this->processingStateDescription);
         $writer->writeEnumValue('state', $this->state);
@@ -202,6 +218,14 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the processingState property value. The processingState property
      *  @param PrintJobProcessingState|null $value Value to set for the processingState property.
     */
@@ -218,7 +242,7 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the state property value. The print job's current processing state. Valid values are described in the following table. Read-only.
+     * Sets the state property value. The state property
      *  @param PrintJobProcessingState|null $value Value to set for the state property.
     */
     public function setState(?PrintJobProcessingState $value ): void {

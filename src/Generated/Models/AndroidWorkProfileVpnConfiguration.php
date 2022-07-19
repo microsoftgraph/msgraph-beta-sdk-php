@@ -19,7 +19,7 @@ class AndroidWorkProfileVpnConfiguration extends DeviceConfiguration implements 
     private ?bool $alwaysOnLockdown = null;
     
     /**
-     * @var VpnAuthenticationMethod|null $authenticationMethod Authentication method. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
+     * @var VpnAuthenticationMethod|null $authenticationMethod VPN Authentication Method.
     */
     private ?VpnAuthenticationMethod $authenticationMethod = null;
     
@@ -29,7 +29,7 @@ class AndroidWorkProfileVpnConfiguration extends DeviceConfiguration implements 
     private ?string $connectionName = null;
     
     /**
-     * @var AndroidWorkProfileVpnConnectionType|null $connectionType Connection type. Possible values are: ciscoAnyConnect, pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, citrix, paloAltoGlobalProtect, microsoftTunnel, netMotionMobility, microsoftProtect.
+     * @var AndroidWorkProfileVpnConnectionType|null $connectionType Android Work Profile VPN connection type.
     */
     private ?AndroidWorkProfileVpnConnectionType $connectionType = null;
     
@@ -93,6 +93,7 @@ class AndroidWorkProfileVpnConfiguration extends DeviceConfiguration implements 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidWorkProfileVpnConfiguration');
     }
 
     /**
@@ -121,7 +122,7 @@ class AndroidWorkProfileVpnConfiguration extends DeviceConfiguration implements 
     }
 
     /**
-     * Gets the authenticationMethod property value. Authentication method. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
+     * Gets the authenticationMethod property value. VPN Authentication Method.
      * @return VpnAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?VpnAuthenticationMethod {
@@ -137,7 +138,7 @@ class AndroidWorkProfileVpnConfiguration extends DeviceConfiguration implements 
     }
 
     /**
-     * Gets the connectionType property value. Connection type. Possible values are: ciscoAnyConnect, pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, citrix, paloAltoGlobalProtect, microsoftTunnel, netMotionMobility, microsoftProtect.
+     * Gets the connectionType property value. Android Work Profile VPN connection type.
      * @return AndroidWorkProfileVpnConnectionType|null
     */
     public function getConnectionType(): ?AndroidWorkProfileVpnConnectionType {
@@ -299,7 +300,7 @@ class AndroidWorkProfileVpnConfiguration extends DeviceConfiguration implements 
     }
 
     /**
-     * Sets the authenticationMethod property value. Authentication method. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
+     * Sets the authenticationMethod property value. VPN Authentication Method.
      *  @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?VpnAuthenticationMethod $value ): void {
@@ -315,7 +316,7 @@ class AndroidWorkProfileVpnConfiguration extends DeviceConfiguration implements 
     }
 
     /**
-     * Sets the connectionType property value. Connection type. Possible values are: ciscoAnyConnect, pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, citrix, paloAltoGlobalProtect, microsoftTunnel, netMotionMobility, microsoftProtect.
+     * Sets the connectionType property value. Android Work Profile VPN connection type.
      *  @param AndroidWorkProfileVpnConnectionType|null $value Value to set for the connectionType property.
     */
     public function setConnectionType(?AndroidWorkProfileVpnConnectionType $value ): void {

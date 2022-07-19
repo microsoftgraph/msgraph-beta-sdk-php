@@ -10,9 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationPolicyTemplateReference implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $templateDisplayName Template Display Name of the referenced template. This property is read-only.
@@ -25,7 +30,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
     private ?string $templateDisplayVersion = null;
     
     /**
-     * @var DeviceManagementConfigurationTemplateFamily|null $templateFamily Template Family of the referenced Template. This property is read-only. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.
+     * @var DeviceManagementConfigurationTemplateFamily|null $templateFamily Describes the TemplateFamily for the Template entity
     */
     private ?DeviceManagementConfigurationTemplateFamily $templateFamily = null;
     
@@ -38,7 +43,8 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
      * Instantiates a new deviceManagementConfigurationPolicyTemplateReference and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationPolicyTemplateReference');
     }
 
     /**
@@ -65,11 +71,20 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'templateDisplayName' => function (ParseNode $n) use ($o) { $o->setTemplateDisplayName($n->getStringValue()); },
             'templateDisplayVersion' => function (ParseNode $n) use ($o) { $o->setTemplateDisplayVersion($n->getStringValue()); },
             'templateFamily' => function (ParseNode $n) use ($o) { $o->setTemplateFamily($n->getEnumValue(DeviceManagementConfigurationTemplateFamily::class)); },
             'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -89,7 +104,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
     }
 
     /**
-     * Gets the templateFamily property value. Template Family of the referenced Template. This property is read-only. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.
+     * Gets the templateFamily property value. Describes the TemplateFamily for the Template entity
      * @return DeviceManagementConfigurationTemplateFamily|null
     */
     public function getTemplateFamily(): ?DeviceManagementConfigurationTemplateFamily {
@@ -109,6 +124,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('templateDisplayName', $this->templateDisplayName);
         $writer->writeStringValue('templateDisplayVersion', $this->templateDisplayVersion);
         $writer->writeEnumValue('templateFamily', $this->templateFamily);
@@ -122,6 +138,14 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**
@@ -141,7 +165,7 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
     }
 
     /**
-     * Sets the templateFamily property value. Template Family of the referenced Template. This property is read-only. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.
+     * Sets the templateFamily property value. Describes the TemplateFamily for the Template entity
      *  @param DeviceManagementConfigurationTemplateFamily|null $value Value to set for the templateFamily property.
     */
     public function setTemplateFamily(?DeviceManagementConfigurationTemplateFamily $value ): void {

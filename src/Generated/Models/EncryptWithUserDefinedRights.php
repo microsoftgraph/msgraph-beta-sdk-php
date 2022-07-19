@@ -28,6 +28,7 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.encryptWithUserDefinedRights');
     }
 
     /**

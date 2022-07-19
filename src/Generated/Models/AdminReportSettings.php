@@ -9,15 +9,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AdminReportSettings extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $displayConcealedNames The displayConcealedNames property
+     * @var bool|null $displayConcealedNames If set to true, all reports will conceal user information such as usernames, groups, and sites. If false, all reports will show identifiable information. This property represents a setting in the Microsoft 365 admin center. Required.
     */
     private ?bool $displayConcealedNames = null;
     
     /**
-     * Instantiates a new AdminReportSettings and sets the default values.
+     * Instantiates a new adminReportSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.adminReportSettings');
     }
 
     /**
@@ -30,7 +31,7 @@ class AdminReportSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayConcealedNames property value. The displayConcealedNames property
+     * Gets the displayConcealedNames property value. If set to true, all reports will conceal user information such as usernames, groups, and sites. If false, all reports will show identifiable information. This property represents a setting in the Microsoft 365 admin center. Required.
      * @return bool|null
     */
     public function getDisplayConcealedNames(): ?bool {
@@ -58,7 +59,7 @@ class AdminReportSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayConcealedNames property value. The displayConcealedNames property
+     * Sets the displayConcealedNames property value. If set to true, all reports will conceal user information such as usernames, groups, and sites. If false, all reports will show identifiable information. This property represents a setting in the Microsoft 365 admin center. Required.
      *  @param bool|null $value Value to set for the displayConcealedNames property.
     */
     public function setDisplayConcealedNames(?bool $value ): void {

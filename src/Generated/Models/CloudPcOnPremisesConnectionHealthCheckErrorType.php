@@ -45,6 +45,9 @@ class CloudPcOnPremisesConnectionHealthCheckErrorType extends Enum {
     public const RESOURCE_AVAILABILITY_CHECK_SUBNET_WITH_EXTERNAL_RESOURCES = 'resourceAvailabilityCheckSubnetWithExternalResources';
     public const RESOURCE_AVAILABILITY_CHECK_RESOURCE_GROUP_LOCKED_FOR_READONLY = 'resourceAvailabilityCheckResourceGroupLockedForReadonly';
     public const RESOURCE_AVAILABILITY_CHECK_RESOURCE_GROUP_LOCKED_FOR_DELETE = 'resourceAvailabilityCheckResourceGroupLockedForDelete';
+    public const RESOURCE_AVAILABILITY_CHECK_NO_INTUNE_READER_ROLE_ERROR = 'resourceAvailabilityCheckNoIntuneReaderRoleError';
+    public const RESOURCE_AVAILABILITY_CHECK_INTUNE_DEFAULT_WINDOWS_RESTRICTION_VIOLATION = 'resourceAvailabilityCheckIntuneDefaultWindowsRestrictionViolation';
+    public const RESOURCE_AVAILABILITY_CHECK_INTUNE_CUSTOM_WINDOWS_RESTRICTION_VIOLATION = 'resourceAvailabilityCheckIntuneCustomWindowsRestrictionViolation';
     public const RESOURCE_AVAILABILITY_CHECK_TRANSIENT_SERVICE_ERROR = 'resourceAvailabilityCheckTransientServiceError';
     public const RESOURCE_AVAILABILITY_CHECK_UNKNOWN_ERROR = 'resourceAvailabilityCheckUnknownError';
     public const PERMISSION_CHECK_NO_SUBSCRIPTION_READER_ROLE = 'permissionCheckNoSubscriptionReaderRole';

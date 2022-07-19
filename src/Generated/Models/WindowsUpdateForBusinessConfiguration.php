@@ -16,17 +16,17 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     private ?bool $allowWindows11Upgrade = null;
     
     /**
-     * @var AutomaticUpdateMode|null $automaticUpdateMode Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault.
+     * @var AutomaticUpdateMode|null $automaticUpdateMode Possible values for automatic update mode.
     */
     private ?AutomaticUpdateMode $automaticUpdateMode = null;
     
     /**
-     * @var AutoRestartNotificationDismissalMethod|null $autoRestartNotificationDismissal Specify the method by which the auto-restart required notification is dismissed. Possible values are: notConfigured, automatic, user.
+     * @var AutoRestartNotificationDismissalMethod|null $autoRestartNotificationDismissal Auto restart required notification dismissal method
     */
     private ?AutoRestartNotificationDismissalMethod $autoRestartNotificationDismissal = null;
     
     /**
-     * @var WindowsUpdateType|null $businessReadyUpdatesOnly Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease.
+     * @var WindowsUpdateType|null $businessReadyUpdatesOnly Which branch devices will receive their updates from
     */
     private ?WindowsUpdateType $businessReadyUpdatesOnly = null;
     
@@ -46,7 +46,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     private ?int $deadlineGracePeriodInDays = null;
     
     /**
-     * @var WindowsDeliveryOptimizationMode|null $deliveryOptimizationMode Delivery Optimization Mode. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+     * @var WindowsDeliveryOptimizationMode|null $deliveryOptimizationMode Delivery optimization mode for peer distribution
     */
     private ?WindowsDeliveryOptimizationMode $deliveryOptimizationMode = null;
     
@@ -126,7 +126,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     private ?bool $postponeRebootUntilAfterDeadline = null;
     
     /**
-     * @var PrereleaseFeatures|null $prereleaseFeatures The pre-release features. Possible values are: userDefined, settingsOnly, settingsAndExperimentations, notAllowed.
+     * @var PrereleaseFeatures|null $prereleaseFeatures Possible values for pre-release features.
     */
     private ?PrereleaseFeatures $prereleaseFeatures = null;
     
@@ -176,7 +176,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     private ?bool $skipChecksBeforeRestart = null;
     
     /**
-     * @var WindowsUpdateNotificationDisplayOption|null $updateNotificationLevel Specifies what Windows Update notifications users see. Possible values are: notConfigured, defaultNotifications, restartWarningsOnly, disableAllNotifications.
+     * @var WindowsUpdateNotificationDisplayOption|null $updateNotificationLevel Windows Update Notification Display Options
     */
     private ?WindowsUpdateNotificationDisplayOption $updateNotificationLevel = null;
     
@@ -186,12 +186,12 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     private ?WindowsUpdateForBusinessUpdateWeeks $updateWeeks = null;
     
     /**
-     * @var Enablement|null $userPauseAccess Specifies whether to enable end user’s access to pause software updates. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $userPauseAccess Possible values of a property
     */
     private ?Enablement $userPauseAccess = null;
     
     /**
-     * @var Enablement|null $userWindowsUpdateScanAccess Specifies whether to disable user’s access to scan Windows Update. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $userWindowsUpdateScanAccess Possible values of a property
     */
     private ?Enablement $userWindowsUpdateScanAccess = null;
     
@@ -200,6 +200,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdateForBusinessConfiguration');
     }
 
     /**
@@ -220,7 +221,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the automaticUpdateMode property value. Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault.
+     * Gets the automaticUpdateMode property value. Possible values for automatic update mode.
      * @return AutomaticUpdateMode|null
     */
     public function getAutomaticUpdateMode(): ?AutomaticUpdateMode {
@@ -228,7 +229,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the autoRestartNotificationDismissal property value. Specify the method by which the auto-restart required notification is dismissed. Possible values are: notConfigured, automatic, user.
+     * Gets the autoRestartNotificationDismissal property value. Auto restart required notification dismissal method
      * @return AutoRestartNotificationDismissalMethod|null
     */
     public function getAutoRestartNotificationDismissal(): ?AutoRestartNotificationDismissalMethod {
@@ -236,7 +237,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the businessReadyUpdatesOnly property value. Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease.
+     * Gets the businessReadyUpdatesOnly property value. Which branch devices will receive their updates from
      * @return WindowsUpdateType|null
     */
     public function getBusinessReadyUpdatesOnly(): ?WindowsUpdateType {
@@ -268,7 +269,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the deliveryOptimizationMode property value. Delivery Optimization Mode. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+     * Gets the deliveryOptimizationMode property value. Delivery optimization mode for peer distribution
      * @return WindowsDeliveryOptimizationMode|null
     */
     public function getDeliveryOptimizationMode(): ?WindowsDeliveryOptimizationMode {
@@ -443,7 +444,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the prereleaseFeatures property value. The pre-release features. Possible values are: userDefined, settingsOnly, settingsAndExperimentations, notAllowed.
+     * Gets the prereleaseFeatures property value. Possible values for pre-release features.
      * @return PrereleaseFeatures|null
     */
     public function getPrereleaseFeatures(): ?PrereleaseFeatures {
@@ -523,7 +524,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the updateNotificationLevel property value. Specifies what Windows Update notifications users see. Possible values are: notConfigured, defaultNotifications, restartWarningsOnly, disableAllNotifications.
+     * Gets the updateNotificationLevel property value. Windows Update Notification Display Options
      * @return WindowsUpdateNotificationDisplayOption|null
     */
     public function getUpdateNotificationLevel(): ?WindowsUpdateNotificationDisplayOption {
@@ -539,7 +540,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the userPauseAccess property value. Specifies whether to enable end user’s access to pause software updates. Possible values are: notConfigured, enabled, disabled.
+     * Gets the userPauseAccess property value. Possible values of a property
      * @return Enablement|null
     */
     public function getUserPauseAccess(): ?Enablement {
@@ -547,7 +548,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the userWindowsUpdateScanAccess property value. Specifies whether to disable user’s access to scan Windows Update. Possible values are: notConfigured, enabled, disabled.
+     * Gets the userWindowsUpdateScanAccess property value. Possible values of a property
      * @return Enablement|null
     */
     public function getUserWindowsUpdateScanAccess(): ?Enablement {
@@ -608,7 +609,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the automaticUpdateMode property value. Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault.
+     * Sets the automaticUpdateMode property value. Possible values for automatic update mode.
      *  @param AutomaticUpdateMode|null $value Value to set for the automaticUpdateMode property.
     */
     public function setAutomaticUpdateMode(?AutomaticUpdateMode $value ): void {
@@ -616,7 +617,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the autoRestartNotificationDismissal property value. Specify the method by which the auto-restart required notification is dismissed. Possible values are: notConfigured, automatic, user.
+     * Sets the autoRestartNotificationDismissal property value. Auto restart required notification dismissal method
      *  @param AutoRestartNotificationDismissalMethod|null $value Value to set for the autoRestartNotificationDismissal property.
     */
     public function setAutoRestartNotificationDismissal(?AutoRestartNotificationDismissalMethod $value ): void {
@@ -624,7 +625,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the businessReadyUpdatesOnly property value. Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease.
+     * Sets the businessReadyUpdatesOnly property value. Which branch devices will receive their updates from
      *  @param WindowsUpdateType|null $value Value to set for the businessReadyUpdatesOnly property.
     */
     public function setBusinessReadyUpdatesOnly(?WindowsUpdateType $value ): void {
@@ -656,7 +657,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the deliveryOptimizationMode property value. Delivery Optimization Mode. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+     * Sets the deliveryOptimizationMode property value. Delivery optimization mode for peer distribution
      *  @param WindowsDeliveryOptimizationMode|null $value Value to set for the deliveryOptimizationMode property.
     */
     public function setDeliveryOptimizationMode(?WindowsDeliveryOptimizationMode $value ): void {
@@ -784,7 +785,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the prereleaseFeatures property value. The pre-release features. Possible values are: userDefined, settingsOnly, settingsAndExperimentations, notAllowed.
+     * Sets the prereleaseFeatures property value. Possible values for pre-release features.
      *  @param PrereleaseFeatures|null $value Value to set for the prereleaseFeatures property.
     */
     public function setPrereleaseFeatures(?PrereleaseFeatures $value ): void {
@@ -864,7 +865,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the updateNotificationLevel property value. Specifies what Windows Update notifications users see. Possible values are: notConfigured, defaultNotifications, restartWarningsOnly, disableAllNotifications.
+     * Sets the updateNotificationLevel property value. Windows Update Notification Display Options
      *  @param WindowsUpdateNotificationDisplayOption|null $value Value to set for the updateNotificationLevel property.
     */
     public function setUpdateNotificationLevel(?WindowsUpdateNotificationDisplayOption $value ): void {
@@ -880,7 +881,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the userPauseAccess property value. Specifies whether to enable end user’s access to pause software updates. Possible values are: notConfigured, enabled, disabled.
+     * Sets the userPauseAccess property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the userPauseAccess property.
     */
     public function setUserPauseAccess(?Enablement $value ): void {
@@ -888,7 +889,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the userWindowsUpdateScanAccess property value. Specifies whether to disable user’s access to scan Windows Update. Possible values are: notConfigured, enabled, disabled.
+     * Sets the userWindowsUpdateScanAccess property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the userWindowsUpdateScanAccess property.
     */
     public function setUserWindowsUpdateScanAccess(?Enablement $value ): void {
