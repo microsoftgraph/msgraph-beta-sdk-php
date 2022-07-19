@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var VppTokenActionFailureReason|null $actionFailureReason The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
+     * @var VppTokenActionFailureReason|null $actionFailureReason Possible types of reasons for an Apple Volume Purchase Program token action failure.
     */
     private ?VppTokenActionFailureReason $actionFailureReason = null;
     
@@ -21,12 +21,12 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Par
     private ?string $actionName = null;
     
     /**
-     * @var ActionState|null $actionState State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * @var ActionState|null $actionState The actionState property
     */
     private ?ActionState $actionState = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -44,6 +44,11 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Par
      * @var string|null $managedDeviceId DeviceId associated with the action.
     */
     private ?string $managedDeviceId = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var DateTime|null $startDateTime Time the action was initiated
@@ -64,7 +69,8 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Par
      * Instantiates a new macOsVppAppRevokeLicensesActionResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.macOsVppAppRevokeLicensesActionResult');
     }
 
     /**
@@ -77,7 +83,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Par
     }
 
     /**
-     * Gets the actionFailureReason property value. The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
+     * Gets the actionFailureReason property value. Possible types of reasons for an Apple Volume Purchase Program token action failure.
      * @return VppTokenActionFailureReason|null
     */
     public function getActionFailureReason(): ?VppTokenActionFailureReason {
@@ -93,7 +99,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Par
     }
 
     /**
-     * Gets the actionState property value. State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * Gets the actionState property value. The actionState property
      * @return ActionState|null
     */
     public function getActionState(): ?ActionState {
@@ -129,6 +135,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Par
             'failedLicensesCount' => function (ParseNode $n) use ($o) { $o->setFailedLicensesCount($n->getIntegerValue()); },
             'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
             'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
             'totalLicensesCount' => function (ParseNode $n) use ($o) { $o->setTotalLicensesCount($n->getIntegerValue()); },
             'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
@@ -149,6 +156,14 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Par
     */
     public function getManagedDeviceId(): ?string {
         return $this->managedDeviceId;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -186,6 +201,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Par
         $writer->writeIntegerValue('failedLicensesCount', $this->failedLicensesCount);
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
         $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
         $writer->writeIntegerValue('totalLicensesCount', $this->totalLicensesCount);
         $writer->writeStringValue('userId', $this->userId);
@@ -193,7 +209,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Par
     }
 
     /**
-     * Sets the actionFailureReason property value. The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
+     * Sets the actionFailureReason property value. Possible types of reasons for an Apple Volume Purchase Program token action failure.
      *  @param VppTokenActionFailureReason|null $value Value to set for the actionFailureReason property.
     */
     public function setActionFailureReason(?VppTokenActionFailureReason $value ): void {
@@ -209,7 +225,7 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Par
     }
 
     /**
-     * Sets the actionState property value. State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * Sets the actionState property value. The actionState property
      *  @param ActionState|null $value Value to set for the actionState property.
     */
     public function setActionState(?ActionState $value ): void {
@@ -246,6 +262,14 @@ class MacOsVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Par
     */
     public function setManagedDeviceId(?string $value ): void {
         $this->managedDeviceId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

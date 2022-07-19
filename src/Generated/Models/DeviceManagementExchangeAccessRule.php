@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementExchangeAccessRule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var DeviceManagementExchangeAccessLevel|null $accessLevel Access Level for Exchange granted by this rule. Possible values are: none, allow, block, quarantine.
+     * @var DeviceManagementExchangeAccessLevel|null $accessLevel Access Level in Exchange.
     */
     private ?DeviceManagementExchangeAccessLevel $accessLevel = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,10 +25,16 @@ class DeviceManagementExchangeAccessRule implements AdditionalDataHolder, Parsab
     private ?DeviceManagementExchangeDeviceClass $deviceClass = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceManagementExchangeAccessRule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementExchangeAccessRule');
     }
 
     /**
@@ -41,7 +47,7 @@ class DeviceManagementExchangeAccessRule implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Gets the accessLevel property value. Access Level for Exchange granted by this rule. Possible values are: none, allow, block, quarantine.
+     * Gets the accessLevel property value. Access Level in Exchange.
      * @return DeviceManagementExchangeAccessLevel|null
     */
     public function getAccessLevel(): ?DeviceManagementExchangeAccessLevel {
@@ -73,7 +79,16 @@ class DeviceManagementExchangeAccessRule implements AdditionalDataHolder, Parsab
         return  [
             'accessLevel' => function (ParseNode $n) use ($o) { $o->setAccessLevel($n->getEnumValue(DeviceManagementExchangeAccessLevel::class)); },
             'deviceClass' => function (ParseNode $n) use ($o) { $o->setDeviceClass($n->getObjectValue(array(DeviceManagementExchangeDeviceClass::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -83,11 +98,12 @@ class DeviceManagementExchangeAccessRule implements AdditionalDataHolder, Parsab
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('accessLevel', $this->accessLevel);
         $writer->writeObjectValue('deviceClass', $this->deviceClass);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
-     * Sets the accessLevel property value. Access Level for Exchange granted by this rule. Possible values are: none, allow, block, quarantine.
+     * Sets the accessLevel property value. Access Level in Exchange.
      *  @param DeviceManagementExchangeAccessLevel|null $value Value to set for the accessLevel property.
     */
     public function setAccessLevel(?DeviceManagementExchangeAccessLevel $value ): void {
@@ -108,6 +124,14 @@ class DeviceManagementExchangeAccessRule implements AdditionalDataHolder, Parsab
     */
     public function setDeviceClass(?DeviceManagementExchangeDeviceClass $value ): void {
         $this->deviceClass = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

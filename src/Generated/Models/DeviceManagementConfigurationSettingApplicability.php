@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSettingApplicability implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,17 +20,22 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     private ?string $description = null;
     
     /**
-     * @var DeviceManagementConfigurationDeviceMode|null $deviceMode Device Mode that setting can be applied on. Possible values are: none, kiosk.
+     * @var DeviceManagementConfigurationDeviceMode|null $deviceMode Describes applicability for the mode the device is in
     */
     private ?DeviceManagementConfigurationDeviceMode $deviceMode = null;
     
     /**
-     * @var DeviceManagementConfigurationPlatforms|null $platform Platform setting can be applied on. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var DeviceManagementConfigurationPlatforms|null $platform Supported platform types.
     */
     private ?DeviceManagementConfigurationPlatforms $platform = null;
     
     /**
-     * @var DeviceManagementConfigurationTechnologies|null $technologies Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * @var DeviceManagementConfigurationTechnologies|null $technologies Describes which technology this setting can be deployed with
     */
     private ?DeviceManagementConfigurationTechnologies $technologies = null;
     
@@ -38,7 +43,8 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
      * Instantiates a new deviceManagementConfigurationSettingApplicability and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationSettingApplicability');
     }
 
     /**
@@ -75,7 +81,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     }
 
     /**
-     * Gets the deviceMode property value. Device Mode that setting can be applied on. Possible values are: none, kiosk.
+     * Gets the deviceMode property value. Describes applicability for the mode the device is in
      * @return DeviceManagementConfigurationDeviceMode|null
     */
     public function getDeviceMode(): ?DeviceManagementConfigurationDeviceMode {
@@ -91,13 +97,22 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
         return  [
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'deviceMode' => function (ParseNode $n) use ($o) { $o->setDeviceMode($n->getEnumValue(DeviceManagementConfigurationDeviceMode::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
             'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
         ];
     }
 
     /**
-     * Gets the platform property value. Platform setting can be applied on. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the platform property value. Supported platform types.
      * @return DeviceManagementConfigurationPlatforms|null
     */
     public function getPlatform(): ?DeviceManagementConfigurationPlatforms {
@@ -105,7 +120,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     }
 
     /**
-     * Gets the technologies property value. Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Gets the technologies property value. Describes which technology this setting can be deployed with
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
@@ -119,6 +134,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('description', $this->description);
         $writer->writeEnumValue('deviceMode', $this->deviceMode);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('platform', $this->platform);
         $writer->writeEnumValue('technologies', $this->technologies);
         $writer->writeAdditionalData($this->additionalData);
@@ -141,7 +157,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     }
 
     /**
-     * Sets the deviceMode property value. Device Mode that setting can be applied on. Possible values are: none, kiosk.
+     * Sets the deviceMode property value. Describes applicability for the mode the device is in
      *  @param DeviceManagementConfigurationDeviceMode|null $value Value to set for the deviceMode property.
     */
     public function setDeviceMode(?DeviceManagementConfigurationDeviceMode $value ): void {
@@ -149,7 +165,15 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     }
 
     /**
-     * Sets the platform property value. Platform setting can be applied on. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the platform property value. Supported platform types.
      *  @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platform property.
     */
     public function setPlatform(?DeviceManagementConfigurationPlatforms $value ): void {
@@ -157,7 +181,7 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     }
 
     /**
-     * Sets the technologies property value. Which technology channels this setting can be deployed through. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Sets the technologies property value. Describes which technology this setting can be deployed with
      *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value ): void {

@@ -13,6 +13,7 @@ class Windows10CertificateProfileBase extends WindowsCertificateProfileBase impl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10CertificateProfileBase');
     }
 
     /**

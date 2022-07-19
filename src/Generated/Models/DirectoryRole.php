@@ -38,6 +38,7 @@ class DirectoryRole extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.directoryRole');
     }
 
     /**

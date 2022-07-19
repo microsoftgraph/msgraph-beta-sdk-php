@@ -18,6 +18,7 @@ class DeviceManagementCollectionSettingInstance extends DeviceManagementSettingI
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementCollectionSettingInstance');
     }
 
     /**

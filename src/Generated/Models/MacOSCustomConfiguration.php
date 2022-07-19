@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
 class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var AppleDeploymentChannel|null $deploymentChannel Indicates the channel used to deploy the configuration profile. Available choices are DeviceChannel, UserChannel. Possible values are: deviceChannel, userChannel.
+     * @var AppleDeploymentChannel|null $deploymentChannel Indicates the channel used to deploy the configuration profile. Available choices are DeviceChannel, UserChannel
     */
     private ?AppleDeploymentChannel $deploymentChannel = null;
     
@@ -34,6 +34,7 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOSCustomConfiguration');
     }
 
     /**
@@ -46,7 +47,7 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the deploymentChannel property value. Indicates the channel used to deploy the configuration profile. Available choices are DeviceChannel, UserChannel. Possible values are: deviceChannel, userChannel.
+     * Gets the deploymentChannel property value. Indicates the channel used to deploy the configuration profile. Available choices are DeviceChannel, UserChannel
      * @return AppleDeploymentChannel|null
     */
     public function getDeploymentChannel(): ?AppleDeploymentChannel {
@@ -104,7 +105,7 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the deploymentChannel property value. Indicates the channel used to deploy the configuration profile. Available choices are DeviceChannel, UserChannel. Possible values are: deviceChannel, userChannel.
+     * Sets the deploymentChannel property value. Indicates the channel used to deploy the configuration profile. Available choices are DeviceChannel, UserChannel
      *  @param AppleDeploymentChannel|null $value Value to set for the deploymentChannel property.
     */
     public function setDeploymentChannel(?AppleDeploymentChannel $value ): void {

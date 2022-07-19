@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Parsa
      * @var array<string>|null $blockedSkus Collection of blocked Skus.
     */
     private ?array $blockedSkus = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $osMaximumVersion Max OS version supported
@@ -48,7 +53,8 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Parsa
      * Instantiates a new deviceEnrollmentPlatformRestriction and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceEnrollmentPlatformRestriction');
     }
 
     /**
@@ -93,11 +99,20 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Parsa
         return  [
             'blockedManufacturers' => function (ParseNode $n) use ($o) { $o->setBlockedManufacturers($n->getCollectionOfPrimitiveValues()); },
             'blockedSkus' => function (ParseNode $n) use ($o) { $o->setBlockedSkus($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'osMaximumVersion' => function (ParseNode $n) use ($o) { $o->setOsMaximumVersion($n->getStringValue()); },
             'osMinimumVersion' => function (ParseNode $n) use ($o) { $o->setOsMinimumVersion($n->getStringValue()); },
             'personalDeviceEnrollmentBlocked' => function (ParseNode $n) use ($o) { $o->setPersonalDeviceEnrollmentBlocked($n->getBooleanValue()); },
             'platformBlocked' => function (ParseNode $n) use ($o) { $o->setPlatformBlocked($n->getBooleanValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -139,6 +154,7 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Parsa
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfPrimitiveValues('blockedManufacturers', $this->blockedManufacturers);
         $writer->writeCollectionOfPrimitiveValues('blockedSkus', $this->blockedSkus);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('osMaximumVersion', $this->osMaximumVersion);
         $writer->writeStringValue('osMinimumVersion', $this->osMinimumVersion);
         $writer->writeBooleanValue('personalDeviceEnrollmentBlocked', $this->personalDeviceEnrollmentBlocked);
@@ -168,6 +184,14 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Parsa
     */
     public function setBlockedSkus(?array $value ): void {
         $this->blockedSkus = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

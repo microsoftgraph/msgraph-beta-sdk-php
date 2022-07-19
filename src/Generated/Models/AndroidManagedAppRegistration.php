@@ -18,6 +18,7 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidManagedAppRegistration');
     }
 
     /**

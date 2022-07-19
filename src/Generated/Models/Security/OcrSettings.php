@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OcrSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,7 +26,12 @@ class OcrSettings implements AdditionalDataHolder, Parsable
     private ?int $maxImageSize = null;
     
     /**
-     * @var DateInterval|null $timeout The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var DateInterval|null $timeout The timeout duration for the OCR engine. A longer timeout might increase success of OCR, but might add to the total processing time.
     */
     private ?DateInterval $timeout = null;
     
@@ -34,7 +39,8 @@ class OcrSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new ocrSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.security.ocrSettings');
     }
 
     /**
@@ -63,6 +69,7 @@ class OcrSettings implements AdditionalDataHolder, Parsable
         return  [
             'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
             'maxImageSize' => function (ParseNode $n) use ($o) { $o->setMaxImageSize($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'timeout' => function (ParseNode $n) use ($o) { $o->setTimeout($n->getDateIntervalValue()); },
         ];
     }
@@ -84,7 +91,15 @@ class OcrSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the timeout property value. The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the timeout property value. The timeout duration for the OCR engine. A longer timeout might increase success of OCR, but might add to the total processing time.
      * @return DateInterval|null
     */
     public function getTimeout(): ?DateInterval {
@@ -98,6 +113,7 @@ class OcrSettings implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isEnabled', $this->isEnabled);
         $writer->writeIntegerValue('maxImageSize', $this->maxImageSize);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateIntervalValue('timeout', $this->timeout);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -127,7 +143,15 @@ class OcrSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the timeout property value. The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the timeout property value. The timeout duration for the OCR engine. A longer timeout might increase success of OCR, but might add to the total processing time.
      *  @param DateInterval|null $value Value to set for the timeout property.
     */
     public function setTimeout(?DateInterval $value ): void {

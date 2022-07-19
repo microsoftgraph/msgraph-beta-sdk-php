@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MatchingLabel implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -50,6 +50,11 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
     private ?string $name = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $policyTip The policyTip property
     */
     private ?string $policyTip = null;
@@ -68,7 +73,8 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * Instantiates a new matchingLabel and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.matchingLabel');
     }
 
     /**
@@ -126,6 +132,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
             'isEndpointProtectionEnabled' => function (ParseNode $n) use ($o) { $o->setIsEndpointProtectionEnabled($n->getBooleanValue()); },
             'labelActions' => function (ParseNode $n) use ($o) { $o->setLabelActions($n->getCollectionOfObjectValues(array(LabelActionBase::class, 'createFromDiscriminatorValue'))); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'policyTip' => function (ParseNode $n) use ($o) { $o->setPolicyTip($n->getStringValue()); },
             'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
             'toolTip' => function (ParseNode $n) use ($o) { $o->setToolTip($n->getStringValue()); },
@@ -165,6 +172,14 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the policyTip property value. The policyTip property
      * @return string|null
     */
@@ -200,6 +215,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('isEndpointProtectionEnabled', $this->isEndpointProtectionEnabled);
         $writer->writeCollectionOfObjectValues('labelActions', $this->labelActions);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('policyTip', $this->policyTip);
         $writer->writeIntegerValue('priority', $this->priority);
         $writer->writeStringValue('toolTip', $this->toolTip);
@@ -268,6 +284,14 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

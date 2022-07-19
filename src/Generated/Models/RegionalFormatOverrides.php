@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RegionalFormatOverrides implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,6 +35,11 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
     private ?string $longTimeFormat = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $shortDateFormat The short date time format to be used for displaying dates.Returned by default.
     */
     private ?string $shortDateFormat = null;
@@ -53,7 +58,8 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
      * Instantiates a new regionalFormatOverrides and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.regionalFormatOverrides');
     }
 
     /**
@@ -92,6 +98,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
             'firstDayOfWeek' => function (ParseNode $n) use ($o) { $o->setFirstDayOfWeek($n->getStringValue()); },
             'longDateFormat' => function (ParseNode $n) use ($o) { $o->setLongDateFormat($n->getStringValue()); },
             'longTimeFormat' => function (ParseNode $n) use ($o) { $o->setLongTimeFormat($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'shortDateFormat' => function (ParseNode $n) use ($o) { $o->setShortDateFormat($n->getStringValue()); },
             'shortTimeFormat' => function (ParseNode $n) use ($o) { $o->setShortTimeFormat($n->getStringValue()); },
             'timeZone' => function (ParseNode $n) use ($o) { $o->setTimeZone($n->getStringValue()); },
@@ -120,6 +127,14 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
     */
     public function getLongTimeFormat(): ?string {
         return $this->longTimeFormat;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -155,6 +170,7 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('firstDayOfWeek', $this->firstDayOfWeek);
         $writer->writeStringValue('longDateFormat', $this->longDateFormat);
         $writer->writeStringValue('longTimeFormat', $this->longTimeFormat);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('shortDateFormat', $this->shortDateFormat);
         $writer->writeStringValue('shortTimeFormat', $this->shortTimeFormat);
         $writer->writeStringValue('timeZone', $this->timeZone);
@@ -199,6 +215,14 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
     */
     public function setLongTimeFormat(?string $value ): void {
         $this->longTimeFormat = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

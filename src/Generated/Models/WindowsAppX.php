@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsAppX extends MobileLobApp implements Parsable 
 {
     /**
-     * @var WindowsArchitecture|null $applicableArchitectures The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
+     * @var WindowsArchitecture|null $applicableArchitectures Contains properties for Windows architecture.
     */
     private ?WindowsArchitecture $applicableArchitectures = null;
     
@@ -48,6 +48,7 @@ class WindowsAppX extends MobileLobApp implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsAppX');
     }
 
     /**
@@ -60,7 +61,7 @@ class WindowsAppX extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the applicableArchitectures property value. The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
+     * Gets the applicableArchitectures property value. Contains properties for Windows architecture.
      * @return WindowsArchitecture|null
     */
     public function getApplicableArchitectures(): ?WindowsArchitecture {
@@ -148,7 +149,7 @@ class WindowsAppX extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the applicableArchitectures property value. The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
+     * Sets the applicableArchitectures property value. Contains properties for Windows architecture.
      *  @param WindowsArchitecture|null $value Value to set for the applicableArchitectures property.
     */
     public function setApplicableArchitectures(?WindowsArchitecture $value ): void {

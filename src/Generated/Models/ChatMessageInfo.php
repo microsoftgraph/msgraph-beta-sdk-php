@@ -35,7 +35,7 @@ class ChatMessageInfo extends Entity implements Parsable
     private ?bool $isDeleted = null;
     
     /**
-     * @var ChatMessageType|null $messageType The type of chat message. The possible values are: message, unknownFutureValue, systemEventMessage.
+     * @var ChatMessageType|null $messageType The messageType property
     */
     private ?ChatMessageType $messageType = null;
     
@@ -44,6 +44,7 @@ class ChatMessageInfo extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.chatMessageInfo');
     }
 
     /**
@@ -112,7 +113,7 @@ class ChatMessageInfo extends Entity implements Parsable
     }
 
     /**
-     * Gets the messageType property value. The type of chat message. The possible values are: message, unknownFutureValue, systemEventMessage.
+     * Gets the messageType property value. The messageType property
      * @return ChatMessageType|null
     */
     public function getMessageType(): ?ChatMessageType {
@@ -174,7 +175,7 @@ class ChatMessageInfo extends Entity implements Parsable
     }
 
     /**
-     * Sets the messageType property value. The type of chat message. The possible values are: message, unknownFutureValue, systemEventMessage.
+     * Sets the messageType property value. The messageType property
      *  @param ChatMessageType|null $value Value to set for the messageType property.
     */
     public function setMessageType(?ChatMessageType $value ): void {

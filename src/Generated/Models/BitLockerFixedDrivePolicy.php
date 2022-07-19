@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BitLockerFixedDrivePolicy implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class BitLockerFixedDrivePolicy implements AdditionalDataHolder, Parsable
      * @var BitLockerEncryptionMethod|null $encryptionMethod Select the encryption method for fixed drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
     */
     private ?BitLockerEncryptionMethod $encryptionMethod = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var BitLockerRecoveryOptions|null $recoveryOptions This policy setting allows you to control how BitLocker-protected fixed data drives are recovered in the absence of the required credentials. This policy setting is applied when you turn on BitLocker.
@@ -33,7 +38,8 @@ class BitLockerFixedDrivePolicy implements AdditionalDataHolder, Parsable
      * Instantiates a new bitLockerFixedDrivePolicy and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.bitLockerFixedDrivePolicy');
     }
 
     /**
@@ -69,9 +75,18 @@ class BitLockerFixedDrivePolicy implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'encryptionMethod' => function (ParseNode $n) use ($o) { $o->setEncryptionMethod($n->getEnumValue(BitLockerEncryptionMethod::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recoveryOptions' => function (ParseNode $n) use ($o) { $o->setRecoveryOptions($n->getObjectValue(array(BitLockerRecoveryOptions::class, 'createFromDiscriminatorValue'))); },
             'requireEncryptionForWriteAccess' => function (ParseNode $n) use ($o) { $o->setRequireEncryptionForWriteAccess($n->getBooleanValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -96,6 +111,7 @@ class BitLockerFixedDrivePolicy implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('encryptionMethod', $this->encryptionMethod);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('recoveryOptions', $this->recoveryOptions);
         $writer->writeBooleanValue('requireEncryptionForWriteAccess', $this->requireEncryptionForWriteAccess);
         $writer->writeAdditionalData($this->additionalData);
@@ -115,6 +131,14 @@ class BitLockerFixedDrivePolicy implements AdditionalDataHolder, Parsable
     */
     public function setEncryptionMethod(?BitLockerEncryptionMethod $value ): void {
         $this->encryptionMethod = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

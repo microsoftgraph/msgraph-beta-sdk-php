@@ -50,10 +50,11 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     private ?DateTime $processedDateTime = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId');
     }
 
     /**

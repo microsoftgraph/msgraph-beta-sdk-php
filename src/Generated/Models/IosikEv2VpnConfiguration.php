@@ -29,7 +29,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
     private ?IosVpnSecurityAssociationParameters $childSecurityAssociationParameters = null;
     
     /**
-     * @var VpnClientAuthenticationType|null $clientAuthenticationType Type of Client Authentication the VPN client will use. Possible values are: userAuthentication, deviceAuthentication.
+     * @var VpnClientAuthenticationType|null $clientAuthenticationType The type of VPN client authentication type
     */
     private ?VpnClientAuthenticationType $clientAuthenticationType = null;
     
@@ -74,7 +74,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
     private ?bool $enableUseInternalSubnetAttributes = null;
     
     /**
-     * @var VpnLocalIdentifier|null $localIdentifier Method of identifying the client that is trying to connect via VPN. . Possible values are: deviceFQDN, empty, clientCertificateSubjectName.
+     * @var VpnLocalIdentifier|null $localIdentifier The type of VPN local identifier
     */
     private ?VpnLocalIdentifier $localIdentifier = null;
     
@@ -128,6 +128,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosikEv2VpnConfiguration');
     }
 
     /**
@@ -172,7 +173,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
     }
 
     /**
-     * Gets the clientAuthenticationType property value. Type of Client Authentication the VPN client will use. Possible values are: userAuthentication, deviceAuthentication.
+     * Gets the clientAuthenticationType property value. The type of VPN client authentication type
      * @return VpnClientAuthenticationType|null
     */
     public function getClientAuthenticationType(): ?VpnClientAuthenticationType {
@@ -277,7 +278,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
     }
 
     /**
-     * Gets the localIdentifier property value. Method of identifying the client that is trying to connect via VPN. . Possible values are: deviceFQDN, empty, clientCertificateSubjectName.
+     * Gets the localIdentifier property value. The type of VPN local identifier
      * @return VpnLocalIdentifier|null
     */
     public function getLocalIdentifier(): ?VpnLocalIdentifier {
@@ -420,7 +421,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
     }
 
     /**
-     * Sets the clientAuthenticationType property value. Type of Client Authentication the VPN client will use. Possible values are: userAuthentication, deviceAuthentication.
+     * Sets the clientAuthenticationType property value. The type of VPN client authentication type
      *  @param VpnClientAuthenticationType|null $value Value to set for the clientAuthenticationType property.
     */
     public function setClientAuthenticationType(?VpnClientAuthenticationType $value ): void {
@@ -492,7 +493,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration implements Parsable
     }
 
     /**
-     * Sets the localIdentifier property value. Method of identifying the client that is trying to connect via VPN. . Possible values are: deviceFQDN, empty, clientCertificateSubjectName.
+     * Sets the localIdentifier property value. The type of VPN local identifier
      *  @param VpnLocalIdentifier|null $value Value to set for the localIdentifier property.
     */
     public function setLocalIdentifier(?VpnLocalIdentifier $value ): void {

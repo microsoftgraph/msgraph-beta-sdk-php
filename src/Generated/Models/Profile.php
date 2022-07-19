@@ -104,10 +104,11 @@ class Profile extends Entity implements Parsable
     private ?array $websites = null;
     
     /**
-     * Instantiates a new Profile and sets the default values.
+     * Instantiates a new profile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.profile');
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobAppRestartSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class Win32LobAppRestartSettings implements AdditionalDataHolder, Parsable
     private ?int $gracePeriodInMinutes = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $restartNotificationSnoozeDurationInMinutes The number of minutes to snooze the restart notification dialog when the snooze button is selected.
     */
     private ?int $restartNotificationSnoozeDurationInMinutes = null;
@@ -33,7 +38,8 @@ class Win32LobAppRestartSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new win32LobAppRestartSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.win32LobAppRestartSettings');
     }
 
     /**
@@ -70,6 +76,7 @@ class Win32LobAppRestartSettings implements AdditionalDataHolder, Parsable
         return  [
             'countdownDisplayBeforeRestartInMinutes' => function (ParseNode $n) use ($o) { $o->setCountdownDisplayBeforeRestartInMinutes($n->getIntegerValue()); },
             'gracePeriodInMinutes' => function (ParseNode $n) use ($o) { $o->setGracePeriodInMinutes($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'restartNotificationSnoozeDurationInMinutes' => function (ParseNode $n) use ($o) { $o->setRestartNotificationSnoozeDurationInMinutes($n->getIntegerValue()); },
         ];
     }
@@ -80,6 +87,14 @@ class Win32LobAppRestartSettings implements AdditionalDataHolder, Parsable
     */
     public function getGracePeriodInMinutes(): ?int {
         return $this->gracePeriodInMinutes;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class Win32LobAppRestartSettings implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('countdownDisplayBeforeRestartInMinutes', $this->countdownDisplayBeforeRestartInMinutes);
         $writer->writeIntegerValue('gracePeriodInMinutes', $this->gracePeriodInMinutes);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('restartNotificationSnoozeDurationInMinutes', $this->restartNotificationSnoozeDurationInMinutes);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class Win32LobAppRestartSettings implements AdditionalDataHolder, Parsable
     */
     public function setGracePeriodInMinutes(?int $value ): void {
         $this->gracePeriodInMinutes = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

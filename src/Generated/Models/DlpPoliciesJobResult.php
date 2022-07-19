@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DlpPoliciesJobResult implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -31,10 +31,16 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, Parsable
     private ?array $matchingRules = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new dlpPoliciesJobResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.dlpPoliciesJobResult');
     }
 
     /**
@@ -80,6 +86,7 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, Parsable
             'auditCorrelationId' => function (ParseNode $n) use ($o) { $o->setAuditCorrelationId($n->getStringValue()); },
             'evaluationDateTime' => function (ParseNode $n) use ($o) { $o->setEvaluationDateTime($n->getDateTimeValue()); },
             'matchingRules' => function (ParseNode $n) use ($o) { $o->setMatchingRules($n->getCollectionOfObjectValues(array(MatchingDlpRule::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -92,6 +99,14 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -99,6 +114,7 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('auditCorrelationId', $this->auditCorrelationId);
         $writer->writeDateTimeValue('evaluationDateTime', $this->evaluationDateTime);
         $writer->writeCollectionOfObjectValues('matchingRules', $this->matchingRules);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -132,6 +148,14 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, Parsable
     */
     public function setMatchingRules(?array $value ): void {
         $this->matchingRules = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

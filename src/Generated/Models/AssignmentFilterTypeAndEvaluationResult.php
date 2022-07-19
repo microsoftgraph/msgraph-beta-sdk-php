@@ -10,25 +10,31 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var DeviceAndAppManagementAssignmentFilterType|null $assignmentFilterType Represents the filter type. Possible values are: none, include, exclude.
+     * @var DeviceAndAppManagementAssignmentFilterType|null $assignmentFilterType Represents type of the assignment filter.
     */
     private ?DeviceAndAppManagementAssignmentFilterType $assignmentFilterType = null;
     
     /**
-     * @var AssignmentFilterEvaluationResult|null $evaluationResult Represents the evalaution result of the filter. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
+     * @var AssignmentFilterEvaluationResult|null $evaluationResult Supported evaluation results for filter.
     */
     private ?AssignmentFilterEvaluationResult $evaluationResult = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new assignmentFilterTypeAndEvaluationResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.assignmentFilterTypeAndEvaluationResult');
     }
 
     /**
@@ -49,7 +55,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
     }
 
     /**
-     * Gets the assignmentFilterType property value. Represents the filter type. Possible values are: none, include, exclude.
+     * Gets the assignmentFilterType property value. Represents type of the assignment filter.
      * @return DeviceAndAppManagementAssignmentFilterType|null
     */
     public function getAssignmentFilterType(): ?DeviceAndAppManagementAssignmentFilterType {
@@ -57,7 +63,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
     }
 
     /**
-     * Gets the evaluationResult property value. Represents the evalaution result of the filter. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
+     * Gets the evaluationResult property value. Supported evaluation results for filter.
      * @return AssignmentFilterEvaluationResult|null
     */
     public function getEvaluationResult(): ?AssignmentFilterEvaluationResult {
@@ -73,7 +79,16 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
         return  [
             'assignmentFilterType' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
             'evaluationResult' => function (ParseNode $n) use ($o) { $o->setEvaluationResult($n->getEnumValue(AssignmentFilterEvaluationResult::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -83,6 +98,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('assignmentFilterType', $this->assignmentFilterType);
         $writer->writeEnumValue('evaluationResult', $this->evaluationResult);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -95,7 +111,7 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
     }
 
     /**
-     * Sets the assignmentFilterType property value. Represents the filter type. Possible values are: none, include, exclude.
+     * Sets the assignmentFilterType property value. Represents type of the assignment filter.
      *  @param DeviceAndAppManagementAssignmentFilterType|null $value Value to set for the assignmentFilterType property.
     */
     public function setAssignmentFilterType(?DeviceAndAppManagementAssignmentFilterType $value ): void {
@@ -103,11 +119,19 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
     }
 
     /**
-     * Sets the evaluationResult property value. Represents the evalaution result of the filter. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
+     * Sets the evaluationResult property value. Supported evaluation results for filter.
      *  @param AssignmentFilterEvaluationResult|null $value Value to set for the evaluationResult property.
     */
     public function setEvaluationResult(?AssignmentFilterEvaluationResult $value ): void {
         $this->evaluationResult = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

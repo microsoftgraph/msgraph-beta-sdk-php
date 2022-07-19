@@ -24,7 +24,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
     private ?int $edgeKioskIdleTimeoutMinutes = null;
     
     /**
-     * @var WindowsEdgeKioskType|null $edgeKioskType Edge kiosk type for Edge kiosk mode. Possible values are: publicBrowsing, fullScreen.
+     * @var WindowsEdgeKioskType|null $edgeKioskType Edge kiosk type
     */
     private ?WindowsEdgeKioskType $edgeKioskType = null;
     
@@ -38,6 +38,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsKioskWin32App');
     }
 
     /**
@@ -74,7 +75,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
     }
 
     /**
-     * Gets the edgeKioskType property value. Edge kiosk type for Edge kiosk mode. Possible values are: publicBrowsing, fullScreen.
+     * Gets the edgeKioskType property value. Edge kiosk type
      * @return WindowsEdgeKioskType|null
     */
     public function getEdgeKioskType(): ?WindowsEdgeKioskType {
@@ -142,7 +143,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
     }
 
     /**
-     * Sets the edgeKioskType property value. Edge kiosk type for Edge kiosk mode. Possible values are: publicBrowsing, fullScreen.
+     * Sets the edgeKioskType property value. Edge kiosk type
      *  @param WindowsEdgeKioskType|null $value Value to set for the edgeKioskType property.
     */
     public function setEdgeKioskType(?WindowsEdgeKioskType $value ): void {

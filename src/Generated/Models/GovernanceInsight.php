@@ -19,6 +19,7 @@ class GovernanceInsight extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.governanceInsight');
     }
 
     /**
@@ -31,6 +32,7 @@ class GovernanceInsight extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.membershipOutlierInsight': return new MembershipOutlierInsight();
                 case '#microsoft.graph.userSignInInsight': return new UserSignInInsight();
             }
         }

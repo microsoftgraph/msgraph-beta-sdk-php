@@ -74,10 +74,16 @@ class EntitlementManagement extends Entity implements Parsable
     private ?EntitlementManagementSettings $settings = null;
     
     /**
+     * @var array<AccessPackageSubject>|null $subjects The subjects property
+    */
+    private ?array $subjects = null;
+    
+    /**
      * Instantiates a new EntitlementManagement and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.entitlementManagement');
     }
 
     /**
@@ -205,6 +211,7 @@ class EntitlementManagement extends Entity implements Parsable
             'accessPackages' => function (ParseNode $n) use ($o) { $o->setAccessPackages($n->getCollectionOfObjectValues(array(AccessPackage::class, 'createFromDiscriminatorValue'))); },
             'connectedOrganizations' => function (ParseNode $n) use ($o) { $o->setConnectedOrganizations($n->getCollectionOfObjectValues(array(ConnectedOrganization::class, 'createFromDiscriminatorValue'))); },
             'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(EntitlementManagementSettings::class, 'createFromDiscriminatorValue'))); },
+            'subjects' => function (ParseNode $n) use ($o) { $o->setSubjects($n->getCollectionOfObjectValues(array(AccessPackageSubject::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -214,6 +221,14 @@ class EntitlementManagement extends Entity implements Parsable
     */
     public function getSettings(): ?EntitlementManagementSettings {
         return $this->settings;
+    }
+
+    /**
+     * Gets the subjects property value. The subjects property
+     * @return array<AccessPackageSubject>|null
+    */
+    public function getSubjects(): ?array {
+        return $this->subjects;
     }
 
     /**
@@ -235,6 +250,7 @@ class EntitlementManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('accessPackages', $this->accessPackages);
         $writer->writeCollectionOfObjectValues('connectedOrganizations', $this->connectedOrganizations);
         $writer->writeObjectValue('settings', $this->settings);
+        $writer->writeCollectionOfObjectValues('subjects', $this->subjects);
     }
 
     /**
@@ -339,6 +355,14 @@ class EntitlementManagement extends Entity implements Parsable
     */
     public function setSettings(?EntitlementManagementSettings $value ): void {
         $this->settings = $value;
+    }
+
+    /**
+     * Sets the subjects property value. The subjects property
+     *  @param array<AccessPackageSubject>|null $value Value to set for the subjects property.
+    */
+    public function setSubjects(?array $value ): void {
+        $this->subjects = $value;
     }
 
 }

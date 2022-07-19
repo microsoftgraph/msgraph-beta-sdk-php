@@ -24,7 +24,7 @@ class Connector extends Entity implements Parsable
     private ?array $memberOf = null;
     
     /**
-     * @var ConnectorStatus|null $status Indicates the status of the connector. Possible values are: active, inactive. Read-only.
+     * @var ConnectorStatus|null $status The status property
     */
     private ?ConnectorStatus $status = null;
     
@@ -33,6 +33,7 @@ class Connector extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.connector');
     }
 
     /**
@@ -83,7 +84,7 @@ class Connector extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Indicates the status of the connector. Possible values are: active, inactive. Read-only.
+     * Gets the status property value. The status property
      * @return ConnectorStatus|null
     */
     public function getStatus(): ?ConnectorStatus {
@@ -127,7 +128,7 @@ class Connector extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Indicates the status of the connector. Possible values are: active, inactive. Read-only.
+     * Sets the status property value. The status property
      *  @param ConnectorStatus|null $value Value to set for the status property.
     */
     public function setStatus(?ConnectorStatus $value ): void {

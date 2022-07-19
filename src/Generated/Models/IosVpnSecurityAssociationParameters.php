@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
      * @var int|null $lifetimeInMinutes Lifetime (minutes)
     */
     private ?int $lifetimeInMinutes = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $securityDiffieHellmanGroup Diffie-Hellman Group
@@ -38,7 +43,8 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
      * Instantiates a new iosVpnSecurityAssociationParameters and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.iosVpnSecurityAssociationParameters');
     }
 
     /**
@@ -66,6 +72,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
         $o = $this;
         return  [
             'lifetimeInMinutes' => function (ParseNode $n) use ($o) { $o->setLifetimeInMinutes($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'securityDiffieHellmanGroup' => function (ParseNode $n) use ($o) { $o->setSecurityDiffieHellmanGroup($n->getIntegerValue()); },
             'securityEncryptionAlgorithm' => function (ParseNode $n) use ($o) { $o->setSecurityEncryptionAlgorithm($n->getEnumValue(VpnEncryptionAlgorithmType::class)); },
             'securityIntegrityAlgorithm' => function (ParseNode $n) use ($o) { $o->setSecurityIntegrityAlgorithm($n->getEnumValue(VpnIntegrityAlgorithmType::class)); },
@@ -78,6 +85,14 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
     */
     public function getLifetimeInMinutes(): ?int {
         return $this->lifetimeInMinutes;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -110,6 +125,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('lifetimeInMinutes', $this->lifetimeInMinutes);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('securityDiffieHellmanGroup', $this->securityDiffieHellmanGroup);
         $writer->writeEnumValue('securityEncryptionAlgorithm', $this->securityEncryptionAlgorithm);
         $writer->writeEnumValue('securityIntegrityAlgorithm', $this->securityIntegrityAlgorithm);
@@ -130,6 +146,14 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
     */
     public function setLifetimeInMinutes(?int $value ): void {
         $this->lifetimeInMinutes = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

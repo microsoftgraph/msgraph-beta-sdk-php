@@ -65,7 +65,7 @@ class ExternalIdentitiesPolicyRequestBuilder
     }
 
     /**
-     * Get externalIdentitiesPolicy from policies
+     * Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
      * @param ExternalIdentitiesPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +132,7 @@ class ExternalIdentitiesPolicyRequestBuilder
     }
 
     /**
-     * Get externalIdentitiesPolicy from policies
+     * Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
      * @param ExternalIdentitiesPolicyRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -23,6 +23,7 @@ class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwi
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deliveryOptimizationBandwidthPercentage');
     }
 
     /**

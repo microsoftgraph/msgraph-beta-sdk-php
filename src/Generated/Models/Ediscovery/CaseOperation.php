@@ -48,10 +48,11 @@ class CaseOperation extends Entity implements Parsable
     private ?CaseOperationStatus $status = null;
     
     /**
-     * Instantiates a new CaseOperation and sets the default values.
+     * Instantiates a new caseOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.ediscovery.caseOperation');
     }
 
     /**

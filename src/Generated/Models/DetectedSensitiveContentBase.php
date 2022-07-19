@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
     private ?string $id = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $recommendedConfidence The recommendedConfidence property
     */
     private ?int $recommendedConfidence = null;
@@ -43,7 +48,8 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * Instantiates a new detectedSensitiveContentBase and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.detectedSensitiveContentBase');
     }
 
     /**
@@ -58,6 +64,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.detectedSensitiveContent': return new DetectedSensitiveContent();
                 case '#microsoft.graph.exactMatchDetectedSensitiveContent': return new ExactMatchDetectedSensitiveContent();
+                case '#microsoft.graph.machineLearningDetectedSensitiveContent': return new MachineLearningDetectedSensitiveContent();
             }
         }
         return new DetectedSensitiveContentBase();
@@ -97,6 +104,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
             'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recommendedConfidence' => function (ParseNode $n) use ($o) { $o->setRecommendedConfidence($n->getIntegerValue()); },
             'uniqueCount' => function (ParseNode $n) use ($o) { $o->setUniqueCount($n->getIntegerValue()); },
         ];
@@ -108,6 +116,14 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
     */
     public function getId(): ?string {
         return $this->id;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -134,6 +150,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('confidence', $this->confidence);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('id', $this->id);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('recommendedConfidence', $this->recommendedConfidence);
         $writer->writeIntegerValue('uniqueCount', $this->uniqueCount);
         $writer->writeAdditionalData($this->additionalData);
@@ -169,6 +186,14 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
     */
     public function setId(?string $value ): void {
         $this->id = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

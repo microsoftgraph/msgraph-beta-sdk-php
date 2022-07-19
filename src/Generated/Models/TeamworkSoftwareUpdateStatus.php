@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, Parsable
     private ?string $currentVersion = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var TeamworkSoftwareFreshness|null $softwareFreshness The update status of the software. The possible values are: unknown, latest, updateAvailable, unknownFutureValue.
     */
     private ?TeamworkSoftwareFreshness $softwareFreshness = null;
@@ -33,7 +38,8 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkSoftwareUpdateStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkSoftwareUpdateStatus');
     }
 
     /**
@@ -78,8 +84,17 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, Parsable
         return  [
             'availableVersion' => function (ParseNode $n) use ($o) { $o->setAvailableVersion($n->getStringValue()); },
             'currentVersion' => function (ParseNode $n) use ($o) { $o->setCurrentVersion($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'softwareFreshness' => function (ParseNode $n) use ($o) { $o->setSoftwareFreshness($n->getEnumValue(TeamworkSoftwareFreshness::class)); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('availableVersion', $this->availableVersion);
         $writer->writeStringValue('currentVersion', $this->currentVersion);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('softwareFreshness', $this->softwareFreshness);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, Parsable
     */
     public function setCurrentVersion(?string $value ): void {
         $this->currentVersion = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

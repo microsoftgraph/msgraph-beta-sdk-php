@@ -38,6 +38,7 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.credentialSingleSignOnExtension');
     }
 
     /**

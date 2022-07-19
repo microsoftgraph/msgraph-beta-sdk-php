@@ -23,6 +23,7 @@ class ActiveDirectoryWindowsAutopilotDeploymentProfile extends WindowsAutopilotD
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.activeDirectoryWindowsAutopilotDeploymentProfile');
     }
 
     /**

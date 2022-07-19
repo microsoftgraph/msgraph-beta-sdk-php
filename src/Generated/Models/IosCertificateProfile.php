@@ -13,6 +13,7 @@ class IosCertificateProfile extends DeviceConfiguration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosCertificateProfile');
     }
 
     /**
@@ -27,6 +28,8 @@ class IosCertificateProfile extends DeviceConfiguration implements Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.iosCertificateProfileBase': return new IosCertificateProfileBase();
                 case '#microsoft.graph.iosImportedPFXCertificateProfile': return new IosImportedPFXCertificateProfile();
+                case '#microsoft.graph.iosPkcsCertificateProfile': return new IosPkcsCertificateProfile();
+                case '#microsoft.graph.iosScepCertificateProfile': return new IosScepCertificateProfile();
             }
         }
         return new IosCertificateProfile();

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
     private ?string $managedDeviceId = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $payloadId Unique identifier for payload object.
     */
     private ?string $payloadId = null;
@@ -40,10 +45,11 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
     private ?string $userId = null;
     
     /**
-     * Instantiates a new AssignmentFilterStatusDetails and sets the default values.
+     * Instantiates a new assignmentFilterStatusDetails and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.assignmentFilterStatusDetails');
     }
 
     /**
@@ -89,6 +95,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
             'deviceProperties' => function (ParseNode $n) use ($o) { $o->setDeviceProperties($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
             'evalutionSummaries' => function (ParseNode $n) use ($o) { $o->setEvalutionSummaries($n->getCollectionOfObjectValues(array(AssignmentFilterEvaluationSummary::class, 'createFromDiscriminatorValue'))); },
             'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'payloadId' => function (ParseNode $n) use ($o) { $o->setPayloadId($n->getStringValue()); },
             'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
         ];
@@ -100,6 +107,14 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
     */
     public function getManagedDeviceId(): ?string {
         return $this->managedDeviceId;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -126,6 +141,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfObjectValues('deviceProperties', $this->deviceProperties);
         $writer->writeCollectionOfObjectValues('evalutionSummaries', $this->evalutionSummaries);
         $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('payloadId', $this->payloadId);
         $writer->writeStringValue('userId', $this->userId);
         $writer->writeAdditionalData($this->additionalData);
@@ -161,6 +177,14 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
     */
     public function setManagedDeviceId(?string $value ): void {
         $this->managedDeviceId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

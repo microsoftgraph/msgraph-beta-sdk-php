@@ -18,6 +18,7 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.appleDeviceFeaturesConfigurationBase');
     }
 
     /**

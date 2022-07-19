@@ -18,6 +18,7 @@ class DeviceHealthScriptIntegerParameter extends DeviceHealthScriptParameter imp
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceHealthScriptIntegerParameter');
     }
 
     /**

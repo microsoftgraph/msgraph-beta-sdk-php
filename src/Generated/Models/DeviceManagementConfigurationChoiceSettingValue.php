@@ -23,6 +23,7 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationChoiceSettingValue');
     }
 
     /**

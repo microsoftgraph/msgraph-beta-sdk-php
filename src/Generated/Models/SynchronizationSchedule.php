@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SynchronizationSchedule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -27,7 +27,12 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
     private ?DateInterval $interval = null;
     
     /**
-     * @var SynchronizationScheduleState|null $state Possible values are: Active, Disabled.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var SynchronizationScheduleState|null $state The state property
     */
     private ?SynchronizationScheduleState $state = null;
     
@@ -35,7 +40,8 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
      * Instantiates a new synchronizationSchedule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.synchronizationSchedule');
     }
 
     /**
@@ -72,6 +78,7 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
         return  [
             'expiration' => function (ParseNode $n) use ($o) { $o->setExpiration($n->getDateTimeValue()); },
             'interval' => function (ParseNode $n) use ($o) { $o->setInterval($n->getDateIntervalValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(SynchronizationScheduleState::class)); },
         ];
     }
@@ -85,7 +92,15 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the state property value. Possible values are: Active, Disabled.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the state property value. The state property
      * @return SynchronizationScheduleState|null
     */
     public function getState(): ?SynchronizationScheduleState {
@@ -99,6 +114,7 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('expiration', $this->expiration);
         $writer->writeDateIntervalValue('interval', $this->interval);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -128,7 +144,15 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the state property value. Possible values are: Active, Disabled.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the state property value. The state property
      *  @param SynchronizationScheduleState|null $value Value to set for the state property.
     */
     public function setState(?SynchronizationScheduleState $value ): void {

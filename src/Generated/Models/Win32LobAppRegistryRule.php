@@ -24,12 +24,12 @@ class Win32LobAppRegistryRule extends Win32LobAppRule implements Parsable
     private ?string $keyPath = null;
     
     /**
-     * @var Win32LobAppRegistryRuleOperationType|null $operationType The registry operation type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
+     * @var Win32LobAppRegistryRuleOperationType|null $operationType Contains all supported registry data detection type.
     */
     private ?Win32LobAppRegistryRuleOperationType $operationType = null;
     
     /**
-     * @var Win32LobAppRuleOperator|null $operator The operator for registry detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * @var Win32LobAppRuleOperator|null $operator Contains properties for detection operator.
     */
     private ?Win32LobAppRuleOperator $operator = null;
     
@@ -43,6 +43,7 @@ class Win32LobAppRegistryRule extends Win32LobAppRule implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppRegistryRule');
     }
 
     /**
@@ -95,7 +96,7 @@ class Win32LobAppRegistryRule extends Win32LobAppRule implements Parsable
     }
 
     /**
-     * Gets the operationType property value. The registry operation type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
+     * Gets the operationType property value. Contains all supported registry data detection type.
      * @return Win32LobAppRegistryRuleOperationType|null
     */
     public function getOperationType(): ?Win32LobAppRegistryRuleOperationType {
@@ -103,7 +104,7 @@ class Win32LobAppRegistryRule extends Win32LobAppRule implements Parsable
     }
 
     /**
-     * Gets the operator property value. The operator for registry detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Gets the operator property value. Contains properties for detection operator.
      * @return Win32LobAppRuleOperator|null
     */
     public function getOperator(): ?Win32LobAppRuleOperator {
@@ -157,7 +158,7 @@ class Win32LobAppRegistryRule extends Win32LobAppRule implements Parsable
     }
 
     /**
-     * Sets the operationType property value. The registry operation type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
+     * Sets the operationType property value. Contains all supported registry data detection type.
      *  @param Win32LobAppRegistryRuleOperationType|null $value Value to set for the operationType property.
     */
     public function setOperationType(?Win32LobAppRegistryRuleOperationType $value ): void {
@@ -165,7 +166,7 @@ class Win32LobAppRegistryRule extends Win32LobAppRule implements Parsable
     }
 
     /**
-     * Sets the operator property value. The operator for registry detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Sets the operator property value. Contains properties for detection operator.
      *  @param Win32LobAppRuleOperator|null $value Value to set for the operator property.
     */
     public function setOperator(?Win32LobAppRuleOperator $value ): void {

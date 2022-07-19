@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SensitiveContentLocation implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,6 +35,11 @@ class SensitiveContentLocation implements AdditionalDataHolder, Parsable
     private ?int $length = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $offset The offset property
     */
     private ?int $offset = null;
@@ -43,7 +48,8 @@ class SensitiveContentLocation implements AdditionalDataHolder, Parsable
      * Instantiates a new sensitiveContentLocation and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.sensitiveContentLocation');
     }
 
     /**
@@ -90,6 +96,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, Parsable
             'evidences' => function (ParseNode $n) use ($o) { $o->setEvidences($n->getCollectionOfObjectValues(array(SensitiveContentEvidence::class, 'createFromDiscriminatorValue'))); },
             'idMatch' => function (ParseNode $n) use ($o) { $o->setIdMatch($n->getStringValue()); },
             'length' => function (ParseNode $n) use ($o) { $o->setLength($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'offset' => function (ParseNode $n) use ($o) { $o->setOffset($n->getIntegerValue()); },
         ];
     }
@@ -111,6 +118,14 @@ class SensitiveContentLocation implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the offset property value. The offset property
      * @return int|null
     */
@@ -127,6 +142,7 @@ class SensitiveContentLocation implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfObjectValues('evidences', $this->evidences);
         $writer->writeStringValue('idMatch', $this->idMatch);
         $writer->writeIntegerValue('length', $this->length);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('offset', $this->offset);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -169,6 +185,14 @@ class SensitiveContentLocation implements AdditionalDataHolder, Parsable
     */
     public function setLength(?int $value ): void {
         $this->length = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

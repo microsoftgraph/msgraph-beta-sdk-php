@@ -13,6 +13,7 @@ class AndroidDeviceOwnerKioskModeFolderItem extends AndroidDeviceOwnerKioskModeH
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerKioskModeFolderItem');
     }
 
     /**

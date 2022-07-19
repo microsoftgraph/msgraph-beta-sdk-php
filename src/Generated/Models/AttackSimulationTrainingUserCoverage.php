@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Pars
      * @var AttackSimulationUser|null $attackSimulationUser User in an attack simulation and training campaign.
     */
     private ?AttackSimulationUser $attackSimulationUser = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<UserTrainingStatusInfo>|null $userTrainings List of assigned trainings' and their statuses for the user.
@@ -28,7 +33,8 @@ class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Pars
      * Instantiates a new attackSimulationTrainingUserCoverage and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.attackSimulationTrainingUserCoverage');
     }
 
     /**
@@ -64,8 +70,17 @@ class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Pars
         $o = $this;
         return  [
             'attackSimulationUser' => function (ParseNode $n) use ($o) { $o->setAttackSimulationUser($n->getObjectValue(array(AttackSimulationUser::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userTrainings' => function (ParseNode $n) use ($o) { $o->setUserTrainings($n->getCollectionOfObjectValues(array(UserTrainingStatusInfo::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Pars
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('attackSimulationUser', $this->attackSimulationUser);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('userTrainings', $this->userTrainings);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Pars
     */
     public function setAttackSimulationUser(?AttackSimulationUser $value ): void {
         $this->attackSimulationUser = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

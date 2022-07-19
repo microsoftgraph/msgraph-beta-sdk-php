@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PasswordResetResponse implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,10 +20,16 @@ class PasswordResetResponse implements AdditionalDataHolder, Parsable
     private ?string $newPassword = null;
     
     /**
-     * Instantiates a new PasswordResetResponse and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * Instantiates a new passwordResetResponse and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.passwordResetResponse');
     }
 
     /**
@@ -51,6 +57,7 @@ class PasswordResetResponse implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'newPassword' => function (ParseNode $n) use ($o) { $o->setNewPassword($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -63,11 +70,20 @@ class PasswordResetResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('newPassword', $this->newPassword);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -85,6 +101,14 @@ class PasswordResetResponse implements AdditionalDataHolder, Parsable
     */
     public function setNewPassword(?string $value ): void {
         $this->newPassword = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

@@ -10,22 +10,27 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var bool|null $isPasscodeRequired The isPasscodeRequired property
+     * @var bool|null $isPasscodeRequired Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
     */
     private ?bool $isPasscodeRequired = null;
     
     /**
-     * @var string|null $joinMeetingId The joinMeetingId property
+     * @var string|null $joinMeetingId The meeting ID to be used to join a meeting. Optional. Read-only.
     */
     private ?string $joinMeetingId = null;
     
     /**
-     * @var string|null $passcode The passcode property
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var string|null $passcode The passcode to join a meeting.  Optional. Read-only.
     */
     private ?string $passcode = null;
     
@@ -33,7 +38,8 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new joinMeetingIdSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.joinMeetingIdSettings');
     }
 
     /**
@@ -62,12 +68,13 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
         return  [
             'isPasscodeRequired' => function (ParseNode $n) use ($o) { $o->setIsPasscodeRequired($n->getBooleanValue()); },
             'joinMeetingId' => function (ParseNode $n) use ($o) { $o->setJoinMeetingId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'passcode' => function (ParseNode $n) use ($o) { $o->setPasscode($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the isPasscodeRequired property value. The isPasscodeRequired property
+     * Gets the isPasscodeRequired property value. Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
      * @return bool|null
     */
     public function getIsPasscodeRequired(): ?bool {
@@ -75,7 +82,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the joinMeetingId property value. The joinMeetingId property
+     * Gets the joinMeetingId property value. The meeting ID to be used to join a meeting. Optional. Read-only.
      * @return string|null
     */
     public function getJoinMeetingId(): ?string {
@@ -83,7 +90,15 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the passcode property value. The passcode property
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the passcode property value. The passcode to join a meeting.  Optional. Read-only.
      * @return string|null
     */
     public function getPasscode(): ?string {
@@ -97,6 +112,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isPasscodeRequired', $this->isPasscodeRequired);
         $writer->writeStringValue('joinMeetingId', $this->joinMeetingId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('passcode', $this->passcode);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -110,7 +126,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isPasscodeRequired property value. The isPasscodeRequired property
+     * Sets the isPasscodeRequired property value. Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
      *  @param bool|null $value Value to set for the isPasscodeRequired property.
     */
     public function setIsPasscodeRequired(?bool $value ): void {
@@ -118,7 +134,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the joinMeetingId property value. The joinMeetingId property
+     * Sets the joinMeetingId property value. The meeting ID to be used to join a meeting. Optional. Read-only.
      *  @param string|null $value Value to set for the joinMeetingId property.
     */
     public function setJoinMeetingId(?string $value ): void {
@@ -126,7 +142,15 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the passcode property value. The passcode property
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the passcode property value. The passcode to join a meeting.  Optional. Read-only.
      *  @param string|null $value Value to set for the passcode property.
     */
     public function setPasscode(?string $value ): void {

@@ -11,12 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDriverUpdateProfileInventorySyncStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var WindowsDriverUpdateProfileInventorySyncState|null $driverInventorySyncState The state of the latest sync. Possible values are: pending, success, failure.
+     * @var WindowsDriverUpdateProfileInventorySyncState|null $driverInventorySyncState Windows DnF update inventory sync state.
     */
     private ?WindowsDriverUpdateProfileInventorySyncState $driverInventorySyncState = null;
     
@@ -26,10 +26,16 @@ class WindowsDriverUpdateProfileInventorySyncStatus implements AdditionalDataHol
     private ?DateTime $lastSuccessfulSyncDateTime = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new windowsDriverUpdateProfileInventorySyncStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windowsDriverUpdateProfileInventorySyncStatus');
     }
 
     /**
@@ -50,7 +56,7 @@ class WindowsDriverUpdateProfileInventorySyncStatus implements AdditionalDataHol
     }
 
     /**
-     * Gets the driverInventorySyncState property value. The state of the latest sync. Possible values are: pending, success, failure.
+     * Gets the driverInventorySyncState property value. Windows DnF update inventory sync state.
      * @return WindowsDriverUpdateProfileInventorySyncState|null
     */
     public function getDriverInventorySyncState(): ?WindowsDriverUpdateProfileInventorySyncState {
@@ -66,6 +72,7 @@ class WindowsDriverUpdateProfileInventorySyncStatus implements AdditionalDataHol
         return  [
             'driverInventorySyncState' => function (ParseNode $n) use ($o) { $o->setDriverInventorySyncState($n->getEnumValue(WindowsDriverUpdateProfileInventorySyncState::class)); },
             'lastSuccessfulSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSuccessfulSyncDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -78,12 +85,21 @@ class WindowsDriverUpdateProfileInventorySyncStatus implements AdditionalDataHol
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('driverInventorySyncState', $this->driverInventorySyncState);
         $writer->writeDateTimeValue('lastSuccessfulSyncDateTime', $this->lastSuccessfulSyncDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -96,7 +112,7 @@ class WindowsDriverUpdateProfileInventorySyncStatus implements AdditionalDataHol
     }
 
     /**
-     * Sets the driverInventorySyncState property value. The state of the latest sync. Possible values are: pending, success, failure.
+     * Sets the driverInventorySyncState property value. Windows DnF update inventory sync state.
      *  @param WindowsDriverUpdateProfileInventorySyncState|null $value Value to set for the driverInventorySyncState property.
     */
     public function setDriverInventorySyncState(?WindowsDriverUpdateProfileInventorySyncState $value ): void {
@@ -109,6 +125,14 @@ class WindowsDriverUpdateProfileInventorySyncStatus implements AdditionalDataHol
     */
     public function setLastSuccessfulSyncDateTime(?DateTime $value ): void {
         $this->lastSuccessfulSyncDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

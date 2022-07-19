@@ -10,9 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<string>|null $roleAssignmentIds Role Assignment IDs for the specifc Role Assignments assigned to a user. This property is read-only.
@@ -25,10 +30,11 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
     private ?array $roleDefinitionIds = null;
     
     /**
-     * Instantiates a new DeviceAndAppManagementAssignedRoleDetails and sets the default values.
+     * Instantiates a new deviceAndAppManagementAssignedRoleDetails and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceAndAppManagementAssignedRoleDetails');
     }
 
     /**
@@ -55,9 +61,18 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'roleAssignmentIds' => function (ParseNode $n) use ($o) { $o->setRoleAssignmentIds($n->getCollectionOfPrimitiveValues()); },
             'roleDefinitionIds' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionIds($n->getCollectionOfPrimitiveValues()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -81,6 +96,7 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfPrimitiveValues('roleAssignmentIds', $this->roleAssignmentIds);
         $writer->writeCollectionOfPrimitiveValues('roleDefinitionIds', $this->roleDefinitionIds);
         $writer->writeAdditionalData($this->additionalData);
@@ -92,6 +108,14 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

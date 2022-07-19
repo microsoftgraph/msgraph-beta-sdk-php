@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class KeyCredentialConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,6 +20,11 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, Parsable
      * @var DateInterval|null $maxLifetime The maxLifetime property
     */
     private ?DateInterval $maxLifetime = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var DateTime|null $restrictForAppsCreatedAfterDateTime Timestamp when the policy is enforced for all apps created on or after the specified date. For existing applications, the enforcement date would be back dated. To apply to all applications regardless of their creation date, this property would be null. Nullable.
@@ -35,7 +40,8 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, Parsable
      * Instantiates a new keyCredentialConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.keyCredentialConfiguration');
     }
 
     /**
@@ -63,6 +69,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'maxLifetime' => function (ParseNode $n) use ($o) { $o->setMaxLifetime($n->getDateIntervalValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'restrictForAppsCreatedAfterDateTime' => function (ParseNode $n) use ($o) { $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()); },
             'restrictionType' => function (ParseNode $n) use ($o) { $o->setRestrictionType($n->getEnumValue(AppKeyCredentialRestrictionType::class)); },
         ];
@@ -74,6 +81,14 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, Parsable
     */
     public function getMaxLifetime(): ?DateInterval {
         return $this->maxLifetime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateIntervalValue('maxLifetime', $this->maxLifetime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('restrictForAppsCreatedAfterDateTime', $this->restrictForAppsCreatedAfterDateTime);
         $writer->writeEnumValue('restrictionType', $this->restrictionType);
         $writer->writeAdditionalData($this->additionalData);
@@ -117,6 +133,14 @@ class KeyCredentialConfiguration implements AdditionalDataHolder, Parsable
     */
     public function setMaxLifetime(?DateInterval $value ): void {
         $this->maxLifetime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

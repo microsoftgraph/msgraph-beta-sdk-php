@@ -54,6 +54,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.exactMatchSessionBase');
     }
 
     /**

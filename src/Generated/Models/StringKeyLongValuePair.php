@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StringKeyLongValuePair implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class StringKeyLongValuePair implements AdditionalDataHolder, Parsable
      * @var string|null $key Key.
     */
     private ?string $key = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $value Value.
@@ -28,7 +33,8 @@ class StringKeyLongValuePair implements AdditionalDataHolder, Parsable
      * Instantiates a new stringKeyLongValuePair and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.stringKeyLongValuePair');
     }
 
     /**
@@ -56,6 +62,7 @@ class StringKeyLongValuePair implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getIntegerValue()); },
         ];
     }
@@ -66,6 +73,14 @@ class StringKeyLongValuePair implements AdditionalDataHolder, Parsable
     */
     public function getKey(): ?string {
         return $this->key;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class StringKeyLongValuePair implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('key', $this->key);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('value', $this->value);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class StringKeyLongValuePair implements AdditionalDataHolder, Parsable
     */
     public function setKey(?string $value ): void {
         $this->key = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

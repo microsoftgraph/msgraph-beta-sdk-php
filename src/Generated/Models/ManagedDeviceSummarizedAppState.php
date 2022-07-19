@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,7 +20,12 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, Parsable
     private ?string $deviceId = null;
     
     /**
-     * @var RunState|null $summarizedAppState runState for the object. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var RunState|null $summarizedAppState Indicates the type of execution status of the device management script.
     */
     private ?RunState $summarizedAppState = null;
     
@@ -28,7 +33,8 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, Parsable
      * Instantiates a new managedDeviceSummarizedAppState and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedDeviceSummarizedAppState');
     }
 
     /**
@@ -64,12 +70,21 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'summarizedAppState' => function (ParseNode $n) use ($o) { $o->setSummarizedAppState($n->getEnumValue(RunState::class)); },
         ];
     }
 
     /**
-     * Gets the summarizedAppState property value. runState for the object. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the summarizedAppState property value. Indicates the type of execution status of the device management script.
      * @return RunState|null
     */
     public function getSummarizedAppState(): ?RunState {
@@ -82,6 +97,7 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('deviceId', $this->deviceId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('summarizedAppState', $this->summarizedAppState);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -103,7 +119,15 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the summarizedAppState property value. runState for the object. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the summarizedAppState property value. Indicates the type of execution status of the device management script.
      *  @param RunState|null $value Value to set for the summarizedAppState property.
     */
     public function setSummarizedAppState(?RunState $value ): void {

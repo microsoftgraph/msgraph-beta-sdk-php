@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable 
 {
     /**
-     * @var string|null $joinMeetingId The joinMeetingId property
+     * @var string|null $joinMeetingId The ID used to join the meeting.
     */
     private ?string $joinMeetingId = null;
     
     /**
-     * @var string|null $passcode The passcode property
+     * @var string|null $passcode The passcode used to join the meeting. Optional.
     */
     private ?string $passcode = null;
     
@@ -23,6 +23,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.joinMeetingIdMeetingInfo');
     }
 
     /**
@@ -47,7 +48,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable
     }
 
     /**
-     * Gets the joinMeetingId property value. The joinMeetingId property
+     * Gets the joinMeetingId property value. The ID used to join the meeting.
      * @return string|null
     */
     public function getJoinMeetingId(): ?string {
@@ -55,7 +56,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable
     }
 
     /**
-     * Gets the passcode property value. The passcode property
+     * Gets the passcode property value. The passcode used to join the meeting. Optional.
      * @return string|null
     */
     public function getPasscode(): ?string {
@@ -73,7 +74,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable
     }
 
     /**
-     * Sets the joinMeetingId property value. The joinMeetingId property
+     * Sets the joinMeetingId property value. The ID used to join the meeting.
      *  @param string|null $value Value to set for the joinMeetingId property.
     */
     public function setJoinMeetingId(?string $value ): void {
@@ -81,7 +82,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable
     }
 
     /**
-     * Sets the passcode property value. The passcode property
+     * Sets the passcode property value. The passcode used to join the meeting. Optional.
      *  @param string|null $value Value to set for the passcode property.
     */
     public function setPasscode(?string $value ): void {

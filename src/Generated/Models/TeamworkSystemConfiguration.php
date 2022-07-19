@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkSystemConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -76,10 +76,16 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, Parsable
     private ?TeamworkNetworkConfiguration $networkConfiguration = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new teamworkSystemConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkSystemConfiguration');
     }
 
     /**
@@ -142,6 +148,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, Parsable
             'lockPin' => function (ParseNode $n) use ($o) { $o->setLockPin($n->getStringValue()); },
             'loggingLevel' => function (ParseNode $n) use ($o) { $o->setLoggingLevel($n->getStringValue()); },
             'networkConfiguration' => function (ParseNode $n) use ($o) { $o->setNetworkConfiguration($n->getObjectValue(array(TeamworkNetworkConfiguration::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -218,6 +225,14 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -234,6 +249,7 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('lockPin', $this->lockPin);
         $writer->writeStringValue('loggingLevel', $this->loggingLevel);
         $writer->writeObjectValue('networkConfiguration', $this->networkConfiguration);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -339,6 +355,14 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, Parsable
     */
     public function setNetworkConfiguration(?TeamworkNetworkConfiguration $value ): void {
         $this->networkConfiguration = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

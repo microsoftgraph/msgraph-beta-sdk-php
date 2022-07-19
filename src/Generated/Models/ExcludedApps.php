@@ -15,7 +15,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
     private ?bool $access = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -43,6 +43,11 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @var bool|null $lync The value for if MS Office Skype for Business - Lync should be excluded or not.
     */
     private ?bool $lync = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var bool|null $oneDrive The value for if MS Office OneDrive should be excluded or not.
@@ -93,7 +98,8 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * Instantiates a new excludedApps and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.excludedApps');
     }
 
     /**
@@ -150,6 +156,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
             'groove' => function (ParseNode $n) use ($o) { $o->setGroove($n->getBooleanValue()); },
             'infoPath' => function (ParseNode $n) use ($o) { $o->setInfoPath($n->getBooleanValue()); },
             'lync' => function (ParseNode $n) use ($o) { $o->setLync($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'oneDrive' => function (ParseNode $n) use ($o) { $o->setOneDrive($n->getBooleanValue()); },
             'oneNote' => function (ParseNode $n) use ($o) { $o->setOneNote($n->getBooleanValue()); },
             'outlook' => function (ParseNode $n) use ($o) { $o->setOutlook($n->getBooleanValue()); },
@@ -184,6 +191,14 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
     */
     public function getLync(): ?bool {
         return $this->lync;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -269,6 +284,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('groove', $this->groove);
         $writer->writeBooleanValue('infoPath', $this->infoPath);
         $writer->writeBooleanValue('lync', $this->lync);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('oneDrive', $this->oneDrive);
         $writer->writeBooleanValue('oneNote', $this->oneNote);
         $writer->writeBooleanValue('outlook', $this->outlook);
@@ -335,6 +351,14 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
     */
     public function setLync(?bool $value ): void {
         $this->lync = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

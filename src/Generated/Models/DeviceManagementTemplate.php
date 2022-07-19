@@ -40,7 +40,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
     private ?array $migratableTo = null;
     
     /**
-     * @var PolicyPlatformType|null $platformType The template's platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, all.
+     * @var PolicyPlatformType|null $platformType Supported platform types for policies.
     */
     private ?PolicyPlatformType $platformType = null;
     
@@ -55,12 +55,12 @@ class DeviceManagementTemplate extends Entity implements Parsable
     private ?array $settings = null;
     
     /**
-     * @var DeviceManagementTemplateSubtype|null $templateSubtype The template's subtype. Possible values are: none, firewall, diskEncryption, attackSurfaceReduction, endpointDetectionReponse, accountProtection, antivirus, firewallSharedAppList, firewallSharedIpList, firewallSharedPortlist.
+     * @var DeviceManagementTemplateSubtype|null $templateSubtype Template subtype
     */
     private ?DeviceManagementTemplateSubtype $templateSubtype = null;
     
     /**
-     * @var DeviceManagementTemplateType|null $templateType The template's type. Possible values are: securityBaseline, specializedDevices, advancedThreatProtectionSecurityBaseline, deviceConfiguration, custom, securityTemplate, microsoftEdgeSecurityBaseline, microsoftOffice365ProPlusSecurityBaseline, deviceCompliance, deviceConfigurationForOffice365, cloudPC, firewallSharedSettings.
+     * @var DeviceManagementTemplateType|null $templateType Template type
     */
     private ?DeviceManagementTemplateType $templateType = null;
     
@@ -70,10 +70,11 @@ class DeviceManagementTemplate extends Entity implements Parsable
     private ?string $versionInfo = null;
     
     /**
-     * Instantiates a new DeviceManagementTemplate and sets the default values.
+     * Instantiates a new deviceManagementTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementTemplate');
     }
 
     /**
@@ -163,7 +164,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the platformType property value. The template's platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, all.
+     * Gets the platformType property value. Supported platform types for policies.
      * @return PolicyPlatformType|null
     */
     public function getPlatformType(): ?PolicyPlatformType {
@@ -187,7 +188,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the templateSubtype property value. The template's subtype. Possible values are: none, firewall, diskEncryption, attackSurfaceReduction, endpointDetectionReponse, accountProtection, antivirus, firewallSharedAppList, firewallSharedIpList, firewallSharedPortlist.
+     * Gets the templateSubtype property value. Template subtype
      * @return DeviceManagementTemplateSubtype|null
     */
     public function getTemplateSubtype(): ?DeviceManagementTemplateSubtype {
@@ -195,7 +196,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the templateType property value. The template's type. Possible values are: securityBaseline, specializedDevices, advancedThreatProtectionSecurityBaseline, deviceConfiguration, custom, securityTemplate, microsoftEdgeSecurityBaseline, microsoftOffice365ProPlusSecurityBaseline, deviceCompliance, deviceConfigurationForOffice365, cloudPC, firewallSharedSettings.
+     * Gets the templateType property value. Template type
      * @return DeviceManagementTemplateType|null
     */
     public function getTemplateType(): ?DeviceManagementTemplateType {
@@ -279,7 +280,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the platformType property value. The template's platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, all.
+     * Sets the platformType property value. Supported platform types for policies.
      *  @param PolicyPlatformType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?PolicyPlatformType $value ): void {
@@ -303,7 +304,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the templateSubtype property value. The template's subtype. Possible values are: none, firewall, diskEncryption, attackSurfaceReduction, endpointDetectionReponse, accountProtection, antivirus, firewallSharedAppList, firewallSharedIpList, firewallSharedPortlist.
+     * Sets the templateSubtype property value. Template subtype
      *  @param DeviceManagementTemplateSubtype|null $value Value to set for the templateSubtype property.
     */
     public function setTemplateSubtype(?DeviceManagementTemplateSubtype $value ): void {
@@ -311,7 +312,7 @@ class DeviceManagementTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the templateType property value. The template's type. Possible values are: securityBaseline, specializedDevices, advancedThreatProtectionSecurityBaseline, deviceConfiguration, custom, securityTemplate, microsoftEdgeSecurityBaseline, microsoftOffice365ProPlusSecurityBaseline, deviceCompliance, deviceConfigurationForOffice365, cloudPC, firewallSharedSettings.
+     * Sets the templateType property value. Template type
      *  @param DeviceManagementTemplateType|null $value Value to set for the templateType property.
     */
     public function setTemplateType(?DeviceManagementTemplateType $value ): void {

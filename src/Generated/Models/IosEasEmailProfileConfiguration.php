@@ -39,7 +39,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     private ?DeviceManagementDerivedCredentialSettings $derivedCredentialSettings = null;
     
     /**
-     * @var EmailSyncDuration|null $durationOfEmailToSync Duration of time email should be synced back to. . Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * @var EmailSyncDuration|null $durationOfEmailToSync Possible values for email sync duration.
     */
     private ?EmailSyncDuration $durationOfEmailToSync = null;
     
@@ -54,7 +54,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     private ?bool $easServicesUserOverrideEnabled = null;
     
     /**
-     * @var UserEmailSource|null $emailAddressSource Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * @var UserEmailSource|null $emailAddressSource Possible values for username source or email source.
     */
     private ?UserEmailSource $emailAddressSource = null;
     
@@ -148,6 +148,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosEasEmailProfileConfiguration');
     }
 
     /**
@@ -208,7 +209,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Gets the durationOfEmailToSync property value. Duration of time email should be synced back to. . Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * Gets the durationOfEmailToSync property value. Possible values for email sync duration.
      * @return EmailSyncDuration|null
     */
     public function getDurationOfEmailToSync(): ?EmailSyncDuration {
@@ -232,7 +233,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Gets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * Gets the emailAddressSource property value. Possible values for username source or email source.
      * @return UserEmailSource|null
     */
     public function getEmailAddressSource(): ?UserEmailSource {
@@ -496,7 +497,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Sets the durationOfEmailToSync property value. Duration of time email should be synced back to. . Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * Sets the durationOfEmailToSync property value. Possible values for email sync duration.
      *  @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
     */
     public function setDurationOfEmailToSync(?EmailSyncDuration $value ): void {
@@ -520,7 +521,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase i
     }
 
     /**
-     * Sets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * Sets the emailAddressSource property value. Possible values for username source or email source.
      *  @param UserEmailSource|null $value Value to set for the emailAddressSource property.
     */
     public function setEmailAddressSource(?UserEmailSource $value ): void {

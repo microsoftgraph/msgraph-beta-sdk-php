@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosCertificateProfileBase extends IosCertificateProfile implements Parsable 
 {
     /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Certificate Validity Period Options.
     */
     private ?CertificateValidityPeriodScale $certificateValidityPeriodScale = null;
     
@@ -29,7 +29,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
     private ?SubjectAlternativeNameType $subjectAlternativeNameType = null;
     
     /**
-     * @var AppleSubjectNameFormat|null $subjectNameFormat Certificate Subject Name Format. Possible values are: commonName, commonNameAsEmail, custom, commonNameIncludingEmail, commonNameAsIMEI, commonNameAsSerialNumber.
+     * @var AppleSubjectNameFormat|null $subjectNameFormat Subject Name Format Options for Apple devices.
     */
     private ?AppleSubjectNameFormat $subjectNameFormat = null;
     
@@ -38,6 +38,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosCertificateProfileBase');
     }
 
     /**
@@ -58,7 +59,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
     }
 
     /**
-     * Gets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Gets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
@@ -105,7 +106,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
     }
 
     /**
-     * Gets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameAsEmail, custom, commonNameIncludingEmail, commonNameAsIMEI, commonNameAsSerialNumber.
+     * Gets the subjectNameFormat property value. Subject Name Format Options for Apple devices.
      * @return AppleSubjectNameFormat|null
     */
     public function getSubjectNameFormat(): ?AppleSubjectNameFormat {
@@ -126,7 +127,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
     }
 
     /**
-     * Sets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
     public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value ): void {
@@ -158,7 +159,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
     }
 
     /**
-     * Sets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameAsEmail, custom, commonNameIncludingEmail, commonNameAsIMEI, commonNameAsSerialNumber.
+     * Sets the subjectNameFormat property value. Subject Name Format Options for Apple devices.
      *  @param AppleSubjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
     public function setSubjectNameFormat(?AppleSubjectNameFormat $value ): void {

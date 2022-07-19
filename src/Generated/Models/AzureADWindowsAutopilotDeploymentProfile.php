@@ -13,6 +13,7 @@ class AzureADWindowsAutopilotDeploymentProfile extends WindowsAutopilotDeploymen
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.azureADWindowsAutopilotDeploymentProfile');
     }
 
     /**

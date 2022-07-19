@@ -24,6 +24,7 @@ class WindowsPhone81TrustedRootCertificate extends DeviceConfiguration implement
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsPhone81TrustedRootCertificate');
     }
 
     /**

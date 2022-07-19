@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IpReferenceData implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -28,6 +28,11 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * @var string|null $countryOrRegionCode The countryOrRegionCode property
     */
     private ?string $countryOrRegionCode = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $organization The organization property
@@ -48,7 +53,8 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * Instantiates a new ipReferenceData and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.ipReferenceData');
     }
 
     /**
@@ -102,10 +108,19 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
             'asn' => function (ParseNode $n) use ($o) { $o->setAsn($n->getIntegerValue()); },
             'city' => function (ParseNode $n) use ($o) { $o->setCity($n->getStringValue()); },
             'countryOrRegionCode' => function (ParseNode $n) use ($o) { $o->setCountryOrRegionCode($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'organization' => function (ParseNode $n) use ($o) { $o->setOrganization($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
             'vendor' => function (ParseNode $n) use ($o) { $o->setVendor($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -140,6 +155,7 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('asn', $this->asn);
         $writer->writeStringValue('city', $this->city);
         $writer->writeStringValue('countryOrRegionCode', $this->countryOrRegionCode);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('organization', $this->organization);
         $writer->writeStringValue('state', $this->state);
         $writer->writeStringValue('vendor', $this->vendor);
@@ -176,6 +192,14 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
     */
     public function setCountryOrRegionCode(?string $value ): void {
         $this->countryOrRegionCode = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

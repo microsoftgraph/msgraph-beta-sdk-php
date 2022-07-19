@@ -28,6 +28,7 @@ class ChannelAddedEventMessageDetail extends EventMessageDetail implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.channelAddedEventMessageDetail');
     }
 
     /**

@@ -14,7 +14,7 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
     private ?string $value = null;
     
     /**
-     * @var DeviceManagementConfigurationSecretSettingValueState|null $valueState Gets or sets a value indicating the encryption state of the Value property. Possible values are: invalid, notEncrypted, encryptedValueToken.
+     * @var DeviceManagementConfigurationSecretSettingValueState|null $valueState type tracking the encryption state of a secret setting value
     */
     private ?DeviceManagementConfigurationSecretSettingValueState $valueState = null;
     
@@ -23,6 +23,7 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationSecretSettingValue');
     }
 
     /**
@@ -55,7 +56,7 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
     }
 
     /**
-     * Gets the valueState property value. Gets or sets a value indicating the encryption state of the Value property. Possible values are: invalid, notEncrypted, encryptedValueToken.
+     * Gets the valueState property value. type tracking the encryption state of a secret setting value
      * @return DeviceManagementConfigurationSecretSettingValueState|null
     */
     public function getValueState(): ?DeviceManagementConfigurationSecretSettingValueState {
@@ -81,7 +82,7 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
     }
 
     /**
-     * Sets the valueState property value. Gets or sets a value indicating the encryption state of the Value property. Possible values are: invalid, notEncrypted, encryptedValueToken.
+     * Sets the valueState property value. type tracking the encryption state of a secret setting value
      *  @param DeviceManagementConfigurationSecretSettingValueState|null $value Value to set for the valueState property.
     */
     public function setValueState(?DeviceManagementConfigurationSecretSettingValueState $value ): void {

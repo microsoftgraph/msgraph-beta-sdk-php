@@ -43,6 +43,7 @@ class ReferenceAttachment extends Attachment implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.referenceAttachment');
     }
 
     /**

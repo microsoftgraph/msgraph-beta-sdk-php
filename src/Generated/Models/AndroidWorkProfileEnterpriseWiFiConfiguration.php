@@ -14,7 +14,7 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
     private ?WiFiAuthenticationMethod $authenticationMethod = null;
     
     /**
-     * @var AndroidEapType|null $eapType Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, eapTtls, peap.
+     * @var AndroidEapType|null $eapType Extensible Authentication Protocol (EAP) Configuration Types.
     */
     private ?AndroidEapType $eapType = null;
     
@@ -44,7 +44,7 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
     private ?string $proxyAutomaticConfigurationUrl = null;
     
     /**
-     * @var WiFiProxySetting|null $proxySettings Proxy Type for this Wi-Fi connection. Possible values are: none, manual, automatic.
+     * @var WiFiProxySetting|null $proxySettings Wi-Fi Proxy Settings.
     */
     private ?WiFiProxySetting $proxySettings = null;
     
@@ -63,6 +63,7 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidWorkProfileEnterpriseWiFiConfiguration');
     }
 
     /**
@@ -83,7 +84,7 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
     }
 
     /**
-     * Gets the eapType property value. Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, eapTtls, peap.
+     * Gets the eapType property value. Extensible Authentication Protocol (EAP) Configuration Types.
      * @return AndroidEapType|null
     */
     public function getEapType(): ?AndroidEapType {
@@ -151,7 +152,7 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
     }
 
     /**
-     * Gets the proxySettings property value. Proxy Type for this Wi-Fi connection. Possible values are: none, manual, automatic.
+     * Gets the proxySettings property value. Wi-Fi Proxy Settings.
      * @return WiFiProxySetting|null
     */
     public function getProxySettings(): ?WiFiProxySetting {
@@ -201,7 +202,7 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
     }
 
     /**
-     * Sets the eapType property value. Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, eapTtls, peap.
+     * Sets the eapType property value. Extensible Authentication Protocol (EAP) Configuration Types.
      *  @param AndroidEapType|null $value Value to set for the eapType property.
     */
     public function setEapType(?AndroidEapType $value ): void {
@@ -249,7 +250,7 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
     }
 
     /**
-     * Sets the proxySettings property value. Proxy Type for this Wi-Fi connection. Possible values are: none, manual, automatic.
+     * Sets the proxySettings property value. Wi-Fi Proxy Settings.
      *  @param WiFiProxySetting|null $value Value to set for the proxySettings property.
     */
     public function setProxySettings(?WiFiProxySetting $value ): void {

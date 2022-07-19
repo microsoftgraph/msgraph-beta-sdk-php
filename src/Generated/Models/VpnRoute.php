@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VpnRoute implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class VpnRoute implements AdditionalDataHolder, Parsable
      * @var string|null $destinationPrefix Destination prefix (IPv4/v6 address).
     */
     private ?string $destinationPrefix = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $prefixSize Prefix size. (1-32). Valid values 1 to 32
@@ -28,7 +33,8 @@ class VpnRoute implements AdditionalDataHolder, Parsable
      * Instantiates a new vpnRoute and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.vpnRoute');
     }
 
     /**
@@ -64,8 +70,17 @@ class VpnRoute implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'destinationPrefix' => function (ParseNode $n) use ($o) { $o->setDestinationPrefix($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'prefixSize' => function (ParseNode $n) use ($o) { $o->setPrefixSize($n->getIntegerValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class VpnRoute implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('destinationPrefix', $this->destinationPrefix);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('prefixSize', $this->prefixSize);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class VpnRoute implements AdditionalDataHolder, Parsable
     */
     public function setDestinationPrefix(?string $value ): void {
         $this->destinationPrefix = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -31,7 +31,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     private ?string $issuerName = null;
     
     /**
-     * @var CertificateStatus|null $status The Certificate Status Provisioned or not Provisioned. Possible values are: notProvisioned, provisioned.
+     * @var CertificateStatus|null $status The status property
     */
     private ?CertificateStatus $status = null;
     
@@ -55,6 +55,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.enterpriseCodeSigningCertificate');
     }
 
     /**
@@ -117,7 +118,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The Certificate Status Provisioned or not Provisioned. Possible values are: notProvisioned, provisioned.
+     * Gets the status property value. The status property
      * @return CertificateStatus|null
     */
     public function getStatus(): ?CertificateStatus {
@@ -197,7 +198,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The Certificate Status Provisioned or not Provisioned. Possible values are: notProvisioned, provisioned.
+     * Sets the status property value. The status property
      *  @param CertificateStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CertificateStatus $value ): void {

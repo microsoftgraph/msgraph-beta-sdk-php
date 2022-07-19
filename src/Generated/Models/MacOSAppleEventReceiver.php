@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,15 +30,21 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
     private ?string $identifier = null;
     
     /**
-     * @var MacOSProcessIdentifierType|null $identifierType Use bundle ID for an app or path for a process or executable that receives the Apple Event. Possible values are: bundleID, path.
+     * @var MacOSProcessIdentifierType|null $identifierType Process identifier types for MacOS Privacy Preferences
     */
     private ?MacOSProcessIdentifierType $identifierType = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new macOSAppleEventReceiver and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.macOSAppleEventReceiver');
     }
 
     /**
@@ -85,6 +91,7 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
             'codeRequirement' => function (ParseNode $n) use ($o) { $o->setCodeRequirement($n->getStringValue()); },
             'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
             'identifierType' => function (ParseNode $n) use ($o) { $o->setIdentifierType($n->getEnumValue(MacOSProcessIdentifierType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -97,11 +104,19 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the identifierType property value. Use bundle ID for an app or path for a process or executable that receives the Apple Event. Possible values are: bundleID, path.
+     * Gets the identifierType property value. Process identifier types for MacOS Privacy Preferences
      * @return MacOSProcessIdentifierType|null
     */
     public function getIdentifierType(): ?MacOSProcessIdentifierType {
         return $this->identifierType;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -113,6 +128,7 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('codeRequirement', $this->codeRequirement);
         $writer->writeStringValue('identifier', $this->identifier);
         $writer->writeEnumValue('identifierType', $this->identifierType);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -149,11 +165,19 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the identifierType property value. Use bundle ID for an app or path for a process or executable that receives the Apple Event. Possible values are: bundleID, path.
+     * Sets the identifierType property value. Process identifier types for MacOS Privacy Preferences
      *  @param MacOSProcessIdentifierType|null $value Value to set for the identifierType property.
     */
     public function setIdentifierType(?MacOSProcessIdentifierType $value ): void {
         $this->identifierType = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

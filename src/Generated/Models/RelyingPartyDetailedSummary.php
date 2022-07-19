@@ -14,7 +14,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     private ?int $failedSignInCount = null;
     
     /**
-     * @var MigrationStatus|null $migrationStatus Indication of whether the application can be moved to Azure AD or require more investigation. Possible values are: ready, needsReview, additionalStepsRequired, unknownFutureValue.
+     * @var MigrationStatus|null $migrationStatus The migrationStatus property
     */
     private ?MigrationStatus $migrationStatus = null;
     
@@ -68,6 +68,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.relyingPartyDetailedSummary');
     }
 
     /**
@@ -109,7 +110,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the migrationStatus property value. Indication of whether the application can be moved to Azure AD or require more investigation. Possible values are: ready, needsReview, additionalStepsRequired, unknownFutureValue.
+     * Gets the migrationStatus property value. The migrationStatus property
      * @return MigrationStatus|null
     */
     public function getMigrationStatus(): ?MigrationStatus {
@@ -216,7 +217,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the migrationStatus property value. Indication of whether the application can be moved to Azure AD or require more investigation. Possible values are: ready, needsReview, additionalStepsRequired, unknownFutureValue.
+     * Sets the migrationStatus property value. The migrationStatus property
      *  @param MigrationStatus|null $value Value to set for the migrationStatus property.
     */
     public function setMigrationStatus(?MigrationStatus $value ): void {

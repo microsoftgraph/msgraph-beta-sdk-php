@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ParseExpressionResponse implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class ParseExpressionResponse implements AdditionalDataHolder, Parsable
     private ?bool $evaluationSucceeded = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var AttributeMappingSource|null $parsedExpression An attributeMappingSource object representing the parsed expression.
     */
     private ?AttributeMappingSource $parsedExpression = null;
@@ -40,10 +45,11 @@ class ParseExpressionResponse implements AdditionalDataHolder, Parsable
     private ?bool $parsingSucceeded = null;
     
     /**
-     * Instantiates a new ParseExpressionResponse and sets the default values.
+     * Instantiates a new parseExpressionResponse and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.parseExpressionResponse');
     }
 
     /**
@@ -97,9 +103,18 @@ class ParseExpressionResponse implements AdditionalDataHolder, Parsable
             'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(PublicError::class, 'createFromDiscriminatorValue'))); },
             'evaluationResult' => function (ParseNode $n) use ($o) { $o->setEvaluationResult($n->getCollectionOfPrimitiveValues()); },
             'evaluationSucceeded' => function (ParseNode $n) use ($o) { $o->setEvaluationSucceeded($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'parsedExpression' => function (ParseNode $n) use ($o) { $o->setParsedExpression($n->getObjectValue(array(AttributeMappingSource::class, 'createFromDiscriminatorValue'))); },
             'parsingSucceeded' => function (ParseNode $n) use ($o) { $o->setParsingSucceeded($n->getBooleanValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -126,6 +141,7 @@ class ParseExpressionResponse implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('error', $this->error);
         $writer->writeCollectionOfPrimitiveValues('evaluationResult', $this->evaluationResult);
         $writer->writeBooleanValue('evaluationSucceeded', $this->evaluationSucceeded);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('parsedExpression', $this->parsedExpression);
         $writer->writeBooleanValue('parsingSucceeded', $this->parsingSucceeded);
         $writer->writeAdditionalData($this->additionalData);
@@ -161,6 +177,14 @@ class ParseExpressionResponse implements AdditionalDataHolder, Parsable
     */
     public function setEvaluationSucceeded(?bool $value ): void {
         $this->evaluationSucceeded = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

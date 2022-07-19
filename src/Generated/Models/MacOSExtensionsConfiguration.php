@@ -48,6 +48,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOSExtensionsConfiguration');
     }
 
     /**

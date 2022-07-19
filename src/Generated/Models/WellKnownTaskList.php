@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WellKnownTaskList extends BaseTaskList implements Parsable 
 {
     /**
-     * @var WellKnownListName_v2|null $wellKnownListName Property indicating the list name if the given list is a well-known list.. The possible values are: none, defaultList, flaggedEmails, unknownFutureValue.
+     * @var WellKnownListName_v2|null $wellKnownListName The wellKnownListName property
     */
     private ?WellKnownListName_v2 $wellKnownListName = null;
     
@@ -18,6 +18,7 @@ class WellKnownTaskList extends BaseTaskList implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.wellKnownTaskList');
     }
 
     /**
@@ -41,7 +42,7 @@ class WellKnownTaskList extends BaseTaskList implements Parsable
     }
 
     /**
-     * Gets the wellKnownListName property value. Property indicating the list name if the given list is a well-known list.. The possible values are: none, defaultList, flaggedEmails, unknownFutureValue.
+     * Gets the wellKnownListName property value. The wellKnownListName property
      * @return WellKnownListName_v2|null
     */
     public function getWellKnownListName(): ?WellKnownListName_v2 {
@@ -58,7 +59,7 @@ class WellKnownTaskList extends BaseTaskList implements Parsable
     }
 
     /**
-     * Sets the wellKnownListName property value. Property indicating the list name if the given list is a well-known list.. The possible values are: none, defaultList, flaggedEmails, unknownFutureValue.
+     * Sets the wellKnownListName property value. The wellKnownListName property
      *  @param WellKnownListName_v2|null $value Value to set for the wellKnownListName property.
     */
     public function setWellKnownListName(?WellKnownListName_v2 $value ): void {

@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var AndroidManagedStoreAppConfigurationSchemaItemDataType|null $dataType The type of value this item describes. Possible values are: bool, integer, string, choice, multiselect, bundle, bundleArray, hidden.
+     * @var AndroidManagedStoreAppConfigurationSchemaItemDataType|null $dataType Data type for a configuration item inside an Android application's custom configuration schema
     */
     private ?AndroidManagedStoreAppConfigurationSchemaItemDataType $dataType = null;
     
@@ -55,6 +55,11 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
     private ?int $index = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $parentIndex Index of parent schema item to track nested schema items
     */
     private ?int $parentIndex = null;
@@ -73,7 +78,8 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
      * Instantiates a new androidManagedStoreAppConfigurationSchemaItem and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.androidManagedStoreAppConfigurationSchemaItem');
     }
 
     /**
@@ -94,7 +100,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
     }
 
     /**
-     * Gets the dataType property value. The type of value this item describes. Possible values are: bool, integer, string, choice, multiselect, bundle, bundleArray, hidden.
+     * Gets the dataType property value. Data type for a configuration item inside an Android application's custom configuration schema
      * @return AndroidManagedStoreAppConfigurationSchemaItemDataType|null
     */
     public function getDataType(): ?AndroidManagedStoreAppConfigurationSchemaItemDataType {
@@ -164,6 +170,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'index' => function (ParseNode $n) use ($o) { $o->setIndex($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'parentIndex' => function (ParseNode $n) use ($o) { $o->setParentIndex($n->getIntegerValue()); },
             'schemaItemKey' => function (ParseNode $n) use ($o) { $o->setSchemaItemKey($n->getStringValue()); },
             'selections' => function (ParseNode $n) use ($o) { $o->setSelections($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
@@ -176,6 +183,14 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
     */
     public function getIndex(): ?int {
         return $this->index;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -215,6 +230,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeIntegerValue('index', $this->index);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('parentIndex', $this->parentIndex);
         $writer->writeStringValue('schemaItemKey', $this->schemaItemKey);
         $writer->writeCollectionOfObjectValues('selections', $this->selections);
@@ -230,7 +246,7 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
     }
 
     /**
-     * Sets the dataType property value. The type of value this item describes. Possible values are: bool, integer, string, choice, multiselect, bundle, bundleArray, hidden.
+     * Sets the dataType property value. Data type for a configuration item inside an Android application's custom configuration schema
      *  @param AndroidManagedStoreAppConfigurationSchemaItemDataType|null $value Value to set for the dataType property.
     */
     public function setDataType(?AndroidManagedStoreAppConfigurationSchemaItemDataType $value ): void {
@@ -291,6 +307,14 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
     */
     public function setIndex(?int $value ): void {
         $this->index = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

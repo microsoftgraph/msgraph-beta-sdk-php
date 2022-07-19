@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkConfiguredPeripheral implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, Parsable
      * @var bool|null $isOptional True if the current peripheral is optional. If set to false, this property is also used as part of the calculation of the health state for the device.
     */
     private ?bool $isOptional = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var TeamworkPeripheral|null $peripheral The peripheral property
@@ -28,7 +33,8 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkConfiguredPeripheral and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkConfiguredPeripheral');
     }
 
     /**
@@ -56,6 +62,7 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'isOptional' => function (ParseNode $n) use ($o) { $o->setIsOptional($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'peripheral' => function (ParseNode $n) use ($o) { $o->setPeripheral($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -66,6 +73,14 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, Parsable
     */
     public function getIsOptional(): ?bool {
         return $this->isOptional;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isOptional', $this->isOptional);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('peripheral', $this->peripheral);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, Parsable
     */
     public function setIsOptional(?bool $value ): void {
         $this->isOptional = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

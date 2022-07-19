@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuditActor implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -28,6 +28,11 @@ class AuditActor implements AdditionalDataHolder, Parsable
      * @var string|null $ipAddress IPAddress.
     */
     private ?string $ipAddress = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $remoteTenantId Remote Tenant Id
@@ -73,7 +78,8 @@ class AuditActor implements AdditionalDataHolder, Parsable
      * Instantiates a new auditActor and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.auditActor');
     }
 
     /**
@@ -119,6 +125,7 @@ class AuditActor implements AdditionalDataHolder, Parsable
             'applicationDisplayName' => function (ParseNode $n) use ($o) { $o->setApplicationDisplayName($n->getStringValue()); },
             'applicationId' => function (ParseNode $n) use ($o) { $o->setApplicationId($n->getStringValue()); },
             'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'remoteTenantId' => function (ParseNode $n) use ($o) { $o->setRemoteTenantId($n->getStringValue()); },
             'remoteUserId' => function (ParseNode $n) use ($o) { $o->setRemoteUserId($n->getStringValue()); },
             'servicePrincipalName' => function (ParseNode $n) use ($o) { $o->setServicePrincipalName($n->getStringValue()); },
@@ -136,6 +143,14 @@ class AuditActor implements AdditionalDataHolder, Parsable
     */
     public function getIpAddress(): ?string {
         return $this->ipAddress;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -210,6 +225,7 @@ class AuditActor implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('applicationDisplayName', $this->applicationDisplayName);
         $writer->writeStringValue('applicationId', $this->applicationId);
         $writer->writeStringValue('ipAddress', $this->ipAddress);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('remoteTenantId', $this->remoteTenantId);
         $writer->writeStringValue('remoteUserId', $this->remoteUserId);
         $writer->writeStringValue('servicePrincipalName', $this->servicePrincipalName);
@@ -251,6 +267,14 @@ class AuditActor implements AdditionalDataHolder, Parsable
     */
     public function setIpAddress(?string $value ): void {
         $this->ipAddress = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

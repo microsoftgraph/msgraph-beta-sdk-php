@@ -38,6 +38,7 @@ class AndroidForWorkApp extends MobileApp implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidForWorkApp');
     }
 
     /**

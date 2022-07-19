@@ -20,7 +20,7 @@ class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity implements Par
     private ?array $deviceIdentities = null;
     
     /**
-     * @var ImportedWindowsAutopilotDeviceIdentityUploadStatus|null $status Upload status.
+     * @var ImportedWindowsAutopilotDeviceIdentityUploadStatus|null $status The status property
     */
     private ?ImportedWindowsAutopilotDeviceIdentityUploadStatus $status = null;
     
@@ -29,6 +29,7 @@ class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.importedWindowsAutopilotDeviceIdentityUpload');
     }
 
     /**
@@ -70,7 +71,7 @@ class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity implements Par
     }
 
     /**
-     * Gets the status property value. Upload status.
+     * Gets the status property value. The status property
      * @return ImportedWindowsAutopilotDeviceIdentityUploadStatus|null
     */
     public function getStatus(): ?ImportedWindowsAutopilotDeviceIdentityUploadStatus {
@@ -105,7 +106,7 @@ class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity implements Par
     }
 
     /**
-     * Sets the status property value. Upload status.
+     * Sets the status property value. The status property
      *  @param ImportedWindowsAutopilotDeviceIdentityUploadStatus|null $value Value to set for the status property.
     */
     public function setStatus(?ImportedWindowsAutopilotDeviceIdentityUploadStatus $value ): void {

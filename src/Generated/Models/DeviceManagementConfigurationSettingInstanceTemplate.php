@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSettingInstanceTemplate implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
      * @var bool|null $isRequired Indicates if a policy must specify this setting.
     */
     private ?bool $isRequired = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $settingDefinitionId Setting Definition Id
@@ -33,7 +38,8 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
      * Instantiates a new deviceManagementConfigurationSettingInstanceTemplate and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationSettingInstanceTemplate');
     }
 
     /**
@@ -73,6 +79,7 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
         $o = $this;
         return  [
             'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'settingDefinitionId' => function (ParseNode $n) use ($o) { $o->setSettingDefinitionId($n->getStringValue()); },
             'settingInstanceTemplateId' => function (ParseNode $n) use ($o) { $o->setSettingInstanceTemplateId($n->getStringValue()); },
         ];
@@ -84,6 +91,14 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
     */
     public function getIsRequired(): ?bool {
         return $this->isRequired;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -108,6 +123,7 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isRequired', $this->isRequired);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('settingDefinitionId', $this->settingDefinitionId);
         $writer->writeStringValue('settingInstanceTemplateId', $this->settingInstanceTemplateId);
         $writer->writeAdditionalData($this->additionalData);
@@ -127,6 +143,14 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
     */
     public function setIsRequired(?bool $value ): void {
         $this->isRequired = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

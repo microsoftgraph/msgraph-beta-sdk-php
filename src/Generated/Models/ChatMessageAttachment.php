@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ChatMessageAttachment implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -40,6 +40,11 @@ class ChatMessageAttachment implements AdditionalDataHolder, Parsable
     private ?string $name = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $teamsAppId The ID of the Teams app that is associated with the attachment. The property is specifically used to attribute a Teams message card to the specified app.
     */
     private ?string $teamsAppId = null;
@@ -53,7 +58,8 @@ class ChatMessageAttachment implements AdditionalDataHolder, Parsable
      * Instantiates a new chatMessageAttachment and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.chatMessageAttachment');
     }
 
     /**
@@ -109,6 +115,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, Parsable
             'contentUrl' => function (ParseNode $n) use ($o) { $o->setContentUrl($n->getStringValue()); },
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'teamsAppId' => function (ParseNode $n) use ($o) { $o->setTeamsAppId($n->getStringValue()); },
             'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
         ];
@@ -128,6 +135,14 @@ class ChatMessageAttachment implements AdditionalDataHolder, Parsable
     */
     public function getName(): ?string {
         return $this->name;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -156,6 +171,7 @@ class ChatMessageAttachment implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('contentUrl', $this->contentUrl);
         $writer->writeStringValue('id', $this->id);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('teamsAppId', $this->teamsAppId);
         $writer->writeStringValue('thumbnailUrl', $this->thumbnailUrl);
         $writer->writeAdditionalData($this->additionalData);
@@ -207,6 +223,14 @@ class ChatMessageAttachment implements AdditionalDataHolder, Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

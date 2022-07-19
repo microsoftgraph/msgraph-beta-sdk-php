@@ -15,7 +15,7 @@ class RequestorSettings implements AdditionalDataHolder, Parsable
     private ?bool $acceptRequests = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class RequestorSettings implements AdditionalDataHolder, Parsable
      * @var array<UserSet>|null $allowedRequestors The users who are allowed to request on this policy, which can be singleUser, groupMembers, and connectedOrganizationMembers.
     */
     private ?array $allowedRequestors = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $scopeType Who can request. One of NoSubjects, SpecificDirectorySubjects, SpecificConnectedOrganizationSubjects, AllConfiguredConnectedOrganizationSubjects, AllExistingConnectedOrganizationSubjects, AllExistingDirectoryMemberUsers, AllExistingDirectorySubjects or AllExternalSubjects.
@@ -33,7 +38,8 @@ class RequestorSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new requestorSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.requestorSettings');
     }
 
     /**
@@ -78,8 +84,17 @@ class RequestorSettings implements AdditionalDataHolder, Parsable
         return  [
             'acceptRequests' => function (ParseNode $n) use ($o) { $o->setAcceptRequests($n->getBooleanValue()); },
             'allowedRequestors' => function (ParseNode $n) use ($o) { $o->setAllowedRequestors($n->getCollectionOfObjectValues(array(UserSet::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'scopeType' => function (ParseNode $n) use ($o) { $o->setScopeType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class RequestorSettings implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('acceptRequests', $this->acceptRequests);
         $writer->writeCollectionOfObjectValues('allowedRequestors', $this->allowedRequestors);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('scopeType', $this->scopeType);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class RequestorSettings implements AdditionalDataHolder, Parsable
     */
     public function setAllowedRequestors(?array $value ): void {
         $this->allowedRequestors = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

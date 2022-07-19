@@ -28,6 +28,7 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.x509CertificateAuthenticationMethodConfiguration');
     }
 
     /**

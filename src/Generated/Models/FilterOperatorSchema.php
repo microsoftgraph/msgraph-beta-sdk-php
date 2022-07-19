@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FilterOperatorSchema extends Entity implements Parsable 
 {
     /**
-     * @var ScopeOperatorType|null $arity Arity of the operator. Possible values are: Binary, Unary. The default is Binary.
+     * @var ScopeOperatorType|null $arity The arity property
     */
     private ?ScopeOperatorType $arity = null;
     
     /**
-     * @var ScopeOperatorMultiValuedComparisonType|null $multivaluedComparisonType Possible values are: All, Any. Applies only to multivalued attributes. All means that all values must satisfy the condition. Any means that at least one value has to satisfy the condition. The default is All.
+     * @var ScopeOperatorMultiValuedComparisonType|null $multivaluedComparisonType The multivaluedComparisonType property
     */
     private ?ScopeOperatorMultiValuedComparisonType $multivaluedComparisonType = null;
     
@@ -24,10 +24,11 @@ class FilterOperatorSchema extends Entity implements Parsable
     private ?array $supportedAttributeTypes = null;
     
     /**
-     * Instantiates a new FilterOperatorSchema and sets the default values.
+     * Instantiates a new filterOperatorSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.filterOperatorSchema');
     }
 
     /**
@@ -40,7 +41,7 @@ class FilterOperatorSchema extends Entity implements Parsable
     }
 
     /**
-     * Gets the arity property value. Arity of the operator. Possible values are: Binary, Unary. The default is Binary.
+     * Gets the arity property value. The arity property
      * @return ScopeOperatorType|null
     */
     public function getArity(): ?ScopeOperatorType {
@@ -61,7 +62,7 @@ class FilterOperatorSchema extends Entity implements Parsable
     }
 
     /**
-     * Gets the multivaluedComparisonType property value. Possible values are: All, Any. Applies only to multivalued attributes. All means that all values must satisfy the condition. Any means that at least one value has to satisfy the condition. The default is All.
+     * Gets the multivaluedComparisonType property value. The multivaluedComparisonType property
      * @return ScopeOperatorMultiValuedComparisonType|null
     */
     public function getMultivaluedComparisonType(): ?ScopeOperatorMultiValuedComparisonType {
@@ -88,7 +89,7 @@ class FilterOperatorSchema extends Entity implements Parsable
     }
 
     /**
-     * Sets the arity property value. Arity of the operator. Possible values are: Binary, Unary. The default is Binary.
+     * Sets the arity property value. The arity property
      *  @param ScopeOperatorType|null $value Value to set for the arity property.
     */
     public function setArity(?ScopeOperatorType $value ): void {
@@ -96,7 +97,7 @@ class FilterOperatorSchema extends Entity implements Parsable
     }
 
     /**
-     * Sets the multivaluedComparisonType property value. Possible values are: All, Any. Applies only to multivalued attributes. All means that all values must satisfy the condition. Any means that at least one value has to satisfy the condition. The default is All.
+     * Sets the multivaluedComparisonType property value. The multivaluedComparisonType property
      *  @param ScopeOperatorMultiValuedComparisonType|null $value Value to set for the multivaluedComparisonType property.
     */
     public function setMultivaluedComparisonType(?ScopeOperatorMultiValuedComparisonType $value ): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable
      * @var bool|null $isCaptionEnabled Indicates whether caption is enabled for this Teams live event.
     */
     private ?bool $isCaptionEnabled = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $spokenLanguage The spoken language.
@@ -33,7 +38,8 @@ class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new broadcastMeetingCaptionSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.broadcastMeetingCaptionSettings');
     }
 
     /**
@@ -61,6 +67,7 @@ class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'isCaptionEnabled' => function (ParseNode $n) use ($o) { $o->setIsCaptionEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'spokenLanguage' => function (ParseNode $n) use ($o) { $o->setSpokenLanguage($n->getStringValue()); },
             'translationLanguages' => function (ParseNode $n) use ($o) { $o->setTranslationLanguages($n->getCollectionOfPrimitiveValues()); },
         ];
@@ -72,6 +79,14 @@ class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable
     */
     public function getIsCaptionEnabled(): ?bool {
         return $this->isCaptionEnabled;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -96,6 +111,7 @@ class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isCaptionEnabled', $this->isCaptionEnabled);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('spokenLanguage', $this->spokenLanguage);
         $writer->writeCollectionOfPrimitiveValues('translationLanguages', $this->translationLanguages);
         $writer->writeAdditionalData($this->additionalData);
@@ -115,6 +131,14 @@ class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable
     */
     public function setIsCaptionEnabled(?bool $value ): void {
         $this->isCaptionEnabled = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

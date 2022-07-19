@@ -24,10 +24,11 @@ class DelegatedPermissionClassification extends Entity implements Parsable
     private ?string $permissionName = null;
     
     /**
-     * Instantiates a new DelegatedPermissionClassification and sets the default values.
+     * Instantiates a new delegatedPermissionClassification and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.delegatedPermissionClassification');
     }
 
     /**

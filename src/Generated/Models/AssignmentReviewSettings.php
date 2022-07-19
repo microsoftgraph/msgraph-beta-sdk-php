@@ -16,7 +16,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, Parsable
     private ?AccessReviewTimeoutBehavior $accessReviewTimeoutBehavior = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -39,6 +39,11 @@ class AssignmentReviewSettings implements AdditionalDataHolder, Parsable
      * @var bool|null $isEnabled If true, access reviews are required for assignments from this policy.
     */
     private ?bool $isEnabled = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $recurrenceType The interval for recurrence, such as monthly or quarterly.
@@ -64,7 +69,8 @@ class AssignmentReviewSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new assignmentReviewSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.assignmentReviewSettings');
     }
 
     /**
@@ -112,6 +118,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, Parsable
             'isAccessRecommendationEnabled' => function (ParseNode $n) use ($o) { $o->setIsAccessRecommendationEnabled($n->getBooleanValue()); },
             'isApprovalJustificationRequired' => function (ParseNode $n) use ($o) { $o->setIsApprovalJustificationRequired($n->getBooleanValue()); },
             'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recurrenceType' => function (ParseNode $n) use ($o) { $o->setRecurrenceType($n->getStringValue()); },
             'reviewers' => function (ParseNode $n) use ($o) { $o->setReviewers($n->getCollectionOfObjectValues(array(UserSet::class, 'createFromDiscriminatorValue'))); },
             'reviewerType' => function (ParseNode $n) use ($o) { $o->setReviewerType($n->getStringValue()); },
@@ -141,6 +148,14 @@ class AssignmentReviewSettings implements AdditionalDataHolder, Parsable
     */
     public function getIsEnabled(): ?bool {
         return $this->isEnabled;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -185,6 +200,7 @@ class AssignmentReviewSettings implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('isAccessRecommendationEnabled', $this->isAccessRecommendationEnabled);
         $writer->writeBooleanValue('isApprovalJustificationRequired', $this->isApprovalJustificationRequired);
         $writer->writeBooleanValue('isEnabled', $this->isEnabled);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('recurrenceType', $this->recurrenceType);
         $writer->writeCollectionOfObjectValues('reviewers', $this->reviewers);
         $writer->writeStringValue('reviewerType', $this->reviewerType);
@@ -238,6 +254,14 @@ class AssignmentReviewSettings implements AdditionalDataHolder, Parsable
     */
     public function setIsEnabled(?bool $value ): void {
         $this->isEnabled = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

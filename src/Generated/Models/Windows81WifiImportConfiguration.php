@@ -29,6 +29,7 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows81WifiImportConfiguration');
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantContactInformation implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class TenantContactInformation implements AdditionalDataHolder, Parsable
     private ?string $notes = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $phone The phone number for the contact. Optional.
     */
     private ?string $phone = null;
@@ -43,7 +48,8 @@ class TenantContactInformation implements AdditionalDataHolder, Parsable
      * Instantiates a new tenantContactInformation and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedTenants.tenantContactInformation');
     }
 
     /**
@@ -81,6 +87,7 @@ class TenantContactInformation implements AdditionalDataHolder, Parsable
             'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
             'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'phone' => function (ParseNode $n) use ($o) { $o->setPhone($n->getStringValue()); },
             'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
         ];
@@ -100,6 +107,14 @@ class TenantContactInformation implements AdditionalDataHolder, Parsable
     */
     public function getNotes(): ?string {
         return $this->notes;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -126,6 +141,7 @@ class TenantContactInformation implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('email', $this->email);
         $writer->writeStringValue('name', $this->name);
         $writer->writeStringValue('notes', $this->notes);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('phone', $this->phone);
         $writer->writeStringValue('title', $this->title);
         $writer->writeAdditionalData($this->additionalData);
@@ -161,6 +177,14 @@ class TenantContactInformation implements AdditionalDataHolder, Parsable
     */
     public function setNotes(?string $value ): void {
         $this->notes = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

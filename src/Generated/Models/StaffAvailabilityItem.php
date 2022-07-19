@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StaffAvailabilityItem implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class StaffAvailabilityItem implements AdditionalDataHolder, Parsable
      * @var array<AvailabilityItem>|null $availabilityItems Each item in this collection indicates a slot and the status of the staff member.
     */
     private ?array $availabilityItems = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $staffId The ID of the staff member.
@@ -28,7 +33,8 @@ class StaffAvailabilityItem implements AdditionalDataHolder, Parsable
      * Instantiates a new staffAvailabilityItem and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.staffAvailabilityItem');
     }
 
     /**
@@ -64,8 +70,17 @@ class StaffAvailabilityItem implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'availabilityItems' => function (ParseNode $n) use ($o) { $o->setAvailabilityItems($n->getCollectionOfObjectValues(array(AvailabilityItem::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'staffId' => function (ParseNode $n) use ($o) { $o->setStaffId($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class StaffAvailabilityItem implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('availabilityItems', $this->availabilityItems);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('staffId', $this->staffId);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class StaffAvailabilityItem implements AdditionalDataHolder, Parsable
     */
     public function setAvailabilityItems(?array $value ): void {
         $this->availabilityItems = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

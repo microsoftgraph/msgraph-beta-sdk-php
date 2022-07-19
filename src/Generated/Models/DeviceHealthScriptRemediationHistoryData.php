@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,6 +26,11 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
     private ?int $noIssueDeviceCount = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $remediatedDeviceCount The number of devices remediated by the device health script.
     */
     private ?int $remediatedDeviceCount = null;
@@ -34,7 +39,8 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
      * Instantiates a new deviceHealthScriptRemediationHistoryData and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceHealthScriptRemediationHistoryData');
     }
 
     /**
@@ -71,6 +77,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
         return  [
             'date' => function (ParseNode $n) use ($o) { $o->setDate($n->getDateValue()); },
             'noIssueDeviceCount' => function (ParseNode $n) use ($o) { $o->setNoIssueDeviceCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'remediatedDeviceCount' => function (ParseNode $n) use ($o) { $o->setRemediatedDeviceCount($n->getIntegerValue()); },
         ];
     }
@@ -81,6 +88,14 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
     */
     public function getNoIssueDeviceCount(): ?int {
         return $this->noIssueDeviceCount;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateValue('date', $this->date);
         $writer->writeIntegerValue('noIssueDeviceCount', $this->noIssueDeviceCount);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('remediatedDeviceCount', $this->remediatedDeviceCount);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -124,6 +140,14 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
     */
     public function setNoIssueDeviceCount(?int $value ): void {
         $this->noIssueDeviceCount = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

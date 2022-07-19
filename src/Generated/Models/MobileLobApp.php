@@ -33,6 +33,7 @@ class MobileLobApp extends MobileApp implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mobileLobApp');
     }
 
     /**
@@ -53,6 +54,7 @@ class MobileLobApp extends MobileApp implements Parsable
                 case '#microsoft.graph.windowsAppX': return new WindowsAppX();
                 case '#microsoft.graph.windowsMobileMSI': return new WindowsMobileMSI();
                 case '#microsoft.graph.windowsPhone81AppX': return new WindowsPhone81AppX();
+                case '#microsoft.graph.windowsPhone81AppXBundle': return new WindowsPhone81AppXBundle();
                 case '#microsoft.graph.windowsPhoneXAP': return new WindowsPhoneXAP();
                 case '#microsoft.graph.windowsUniversalAppX': return new WindowsUniversalAppX();
             }

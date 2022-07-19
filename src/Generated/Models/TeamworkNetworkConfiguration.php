@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkNetworkConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -45,6 +45,11 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, Parsable
     private ?bool $isPCPortEnabled = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $primaryDns A primary DNS is the first point of contact for a device that translates the hostname into an IP address.
     */
     private ?string $primaryDns = null;
@@ -63,7 +68,8 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkNetworkConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkNetworkConfiguration');
     }
 
     /**
@@ -112,6 +118,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, Parsable
             'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
             'isDhcpEnabled' => function (ParseNode $n) use ($o) { $o->setIsDhcpEnabled($n->getBooleanValue()); },
             'isPCPortEnabled' => function (ParseNode $n) use ($o) { $o->setIsPCPortEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'primaryDns' => function (ParseNode $n) use ($o) { $o->setPrimaryDns($n->getStringValue()); },
             'secondaryDns' => function (ParseNode $n) use ($o) { $o->setSecondaryDns($n->getStringValue()); },
             'subnetMask' => function (ParseNode $n) use ($o) { $o->setSubnetMask($n->getStringValue()); },
@@ -151,6 +158,14 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the primaryDns property value. A primary DNS is the first point of contact for a device that translates the hostname into an IP address.
      * @return string|null
     */
@@ -185,6 +200,7 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('ipAddress', $this->ipAddress);
         $writer->writeBooleanValue('isDhcpEnabled', $this->isDhcpEnabled);
         $writer->writeBooleanValue('isPCPortEnabled', $this->isPCPortEnabled);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('primaryDns', $this->primaryDns);
         $writer->writeStringValue('secondaryDns', $this->secondaryDns);
         $writer->writeStringValue('subnetMask', $this->subnetMask);
@@ -245,6 +261,14 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, Parsable
     */
     public function setIsPCPortEnabled(?bool $value ): void {
         $this->isPCPortEnabled = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

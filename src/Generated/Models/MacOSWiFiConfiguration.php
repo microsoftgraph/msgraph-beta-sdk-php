@@ -44,7 +44,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     private ?int $proxyManualPort = null;
     
     /**
-     * @var WiFiProxySetting|null $proxySettings Proxy Type for this Wi-Fi connection. Possible values are: none, manual, automatic.
+     * @var WiFiProxySetting|null $proxySettings Wi-Fi Proxy Settings.
     */
     private ?WiFiProxySetting $proxySettings = null;
     
@@ -54,7 +54,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     private ?string $ssid = null;
     
     /**
-     * @var WiFiSecurityType|null $wiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
+     * @var WiFiSecurityType|null $wiFiSecurityType Wi-Fi Security Types.
     */
     private ?WiFiSecurityType $wiFiSecurityType = null;
     
@@ -63,6 +63,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOSWiFiConfiguration');
     }
 
     /**
@@ -158,7 +159,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the proxySettings property value. Proxy Type for this Wi-Fi connection. Possible values are: none, manual, automatic.
+     * Gets the proxySettings property value. Wi-Fi Proxy Settings.
      * @return WiFiProxySetting|null
     */
     public function getProxySettings(): ?WiFiProxySetting {
@@ -174,7 +175,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the wiFiSecurityType property value. Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
+     * Gets the wiFiSecurityType property value. Wi-Fi Security Types.
      * @return WiFiSecurityType|null
     */
     public function getWiFiSecurityType(): ?WiFiSecurityType {
@@ -256,7 +257,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the proxySettings property value. Proxy Type for this Wi-Fi connection. Possible values are: none, manual, automatic.
+     * Sets the proxySettings property value. Wi-Fi Proxy Settings.
      *  @param WiFiProxySetting|null $value Value to set for the proxySettings property.
     */
     public function setProxySettings(?WiFiProxySetting $value ): void {
@@ -272,7 +273,7 @@ class MacOSWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the wiFiSecurityType property value. Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
+     * Sets the wiFiSecurityType property value. Wi-Fi Security Types.
      *  @param WiFiSecurityType|null $value Value to set for the wiFiSecurityType property.
     */
     public function setWiFiSecurityType(?WiFiSecurityType $value ): void {

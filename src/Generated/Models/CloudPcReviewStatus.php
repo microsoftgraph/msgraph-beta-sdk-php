@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcReviewStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -29,6 +29,11 @@ class CloudPcReviewStatus implements AdditionalDataHolder, Parsable
      * @var bool|null $inReview True if the Cloud PC is set to in review by the administrator.
     */
     private ?bool $inReview = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var DateTime|null $restorePointDateTime The specific date and time of the Cloud PC snapshot that was taken and saved automatically, when the Cloud PC is set to in review. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
@@ -51,15 +56,16 @@ class CloudPcReviewStatus implements AdditionalDataHolder, Parsable
     private ?string $subscriptionName = null;
     
     /**
-     * @var CloudPcUserAccessLevel|null $userAccessLevel The access level of the end user on the Cloud PC. Possible values are: unrestricted, restricted.
+     * @var CloudPcUserAccessLevel|null $userAccessLevel The userAccessLevel property
     */
     private ?CloudPcUserAccessLevel $userAccessLevel = null;
     
     /**
-     * Instantiates a new CloudPcReviewStatus and sets the default values.
+     * Instantiates a new cloudPcReviewStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.cloudPcReviewStatus');
     }
 
     /**
@@ -105,6 +111,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, Parsable
             'azureStorageAccountId' => function (ParseNode $n) use ($o) { $o->setAzureStorageAccountId($n->getStringValue()); },
             'azureStorageAccountName' => function (ParseNode $n) use ($o) { $o->setAzureStorageAccountName($n->getStringValue()); },
             'inReview' => function (ParseNode $n) use ($o) { $o->setInReview($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'restorePointDateTime' => function (ParseNode $n) use ($o) { $o->setRestorePointDateTime($n->getDateTimeValue()); },
             'reviewStartDateTime' => function (ParseNode $n) use ($o) { $o->setReviewStartDateTime($n->getDateTimeValue()); },
             'subscriptionId' => function (ParseNode $n) use ($o) { $o->setSubscriptionId($n->getStringValue()); },
@@ -119,6 +126,14 @@ class CloudPcReviewStatus implements AdditionalDataHolder, Parsable
     */
     public function getInReview(): ?bool {
         return $this->inReview;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -154,7 +169,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the userAccessLevel property value. The access level of the end user on the Cloud PC. Possible values are: unrestricted, restricted.
+     * Gets the userAccessLevel property value. The userAccessLevel property
      * @return CloudPcUserAccessLevel|null
     */
     public function getUserAccessLevel(): ?CloudPcUserAccessLevel {
@@ -169,6 +184,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('azureStorageAccountId', $this->azureStorageAccountId);
         $writer->writeStringValue('azureStorageAccountName', $this->azureStorageAccountName);
         $writer->writeBooleanValue('inReview', $this->inReview);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('restorePointDateTime', $this->restorePointDateTime);
         $writer->writeDateTimeValue('reviewStartDateTime', $this->reviewStartDateTime);
         $writer->writeStringValue('subscriptionId', $this->subscriptionId);
@@ -210,6 +226,14 @@ class CloudPcReviewStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the restorePointDateTime property value. The specific date and time of the Cloud PC snapshot that was taken and saved automatically, when the Cloud PC is set to in review. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the restorePointDateTime property.
     */
@@ -242,7 +266,7 @@ class CloudPcReviewStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the userAccessLevel property value. The access level of the end user on the Cloud PC. Possible values are: unrestricted, restricted.
+     * Sets the userAccessLevel property value. The userAccessLevel property
      *  @param CloudPcUserAccessLevel|null $value Value to set for the userAccessLevel property.
     */
     public function setUserAccessLevel(?CloudPcUserAccessLevel $value ): void {

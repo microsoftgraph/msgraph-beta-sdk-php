@@ -28,6 +28,7 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppPowerShellScriptDetection');
     }
 
     /**

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureADDeviceRegistrationError extends UpdatableAssetError implements Parsable 
 {
     /**
-     * @var AzureADDeviceRegistrationErrorReason|null $reason The reason why the registration encountered an error. Possible values are: invalidGlobalDeviceId, invalidAzureADDeviceId, missingTrustType, invalidAzureADJoin, unknownFutureValue.
+     * @var AzureADDeviceRegistrationErrorReason|null $reason The reason property
     */
     private ?AzureADDeviceRegistrationErrorReason $reason = null;
     
@@ -18,6 +18,7 @@ class AzureADDeviceRegistrationError extends UpdatableAssetError implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdates.azureADDeviceRegistrationError');
     }
 
     /**
@@ -41,7 +42,7 @@ class AzureADDeviceRegistrationError extends UpdatableAssetError implements Pars
     }
 
     /**
-     * Gets the reason property value. The reason why the registration encountered an error. Possible values are: invalidGlobalDeviceId, invalidAzureADDeviceId, missingTrustType, invalidAzureADJoin, unknownFutureValue.
+     * Gets the reason property value. The reason property
      * @return AzureADDeviceRegistrationErrorReason|null
     */
     public function getReason(): ?AzureADDeviceRegistrationErrorReason {
@@ -58,7 +59,7 @@ class AzureADDeviceRegistrationError extends UpdatableAssetError implements Pars
     }
 
     /**
-     * Sets the reason property value. The reason why the registration encountered an error. Possible values are: invalidGlobalDeviceId, invalidAzureADDeviceId, missingTrustType, invalidAzureADJoin, unknownFutureValue.
+     * Sets the reason property value. The reason property
      *  @param AzureADDeviceRegistrationErrorReason|null $value Value to set for the reason property.
     */
     public function setReason(?AzureADDeviceRegistrationErrorReason $value ): void {

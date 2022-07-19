@@ -70,7 +70,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * @var EnrollmentAvailabilityOptions|null $enrollmentAvailability Customized device enrollment flow displayed to the end user . Possible values are: availableWithPrompts, availableWithoutPrompts, unavailable.
+     * @var EnrollmentAvailabilityOptions|null $enrollmentAvailability Options available for enrollment flow customization
     */
     private ?EnrollmentAvailabilityOptions $enrollmentAvailability = null;
     
@@ -170,10 +170,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
     private ?MimeContent $themeColorLogo = null;
     
     /**
-     * Instantiates a new IntuneBrandingProfile and sets the default values.
+     * Instantiates a new intuneBrandingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.intuneBrandingProfile');
     }
 
     /**
@@ -282,7 +283,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentAvailability property value. Customized device enrollment flow displayed to the end user . Possible values are: availableWithPrompts, availableWithoutPrompts, unavailable.
+     * Gets the enrollmentAvailability property value. Options available for enrollment flow customization
      * @return EnrollmentAvailabilityOptions|null
     */
     public function getEnrollmentAvailability(): ?EnrollmentAvailabilityOptions {
@@ -620,7 +621,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentAvailability property value. Customized device enrollment flow displayed to the end user . Possible values are: availableWithPrompts, availableWithoutPrompts, unavailable.
+     * Sets the enrollmentAvailability property value. Options available for enrollment flow customization
      *  @param EnrollmentAvailabilityOptions|null $value Value to set for the enrollmentAvailability property.
     */
     public function setEnrollmentAvailability(?EnrollmentAvailabilityOptions $value ): void {

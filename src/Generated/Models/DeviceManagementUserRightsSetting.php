@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementUserRightsSetting implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,7 +20,12 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, Parsabl
     private ?array $localUsersOrGroups = null;
     
     /**
-     * @var StateManagementSetting|null $state Representing the current state of this user rights setting. Possible values are: notConfigured, blocked, allowed.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var StateManagementSetting|null $state State Management Setting.
     */
     private ?StateManagementSetting $state = null;
     
@@ -28,7 +33,8 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, Parsabl
      * Instantiates a new deviceManagementUserRightsSetting and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementUserRightsSetting');
     }
 
     /**
@@ -56,6 +62,7 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, Parsabl
         $o = $this;
         return  [
             'localUsersOrGroups' => function (ParseNode $n) use ($o) { $o->setLocalUsersOrGroups($n->getCollectionOfObjectValues(array(DeviceManagementUserRightsLocalUserOrGroup::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(StateManagementSetting::class)); },
         ];
     }
@@ -69,7 +76,15 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the state property value. Representing the current state of this user rights setting. Possible values are: notConfigured, blocked, allowed.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the state property value. State Management Setting.
      * @return StateManagementSetting|null
     */
     public function getState(): ?StateManagementSetting {
@@ -82,6 +97,7 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('localUsersOrGroups', $this->localUsersOrGroups);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -103,7 +119,15 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the state property value. Representing the current state of this user rights setting. Possible values are: notConfigured, blocked, allowed.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the state property value. State Management Setting.
      *  @param StateManagementSetting|null $value Value to set for the state property.
     */
     public function setState(?StateManagementSetting $value ): void {

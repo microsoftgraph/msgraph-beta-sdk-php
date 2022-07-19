@@ -13,6 +13,7 @@ class IosSingleSignOnExtension extends SingleSignOnExtension implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosSingleSignOnExtension');
     }
 
     /**

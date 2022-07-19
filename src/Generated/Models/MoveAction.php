@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MoveAction implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class MoveAction implements AdditionalDataHolder, Parsable
      * @var string|null $from The name of the location the item was moved from.
     */
     private ?string $from = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $to The name of the location the item was moved to.
@@ -28,7 +33,8 @@ class MoveAction implements AdditionalDataHolder, Parsable
      * Instantiates a new moveAction and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.moveAction');
     }
 
     /**
@@ -56,6 +62,7 @@ class MoveAction implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'from' => function (ParseNode $n) use ($o) { $o->setFrom($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'to' => function (ParseNode $n) use ($o) { $o->setTo($n->getStringValue()); },
         ];
     }
@@ -66,6 +73,14 @@ class MoveAction implements AdditionalDataHolder, Parsable
     */
     public function getFrom(): ?string {
         return $this->from;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class MoveAction implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('from', $this->from);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('to', $this->to);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class MoveAction implements AdditionalDataHolder, Parsable
     */
     public function setFrom(?string $value ): void {
         $this->from = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

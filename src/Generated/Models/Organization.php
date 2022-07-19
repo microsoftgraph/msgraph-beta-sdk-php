@@ -80,7 +80,7 @@ class Organization extends DirectoryObject implements Parsable
     private ?array $marketingNotificationEmails = null;
     
     /**
-     * @var MdmAuthority|null $mobileDeviceManagementAuthority Mobile device management authority. Possible values are: unknown, intune, sccm, office365.
+     * @var MdmAuthority|null $mobileDeviceManagementAuthority Mobile device management authority.
     */
     private ?MdmAuthority $mobileDeviceManagementAuthority = null;
     
@@ -154,6 +154,7 @@ class Organization extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.organization');
     }
 
     /**
@@ -316,7 +317,7 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mobileDeviceManagementAuthority property value. Mobile device management authority. Possible values are: unknown, intune, sccm, office365.
+     * Gets the mobileDeviceManagementAuthority property value. Mobile device management authority.
      * @return MdmAuthority|null
     */
     public function getMobileDeviceManagementAuthority(): ?MdmAuthority {
@@ -576,7 +577,7 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mobileDeviceManagementAuthority property value. Mobile device management authority. Possible values are: unknown, intune, sccm, office365.
+     * Sets the mobileDeviceManagementAuthority property value. Mobile device management authority.
      *  @param MdmAuthority|null $value Value to set for the mobileDeviceManagementAuthority property.
     */
     public function setMobileDeviceManagementAuthority(?MdmAuthority $value ): void {

@@ -39,6 +39,7 @@ class ExactMatchJobBase extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.exactMatchJobBase');
     }
 
     /**
@@ -52,6 +53,7 @@ class ExactMatchJobBase extends Entity implements Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.exactMatchLookupJob': return new ExactMatchLookupJob();
+                case '#microsoft.graph.exactMatchSession': return new ExactMatchSession();
                 case '#microsoft.graph.exactMatchSessionBase': return new ExactMatchSessionBase();
             }
         }

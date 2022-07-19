@@ -18,6 +18,7 @@ class ProvisioningSystem extends Identity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.provisioningSystem');
     }
 
     /**

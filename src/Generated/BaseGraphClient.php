@@ -77,6 +77,7 @@ use Microsoft\Graph\Beta\Generated\Drive\DriveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\DrivesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Drives\Item\DriveItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Education\EducationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EmployeeExperience\EmployeeExperienceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\PrintRequestBuilder;
 use Microsoft\Graph\Beta\Generated\External\ExternalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\FilterOperators\FilterOperatorsRequestBuilder;
@@ -185,6 +186,7 @@ use Microsoft\Graph\Beta\Generated\TeamsTemplates\TeamsTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\TenantRelationshipsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TermStore\TermStoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\ThreatSubmission\ThreatSubmissionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TrustFramework\TrustFrameworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\UserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\UsersRequestBuilder;
@@ -512,6 +514,13 @@ class BaseGraphClient
     */
     public function education(): EducationRequestBuilder {
         return new EducationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The employeeExperience property
+    */
+    public function employeeExperience(): EmployeeExperienceRequestBuilder {
+        return new EmployeeExperienceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -970,6 +979,13 @@ class BaseGraphClient
     */
     public function termStore(): TermStoreRequestBuilder {
         return new TermStoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The threatSubmission property
+    */
+    public function threatSubmission(): ThreatSubmissionRequestBuilder {
+        return new ThreatSubmissionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

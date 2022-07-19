@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -28,6 +28,11 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * @var TeamworkSoftwareUpdateStatus|null $firmwareSoftwareUpdateStatus The software update available for the firmware.
     */
     private ?TeamworkSoftwareUpdateStatus $firmwareSoftwareUpdateStatus = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var TeamworkSoftwareUpdateStatus|null $operatingSystemSoftwareUpdateStatus The software update available for the operating system.
@@ -48,7 +53,8 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkSoftwareUpdateHealth and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkSoftwareUpdateHealth');
     }
 
     /**
@@ -94,6 +100,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
             'adminAgentSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setAdminAgentSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
             'companyPortalSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setCompanyPortalSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
             'firmwareSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setFirmwareSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'operatingSystemSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setOperatingSystemSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
             'partnerAgentSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setPartnerAgentSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
             'teamsClientSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setTeamsClientSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
@@ -106,6 +113,14 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
     */
     public function getFirmwareSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
         return $this->firmwareSoftwareUpdateStatus;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -140,6 +155,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('adminAgentSoftwareUpdateStatus', $this->adminAgentSoftwareUpdateStatus);
         $writer->writeObjectValue('companyPortalSoftwareUpdateStatus', $this->companyPortalSoftwareUpdateStatus);
         $writer->writeObjectValue('firmwareSoftwareUpdateStatus', $this->firmwareSoftwareUpdateStatus);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('operatingSystemSoftwareUpdateStatus', $this->operatingSystemSoftwareUpdateStatus);
         $writer->writeObjectValue('partnerAgentSoftwareUpdateStatus', $this->partnerAgentSoftwareUpdateStatus);
         $writer->writeObjectValue('teamsClientSoftwareUpdateStatus', $this->teamsClientSoftwareUpdateStatus);
@@ -176,6 +192,14 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
     */
     public function setFirmwareSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value ): void {
         $this->firmwareSoftwareUpdateStatus = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

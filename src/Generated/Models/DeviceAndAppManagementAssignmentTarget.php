@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,15 +20,21 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
     private ?string $deviceAndAppManagementAssignmentFilterId = null;
     
     /**
-     * @var DeviceAndAppManagementAssignmentFilterType|null $deviceAndAppManagementAssignmentFilterType The type of filter of the target assignment i.e. Exclude or Include. Possible values are: none, include, exclude.
+     * @var DeviceAndAppManagementAssignmentFilterType|null $deviceAndAppManagementAssignmentFilterType Represents type of the assignment filter.
     */
     private ?DeviceAndAppManagementAssignmentFilterType $deviceAndAppManagementAssignmentFilterType = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new deviceAndAppManagementAssignmentTarget and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceAndAppManagementAssignmentTarget');
     }
 
     /**
@@ -44,6 +50,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
                 case '#microsoft.graph.allDevicesAssignmentTarget': return new AllDevicesAssignmentTarget();
                 case '#microsoft.graph.allLicensedUsersAssignmentTarget': return new AllLicensedUsersAssignmentTarget();
                 case '#microsoft.graph.configurationManagerCollectionAssignmentTarget': return new ConfigurationManagerCollectionAssignmentTarget();
+                case '#microsoft.graph.exclusionGroupAssignmentTarget': return new ExclusionGroupAssignmentTarget();
                 case '#microsoft.graph.groupAssignmentTarget': return new GroupAssignmentTarget();
             }
         }
@@ -67,7 +74,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Gets the deviceAndAppManagementAssignmentFilterType property value. The type of filter of the target assignment i.e. Exclude or Include. Possible values are: none, include, exclude.
+     * Gets the deviceAndAppManagementAssignmentFilterType property value. Represents type of the assignment filter.
      * @return DeviceAndAppManagementAssignmentFilterType|null
     */
     public function getDeviceAndAppManagementAssignmentFilterType(): ?DeviceAndAppManagementAssignmentFilterType {
@@ -83,7 +90,16 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
         return  [
             'deviceAndAppManagementAssignmentFilterId' => function (ParseNode $n) use ($o) { $o->setDeviceAndAppManagementAssignmentFilterId($n->getStringValue()); },
             'deviceAndAppManagementAssignmentFilterType' => function (ParseNode $n) use ($o) { $o->setDeviceAndAppManagementAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -93,6 +109,7 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('deviceAndAppManagementAssignmentFilterId', $this->deviceAndAppManagementAssignmentFilterId);
         $writer->writeEnumValue('deviceAndAppManagementAssignmentFilterType', $this->deviceAndAppManagementAssignmentFilterType);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -113,11 +130,19 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Sets the deviceAndAppManagementAssignmentFilterType property value. The type of filter of the target assignment i.e. Exclude or Include. Possible values are: none, include, exclude.
+     * Sets the deviceAndAppManagementAssignmentFilterType property value. Represents type of the assignment filter.
      *  @param DeviceAndAppManagementAssignmentFilterType|null $value Value to set for the deviceAndAppManagementAssignmentFilterType property.
     */
     public function setDeviceAndAppManagementAssignmentFilterType(?DeviceAndAppManagementAssignmentFilterType $value ): void {
         $this->deviceAndAppManagementAssignmentFilterType = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

@@ -19,12 +19,12 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     private ?string $helpUrl = null;
     
     /**
-     * @var DeviceManagementDerivedCredentialIssuer|null $issuer The derived credential provider to use.
+     * @var DeviceManagementDerivedCredentialIssuer|null $issuer Supported values for the derived credential issuer.
     */
     private ?DeviceManagementDerivedCredentialIssuer $issuer = null;
     
     /**
-     * @var DeviceManagementDerivedCredentialNotificationType|null $notificationType The methods used to inform the end user to open Company Portal to deliver Wi-Fi, VPN, or email profiles that use certificates to the device.
+     * @var DeviceManagementDerivedCredentialNotificationType|null $notificationType Supported values for the notification type to use.
     */
     private ?DeviceManagementDerivedCredentialNotificationType $notificationType = null;
     
@@ -38,6 +38,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementDerivedCredentialSettings');
     }
 
     /**
@@ -81,7 +82,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     }
 
     /**
-     * Gets the issuer property value. The derived credential provider to use.
+     * Gets the issuer property value. Supported values for the derived credential issuer.
      * @return DeviceManagementDerivedCredentialIssuer|null
     */
     public function getIssuer(): ?DeviceManagementDerivedCredentialIssuer {
@@ -89,7 +90,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     }
 
     /**
-     * Gets the notificationType property value. The methods used to inform the end user to open Company Portal to deliver Wi-Fi, VPN, or email profiles that use certificates to the device.
+     * Gets the notificationType property value. Supported values for the notification type to use.
      * @return DeviceManagementDerivedCredentialNotificationType|null
     */
     public function getNotificationType(): ?DeviceManagementDerivedCredentialNotificationType {
@@ -134,7 +135,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     }
 
     /**
-     * Sets the issuer property value. The derived credential provider to use.
+     * Sets the issuer property value. Supported values for the derived credential issuer.
      *  @param DeviceManagementDerivedCredentialIssuer|null $value Value to set for the issuer property.
     */
     public function setIssuer(?DeviceManagementDerivedCredentialIssuer $value ): void {
@@ -142,7 +143,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     }
 
     /**
-     * Sets the notificationType property value. The methods used to inform the end user to open Company Portal to deliver Wi-Fi, VPN, or email profiles that use certificates to the device.
+     * Sets the notificationType property value. Supported values for the notification type to use.
      *  @param DeviceManagementDerivedCredentialNotificationType|null $value Value to set for the notificationType property.
     */
     public function setNotificationType(?DeviceManagementDerivedCredentialNotificationType $value ): void {

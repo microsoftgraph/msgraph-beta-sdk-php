@@ -24,7 +24,7 @@ class Drive extends BaseItem implements Parsable
     private ?string $driveType = null;
     
     /**
-     * @var EscapedList|null $EscapedList For drives in SharePoint, the underlying document library list. Read-only. Nullable.
+     * @var EscapedList|null $escapedList For drives in SharePoint, the underlying document library list. Read-only. Nullable.
     */
     private ?EscapedList $escapedList = null;
     
@@ -73,6 +73,7 @@ class Drive extends BaseItem implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.drive');
     }
 
     /**

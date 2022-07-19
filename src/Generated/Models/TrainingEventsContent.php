@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TrainingEventsContent implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class TrainingEventsContent implements AdditionalDataHolder, Parsable
      * @var array<AssignedTrainingInfo>|null $assignedTrainingsInfos List of assigned trainings and their information in an attack simulation and training campaign.
     */
     private ?array $assignedTrainingsInfos = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $trainingsAssignedUserCount Number of users who were assigned trainings in an attack simulation and training campaign.
@@ -28,7 +33,8 @@ class TrainingEventsContent implements AdditionalDataHolder, Parsable
      * Instantiates a new trainingEventsContent and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.trainingEventsContent');
     }
 
     /**
@@ -64,8 +70,17 @@ class TrainingEventsContent implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'assignedTrainingsInfos' => function (ParseNode $n) use ($o) { $o->setAssignedTrainingsInfos($n->getCollectionOfObjectValues(array(AssignedTrainingInfo::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'trainingsAssignedUserCount' => function (ParseNode $n) use ($o) { $o->setTrainingsAssignedUserCount($n->getIntegerValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class TrainingEventsContent implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('assignedTrainingsInfos', $this->assignedTrainingsInfos);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('trainingsAssignedUserCount', $this->trainingsAssignedUserCount);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class TrainingEventsContent implements AdditionalDataHolder, Parsable
     */
     public function setAssignedTrainingsInfos(?array $value ): void {
         $this->assignedTrainingsInfos = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

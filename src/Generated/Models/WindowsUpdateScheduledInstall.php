@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class WindowsUpdateScheduledInstall extends WindowsUpdateInstallScheduleType implements Parsable 
 {
     /**
-     * @var WeeklySchedule|null $scheduledInstallDay Scheduled Install Day in week. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
+     * @var WeeklySchedule|null $scheduledInstallDay Possible values for a weekly schedule.
     */
     private ?WeeklySchedule $scheduledInstallDay = null;
     
@@ -24,6 +24,7 @@ class WindowsUpdateScheduledInstall extends WindowsUpdateInstallScheduleType imp
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdateScheduledInstall');
     }
 
     /**
@@ -48,7 +49,7 @@ class WindowsUpdateScheduledInstall extends WindowsUpdateInstallScheduleType imp
     }
 
     /**
-     * Gets the scheduledInstallDay property value. Scheduled Install Day in week. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
+     * Gets the scheduledInstallDay property value. Possible values for a weekly schedule.
      * @return WeeklySchedule|null
     */
     public function getScheduledInstallDay(): ?WeeklySchedule {
@@ -74,7 +75,7 @@ class WindowsUpdateScheduledInstall extends WindowsUpdateInstallScheduleType imp
     }
 
     /**
-     * Sets the scheduledInstallDay property value. Scheduled Install Day in week. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
+     * Sets the scheduledInstallDay property value. Possible values for a weekly schedule.
      *  @param WeeklySchedule|null $value Value to set for the scheduledInstallDay property.
     */
     public function setScheduledInstallDay(?WeeklySchedule $value ): void {

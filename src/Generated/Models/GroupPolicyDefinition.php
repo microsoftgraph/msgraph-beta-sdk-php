@@ -20,7 +20,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
     private ?string $categoryPath = null;
     
     /**
-     * @var GroupPolicyDefinitionClassType|null $classType Identifies the type of groups the policy can be applied to. Possible values are: user, machine.
+     * @var GroupPolicyDefinitionClassType|null $classType Group Policy Definition Class Type.
     */
     private ?GroupPolicyDefinitionClassType $classType = null;
     
@@ -70,7 +70,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
     private ?GroupPolicyDefinition $nextVersionDefinition = null;
     
     /**
-     * @var GroupPolicyType|null $policyType Specifies the type of group policy. Possible values are: admxBacked, admxIngested.
+     * @var GroupPolicyType|null $policyType Type of Group Policy File or Definition.
     */
     private ?GroupPolicyType $policyType = null;
     
@@ -99,6 +99,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyDefinition');
     }
 
     /**
@@ -127,7 +128,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the classType property value. Identifies the type of groups the policy can be applied to. Possible values are: user, machine.
+     * Gets the classType property value. Group Policy Definition Class Type.
      * @return GroupPolicyDefinitionClassType|null
     */
     public function getClassType(): ?GroupPolicyDefinitionClassType {
@@ -234,7 +235,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the policyType property value. Specifies the type of group policy. Possible values are: admxBacked, admxIngested.
+     * Gets the policyType property value. Type of Group Policy File or Definition.
      * @return GroupPolicyType|null
     */
     public function getPolicyType(): ?GroupPolicyType {
@@ -315,7 +316,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the classType property value. Identifies the type of groups the policy can be applied to. Possible values are: user, machine.
+     * Sets the classType property value. Group Policy Definition Class Type.
      *  @param GroupPolicyDefinitionClassType|null $value Value to set for the classType property.
     */
     public function setClassType(?GroupPolicyDefinitionClassType $value ): void {
@@ -395,7 +396,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the policyType property value. Specifies the type of group policy. Possible values are: admxBacked, admxIngested.
+     * Sets the policyType property value. Type of Group Policy File or Definition.
      *  @param GroupPolicyType|null $value Value to set for the policyType property.
     */
     public function setPolicyType(?GroupPolicyType $value ): void {

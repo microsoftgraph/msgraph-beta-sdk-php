@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceGeoLocation implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -51,6 +51,11 @@ class DeviceGeoLocation implements AdditionalDataHolder, Parsable
     private ?float $longitude = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var float|null $speed Speed the device is traveling in meters per second
     */
     private ?float $speed = null;
@@ -64,7 +69,8 @@ class DeviceGeoLocation implements AdditionalDataHolder, Parsable
      * Instantiates a new deviceGeoLocation and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceGeoLocation');
     }
 
     /**
@@ -106,6 +112,7 @@ class DeviceGeoLocation implements AdditionalDataHolder, Parsable
             'lastCollectedDateTimeUtc' => function (ParseNode $n) use ($o) { $o->setLastCollectedDateTimeUtc($n->getDateTimeValue()); },
             'latitude' => function (ParseNode $n) use ($o) { $o->setLatitude($n->getFloatValue()); },
             'longitude' => function (ParseNode $n) use ($o) { $o->setLongitude($n->getFloatValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'speed' => function (ParseNode $n) use ($o) { $o->setSpeed($n->getFloatValue()); },
             'verticalAccuracy' => function (ParseNode $n) use ($o) { $o->setVerticalAccuracy($n->getFloatValue()); },
         ];
@@ -160,6 +167,14 @@ class DeviceGeoLocation implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the speed property value. Speed the device is traveling in meters per second
      * @return float|null
     */
@@ -187,6 +202,7 @@ class DeviceGeoLocation implements AdditionalDataHolder, Parsable
         $writer->writeDateTimeValue('lastCollectedDateTimeUtc', $this->lastCollectedDateTimeUtc);
         $writer->writeFloatValue('latitude', $this->latitude);
         $writer->writeFloatValue('longitude', $this->longitude);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeFloatValue('speed', $this->speed);
         $writer->writeFloatValue('verticalAccuracy', $this->verticalAccuracy);
         $writer->writeAdditionalData($this->additionalData);
@@ -254,6 +270,14 @@ class DeviceGeoLocation implements AdditionalDataHolder, Parsable
     */
     public function setLongitude(?float $value ): void {
         $this->longitude = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

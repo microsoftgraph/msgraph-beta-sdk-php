@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TrustFrameworkKey implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,7 +35,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, Parsable
     private ?string $e = null;
     
     /**
-     * @var string|null $EscapedUse The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
+     * @var string|null $escapedUse The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
     */
     private ?string $escapedUse = null;
     
@@ -70,6 +70,11 @@ class TrustFrameworkKey implements AdditionalDataHolder, Parsable
     private ?int $nbf = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $p RSA Key - first prime. Field cannot be read back.
     */
     private ?string $p = null;
@@ -98,7 +103,8 @@ class TrustFrameworkKey implements AdditionalDataHolder, Parsable
      * Instantiates a new trustFrameworkKey and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.trustFrameworkKey');
     }
 
     /**
@@ -176,6 +182,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, Parsable
             'kty' => function (ParseNode $n) use ($o) { $o->setKty($n->getStringValue()); },
             'n' => function (ParseNode $n) use ($o) { $o->setN($n->getStringValue()); },
             'nbf' => function (ParseNode $n) use ($o) { $o->setNbf($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'p' => function (ParseNode $n) use ($o) { $o->setP($n->getStringValue()); },
             'q' => function (ParseNode $n) use ($o) { $o->setQ($n->getStringValue()); },
             'qi' => function (ParseNode $n) use ($o) { $o->setQi($n->getStringValue()); },
@@ -222,6 +229,14 @@ class TrustFrameworkKey implements AdditionalDataHolder, Parsable
     */
     public function getNbf(): ?int {
         return $this->nbf;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -288,6 +303,7 @@ class TrustFrameworkKey implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('kty', $this->kty);
         $writer->writeStringValue('n', $this->n);
         $writer->writeIntegerValue('nbf', $this->nbf);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('p', $this->p);
         $writer->writeStringValue('q', $this->q);
         $writer->writeStringValue('qi', $this->qi);
@@ -382,6 +398,14 @@ class TrustFrameworkKey implements AdditionalDataHolder, Parsable
     */
     public function setNbf(?int $value ): void {
         $this->nbf = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

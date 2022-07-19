@@ -70,7 +70,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     private ?bool $microsoftDefenderForEndpointAttachEnabled = null;
     
     /**
-     * @var MobileThreatPartnerTenantState|null $partnerState Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
+     * @var MobileThreatPartnerTenantState|null $partnerState Partner state of this tenant.
     */
     private ?MobileThreatPartnerTenantState $partnerState = null;
     
@@ -95,10 +95,11 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     private ?bool $windowsEnabled = null;
     
     /**
-     * Instantiates a new MobileThreatDefenseConnector and sets the default values.
+     * Instantiates a new mobileThreatDefenseConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mobileThreatDefenseConnector');
     }
 
     /**
@@ -234,7 +235,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the partnerState property value. Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
+     * Gets the partnerState property value. Partner state of this tenant.
      * @return MobileThreatPartnerTenantState|null
     */
     public function getPartnerState(): ?MobileThreatPartnerTenantState {
@@ -395,7 +396,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the partnerState property value. Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
+     * Sets the partnerState property value. Partner state of this tenant.
      *  @param MobileThreatPartnerTenantState|null $value Value to set for the partnerState property.
     */
     public function setPartnerState(?MobileThreatPartnerTenantState $value ): void {

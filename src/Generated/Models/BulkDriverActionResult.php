@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BulkDriverActionResult implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,15 +25,21 @@ class BulkDriverActionResult implements AdditionalDataHolder, Parsable
     private ?array $notFoundDriverIds = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var array<string>|null $successfulDriverIds List of driver Ids where the action is successful.
     */
     private ?array $successfulDriverIds = null;
     
     /**
-     * Instantiates a new BulkDriverActionResult and sets the default values.
+     * Instantiates a new bulkDriverActionResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.bulkDriverActionResult');
     }
 
     /**
@@ -70,6 +76,7 @@ class BulkDriverActionResult implements AdditionalDataHolder, Parsable
         return  [
             'failedDriverIds' => function (ParseNode $n) use ($o) { $o->setFailedDriverIds($n->getCollectionOfPrimitiveValues()); },
             'notFoundDriverIds' => function (ParseNode $n) use ($o) { $o->setNotFoundDriverIds($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'successfulDriverIds' => function (ParseNode $n) use ($o) { $o->setSuccessfulDriverIds($n->getCollectionOfPrimitiveValues()); },
         ];
     }
@@ -80,6 +87,14 @@ class BulkDriverActionResult implements AdditionalDataHolder, Parsable
     */
     public function getNotFoundDriverIds(): ?array {
         return $this->notFoundDriverIds;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class BulkDriverActionResult implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfPrimitiveValues('failedDriverIds', $this->failedDriverIds);
         $writer->writeCollectionOfPrimitiveValues('notFoundDriverIds', $this->notFoundDriverIds);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfPrimitiveValues('successfulDriverIds', $this->successfulDriverIds);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class BulkDriverActionResult implements AdditionalDataHolder, Parsable
     */
     public function setNotFoundDriverIds(?array $value ): void {
         $this->notFoundDriverIds = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

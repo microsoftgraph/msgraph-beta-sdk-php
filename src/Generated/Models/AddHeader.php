@@ -23,6 +23,7 @@ class AddHeader extends MarkContent implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.addHeader');
     }
 
     /**

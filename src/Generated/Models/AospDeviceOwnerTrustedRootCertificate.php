@@ -24,6 +24,7 @@ class AospDeviceOwnerTrustedRootCertificate extends DeviceConfiguration implemen
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.aospDeviceOwnerTrustedRootCertificate');
     }
 
     /**

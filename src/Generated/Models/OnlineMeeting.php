@@ -41,6 +41,11 @@ class OnlineMeeting extends Entity implements Parsable
     private ?StreamInterface $alternativeRecording = null;
     
     /**
+     * @var array<string>|null $anonymizeIdentityForRoles The anonymizeIdentityForRoles property
+    */
+    private ?array $anonymizeIdentityForRoles = null;
+    
+    /**
      * @var array<MeetingAttendanceReport>|null $attendanceReports The attendance reports of an online meeting. Read-only.
     */
     private ?array $attendanceReports = null;
@@ -101,7 +106,7 @@ class OnlineMeeting extends Entity implements Parsable
     private ?ItemBody $joinInformation = null;
     
     /**
-     * @var JoinMeetingIdSettings|null $joinMeetingIdSettings The joinMeetingIdSettings property
+     * @var JoinMeetingIdSettings|null $joinMeetingIdSettings Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode.
     */
     private ?JoinMeetingIdSettings $joinMeetingIdSettings = null;
     
@@ -161,10 +166,11 @@ class OnlineMeeting extends Entity implements Parsable
     private ?string $videoTeleconferenceId = null;
     
     /**
-     * Instantiates a new OnlineMeeting and sets the default values.
+     * Instantiates a new onlineMeeting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.onlineMeeting');
     }
 
     /**
@@ -222,6 +228,14 @@ class OnlineMeeting extends Entity implements Parsable
     */
     public function getAlternativeRecording(): ?StreamInterface {
         return $this->alternativeRecording;
+    }
+
+    /**
+     * Gets the anonymizeIdentityForRoles property value. The anonymizeIdentityForRoles property
+     * @return array<string>|null
+    */
+    public function getAnonymizeIdentityForRoles(): ?array {
+        return $this->anonymizeIdentityForRoles;
     }
 
     /**
@@ -309,6 +323,7 @@ class OnlineMeeting extends Entity implements Parsable
             'allowMeetingChat' => function (ParseNode $n) use ($o) { $o->setAllowMeetingChat($n->getEnumValue(MeetingChatMode::class)); },
             'allowTeamworkReactions' => function (ParseNode $n) use ($o) { $o->setAllowTeamworkReactions($n->getBooleanValue()); },
             'alternativeRecording' => function (ParseNode $n) use ($o) { $o->setAlternativeRecording($n->getBinaryContent()); },
+            'anonymizeIdentityForRoles' => function (ParseNode $n) use ($o) { $o->setAnonymizeIdentityForRoles($n->getCollectionOfPrimitiveValues()); },
             'attendanceReports' => function (ParseNode $n) use ($o) { $o->setAttendanceReports($n->getCollectionOfObjectValues(array(MeetingAttendanceReport::class, 'createFromDiscriminatorValue'))); },
             'attendeeReport' => function (ParseNode $n) use ($o) { $o->setAttendeeReport($n->getBinaryContent()); },
             'audioConferencing' => function (ParseNode $n) use ($o) { $o->setAudioConferencing($n->getObjectValue(array(AudioConferencing::class, 'createFromDiscriminatorValue'))); },
@@ -361,7 +376,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the joinMeetingIdSettings property value. The joinMeetingIdSettings property
+     * Gets the joinMeetingIdSettings property value. Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode.
      * @return JoinMeetingIdSettings|null
     */
     public function getJoinMeetingIdSettings(): ?JoinMeetingIdSettings {
@@ -468,6 +483,7 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeEnumValue('allowMeetingChat', $this->allowMeetingChat);
         $writer->writeBooleanValue('allowTeamworkReactions', $this->allowTeamworkReactions);
         $writer->writeBinaryContent('alternativeRecording', $this->alternativeRecording);
+        $writer->writeCollectionOfPrimitiveValues('anonymizeIdentityForRoles', $this->anonymizeIdentityForRoles);
         $writer->writeCollectionOfObjectValues('attendanceReports', $this->attendanceReports);
         $writer->writeBinaryContent('attendeeReport', $this->attendeeReport);
         $writer->writeObjectValue('audioConferencing', $this->audioConferencing);
@@ -540,6 +556,14 @@ class OnlineMeeting extends Entity implements Parsable
     */
     public function setAlternativeRecording(?StreamInterface $value ): void {
         $this->alternativeRecording = $value;
+    }
+
+    /**
+     * Sets the anonymizeIdentityForRoles property value. The anonymizeIdentityForRoles property
+     *  @param array<string>|null $value Value to set for the anonymizeIdentityForRoles property.
+    */
+    public function setAnonymizeIdentityForRoles(?array $value ): void {
+        $this->anonymizeIdentityForRoles = $value;
     }
 
     /**
@@ -639,7 +663,7 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the joinMeetingIdSettings property value. The joinMeetingIdSettings property
+     * Sets the joinMeetingIdSettings property value. Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode.
      *  @param JoinMeetingIdSettings|null $value Value to set for the joinMeetingIdSettings property.
     */
     public function setJoinMeetingIdSettings(?JoinMeetingIdSettings $value ): void {

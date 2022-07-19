@@ -30,7 +30,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
     private ?DateTime $modifiedDateTime = null;
     
     /**
-     * @var EmbeddedSIMDeviceStateValue|null $state The state of the profile operation applied to the device. Possible values are: notEvaluated, failed, installing, installed, deleting, error, deleted, removedByUser.
+     * @var EmbeddedSIMDeviceStateValue|null $state Describes the various states for an embedded SIM activation code.
     */
     private ?EmbeddedSIMDeviceStateValue $state = null;
     
@@ -54,6 +54,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.embeddedSIMDeviceState');
     }
 
     /**
@@ -116,7 +117,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. The state of the profile operation applied to the device. Possible values are: notEvaluated, failed, installing, installed, deleting, error, deleted, removedByUser.
+     * Gets the state property value. Describes the various states for an embedded SIM activation code.
      * @return EmbeddedSIMDeviceStateValue|null
     */
     public function getState(): ?EmbeddedSIMDeviceStateValue {
@@ -196,7 +197,7 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. The state of the profile operation applied to the device. Possible values are: notEvaluated, failed, installing, installed, deleting, error, deleted, removedByUser.
+     * Sets the state property value. Describes the various states for an embedded SIM activation code.
      *  @param EmbeddedSIMDeviceStateValue|null $value Value to set for the state property.
     */
     public function setState(?EmbeddedSIMDeviceStateValue $value ): void {

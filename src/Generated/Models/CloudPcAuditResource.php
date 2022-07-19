@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcAuditResource implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class CloudPcAuditResource implements AdditionalDataHolder, Parsable
      * @var array<CloudPcAuditProperty>|null $modifiedProperties A list of modified properties.
     */
     private ?array $modifiedProperties = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $resourceId The ID of the audit resource.
@@ -38,7 +43,8 @@ class CloudPcAuditResource implements AdditionalDataHolder, Parsable
      * Instantiates a new cloudPcAuditResource and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.cloudPcAuditResource');
     }
 
     /**
@@ -75,6 +81,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, Parsable
         return  [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'modifiedProperties' => function (ParseNode $n) use ($o) { $o->setModifiedProperties($n->getCollectionOfObjectValues(array(CloudPcAuditProperty::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
         ];
@@ -86,6 +93,14 @@ class CloudPcAuditResource implements AdditionalDataHolder, Parsable
     */
     public function getModifiedProperties(): ?array {
         return $this->modifiedProperties;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,6 +126,7 @@ class CloudPcAuditResource implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeCollectionOfObjectValues('modifiedProperties', $this->modifiedProperties);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('resourceId', $this->resourceId);
         $writer->writeStringValue('type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
@@ -138,6 +154,14 @@ class CloudPcAuditResource implements AdditionalDataHolder, Parsable
     */
     public function setModifiedProperties(?array $value ): void {
         $this->modifiedProperties = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -13,6 +13,7 @@ class ProtectDoNotForwardAction extends InformationProtectionAction implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.protectDoNotForwardAction');
     }
 
     /**

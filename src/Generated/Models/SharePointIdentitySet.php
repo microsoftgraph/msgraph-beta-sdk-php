@@ -28,6 +28,7 @@ class SharePointIdentitySet extends IdentitySet implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.sharePointIdentitySet');
     }
 
     /**

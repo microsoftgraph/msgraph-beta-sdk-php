@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,10 +25,16 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable
     private ?string $cloudPcLaunchUrl = null;
     
     /**
-     * Instantiates a new CloudPcLaunchInfo and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * Instantiates a new cloudPcLaunchInfo and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.cloudPcLaunchInfo');
     }
 
     /**
@@ -73,7 +79,16 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable
         return  [
             'cloudPcId' => function (ParseNode $n) use ($o) { $o->setCloudPcId($n->getStringValue()); },
             'cloudPcLaunchUrl' => function (ParseNode $n) use ($o) { $o->setCloudPcLaunchUrl($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -83,6 +98,7 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('cloudPcId', $this->cloudPcId);
         $writer->writeStringValue('cloudPcLaunchUrl', $this->cloudPcLaunchUrl);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -108,6 +124,14 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable
     */
     public function setCloudPcLaunchUrl(?string $value ): void {
         $this->cloudPcLaunchUrl = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

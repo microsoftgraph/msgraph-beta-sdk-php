@@ -15,7 +15,7 @@ class Acl implements AdditionalDataHolder, Parsable
     private ?AccessType $accessType = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class Acl implements AdditionalDataHolder, Parsable
      * @var IdentitySourceType|null $identitySource The identitySource property
     */
     private ?IdentitySourceType $identitySource = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var AclType|null $type The type property
@@ -38,7 +43,8 @@ class Acl implements AdditionalDataHolder, Parsable
      * Instantiates a new acl and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.acl');
     }
 
     /**
@@ -75,6 +81,7 @@ class Acl implements AdditionalDataHolder, Parsable
         return  [
             'accessType' => function (ParseNode $n) use ($o) { $o->setAccessType($n->getEnumValue(AccessType::class)); },
             'identitySource' => function (ParseNode $n) use ($o) { $o->setIdentitySource($n->getEnumValue(IdentitySourceType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(AclType::class)); },
             'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
         ];
@@ -86,6 +93,14 @@ class Acl implements AdditionalDataHolder, Parsable
     */
     public function getIdentitySource(): ?IdentitySourceType {
         return $this->identitySource;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,6 +126,7 @@ class Acl implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('accessType', $this->accessType);
         $writer->writeEnumValue('identitySource', $this->identitySource);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('type', $this->type);
         $writer->writeStringValue('value', $this->value);
         $writer->writeAdditionalData($this->additionalData);
@@ -138,6 +154,14 @@ class Acl implements AdditionalDataHolder, Parsable
     */
     public function setIdentitySource(?IdentitySourceType $value ): void {
         $this->identitySource = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

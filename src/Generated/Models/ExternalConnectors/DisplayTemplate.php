@@ -11,12 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DisplayTemplate implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var string|null $id The text identifier for the display template; for example, contosoTickets.
+     * @var string|null $id The text identifier for the display template; for example, contosoTickets. Maximum 16 characters. Only alphanumeric characters allowed.
     */
     private ?string $id = null;
     
@@ -26,7 +26,12 @@ class DisplayTemplate implements AdditionalDataHolder, Parsable
     private ?Json $layout = null;
     
     /**
-     * @var int|null $priority Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var int|null $priority Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported. Must be positive value.
     */
     private ?int $priority = null;
     
@@ -39,7 +44,8 @@ class DisplayTemplate implements AdditionalDataHolder, Parsable
      * Instantiates a new displayTemplate and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.externalConnectors.displayTemplate');
     }
 
     /**
@@ -68,13 +74,14 @@ class DisplayTemplate implements AdditionalDataHolder, Parsable
         return  [
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
             'layout' => function (ParseNode $n) use ($o) { $o->setLayout($n->getObjectValue(array(Json::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
             'rules' => function (ParseNode $n) use ($o) { $o->setRules($n->getCollectionOfObjectValues(array(PropertyRule::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
     /**
-     * Gets the id property value. The text identifier for the display template; for example, contosoTickets.
+     * Gets the id property value. The text identifier for the display template; for example, contosoTickets. Maximum 16 characters. Only alphanumeric characters allowed.
      * @return string|null
     */
     public function getId(): ?string {
@@ -90,7 +97,15 @@ class DisplayTemplate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the priority property value. Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the priority property value. Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported. Must be positive value.
      * @return int|null
     */
     public function getPriority(): ?int {
@@ -112,6 +127,7 @@ class DisplayTemplate implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('id', $this->id);
         $writer->writeObjectValue('layout', $this->layout);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('priority', $this->priority);
         $writer->writeCollectionOfObjectValues('rules', $this->rules);
         $writer->writeAdditionalData($this->additionalData);
@@ -126,7 +142,7 @@ class DisplayTemplate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the id property value. The text identifier for the display template; for example, contosoTickets.
+     * Sets the id property value. The text identifier for the display template; for example, contosoTickets. Maximum 16 characters. Only alphanumeric characters allowed.
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {
@@ -142,7 +158,15 @@ class DisplayTemplate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the priority property value. Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the priority property value. Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported. Must be positive value.
      *  @param int|null $value Value to set for the priority property.
     */
     public function setPriority(?int $value ): void {

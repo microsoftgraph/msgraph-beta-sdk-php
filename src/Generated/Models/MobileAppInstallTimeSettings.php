@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppInstallTimeSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -19,6 +19,11 @@ class MobileAppInstallTimeSettings implements AdditionalDataHolder, Parsable
      * @var DateTime|null $deadlineDateTime The time at which the app should be installed.
     */
     private ?DateTime $deadlineDateTime = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var DateTime|null $startDateTime The time at which the app should be available for installation.
@@ -34,7 +39,8 @@ class MobileAppInstallTimeSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new mobileAppInstallTimeSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.mobileAppInstallTimeSettings');
     }
 
     /**
@@ -70,9 +76,18 @@ class MobileAppInstallTimeSettings implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'deadlineDateTime' => function (ParseNode $n) use ($o) { $o->setDeadlineDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
             'useLocalTime' => function (ParseNode $n) use ($o) { $o->setUseLocalTime($n->getBooleanValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class MobileAppInstallTimeSettings implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('deadlineDateTime', $this->deadlineDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
         $writer->writeBooleanValue('useLocalTime', $this->useLocalTime);
         $writer->writeAdditionalData($this->additionalData);
@@ -116,6 +132,14 @@ class MobileAppInstallTimeSettings implements AdditionalDataHolder, Parsable
     */
     public function setDeadlineDateTime(?DateTime $value ): void {
         $this->deadlineDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

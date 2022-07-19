@@ -19,7 +19,7 @@ class ItemPhone extends ItemFacet implements Parsable
     private ?string $number = null;
     
     /**
-     * @var PhoneType|null $type The type of phone number within the object. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+     * @var PhoneType|null $type The type property
     */
     private ?PhoneType $type = null;
     
@@ -28,6 +28,7 @@ class ItemPhone extends ItemFacet implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.itemPhone');
     }
 
     /**
@@ -69,7 +70,7 @@ class ItemPhone extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the type property value. The type of phone number within the object. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+     * Gets the type property value. The type property
      * @return PhoneType|null
     */
     public function getType(): ?PhoneType {
@@ -104,7 +105,7 @@ class ItemPhone extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the type property value. The type of phone number within the object. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+     * Sets the type property value. The type property
      *  @param PhoneType|null $value Value to set for the type property.
     */
     public function setType(?PhoneType $value ): void {

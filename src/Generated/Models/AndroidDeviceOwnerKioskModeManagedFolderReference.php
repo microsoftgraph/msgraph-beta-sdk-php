@@ -23,6 +23,7 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerKioskModeManagedFolderReference');
     }
 
     /**

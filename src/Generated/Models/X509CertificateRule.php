@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class X509CertificateRule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class X509CertificateRule implements AdditionalDataHolder, Parsable
      * @var string|null $identifier The identifier of the X.509 certificate. Required.
     */
     private ?string $identifier = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var X509CertificateAuthenticationMode|null $x509CertificateAuthenticationMode The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
@@ -33,7 +38,8 @@ class X509CertificateRule implements AdditionalDataHolder, Parsable
      * Instantiates a new x509CertificateRule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.x509CertificateRule');
     }
 
     /**
@@ -61,6 +67,7 @@ class X509CertificateRule implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'x509CertificateAuthenticationMode' => function (ParseNode $n) use ($o) { $o->setX509CertificateAuthenticationMode($n->getEnumValue(X509CertificateAuthenticationMode::class)); },
             'x509CertificateRuleType' => function (ParseNode $n) use ($o) { $o->setX509CertificateRuleType($n->getEnumValue(X509CertificateRuleType::class)); },
         ];
@@ -72,6 +79,14 @@ class X509CertificateRule implements AdditionalDataHolder, Parsable
     */
     public function getIdentifier(): ?string {
         return $this->identifier;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -96,6 +111,7 @@ class X509CertificateRule implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('identifier', $this->identifier);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('x509CertificateAuthenticationMode', $this->x509CertificateAuthenticationMode);
         $writer->writeEnumValue('x509CertificateRuleType', $this->x509CertificateRuleType);
         $writer->writeAdditionalData($this->additionalData);
@@ -115,6 +131,14 @@ class X509CertificateRule implements AdditionalDataHolder, Parsable
     */
     public function setIdentifier(?string $value ): void {
         $this->identifier = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

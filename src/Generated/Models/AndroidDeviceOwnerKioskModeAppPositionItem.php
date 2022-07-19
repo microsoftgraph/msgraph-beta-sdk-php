@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
      * @var AndroidDeviceOwnerKioskModeHomeScreenItem|null $item Represents an item on the Android Device Owner Managed Home Screen (application, weblink or folder
     */
     private ?AndroidDeviceOwnerKioskModeHomeScreenItem $item = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $position Position of the item on the grid. Valid values 0 to 9999999
@@ -28,7 +33,8 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
      * Instantiates a new androidDeviceOwnerKioskModeAppPositionItem and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerKioskModeAppPositionItem');
     }
 
     /**
@@ -56,6 +62,7 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
         $o = $this;
         return  [
             'item' => function (ParseNode $n) use ($o) { $o->setItem($n->getObjectValue(array(AndroidDeviceOwnerKioskModeHomeScreenItem::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'position' => function (ParseNode $n) use ($o) { $o->setPosition($n->getIntegerValue()); },
         ];
     }
@@ -66,6 +73,14 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
     */
     public function getItem(): ?AndroidDeviceOwnerKioskModeHomeScreenItem {
         return $this->item;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('item', $this->item);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('position', $this->position);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
     */
     public function setItem(?AndroidDeviceOwnerKioskModeHomeScreenItem $value ): void {
         $this->item = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -66,7 +66,7 @@ class DeviceManagementScript extends Entity implements Parsable
     private ?bool $runAs32Bit = null;
     
     /**
-     * @var RunAsAccountType|null $runAsAccount Indicates the type of execution context. Possible values are: system, user.
+     * @var RunAsAccountType|null $runAsAccount Indicates the type of execution context the app runs in.
     */
     private ?RunAsAccountType $runAsAccount = null;
     
@@ -86,10 +86,11 @@ class DeviceManagementScript extends Entity implements Parsable
     private ?array $userRunStates = null;
     
     /**
-     * Instantiates a new DeviceManagementScript and sets the default values.
+     * Instantiates a new deviceManagementScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementScript');
     }
 
     /**
@@ -215,7 +216,7 @@ class DeviceManagementScript extends Entity implements Parsable
     }
 
     /**
-     * Gets the runAsAccount property value. Indicates the type of execution context. Possible values are: system, user.
+     * Gets the runAsAccount property value. Indicates the type of execution context the app runs in.
      * @return RunAsAccountType|null
     */
     public function getRunAsAccount(): ?RunAsAccountType {
@@ -358,7 +359,7 @@ class DeviceManagementScript extends Entity implements Parsable
     }
 
     /**
-     * Sets the runAsAccount property value. Indicates the type of execution context. Possible values are: system, user.
+     * Sets the runAsAccount property value. Indicates the type of execution context the app runs in.
      *  @param RunAsAccountType|null $value Value to set for the runAsAccount property.
     */
     public function setRunAsAccount(?RunAsAccountType $value ): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -45,6 +45,11 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
     private ?ConditionalAccessLocations $locations = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var ConditionalAccessPlatforms|null $platforms Platforms included in and excluded from the policy.
     */
     private ?ConditionalAccessPlatforms $platforms = null;
@@ -73,7 +78,8 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
      * Instantiates a new conditionalAccessConditionSet and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.conditionalAccessConditionSet');
     }
 
     /**
@@ -146,6 +152,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
             'devices' => function (ParseNode $n) use ($o) { $o->setDevices($n->getObjectValue(array(ConditionalAccessDevices::class, 'createFromDiscriminatorValue'))); },
             'deviceStates' => function (ParseNode $n) use ($o) { $o->setDeviceStates($n->getObjectValue(array(ConditionalAccessDeviceStates::class, 'createFromDiscriminatorValue'))); },
             'locations' => function (ParseNode $n) use ($o) { $o->setLocations($n->getObjectValue(array(ConditionalAccessLocations::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getObjectValue(array(ConditionalAccessPlatforms::class, 'createFromDiscriminatorValue'))); },
             'servicePrincipalRiskLevels' => function (ParseNode $n) use ($o) { $o->setServicePrincipalRiskLevels($n->getCollectionOfPrimitiveValues()); },
             'signInRiskLevels' => function (ParseNode $n) use ($o) { $o->setSignInRiskLevels($n->getCollectionOfPrimitiveValues()); },
@@ -160,6 +167,14 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
     */
     public function getLocations(): ?ConditionalAccessLocations {
         return $this->locations;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -213,6 +228,7 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('devices', $this->devices);
         $writer->writeObjectValue('deviceStates', $this->deviceStates);
         $writer->writeObjectValue('locations', $this->locations);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('platforms', $this->platforms);
         $writer->writeCollectionOfPrimitiveValues('servicePrincipalRiskLevels', $this->servicePrincipalRiskLevels);
         $writer->writeCollectionOfPrimitiveValues('signInRiskLevels', $this->signInRiskLevels);
@@ -275,6 +291,14 @@ class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable
     */
     public function setLocations(?ConditionalAccessLocations $value ): void {
         $this->locations = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

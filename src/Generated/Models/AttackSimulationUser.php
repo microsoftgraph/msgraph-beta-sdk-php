@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttackSimulationUser implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class AttackSimulationUser implements AdditionalDataHolder, Parsable
     private ?string $email = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $userId This is the id property value of the user resource that represents the user in the Azure AD tenant.
     */
     private ?string $userId = null;
@@ -33,7 +38,8 @@ class AttackSimulationUser implements AdditionalDataHolder, Parsable
      * Instantiates a new attackSimulationUser and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.attackSimulationUser');
     }
 
     /**
@@ -78,8 +84,17 @@ class AttackSimulationUser implements AdditionalDataHolder, Parsable
         return  [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class AttackSimulationUser implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('email', $this->email);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('userId', $this->userId);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class AttackSimulationUser implements AdditionalDataHolder, Parsable
     */
     public function setEmail(?string $value ): void {
         $this->email = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

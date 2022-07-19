@@ -35,7 +35,7 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     private ?string $deviceNameTemplate = null;
     
     /**
-     * @var WindowsAutopilotDeviceType|null $deviceType The AutoPilot device type that this profile is applicable to. Possible values are: windowsPc, surfaceHub2.
+     * @var WindowsAutopilotDeviceType|null $deviceType The deviceType property
     */
     private ?WindowsAutopilotDeviceType $deviceType = null;
     
@@ -85,10 +85,11 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     private ?array $roleScopeTagIds = null;
     
     /**
-     * Instantiates a new WindowsAutopilotDeploymentProfile and sets the default values.
+     * Instantiates a new windowsAutopilotDeploymentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsAutopilotDeploymentProfile');
     }
 
     /**
@@ -149,7 +150,7 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceType property value. The AutoPilot device type that this profile is applicable to. Possible values are: windowsPc, surfaceHub2.
+     * Gets the deviceType property value. The deviceType property
      * @return WindowsAutopilotDeviceType|null
     */
     public function getDeviceType(): ?WindowsAutopilotDeviceType {
@@ -317,7 +318,7 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceType property value. The AutoPilot device type that this profile is applicable to. Possible values are: windowsPc, surfaceHub2.
+     * Sets the deviceType property value. The deviceType property
      *  @param WindowsAutopilotDeviceType|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?WindowsAutopilotDeviceType $value ): void {

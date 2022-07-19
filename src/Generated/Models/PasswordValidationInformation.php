@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PasswordValidationInformation implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,15 +20,21 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
     private ?bool $isValid = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var array<ValidationResult>|null $validationResults The list of password validation rules and whether the password passed those rules. Not nullable. Read-only.
     */
     private ?array $validationResults = null;
     
     /**
-     * Instantiates a new PasswordValidationInformation and sets the default values.
+     * Instantiates a new passwordValidationInformation and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.passwordValidationInformation');
     }
 
     /**
@@ -56,6 +62,7 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'isValid' => function (ParseNode $n) use ($o) { $o->setIsValid($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'validationResults' => function (ParseNode $n) use ($o) { $o->setValidationResults($n->getCollectionOfObjectValues(array(ValidationResult::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -66,6 +73,14 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
     */
     public function getIsValid(): ?bool {
         return $this->isValid;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isValid', $this->isValid);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('validationResults', $this->validationResults);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
     */
     public function setIsValid(?bool $value ): void {
         $this->isValid = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

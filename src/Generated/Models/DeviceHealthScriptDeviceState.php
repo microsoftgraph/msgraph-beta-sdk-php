@@ -15,7 +15,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
     private ?array $assignmentFilterIds = null;
     
     /**
-     * @var RunState|null $detectionState Detection state from the lastest device health script execution. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * @var RunState|null $detectionState Indicates the type of execution status of the device management script.
     */
     private ?RunState $detectionState = null;
     
@@ -65,7 +65,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
     private ?string $remediationScriptError = null;
     
     /**
-     * @var RemediationState|null $remediationState Remediation state from the lastest device health script execution. Possible values are: unknown, skipped, success, remediationFailed, scriptError.
+     * @var RemediationState|null $remediationState Indicates the type of execution status of the device management script.
     */
     private ?RemediationState $remediationState = null;
     
@@ -74,6 +74,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceHealthScriptDeviceState');
     }
 
     /**
@@ -94,7 +95,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Gets the detectionState property value. Detection state from the lastest device health script execution. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Gets the detectionState property value. Indicates the type of execution status of the device management script.
      * @return RunState|null
     */
     public function getDetectionState(): ?RunState {
@@ -196,7 +197,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Gets the remediationState property value. Remediation state from the lastest device health script execution. Possible values are: unknown, skipped, success, remediationFailed, scriptError.
+     * Gets the remediationState property value. Indicates the type of execution status of the device management script.
      * @return RemediationState|null
     */
     public function getRemediationState(): ?RemediationState {
@@ -232,7 +233,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Sets the detectionState property value. Detection state from the lastest device health script execution. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Sets the detectionState property value. Indicates the type of execution status of the device management script.
      *  @param RunState|null $value Value to set for the detectionState property.
     */
     public function setDetectionState(?RunState $value ): void {
@@ -312,7 +313,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Sets the remediationState property value. Remediation state from the lastest device health script execution. Possible values are: unknown, skipped, success, remediationFailed, scriptError.
+     * Sets the remediationState property value. Indicates the type of execution status of the device management script.
      *  @param RemediationState|null $value Value to set for the remediationState property.
     */
     public function setRemediationState(?RemediationState $value ): void {

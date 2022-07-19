@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -38,6 +38,11 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * @var bool|null $isRequestorJustificationRequired Indicates whether a requestor must supply justification when submitting an assignment request.
     */
     private ?bool $isRequestorJustificationRequired = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $policyDescription The description of the policy that the user is trying to request access using.
@@ -68,7 +73,8 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
      * Instantiates a new accessPackageAssignmentRequestRequirements and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.accessPackageAssignmentRequestRequirements');
     }
 
     /**
@@ -108,6 +114,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
             'isApprovalRequiredForExtension' => function (ParseNode $n) use ($o) { $o->setIsApprovalRequiredForExtension($n->getBooleanValue()); },
             'isCustomAssignmentScheduleAllowed' => function (ParseNode $n) use ($o) { $o->setIsCustomAssignmentScheduleAllowed($n->getBooleanValue()); },
             'isRequestorJustificationRequired' => function (ParseNode $n) use ($o) { $o->setIsRequestorJustificationRequired($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'policyDescription' => function (ParseNode $n) use ($o) { $o->setPolicyDescription($n->getStringValue()); },
             'policyDisplayName' => function (ParseNode $n) use ($o) { $o->setPolicyDisplayName($n->getStringValue()); },
             'policyId' => function (ParseNode $n) use ($o) { $o->setPolicyId($n->getStringValue()); },
@@ -146,6 +153,14 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
     */
     public function getIsRequestorJustificationRequired(): ?bool {
         return $this->isRequestorJustificationRequired;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -198,6 +213,7 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
         $writer->writeBooleanValue('isApprovalRequiredForExtension', $this->isApprovalRequiredForExtension);
         $writer->writeBooleanValue('isCustomAssignmentScheduleAllowed', $this->isCustomAssignmentScheduleAllowed);
         $writer->writeBooleanValue('isRequestorJustificationRequired', $this->isRequestorJustificationRequired);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('policyDescription', $this->policyDescription);
         $writer->writeStringValue('policyDisplayName', $this->policyDisplayName);
         $writer->writeStringValue('policyId', $this->policyId);
@@ -252,6 +268,14 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
     */
     public function setIsRequestorJustificationRequired(?bool $value ): void {
         $this->isRequestorJustificationRequired = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

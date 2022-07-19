@@ -31,7 +31,7 @@ class UserPFXCertificate extends Entity implements Parsable
     private ?DateTime $expirationDateTime = null;
     
     /**
-     * @var UserPfxIntendedPurpose|null $intendedPurpose Certificate's intended purpose from the point-of-view of deployment. Possible values are: unassigned, smimeEncryption, smimeSigning, vpn, wifi.
+     * @var UserPfxIntendedPurpose|null $intendedPurpose Supported values for the intended purpose of a user PFX certificate.
     */
     private ?UserPfxIntendedPurpose $intendedPurpose = null;
     
@@ -46,7 +46,7 @@ class UserPFXCertificate extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var UserPfxPaddingScheme|null $paddingScheme Padding scheme used by the provider during encryption/decryption. Possible values are: none, pkcs1, oaepSha1, oaepSha256, oaepSha384, oaepSha512.
+     * @var UserPfxPaddingScheme|null $paddingScheme Supported values for the padding scheme used by encryption provider.
     */
     private ?UserPfxPaddingScheme $paddingScheme = null;
     
@@ -71,10 +71,11 @@ class UserPFXCertificate extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new UserPFXCertificate and sets the default values.
+     * Instantiates a new userPFXCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userPFXCertificate');
     }
 
     /**
@@ -141,7 +142,7 @@ class UserPFXCertificate extends Entity implements Parsable
     }
 
     /**
-     * Gets the intendedPurpose property value. Certificate's intended purpose from the point-of-view of deployment. Possible values are: unassigned, smimeEncryption, smimeSigning, vpn, wifi.
+     * Gets the intendedPurpose property value. Supported values for the intended purpose of a user PFX certificate.
      * @return UserPfxIntendedPurpose|null
     */
     public function getIntendedPurpose(): ?UserPfxIntendedPurpose {
@@ -165,7 +166,7 @@ class UserPFXCertificate extends Entity implements Parsable
     }
 
     /**
-     * Gets the paddingScheme property value. Padding scheme used by the provider during encryption/decryption. Possible values are: none, pkcs1, oaepSha1, oaepSha256, oaepSha384, oaepSha512.
+     * Gets the paddingScheme property value. Supported values for the padding scheme used by encryption provider.
      * @return UserPfxPaddingScheme|null
     */
     public function getPaddingScheme(): ?UserPfxPaddingScheme {
@@ -257,7 +258,7 @@ class UserPFXCertificate extends Entity implements Parsable
     }
 
     /**
-     * Sets the intendedPurpose property value. Certificate's intended purpose from the point-of-view of deployment. Possible values are: unassigned, smimeEncryption, smimeSigning, vpn, wifi.
+     * Sets the intendedPurpose property value. Supported values for the intended purpose of a user PFX certificate.
      *  @param UserPfxIntendedPurpose|null $value Value to set for the intendedPurpose property.
     */
     public function setIntendedPurpose(?UserPfxIntendedPurpose $value ): void {
@@ -281,7 +282,7 @@ class UserPFXCertificate extends Entity implements Parsable
     }
 
     /**
-     * Sets the paddingScheme property value. Padding scheme used by the provider during encryption/decryption. Possible values are: none, pkcs1, oaepSha1, oaepSha256, oaepSha384, oaepSha512.
+     * Sets the paddingScheme property value. Supported values for the padding scheme used by encryption provider.
      *  @param UserPfxPaddingScheme|null $value Value to set for the paddingScheme property.
     */
     public function setPaddingScheme(?UserPfxPaddingScheme $value ): void {

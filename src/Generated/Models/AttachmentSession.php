@@ -11,17 +11,17 @@ use Psr\Http\Message\StreamInterface;
 class AttachmentSession extends Entity implements Parsable 
 {
     /**
-     * @var StreamInterface|null $content The content property
+     * @var StreamInterface|null $content The content streams that are uploaded.
     */
     private ?StreamInterface $content = null;
     
     /**
-     * @var DateTime|null $expirationDateTime The expirationDateTime property
+     * @var DateTime|null $expirationDateTime The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached.
     */
     private ?DateTime $expirationDateTime = null;
     
     /**
-     * @var array<string>|null $nextExpectedRanges The nextExpectedRanges property
+     * @var array<string>|null $nextExpectedRanges Indicates a single value {start} that represents the location in the file where the next upload should begin.
     */
     private ?array $nextExpectedRanges = null;
     
@@ -30,6 +30,7 @@ class AttachmentSession extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.attachmentSession');
     }
 
     /**
@@ -42,7 +43,7 @@ class AttachmentSession extends Entity implements Parsable
     }
 
     /**
-     * Gets the content property value. The content property
+     * Gets the content property value. The content streams that are uploaded.
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -50,7 +51,7 @@ class AttachmentSession extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. The expirationDateTime property
+     * Gets the expirationDateTime property value. The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -71,7 +72,7 @@ class AttachmentSession extends Entity implements Parsable
     }
 
     /**
-     * Gets the nextExpectedRanges property value. The nextExpectedRanges property
+     * Gets the nextExpectedRanges property value. Indicates a single value {start} that represents the location in the file where the next upload should begin.
      * @return array<string>|null
     */
     public function getNextExpectedRanges(): ?array {
@@ -90,7 +91,7 @@ class AttachmentSession extends Entity implements Parsable
     }
 
     /**
-     * Sets the content property value. The content property
+     * Sets the content property value. The content streams that are uploaded.
      *  @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value ): void {
@@ -98,7 +99,7 @@ class AttachmentSession extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The expirationDateTime property
+     * Sets the expirationDateTime property value. The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value ): void {
@@ -106,7 +107,7 @@ class AttachmentSession extends Entity implements Parsable
     }
 
     /**
-     * Sets the nextExpectedRanges property value. The nextExpectedRanges property
+     * Sets the nextExpectedRanges property value. Indicates a single value {start} that represents the location in the file where the next upload should begin.
      *  @param array<string>|null $value Value to set for the nextExpectedRanges property.
     */
     public function setNextExpectedRanges(?array $value ): void {

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHistoryItem implements Parsable 
 {
     /**
-     * @var MobileAppActionType|null $actionType Action type for Intune Application. Possible values are: unknown, installCommandSent, installed, uninstalled, userRequestedInstall.
+     * @var MobileAppActionType|null $actionType Defines the Action Types for an Intune Application.
     */
     private ?MobileAppActionType $actionType = null;
     
@@ -19,7 +19,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
     private ?string $errorCode = null;
     
     /**
-     * @var RunState|null $runState Status of the item. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * @var RunState|null $runState Indicates the type of execution status of the device management script.
     */
     private ?RunState $runState = null;
     
@@ -28,6 +28,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mobileAppTroubleshootingAppStateHistory');
     }
 
     /**
@@ -40,7 +41,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
     }
 
     /**
-     * Gets the actionType property value. Action type for Intune Application. Possible values are: unknown, installCommandSent, installed, uninstalled, userRequestedInstall.
+     * Gets the actionType property value. Defines the Action Types for an Intune Application.
      * @return MobileAppActionType|null
     */
     public function getActionType(): ?MobileAppActionType {
@@ -69,7 +70,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
     }
 
     /**
-     * Gets the runState property value. Status of the item. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Gets the runState property value. Indicates the type of execution status of the device management script.
      * @return RunState|null
     */
     public function getRunState(): ?RunState {
@@ -88,7 +89,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
     }
 
     /**
-     * Sets the actionType property value. Action type for Intune Application. Possible values are: unknown, installCommandSent, installed, uninstalled, userRequestedInstall.
+     * Sets the actionType property value. Defines the Action Types for an Intune Application.
      *  @param MobileAppActionType|null $value Value to set for the actionType property.
     */
     public function setActionType(?MobileAppActionType $value ): void {
@@ -104,7 +105,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
     }
 
     /**
-     * Sets the runState property value. Status of the item. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Sets the runState property value. Indicates the type of execution status of the device management script.
      *  @param RunState|null $value Value to set for the runState property.
     */
     public function setRunState(?RunState $value ): void {

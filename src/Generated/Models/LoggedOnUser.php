@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LoggedOnUser implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -19,6 +19,11 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
      * @var DateTime|null $lastLogOnDateTime Date time when user logs on
     */
     private ?DateTime $lastLogOnDateTime = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $userId User id
@@ -29,7 +34,8 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
      * Instantiates a new loggedOnUser and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.loggedOnUser');
     }
 
     /**
@@ -57,6 +63,7 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'lastLogOnDateTime' => function (ParseNode $n) use ($o) { $o->setLastLogOnDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
         ];
     }
@@ -67,6 +74,14 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
     */
     public function getLastLogOnDateTime(): ?DateTime {
         return $this->lastLogOnDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -83,6 +98,7 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('lastLogOnDateTime', $this->lastLogOnDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('userId', $this->userId);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -101,6 +117,14 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
     */
     public function setLastLogOnDateTime(?DateTime $value ): void {
         $this->lastLogOnDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationFileSynchronizationVerificationMessage implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     private ?string $fileName = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $type Type of the message. Possible values are: error, warning, information.
     */
     private ?string $type = null;
@@ -33,7 +38,8 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
      * Instantiates a new educationFileSynchronizationVerificationMessage and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.educationFileSynchronizationVerificationMessage');
     }
 
     /**
@@ -70,6 +76,7 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
         return  [
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
         ];
     }
@@ -80,6 +87,14 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     */
     public function getFileName(): ?string {
         return $this->fileName;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('fileName', $this->fileName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class EducationFileSynchronizationVerificationMessage implements AdditionalDataH
     */
     public function setFileName(?string $value ): void {
         $this->fileName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

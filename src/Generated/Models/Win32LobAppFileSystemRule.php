@@ -24,12 +24,12 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule implements Parsable
     private ?string $fileOrFolderName = null;
     
     /**
-     * @var Win32LobAppFileSystemOperationType|null $operationType The file system operation type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
+     * @var Win32LobAppFileSystemOperationType|null $operationType Contains all supported file system detection type.
     */
     private ?Win32LobAppFileSystemOperationType $operationType = null;
     
     /**
-     * @var Win32LobAppRuleOperator|null $operator The operator for file or folder detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * @var Win32LobAppRuleOperator|null $operator Contains properties for detection operator.
     */
     private ?Win32LobAppRuleOperator $operator = null;
     
@@ -43,6 +43,7 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppFileSystemRule');
     }
 
     /**
@@ -95,7 +96,7 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule implements Parsable
     }
 
     /**
-     * Gets the operationType property value. The file system operation type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
+     * Gets the operationType property value. Contains all supported file system detection type.
      * @return Win32LobAppFileSystemOperationType|null
     */
     public function getOperationType(): ?Win32LobAppFileSystemOperationType {
@@ -103,7 +104,7 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule implements Parsable
     }
 
     /**
-     * Gets the operator property value. The operator for file or folder detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Gets the operator property value. Contains properties for detection operator.
      * @return Win32LobAppRuleOperator|null
     */
     public function getOperator(): ?Win32LobAppRuleOperator {
@@ -157,7 +158,7 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule implements Parsable
     }
 
     /**
-     * Sets the operationType property value. The file system operation type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
+     * Sets the operationType property value. Contains all supported file system detection type.
      *  @param Win32LobAppFileSystemOperationType|null $value Value to set for the operationType property.
     */
     public function setOperationType(?Win32LobAppFileSystemOperationType $value ): void {
@@ -165,7 +166,7 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule implements Parsable
     }
 
     /**
-     * Sets the operator property value. The operator for file or folder detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Sets the operator property value. Contains properties for detection operator.
      *  @param Win32LobAppRuleOperator|null $value Value to set for the operator property.
     */
     public function setOperator(?Win32LobAppRuleOperator $value ): void {

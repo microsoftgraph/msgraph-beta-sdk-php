@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TimeSeriesParameter implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,6 +26,11 @@ class TimeSeriesParameter implements AdditionalDataHolder, Parsable
     private ?string $metricName = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var DateTime|null $startDateTime Start time of the series being requested.
     */
     private ?DateTime $startDateTime = null;
@@ -34,7 +39,8 @@ class TimeSeriesParameter implements AdditionalDataHolder, Parsable
      * Instantiates a new timeSeriesParameter and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.timeSeriesParameter');
     }
 
     /**
@@ -71,6 +77,7 @@ class TimeSeriesParameter implements AdditionalDataHolder, Parsable
         return  [
             'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
             'metricName' => function (ParseNode $n) use ($o) { $o->setMetricName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
         ];
     }
@@ -81,6 +88,14 @@ class TimeSeriesParameter implements AdditionalDataHolder, Parsable
     */
     public function getMetricName(): ?string {
         return $this->metricName;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class TimeSeriesParameter implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
         $writer->writeStringValue('metricName', $this->metricName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -124,6 +140,14 @@ class TimeSeriesParameter implements AdditionalDataHolder, Parsable
     */
     public function setMetricName(?string $value ): void {
         $this->metricName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

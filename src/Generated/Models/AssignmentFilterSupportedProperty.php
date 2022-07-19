@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -28,6 +28,11 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
      * @var string|null $name Name of the property.
     */
     private ?string $name = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $propertyRegexConstraint Regex string to do validation on the property value.
@@ -48,7 +53,8 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
      * Instantiates a new assignmentFilterSupportedProperty and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.assignmentFilterSupportedProperty');
     }
 
     /**
@@ -86,6 +92,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
             'dataType' => function (ParseNode $n) use ($o) { $o->setDataType($n->getStringValue()); },
             'isCollection' => function (ParseNode $n) use ($o) { $o->setIsCollection($n->getBooleanValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'propertyRegexConstraint' => function (ParseNode $n) use ($o) { $o->setPropertyRegexConstraint($n->getStringValue()); },
             'supportedOperators' => function (ParseNode $n) use ($o) { $o->setSupportedOperators($n->getCollectionOfPrimitiveValues()); },
             'supportedValues' => function (ParseNode $n) use ($o) { $o->setSupportedValues($n->getCollectionOfPrimitiveValues()); },
@@ -106,6 +113,14 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
     */
     public function getName(): ?string {
         return $this->name;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -140,6 +155,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
         $writer->writeStringValue('dataType', $this->dataType);
         $writer->writeBooleanValue('isCollection', $this->isCollection);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('propertyRegexConstraint', $this->propertyRegexConstraint);
         $writer->writeCollectionOfPrimitiveValues('supportedOperators', $this->supportedOperators);
         $writer->writeCollectionOfPrimitiveValues('supportedValues', $this->supportedValues);
@@ -176,6 +192,14 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -50,7 +50,12 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, Parsable
     private ?bool $natKeepAliveOffloadEnable = null;
     
     /**
-     * @var VpnTunnelConfigurationType|null $tunnelConfiguration Determines what connections the specific tunnel configuration applies to. Possible values are: wifiAndCellular, cellular, wifi.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var VpnTunnelConfigurationType|null $tunnelConfiguration The type of tunnels that will be present to the VPN client for configuration
     */
     private ?VpnTunnelConfigurationType $tunnelConfiguration = null;
     
@@ -68,7 +73,8 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, Parsable
      * Instantiates a new appleVpnAlwaysOnConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.appleVpnAlwaysOnConfiguration');
     }
 
     /**
@@ -142,6 +148,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, Parsable
             'cellularExceptionAction' => function (ParseNode $n) use ($o) { $o->setCellularExceptionAction($n->getEnumValue(VpnServiceExceptionAction::class)); },
             'natKeepAliveIntervalInSeconds' => function (ParseNode $n) use ($o) { $o->setNatKeepAliveIntervalInSeconds($n->getIntegerValue()); },
             'natKeepAliveOffloadEnable' => function (ParseNode $n) use ($o) { $o->setNatKeepAliveOffloadEnable($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'tunnelConfiguration' => function (ParseNode $n) use ($o) { $o->setTunnelConfiguration($n->getEnumValue(VpnTunnelConfigurationType::class)); },
             'userToggleEnabled' => function (ParseNode $n) use ($o) { $o->setUserToggleEnabled($n->getBooleanValue()); },
             'voicemailExceptionAction' => function (ParseNode $n) use ($o) { $o->setVoicemailExceptionAction($n->getEnumValue(VpnServiceExceptionAction::class)); },
@@ -165,7 +172,15 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tunnelConfiguration property value. Determines what connections the specific tunnel configuration applies to. Possible values are: wifiAndCellular, cellular, wifi.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the tunnelConfiguration property value. The type of tunnels that will be present to the VPN client for configuration
      * @return VpnTunnelConfigurationType|null
     */
     public function getTunnelConfiguration(): ?VpnTunnelConfigurationType {
@@ -200,6 +215,7 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('cellularExceptionAction', $this->cellularExceptionAction);
         $writer->writeIntegerValue('natKeepAliveIntervalInSeconds', $this->natKeepAliveIntervalInSeconds);
         $writer->writeBooleanValue('natKeepAliveOffloadEnable', $this->natKeepAliveOffloadEnable);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('tunnelConfiguration', $this->tunnelConfiguration);
         $writer->writeBooleanValue('userToggleEnabled', $this->userToggleEnabled);
         $writer->writeEnumValue('voicemailExceptionAction', $this->voicemailExceptionAction);
@@ -271,7 +287,15 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tunnelConfiguration property value. Determines what connections the specific tunnel configuration applies to. Possible values are: wifiAndCellular, cellular, wifi.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the tunnelConfiguration property value. The type of tunnels that will be present to the VPN client for configuration
      *  @param VpnTunnelConfigurationType|null $value Value to set for the tunnelConfiguration property.
     */
     public function setTunnelConfiguration(?VpnTunnelConfigurationType $value ): void {

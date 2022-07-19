@@ -10,9 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FilterClause implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $operatorName Name of the operator to be applied to the source and target operands. Must be one of the supported operators. Supported operators can be discovered.
@@ -33,7 +38,8 @@ class FilterClause implements AdditionalDataHolder, Parsable
      * Instantiates a new filterClause and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.filterClause');
     }
 
     /**
@@ -60,10 +66,19 @@ class FilterClause implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'operatorName' => function (ParseNode $n) use ($o) { $o->setOperatorName($n->getStringValue()); },
             'sourceOperandName' => function (ParseNode $n) use ($o) { $o->setSourceOperandName($n->getStringValue()); },
             'targetOperand' => function (ParseNode $n) use ($o) { $o->setTargetOperand($n->getObjectValue(array(FilterOperand::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -95,6 +110,7 @@ class FilterClause implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('operatorName', $this->operatorName);
         $writer->writeStringValue('sourceOperandName', $this->sourceOperandName);
         $writer->writeObjectValue('targetOperand', $this->targetOperand);
@@ -107,6 +123,14 @@ class FilterClause implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

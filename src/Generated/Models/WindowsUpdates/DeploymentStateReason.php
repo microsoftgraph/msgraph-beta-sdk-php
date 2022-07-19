@@ -10,12 +10,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeploymentStateReason implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var DeploymentStateReasonValue|null $value Specifies a reason for the deployment state. Possible values are: scheduledByOfferWindow, offeringByRequest, pausedByRequest, pausedByMonitoring. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: faultedByContentOutdated. Read-only.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var DeploymentStateReasonValue|null $value The value property
     */
     private ?DeploymentStateReasonValue $value = null;
     
@@ -23,7 +28,8 @@ class DeploymentStateReason implements AdditionalDataHolder, Parsable
      * Instantiates a new deploymentStateReason and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windowsUpdates.deploymentStateReason');
     }
 
     /**
@@ -50,12 +56,21 @@ class DeploymentStateReason implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getEnumValue(DeploymentStateReasonValue::class)); },
         ];
     }
 
     /**
-     * Gets the value property value. Specifies a reason for the deployment state. Possible values are: scheduledByOfferWindow, offeringByRequest, pausedByRequest, pausedByMonitoring. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: faultedByContentOutdated. Read-only.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the value property value. The value property
      * @return DeploymentStateReasonValue|null
     */
     public function getValue(): ?DeploymentStateReasonValue {
@@ -67,6 +82,7 @@ class DeploymentStateReason implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('value', $this->value);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -80,7 +96,15 @@ class DeploymentStateReason implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the value property value. Specifies a reason for the deployment state. Possible values are: scheduledByOfferWindow, offeringByRequest, pausedByRequest, pausedByMonitoring. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: faultedByContentOutdated. Read-only.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the value property value. The value property
      *  @param DeploymentStateReasonValue|null $value Value to set for the value property.
     */
     public function setValue(?DeploymentStateReasonValue $value ): void {

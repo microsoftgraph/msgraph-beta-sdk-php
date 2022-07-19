@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * @var Enablement|null $enhancedBiometricsState Controls the ability to use the anti-spoofing features for facial recognition on devices which support it. If set to disabled, anti-spoofing features are not allowed. If set to Not Configured, the user can choose whether they want to use anti-spoofing. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $enhancedBiometricsState Possible values of a property
     */
     private ?Enablement $enhancedBiometricsState = null;
     
@@ -19,7 +19,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     private ?int $pinExpirationInDays = null;
     
     /**
-     * @var WindowsHelloForBusinessPinUsage|null $pinLowercaseCharactersUsage Controls the ability to use lowercase letters in the Windows Hello for Business PIN.  Allowed permits the use of lowercase letter(s), whereas Required ensures they are present. If set to Not Allowed, lowercase letters will not be permitted. Possible values are: allowed, required, disallowed.
+     * @var WindowsHelloForBusinessPinUsage|null $pinLowercaseCharactersUsage Windows Hello for Business pin usage options
     */
     private ?WindowsHelloForBusinessPinUsage $pinLowercaseCharactersUsage = null;
     
@@ -39,12 +39,12 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     private ?int $pinPreviousBlockCount = null;
     
     /**
-     * @var WindowsHelloForBusinessPinUsage|null $pinSpecialCharactersUsage Controls the ability to use special characters in the Windows Hello for Business PIN.  Allowed permits the use of special character(s), whereas Required ensures they are present. If set to Not Allowed, special character(s) will not be permitted. Possible values are: allowed, required, disallowed.
+     * @var WindowsHelloForBusinessPinUsage|null $pinSpecialCharactersUsage Windows Hello for Business pin usage options
     */
     private ?WindowsHelloForBusinessPinUsage $pinSpecialCharactersUsage = null;
     
     /**
-     * @var WindowsHelloForBusinessPinUsage|null $pinUppercaseCharactersUsage Controls the ability to use uppercase letters in the Windows Hello for Business PIN.  Allowed permits the use of uppercase letter(s), whereas Required ensures they are present. If set to Not Allowed, uppercase letters will not be permitted. Possible values are: allowed, required, disallowed.
+     * @var WindowsHelloForBusinessPinUsage|null $pinUppercaseCharactersUsage Windows Hello for Business pin usage options
     */
     private ?WindowsHelloForBusinessPinUsage $pinUppercaseCharactersUsage = null;
     
@@ -59,12 +59,12 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     private ?bool $securityDeviceRequired = null;
     
     /**
-     * @var Enablement|null $securityKeyForSignIn Security key for Sign In provides the capacity for remotely turning ON/OFF Windows Hello Sercurity Keyl Not configured will honor configurations done on the clinet. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $securityKeyForSignIn Possible values of a property
     */
     private ?Enablement $securityKeyForSignIn = null;
     
     /**
-     * @var Enablement|null $state Controls whether to allow the device to be configured for Windows Hello for Business. If set to disabled, the user cannot provision Windows Hello for Business except on Azure Active Directory joined mobile phones if otherwise required. If set to Not Configured, Intune will not override client defaults. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $state Possible values of a property
     */
     private ?Enablement $state = null;
     
@@ -78,6 +78,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceEnrollmentWindowsHelloForBusinessConfiguration');
     }
 
     /**
@@ -90,7 +91,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Gets the enhancedBiometricsState property value. Controls the ability to use the anti-spoofing features for facial recognition on devices which support it. If set to disabled, anti-spoofing features are not allowed. If set to Not Configured, the user can choose whether they want to use anti-spoofing. Possible values are: notConfigured, enabled, disabled.
+     * Gets the enhancedBiometricsState property value. Possible values of a property
      * @return Enablement|null
     */
     public function getEnhancedBiometricsState(): ?Enablement {
@@ -129,7 +130,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Gets the pinLowercaseCharactersUsage property value. Controls the ability to use lowercase letters in the Windows Hello for Business PIN.  Allowed permits the use of lowercase letter(s), whereas Required ensures they are present. If set to Not Allowed, lowercase letters will not be permitted. Possible values are: allowed, required, disallowed.
+     * Gets the pinLowercaseCharactersUsage property value. Windows Hello for Business pin usage options
      * @return WindowsHelloForBusinessPinUsage|null
     */
     public function getPinLowercaseCharactersUsage(): ?WindowsHelloForBusinessPinUsage {
@@ -161,7 +162,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Gets the pinSpecialCharactersUsage property value. Controls the ability to use special characters in the Windows Hello for Business PIN.  Allowed permits the use of special character(s), whereas Required ensures they are present. If set to Not Allowed, special character(s) will not be permitted. Possible values are: allowed, required, disallowed.
+     * Gets the pinSpecialCharactersUsage property value. Windows Hello for Business pin usage options
      * @return WindowsHelloForBusinessPinUsage|null
     */
     public function getPinSpecialCharactersUsage(): ?WindowsHelloForBusinessPinUsage {
@@ -169,7 +170,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Gets the pinUppercaseCharactersUsage property value. Controls the ability to use uppercase letters in the Windows Hello for Business PIN.  Allowed permits the use of uppercase letter(s), whereas Required ensures they are present. If set to Not Allowed, uppercase letters will not be permitted. Possible values are: allowed, required, disallowed.
+     * Gets the pinUppercaseCharactersUsage property value. Windows Hello for Business pin usage options
      * @return WindowsHelloForBusinessPinUsage|null
     */
     public function getPinUppercaseCharactersUsage(): ?WindowsHelloForBusinessPinUsage {
@@ -193,7 +194,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Gets the securityKeyForSignIn property value. Security key for Sign In provides the capacity for remotely turning ON/OFF Windows Hello Sercurity Keyl Not configured will honor configurations done on the clinet. Possible values are: notConfigured, enabled, disabled.
+     * Gets the securityKeyForSignIn property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSecurityKeyForSignIn(): ?Enablement {
@@ -201,7 +202,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Gets the state property value. Controls whether to allow the device to be configured for Windows Hello for Business. If set to disabled, the user cannot provision Windows Hello for Business except on Azure Active Directory joined mobile phones if otherwise required. If set to Not Configured, Intune will not override client defaults. Possible values are: notConfigured, enabled, disabled.
+     * Gets the state property value. Possible values of a property
      * @return Enablement|null
     */
     public function getState(): ?Enablement {
@@ -238,7 +239,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Sets the enhancedBiometricsState property value. Controls the ability to use the anti-spoofing features for facial recognition on devices which support it. If set to disabled, anti-spoofing features are not allowed. If set to Not Configured, the user can choose whether they want to use anti-spoofing. Possible values are: notConfigured, enabled, disabled.
+     * Sets the enhancedBiometricsState property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the enhancedBiometricsState property.
     */
     public function setEnhancedBiometricsState(?Enablement $value ): void {
@@ -254,7 +255,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Sets the pinLowercaseCharactersUsage property value. Controls the ability to use lowercase letters in the Windows Hello for Business PIN.  Allowed permits the use of lowercase letter(s), whereas Required ensures they are present. If set to Not Allowed, lowercase letters will not be permitted. Possible values are: allowed, required, disallowed.
+     * Sets the pinLowercaseCharactersUsage property value. Windows Hello for Business pin usage options
      *  @param WindowsHelloForBusinessPinUsage|null $value Value to set for the pinLowercaseCharactersUsage property.
     */
     public function setPinLowercaseCharactersUsage(?WindowsHelloForBusinessPinUsage $value ): void {
@@ -286,7 +287,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Sets the pinSpecialCharactersUsage property value. Controls the ability to use special characters in the Windows Hello for Business PIN.  Allowed permits the use of special character(s), whereas Required ensures they are present. If set to Not Allowed, special character(s) will not be permitted. Possible values are: allowed, required, disallowed.
+     * Sets the pinSpecialCharactersUsage property value. Windows Hello for Business pin usage options
      *  @param WindowsHelloForBusinessPinUsage|null $value Value to set for the pinSpecialCharactersUsage property.
     */
     public function setPinSpecialCharactersUsage(?WindowsHelloForBusinessPinUsage $value ): void {
@@ -294,7 +295,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Sets the pinUppercaseCharactersUsage property value. Controls the ability to use uppercase letters in the Windows Hello for Business PIN.  Allowed permits the use of uppercase letter(s), whereas Required ensures they are present. If set to Not Allowed, uppercase letters will not be permitted. Possible values are: allowed, required, disallowed.
+     * Sets the pinUppercaseCharactersUsage property value. Windows Hello for Business pin usage options
      *  @param WindowsHelloForBusinessPinUsage|null $value Value to set for the pinUppercaseCharactersUsage property.
     */
     public function setPinUppercaseCharactersUsage(?WindowsHelloForBusinessPinUsage $value ): void {
@@ -318,7 +319,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Sets the securityKeyForSignIn property value. Security key for Sign In provides the capacity for remotely turning ON/OFF Windows Hello Sercurity Keyl Not configured will honor configurations done on the clinet. Possible values are: notConfigured, enabled, disabled.
+     * Sets the securityKeyForSignIn property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the securityKeyForSignIn property.
     */
     public function setSecurityKeyForSignIn(?Enablement $value ): void {
@@ -326,7 +327,7 @@ class DeviceEnrollmentWindowsHelloForBusinessConfiguration extends DeviceEnrollm
     }
 
     /**
-     * Sets the state property value. Controls whether to allow the device to be configured for Windows Hello for Business. If set to disabled, the user cannot provision Windows Hello for Business except on Azure Active Directory joined mobile phones if otherwise required. If set to Not Configured, Intune will not override client defaults. Possible values are: notConfigured, enabled, disabled.
+     * Sets the state property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the state property.
     */
     public function setState(?Enablement $value ): void {

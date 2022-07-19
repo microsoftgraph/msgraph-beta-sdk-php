@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable
      * @var string|null $id Key for the Android FOTA Assignment entity
     */
     private ?string $id = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var AndroidFotaDeploymentAssignmentTarget|null $target The AAD Group we are deploying firmware updates to
@@ -28,7 +33,8 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable
      * Instantiates a new androidFotaDeploymentAssignment and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.androidFotaDeploymentAssignment');
     }
 
     /**
@@ -56,6 +62,7 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(AndroidFotaDeploymentAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -66,6 +73,14 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable
     */
     public function getId(): ?string {
         return $this->id;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('id', $this->id);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('target', $this->target);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable
     */
     public function setId(?string $value ): void {
         $this->id = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

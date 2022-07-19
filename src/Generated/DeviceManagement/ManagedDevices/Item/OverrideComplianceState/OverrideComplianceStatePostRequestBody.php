@@ -11,12 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var AdministratorConfiguredDeviceComplianceState|null $complianceState The complianceState property
+     * @var AdministratorConfiguredDeviceComplianceState|null $complianceState Administrator configured device compliance state Enum
     */
     private ?AdministratorConfiguredDeviceComplianceState $complianceState = null;
     
@@ -29,7 +29,7 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Pa
      * Instantiates a new overrideComplianceStatePostRequestBody and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -50,7 +50,7 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Gets the complianceState property value. The complianceState property
+     * Gets the complianceState property value. Administrator configured device compliance state Enum
      * @return AdministratorConfiguredDeviceComplianceState|null
     */
     public function getComplianceState(): ?AdministratorConfiguredDeviceComplianceState {
@@ -96,7 +96,7 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Sets the complianceState property value. The complianceState property
+     * Sets the complianceState property value. Administrator configured device compliance state Enum
      *  @param AdministratorConfiguredDeviceComplianceState|null $value Value to set for the complianceState property.
     */
     public function setComplianceState(?AdministratorConfiguredDeviceComplianceState $value ): void {

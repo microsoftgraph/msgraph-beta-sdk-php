@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsCloudManagementDevicesSummary implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     private ?int $intuneDeviceCount = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $tenantAttachDeviceCount Total count of tenant attach devices.
     */
     private ?int $tenantAttachDeviceCount = null;
@@ -33,7 +38,8 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
      * Instantiates a new userExperienceAnalyticsCloudManagementDevicesSummary and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsCloudManagementDevicesSummary');
     }
 
     /**
@@ -70,6 +76,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
         return  [
             'coManagedDeviceCount' => function (ParseNode $n) use ($o) { $o->setCoManagedDeviceCount($n->getIntegerValue()); },
             'intuneDeviceCount' => function (ParseNode $n) use ($o) { $o->setIntuneDeviceCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'tenantAttachDeviceCount' => function (ParseNode $n) use ($o) { $o->setTenantAttachDeviceCount($n->getIntegerValue()); },
         ];
     }
@@ -80,6 +87,14 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     */
     public function getIntuneDeviceCount(): ?int {
         return $this->intuneDeviceCount;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('coManagedDeviceCount', $this->coManagedDeviceCount);
         $writer->writeIntegerValue('intuneDeviceCount', $this->intuneDeviceCount);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('tenantAttachDeviceCount', $this->tenantAttachDeviceCount);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     */
     public function setIntuneDeviceCount(?int $value ): void {
         $this->intuneDeviceCount = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

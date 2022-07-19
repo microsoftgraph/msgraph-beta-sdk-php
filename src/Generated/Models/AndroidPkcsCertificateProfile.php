@@ -38,6 +38,7 @@ class AndroidPkcsCertificateProfile extends AndroidCertificateProfileBase implem
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidPkcsCertificateProfile');
     }
 
     /**

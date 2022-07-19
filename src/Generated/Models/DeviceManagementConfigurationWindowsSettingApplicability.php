@@ -24,7 +24,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     private ?string $minimumSupportedVersion = null;
     
     /**
-     * @var DeviceManagementConfigurationAzureAdTrustType|null $requiredAzureAdTrustType Required AzureAD trust type. Possible values are: none, azureAdJoined, addWorkAccount, mdmOnly.
+     * @var DeviceManagementConfigurationAzureAdTrustType|null $requiredAzureAdTrustType Required AAD Trust Type
     */
     private ?DeviceManagementConfigurationAzureAdTrustType $requiredAzureAdTrustType = null;
     
@@ -43,6 +43,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationWindowsSettingApplicability');
     }
 
     /**
@@ -95,7 +96,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     }
 
     /**
-     * Gets the requiredAzureAdTrustType property value. Required AzureAD trust type. Possible values are: none, azureAdJoined, addWorkAccount, mdmOnly.
+     * Gets the requiredAzureAdTrustType property value. Required AAD Trust Type
      * @return DeviceManagementConfigurationAzureAdTrustType|null
     */
     public function getRequiredAzureAdTrustType(): ?DeviceManagementConfigurationAzureAdTrustType {
@@ -157,7 +158,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     }
 
     /**
-     * Sets the requiredAzureAdTrustType property value. Required AzureAD trust type. Possible values are: none, azureAdJoined, addWorkAccount, mdmOnly.
+     * Sets the requiredAzureAdTrustType property value. Required AAD Trust Type
      *  @param DeviceManagementConfigurationAzureAdTrustType|null $value Value to set for the requiredAzureAdTrustType property.
     */
     public function setRequiredAzureAdTrustType(?DeviceManagementConfigurationAzureAdTrustType $value ): void {

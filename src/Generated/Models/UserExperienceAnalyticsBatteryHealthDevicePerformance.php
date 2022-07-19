@@ -34,7 +34,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     private ?int $estimatedRuntimeInMinutes = null;
     
     /**
-     * @var UserExperienceAnalyticsHealthState|null $healthStatus The overall battery health status of the device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * @var UserExperienceAnalyticsHealthState|null $healthStatus The healthStatus property
     */
     private ?UserExperienceAnalyticsHealthState $healthStatus = null;
     
@@ -54,10 +54,11 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     private ?string $model = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthDevicePerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthDevicePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsBatteryHealthDevicePerformance');
     }
 
     /**
@@ -129,7 +130,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Gets the healthStatus property value. The overall battery health status of the device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * Gets the healthStatus property value. The healthStatus property
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
@@ -218,7 +219,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     }
 
     /**
-     * Sets the healthStatus property value. The overall battery health status of the device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * Sets the healthStatus property value. The healthStatus property
      *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?UserExperienceAnalyticsHealthState $value ): void {

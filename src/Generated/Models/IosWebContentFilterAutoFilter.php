@@ -23,6 +23,7 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosWebContentFilterAutoFilter');
     }
 
     /**

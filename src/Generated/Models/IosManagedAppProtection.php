@@ -14,12 +14,12 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     private ?string $allowedIosDeviceModels = null;
     
     /**
-     * @var ManagedAppRemediationAction|null $appActionIfIosDeviceModelNotAllowed Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. Possible values are: block, wipe, warn.
+     * @var ManagedAppRemediationAction|null $appActionIfIosDeviceModelNotAllowed An admin initiated action to be applied on a managed app.
     */
     private ?ManagedAppRemediationAction $appActionIfIosDeviceModelNotAllowed = null;
     
     /**
-     * @var ManagedAppDataEncryptionType|null $appDataEncryptionType Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
+     * @var ManagedAppDataEncryptionType|null $appDataEncryptionType Represents the level to which app data is encrypted for managed apps
     */
     private ?ManagedAppDataEncryptionType $appDataEncryptionType = null;
     
@@ -103,6 +103,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosManagedAppProtection');
     }
 
     /**
@@ -123,7 +124,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Gets the appActionIfIosDeviceModelNotAllowed property value. Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. Possible values are: block, wipe, warn.
+     * Gets the appActionIfIosDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfIosDeviceModelNotAllowed(): ?ManagedAppRemediationAction {
@@ -131,7 +132,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Gets the appDataEncryptionType property value. Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
+     * Gets the appDataEncryptionType property value. Represents the level to which app data is encrypted for managed apps
      * @return ManagedAppDataEncryptionType|null
     */
     public function getAppDataEncryptionType(): ?ManagedAppDataEncryptionType {
@@ -321,7 +322,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Sets the appActionIfIosDeviceModelNotAllowed property value. Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. Possible values are: block, wipe, warn.
+     * Sets the appActionIfIosDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfIosDeviceModelNotAllowed property.
     */
     public function setAppActionIfIosDeviceModelNotAllowed(?ManagedAppRemediationAction $value ): void {
@@ -329,7 +330,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     }
 
     /**
-     * Sets the appDataEncryptionType property value. Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
+     * Sets the appDataEncryptionType property value. Represents the level to which app data is encrypted for managed apps
      *  @param ManagedAppDataEncryptionType|null $value Value to set for the appDataEncryptionType property.
     */
     public function setAppDataEncryptionType(?ManagedAppDataEncryptionType $value ): void {

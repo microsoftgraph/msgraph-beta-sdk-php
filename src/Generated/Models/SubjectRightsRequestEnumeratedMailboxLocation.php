@@ -18,6 +18,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.subjectRightsRequestEnumeratedMailboxLocation');
     }
 
     /**

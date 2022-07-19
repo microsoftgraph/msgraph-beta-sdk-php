@@ -19,7 +19,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
     private ?bool $alwaysOnLockdown = null;
     
     /**
-     * @var AndroidVpnConnectionType|null $connectionType Connection type. Possible values are: ciscoAnyConnect, pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, citrix, microsoftTunnel, netMotionMobility, microsoftProtect.
+     * @var AndroidVpnConnectionType|null $connectionType Android VPN connection type.
     */
     private ?AndroidVpnConnectionType $connectionType = null;
     
@@ -68,6 +68,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerVpnConfiguration');
     }
 
     /**
@@ -96,7 +97,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
     }
 
     /**
-     * Gets the connectionType property value. Connection type. Possible values are: ciscoAnyConnect, pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, citrix, microsoftTunnel, netMotionMobility, microsoftProtect.
+     * Gets the connectionType property value. Android VPN connection type.
      * @return AndroidVpnConnectionType|null
     */
     public function getConnectionType(): ?AndroidVpnConnectionType {
@@ -224,7 +225,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
     }
 
     /**
-     * Sets the connectionType property value. Connection type. Possible values are: ciscoAnyConnect, pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, citrix, microsoftTunnel, netMotionMobility, microsoftProtect.
+     * Sets the connectionType property value. Android VPN connection type.
      *  @param AndroidVpnConnectionType|null $value Value to set for the connectionType property.
     */
     public function setConnectionType(?AndroidVpnConnectionType $value ): void {

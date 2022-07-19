@@ -18,6 +18,7 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.accessPackageResourceAttributeQuestion');
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
     private ?string $domainUserName = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $smtpAddress The Simple Mail Transfer Protocol (SMTP) address of the user account. This is only required if a different user principal name (UPN) is used to sign in to Exchange other than Microsoft Teams and Skype for Business. This is a common scenario in a hybrid environment where an on-premises Exchange server is used.
     */
     private ?string $smtpAddress = null;
@@ -33,7 +38,8 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
      * Instantiates a new teamworkOnPremisesCalendarSyncConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkOnPremisesCalendarSyncConfiguration');
     }
 
     /**
@@ -78,8 +84,17 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
         return  [
             'domain' => function (ParseNode $n) use ($o) { $o->setDomain($n->getStringValue()); },
             'domainUserName' => function (ParseNode $n) use ($o) { $o->setDomainUserName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'smtpAddress' => function (ParseNode $n) use ($o) { $o->setSmtpAddress($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('domain', $this->domain);
         $writer->writeStringValue('domainUserName', $this->domainUserName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('smtpAddress', $this->smtpAddress);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
     */
     public function setDomainUserName(?string $value ): void {
         $this->domainUserName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Parsable 
 {
     /**
-     * @var UpdateCategory|null $updateCategory The category of updates that the service manages. Supports a subset of the values for updateCategory. Possible values are: feature, unknownFutureValue.
+     * @var UpdateCategory|null $updateCategory The updateCategory property
     */
     private ?UpdateCategory $updateCategory = null;
     
@@ -18,6 +18,7 @@ class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdates.updateManagementEnrollment');
     }
 
     /**
@@ -41,7 +42,7 @@ class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Par
     }
 
     /**
-     * Gets the updateCategory property value. The category of updates that the service manages. Supports a subset of the values for updateCategory. Possible values are: feature, unknownFutureValue.
+     * Gets the updateCategory property value. The updateCategory property
      * @return UpdateCategory|null
     */
     public function getUpdateCategory(): ?UpdateCategory {
@@ -58,7 +59,7 @@ class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Par
     }
 
     /**
-     * Sets the updateCategory property value. The category of updates that the service manages. Supports a subset of the values for updateCategory. Possible values are: feature, unknownFutureValue.
+     * Sets the updateCategory property value. The updateCategory property
      *  @param UpdateCategory|null $value Value to set for the updateCategory property.
     */
     public function setUpdateCategory(?UpdateCategory $value ): void {

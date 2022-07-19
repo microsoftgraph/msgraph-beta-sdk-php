@@ -23,6 +23,7 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows81CertificateProfileBase');
     }
 
     /**

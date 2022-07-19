@@ -14,7 +14,7 @@ class WindowsInformationProtectionAppLearningSummary extends Entity implements P
     private ?string $applicationName = null;
     
     /**
-     * @var ApplicationType|null $applicationType Application Type. Possible values are: universal, desktop.
+     * @var ApplicationType|null $applicationType Possible types of Application
     */
     private ?ApplicationType $applicationType = null;
     
@@ -24,10 +24,11 @@ class WindowsInformationProtectionAppLearningSummary extends Entity implements P
     private ?int $deviceCount = null;
     
     /**
-     * Instantiates a new WindowsInformationProtectionAppLearningSummary and sets the default values.
+     * Instantiates a new windowsInformationProtectionAppLearningSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsInformationProtectionAppLearningSummary');
     }
 
     /**
@@ -48,7 +49,7 @@ class WindowsInformationProtectionAppLearningSummary extends Entity implements P
     }
 
     /**
-     * Gets the applicationType property value. Application Type. Possible values are: universal, desktop.
+     * Gets the applicationType property value. Possible types of Application
      * @return ApplicationType|null
     */
     public function getApplicationType(): ?ApplicationType {
@@ -96,7 +97,7 @@ class WindowsInformationProtectionAppLearningSummary extends Entity implements P
     }
 
     /**
-     * Sets the applicationType property value. Application Type. Possible values are: universal, desktop.
+     * Sets the applicationType property value. Possible types of Application
      *  @param ApplicationType|null $value Value to set for the applicationType property.
     */
     public function setApplicationType(?ApplicationType $value ): void {

@@ -14,7 +14,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
     private ?DeviceConfigAssignmentIntent $intent = null;
     
     /**
-     * @var DeviceAndAppManagementAssignmentSource|null $source The assignment source for the device configuration, direct or parcel/policySet. This property is read-only. Possible values are: direct, policySets.
+     * @var DeviceAndAppManagementAssignmentSource|null $source Represents source of assignment.
     */
     private ?DeviceAndAppManagementAssignmentSource $source = null;
     
@@ -33,6 +33,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceConfigurationAssignment');
     }
 
     /**
@@ -67,7 +68,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the source property value. The assignment source for the device configuration, direct or parcel/policySet. This property is read-only. Possible values are: direct, policySets.
+     * Gets the source property value. Represents source of assignment.
      * @return DeviceAndAppManagementAssignmentSource|null
     */
     public function getSource(): ?DeviceAndAppManagementAssignmentSource {
@@ -111,7 +112,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the source property value. The assignment source for the device configuration, direct or parcel/policySet. This property is read-only. Possible values are: direct, policySets.
+     * Sets the source property value. Represents source of assignment.
      *  @param DeviceAndAppManagementAssignmentSource|null $value Value to set for the source property.
     */
     public function setSource(?DeviceAndAppManagementAssignmentSource $value ): void {

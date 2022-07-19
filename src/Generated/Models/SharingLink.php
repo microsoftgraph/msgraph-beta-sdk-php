@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SharingLink implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class SharingLink implements AdditionalDataHolder, Parsable
      * @var string|null $configuratorUrl The configuratorUrl property
     */
     private ?string $configuratorUrl = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var bool|null $preventsDownload If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.
@@ -53,7 +58,8 @@ class SharingLink implements AdditionalDataHolder, Parsable
      * Instantiates a new sharingLink and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.sharingLink');
     }
 
     /**
@@ -98,12 +104,21 @@ class SharingLink implements AdditionalDataHolder, Parsable
         return  [
             'application' => function (ParseNode $n) use ($o) { $o->setApplication($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
             'configuratorUrl' => function (ParseNode $n) use ($o) { $o->setConfiguratorUrl($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'preventsDownload' => function (ParseNode $n) use ($o) { $o->setPreventsDownload($n->getBooleanValue()); },
             'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getStringValue()); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
             'webHtml' => function (ParseNode $n) use ($o) { $o->setWebHtml($n->getStringValue()); },
             'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -153,6 +168,7 @@ class SharingLink implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('application', $this->application);
         $writer->writeStringValue('configuratorUrl', $this->configuratorUrl);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('preventsDownload', $this->preventsDownload);
         $writer->writeStringValue('scope', $this->scope);
         $writer->writeStringValue('type', $this->type);
@@ -183,6 +199,14 @@ class SharingLink implements AdditionalDataHolder, Parsable
     */
     public function setConfiguratorUrl(?string $value ): void {
         $this->configuratorUrl = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

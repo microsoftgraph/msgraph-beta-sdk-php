@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationSynchronizationConnectionSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,10 +25,16 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
     private ?string $clientSecret = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new educationSynchronizationConnectionSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.educationSynchronizationConnectionSettings');
     }
 
     /**
@@ -81,7 +87,16 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
         return  [
             'clientId' => function (ParseNode $n) use ($o) { $o->setClientId($n->getStringValue()); },
             'clientSecret' => function (ParseNode $n) use ($o) { $o->setClientSecret($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -91,6 +106,7 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('clientId', $this->clientId);
         $writer->writeStringValue('clientSecret', $this->clientSecret);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -116,6 +132,14 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
     */
     public function setClientSecret(?string $value ): void {
         $this->clientSecret = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

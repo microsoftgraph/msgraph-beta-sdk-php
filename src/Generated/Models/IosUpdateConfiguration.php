@@ -45,7 +45,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
     private ?array $scheduledInstallDays = null;
     
     /**
-     * @var IosSoftwareUpdateScheduleType|null $updateScheduleType Update schedule type. Possible values are: updateOutsideOfActiveHours, alwaysUpdate, updateDuringTimeWindows, updateOutsideOfTimeWindows.
+     * @var IosSoftwareUpdateScheduleType|null $updateScheduleType Update schedule type for iOS software updates.
     */
     private ?IosSoftwareUpdateScheduleType $updateScheduleType = null;
     
@@ -59,6 +59,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosUpdateConfiguration');
     }
 
     /**
@@ -146,7 +147,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the updateScheduleType property value. Update schedule type. Possible values are: updateOutsideOfActiveHours, alwaysUpdate, updateDuringTimeWindows, updateOutsideOfTimeWindows.
+     * Gets the updateScheduleType property value. Update schedule type for iOS software updates.
      * @return IosSoftwareUpdateScheduleType|null
     */
     public function getUpdateScheduleType(): ?IosSoftwareUpdateScheduleType {
@@ -235,7 +236,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the updateScheduleType property value. Update schedule type. Possible values are: updateOutsideOfActiveHours, alwaysUpdate, updateDuringTimeWindows, updateOutsideOfTimeWindows.
+     * Sets the updateScheduleType property value. Update schedule type for iOS software updates.
      *  @param IosSoftwareUpdateScheduleType|null $value Value to set for the updateScheduleType property.
     */
     public function setUpdateScheduleType(?IosSoftwareUpdateScheduleType $value ): void {

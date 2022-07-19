@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityProviderStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class SecurityProviderStatus implements AdditionalDataHolder, Parsable
      * @var string|null $endpoint The endpoint property
     */
     private ?string $endpoint = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $provider The provider property
@@ -43,7 +48,8 @@ class SecurityProviderStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new securityProviderStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.securityProviderStatus');
     }
 
     /**
@@ -88,10 +94,19 @@ class SecurityProviderStatus implements AdditionalDataHolder, Parsable
         return  [
             'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
             'endpoint' => function (ParseNode $n) use ($o) { $o->setEndpoint($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'provider' => function (ParseNode $n) use ($o) { $o->setProvider($n->getStringValue()); },
             'region' => function (ParseNode $n) use ($o) { $o->setRegion($n->getStringValue()); },
             'vendor' => function (ParseNode $n) use ($o) { $o->setVendor($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -125,6 +140,7 @@ class SecurityProviderStatus implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('enabled', $this->enabled);
         $writer->writeStringValue('endpoint', $this->endpoint);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('provider', $this->provider);
         $writer->writeStringValue('region', $this->region);
         $writer->writeStringValue('vendor', $this->vendor);
@@ -153,6 +169,14 @@ class SecurityProviderStatus implements AdditionalDataHolder, Parsable
     */
     public function setEndpoint(?string $value ): void {
         $this->endpoint = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

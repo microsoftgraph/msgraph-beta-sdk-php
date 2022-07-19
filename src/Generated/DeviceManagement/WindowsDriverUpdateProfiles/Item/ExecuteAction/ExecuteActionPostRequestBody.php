@@ -12,12 +12,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var DriverApprovalAction|null $actionName The actionName property
+     * @var DriverApprovalAction|null $actionName An enum type to represent approval actions of single or list of drivers.
     */
     private ?DriverApprovalAction $actionName = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,7 +35,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * Instantiates a new executeActionPostRequestBody and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -48,7 +48,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the actionName property value. The actionName property
+     * Gets the actionName property value. An enum type to represent approval actions of single or list of drivers.
      * @return DriverApprovalAction|null
     */
     public function getActionName(): ?DriverApprovalAction {
@@ -104,7 +104,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the actionName property value. The actionName property
+     * Sets the actionName property value. An enum type to represent approval actions of single or list of drivers.
      *  @param DriverApprovalAction|null $value Value to set for the actionName property.
     */
     public function setActionName(?DriverApprovalAction $value ): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserRegistrationMethodCount implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class UserRegistrationMethodCount implements AdditionalDataHolder, Parsable
      * @var string|null $authenticationMethod Name of authentication method.
     */
     private ?string $authenticationMethod = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $userCount Number of users registered.
@@ -28,7 +33,8 @@ class UserRegistrationMethodCount implements AdditionalDataHolder, Parsable
      * Instantiates a new userRegistrationMethodCount and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.userRegistrationMethodCount');
     }
 
     /**
@@ -64,8 +70,17 @@ class UserRegistrationMethodCount implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'authenticationMethod' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethod($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userCount' => function (ParseNode $n) use ($o) { $o->setUserCount($n->getIntegerValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class UserRegistrationMethodCount implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('authenticationMethod', $this->authenticationMethod);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('userCount', $this->userCount);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class UserRegistrationMethodCount implements AdditionalDataHolder, Parsable
     */
     public function setAuthenticationMethod(?string $value ): void {
         $this->authenticationMethod = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

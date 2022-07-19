@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CertificateConnectorHealthMetricValue implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,6 +26,11 @@ class CertificateConnectorHealthMetricValue implements AdditionalDataHolder, Par
     private ?int $failureCount = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $successCount Count of successful requests/operations.
     */
     private ?int $successCount = null;
@@ -34,7 +39,8 @@ class CertificateConnectorHealthMetricValue implements AdditionalDataHolder, Par
      * Instantiates a new certificateConnectorHealthMetricValue and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.certificateConnectorHealthMetricValue');
     }
 
     /**
@@ -79,8 +85,17 @@ class CertificateConnectorHealthMetricValue implements AdditionalDataHolder, Par
         return  [
             'dateTime' => function (ParseNode $n) use ($o) { $o->setDateTime($n->getDateTimeValue()); },
             'failureCount' => function (ParseNode $n) use ($o) { $o->setFailureCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'successCount' => function (ParseNode $n) use ($o) { $o->setSuccessCount($n->getIntegerValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class CertificateConnectorHealthMetricValue implements AdditionalDataHolder, Par
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('dateTime', $this->dateTime);
         $writer->writeIntegerValue('failureCount', $this->failureCount);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('successCount', $this->successCount);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -124,6 +140,14 @@ class CertificateConnectorHealthMetricValue implements AdditionalDataHolder, Par
     */
     public function setFailureCount(?int $value ): void {
         $this->failureCount = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -23,6 +23,7 @@ class AuditUserIdentity extends UserIdentity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.auditUserIdentity');
     }
 
     /**

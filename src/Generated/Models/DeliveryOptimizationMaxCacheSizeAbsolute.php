@@ -18,6 +18,7 @@ class DeliveryOptimizationMaxCacheSizeAbsolute extends DeliveryOptimizationMaxCa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deliveryOptimizationMaxCacheSizeAbsolute');
     }
 
     /**

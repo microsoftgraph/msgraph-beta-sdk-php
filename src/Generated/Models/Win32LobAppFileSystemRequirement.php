@@ -14,7 +14,7 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
     private ?bool $check32BitOn64System = null;
     
     /**
-     * @var Win32LobAppFileSystemDetectionType|null $detectionType The file system detection type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
+     * @var Win32LobAppFileSystemDetectionType|null $detectionType Contains all supported file system detection type.
     */
     private ?Win32LobAppFileSystemDetectionType $detectionType = null;
     
@@ -33,6 +33,7 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppFileSystemRequirement');
     }
 
     /**
@@ -53,7 +54,7 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
     }
 
     /**
-     * Gets the detectionType property value. The file system detection type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
+     * Gets the detectionType property value. Contains all supported file system detection type.
      * @return Win32LobAppFileSystemDetectionType|null
     */
     public function getDetectionType(): ?Win32LobAppFileSystemDetectionType {
@@ -111,7 +112,7 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
     }
 
     /**
-     * Sets the detectionType property value. The file system detection type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
+     * Sets the detectionType property value. Contains all supported file system detection type.
      *  @param Win32LobAppFileSystemDetectionType|null $value Value to set for the detectionType property.
     */
     public function setDetectionType(?Win32LobAppFileSystemDetectionType $value ): void {

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserSimulationDetails implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -41,6 +41,11 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     private ?bool $isCompromised = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var DateTime|null $reportedPhishDateTime Date and time when user reported delivered payload as phish in the attack simulation and training campaign.
     */
     private ?DateTime $reportedPhishDateTime = null;
@@ -64,7 +69,8 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
      * Instantiates a new userSimulationDetails and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.userSimulationDetails');
     }
 
     /**
@@ -120,6 +126,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
             'compromisedDateTime' => function (ParseNode $n) use ($o) { $o->setCompromisedDateTime($n->getDateTimeValue()); },
             'inProgressTrainingsCount' => function (ParseNode $n) use ($o) { $o->setInProgressTrainingsCount($n->getIntegerValue()); },
             'isCompromised' => function (ParseNode $n) use ($o) { $o->setIsCompromised($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'reportedPhishDateTime' => function (ParseNode $n) use ($o) { $o->setReportedPhishDateTime($n->getDateTimeValue()); },
             'simulationEvents' => function (ParseNode $n) use ($o) { $o->setSimulationEvents($n->getCollectionOfObjectValues(array(UserSimulationEventInfo::class, 'createFromDiscriminatorValue'))); },
             'simulationUser' => function (ParseNode $n) use ($o) { $o->setSimulationUser($n->getObjectValue(array(AttackSimulationUser::class, 'createFromDiscriminatorValue'))); },
@@ -141,6 +148,14 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     */
     public function getIsCompromised(): ?bool {
         return $this->isCompromised;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -185,6 +200,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
         $writer->writeDateTimeValue('compromisedDateTime', $this->compromisedDateTime);
         $writer->writeIntegerValue('inProgressTrainingsCount', $this->inProgressTrainingsCount);
         $writer->writeBooleanValue('isCompromised', $this->isCompromised);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('reportedPhishDateTime', $this->reportedPhishDateTime);
         $writer->writeCollectionOfObjectValues('simulationEvents', $this->simulationEvents);
         $writer->writeObjectValue('simulationUser', $this->simulationUser);
@@ -238,6 +254,14 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     */
     public function setIsCompromised(?bool $value ): void {
         $this->isCompromised = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

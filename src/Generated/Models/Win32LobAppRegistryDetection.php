@@ -14,7 +14,7 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
     private ?bool $check32BitOn64System = null;
     
     /**
-     * @var Win32LobAppRegistryDetectionType|null $detectionType The registry data detection type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
+     * @var Win32LobAppRegistryDetectionType|null $detectionType Contains all supported registry data detection type.
     */
     private ?Win32LobAppRegistryDetectionType $detectionType = null;
     
@@ -29,7 +29,7 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
     private ?string $keyPath = null;
     
     /**
-     * @var Win32LobAppDetectionOperator|null $operator The operator for registry data detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * @var Win32LobAppDetectionOperator|null $operator Contains properties for detection operator.
     */
     private ?Win32LobAppDetectionOperator $operator = null;
     
@@ -43,6 +43,7 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppRegistryDetection');
     }
 
     /**
@@ -63,7 +64,7 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
     }
 
     /**
-     * Gets the detectionType property value. The registry data detection type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
+     * Gets the detectionType property value. Contains all supported registry data detection type.
      * @return Win32LobAppRegistryDetectionType|null
     */
     public function getDetectionType(): ?Win32LobAppRegistryDetectionType {
@@ -103,7 +104,7 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
     }
 
     /**
-     * Gets the operator property value. The operator for registry data detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Gets the operator property value. Contains properties for detection operator.
      * @return Win32LobAppDetectionOperator|null
     */
     public function getOperator(): ?Win32LobAppDetectionOperator {
@@ -141,7 +142,7 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
     }
 
     /**
-     * Sets the detectionType property value. The registry data detection type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
+     * Sets the detectionType property value. Contains all supported registry data detection type.
      *  @param Win32LobAppRegistryDetectionType|null $value Value to set for the detectionType property.
     */
     public function setDetectionType(?Win32LobAppRegistryDetectionType $value ): void {
@@ -165,7 +166,7 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
     }
 
     /**
-     * Sets the operator property value. The operator for registry data detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Sets the operator property value. Contains properties for detection operator.
      *  @param Win32LobAppDetectionOperator|null $value Value to set for the operator property.
     */
     public function setOperator(?Win32LobAppDetectionOperator $value ): void {

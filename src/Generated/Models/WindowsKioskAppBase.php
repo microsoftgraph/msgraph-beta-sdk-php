@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskAppBase implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var WindowsKioskAppType|null $appType The app type. Possible values are: unknown, store, desktop, aumId.
+     * @var WindowsKioskAppType|null $appType The type of Windows kiosk app.
     */
     private ?WindowsKioskAppType $appType = null;
     
@@ -30,7 +30,12 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
     private ?string $name = null;
     
     /**
-     * @var WindowsAppStartLayoutTileSize|null $startLayoutTileSize The app tile size for the start layout. Possible values are: hidden, small, medium, wide, large.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var WindowsAppStartLayoutTileSize|null $startLayoutTileSize The tile size of Windows app in the start layout.
     */
     private ?WindowsAppStartLayoutTileSize $startLayoutTileSize = null;
     
@@ -38,7 +43,8 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
      * Instantiates a new windowsKioskAppBase and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windowsKioskAppBase');
     }
 
     /**
@@ -68,7 +74,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the appType property value. The app type. Possible values are: unknown, store, desktop, aumId.
+     * Gets the appType property value. The type of Windows kiosk app.
      * @return WindowsKioskAppType|null
     */
     public function getAppType(): ?WindowsKioskAppType {
@@ -93,6 +99,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
             'appType' => function (ParseNode $n) use ($o) { $o->setAppType($n->getEnumValue(WindowsKioskAppType::class)); },
             'autoLaunch' => function (ParseNode $n) use ($o) { $o->setAutoLaunch($n->getBooleanValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'startLayoutTileSize' => function (ParseNode $n) use ($o) { $o->setStartLayoutTileSize($n->getEnumValue(WindowsAppStartLayoutTileSize::class)); },
         ];
     }
@@ -106,7 +113,15 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the startLayoutTileSize property value. The app tile size for the start layout. Possible values are: hidden, small, medium, wide, large.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the startLayoutTileSize property value. The tile size of Windows app in the start layout.
      * @return WindowsAppStartLayoutTileSize|null
     */
     public function getStartLayoutTileSize(): ?WindowsAppStartLayoutTileSize {
@@ -121,6 +136,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('appType', $this->appType);
         $writer->writeBooleanValue('autoLaunch', $this->autoLaunch);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('startLayoutTileSize', $this->startLayoutTileSize);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -134,7 +150,7 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the appType property value. The app type. Possible values are: unknown, store, desktop, aumId.
+     * Sets the appType property value. The type of Windows kiosk app.
      *  @param WindowsKioskAppType|null $value Value to set for the appType property.
     */
     public function setAppType(?WindowsKioskAppType $value ): void {
@@ -158,7 +174,15 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the startLayoutTileSize property value. The app tile size for the start layout. Possible values are: hidden, small, medium, wide, large.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the startLayoutTileSize property value. The tile size of Windows app in the start layout.
      *  @param WindowsAppStartLayoutTileSize|null $value Value to set for the startLayoutTileSize property.
     */
     public function setStartLayoutTileSize(?WindowsAppStartLayoutTileSize $value ): void {

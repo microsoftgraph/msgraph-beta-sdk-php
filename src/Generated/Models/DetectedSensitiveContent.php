@@ -38,6 +38,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.detectedSensitiveContent');
     }
 
     /**

@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LabelingOptions implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var AssignmentMethod|null $assignmentMethod Possible values are: standard, privileged, auto.
+     * @var AssignmentMethod|null $assignmentMethod The assignmentMethod property
     */
     private ?AssignmentMethod $assignmentMethod = null;
     
@@ -35,10 +35,16 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     private ?string $labelId = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new labelingOptions and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.labelingOptions');
     }
 
     /**
@@ -59,7 +65,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assignmentMethod property value. Possible values are: standard, privileged, auto.
+     * Gets the assignmentMethod property value. The assignmentMethod property
      * @return AssignmentMethod|null
     */
     public function getAssignmentMethod(): ?AssignmentMethod {
@@ -93,6 +99,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
             'downgradeJustification' => function (ParseNode $n) use ($o) { $o->setDowngradeJustification($n->getObjectValue(array(DowngradeJustification::class, 'createFromDiscriminatorValue'))); },
             'extendedProperties' => function (ParseNode $n) use ($o) { $o->setExtendedProperties($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
             'labelId' => function (ParseNode $n) use ($o) { $o->setLabelId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -105,6 +112,14 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -113,6 +128,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('downgradeJustification', $this->downgradeJustification);
         $writer->writeCollectionOfObjectValues('extendedProperties', $this->extendedProperties);
         $writer->writeStringValue('labelId', $this->labelId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -125,7 +141,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assignmentMethod property value. Possible values are: standard, privileged, auto.
+     * Sets the assignmentMethod property value. The assignmentMethod property
      *  @param AssignmentMethod|null $value Value to set for the assignmentMethod property.
     */
     public function setAssignmentMethod(?AssignmentMethod $value ): void {
@@ -154,6 +170,14 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     */
     public function setLabelId(?string $value ): void {
         $this->labelId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

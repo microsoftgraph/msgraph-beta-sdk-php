@@ -49,7 +49,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     private ?int $passwordPreviousPasswordBlockCount = null;
     
     /**
-     * @var AndroidForWorkRequiredPasswordType|null $passwordRequiredType Type of password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols.
+     * @var AndroidForWorkRequiredPasswordType|null $passwordRequiredType Android For Work required password type.
     */
     private ?AndroidForWorkRequiredPasswordType $passwordRequiredType = null;
     
@@ -124,12 +124,12 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     private ?bool $workProfileBluetoothEnableContactSharing = null;
     
     /**
-     * @var AndroidForWorkCrossProfileDataSharingType|null $workProfileDataSharingType Type of data sharing that is allowed. Possible values are: deviceDefault, preventAny, allowPersonalToWork, noRestrictions.
+     * @var AndroidForWorkCrossProfileDataSharingType|null $workProfileDataSharingType Android For Work cross profile data sharing type.
     */
     private ?AndroidForWorkCrossProfileDataSharingType $workProfileDataSharingType = null;
     
     /**
-     * @var AndroidForWorkDefaultAppPermissionPolicyType|null $workProfileDefaultAppPermissionPolicy Type of password that is required. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.
+     * @var AndroidForWorkDefaultAppPermissionPolicyType|null $workProfileDefaultAppPermissionPolicy Android For Work default app permission policy type.
     */
     private ?AndroidForWorkDefaultAppPermissionPolicyType $workProfileDefaultAppPermissionPolicy = null;
     
@@ -204,7 +204,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     private ?int $workProfilePasswordPreviousPasswordBlockCount = null;
     
     /**
-     * @var AndroidForWorkRequiredPasswordType|null $workProfilePasswordRequiredType Type of work profile password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols.
+     * @var AndroidForWorkRequiredPasswordType|null $workProfilePasswordRequiredType Android For Work required password type.
     */
     private ?AndroidForWorkRequiredPasswordType $workProfilePasswordRequiredType = null;
     
@@ -223,6 +223,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidForWorkGeneralDeviceConfiguration');
     }
 
     /**
@@ -351,7 +352,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the passwordRequiredType property value. Type of password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols.
+     * Gets the passwordRequiredType property value. Android For Work required password type.
      * @return AndroidForWorkRequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?AndroidForWorkRequiredPasswordType {
@@ -471,7 +472,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the workProfileDataSharingType property value. Type of data sharing that is allowed. Possible values are: deviceDefault, preventAny, allowPersonalToWork, noRestrictions.
+     * Gets the workProfileDataSharingType property value. Android For Work cross profile data sharing type.
      * @return AndroidForWorkCrossProfileDataSharingType|null
     */
     public function getWorkProfileDataSharingType(): ?AndroidForWorkCrossProfileDataSharingType {
@@ -479,7 +480,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the workProfileDefaultAppPermissionPolicy property value. Type of password that is required. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.
+     * Gets the workProfileDefaultAppPermissionPolicy property value. Android For Work default app permission policy type.
      * @return AndroidForWorkDefaultAppPermissionPolicyType|null
     */
     public function getWorkProfileDefaultAppPermissionPolicy(): ?AndroidForWorkDefaultAppPermissionPolicyType {
@@ -599,7 +600,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the workProfilePasswordRequiredType property value. Type of work profile password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols.
+     * Gets the workProfilePasswordRequiredType property value. Android For Work required password type.
      * @return AndroidForWorkRequiredPasswordType|null
     */
     public function getWorkProfilePasswordRequiredType(): ?AndroidForWorkRequiredPasswordType {
@@ -737,7 +738,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the passwordRequiredType property value. Type of password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols.
+     * Sets the passwordRequiredType property value. Android For Work required password type.
      *  @param AndroidForWorkRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?AndroidForWorkRequiredPasswordType $value ): void {
@@ -857,7 +858,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the workProfileDataSharingType property value. Type of data sharing that is allowed. Possible values are: deviceDefault, preventAny, allowPersonalToWork, noRestrictions.
+     * Sets the workProfileDataSharingType property value. Android For Work cross profile data sharing type.
      *  @param AndroidForWorkCrossProfileDataSharingType|null $value Value to set for the workProfileDataSharingType property.
     */
     public function setWorkProfileDataSharingType(?AndroidForWorkCrossProfileDataSharingType $value ): void {
@@ -865,7 +866,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the workProfileDefaultAppPermissionPolicy property value. Type of password that is required. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.
+     * Sets the workProfileDefaultAppPermissionPolicy property value. Android For Work default app permission policy type.
      *  @param AndroidForWorkDefaultAppPermissionPolicyType|null $value Value to set for the workProfileDefaultAppPermissionPolicy property.
     */
     public function setWorkProfileDefaultAppPermissionPolicy(?AndroidForWorkDefaultAppPermissionPolicyType $value ): void {
@@ -985,7 +986,7 @@ class AndroidForWorkGeneralDeviceConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the workProfilePasswordRequiredType property value. Type of work profile password that is required. Possible values are: deviceDefault, lowSecurityBiometric, required, atLeastNumeric, numericComplex, atLeastAlphabetic, atLeastAlphanumeric, alphanumericWithSymbols.
+     * Sets the workProfilePasswordRequiredType property value. Android For Work required password type.
      *  @param AndroidForWorkRequiredPasswordType|null $value Value to set for the workProfilePasswordRequiredType property.
     */
     public function setWorkProfilePasswordRequiredType(?AndroidForWorkRequiredPasswordType $value ): void {

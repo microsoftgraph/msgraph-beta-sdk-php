@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeploymentSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
      * @var MonitoringSettings|null $monitoring Settings governing conditions to monitor and automated actions to take.
     */
     private ?MonitoringSettings $monitoring = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var RolloutSettings|null $rollout Settings governing how the content is rolled out.
@@ -33,7 +38,8 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new deploymentSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windowsUpdates.deploymentSettings');
     }
 
     /**
@@ -68,6 +74,7 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'monitoring' => function (ParseNode $n) use ($o) { $o->setMonitoring($n->getObjectValue(array(MonitoringSettings::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'rollout' => function (ParseNode $n) use ($o) { $o->setRollout($n->getObjectValue(array(RolloutSettings::class, 'createFromDiscriminatorValue'))); },
             'safeguard' => function (ParseNode $n) use ($o) { $o->setSafeguard($n->getObjectValue(array(SafeguardSettings::class, 'createFromDiscriminatorValue'))); },
         ];
@@ -79,6 +86,14 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
     */
     public function getMonitoring(): ?MonitoringSettings {
         return $this->monitoring;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -103,6 +118,7 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('monitoring', $this->monitoring);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('rollout', $this->rollout);
         $writer->writeObjectValue('safeguard', $this->safeguard);
         $writer->writeAdditionalData($this->additionalData);
@@ -122,6 +138,14 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
     */
     public function setMonitoring(?MonitoringSettings $value ): void {
         $this->monitoring = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

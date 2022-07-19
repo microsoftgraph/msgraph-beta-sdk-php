@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VpnDnsRule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class VpnDnsRule implements AdditionalDataHolder, Parsable
      * @var string|null $name Name.
     */
     private ?string $name = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var bool|null $persistent Keep this rule active even when the VPN is not connected: Default False
@@ -43,7 +48,8 @@ class VpnDnsRule implements AdditionalDataHolder, Parsable
      * Instantiates a new vpnDnsRule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.vpnDnsRule');
     }
 
     /**
@@ -80,6 +86,7 @@ class VpnDnsRule implements AdditionalDataHolder, Parsable
         return  [
             'autoTrigger' => function (ParseNode $n) use ($o) { $o->setAutoTrigger($n->getBooleanValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'persistent' => function (ParseNode $n) use ($o) { $o->setPersistent($n->getBooleanValue()); },
             'proxyServerUri' => function (ParseNode $n) use ($o) { $o->setProxyServerUri($n->getStringValue()); },
             'servers' => function (ParseNode $n) use ($o) { $o->setServers($n->getCollectionOfPrimitiveValues()); },
@@ -92,6 +99,14 @@ class VpnDnsRule implements AdditionalDataHolder, Parsable
     */
     public function getName(): ?string {
         return $this->name;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -125,6 +140,7 @@ class VpnDnsRule implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('autoTrigger', $this->autoTrigger);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('persistent', $this->persistent);
         $writer->writeStringValue('proxyServerUri', $this->proxyServerUri);
         $writer->writeCollectionOfPrimitiveValues('servers', $this->servers);
@@ -153,6 +169,14 @@ class VpnDnsRule implements AdditionalDataHolder, Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

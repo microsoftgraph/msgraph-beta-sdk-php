@@ -18,6 +18,7 @@ class DeviceManagementConfigurationGroupSettingInstanceTemplate extends DeviceMa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationGroupSettingInstanceTemplate');
     }
 
     /**

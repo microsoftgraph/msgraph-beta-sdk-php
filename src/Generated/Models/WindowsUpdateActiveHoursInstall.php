@@ -24,6 +24,7 @@ class WindowsUpdateActiveHoursInstall extends WindowsUpdateInstallScheduleType i
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdateActiveHoursInstall');
     }
 
     /**

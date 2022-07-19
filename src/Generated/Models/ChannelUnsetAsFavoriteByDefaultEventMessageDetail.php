@@ -23,6 +23,7 @@ class ChannelUnsetAsFavoriteByDefaultEventMessageDetail extends EventMessageDeta
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.channelUnsetAsFavoriteByDefaultEventMessageDetail');
     }
 
     /**

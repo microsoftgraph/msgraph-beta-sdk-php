@@ -10,17 +10,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppleOwnerTypeEnrollmentType implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var AppleUserInitiatedEnrollmentType|null $enrollmentType The enrollment type. Possible values are: unknown, device, user.
+     * @var AppleUserInitiatedEnrollmentType|null $enrollmentType The enrollmentType property
     */
     private ?AppleUserInitiatedEnrollmentType $enrollmentType = null;
     
     /**
-     * @var ManagedDeviceOwnerType|null $ownerType The owner type. Possible values are: unknown, company, personal.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var ManagedDeviceOwnerType|null $ownerType Owner type of device.
     */
     private ?ManagedDeviceOwnerType $ownerType = null;
     
@@ -28,7 +33,8 @@ class AppleOwnerTypeEnrollmentType implements AdditionalDataHolder, Parsable
      * Instantiates a new appleOwnerTypeEnrollmentType and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.appleOwnerTypeEnrollmentType');
     }
 
     /**
@@ -49,7 +55,7 @@ class AppleOwnerTypeEnrollmentType implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the enrollmentType property value. The enrollment type. Possible values are: unknown, device, user.
+     * Gets the enrollmentType property value. The enrollmentType property
      * @return AppleUserInitiatedEnrollmentType|null
     */
     public function getEnrollmentType(): ?AppleUserInitiatedEnrollmentType {
@@ -64,12 +70,21 @@ class AppleOwnerTypeEnrollmentType implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'enrollmentType' => function (ParseNode $n) use ($o) { $o->setEnrollmentType($n->getEnumValue(AppleUserInitiatedEnrollmentType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getEnumValue(ManagedDeviceOwnerType::class)); },
         ];
     }
 
     /**
-     * Gets the ownerType property value. The owner type. Possible values are: unknown, company, personal.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the ownerType property value. Owner type of device.
      * @return ManagedDeviceOwnerType|null
     */
     public function getOwnerType(): ?ManagedDeviceOwnerType {
@@ -82,6 +97,7 @@ class AppleOwnerTypeEnrollmentType implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('enrollmentType', $this->enrollmentType);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('ownerType', $this->ownerType);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -95,7 +111,7 @@ class AppleOwnerTypeEnrollmentType implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the enrollmentType property value. The enrollment type. Possible values are: unknown, device, user.
+     * Sets the enrollmentType property value. The enrollmentType property
      *  @param AppleUserInitiatedEnrollmentType|null $value Value to set for the enrollmentType property.
     */
     public function setEnrollmentType(?AppleUserInitiatedEnrollmentType $value ): void {
@@ -103,7 +119,15 @@ class AppleOwnerTypeEnrollmentType implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ownerType property value. The owner type. Possible values are: unknown, company, personal.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the ownerType property value. Owner type of device.
      *  @param ManagedDeviceOwnerType|null $value Value to set for the ownerType property.
     */
     public function setOwnerType(?ManagedDeviceOwnerType $value ): void {

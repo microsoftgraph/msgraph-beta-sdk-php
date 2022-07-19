@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementIntentInfo implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,10 +30,16 @@ class ManagementIntentInfo implements AdditionalDataHolder, Parsable
     private ?array $managementTemplates = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new managementIntentInfo and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedTenants.managementIntentInfo');
     }
 
     /**
@@ -63,6 +69,7 @@ class ManagementIntentInfo implements AdditionalDataHolder, Parsable
             'managementIntentDisplayName' => function (ParseNode $n) use ($o) { $o->setManagementIntentDisplayName($n->getStringValue()); },
             'managementIntentId' => function (ParseNode $n) use ($o) { $o->setManagementIntentId($n->getStringValue()); },
             'managementTemplates' => function (ParseNode $n) use ($o) { $o->setManagementTemplates($n->getCollectionOfObjectValues(array(ManagementTemplateDetailedInfo::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -91,6 +98,14 @@ class ManagementIntentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -98,6 +113,7 @@ class ManagementIntentInfo implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('managementIntentDisplayName', $this->managementIntentDisplayName);
         $writer->writeStringValue('managementIntentId', $this->managementIntentId);
         $writer->writeCollectionOfObjectValues('managementTemplates', $this->managementTemplates);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -131,6 +147,14 @@ class ManagementIntentInfo implements AdditionalDataHolder, Parsable
     */
     public function setManagementTemplates(?array $value ): void {
         $this->managementTemplates = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantStatusInformation implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -24,6 +24,11 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @var DateTime|null $lastDelegatedPrivilegeRefreshDateTime The date and time the delegated admin privileges status was updated. Optional. Read-only.
     */
     private ?DateTime $lastDelegatedPrivilegeRefreshDateTime = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $offboardedByUserId The identifier for the account that offboarded the managed tenant. Optional. Read-only.
@@ -64,7 +69,8 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * Instantiates a new tenantStatusInformation and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedTenants.tenantStatusInformation');
     }
 
     /**
@@ -101,6 +107,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
         return  [
             'delegatedPrivilegeStatus' => function (ParseNode $n) use ($o) { $o->setDelegatedPrivilegeStatus($n->getEnumValue(DelegatedPrivilegeStatus::class)); },
             'lastDelegatedPrivilegeRefreshDateTime' => function (ParseNode $n) use ($o) { $o->setLastDelegatedPrivilegeRefreshDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'offboardedByUserId' => function (ParseNode $n) use ($o) { $o->setOffboardedByUserId($n->getStringValue()); },
             'offboardedDateTime' => function (ParseNode $n) use ($o) { $o->setOffboardedDateTime($n->getDateTimeValue()); },
             'onboardedByUserId' => function (ParseNode $n) use ($o) { $o->setOnboardedByUserId($n->getStringValue()); },
@@ -117,6 +124,14 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
     */
     public function getLastDelegatedPrivilegeRefreshDateTime(): ?DateTime {
         return $this->lastDelegatedPrivilegeRefreshDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -182,6 +197,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('delegatedPrivilegeStatus', $this->delegatedPrivilegeStatus);
         $writer->writeDateTimeValue('lastDelegatedPrivilegeRefreshDateTime', $this->lastDelegatedPrivilegeRefreshDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('offboardedByUserId', $this->offboardedByUserId);
         $writer->writeDateTimeValue('offboardedDateTime', $this->offboardedDateTime);
         $writer->writeStringValue('onboardedByUserId', $this->onboardedByUserId);
@@ -214,6 +230,14 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
     */
     public function setLastDelegatedPrivilegeRefreshDateTime(?DateTime $value ): void {
         $this->lastDelegatedPrivilegeRefreshDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -11,12 +11,12 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class CustomUpdateTimeWindow implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var DayOfWeek|null $endDay End day of the time window. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     * @var DayOfWeek|null $endDay The endDay property
     */
     private ?DayOfWeek $endDay = null;
     
@@ -26,7 +26,12 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, Parsable
     private ?Time $endTime = null;
     
     /**
-     * @var DayOfWeek|null $startDay Start day of the time window. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var DayOfWeek|null $startDay The startDay property
     */
     private ?DayOfWeek $startDay = null;
     
@@ -39,7 +44,8 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, Parsable
      * Instantiates a new customUpdateTimeWindow and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.customUpdateTimeWindow');
     }
 
     /**
@@ -60,7 +66,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the endDay property value. End day of the time window. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     * Gets the endDay property value. The endDay property
      * @return DayOfWeek|null
     */
     public function getEndDay(): ?DayOfWeek {
@@ -84,13 +90,22 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, Parsable
         return  [
             'endDay' => function (ParseNode $n) use ($o) { $o->setEndDay($n->getEnumValue(DayOfWeek::class)); },
             'endTime' => function (ParseNode $n) use ($o) { $o->setEndTime($n->getTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'startDay' => function (ParseNode $n) use ($o) { $o->setStartDay($n->getEnumValue(DayOfWeek::class)); },
             'startTime' => function (ParseNode $n) use ($o) { $o->setStartTime($n->getTimeValue()); },
         ];
     }
 
     /**
-     * Gets the startDay property value. Start day of the time window. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the startDay property value. The startDay property
      * @return DayOfWeek|null
     */
     public function getStartDay(): ?DayOfWeek {
@@ -112,6 +127,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('endDay', $this->endDay);
         $writer->writeTimeValue('endTime', $this->endTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('startDay', $this->startDay);
         $writer->writeTimeValue('startTime', $this->startTime);
         $writer->writeAdditionalData($this->additionalData);
@@ -126,7 +142,7 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the endDay property value. End day of the time window. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     * Sets the endDay property value. The endDay property
      *  @param DayOfWeek|null $value Value to set for the endDay property.
     */
     public function setEndDay(?DayOfWeek $value ): void {
@@ -142,7 +158,15 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the startDay property value. Start day of the time window. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the startDay property value. The startDay property
      *  @param DayOfWeek|null $value Value to set for the startDay property.
     */
     public function setStartDay(?DayOfWeek $value ): void {

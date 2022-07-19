@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CryptographySuite implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -40,6 +40,11 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
     private ?VpnIntegrityAlgorithmType $integrityCheckMethod = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var PerfectForwardSecrecyGroup|null $pfsGroup Perfect Forward Secrecy Group. Possible values are: pfs1, pfs2, pfs2048, ecp256, ecp384, pfsMM, pfs24.
     */
     private ?PerfectForwardSecrecyGroup $pfsGroup = null;
@@ -48,7 +53,8 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
      * Instantiates a new cryptographySuite and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.cryptographySuite');
     }
 
     /**
@@ -112,6 +118,7 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
             'dhGroup' => function (ParseNode $n) use ($o) { $o->setDhGroup($n->getEnumValue(DiffieHellmanGroup::class)); },
             'encryptionMethod' => function (ParseNode $n) use ($o) { $o->setEncryptionMethod($n->getEnumValue(VpnEncryptionAlgorithmType::class)); },
             'integrityCheckMethod' => function (ParseNode $n) use ($o) { $o->setIntegrityCheckMethod($n->getEnumValue(VpnIntegrityAlgorithmType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'pfsGroup' => function (ParseNode $n) use ($o) { $o->setPfsGroup($n->getEnumValue(PerfectForwardSecrecyGroup::class)); },
         ];
     }
@@ -122,6 +129,14 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
     */
     public function getIntegrityCheckMethod(): ?VpnIntegrityAlgorithmType {
         return $this->integrityCheckMethod;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -142,6 +157,7 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('dhGroup', $this->dhGroup);
         $writer->writeEnumValue('encryptionMethod', $this->encryptionMethod);
         $writer->writeEnumValue('integrityCheckMethod', $this->integrityCheckMethod);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('pfsGroup', $this->pfsGroup);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -192,6 +208,14 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
     */
     public function setIntegrityCheckMethod(?VpnIntegrityAlgorithmType $value ): void {
         $this->integrityCheckMethod = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

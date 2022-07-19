@@ -25,7 +25,7 @@ class SecurityBaselineDeviceState extends Entity implements Parsable
     private ?string $managedDeviceId = null;
     
     /**
-     * @var SecurityBaselineComplianceState|null $state Security baseline compliance state. Possible values are: unknown, secure, notApplicable, notSecure, error, conflict.
+     * @var SecurityBaselineComplianceState|null $state Security Baseline Compliance State
     */
     private ?SecurityBaselineComplianceState $state = null;
     
@@ -39,6 +39,7 @@ class SecurityBaselineDeviceState extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.securityBaselineDeviceState');
     }
 
     /**
@@ -90,7 +91,7 @@ class SecurityBaselineDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. Security baseline compliance state. Possible values are: unknown, secure, notApplicable, notSecure, error, conflict.
+     * Gets the state property value. Security Baseline Compliance State
      * @return SecurityBaselineComplianceState|null
     */
     public function getState(): ?SecurityBaselineComplianceState {
@@ -143,7 +144,7 @@ class SecurityBaselineDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. Security baseline compliance state. Possible values are: unknown, secure, notApplicable, notSecure, error, conflict.
+     * Sets the state property value. Security Baseline Compliance State
      *  @param SecurityBaselineComplianceState|null $value Value to set for the state property.
     */
     public function setState(?SecurityBaselineComplianceState $value ): void {

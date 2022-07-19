@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FeatureUsageDetail implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -41,10 +41,16 @@ class FeatureUsageDetail implements AdditionalDataHolder, Parsable
     private ?AzureADLicenseType $licenseRequired = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new featureUsageDetail and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.featureUsageDetail');
     }
 
     /**
@@ -84,6 +90,7 @@ class FeatureUsageDetail implements AdditionalDataHolder, Parsable
             'lastUsedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUsedDateTime($n->getDateTimeValue()); },
             'licenseAssigned' => function (ParseNode $n) use ($o) { $o->setLicenseAssigned($n->getEnumValue(AzureADLicenseType::class)); },
             'licenseRequired' => function (ParseNode $n) use ($o) { $o->setLicenseRequired($n->getEnumValue(AzureADLicenseType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -120,6 +127,14 @@ class FeatureUsageDetail implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -129,6 +144,7 @@ class FeatureUsageDetail implements AdditionalDataHolder, Parsable
         $writer->writeDateTimeValue('lastUsedDateTime', $this->lastUsedDateTime);
         $writer->writeEnumValue('licenseAssigned', $this->licenseAssigned);
         $writer->writeEnumValue('licenseRequired', $this->licenseRequired);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -178,6 +194,14 @@ class FeatureUsageDetail implements AdditionalDataHolder, Parsable
     */
     public function setLicenseRequired(?AzureADLicenseType $value ): void {
         $this->licenseRequired = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

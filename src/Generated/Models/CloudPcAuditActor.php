@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcAuditActor implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
     private ?string $ipAddress = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $remoteTenantId The delegated partner tenant ID.
     */
     private ?string $remoteTenantId = null;
@@ -45,7 +50,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
     private ?string $servicePrincipalName = null;
     
     /**
-     * @var CloudPcAuditActorType|null $type The actor type. Possible values include ItPro, Application, Partner and Unknown.
+     * @var CloudPcAuditActorType|null $type The type property
     */
     private ?CloudPcAuditActorType $type = null;
     
@@ -73,7 +78,8 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
      * Instantiates a new cloudPcAuditActor and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.cloudPcAuditActor');
     }
 
     /**
@@ -119,6 +125,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
             'applicationDisplayName' => function (ParseNode $n) use ($o) { $o->setApplicationDisplayName($n->getStringValue()); },
             'applicationId' => function (ParseNode $n) use ($o) { $o->setApplicationId($n->getStringValue()); },
             'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'remoteTenantId' => function (ParseNode $n) use ($o) { $o->setRemoteTenantId($n->getStringValue()); },
             'remoteUserId' => function (ParseNode $n) use ($o) { $o->setRemoteUserId($n->getStringValue()); },
             'servicePrincipalName' => function (ParseNode $n) use ($o) { $o->setServicePrincipalName($n->getStringValue()); },
@@ -136,6 +143,14 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
     */
     public function getIpAddress(): ?string {
         return $this->ipAddress;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -163,7 +178,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the type property value. The actor type. Possible values include ItPro, Application, Partner and Unknown.
+     * Gets the type property value. The type property
      * @return CloudPcAuditActorType|null
     */
     public function getType(): ?CloudPcAuditActorType {
@@ -210,6 +225,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('applicationDisplayName', $this->applicationDisplayName);
         $writer->writeStringValue('applicationId', $this->applicationId);
         $writer->writeStringValue('ipAddress', $this->ipAddress);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('remoteTenantId', $this->remoteTenantId);
         $writer->writeStringValue('remoteUserId', $this->remoteUserId);
         $writer->writeStringValue('servicePrincipalName', $this->servicePrincipalName);
@@ -254,6 +270,14 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the remoteTenantId property value. The delegated partner tenant ID.
      *  @param string|null $value Value to set for the remoteTenantId property.
     */
@@ -278,7 +302,7 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the type property value. The actor type. Possible values include ItPro, Application, Partner and Unknown.
+     * Sets the type property value. The type property
      *  @param CloudPcAuditActorType|null $value Value to set for the type property.
     */
     public function setType(?CloudPcAuditActorType $value ): void {

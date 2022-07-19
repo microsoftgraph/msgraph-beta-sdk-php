@@ -48,6 +48,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsDefenderAdvancedThreatProtectionConfiguration');
     }
 
     /**

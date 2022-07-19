@@ -29,7 +29,7 @@ class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable
     private ?string $ssid = null;
     
     /**
-     * @var AndroidWiFiSecurityType|null $wiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaEnterprise, wpa2Enterprise.
+     * @var AndroidWiFiSecurityType|null $wiFiSecurityType Wi-Fi Security Types for Android.
     */
     private ?AndroidWiFiSecurityType $wiFiSecurityType = null;
     
@@ -38,6 +38,7 @@ class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidWiFiConfiguration');
     }
 
     /**
@@ -104,7 +105,7 @@ class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the wiFiSecurityType property value. Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaEnterprise, wpa2Enterprise.
+     * Gets the wiFiSecurityType property value. Wi-Fi Security Types for Android.
      * @return AndroidWiFiSecurityType|null
     */
     public function getWiFiSecurityType(): ?AndroidWiFiSecurityType {
@@ -157,7 +158,7 @@ class AndroidWiFiConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the wiFiSecurityType property value. Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaEnterprise, wpa2Enterprise.
+     * Sets the wiFiSecurityType property value. Wi-Fi Security Types for Android.
      *  @param AndroidWiFiSecurityType|null $value Value to set for the wiFiSecurityType property.
     */
     public function setWiFiSecurityType(?AndroidWiFiSecurityType $value ): void {

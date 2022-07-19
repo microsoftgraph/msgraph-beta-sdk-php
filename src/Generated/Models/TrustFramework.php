@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TrustFramework implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class TrustFramework implements AdditionalDataHolder, Parsable
      * @var array<TrustFrameworkKeySet>|null $keySets The keySets property
     */
     private ?array $keySets = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<TrustFrameworkPolicy>|null $policies The policies property
@@ -28,7 +33,8 @@ class TrustFramework implements AdditionalDataHolder, Parsable
      * Instantiates a new TrustFramework and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.trustFramework');
     }
 
     /**
@@ -56,6 +62,7 @@ class TrustFramework implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'keySets' => function (ParseNode $n) use ($o) { $o->setKeySets($n->getCollectionOfObjectValues(array(TrustFrameworkKeySet::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'policies' => function (ParseNode $n) use ($o) { $o->setPolicies($n->getCollectionOfObjectValues(array(TrustFrameworkPolicy::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -66,6 +73,14 @@ class TrustFramework implements AdditionalDataHolder, Parsable
     */
     public function getKeySets(): ?array {
         return $this->keySets;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class TrustFramework implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('keySets', $this->keySets);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('policies', $this->policies);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class TrustFramework implements AdditionalDataHolder, Parsable
     */
     public function setKeySets(?array $value ): void {
         $this->keySets = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

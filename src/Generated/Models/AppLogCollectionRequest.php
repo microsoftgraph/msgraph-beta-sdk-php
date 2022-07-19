@@ -25,7 +25,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
     private ?string $errorMessage = null;
     
     /**
-     * @var AppLogUploadState|null $status Log upload status. Possible values are: pending, completed, failed.
+     * @var AppLogUploadState|null $status AppLogUploadStatus
     */
     private ?AppLogUploadState $status = null;
     
@@ -34,6 +34,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.appLogCollectionRequest');
     }
 
     /**
@@ -84,7 +85,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Log upload status. Possible values are: pending, completed, failed.
+     * Gets the status property value. AppLogUploadStatus
      * @return AppLogUploadState|null
     */
     public function getStatus(): ?AppLogUploadState {
@@ -128,7 +129,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Log upload status. Possible values are: pending, completed, failed.
+     * Sets the status property value. AppLogUploadStatus
      *  @param AppLogUploadState|null $value Value to set for the status property.
     */
     public function setStatus(?AppLogUploadState $value ): void {

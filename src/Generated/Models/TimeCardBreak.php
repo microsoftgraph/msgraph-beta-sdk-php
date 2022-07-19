@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TimeCardBreak implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
     private ?ItemBody $notes = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var TimeCardEvent|null $start The start property
     */
     private ?TimeCardEvent $start = null;
@@ -38,7 +43,8 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
      * Instantiates a new timeCardBreak and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.timeCardBreak');
     }
 
     /**
@@ -84,6 +90,7 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
             'breakId' => function (ParseNode $n) use ($o) { $o->setBreakId($n->getStringValue()); },
             'end' => function (ParseNode $n) use ($o) { $o->setEnd($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
             'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'start' => function (ParseNode $n) use ($o) { $o->setStart($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -94,6 +101,14 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
     */
     public function getNotes(): ?ItemBody {
         return $this->notes;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -112,6 +127,7 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('breakId', $this->breakId);
         $writer->writeObjectValue('end', $this->end);
         $writer->writeObjectValue('notes', $this->notes);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('start', $this->start);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -146,6 +162,14 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
     */
     public function setNotes(?ItemBody $value ): void {
         $this->notes = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

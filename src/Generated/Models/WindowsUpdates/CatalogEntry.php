@@ -30,6 +30,7 @@ class CatalogEntry extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdates.catalogEntry');
     }
 
     /**
@@ -42,6 +43,8 @@ class CatalogEntry extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry': return new FeatureUpdateCatalogEntry();
+                case '#microsoft.graph.windowsUpdates.qualityUpdateCatalogEntry': return new QualityUpdateCatalogEntry();
                 case '#microsoft.graph.windowsUpdates.softwareUpdateCatalogEntry': return new SoftwareUpdateCatalogEntry();
             }
         }

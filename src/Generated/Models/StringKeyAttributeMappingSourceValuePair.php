@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StringKeyAttributeMappingSourceValuePair implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class StringKeyAttributeMappingSourceValuePair implements AdditionalDataHolder, 
      * @var string|null $key The name of the parameter.
     */
     private ?string $key = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var AttributeMappingSource|null $value The value of the parameter.
@@ -28,7 +33,8 @@ class StringKeyAttributeMappingSourceValuePair implements AdditionalDataHolder, 
      * Instantiates a new stringKeyAttributeMappingSourceValuePair and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.stringKeyAttributeMappingSourceValuePair');
     }
 
     /**
@@ -56,6 +62,7 @@ class StringKeyAttributeMappingSourceValuePair implements AdditionalDataHolder, 
         $o = $this;
         return  [
             'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getObjectValue(array(AttributeMappingSource::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -66,6 +73,14 @@ class StringKeyAttributeMappingSourceValuePair implements AdditionalDataHolder, 
     */
     public function getKey(): ?string {
         return $this->key;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class StringKeyAttributeMappingSourceValuePair implements AdditionalDataHolder, 
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('key', $this->key);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('value', $this->value);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class StringKeyAttributeMappingSourceValuePair implements AdditionalDataHolder, 
     */
     public function setKey(?string $value ): void {
         $this->key = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

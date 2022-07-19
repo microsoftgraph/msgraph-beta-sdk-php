@@ -18,6 +18,7 @@ class DeviceManagementSettingBooleanConstraint extends DeviceManagementConstrain
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementSettingBooleanConstraint');
     }
 
     /**

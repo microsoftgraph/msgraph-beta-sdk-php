@@ -39,10 +39,11 @@ class UserSettings extends Entity implements Parsable
     private ?ShiftPreferences $shiftPreferences = null;
     
     /**
-     * Instantiates a new UserSettings and sets the default values.
+     * Instantiates a new userSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userSettings');
     }
 
     /**

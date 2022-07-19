@@ -23,6 +23,7 @@ class TeamJoiningDisabledEventMessageDetail extends EventMessageDetail implement
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.teamJoiningDisabledEventMessageDetail');
     }
 
     /**

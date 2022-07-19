@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RolloutSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -31,6 +31,11 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
     private ?DateTime $endDateTime = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var DateTime|null $startDateTime Date on which devices in the deployment start receiving the update. When not set, the deployment starts as soon as devices are assigned.
     */
     private ?DateTime $startDateTime = null;
@@ -39,7 +44,8 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new rolloutSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windowsUpdates.rolloutSettings');
     }
 
     /**
@@ -93,8 +99,17 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
             'devicesPerOffer' => function (ParseNode $n) use ($o) { $o->setDevicesPerOffer($n->getIntegerValue()); },
             'durationBetweenOffers' => function (ParseNode $n) use ($o) { $o->setDurationBetweenOffers($n->getStringValue()); },
             'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -113,6 +128,7 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('devicesPerOffer', $this->devicesPerOffer);
         $writer->writeStringValue('durationBetweenOffers', $this->durationBetweenOffers);
         $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -147,6 +163,14 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
     */
     public function setEndDateTime(?DateTime $value ): void {
         $this->endDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

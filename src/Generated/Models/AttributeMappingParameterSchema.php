@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,12 +25,17 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable
     private ?string $name = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var bool|null $required true if the parameter is required; otherwise false.
     */
     private ?bool $required = null;
     
     /**
-     * @var AttributeType|null $type Possible values are: Boolean, Binary, Reference, Integer, String. Default is String.
+     * @var AttributeType|null $type The type property
     */
     private ?AttributeType $type = null;
     
@@ -38,7 +43,8 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable
      * Instantiates a new attributeMappingParameterSchema and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.attributeMappingParameterSchema');
     }
 
     /**
@@ -75,6 +81,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable
         return  [
             'allowMultipleOccurrences' => function (ParseNode $n) use ($o) { $o->setAllowMultipleOccurrences($n->getBooleanValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(AttributeType::class)); },
         ];
@@ -89,6 +96,14 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the required property value. true if the parameter is required; otherwise false.
      * @return bool|null
     */
@@ -97,7 +112,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the type property value. Possible values are: Boolean, Binary, Reference, Integer, String. Default is String.
+     * Gets the type property value. The type property
      * @return AttributeType|null
     */
     public function getType(): ?AttributeType {
@@ -111,6 +126,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('allowMultipleOccurrences', $this->allowMultipleOccurrences);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('required', $this->required);
         $writer->writeEnumValue('type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
@@ -141,6 +157,14 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the required property value. true if the parameter is required; otherwise false.
      *  @param bool|null $value Value to set for the required property.
     */
@@ -149,7 +173,7 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the type property value. Possible values are: Boolean, Binary, Reference, Integer, String. Default is String.
+     * Sets the type property value. The type property
      *  @param AttributeType|null $value Value to set for the type property.
     */
     public function setType(?AttributeType $value ): void {

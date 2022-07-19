@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,10 +30,16 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Parsa
     private ?bool $isMfaAccepted = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new crossTenantAccessPolicyInboundTrust and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.crossTenantAccessPolicyInboundTrust');
     }
 
     /**
@@ -63,6 +69,7 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Parsa
             'isCompliantDeviceAccepted' => function (ParseNode $n) use ($o) { $o->setIsCompliantDeviceAccepted($n->getBooleanValue()); },
             'isHybridAzureADJoinedDeviceAccepted' => function (ParseNode $n) use ($o) { $o->setIsHybridAzureADJoinedDeviceAccepted($n->getBooleanValue()); },
             'isMfaAccepted' => function (ParseNode $n) use ($o) { $o->setIsMfaAccepted($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -91,6 +98,14 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Parsa
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -98,6 +113,7 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Parsa
         $writer->writeBooleanValue('isCompliantDeviceAccepted', $this->isCompliantDeviceAccepted);
         $writer->writeBooleanValue('isHybridAzureADJoinedDeviceAccepted', $this->isHybridAzureADJoinedDeviceAccepted);
         $writer->writeBooleanValue('isMfaAccepted', $this->isMfaAccepted);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -131,6 +147,14 @@ class CrossTenantAccessPolicyInboundTrust implements AdditionalDataHolder, Parsa
     */
     public function setIsMfaAccepted(?bool $value ): void {
         $this->isMfaAccepted = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

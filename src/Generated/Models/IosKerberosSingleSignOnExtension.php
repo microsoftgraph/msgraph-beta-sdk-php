@@ -128,6 +128,7 @@ class IosKerberosSingleSignOnExtension extends IosSingleSignOnExtension implemen
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosKerberosSingleSignOnExtension');
     }
 
     /**

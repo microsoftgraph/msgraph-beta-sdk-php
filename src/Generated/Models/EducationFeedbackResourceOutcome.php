@@ -23,6 +23,7 @@ class EducationFeedbackResourceOutcome extends EducationOutcome implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.educationFeedbackResourceOutcome');
     }
 
     /**

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -21,7 +21,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
     private ?array $managedDeviceIds = null;
     
     /**
-     * @var ScheduledRetireState|null $state The state property
+     * @var ScheduledRetireState|null $state Cancel or confirm scheduled retire 
     */
     private ?ScheduledRetireState $state = null;
     
@@ -29,7 +29,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
      * Instantiates a new setScheduledRetireStatePostRequestBody and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -70,7 +70,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Gets the state property value. The state property
+     * Gets the state property value. Cancel or confirm scheduled retire 
      * @return ScheduledRetireState|null
     */
     public function getState(): ?ScheduledRetireState {
@@ -104,7 +104,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Sets the state property value. The state property
+     * Sets the state property value. Cancel or confirm scheduled retire 
      *  @param ScheduledRetireState|null $value Value to set for the state property.
     */
     public function setState(?ScheduledRetireState $value ): void {

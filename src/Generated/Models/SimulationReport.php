@@ -10,9 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SimulationReport implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var SimulationReportOverview|null $overview Overview of an attack simulation and training campaign.
@@ -28,7 +33,8 @@ class SimulationReport implements AdditionalDataHolder, Parsable
      * Instantiates a new simulationReport and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.simulationReport');
     }
 
     /**
@@ -55,9 +61,18 @@ class SimulationReport implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'overview' => function (ParseNode $n) use ($o) { $o->setOverview($n->getObjectValue(array(SimulationReportOverview::class, 'createFromDiscriminatorValue'))); },
             'simulationUsers' => function (ParseNode $n) use ($o) { $o->setSimulationUsers($n->getCollectionOfObjectValues(array(UserSimulationDetails::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -81,6 +96,7 @@ class SimulationReport implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('overview', $this->overview);
         $writer->writeCollectionOfObjectValues('simulationUsers', $this->simulationUsers);
         $writer->writeAdditionalData($this->additionalData);
@@ -92,6 +108,14 @@ class SimulationReport implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

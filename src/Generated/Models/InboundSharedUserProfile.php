@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InboundSharedUserProfile implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class InboundSharedUserProfile implements AdditionalDataHolder, Parsable
      * @var string|null $homeTenantId The homeTenantId property
     */
     private ?string $homeTenantId = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $userId The userId property
@@ -38,7 +43,8 @@ class InboundSharedUserProfile implements AdditionalDataHolder, Parsable
      * Instantiates a new inboundSharedUserProfile and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.inboundSharedUserProfile');
     }
 
     /**
@@ -75,6 +81,7 @@ class InboundSharedUserProfile implements AdditionalDataHolder, Parsable
         return  [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'homeTenantId' => function (ParseNode $n) use ($o) { $o->setHomeTenantId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
             'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ];
@@ -86,6 +93,14 @@ class InboundSharedUserProfile implements AdditionalDataHolder, Parsable
     */
     public function getHomeTenantId(): ?string {
         return $this->homeTenantId;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,6 +126,7 @@ class InboundSharedUserProfile implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('homeTenantId', $this->homeTenantId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('userId', $this->userId);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
         $writer->writeAdditionalData($this->additionalData);
@@ -138,6 +154,14 @@ class InboundSharedUserProfile implements AdditionalDataHolder, Parsable
     */
     public function setHomeTenantId(?string $value ): void {
         $this->homeTenantId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

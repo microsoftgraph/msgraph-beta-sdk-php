@@ -14,7 +14,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     private ?array $associatedDomains = null;
     
     /**
-     * @var VpnAuthenticationMethod|null $authenticationMethod Authentication method for this VPN connection. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
+     * @var VpnAuthenticationMethod|null $authenticationMethod VPN Authentication Method.
     */
     private ?VpnAuthenticationMethod $authenticationMethod = null;
     
@@ -24,7 +24,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     private ?string $connectionName = null;
     
     /**
-     * @var AppleVpnConnectionType|null $connectionType Connection type. Possible values are: ciscoAnyConnect, pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, customVpn, ciscoIPSec, citrix, ciscoAnyConnectV2, paloAltoGlobalProtect, zscalerPrivateAccess, f5Access2018, citrixSso, paloAltoGlobalProtectV2, ikEv2, alwaysOn, microsoftTunnel, netMotionMobility, microsoftProtect.
+     * @var AppleVpnConnectionType|null $connectionType Apple VPN connection type.
     */
     private ?AppleVpnConnectionType $connectionType = null;
     
@@ -123,6 +123,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.appleVpnConfiguration');
     }
 
     /**
@@ -135,6 +136,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.iosikEv2VpnConfiguration': return new IosikEv2VpnConfiguration();
                 case '#microsoft.graph.iosVpnConfiguration': return new IosVpnConfiguration();
                 case '#microsoft.graph.macOSVpnConfiguration': return new MacOSVpnConfiguration();
             }
@@ -151,7 +153,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the authenticationMethod property value. Authentication method for this VPN connection. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
+     * Gets the authenticationMethod property value. VPN Authentication Method.
      * @return VpnAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?VpnAuthenticationMethod {
@@ -167,7 +169,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the connectionType property value. Connection type. Possible values are: ciscoAnyConnect, pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, customVpn, ciscoIPSec, citrix, ciscoAnyConnectV2, paloAltoGlobalProtect, zscalerPrivateAccess, f5Access2018, citrixSso, paloAltoGlobalProtectV2, ikEv2, alwaysOn, microsoftTunnel, netMotionMobility, microsoftProtect.
+     * Gets the connectionType property value. Apple VPN connection type.
      * @return AppleVpnConnectionType|null
     */
     public function getConnectionType(): ?AppleVpnConnectionType {
@@ -389,7 +391,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the authenticationMethod property value. Authentication method for this VPN connection. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
+     * Sets the authenticationMethod property value. VPN Authentication Method.
      *  @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?VpnAuthenticationMethod $value ): void {
@@ -405,7 +407,7 @@ class AppleVpnConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the connectionType property value. Connection type. Possible values are: ciscoAnyConnect, pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, customVpn, ciscoIPSec, citrix, ciscoAnyConnectV2, paloAltoGlobalProtect, zscalerPrivateAccess, f5Access2018, citrixSso, paloAltoGlobalProtectV2, ikEv2, alwaysOn, microsoftTunnel, netMotionMobility, microsoftProtect.
+     * Sets the connectionType property value. Apple VPN connection type.
      *  @param AppleVpnConnectionType|null $value Value to set for the connectionType property.
     */
     public function setConnectionType(?AppleVpnConnectionType $value ): void {

@@ -45,7 +45,7 @@ class BaseTask extends Entity implements Parsable
     private ?array $extensions = null;
     
     /**
-     * @var Importance|null $importance The importance of the task. Possible values are: low, normal, high.  The possible values are: low, normal, high.
+     * @var Importance|null $importance The importance property
     */
     private ?Importance $importance = null;
     
@@ -75,7 +75,7 @@ class BaseTask extends Entity implements Parsable
     private ?DateTimeTimeZone $startDateTime = null;
     
     /**
-     * @var TaskStatus_v2|null $status Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed,unknownFutureValue.
+     * @var TaskStatus_v2|null $status The status property
     */
     private ?TaskStatus_v2 $status = null;
     
@@ -94,6 +94,7 @@ class BaseTask extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.baseTask');
     }
 
     /**
@@ -195,7 +196,7 @@ class BaseTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the importance property value. The importance of the task. Possible values are: low, normal, high.  The possible values are: low, normal, high.
+     * Gets the importance property value. The importance property
      * @return Importance|null
     */
     public function getImportance(): ?Importance {
@@ -243,7 +244,7 @@ class BaseTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed,unknownFutureValue.
+     * Gets the status property value. The status property
      * @return TaskStatus_v2|null
     */
     public function getStatus(): ?TaskStatus_v2 {
@@ -347,7 +348,7 @@ class BaseTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the importance property value. The importance of the task. Possible values are: low, normal, high.  The possible values are: low, normal, high.
+     * Sets the importance property value. The importance property
      *  @param Importance|null $value Value to set for the importance property.
     */
     public function setImportance(?Importance $value ): void {
@@ -395,7 +396,7 @@ class BaseTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed,unknownFutureValue.
+     * Sets the status property value. The status property
      *  @param TaskStatus_v2|null $value Value to set for the status property.
     */
     public function setStatus(?TaskStatus_v2 $value ): void {

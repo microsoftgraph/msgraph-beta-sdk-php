@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,6 +26,11 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
     private ?array $healthChecks = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var DateTime|null $startDateTime The start time of the connection health check. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     */
     private ?DateTime $startDateTime = null;
@@ -34,7 +39,8 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
      * Instantiates a new cloudPcOnPremisesConnectionStatusDetails and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.cloudPcOnPremisesConnectionStatusDetails');
     }
 
     /**
@@ -71,6 +77,7 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
         return  [
             'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
             'healthChecks' => function (ParseNode $n) use ($o) { $o->setHealthChecks($n->getCollectionOfObjectValues(array(CloudPcOnPremisesConnectionHealthCheck::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
         ];
     }
@@ -81,6 +88,14 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
     */
     public function getHealthChecks(): ?array {
         return $this->healthChecks;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
         $writer->writeCollectionOfObjectValues('healthChecks', $this->healthChecks);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -124,6 +140,14 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
     */
     public function setHealthChecks(?array $value ): void {
         $this->healthChecks = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

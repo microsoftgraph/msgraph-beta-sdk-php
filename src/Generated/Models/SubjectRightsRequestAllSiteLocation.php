@@ -13,6 +13,7 @@ class SubjectRightsRequestAllSiteLocation extends SubjectRightsRequestSiteLocati
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.subjectRightsRequestAllSiteLocation');
     }
 
     /**

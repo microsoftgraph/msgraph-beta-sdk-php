@@ -11,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
 class IosEduCertificateSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,7 +26,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
     private ?string $certificateTemplateName = null;
     
     /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Certificate Validity Period Options.
     */
     private ?CertificateValidityPeriodScale $certificateValidityPeriodScale = null;
     
@@ -46,6 +46,11 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
     private ?string $certificationAuthorityName = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $renewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
     */
     private ?int $renewalThresholdPercentage = null;
@@ -59,7 +64,8 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new iosEduCertificateSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.iosEduCertificateSettings');
     }
 
     /**
@@ -96,7 +102,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Gets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
@@ -140,9 +146,18 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
             'certificateValidityPeriodValue' => function (ParseNode $n) use ($o) { $o->setCertificateValidityPeriodValue($n->getIntegerValue()); },
             'certificationAuthority' => function (ParseNode $n) use ($o) { $o->setCertificationAuthority($n->getStringValue()); },
             'certificationAuthorityName' => function (ParseNode $n) use ($o) { $o->setCertificationAuthorityName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'renewalThresholdPercentage' => function (ParseNode $n) use ($o) { $o->setRenewalThresholdPercentage($n->getIntegerValue()); },
             'trustedRootCertificate' => function (ParseNode $n) use ($o) { $o->setTrustedRootCertificate($n->getBinaryContent()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -172,6 +187,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('certificateValidityPeriodValue', $this->certificateValidityPeriodValue);
         $writer->writeStringValue('certificationAuthority', $this->certificationAuthority);
         $writer->writeStringValue('certificationAuthorityName', $this->certificationAuthorityName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('renewalThresholdPercentage', $this->renewalThresholdPercentage);
         $writer->writeBinaryContent('trustedRootCertificate', $this->trustedRootCertificate);
         $writer->writeAdditionalData($this->additionalData);
@@ -202,7 +218,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
     public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value ): void {
@@ -231,6 +247,14 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
     */
     public function setCertificationAuthorityName(?string $value ): void {
         $this->certificationAuthorityName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -9,17 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMethodTarget implements Parsable 
 {
     /**
-     * @var MicrosoftAuthenticatorAuthenticationMode|null $authenticationMode Determines which types of notifications can be used for sign-in. The possible values are: deviceBasedPush (passwordless only), push, and any.
+     * @var MicrosoftAuthenticatorAuthenticationMode|null $authenticationMode The authenticationMode property
     */
     private ?MicrosoftAuthenticatorAuthenticationMode $authenticationMode = null;
     
     /**
-     * @var AdvancedConfigState|null $displayAppInformationRequiredState Determines whether the user is shown additional context in their Authenticator app notification. In the body of the Authenticator notification, the user will be shown the app they are signing into along with the location that the authentication request originated from. Possible values are: enabled, disabled, default.
+     * @var AdvancedConfigState|null $displayAppInformationRequiredState The displayAppInformationRequiredState property
     */
     private ?AdvancedConfigState $displayAppInformationRequiredState = null;
     
     /**
-     * @var AdvancedConfigState|null $numberMatchingRequiredState Requires number matching for MFA notifications. Value is ignored for phone sign-in notifications. Possible values are: enabled, disabled, default.
+     * @var AdvancedConfigState|null $numberMatchingRequiredState The numberMatchingRequiredState property
     */
     private ?AdvancedConfigState $numberMatchingRequiredState = null;
     
@@ -28,6 +28,7 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.microsoftAuthenticatorAuthenticationMethodTarget');
     }
 
     /**
@@ -40,7 +41,7 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
     }
 
     /**
-     * Gets the authenticationMode property value. Determines which types of notifications can be used for sign-in. The possible values are: deviceBasedPush (passwordless only), push, and any.
+     * Gets the authenticationMode property value. The authenticationMode property
      * @return MicrosoftAuthenticatorAuthenticationMode|null
     */
     public function getAuthenticationMode(): ?MicrosoftAuthenticatorAuthenticationMode {
@@ -48,7 +49,7 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
     }
 
     /**
-     * Gets the displayAppInformationRequiredState property value. Determines whether the user is shown additional context in their Authenticator app notification. In the body of the Authenticator notification, the user will be shown the app they are signing into along with the location that the authentication request originated from. Possible values are: enabled, disabled, default.
+     * Gets the displayAppInformationRequiredState property value. The displayAppInformationRequiredState property
      * @return AdvancedConfigState|null
     */
     public function getDisplayAppInformationRequiredState(): ?AdvancedConfigState {
@@ -69,7 +70,7 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
     }
 
     /**
-     * Gets the numberMatchingRequiredState property value. Requires number matching for MFA notifications. Value is ignored for phone sign-in notifications. Possible values are: enabled, disabled, default.
+     * Gets the numberMatchingRequiredState property value. The numberMatchingRequiredState property
      * @return AdvancedConfigState|null
     */
     public function getNumberMatchingRequiredState(): ?AdvancedConfigState {
@@ -88,7 +89,7 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
     }
 
     /**
-     * Sets the authenticationMode property value. Determines which types of notifications can be used for sign-in. The possible values are: deviceBasedPush (passwordless only), push, and any.
+     * Sets the authenticationMode property value. The authenticationMode property
      *  @param MicrosoftAuthenticatorAuthenticationMode|null $value Value to set for the authenticationMode property.
     */
     public function setAuthenticationMode(?MicrosoftAuthenticatorAuthenticationMode $value ): void {
@@ -96,7 +97,7 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
     }
 
     /**
-     * Sets the displayAppInformationRequiredState property value. Determines whether the user is shown additional context in their Authenticator app notification. In the body of the Authenticator notification, the user will be shown the app they are signing into along with the location that the authentication request originated from. Possible values are: enabled, disabled, default.
+     * Sets the displayAppInformationRequiredState property value. The displayAppInformationRequiredState property
      *  @param AdvancedConfigState|null $value Value to set for the displayAppInformationRequiredState property.
     */
     public function setDisplayAppInformationRequiredState(?AdvancedConfigState $value ): void {
@@ -104,7 +105,7 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
     }
 
     /**
-     * Sets the numberMatchingRequiredState property value. Requires number matching for MFA notifications. Value is ignored for phone sign-in notifications. Possible values are: enabled, disabled, default.
+     * Sets the numberMatchingRequiredState property value. The numberMatchingRequiredState property
      *  @param AdvancedConfigState|null $value Value to set for the numberMatchingRequiredState property.
     */
     public function setNumberMatchingRequiredState(?AdvancedConfigState $value ): void {

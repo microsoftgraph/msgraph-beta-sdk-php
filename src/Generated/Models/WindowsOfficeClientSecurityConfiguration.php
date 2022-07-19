@@ -13,6 +13,7 @@ class WindowsOfficeClientSecurityConfiguration extends OfficeClientConfiguration
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsOfficeClientSecurityConfiguration');
     }
 
     /**

@@ -23,6 +23,7 @@ class Pkcs12Certificate extends ApiAuthenticationConfigurationBase implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.pkcs12Certificate');
     }
 
     /**

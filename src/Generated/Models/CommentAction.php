@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CommentAction implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class CommentAction implements AdditionalDataHolder, Parsable
      * @var bool|null $isReply If true, this activity was a reply to an existing comment thread.
     */
     private ?bool $isReply = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var IdentitySet|null $parentAuthor The identity of the user who started the comment thread.
@@ -33,7 +38,8 @@ class CommentAction implements AdditionalDataHolder, Parsable
      * Instantiates a new commentAction and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.commentAction');
     }
 
     /**
@@ -61,6 +67,7 @@ class CommentAction implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'isReply' => function (ParseNode $n) use ($o) { $o->setIsReply($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'parentAuthor' => function (ParseNode $n) use ($o) { $o->setParentAuthor($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
             'participants' => function (ParseNode $n) use ($o) { $o->setParticipants($n->getCollectionOfObjectValues(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
         ];
@@ -72,6 +79,14 @@ class CommentAction implements AdditionalDataHolder, Parsable
     */
     public function getIsReply(): ?bool {
         return $this->isReply;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -96,6 +111,7 @@ class CommentAction implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isReply', $this->isReply);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('parentAuthor', $this->parentAuthor);
         $writer->writeCollectionOfObjectValues('participants', $this->participants);
         $writer->writeAdditionalData($this->additionalData);
@@ -115,6 +131,14 @@ class CommentAction implements AdditionalDataHolder, Parsable
     */
     public function setIsReply(?bool $value ): void {
         $this->isReply = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

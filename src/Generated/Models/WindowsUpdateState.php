@@ -40,7 +40,7 @@ class WindowsUpdateState extends Entity implements Parsable
     private ?string $qualityUpdateVersion = null;
     
     /**
-     * @var WindowsUpdateStatus|null $status Windows udpate status. Possible values are: upToDate, pendingInstallation, pendingReboot, failed.
+     * @var WindowsUpdateStatus|null $status Windows update for business configuration device states
     */
     private ?WindowsUpdateStatus $status = null;
     
@@ -59,6 +59,7 @@ class WindowsUpdateState extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdateState');
     }
 
     /**
@@ -138,7 +139,7 @@ class WindowsUpdateState extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Windows udpate status. Possible values are: upToDate, pendingInstallation, pendingReboot, failed.
+     * Gets the status property value. Windows update for business configuration device states
      * @return WindowsUpdateStatus|null
     */
     public function getStatus(): ?WindowsUpdateStatus {
@@ -227,7 +228,7 @@ class WindowsUpdateState extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Windows udpate status. Possible values are: upToDate, pendingInstallation, pendingReboot, failed.
+     * Sets the status property value. Windows update for business configuration device states
      *  @param WindowsUpdateStatus|null $value Value to set for the status property.
     */
     public function setStatus(?WindowsUpdateStatus $value ): void {

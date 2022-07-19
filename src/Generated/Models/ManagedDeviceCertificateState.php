@@ -30,7 +30,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     private ?DateTime $certificateIssuanceDateTime = null;
     
     /**
-     * @var CertificateIssuanceStates|null $certificateIssuanceState Issuance State. Possible values are: unknown, challengeIssued, challengeIssueFailed, requestCreationFailed, requestSubmitFailed, challengeValidationSucceeded, challengeValidationFailed, issueFailed, issuePending, issued, responseProcessingFailed, responsePending, enrollmentSucceeded, enrollmentNotNeeded, revoked, removedFromCollection, renewVerified, installFailed, installed, deleteFailed, deleted, renewalRequested, requested.
+     * @var CertificateIssuanceStates|null $certificateIssuanceState Certificate Issuance State Options.
     */
     private ?CertificateIssuanceStates $certificateIssuanceState = null;
     
@@ -45,12 +45,12 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     private ?int $certificateKeyLength = null;
     
     /**
-     * @var KeyStorageProviderOption|null $certificateKeyStorageProvider Key Storage Provider. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * @var KeyStorageProviderOption|null $certificateKeyStorageProvider Key Storage Provider (KSP) Import Options.
     */
     private ?KeyStorageProviderOption $certificateKeyStorageProvider = null;
     
     /**
-     * @var KeyUsages|null $certificateKeyUsage Key usage. Possible values are: keyEncipherment, digitalSignature.
+     * @var KeyUsages|null $certificateKeyUsage Key Usage Options.
     */
     private ?KeyUsages $certificateKeyUsage = null;
     
@@ -65,7 +65,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     private ?string $certificateProfileDisplayName = null;
     
     /**
-     * @var CertificateRevocationStatus|null $certificateRevokeStatus Revoke status. Possible values are: none, pending, issued, failed, revoked.
+     * @var CertificateRevocationStatus|null $certificateRevokeStatus Certificate Revocation Status.
     */
     private ?CertificateRevocationStatus $certificateRevokeStatus = null;
     
@@ -75,7 +75,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     private ?string $certificateSerialNumber = null;
     
     /**
-     * @var SubjectAlternativeNameType|null $certificateSubjectAlternativeNameFormat Subject alternative name format. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * @var SubjectAlternativeNameType|null $certificateSubjectAlternativeNameFormat Subject Alternative Name Options.
     */
     private ?SubjectAlternativeNameType $certificateSubjectAlternativeNameFormat = null;
     
@@ -85,7 +85,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     private ?string $certificateSubjectAlternativeNameFormatString = null;
     
     /**
-     * @var SubjectNameFormat|null $certificateSubjectNameFormat Subject name format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * @var SubjectNameFormat|null $certificateSubjectNameFormat Subject Name Format Options.
     */
     private ?SubjectNameFormat $certificateSubjectNameFormat = null;
     
@@ -105,7 +105,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     private ?int $certificateValidityPeriod = null;
     
     /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodUnits Validity period units. Possible values are: days, months, years.
+     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodUnits Certificate Validity Period Options.
     */
     private ?CertificateValidityPeriodScale $certificateValidityPeriodUnits = null;
     
@@ -115,7 +115,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     private ?string $deviceDisplayName = null;
     
     /**
-     * @var DevicePlatformType|null $devicePlatform Device platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
+     * @var DevicePlatformType|null $devicePlatform Supported platform types.
     */
     private ?DevicePlatformType $devicePlatform = null;
     
@@ -134,6 +134,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.managedDeviceCertificateState');
     }
 
     /**
@@ -178,7 +179,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificateIssuanceState property value. Issuance State. Possible values are: unknown, challengeIssued, challengeIssueFailed, requestCreationFailed, requestSubmitFailed, challengeValidationSucceeded, challengeValidationFailed, issueFailed, issuePending, issued, responseProcessingFailed, responsePending, enrollmentSucceeded, enrollmentNotNeeded, revoked, removedFromCollection, renewVerified, installFailed, installed, deleteFailed, deleted, renewalRequested, requested.
+     * Gets the certificateIssuanceState property value. Certificate Issuance State Options.
      * @return CertificateIssuanceStates|null
     */
     public function getCertificateIssuanceState(): ?CertificateIssuanceStates {
@@ -202,7 +203,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificateKeyStorageProvider property value. Key Storage Provider. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * Gets the certificateKeyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      * @return KeyStorageProviderOption|null
     */
     public function getCertificateKeyStorageProvider(): ?KeyStorageProviderOption {
@@ -210,7 +211,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificateKeyUsage property value. Key usage. Possible values are: keyEncipherment, digitalSignature.
+     * Gets the certificateKeyUsage property value. Key Usage Options.
      * @return KeyUsages|null
     */
     public function getCertificateKeyUsage(): ?KeyUsages {
@@ -234,7 +235,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificateRevokeStatus property value. Revoke status. Possible values are: none, pending, issued, failed, revoked.
+     * Gets the certificateRevokeStatus property value. Certificate Revocation Status.
      * @return CertificateRevocationStatus|null
     */
     public function getCertificateRevokeStatus(): ?CertificateRevocationStatus {
@@ -250,7 +251,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificateSubjectAlternativeNameFormat property value. Subject alternative name format. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Gets the certificateSubjectAlternativeNameFormat property value. Subject Alternative Name Options.
      * @return SubjectAlternativeNameType|null
     */
     public function getCertificateSubjectAlternativeNameFormat(): ?SubjectAlternativeNameType {
@@ -266,7 +267,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificateSubjectNameFormat property value. Subject name format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Gets the certificateSubjectNameFormat property value. Subject Name Format Options.
      * @return SubjectNameFormat|null
     */
     public function getCertificateSubjectNameFormat(): ?SubjectNameFormat {
@@ -298,7 +299,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificateValidityPeriodUnits property value. Validity period units. Possible values are: days, months, years.
+     * Gets the certificateValidityPeriodUnits property value. Certificate Validity Period Options.
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodUnits(): ?CertificateValidityPeriodScale {
@@ -314,7 +315,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Gets the devicePlatform property value. Device platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
+     * Gets the devicePlatform property value. Supported platform types.
      * @return DevicePlatformType|null
     */
     public function getDevicePlatform(): ?DevicePlatformType {
@@ -436,7 +437,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificateIssuanceState property value. Issuance State. Possible values are: unknown, challengeIssued, challengeIssueFailed, requestCreationFailed, requestSubmitFailed, challengeValidationSucceeded, challengeValidationFailed, issueFailed, issuePending, issued, responseProcessingFailed, responsePending, enrollmentSucceeded, enrollmentNotNeeded, revoked, removedFromCollection, renewVerified, installFailed, installed, deleteFailed, deleted, renewalRequested, requested.
+     * Sets the certificateIssuanceState property value. Certificate Issuance State Options.
      *  @param CertificateIssuanceStates|null $value Value to set for the certificateIssuanceState property.
     */
     public function setCertificateIssuanceState(?CertificateIssuanceStates $value ): void {
@@ -460,7 +461,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificateKeyStorageProvider property value. Key Storage Provider. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * Sets the certificateKeyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      *  @param KeyStorageProviderOption|null $value Value to set for the certificateKeyStorageProvider property.
     */
     public function setCertificateKeyStorageProvider(?KeyStorageProviderOption $value ): void {
@@ -468,7 +469,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificateKeyUsage property value. Key usage. Possible values are: keyEncipherment, digitalSignature.
+     * Sets the certificateKeyUsage property value. Key Usage Options.
      *  @param KeyUsages|null $value Value to set for the certificateKeyUsage property.
     */
     public function setCertificateKeyUsage(?KeyUsages $value ): void {
@@ -492,7 +493,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificateRevokeStatus property value. Revoke status. Possible values are: none, pending, issued, failed, revoked.
+     * Sets the certificateRevokeStatus property value. Certificate Revocation Status.
      *  @param CertificateRevocationStatus|null $value Value to set for the certificateRevokeStatus property.
     */
     public function setCertificateRevokeStatus(?CertificateRevocationStatus $value ): void {
@@ -508,7 +509,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificateSubjectAlternativeNameFormat property value. Subject alternative name format. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Sets the certificateSubjectAlternativeNameFormat property value. Subject Alternative Name Options.
      *  @param SubjectAlternativeNameType|null $value Value to set for the certificateSubjectAlternativeNameFormat property.
     */
     public function setCertificateSubjectAlternativeNameFormat(?SubjectAlternativeNameType $value ): void {
@@ -524,7 +525,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificateSubjectNameFormat property value. Subject name format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Sets the certificateSubjectNameFormat property value. Subject Name Format Options.
      *  @param SubjectNameFormat|null $value Value to set for the certificateSubjectNameFormat property.
     */
     public function setCertificateSubjectNameFormat(?SubjectNameFormat $value ): void {
@@ -556,7 +557,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificateValidityPeriodUnits property value. Validity period units. Possible values are: days, months, years.
+     * Sets the certificateValidityPeriodUnits property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodUnits property.
     */
     public function setCertificateValidityPeriodUnits(?CertificateValidityPeriodScale $value ): void {
@@ -572,7 +573,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Sets the devicePlatform property value. Device platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
+     * Sets the devicePlatform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the devicePlatform property.
     */
     public function setDevicePlatform(?DevicePlatformType $value ): void {

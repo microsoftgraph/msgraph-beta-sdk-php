@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,7 +30,12 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
     private ?string $name = null;
     
     /**
-     * @var DeviceManagementApplicabilityRuleType|null $ruleType Applicability Rule type. Possible values are: include, exclude.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var DeviceManagementApplicabilityRuleType|null $ruleType Supported Applicability rule types for Device Configuration
     */
     private ?DeviceManagementApplicabilityRuleType $ruleType = null;
     
@@ -38,7 +43,8 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
      * Instantiates a new deviceManagementApplicabilityRuleOsVersion and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementApplicabilityRuleOsVersion');
     }
 
     /**
@@ -68,6 +74,7 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
             'maxOSVersion' => function (ParseNode $n) use ($o) { $o->setMaxOSVersion($n->getStringValue()); },
             'minOSVersion' => function (ParseNode $n) use ($o) { $o->setMinOSVersion($n->getStringValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'ruleType' => function (ParseNode $n) use ($o) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
         ];
     }
@@ -97,7 +104,15 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
     }
 
     /**
-     * Gets the ruleType property value. Applicability Rule type. Possible values are: include, exclude.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the ruleType property value. Supported Applicability rule types for Device Configuration
      * @return DeviceManagementApplicabilityRuleType|null
     */
     public function getRuleType(): ?DeviceManagementApplicabilityRuleType {
@@ -112,6 +127,7 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
         $writer->writeStringValue('maxOSVersion', $this->maxOSVersion);
         $writer->writeStringValue('minOSVersion', $this->minOSVersion);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('ruleType', $this->ruleType);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -149,7 +165,15 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
     }
 
     /**
-     * Sets the ruleType property value. Applicability Rule type. Possible values are: include, exclude.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the ruleType property value. Supported Applicability rule types for Device Configuration
      *  @param DeviceManagementApplicabilityRuleType|null $value Value to set for the ruleType property.
     */
     public function setRuleType(?DeviceManagementApplicabilityRuleType $value ): void {

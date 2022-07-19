@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemActionSet implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -45,6 +45,11 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
     private ?MoveAction $move = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var RenameAction|null $rename An item was renamed.
     */
     private ?RenameAction $rename = null;
@@ -68,7 +73,8 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
      * Instantiates a new itemActionSet and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.itemActionSet');
     }
 
     /**
@@ -133,6 +139,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
             'edit' => function (ParseNode $n) use ($o) { $o->setEdit($n->getObjectValue(array(EditAction::class, 'createFromDiscriminatorValue'))); },
             'mention' => function (ParseNode $n) use ($o) { $o->setMention($n->getObjectValue(array(MentionAction::class, 'createFromDiscriminatorValue'))); },
             'move' => function (ParseNode $n) use ($o) { $o->setMove($n->getObjectValue(array(MoveAction::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'rename' => function (ParseNode $n) use ($o) { $o->setRename($n->getObjectValue(array(RenameAction::class, 'createFromDiscriminatorValue'))); },
             'restore' => function (ParseNode $n) use ($o) { $o->setRestore($n->getObjectValue(array(RestoreAction::class, 'createFromDiscriminatorValue'))); },
             'share' => function (ParseNode $n) use ($o) { $o->setShare($n->getObjectValue(array(ShareAction::class, 'createFromDiscriminatorValue'))); },
@@ -154,6 +161,14 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
     */
     public function getMove(): ?MoveAction {
         return $this->move;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -199,6 +214,7 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('edit', $this->edit);
         $writer->writeObjectValue('mention', $this->mention);
         $writer->writeObjectValue('move', $this->move);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('rename', $this->rename);
         $writer->writeObjectValue('restore', $this->restore);
         $writer->writeObjectValue('share', $this->share);
@@ -260,6 +276,14 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
     */
     public function setMove(?MoveAction $value ): void {
         $this->move = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

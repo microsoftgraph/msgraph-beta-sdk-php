@@ -13,6 +13,7 @@ class Windows10XCertificateProfile extends DeviceManagementResourceAccessProfile
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10XCertificateProfile');
     }
 
     /**

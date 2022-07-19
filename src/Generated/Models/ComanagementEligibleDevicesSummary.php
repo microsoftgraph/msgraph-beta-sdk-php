@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -40,10 +40,16 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
     private ?int $needsOsUpdateCount = null;
     
     /**
-     * Instantiates a new ComanagementEligibleDevicesSummary and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * Instantiates a new comanagementEligibleDevicesSummary and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.comanagementEligibleDevicesSummary');
     }
 
     /**
@@ -99,6 +105,7 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
             'eligibleCount' => function (ParseNode $n) use ($o) { $o->setEligibleCount($n->getIntegerValue()); },
             'ineligibleCount' => function (ParseNode $n) use ($o) { $o->setIneligibleCount($n->getIntegerValue()); },
             'needsOsUpdateCount' => function (ParseNode $n) use ($o) { $o->setNeedsOsUpdateCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -119,6 +126,14 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -128,6 +143,7 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
         $writer->writeIntegerValue('eligibleCount', $this->eligibleCount);
         $writer->writeIntegerValue('ineligibleCount', $this->ineligibleCount);
         $writer->writeIntegerValue('needsOsUpdateCount', $this->needsOsUpdateCount);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -177,6 +193,14 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
     */
     public function setNeedsOsUpdateCount(?int $value ): void {
         $this->needsOsUpdateCount = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

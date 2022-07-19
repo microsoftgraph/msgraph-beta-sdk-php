@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * @var int|null $availableLicenseCount The number of VPP licenses available.
     */
     private ?int $availableLicenseCount = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $organizationName The organization associated with the Apple Volume Purchase Program Token.
@@ -43,7 +48,8 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * Instantiates a new vppTokenLicenseSummary and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.vppTokenLicenseSummary');
     }
 
     /**
@@ -88,10 +94,19 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
         return  [
             'appleId' => function (ParseNode $n) use ($o) { $o->setAppleId($n->getStringValue()); },
             'availableLicenseCount' => function (ParseNode $n) use ($o) { $o->setAvailableLicenseCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'organizationName' => function (ParseNode $n) use ($o) { $o->setOrganizationName($n->getStringValue()); },
             'usedLicenseCount' => function (ParseNode $n) use ($o) { $o->setUsedLicenseCount($n->getIntegerValue()); },
             'vppTokenId' => function (ParseNode $n) use ($o) { $o->setVppTokenId($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -125,6 +140,7 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('appleId', $this->appleId);
         $writer->writeIntegerValue('availableLicenseCount', $this->availableLicenseCount);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('organizationName', $this->organizationName);
         $writer->writeIntegerValue('usedLicenseCount', $this->usedLicenseCount);
         $writer->writeStringValue('vppTokenId', $this->vppTokenId);
@@ -153,6 +169,14 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
     */
     public function setAvailableLicenseCount(?int $value ): void {
         $this->availableLicenseCount = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

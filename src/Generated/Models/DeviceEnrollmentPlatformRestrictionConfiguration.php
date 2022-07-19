@@ -14,7 +14,7 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
     private ?DeviceEnrollmentPlatformRestriction $platformRestriction = null;
     
     /**
-     * @var EnrollmentRestrictionPlatformType|null $platformType Type of platform for which this restriction applies. Possible values are: allPlatforms, ios, windows, windowsPhone, android, androidForWork, mac.
+     * @var EnrollmentRestrictionPlatformType|null $platformType This enum indicates the platform type for which the enrollment restriction applies.
     */
     private ?EnrollmentRestrictionPlatformType $platformType = null;
     
@@ -23,6 +23,7 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceEnrollmentPlatformRestrictionConfiguration');
     }
 
     /**
@@ -55,7 +56,7 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
     }
 
     /**
-     * Gets the platformType property value. Type of platform for which this restriction applies. Possible values are: allPlatforms, ios, windows, windowsPhone, android, androidForWork, mac.
+     * Gets the platformType property value. This enum indicates the platform type for which the enrollment restriction applies.
      * @return EnrollmentRestrictionPlatformType|null
     */
     public function getPlatformType(): ?EnrollmentRestrictionPlatformType {
@@ -81,7 +82,7 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
     }
 
     /**
-     * Sets the platformType property value. Type of platform for which this restriction applies. Possible values are: allPlatforms, ios, windows, windowsPhone, android, androidForWork, mac.
+     * Sets the platformType property value. This enum indicates the platform type for which the enrollment restriction applies.
      *  @param EnrollmentRestrictionPlatformType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?EnrollmentRestrictionPlatformType $value ): void {

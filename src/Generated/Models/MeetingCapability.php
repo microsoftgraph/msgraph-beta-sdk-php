@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingCapability implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,15 +25,21 @@ class MeetingCapability implements AdditionalDataHolder, Parsable
     private ?bool $allowAnonymousUsersToStartMeeting = null;
     
     /**
-     * @var AutoAdmittedUsersType|null $autoAdmittedUsers Possible values are: everyoneInCompany, everyone.
+     * @var AutoAdmittedUsersType|null $autoAdmittedUsers The autoAdmittedUsers property
     */
     private ?AutoAdmittedUsersType $autoAdmittedUsers = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new meetingCapability and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.meetingCapability');
     }
 
     /**
@@ -70,7 +76,7 @@ class MeetingCapability implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the autoAdmittedUsers property value. Possible values are: everyoneInCompany, everyone.
+     * Gets the autoAdmittedUsers property value. The autoAdmittedUsers property
      * @return AutoAdmittedUsersType|null
     */
     public function getAutoAdmittedUsers(): ?AutoAdmittedUsersType {
@@ -87,7 +93,16 @@ class MeetingCapability implements AdditionalDataHolder, Parsable
             'allowAnonymousUsersToDialOut' => function (ParseNode $n) use ($o) { $o->setAllowAnonymousUsersToDialOut($n->getBooleanValue()); },
             'allowAnonymousUsersToStartMeeting' => function (ParseNode $n) use ($o) { $o->setAllowAnonymousUsersToStartMeeting($n->getBooleanValue()); },
             'autoAdmittedUsers' => function (ParseNode $n) use ($o) { $o->setAutoAdmittedUsers($n->getEnumValue(AutoAdmittedUsersType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class MeetingCapability implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('allowAnonymousUsersToDialOut', $this->allowAnonymousUsersToDialOut);
         $writer->writeBooleanValue('allowAnonymousUsersToStartMeeting', $this->allowAnonymousUsersToStartMeeting);
         $writer->writeEnumValue('autoAdmittedUsers', $this->autoAdmittedUsers);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -126,11 +142,19 @@ class MeetingCapability implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the autoAdmittedUsers property value. Possible values are: everyoneInCompany, everyone.
+     * Sets the autoAdmittedUsers property value. The autoAdmittedUsers property
      *  @param AutoAdmittedUsersType|null $value Value to set for the autoAdmittedUsers property.
     */
     public function setAutoAdmittedUsers(?AutoAdmittedUsersType $value ): void {
         $this->autoAdmittedUsers = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

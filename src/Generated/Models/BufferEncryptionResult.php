@@ -11,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
 class BufferEncryptionResult implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -21,15 +21,21 @@ class BufferEncryptionResult implements AdditionalDataHolder, Parsable
     private ?StreamInterface $encryptedBuffer = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var StreamInterface|null $publishingLicense The publishingLicense property
     */
     private ?StreamInterface $publishingLicense = null;
     
     /**
-     * Instantiates a new BufferEncryptionResult and sets the default values.
+     * Instantiates a new bufferEncryptionResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.bufferEncryptionResult');
     }
 
     /**
@@ -65,8 +71,17 @@ class BufferEncryptionResult implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'encryptedBuffer' => function (ParseNode $n) use ($o) { $o->setEncryptedBuffer($n->getBinaryContent()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'publishingLicense' => function (ParseNode $n) use ($o) { $o->setPublishingLicense($n->getBinaryContent()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -83,6 +98,7 @@ class BufferEncryptionResult implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBinaryContent('encryptedBuffer', $this->encryptedBuffer);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBinaryContent('publishingLicense', $this->publishingLicense);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -101,6 +117,14 @@ class BufferEncryptionResult implements AdditionalDataHolder, Parsable
     */
     public function setEncryptedBuffer(?StreamInterface $value ): void {
         $this->encryptedBuffer = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

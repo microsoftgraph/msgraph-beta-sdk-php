@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
      * @var bool|null $hasLink Indicate whether a payload has any link or not.
     */
     private ?bool $hasLink = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $payloadId Key of the Payload, In the format of Guid.
@@ -38,7 +43,8 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
      * Instantiates a new hasPayloadLinkResultItem and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.hasPayloadLinkResultItem');
     }
 
     /**
@@ -75,6 +81,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
         return  [
             'error' => function (ParseNode $n) use ($o) { $o->setError($n->getStringValue()); },
             'hasLink' => function (ParseNode $n) use ($o) { $o->setHasLink($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'payloadId' => function (ParseNode $n) use ($o) { $o->setPayloadId($n->getStringValue()); },
             'sources' => function (ParseNode $n) use ($o) { $o->setSources($n->getCollectionOfPrimitiveValues()); },
         ];
@@ -86,6 +93,14 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
     */
     public function getHasLink(): ?bool {
         return $this->hasLink;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,6 +126,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('error', $this->error);
         $writer->writeBooleanValue('hasLink', $this->hasLink);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('payloadId', $this->payloadId);
         $writer->writeCollectionOfPrimitiveValues('sources', $this->sources);
         $writer->writeAdditionalData($this->additionalData);
@@ -138,6 +154,14 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
     */
     public function setHasLink(?bool $value ): void {
         $this->hasLink = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

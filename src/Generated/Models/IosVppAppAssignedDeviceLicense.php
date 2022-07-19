@@ -23,6 +23,7 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosVppAppAssignedDeviceLicense');
     }
 
     /**

@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationIdentityDomain implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var EducationUserRole|null $appliesTo The user role type to assign to the license. Possible values are: student, teacher, faculty.
+     * @var EducationUserRole|null $appliesTo The appliesTo property
     */
     private ?EducationUserRole $appliesTo = null;
     
@@ -25,10 +25,16 @@ class EducationIdentityDomain implements AdditionalDataHolder, Parsable
     private ?string $name = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new educationIdentityDomain and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.educationIdentityDomain');
     }
 
     /**
@@ -49,7 +55,7 @@ class EducationIdentityDomain implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the appliesTo property value. The user role type to assign to the license. Possible values are: student, teacher, faculty.
+     * Gets the appliesTo property value. The appliesTo property
      * @return EducationUserRole|null
     */
     public function getAppliesTo(): ?EducationUserRole {
@@ -65,6 +71,7 @@ class EducationIdentityDomain implements AdditionalDataHolder, Parsable
         return  [
             'appliesTo' => function (ParseNode $n) use ($o) { $o->setAppliesTo($n->getEnumValue(EducationUserRole::class)); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -77,12 +84,21 @@ class EducationIdentityDomain implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('appliesTo', $this->appliesTo);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -95,7 +111,7 @@ class EducationIdentityDomain implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the appliesTo property value. The user role type to assign to the license. Possible values are: student, teacher, faculty.
+     * Sets the appliesTo property value. The appliesTo property
      *  @param EducationUserRole|null $value Value to set for the appliesTo property.
     */
     public function setAppliesTo(?EducationUserRole $value ): void {
@@ -108,6 +124,14 @@ class EducationIdentityDomain implements AdditionalDataHolder, Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

@@ -14,7 +14,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
     private ?bool $check32BitOn64System = null;
     
     /**
-     * @var Win32LobAppFileSystemDetectionType|null $detectionType The file system detection type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
+     * @var Win32LobAppFileSystemDetectionType|null $detectionType Contains all supported file system detection type.
     */
     private ?Win32LobAppFileSystemDetectionType $detectionType = null;
     
@@ -29,7 +29,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
     private ?string $fileOrFolderName = null;
     
     /**
-     * @var Win32LobAppDetectionOperator|null $operator The operator for file or folder detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * @var Win32LobAppDetectionOperator|null $operator Contains properties for detection operator.
     */
     private ?Win32LobAppDetectionOperator $operator = null;
     
@@ -43,6 +43,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppFileSystemDetection');
     }
 
     /**
@@ -63,7 +64,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
     }
 
     /**
-     * Gets the detectionType property value. The file system detection type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
+     * Gets the detectionType property value. Contains all supported file system detection type.
      * @return Win32LobAppFileSystemDetectionType|null
     */
     public function getDetectionType(): ?Win32LobAppFileSystemDetectionType {
@@ -103,7 +104,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
     }
 
     /**
-     * Gets the operator property value. The operator for file or folder detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Gets the operator property value. Contains properties for detection operator.
      * @return Win32LobAppDetectionOperator|null
     */
     public function getOperator(): ?Win32LobAppDetectionOperator {
@@ -141,7 +142,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
     }
 
     /**
-     * Sets the detectionType property value. The file system detection type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
+     * Sets the detectionType property value. Contains all supported file system detection type.
      *  @param Win32LobAppFileSystemDetectionType|null $value Value to set for the detectionType property.
     */
     public function setDetectionType(?Win32LobAppFileSystemDetectionType $value ): void {
@@ -165,7 +166,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
     }
 
     /**
-     * Sets the operator property value. The operator for file or folder detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Sets the operator property value. Contains properties for detection operator.
      *  @param Win32LobAppDetectionOperator|null $value Value to set for the operator property.
     */
     public function setOperator(?Win32LobAppDetectionOperator $value ): void {

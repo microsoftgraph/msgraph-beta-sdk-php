@@ -18,6 +18,7 @@ class Windows10NetworkBoundaryConfiguration extends DeviceConfiguration implemen
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10NetworkBoundaryConfiguration');
     }
 
     /**

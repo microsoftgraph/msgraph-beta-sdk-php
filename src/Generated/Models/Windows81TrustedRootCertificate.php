@@ -15,7 +15,7 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
     private ?string $certFileName = null;
     
     /**
-     * @var CertificateDestinationStore|null $destinationStore Destination store location for the Trusted Root Certificate. Possible values are: computerCertStoreRoot, computerCertStoreIntermediate, userCertStoreIntermediate.
+     * @var CertificateDestinationStore|null $destinationStore Possible values for the Certificate Destination Store.
     */
     private ?CertificateDestinationStore $destinationStore = null;
     
@@ -29,6 +29,7 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows81TrustedRootCertificate');
     }
 
     /**
@@ -49,7 +50,7 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
     }
 
     /**
-     * Gets the destinationStore property value. Destination store location for the Trusted Root Certificate. Possible values are: computerCertStoreRoot, computerCertStoreIntermediate, userCertStoreIntermediate.
+     * Gets the destinationStore property value. Possible values for the Certificate Destination Store.
      * @return CertificateDestinationStore|null
     */
     public function getDestinationStore(): ?CertificateDestinationStore {
@@ -97,7 +98,7 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
     }
 
     /**
-     * Sets the destinationStore property value. Destination store location for the Trusted Root Certificate. Possible values are: computerCertStoreRoot, computerCertStoreIntermediate, userCertStoreIntermediate.
+     * Sets the destinationStore property value. Possible values for the Certificate Destination Store.
      *  @param CertificateDestinationStore|null $value Value to set for the destinationStore property.
     */
     public function setDestinationStore(?CertificateDestinationStore $value ): void {

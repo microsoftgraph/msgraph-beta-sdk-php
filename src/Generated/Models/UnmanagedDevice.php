@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnmanagedDevice implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -61,6 +61,11 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
     private ?string $model = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $os Operating system.
     */
     private ?string $os = null;
@@ -74,7 +79,8 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * Instantiates a new unmanagedDevice and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.unmanagedDevice');
     }
 
     /**
@@ -126,6 +132,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
             'macAddress' => function (ParseNode $n) use ($o) { $o->setMacAddress($n->getStringValue()); },
             'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
             'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'os' => function (ParseNode $n) use ($o) { $o->setOs($n->getStringValue()); },
             'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
         ];
@@ -188,6 +195,14 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the os property value. Operating system.
      * @return string|null
     */
@@ -217,6 +232,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('macAddress', $this->macAddress);
         $writer->writeStringValue('manufacturer', $this->manufacturer);
         $writer->writeStringValue('model', $this->model);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('os', $this->os);
         $writer->writeStringValue('osVersion', $this->osVersion);
         $writer->writeAdditionalData($this->additionalData);
@@ -300,6 +316,14 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
     */
     public function setModel(?string $value ): void {
         $this->model = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

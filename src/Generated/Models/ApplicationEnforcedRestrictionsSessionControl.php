@@ -13,6 +13,7 @@ class ApplicationEnforcedRestrictionsSessionControl extends ConditionalAccessSes
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.applicationEnforcedRestrictionsSessionControl');
     }
 
     /**

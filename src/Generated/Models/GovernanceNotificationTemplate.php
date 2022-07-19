@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GovernanceNotificationTemplate implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, Parsable
      * @var string|null $id The id property
     */
     private ?string $id = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $source The source property
@@ -43,7 +48,8 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, Parsable
      * Instantiates a new governanceNotificationTemplate and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.governanceNotificationTemplate');
     }
 
     /**
@@ -80,6 +86,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, Parsable
         return  [
             'culture' => function (ParseNode $n) use ($o) { $o->setCulture($n->getStringValue()); },
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getStringValue()); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
             'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
@@ -92,6 +99,14 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, Parsable
     */
     public function getId(): ?string {
         return $this->id;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -125,6 +140,7 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('culture', $this->culture);
         $writer->writeStringValue('id', $this->id);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('source', $this->source);
         $writer->writeStringValue('type', $this->type);
         $writer->writeStringValue('version', $this->version);
@@ -153,6 +169,14 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, Parsable
     */
     public function setId(?string $value ): void {
         $this->id = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

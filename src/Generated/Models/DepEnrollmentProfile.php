@@ -44,7 +44,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
     private ?bool $isMandatory = null;
     
     /**
-     * @var ITunesPairingMode|null $iTunesPairingMode Indicates the iTunes pairing mode. Possible values are: disallow, allow, requiresCertificate.
+     * @var ITunesPairingMode|null $iTunesPairingMode The iTunesPairingMode property
     */
     private ?ITunesPairingMode $iTunesPairingMode = null;
     
@@ -133,6 +133,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.depEnrollmentProfile');
     }
 
     /**
@@ -235,7 +236,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
     }
 
     /**
-     * Gets the iTunesPairingMode property value. Indicates the iTunes pairing mode. Possible values are: disallow, allow, requiresCertificate.
+     * Gets the iTunesPairingMode property value. The iTunesPairingMode property
      * @return ITunesPairingMode|null
     */
     public function getITunesPairingMode(): ?ITunesPairingMode {
@@ -459,7 +460,7 @@ class DepEnrollmentProfile extends EnrollmentProfile implements Parsable
     }
 
     /**
-     * Sets the iTunesPairingMode property value. Indicates the iTunes pairing mode. Possible values are: disallow, allow, requiresCertificate.
+     * Sets the iTunesPairingMode property value. The iTunesPairingMode property
      *  @param ITunesPairingMode|null $value Value to set for the iTunesPairingMode property.
     */
     public function setITunesPairingMode(?ITunesPairingMode $value ): void {

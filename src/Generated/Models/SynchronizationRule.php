@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SynchronizationRule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -40,6 +40,11 @@ class SynchronizationRule implements AdditionalDataHolder, Parsable
     private ?array $objectMappings = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $priority Priority relative to other rules in the synchronizationSchema. Rules with the lowest priority number will be processed first.
     */
     private ?int $priority = null;
@@ -58,7 +63,8 @@ class SynchronizationRule implements AdditionalDataHolder, Parsable
      * Instantiates a new synchronizationRule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.synchronizationRule');
     }
 
     /**
@@ -98,6 +104,7 @@ class SynchronizationRule implements AdditionalDataHolder, Parsable
             'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(StringKeyStringValuePair::class, 'createFromDiscriminatorValue'))); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
             'objectMappings' => function (ParseNode $n) use ($o) { $o->setObjectMappings($n->getCollectionOfObjectValues(array(ObjectMapping::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
             'sourceDirectoryName' => function (ParseNode $n) use ($o) { $o->setSourceDirectoryName($n->getStringValue()); },
             'targetDirectoryName' => function (ParseNode $n) use ($o) { $o->setTargetDirectoryName($n->getStringValue()); },
@@ -137,6 +144,14 @@ class SynchronizationRule implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the priority property value. Priority relative to other rules in the synchronizationSchema. Rules with the lowest priority number will be processed first.
      * @return int|null
     */
@@ -170,6 +185,7 @@ class SynchronizationRule implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfObjectValues('metadata', $this->metadata);
         $writer->writeStringValue('name', $this->name);
         $writer->writeCollectionOfObjectValues('objectMappings', $this->objectMappings);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('priority', $this->priority);
         $writer->writeStringValue('sourceDirectoryName', $this->sourceDirectoryName);
         $writer->writeStringValue('targetDirectoryName', $this->targetDirectoryName);
@@ -222,6 +238,14 @@ class SynchronizationRule implements AdditionalDataHolder, Parsable
     */
     public function setObjectMappings(?array $value ): void {
         $this->objectMappings = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

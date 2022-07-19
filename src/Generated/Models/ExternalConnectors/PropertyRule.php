@@ -11,12 +11,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PropertyRule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var RuleOperation|null $operation Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var RuleOperation|null $operation The operation property
     */
     private ?RuleOperation $operation = null;
     
@@ -31,7 +36,7 @@ class PropertyRule implements AdditionalDataHolder, Parsable
     private ?array $values = null;
     
     /**
-     * @var BinaryOperator|null $valuesJoinedBy The join operator for evaluating multiple propertyRules. For example, if and is specified, then all propertyRules must be true for the propertyRule to be true. Possible values are: or, and. Required.
+     * @var BinaryOperator|null $valuesJoinedBy The valuesJoinedBy property
     */
     private ?BinaryOperator $valuesJoinedBy = null;
     
@@ -39,7 +44,8 @@ class PropertyRule implements AdditionalDataHolder, Parsable
      * Instantiates a new propertyRule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.externalConnectors.propertyRule');
     }
 
     /**
@@ -66,6 +72,7 @@ class PropertyRule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'operation' => function (ParseNode $n) use ($o) { $o->setOperation($n->getEnumValue(RuleOperation::class)); },
             'property' => function (ParseNode $n) use ($o) { $o->setProperty($n->getStringValue()); },
             'values' => function (ParseNode $n) use ($o) { $o->setValues($n->getCollectionOfPrimitiveValues()); },
@@ -74,7 +81,15 @@ class PropertyRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the operation property value. Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the operation property value. The operation property
      * @return RuleOperation|null
     */
     public function getOperation(): ?RuleOperation {
@@ -98,7 +113,7 @@ class PropertyRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the valuesJoinedBy property value. The join operator for evaluating multiple propertyRules. For example, if and is specified, then all propertyRules must be true for the propertyRule to be true. Possible values are: or, and. Required.
+     * Gets the valuesJoinedBy property value. The valuesJoinedBy property
      * @return BinaryOperator|null
     */
     public function getValuesJoinedBy(): ?BinaryOperator {
@@ -110,6 +125,7 @@ class PropertyRule implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('operation', $this->operation);
         $writer->writeStringValue('property', $this->property);
         $writer->writeCollectionOfPrimitiveValues('values', $this->values);
@@ -126,7 +142,15 @@ class PropertyRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the operation property value. Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the operation property value. The operation property
      *  @param RuleOperation|null $value Value to set for the operation property.
     */
     public function setOperation(?RuleOperation $value ): void {
@@ -150,7 +174,7 @@ class PropertyRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the valuesJoinedBy property value. The join operator for evaluating multiple propertyRules. For example, if and is specified, then all propertyRules must be true for the propertyRule to be true. Possible values are: or, and. Required.
+     * Sets the valuesJoinedBy property value. The valuesJoinedBy property
      *  @param BinaryOperator|null $value Value to set for the valuesJoinedBy property.
     */
     public function setValuesJoinedBy(?BinaryOperator $value ): void {

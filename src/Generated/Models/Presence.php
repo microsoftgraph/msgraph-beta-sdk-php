@@ -24,10 +24,11 @@ class Presence extends Entity implements Parsable
     private ?OutOfOfficeSettings $outOfOfficeSettings = null;
     
     /**
-     * Instantiates a new Presence and sets the default values.
+     * Instantiates a new presence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.presence');
     }
 
     /**

@@ -23,6 +23,7 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementAbstractComplexSettingInstance');
     }
 
     /**

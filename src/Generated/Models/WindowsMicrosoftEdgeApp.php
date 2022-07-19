@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsMicrosoftEdgeApp extends MobileApp implements Parsable 
 {
     /**
-     * @var MicrosoftEdgeChannel|null $channel The channel to install on target devices. Possible values are: dev, beta, stable.
+     * @var MicrosoftEdgeChannel|null $channel The enum to specify the channels for Microsoft Edge apps.
     */
     private ?MicrosoftEdgeChannel $channel = null;
     
@@ -23,6 +23,7 @@ class WindowsMicrosoftEdgeApp extends MobileApp implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsMicrosoftEdgeApp');
     }
 
     /**
@@ -35,7 +36,7 @@ class WindowsMicrosoftEdgeApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the channel property value. The channel to install on target devices. Possible values are: dev, beta, stable.
+     * Gets the channel property value. The enum to specify the channels for Microsoft Edge apps.
      * @return MicrosoftEdgeChannel|null
     */
     public function getChannel(): ?MicrosoftEdgeChannel {
@@ -73,7 +74,7 @@ class WindowsMicrosoftEdgeApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the channel property value. The channel to install on target devices. Possible values are: dev, beta, stable.
+     * Sets the channel property value. The enum to specify the channels for Microsoft Edge apps.
      *  @param MicrosoftEdgeChannel|null $value Value to set for the channel property.
     */
     public function setChannel(?MicrosoftEdgeChannel $value ): void {

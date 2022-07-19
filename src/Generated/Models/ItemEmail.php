@@ -19,7 +19,7 @@ class ItemEmail extends ItemFacet implements Parsable
     private ?string $displayName = null;
     
     /**
-     * @var EmailType|null $type The type of email address. Possible values are: unknown, work, personal, main, other.
+     * @var EmailType|null $type The type property
     */
     private ?EmailType $type = null;
     
@@ -28,6 +28,7 @@ class ItemEmail extends ItemFacet implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.itemEmail');
     }
 
     /**
@@ -69,7 +70,7 @@ class ItemEmail extends ItemFacet implements Parsable
     }
 
     /**
-     * Gets the type property value. The type of email address. Possible values are: unknown, work, personal, main, other.
+     * Gets the type property value. The type property
      * @return EmailType|null
     */
     public function getType(): ?EmailType {
@@ -104,7 +105,7 @@ class ItemEmail extends ItemFacet implements Parsable
     }
 
     /**
-     * Sets the type property value. The type of email address. Possible values are: unknown, work, personal, main, other.
+     * Sets the type property value. The type property
      *  @param EmailType|null $value Value to set for the type property.
     */
     public function setType(?EmailType $value ): void {

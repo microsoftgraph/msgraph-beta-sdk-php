@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -40,6 +40,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
     private ?int $modernAppsCount = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $officeAppsCount Number of devices with OfficeApps swung-over. This property is read-only.
     */
     private ?int $officeAppsCount = null;
@@ -60,10 +65,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
     private ?int $windowsUpdateForBusinessCount = null;
     
     /**
-     * Instantiates a new ComanagedDevicesSummary and sets the default values.
+     * Instantiates a new comanagedDevicesSummary and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.comanagedDevicesSummary');
     }
 
     /**
@@ -119,6 +125,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
             'endpointProtectionCount' => function (ParseNode $n) use ($o) { $o->setEndpointProtectionCount($n->getIntegerValue()); },
             'inventoryCount' => function (ParseNode $n) use ($o) { $o->setInventoryCount($n->getIntegerValue()); },
             'modernAppsCount' => function (ParseNode $n) use ($o) { $o->setModernAppsCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'officeAppsCount' => function (ParseNode $n) use ($o) { $o->setOfficeAppsCount($n->getIntegerValue()); },
             'resourceAccessCount' => function (ParseNode $n) use ($o) { $o->setResourceAccessCount($n->getIntegerValue()); },
             'totalComanagedCount' => function (ParseNode $n) use ($o) { $o->setTotalComanagedCount($n->getIntegerValue()); },
@@ -140,6 +147,14 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
     */
     public function getModernAppsCount(): ?int {
         return $this->modernAppsCount;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -184,6 +199,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('endpointProtectionCount', $this->endpointProtectionCount);
         $writer->writeIntegerValue('inventoryCount', $this->inventoryCount);
         $writer->writeIntegerValue('modernAppsCount', $this->modernAppsCount);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('officeAppsCount', $this->officeAppsCount);
         $writer->writeIntegerValue('resourceAccessCount', $this->resourceAccessCount);
         $writer->writeIntegerValue('totalComanagedCount', $this->totalComanagedCount);
@@ -237,6 +253,14 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
     */
     public function setModernAppsCount(?int $value ): void {
         $this->modernAppsCount = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
     private ?string $fieldId = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $type Type of the credential. The values can be text, password.
     */
     private ?string $type = null;
@@ -38,7 +43,8 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
      * Instantiates a new passwordSingleSignOnField and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.passwordSingleSignOnField');
     }
 
     /**
@@ -84,6 +90,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
             'customizedLabel' => function (ParseNode $n) use ($o) { $o->setCustomizedLabel($n->getStringValue()); },
             'defaultLabel' => function (ParseNode $n) use ($o) { $o->setDefaultLabel($n->getStringValue()); },
             'fieldId' => function (ParseNode $n) use ($o) { $o->setFieldId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
         ];
     }
@@ -94,6 +101,14 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
     */
     public function getFieldId(): ?string {
         return $this->fieldId;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -112,6 +127,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('customizedLabel', $this->customizedLabel);
         $writer->writeStringValue('defaultLabel', $this->defaultLabel);
         $writer->writeStringValue('fieldId', $this->fieldId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -146,6 +162,14 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
     */
     public function setFieldId(?string $value ): void {
         $this->fieldId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

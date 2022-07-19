@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var ManagementCategory|null $category The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
+     * @var ManagementCategory|null $category The category property
     */
     private ?ManagementCategory $category = null;
     
@@ -30,6 +30,11 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable
     private ?string $managementTemplateId = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $version The version property
     */
     private ?int $version = null;
@@ -38,7 +43,8 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable
      * Instantiates a new managementTemplateDetailedInfo and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedTenants.managementTemplateDetailedInfo');
     }
 
     /**
@@ -59,7 +65,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the category property value. The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
+     * Gets the category property value. The category property
      * @return ManagementCategory|null
     */
     public function getCategory(): ?ManagementCategory {
@@ -84,6 +90,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable
             'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'managementTemplateId' => function (ParseNode $n) use ($o) { $o->setManagementTemplateId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
         ];
     }
@@ -94,6 +101,14 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable
     */
     public function getManagementTemplateId(): ?string {
         return $this->managementTemplateId;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -112,6 +127,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('category', $this->category);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('managementTemplateId', $this->managementTemplateId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('version', $this->version);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -125,7 +141,7 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the category property value. The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
+     * Sets the category property value. The category property
      *  @param ManagementCategory|null $value Value to set for the category property.
     */
     public function setCategory(?ManagementCategory $value ): void {
@@ -146,6 +162,14 @@ class ManagementTemplateDetailedInfo implements AdditionalDataHolder, Parsable
     */
     public function setManagementTemplateId(?string $value ): void {
         $this->managementTemplateId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

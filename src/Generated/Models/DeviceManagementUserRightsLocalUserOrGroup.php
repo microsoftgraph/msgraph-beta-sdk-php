@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
     private ?string $name = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $securityIdentifier The security identifier of this local user or group (e.g. S-1-5-32-544).
     */
     private ?string $securityIdentifier = null;
@@ -33,7 +38,8 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
      * Instantiates a new deviceManagementUserRightsLocalUserOrGroup and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementUserRightsLocalUserOrGroup');
     }
 
     /**
@@ -70,6 +76,7 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
         return  [
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'securityIdentifier' => function (ParseNode $n) use ($o) { $o->setSecurityIdentifier($n->getStringValue()); },
         ];
     }
@@ -80,6 +87,14 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
     */
     public function getName(): ?string {
         return $this->name;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('securityIdentifier', $this->securityIdentifier);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class DeviceManagementUserRightsLocalUserOrGroup implements AdditionalDataHolder
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

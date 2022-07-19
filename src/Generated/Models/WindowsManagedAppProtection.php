@@ -10,17 +10,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable 
 {
     /**
-     * @var WindowsManagedAppDataTransferLevel|null $allowedInboundDataTransferSources Indicates the sources from which data is allowed to be transferred. Some possible values are allApps or none. Possible values are: allApps, none.
+     * @var WindowsManagedAppDataTransferLevel|null $allowedInboundDataTransferSources Data can be transferred from/to these classes of apps
     */
     private ?WindowsManagedAppDataTransferLevel $allowedInboundDataTransferSources = null;
     
     /**
-     * @var WindowsManagedAppClipboardSharingLevel|null $allowedOutboundClipboardSharingLevel Indicates the level to which the clipboard may be shared across org & non-org resources. Some possible values are anyDestinationAnySource or none. Possible values are: anyDestinationAnySource, none.
+     * @var WindowsManagedAppClipboardSharingLevel|null $allowedOutboundClipboardSharingLevel Represents the level to which the device's clipboard may be shared between apps
     */
     private ?WindowsManagedAppClipboardSharingLevel $allowedOutboundClipboardSharingLevel = null;
     
     /**
-     * @var WindowsManagedAppDataTransferLevel|null $allowedOutboundDataTransferDestinations Indicates the destinations to which data is allowed to be transferred. Some possible values are allApps or none. Possible values are: allApps, none.
+     * @var WindowsManagedAppDataTransferLevel|null $allowedOutboundDataTransferDestinations Data can be transferred from/to these classes of apps
     */
     private ?WindowsManagedAppDataTransferLevel $allowedOutboundDataTransferDestinations = null;
     
@@ -50,7 +50,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     private ?bool $isAssigned = null;
     
     /**
-     * @var ManagedAppDeviceThreatLevel|null $maximumAllowedDeviceThreatLevel Maximum allowed device threat level, as reported by the Mobile Threat Defense app. Possible values are: notConfigured, secured, low, medium, high.
+     * @var ManagedAppDeviceThreatLevel|null $maximumAllowedDeviceThreatLevel The maxium threat level allowed for an app to be compliant.
     */
     private ?ManagedAppDeviceThreatLevel $maximumAllowedDeviceThreatLevel = null;
     
@@ -110,7 +110,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     private ?string $minimumWipeSdkVersion = null;
     
     /**
-     * @var ManagedAppRemediationAction|null $mobileThreatDefenseRemediationAction Determines what action to take if the mobile threat defense threat threshold isn't met. Some possible values are block or wipe. Warn isn't a supported value for this property. Possible values are: block, wipe, warn.
+     * @var ManagedAppRemediationAction|null $mobileThreatDefenseRemediationAction An admin initiated action to be applied on a managed app.
     */
     private ?ManagedAppRemediationAction $mobileThreatDefenseRemediationAction = null;
     
@@ -134,6 +134,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsManagedAppProtection');
     }
 
     /**
@@ -146,7 +147,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Gets the allowedInboundDataTransferSources property value. Indicates the sources from which data is allowed to be transferred. Some possible values are allApps or none. Possible values are: allApps, none.
+     * Gets the allowedInboundDataTransferSources property value. Data can be transferred from/to these classes of apps
      * @return WindowsManagedAppDataTransferLevel|null
     */
     public function getAllowedInboundDataTransferSources(): ?WindowsManagedAppDataTransferLevel {
@@ -154,7 +155,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Gets the allowedOutboundClipboardSharingLevel property value. Indicates the level to which the clipboard may be shared across org & non-org resources. Some possible values are anyDestinationAnySource or none. Possible values are: anyDestinationAnySource, none.
+     * Gets the allowedOutboundClipboardSharingLevel property value. Represents the level to which the device's clipboard may be shared between apps
      * @return WindowsManagedAppClipboardSharingLevel|null
     */
     public function getAllowedOutboundClipboardSharingLevel(): ?WindowsManagedAppClipboardSharingLevel {
@@ -162,7 +163,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Gets the allowedOutboundDataTransferDestinations property value. Indicates the destinations to which data is allowed to be transferred. Some possible values are allApps or none. Possible values are: allApps, none.
+     * Gets the allowedOutboundDataTransferDestinations property value. Data can be transferred from/to these classes of apps
      * @return WindowsManagedAppDataTransferLevel|null
     */
     public function getAllowedOutboundDataTransferDestinations(): ?WindowsManagedAppDataTransferLevel {
@@ -244,7 +245,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Gets the maximumAllowedDeviceThreatLevel property value. Maximum allowed device threat level, as reported by the Mobile Threat Defense app. Possible values are: notConfigured, secured, low, medium, high.
+     * Gets the maximumAllowedDeviceThreatLevel property value. The maxium threat level allowed for an app to be compliant.
      * @return ManagedAppDeviceThreatLevel|null
     */
     public function getMaximumAllowedDeviceThreatLevel(): ?ManagedAppDeviceThreatLevel {
@@ -340,7 +341,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Gets the mobileThreatDefenseRemediationAction property value. Determines what action to take if the mobile threat defense threat threshold isn't met. Some possible values are block or wipe. Warn isn't a supported value for this property. Possible values are: block, wipe, warn.
+     * Gets the mobileThreatDefenseRemediationAction property value. An admin initiated action to be applied on a managed app.
      * @return ManagedAppRemediationAction|null
     */
     public function getMobileThreatDefenseRemediationAction(): ?ManagedAppRemediationAction {
@@ -404,7 +405,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Sets the allowedInboundDataTransferSources property value. Indicates the sources from which data is allowed to be transferred. Some possible values are allApps or none. Possible values are: allApps, none.
+     * Sets the allowedInboundDataTransferSources property value. Data can be transferred from/to these classes of apps
      *  @param WindowsManagedAppDataTransferLevel|null $value Value to set for the allowedInboundDataTransferSources property.
     */
     public function setAllowedInboundDataTransferSources(?WindowsManagedAppDataTransferLevel $value ): void {
@@ -412,7 +413,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Sets the allowedOutboundClipboardSharingLevel property value. Indicates the level to which the clipboard may be shared across org & non-org resources. Some possible values are anyDestinationAnySource or none. Possible values are: anyDestinationAnySource, none.
+     * Sets the allowedOutboundClipboardSharingLevel property value. Represents the level to which the device's clipboard may be shared between apps
      *  @param WindowsManagedAppClipboardSharingLevel|null $value Value to set for the allowedOutboundClipboardSharingLevel property.
     */
     public function setAllowedOutboundClipboardSharingLevel(?WindowsManagedAppClipboardSharingLevel $value ): void {
@@ -420,7 +421,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Sets the allowedOutboundDataTransferDestinations property value. Indicates the destinations to which data is allowed to be transferred. Some possible values are allApps or none. Possible values are: allApps, none.
+     * Sets the allowedOutboundDataTransferDestinations property value. Data can be transferred from/to these classes of apps
      *  @param WindowsManagedAppDataTransferLevel|null $value Value to set for the allowedOutboundDataTransferDestinations property.
     */
     public function setAllowedOutboundDataTransferDestinations(?WindowsManagedAppDataTransferLevel $value ): void {
@@ -468,7 +469,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Sets the maximumAllowedDeviceThreatLevel property value. Maximum allowed device threat level, as reported by the Mobile Threat Defense app. Possible values are: notConfigured, secured, low, medium, high.
+     * Sets the maximumAllowedDeviceThreatLevel property value. The maxium threat level allowed for an app to be compliant.
      *  @param ManagedAppDeviceThreatLevel|null $value Value to set for the maximumAllowedDeviceThreatLevel property.
     */
     public function setMaximumAllowedDeviceThreatLevel(?ManagedAppDeviceThreatLevel $value ): void {
@@ -564,7 +565,7 @@ class WindowsManagedAppProtection extends ManagedAppPolicy implements Parsable
     }
 
     /**
-     * Sets the mobileThreatDefenseRemediationAction property value. Determines what action to take if the mobile threat defense threat threshold isn't met. Some possible values are block or wipe. Warn isn't a supported value for this property. Possible values are: block, wipe, warn.
+     * Sets the mobileThreatDefenseRemediationAction property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the mobileThreatDefenseRemediationAction property.
     */
     public function setMobileThreatDefenseRemediationAction(?ManagedAppRemediationAction $value ): void {

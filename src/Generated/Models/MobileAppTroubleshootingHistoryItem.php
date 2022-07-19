@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -19,6 +19,11 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
      * @var DateTime|null $occurrenceDateTime Time when the history item occurred.
     */
     private ?DateTime $occurrenceDateTime = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var DeviceManagementTroubleshootingErrorDetails|null $troubleshootingErrorDetails Object containing detailed information about the error and its remediation.
@@ -29,7 +34,8 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
      * Instantiates a new mobileAppTroubleshootingHistoryItem and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.mobileAppTroubleshootingHistoryItem');
     }
 
     /**
@@ -68,6 +74,7 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
         $o = $this;
         return  [
             'occurrenceDateTime' => function (ParseNode $n) use ($o) { $o->setOccurrenceDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'troubleshootingErrorDetails' => function (ParseNode $n) use ($o) { $o->setTroubleshootingErrorDetails($n->getObjectValue(array(DeviceManagementTroubleshootingErrorDetails::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -78,6 +85,14 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
     */
     public function getOccurrenceDateTime(): ?DateTime {
         return $this->occurrenceDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -94,6 +109,7 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('occurrenceDateTime', $this->occurrenceDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('troubleshootingErrorDetails', $this->troubleshootingErrorDetails);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -112,6 +128,14 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
     */
     public function setOccurrenceDateTime(?DateTime $value ): void {
         $this->occurrenceDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

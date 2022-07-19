@@ -24,10 +24,11 @@ class ScopedRoleMembership extends Entity implements Parsable
     private ?Identity $roleMemberInfo = null;
     
     /**
-     * Instantiates a new ScopedRoleMembership and sets the default values.
+     * Instantiates a new scopedRoleMembership and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.scopedRoleMembership');
     }
 
     /**

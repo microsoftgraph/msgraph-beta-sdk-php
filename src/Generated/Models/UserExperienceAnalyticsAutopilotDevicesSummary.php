@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     private ?int $devicesWithoutAutopilotProfileAssigned = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $totalWindows10DevicesWithoutTenantAttached The count of windows 10 devices that are Intune and Comanaged.
     */
     private ?int $totalWindows10DevicesWithoutTenantAttached = null;
@@ -33,7 +38,8 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
      * Instantiates a new userExperienceAnalyticsAutopilotDevicesSummary and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsAutopilotDevicesSummary');
     }
 
     /**
@@ -78,8 +84,17 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
         return  [
             'devicesNotAutopilotRegistered' => function (ParseNode $n) use ($o) { $o->setDevicesNotAutopilotRegistered($n->getIntegerValue()); },
             'devicesWithoutAutopilotProfileAssigned' => function (ParseNode $n) use ($o) { $o->setDevicesWithoutAutopilotProfileAssigned($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'totalWindows10DevicesWithoutTenantAttached' => function (ParseNode $n) use ($o) { $o->setTotalWindows10DevicesWithoutTenantAttached($n->getIntegerValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('devicesNotAutopilotRegistered', $this->devicesNotAutopilotRegistered);
         $writer->writeIntegerValue('devicesWithoutAutopilotProfileAssigned', $this->devicesWithoutAutopilotProfileAssigned);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('totalWindows10DevicesWithoutTenantAttached', $this->totalWindows10DevicesWithoutTenantAttached);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     */
     public function setDevicesWithoutAutopilotProfileAssigned(?int $value ): void {
         $this->devicesWithoutAutopilotProfileAssigned = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

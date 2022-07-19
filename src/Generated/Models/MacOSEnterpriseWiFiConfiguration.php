@@ -19,7 +19,7 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
     private ?EapFastConfiguration $eapFastConfiguration = null;
     
     /**
-     * @var EapType|null $eapType Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, leap, eapSim, eapTtls, peap, eapFast, teap.
+     * @var EapType|null $eapType Extensible Authentication Protocol (EAP) configuration types.
     */
     private ?EapType $eapType = null;
     
@@ -58,6 +58,7 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOSEnterpriseWiFiConfiguration');
     }
 
     /**
@@ -86,7 +87,7 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
     }
 
     /**
-     * Gets the eapType property value. Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, leap, eapSim, eapTtls, peap, eapFast, teap.
+     * Gets the eapType property value. Extensible Authentication Protocol (EAP) configuration types.
      * @return EapType|null
     */
     public function getEapType(): ?EapType {
@@ -194,7 +195,7 @@ class MacOSEnterpriseWiFiConfiguration extends MacOSWiFiConfiguration implements
     }
 
     /**
-     * Sets the eapType property value. Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, leap, eapSim, eapTtls, peap, eapFast, teap.
+     * Sets the eapType property value. Extensible Authentication Protocol (EAP) configuration types.
      *  @param EapType|null $value Value to set for the eapType property.
     */
     public function setEapType(?EapType $value ): void {

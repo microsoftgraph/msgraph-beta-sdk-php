@@ -24,10 +24,11 @@ class UserExperienceAnalyticsRegressionSummary extends Entity implements Parsabl
     private ?array $operatingSystemRegression = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsRegressionSummary and sets the default values.
+     * Instantiates a new userExperienceAnalyticsRegressionSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsRegressionSummary');
     }
 
     /**

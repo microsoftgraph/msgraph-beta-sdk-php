@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var AndroidForWorkAppConfigurationSchemaItemDataType|null $dataType The type of value this item describes. Possible values are: bool, integer, string, choice, multiselect, bundle, bundleArray, hidden.
+     * @var AndroidForWorkAppConfigurationSchemaItemDataType|null $dataType Data type for a configuration item inside an Android for Work application's custom configuration schema
     */
     private ?AndroidForWorkAppConfigurationSchemaItemDataType $dataType = null;
     
@@ -50,6 +50,11 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
     private ?string $displayName = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $schemaItemKey Unique key the application uses to identify the item
     */
     private ?string $schemaItemKey = null;
@@ -63,7 +68,8 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
      * Instantiates a new androidForWorkAppConfigurationSchemaItem and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.androidForWorkAppConfigurationSchemaItem');
     }
 
     /**
@@ -84,7 +90,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
     }
 
     /**
-     * Gets the dataType property value. The type of value this item describes. Possible values are: bool, integer, string, choice, multiselect, bundle, bundleArray, hidden.
+     * Gets the dataType property value. Data type for a configuration item inside an Android for Work application's custom configuration schema
      * @return AndroidForWorkAppConfigurationSchemaItemDataType|null
     */
     public function getDataType(): ?AndroidForWorkAppConfigurationSchemaItemDataType {
@@ -153,9 +159,18 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
             'defaultStringValue' => function (ParseNode $n) use ($o) { $o->setDefaultStringValue($n->getStringValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'schemaItemKey' => function (ParseNode $n) use ($o) { $o->setSchemaItemKey($n->getStringValue()); },
             'selections' => function (ParseNode $n) use ($o) { $o->setSelections($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -186,6 +201,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
         $writer->writeStringValue('defaultStringValue', $this->defaultStringValue);
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('schemaItemKey', $this->schemaItemKey);
         $writer->writeCollectionOfObjectValues('selections', $this->selections);
         $writer->writeAdditionalData($this->additionalData);
@@ -200,7 +216,7 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
     }
 
     /**
-     * Sets the dataType property value. The type of value this item describes. Possible values are: bool, integer, string, choice, multiselect, bundle, bundleArray, hidden.
+     * Sets the dataType property value. Data type for a configuration item inside an Android for Work application's custom configuration schema
      *  @param AndroidForWorkAppConfigurationSchemaItemDataType|null $value Value to set for the dataType property.
     */
     public function setDataType(?AndroidForWorkAppConfigurationSchemaItemDataType $value ): void {
@@ -253,6 +269,14 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

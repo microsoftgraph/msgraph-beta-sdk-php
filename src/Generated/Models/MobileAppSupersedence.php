@@ -14,7 +14,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
     private ?int $supersededAppCount = null;
     
     /**
-     * @var MobileAppSupersedenceType|null $supersedenceType The supersedence relationship type between the parent and child apps. Possible values are: update, replace.
+     * @var MobileAppSupersedenceType|null $supersedenceType Indicates the supersedence type associated with a relationship between two mobile apps.
     */
     private ?MobileAppSupersedenceType $supersedenceType = null;
     
@@ -28,6 +28,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mobileAppSupersedence');
     }
 
     /**
@@ -61,7 +62,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
     }
 
     /**
-     * Gets the supersedenceType property value. The supersedence relationship type between the parent and child apps. Possible values are: update, replace.
+     * Gets the supersedenceType property value. Indicates the supersedence type associated with a relationship between two mobile apps.
      * @return MobileAppSupersedenceType|null
     */
     public function getSupersedenceType(): ?MobileAppSupersedenceType {
@@ -96,7 +97,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
     }
 
     /**
-     * Sets the supersedenceType property value. The supersedence relationship type between the parent and child apps. Possible values are: update, replace.
+     * Sets the supersedenceType property value. Indicates the supersedence type associated with a relationship between two mobile apps.
      *  @param MobileAppSupersedenceType|null $value Value to set for the supersedenceType property.
     */
     public function setSupersedenceType(?MobileAppSupersedenceType $value ): void {

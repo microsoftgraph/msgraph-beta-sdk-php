@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleDefinition;
+use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleDefinitions\Item\AssignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeId\AssignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\CloudPC\RoleDefinitions\Item\InheritsPermissionsFrom\InheritsPermissionsFromRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -40,6 +41,14 @@ class UnifiedRoleDefinitionItemRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to call the assignedPrincipals method.
+     * @return AssignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeIdRequestBuilder
+    */
+    public function assignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeId(): AssignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeIdRequestBuilder {
+        return new AssignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+
     /**
      * Instantiates a new UnifiedRoleDefinitionItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request

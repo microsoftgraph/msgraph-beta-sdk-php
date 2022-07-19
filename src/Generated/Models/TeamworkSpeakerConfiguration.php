@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,6 +35,11 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
     private ?bool $isSpeakerOptional = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var array<TeamworkPeripheral>|null $speakers The speakers property
     */
     private ?array $speakers = null;
@@ -43,7 +48,8 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkSpeakerConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkSpeakerConfiguration');
     }
 
     /**
@@ -90,6 +96,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
             'defaultSpeaker' => function (ParseNode $n) use ($o) { $o->setDefaultSpeaker($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
             'isCommunicationSpeakerOptional' => function (ParseNode $n) use ($o) { $o->setIsCommunicationSpeakerOptional($n->getBooleanValue()); },
             'isSpeakerOptional' => function (ParseNode $n) use ($o) { $o->setIsSpeakerOptional($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'speakers' => function (ParseNode $n) use ($o) { $o->setSpeakers($n->getCollectionOfObjectValues(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -111,6 +118,14 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the speakers property value. The speakers property
      * @return array<TeamworkPeripheral>|null
     */
@@ -127,6 +142,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('defaultSpeaker', $this->defaultSpeaker);
         $writer->writeBooleanValue('isCommunicationSpeakerOptional', $this->isCommunicationSpeakerOptional);
         $writer->writeBooleanValue('isSpeakerOptional', $this->isSpeakerOptional);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('speakers', $this->speakers);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -169,6 +185,14 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
     */
     public function setIsSpeakerOptional(?bool $value ): void {
         $this->isSpeakerOptional = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

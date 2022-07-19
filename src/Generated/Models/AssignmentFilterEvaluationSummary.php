@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -31,12 +31,12 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
     private ?DateTime $assignmentFilterLastModifiedDateTime = null;
     
     /**
-     * @var DevicePlatformType|null $assignmentFilterPlatform The platform for which this assignment filter is created. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * @var DevicePlatformType|null $assignmentFilterPlatform Supported platform types.
     */
     private ?DevicePlatformType $assignmentFilterPlatform = null;
     
     /**
-     * @var DeviceAndAppManagementAssignmentFilterType|null $assignmentFilterType Indicate filter type either include or exclude. Possible values are: none, include, exclude.
+     * @var DeviceAndAppManagementAssignmentFilterType|null $assignmentFilterType Represents type of the assignment filter.
     */
     private ?DeviceAndAppManagementAssignmentFilterType $assignmentFilterType = null;
     
@@ -51,15 +51,21 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
     private ?DateTime $evaluationDateTime = null;
     
     /**
-     * @var AssignmentFilterEvaluationResult|null $evaluationResult Assignment filter evaluation result. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
+     * @var AssignmentFilterEvaluationResult|null $evaluationResult Supported evaluation results for filter.
     */
     private ?AssignmentFilterEvaluationResult $evaluationResult = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new assignmentFilterEvaluationSummary and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.assignmentFilterEvaluationSummary');
     }
 
     /**
@@ -104,7 +110,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the assignmentFilterPlatform property value. The platform for which this assignment filter is created. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * Gets the assignmentFilterPlatform property value. Supported platform types.
      * @return DevicePlatformType|null
     */
     public function getAssignmentFilterPlatform(): ?DevicePlatformType {
@@ -112,7 +118,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the assignmentFilterType property value. Indicate filter type either include or exclude. Possible values are: none, include, exclude.
+     * Gets the assignmentFilterType property value. Represents type of the assignment filter.
      * @return DeviceAndAppManagementAssignmentFilterType|null
     */
     public function getAssignmentFilterType(): ?DeviceAndAppManagementAssignmentFilterType {
@@ -136,7 +142,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the evaluationResult property value. Assignment filter evaluation result. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
+     * Gets the evaluationResult property value. Supported evaluation results for filter.
      * @return AssignmentFilterEvaluationResult|null
     */
     public function getEvaluationResult(): ?AssignmentFilterEvaluationResult {
@@ -158,7 +164,16 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
             'assignmentFilterTypeAndEvaluationResults' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterTypeAndEvaluationResults($n->getCollectionOfObjectValues(array(AssignmentFilterTypeAndEvaluationResult::class, 'createFromDiscriminatorValue'))); },
             'evaluationDateTime' => function (ParseNode $n) use ($o) { $o->setEvaluationDateTime($n->getDateTimeValue()); },
             'evaluationResult' => function (ParseNode $n) use ($o) { $o->setEvaluationResult($n->getEnumValue(AssignmentFilterEvaluationResult::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -174,6 +189,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
         $writer->writeCollectionOfObjectValues('assignmentFilterTypeAndEvaluationResults', $this->assignmentFilterTypeAndEvaluationResults);
         $writer->writeDateTimeValue('evaluationDateTime', $this->evaluationDateTime);
         $writer->writeEnumValue('evaluationResult', $this->evaluationResult);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -210,7 +226,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the assignmentFilterPlatform property value. The platform for which this assignment filter is created. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * Sets the assignmentFilterPlatform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the assignmentFilterPlatform property.
     */
     public function setAssignmentFilterPlatform(?DevicePlatformType $value ): void {
@@ -218,7 +234,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the assignmentFilterType property value. Indicate filter type either include or exclude. Possible values are: none, include, exclude.
+     * Sets the assignmentFilterType property value. Represents type of the assignment filter.
      *  @param DeviceAndAppManagementAssignmentFilterType|null $value Value to set for the assignmentFilterType property.
     */
     public function setAssignmentFilterType(?DeviceAndAppManagementAssignmentFilterType $value ): void {
@@ -242,11 +258,19 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the evaluationResult property value. Assignment filter evaluation result. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
+     * Sets the evaluationResult property value. Supported evaluation results for filter.
      *  @param AssignmentFilterEvaluationResult|null $value Value to set for the evaluationResult property.
     */
     public function setEvaluationResult(?AssignmentFilterEvaluationResult $value ): void {
         $this->evaluationResult = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

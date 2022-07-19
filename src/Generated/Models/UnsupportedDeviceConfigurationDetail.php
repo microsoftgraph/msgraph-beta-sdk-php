@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Pars
      * @var string|null $message A message explaining why an entity is unsupported.
     */
     private ?string $message = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $propertyName If message is related to a specific property in the original entity, then the name of that property.
@@ -28,7 +33,8 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Pars
      * Instantiates a new unsupportedDeviceConfigurationDetail and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.unsupportedDeviceConfigurationDetail');
     }
 
     /**
@@ -56,6 +62,7 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Pars
         $o = $this;
         return  [
             'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'propertyName' => function (ParseNode $n) use ($o) { $o->setPropertyName($n->getStringValue()); },
         ];
     }
@@ -66,6 +73,14 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Pars
     */
     public function getMessage(): ?string {
         return $this->message;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Pars
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('message', $this->message);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('propertyName', $this->propertyName);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Pars
     */
     public function setMessage(?string $value ): void {
         $this->message = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

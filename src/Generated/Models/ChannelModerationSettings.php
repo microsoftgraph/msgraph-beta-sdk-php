@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ChannelModerationSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
      * @var bool|null $allowNewMessageFromConnectors Indicates whether connectors are allowed to post messages.
     */
     private ?bool $allowNewMessageFromConnectors = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var ReplyRestriction|null $replyRestriction Indicates who is allowed to reply to the teams channel. Possible values are: everyone, authorAndModerators, unknownFutureValue.
@@ -38,7 +43,8 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new channelModerationSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.channelModerationSettings');
     }
 
     /**
@@ -83,9 +89,18 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
         return  [
             'allowNewMessageFromBots' => function (ParseNode $n) use ($o) { $o->setAllowNewMessageFromBots($n->getBooleanValue()); },
             'allowNewMessageFromConnectors' => function (ParseNode $n) use ($o) { $o->setAllowNewMessageFromConnectors($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'replyRestriction' => function (ParseNode $n) use ($o) { $o->setReplyRestriction($n->getEnumValue(ReplyRestriction::class)); },
             'userNewMessageRestriction' => function (ParseNode $n) use ($o) { $o->setUserNewMessageRestriction($n->getEnumValue(UserNewMessageRestriction::class)); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,6 +126,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('allowNewMessageFromBots', $this->allowNewMessageFromBots);
         $writer->writeBooleanValue('allowNewMessageFromConnectors', $this->allowNewMessageFromConnectors);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('replyRestriction', $this->replyRestriction);
         $writer->writeEnumValue('userNewMessageRestriction', $this->userNewMessageRestriction);
         $writer->writeAdditionalData($this->additionalData);
@@ -138,6 +154,14 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
     */
     public function setAllowNewMessageFromConnectors(?bool $value ): void {
         $this->allowNewMessageFromConnectors = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -18,6 +18,7 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerDerivedCredentialAuthenticationConfiguration');
     }
 
     /**

@@ -28,6 +28,7 @@ class WindowsInformationProtectionDesktopApp extends WindowsInformationProtectio
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsInformationProtectionDesktopApp');
     }
 
     /**

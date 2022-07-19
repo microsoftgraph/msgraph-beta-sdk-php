@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewStageSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -34,6 +34,11 @@ class AccessReviewStageSettings implements AdditionalDataHolder, Parsable
      * @var array<AccessReviewReviewerScope>|null $fallbackReviewers If provided, the fallback reviewers are asked to complete a review if the primary reviewers do not exist. For example, if managers are selected as reviewers and a principal under review does not have a manager in Azure AD, the fallback reviewers are asked to review that principal. NOTE: The value of this property will override the corresponding setting on the accessReviewScheduleDefinition object.
     */
     private ?array $fallbackReviewers = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<AccessReviewRecommendationInsightSetting>|null $recommendationInsightSettings The recommendationInsightSettings property
@@ -64,7 +69,8 @@ class AccessReviewStageSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new accessReviewStageSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.accessReviewStageSettings');
     }
 
     /**
@@ -127,12 +133,21 @@ class AccessReviewStageSettings implements AdditionalDataHolder, Parsable
             'dependsOn' => function (ParseNode $n) use ($o) { $o->setDependsOn($n->getCollectionOfPrimitiveValues()); },
             'durationInDays' => function (ParseNode $n) use ($o) { $o->setDurationInDays($n->getIntegerValue()); },
             'fallbackReviewers' => function (ParseNode $n) use ($o) { $o->setFallbackReviewers($n->getCollectionOfObjectValues(array(AccessReviewReviewerScope::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recommendationInsightSettings' => function (ParseNode $n) use ($o) { $o->setRecommendationInsightSettings($n->getCollectionOfObjectValues(array(AccessReviewRecommendationInsightSetting::class, 'createFromDiscriminatorValue'))); },
             'recommendationLookBackDuration' => function (ParseNode $n) use ($o) { $o->setRecommendationLookBackDuration($n->getDateIntervalValue()); },
             'recommendationsEnabled' => function (ParseNode $n) use ($o) { $o->setRecommendationsEnabled($n->getBooleanValue()); },
             'reviewers' => function (ParseNode $n) use ($o) { $o->setReviewers($n->getCollectionOfObjectValues(array(AccessReviewReviewerScope::class, 'createFromDiscriminatorValue'))); },
             'stageId' => function (ParseNode $n) use ($o) { $o->setStageId($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -184,6 +199,7 @@ class AccessReviewStageSettings implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfPrimitiveValues('dependsOn', $this->dependsOn);
         $writer->writeIntegerValue('durationInDays', $this->durationInDays);
         $writer->writeCollectionOfObjectValues('fallbackReviewers', $this->fallbackReviewers);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('recommendationInsightSettings', $this->recommendationInsightSettings);
         $writer->writeDateIntervalValue('recommendationLookBackDuration', $this->recommendationLookBackDuration);
         $writer->writeBooleanValue('recommendationsEnabled', $this->recommendationsEnabled);
@@ -230,6 +246,14 @@ class AccessReviewStageSettings implements AdditionalDataHolder, Parsable
     */
     public function setFallbackReviewers(?array $value ): void {
         $this->fallbackReviewers = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

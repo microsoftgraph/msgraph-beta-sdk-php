@@ -19,7 +19,7 @@ class Win32LobAppProductCodeRule extends Win32LobAppRule implements Parsable
     private ?string $productVersion = null;
     
     /**
-     * @var Win32LobAppRuleOperator|null $productVersionOperator The product version comparison operator. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * @var Win32LobAppRuleOperator|null $productVersionOperator Contains properties for detection operator.
     */
     private ?Win32LobAppRuleOperator $productVersionOperator = null;
     
@@ -28,6 +28,7 @@ class Win32LobAppProductCodeRule extends Win32LobAppRule implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppProductCodeRule');
     }
 
     /**
@@ -69,7 +70,7 @@ class Win32LobAppProductCodeRule extends Win32LobAppRule implements Parsable
     }
 
     /**
-     * Gets the productVersionOperator property value. The product version comparison operator. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Gets the productVersionOperator property value. Contains properties for detection operator.
      * @return Win32LobAppRuleOperator|null
     */
     public function getProductVersionOperator(): ?Win32LobAppRuleOperator {
@@ -104,7 +105,7 @@ class Win32LobAppProductCodeRule extends Win32LobAppRule implements Parsable
     }
 
     /**
-     * Sets the productVersionOperator property value. The product version comparison operator. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Sets the productVersionOperator property value. Contains properties for detection operator.
      *  @param Win32LobAppRuleOperator|null $value Value to set for the productVersionOperator property.
     */
     public function setProductVersionOperator(?Win32LobAppRuleOperator $value ): void {

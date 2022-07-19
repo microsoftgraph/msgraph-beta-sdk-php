@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificateProfileBase implements Parsable 
 {
     /**
-     * @var CertificateStore|null $certificateStore Target store certificate. Possible values are: user, machine.
+     * @var CertificateStore|null $certificateStore CertificateStore types
     */
     private ?CertificateStore $certificateStore = null;
     
@@ -29,7 +29,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
     private ?string $certificationAuthorityName = null;
     
     /**
-     * @var DeviceManagementCertificationAuthority|null $certificationAuthorityType Certification authority type. Possible values are: notConfigured, microsoft, digiCert.
+     * @var DeviceManagementCertificationAuthority|null $certificationAuthorityType Device Management Certification Authority Types.
     */
     private ?DeviceManagementCertificationAuthority $certificationAuthorityType = null;
     
@@ -58,6 +58,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.aospDeviceOwnerPkcsCertificateProfile');
     }
 
     /**
@@ -70,7 +71,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
     }
 
     /**
-     * Gets the certificateStore property value. Target store certificate. Possible values are: user, machine.
+     * Gets the certificateStore property value. CertificateStore types
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
@@ -102,7 +103,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
     }
 
     /**
-     * Gets the certificationAuthorityType property value. Certification authority type. Possible values are: notConfigured, microsoft, digiCert.
+     * Gets the certificationAuthorityType property value. Device Management Certification Authority Types.
      * @return DeviceManagementCertificationAuthority|null
     */
     public function getCertificationAuthorityType(): ?DeviceManagementCertificationAuthority {
@@ -178,7 +179,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
     }
 
     /**
-     * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
+     * Sets the certificateStore property value. CertificateStore types
      *  @param CertificateStore|null $value Value to set for the certificateStore property.
     */
     public function setCertificateStore(?CertificateStore $value ): void {
@@ -210,7 +211,7 @@ class AospDeviceOwnerPkcsCertificateProfile extends AospDeviceOwnerCertificatePr
     }
 
     /**
-     * Sets the certificationAuthorityType property value. Certification authority type. Possible values are: notConfigured, microsoft, digiCert.
+     * Sets the certificationAuthorityType property value. Device Management Certification Authority Types.
      *  @param DeviceManagementCertificationAuthority|null $value Value to set for the certificationAuthorityType property.
     */
     public function setCertificationAuthorityType(?DeviceManagementCertificationAuthority $value ): void {

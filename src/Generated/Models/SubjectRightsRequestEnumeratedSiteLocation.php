@@ -18,6 +18,7 @@ class SubjectRightsRequestEnumeratedSiteLocation extends SubjectRightsRequestSit
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.subjectRightsRequestEnumeratedSiteLocation');
     }
 
     /**

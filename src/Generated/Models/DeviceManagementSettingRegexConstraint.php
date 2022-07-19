@@ -18,6 +18,7 @@ class DeviceManagementSettingRegexConstraint extends DeviceManagementConstraint 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementSettingRegexConstraint');
     }
 
     /**

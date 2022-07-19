@@ -10,20 +10,26 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var DecisionItemPrincipalResourceMembershipType|null $membershipType Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
+     * @var DecisionItemPrincipalResourceMembershipType|null $membershipType The membershipType property
     */
     private ?DecisionItemPrincipalResourceMembershipType $membershipType = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new decisionItemPrincipalResourceMembership and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.decisionItemPrincipalResourceMembership');
     }
 
     /**
@@ -51,15 +57,24 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, P
         $o = $this;
         return  [
             'membershipType' => function (ParseNode $n) use ($o) { $o->setMembershipType($n->getEnumValue(DecisionItemPrincipalResourceMembershipType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the membershipType property value. Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
+     * Gets the membershipType property value. The membershipType property
      * @return DecisionItemPrincipalResourceMembershipType|null
     */
     public function getMembershipType(): ?DecisionItemPrincipalResourceMembershipType {
         return $this->membershipType;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -68,6 +83,7 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, P
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('membershipType', $this->membershipType);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -80,11 +96,19 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, P
     }
 
     /**
-     * Sets the membershipType property value. Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
+     * Sets the membershipType property value. The membershipType property
      *  @param DecisionItemPrincipalResourceMembershipType|null $value Value to set for the membershipType property.
     */
     public function setMembershipType(?DecisionItemPrincipalResourceMembershipType $value ): void {
         $this->membershipType = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

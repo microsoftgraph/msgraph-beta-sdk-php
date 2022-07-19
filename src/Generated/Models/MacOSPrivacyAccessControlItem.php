@@ -10,17 +10,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var Enablement|null $accessibility Allow the app or process to control the Mac via the Accessibility subsystem. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $accessibility Possible values of a property
     */
     private ?Enablement $accessibility = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var Enablement|null $addressBook Allow or block access to contact information managed by Contacts. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $addressBook Possible values of a property
     */
     private ?Enablement $addressBook = null;
     
@@ -50,7 +50,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     private ?bool $blockScreenCapture = null;
     
     /**
-     * @var Enablement|null $calendar Allow or block access to event information managed by Calendar. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $calendar Possible values of a property
     */
     private ?Enablement $calendar = null;
     
@@ -65,7 +65,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     private ?string $displayName = null;
     
     /**
-     * @var Enablement|null $fileProviderPresence Allow the app or process to access files managed by another app’s file provider extension. Requires macOS 10.15 or later. . Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $fileProviderPresence Possible values of a property
     */
     private ?Enablement $fileProviderPresence = null;
     
@@ -75,32 +75,37 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     private ?string $identifier = null;
     
     /**
-     * @var MacOSProcessIdentifierType|null $identifierType A bundle ID is used to identify an app. A path is used to identify a process or executable. Possible values are: bundleID, path.
+     * @var MacOSProcessIdentifierType|null $identifierType Process identifier types for MacOS Privacy Preferences
     */
     private ?MacOSProcessIdentifierType $identifierType = null;
     
     /**
-     * @var Enablement|null $mediaLibrary Allow or block access to music and the media library. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $mediaLibrary Possible values of a property
     */
     private ?Enablement $mediaLibrary = null;
     
     /**
-     * @var Enablement|null $photos Allow or block access to images managed by Photos. Possible values are: notConfigured, enabled, disabled.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var Enablement|null $photos Possible values of a property
     */
     private ?Enablement $photos = null;
     
     /**
-     * @var Enablement|null $postEvent Control access to CoreGraphics APIs, which are used to send CGEvents to the system event stream. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $postEvent Possible values of a property
     */
     private ?Enablement $postEvent = null;
     
     /**
-     * @var Enablement|null $reminders Allow or block access to information managed by Reminders. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $reminders Possible values of a property
     */
     private ?Enablement $reminders = null;
     
     /**
-     * @var Enablement|null $speechRecognition Allow or block access to system speech recognition facility. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $speechRecognition Possible values of a property
     */
     private ?Enablement $speechRecognition = null;
     
@@ -110,37 +115,37 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     private ?bool $staticCodeValidation = null;
     
     /**
-     * @var Enablement|null $systemPolicyAllFiles Control access to all protected files on a device. Files might be in locations such as emails, messages, apps, and administrative settings. Apply this setting with caution. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $systemPolicyAllFiles Possible values of a property
     */
     private ?Enablement $systemPolicyAllFiles = null;
     
     /**
-     * @var Enablement|null $systemPolicyDesktopFolder Allow or block access to Desktop folder. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $systemPolicyDesktopFolder Possible values of a property
     */
     private ?Enablement $systemPolicyDesktopFolder = null;
     
     /**
-     * @var Enablement|null $systemPolicyDocumentsFolder Allow or block access to Documents folder. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $systemPolicyDocumentsFolder Possible values of a property
     */
     private ?Enablement $systemPolicyDocumentsFolder = null;
     
     /**
-     * @var Enablement|null $systemPolicyDownloadsFolder Allow or block access to Downloads folder. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $systemPolicyDownloadsFolder Possible values of a property
     */
     private ?Enablement $systemPolicyDownloadsFolder = null;
     
     /**
-     * @var Enablement|null $systemPolicyNetworkVolumes Allow or block access to network volumes. Requires macOS 10.15 or later. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $systemPolicyNetworkVolumes Possible values of a property
     */
     private ?Enablement $systemPolicyNetworkVolumes = null;
     
     /**
-     * @var Enablement|null $systemPolicyRemovableVolumes Control access to removable  volumes on the device, such as an external hard drive. Requires macOS 10.15 or later. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $systemPolicyRemovableVolumes Possible values of a property
     */
     private ?Enablement $systemPolicyRemovableVolumes = null;
     
     /**
-     * @var Enablement|null $systemPolicySystemAdminFiles Allow app or process to access files used in system administration. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $systemPolicySystemAdminFiles Possible values of a property
     */
     private ?Enablement $systemPolicySystemAdminFiles = null;
     
@@ -148,7 +153,8 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
      * Instantiates a new macOSPrivacyAccessControlItem and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.macOSPrivacyAccessControlItem');
     }
 
     /**
@@ -161,7 +167,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the accessibility property value. Allow the app or process to control the Mac via the Accessibility subsystem. Possible values are: notConfigured, enabled, disabled.
+     * Gets the accessibility property value. Possible values of a property
      * @return Enablement|null
     */
     public function getAccessibility(): ?Enablement {
@@ -177,7 +183,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the addressBook property value. Allow or block access to contact information managed by Contacts. Possible values are: notConfigured, enabled, disabled.
+     * Gets the addressBook property value. Possible values of a property
      * @return Enablement|null
     */
     public function getAddressBook(): ?Enablement {
@@ -225,7 +231,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the calendar property value. Allow or block access to event information managed by Calendar. Possible values are: notConfigured, enabled, disabled.
+     * Gets the calendar property value. Possible values of a property
      * @return Enablement|null
     */
     public function getCalendar(): ?Enablement {
@@ -269,6 +275,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
             'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
             'identifierType' => function (ParseNode $n) use ($o) { $o->setIdentifierType($n->getEnumValue(MacOSProcessIdentifierType::class)); },
             'mediaLibrary' => function (ParseNode $n) use ($o) { $o->setMediaLibrary($n->getEnumValue(Enablement::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'photos' => function (ParseNode $n) use ($o) { $o->setPhotos($n->getEnumValue(Enablement::class)); },
             'postEvent' => function (ParseNode $n) use ($o) { $o->setPostEvent($n->getEnumValue(Enablement::class)); },
             'reminders' => function (ParseNode $n) use ($o) { $o->setReminders($n->getEnumValue(Enablement::class)); },
@@ -285,7 +292,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the fileProviderPresence property value. Allow the app or process to access files managed by another app’s file provider extension. Requires macOS 10.15 or later. . Possible values are: notConfigured, enabled, disabled.
+     * Gets the fileProviderPresence property value. Possible values of a property
      * @return Enablement|null
     */
     public function getFileProviderPresence(): ?Enablement {
@@ -301,7 +308,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the identifierType property value. A bundle ID is used to identify an app. A path is used to identify a process or executable. Possible values are: bundleID, path.
+     * Gets the identifierType property value. Process identifier types for MacOS Privacy Preferences
      * @return MacOSProcessIdentifierType|null
     */
     public function getIdentifierType(): ?MacOSProcessIdentifierType {
@@ -309,7 +316,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the mediaLibrary property value. Allow or block access to music and the media library. Possible values are: notConfigured, enabled, disabled.
+     * Gets the mediaLibrary property value. Possible values of a property
      * @return Enablement|null
     */
     public function getMediaLibrary(): ?Enablement {
@@ -317,7 +324,15 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the photos property value. Allow or block access to images managed by Photos. Possible values are: notConfigured, enabled, disabled.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the photos property value. Possible values of a property
      * @return Enablement|null
     */
     public function getPhotos(): ?Enablement {
@@ -325,7 +340,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the postEvent property value. Control access to CoreGraphics APIs, which are used to send CGEvents to the system event stream. Possible values are: notConfigured, enabled, disabled.
+     * Gets the postEvent property value. Possible values of a property
      * @return Enablement|null
     */
     public function getPostEvent(): ?Enablement {
@@ -333,7 +348,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the reminders property value. Allow or block access to information managed by Reminders. Possible values are: notConfigured, enabled, disabled.
+     * Gets the reminders property value. Possible values of a property
      * @return Enablement|null
     */
     public function getReminders(): ?Enablement {
@@ -341,7 +356,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the speechRecognition property value. Allow or block access to system speech recognition facility. Possible values are: notConfigured, enabled, disabled.
+     * Gets the speechRecognition property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSpeechRecognition(): ?Enablement {
@@ -357,7 +372,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the systemPolicyAllFiles property value. Control access to all protected files on a device. Files might be in locations such as emails, messages, apps, and administrative settings. Apply this setting with caution. Possible values are: notConfigured, enabled, disabled.
+     * Gets the systemPolicyAllFiles property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSystemPolicyAllFiles(): ?Enablement {
@@ -365,7 +380,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the systemPolicyDesktopFolder property value. Allow or block access to Desktop folder. Possible values are: notConfigured, enabled, disabled.
+     * Gets the systemPolicyDesktopFolder property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSystemPolicyDesktopFolder(): ?Enablement {
@@ -373,7 +388,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the systemPolicyDocumentsFolder property value. Allow or block access to Documents folder. Possible values are: notConfigured, enabled, disabled.
+     * Gets the systemPolicyDocumentsFolder property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSystemPolicyDocumentsFolder(): ?Enablement {
@@ -381,7 +396,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the systemPolicyDownloadsFolder property value. Allow or block access to Downloads folder. Possible values are: notConfigured, enabled, disabled.
+     * Gets the systemPolicyDownloadsFolder property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSystemPolicyDownloadsFolder(): ?Enablement {
@@ -389,7 +404,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the systemPolicyNetworkVolumes property value. Allow or block access to network volumes. Requires macOS 10.15 or later. Possible values are: notConfigured, enabled, disabled.
+     * Gets the systemPolicyNetworkVolumes property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSystemPolicyNetworkVolumes(): ?Enablement {
@@ -397,7 +412,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the systemPolicyRemovableVolumes property value. Control access to removable  volumes on the device, such as an external hard drive. Requires macOS 10.15 or later. Possible values are: notConfigured, enabled, disabled.
+     * Gets the systemPolicyRemovableVolumes property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSystemPolicyRemovableVolumes(): ?Enablement {
@@ -405,7 +420,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the systemPolicySystemAdminFiles property value. Allow app or process to access files used in system administration. Possible values are: notConfigured, enabled, disabled.
+     * Gets the systemPolicySystemAdminFiles property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSystemPolicySystemAdminFiles(): ?Enablement {
@@ -431,6 +446,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('identifier', $this->identifier);
         $writer->writeEnumValue('identifierType', $this->identifierType);
         $writer->writeEnumValue('mediaLibrary', $this->mediaLibrary);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('photos', $this->photos);
         $writer->writeEnumValue('postEvent', $this->postEvent);
         $writer->writeEnumValue('reminders', $this->reminders);
@@ -447,7 +463,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the accessibility property value. Allow the app or process to control the Mac via the Accessibility subsystem. Possible values are: notConfigured, enabled, disabled.
+     * Sets the accessibility property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the accessibility property.
     */
     public function setAccessibility(?Enablement $value ): void {
@@ -463,7 +479,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the addressBook property value. Allow or block access to contact information managed by Contacts. Possible values are: notConfigured, enabled, disabled.
+     * Sets the addressBook property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the addressBook property.
     */
     public function setAddressBook(?Enablement $value ): void {
@@ -511,7 +527,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the calendar property value. Allow or block access to event information managed by Calendar. Possible values are: notConfigured, enabled, disabled.
+     * Sets the calendar property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the calendar property.
     */
     public function setCalendar(?Enablement $value ): void {
@@ -535,7 +551,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the fileProviderPresence property value. Allow the app or process to access files managed by another app’s file provider extension. Requires macOS 10.15 or later. . Possible values are: notConfigured, enabled, disabled.
+     * Sets the fileProviderPresence property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the fileProviderPresence property.
     */
     public function setFileProviderPresence(?Enablement $value ): void {
@@ -551,7 +567,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the identifierType property value. A bundle ID is used to identify an app. A path is used to identify a process or executable. Possible values are: bundleID, path.
+     * Sets the identifierType property value. Process identifier types for MacOS Privacy Preferences
      *  @param MacOSProcessIdentifierType|null $value Value to set for the identifierType property.
     */
     public function setIdentifierType(?MacOSProcessIdentifierType $value ): void {
@@ -559,7 +575,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the mediaLibrary property value. Allow or block access to music and the media library. Possible values are: notConfigured, enabled, disabled.
+     * Sets the mediaLibrary property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the mediaLibrary property.
     */
     public function setMediaLibrary(?Enablement $value ): void {
@@ -567,7 +583,15 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the photos property value. Allow or block access to images managed by Photos. Possible values are: notConfigured, enabled, disabled.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the photos property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the photos property.
     */
     public function setPhotos(?Enablement $value ): void {
@@ -575,7 +599,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the postEvent property value. Control access to CoreGraphics APIs, which are used to send CGEvents to the system event stream. Possible values are: notConfigured, enabled, disabled.
+     * Sets the postEvent property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the postEvent property.
     */
     public function setPostEvent(?Enablement $value ): void {
@@ -583,7 +607,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the reminders property value. Allow or block access to information managed by Reminders. Possible values are: notConfigured, enabled, disabled.
+     * Sets the reminders property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the reminders property.
     */
     public function setReminders(?Enablement $value ): void {
@@ -591,7 +615,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the speechRecognition property value. Allow or block access to system speech recognition facility. Possible values are: notConfigured, enabled, disabled.
+     * Sets the speechRecognition property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the speechRecognition property.
     */
     public function setSpeechRecognition(?Enablement $value ): void {
@@ -607,7 +631,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the systemPolicyAllFiles property value. Control access to all protected files on a device. Files might be in locations such as emails, messages, apps, and administrative settings. Apply this setting with caution. Possible values are: notConfigured, enabled, disabled.
+     * Sets the systemPolicyAllFiles property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the systemPolicyAllFiles property.
     */
     public function setSystemPolicyAllFiles(?Enablement $value ): void {
@@ -615,7 +639,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the systemPolicyDesktopFolder property value. Allow or block access to Desktop folder. Possible values are: notConfigured, enabled, disabled.
+     * Sets the systemPolicyDesktopFolder property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the systemPolicyDesktopFolder property.
     */
     public function setSystemPolicyDesktopFolder(?Enablement $value ): void {
@@ -623,7 +647,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the systemPolicyDocumentsFolder property value. Allow or block access to Documents folder. Possible values are: notConfigured, enabled, disabled.
+     * Sets the systemPolicyDocumentsFolder property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the systemPolicyDocumentsFolder property.
     */
     public function setSystemPolicyDocumentsFolder(?Enablement $value ): void {
@@ -631,7 +655,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the systemPolicyDownloadsFolder property value. Allow or block access to Downloads folder. Possible values are: notConfigured, enabled, disabled.
+     * Sets the systemPolicyDownloadsFolder property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the systemPolicyDownloadsFolder property.
     */
     public function setSystemPolicyDownloadsFolder(?Enablement $value ): void {
@@ -639,7 +663,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the systemPolicyNetworkVolumes property value. Allow or block access to network volumes. Requires macOS 10.15 or later. Possible values are: notConfigured, enabled, disabled.
+     * Sets the systemPolicyNetworkVolumes property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the systemPolicyNetworkVolumes property.
     */
     public function setSystemPolicyNetworkVolumes(?Enablement $value ): void {
@@ -647,7 +671,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the systemPolicyRemovableVolumes property value. Control access to removable  volumes on the device, such as an external hard drive. Requires macOS 10.15 or later. Possible values are: notConfigured, enabled, disabled.
+     * Sets the systemPolicyRemovableVolumes property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the systemPolicyRemovableVolumes property.
     */
     public function setSystemPolicyRemovableVolumes(?Enablement $value ): void {
@@ -655,7 +679,7 @@ class MacOSPrivacyAccessControlItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the systemPolicySystemAdminFiles property value. Allow app or process to access files used in system administration. Possible values are: notConfigured, enabled, disabled.
+     * Sets the systemPolicySystemAdminFiles property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the systemPolicySystemAdminFiles property.
     */
     public function setSystemPolicySystemAdminFiles(?Enablement $value ): void {

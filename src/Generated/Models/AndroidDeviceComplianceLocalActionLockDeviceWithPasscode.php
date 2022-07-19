@@ -23,6 +23,7 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceComplianceLocalActionLockDeviceWithPasscode');
     }
 
     /**

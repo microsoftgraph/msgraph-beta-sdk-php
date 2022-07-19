@@ -14,7 +14,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     private ?bool $applyOnlyToWindows81 = null;
     
     /**
-     * @var WindowsVpnConnectionType|null $connectionType Connection type. Possible values are: pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn.
+     * @var WindowsVpnConnectionType|null $connectionType Windows VPN connection type.
     */
     private ?WindowsVpnConnectionType $connectionType = null;
     
@@ -38,6 +38,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows81VpnConfiguration');
     }
 
     /**
@@ -65,7 +66,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     }
 
     /**
-     * Gets the connectionType property value. Connection type. Possible values are: pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn.
+     * Gets the connectionType property value. Windows VPN connection type.
      * @return WindowsVpnConnectionType|null
     */
     public function getConnectionType(): ?WindowsVpnConnectionType {
@@ -133,7 +134,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     }
 
     /**
-     * Sets the connectionType property value. Connection type. Possible values are: pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn.
+     * Sets the connectionType property value. Windows VPN connection type.
      *  @param WindowsVpnConnectionType|null $value Value to set for the connectionType property.
     */
     public function setConnectionType(?WindowsVpnConnectionType $value ): void {

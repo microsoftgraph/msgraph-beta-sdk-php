@@ -23,6 +23,7 @@ class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate ext
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate');
     }
 
     /**

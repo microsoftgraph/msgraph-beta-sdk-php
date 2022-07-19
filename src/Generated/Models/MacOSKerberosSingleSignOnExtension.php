@@ -163,6 +163,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension impl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOSKerberosSingleSignOnExtension');
     }
 
     /**

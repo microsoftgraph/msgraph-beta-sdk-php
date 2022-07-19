@@ -13,6 +13,7 @@ class ExternalSponsors extends UserSet implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.externalSponsors');
     }
 
     /**

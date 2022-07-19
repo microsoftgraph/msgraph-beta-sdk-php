@@ -530,12 +530,12 @@ class DeviceManagement extends Entity implements Parsable
     private ?SoftwareUpdateStatusSummary $softwareUpdateStatusSummary = null;
     
     /**
-     * @var DeviceManagementSubscriptions|null $subscriptions Tenant's Subscription. Possible values are: none, intune, office365, intunePremium, intune_EDU, intune_SMB.
+     * @var DeviceManagementSubscriptions|null $subscriptions Tenant mobile device management subscriptions.
     */
     private ?DeviceManagementSubscriptions $subscriptions = null;
     
     /**
-     * @var DeviceManagementSubscriptionState|null $subscriptionState Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * @var DeviceManagementSubscriptionState|null $subscriptionState Tenant mobile device management subscription state.
     */
     private ?DeviceManagementSubscriptionState $subscriptionState = null;
     
@@ -869,6 +869,7 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagement');
     }
 
     /**
@@ -1894,7 +1895,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the subscriptions property value. Tenant's Subscription. Possible values are: none, intune, office365, intunePremium, intune_EDU, intune_SMB.
+     * Gets the subscriptions property value. Tenant mobile device management subscriptions.
      * @return DeviceManagementSubscriptions|null
     */
     public function getSubscriptions(): ?DeviceManagementSubscriptions {
@@ -1902,7 +1903,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * Gets the subscriptionState property value. Tenant mobile device management subscription state.
      * @return DeviceManagementSubscriptionState|null
     */
     public function getSubscriptionState(): ?DeviceManagementSubscriptionState {
@@ -3441,7 +3442,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the subscriptions property value. Tenant's Subscription. Possible values are: none, intune, office365, intunePremium, intune_EDU, intune_SMB.
+     * Sets the subscriptions property value. Tenant mobile device management subscriptions.
      *  @param DeviceManagementSubscriptions|null $value Value to set for the subscriptions property.
     */
     public function setSubscriptions(?DeviceManagementSubscriptions $value ): void {
@@ -3449,7 +3450,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * Sets the subscriptionState property value. Tenant mobile device management subscription state.
      *  @param DeviceManagementSubscriptionState|null $value Value to set for the subscriptionState property.
     */
     public function setSubscriptionState(?DeviceManagementSubscriptionState $value ): void {

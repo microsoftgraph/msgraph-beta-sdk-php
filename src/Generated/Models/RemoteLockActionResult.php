@@ -18,6 +18,7 @@ class RemoteLockActionResult extends DeviceActionResult implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.remoteLockActionResult');
     }
 
     /**

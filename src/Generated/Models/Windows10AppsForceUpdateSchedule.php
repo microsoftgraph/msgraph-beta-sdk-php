@@ -11,12 +11,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var Windows10AppsUpdateRecurrence|null $recurrence Recurrence schedule. Possible values are: none, daily, weekly, monthly.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var Windows10AppsUpdateRecurrence|null $recurrence Possible values for App update on Windows10 recurrence.
     */
     private ?Windows10AppsUpdateRecurrence $recurrence = null;
     
@@ -34,7 +39,8 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable
      * Instantiates a new windows10AppsForceUpdateSchedule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windows10AppsForceUpdateSchedule');
     }
 
     /**
@@ -61,6 +67,7 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recurrence' => function (ParseNode $n) use ($o) { $o->setRecurrence($n->getEnumValue(Windows10AppsUpdateRecurrence::class)); },
             'runImmediatelyIfAfterStartDateTime' => function (ParseNode $n) use ($o) { $o->setRunImmediatelyIfAfterStartDateTime($n->getBooleanValue()); },
             'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
@@ -68,7 +75,15 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the recurrence property value. Recurrence schedule. Possible values are: none, daily, weekly, monthly.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the recurrence property value. Possible values for App update on Windows10 recurrence.
      * @return Windows10AppsUpdateRecurrence|null
     */
     public function getRecurrence(): ?Windows10AppsUpdateRecurrence {
@@ -96,6 +111,7 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('recurrence', $this->recurrence);
         $writer->writeBooleanValue('runImmediatelyIfAfterStartDateTime', $this->runImmediatelyIfAfterStartDateTime);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
@@ -111,7 +127,15 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the recurrence property value. Recurrence schedule. Possible values are: none, daily, weekly, monthly.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the recurrence property value. Possible values for App update on Windows10 recurrence.
      *  @param Windows10AppsUpdateRecurrence|null $value Value to set for the recurrence property.
     */
     public function setRecurrence(?Windows10AppsUpdateRecurrence $value ): void {

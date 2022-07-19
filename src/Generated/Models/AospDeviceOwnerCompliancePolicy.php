@@ -58,6 +58,7 @@ class AospDeviceOwnerCompliancePolicy extends DeviceCompliancePolicy implements 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.aospDeviceOwnerCompliancePolicy');
     }
 
     /**

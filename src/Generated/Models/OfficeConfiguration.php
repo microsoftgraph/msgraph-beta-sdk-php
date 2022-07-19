@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OfficeConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class OfficeConfiguration implements AdditionalDataHolder, Parsable
      * @var array<OfficeClientConfiguration>|null $clientConfigurations List of office Client configuration.
     */
     private ?array $clientConfigurations = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<OfficeClientCheckinStatus>|null $tenantCheckinStatuses List of office Client check-in status.
@@ -33,7 +38,8 @@ class OfficeConfiguration implements AdditionalDataHolder, Parsable
      * Instantiates a new OfficeConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.officeConfiguration');
     }
 
     /**
@@ -69,9 +75,18 @@ class OfficeConfiguration implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'clientConfigurations' => function (ParseNode $n) use ($o) { $o->setClientConfigurations($n->getCollectionOfObjectValues(array(OfficeClientConfiguration::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'tenantCheckinStatuses' => function (ParseNode $n) use ($o) { $o->setTenantCheckinStatuses($n->getCollectionOfObjectValues(array(OfficeClientCheckinStatus::class, 'createFromDiscriminatorValue'))); },
             'tenantUserCheckinSummary' => function (ParseNode $n) use ($o) { $o->setTenantUserCheckinSummary($n->getObjectValue(array(OfficeUserCheckinSummary::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -96,6 +111,7 @@ class OfficeConfiguration implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('clientConfigurations', $this->clientConfigurations);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('tenantCheckinStatuses', $this->tenantCheckinStatuses);
         $writer->writeObjectValue('tenantUserCheckinSummary', $this->tenantUserCheckinSummary);
         $writer->writeAdditionalData($this->additionalData);
@@ -115,6 +131,14 @@ class OfficeConfiguration implements AdditionalDataHolder, Parsable
     */
     public function setClientConfigurations(?array $value ): void {
         $this->clientConfigurations = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

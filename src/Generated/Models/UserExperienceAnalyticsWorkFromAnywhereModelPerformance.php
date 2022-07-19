@@ -24,7 +24,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     private ?float $cloudProvisioningScore = null;
     
     /**
-     * @var UserExperienceAnalyticsHealthState|null $healthStatus The health state of the user experience analytics work from anywhere model. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * @var UserExperienceAnalyticsHealthState|null $healthStatus The healthStatus property
     */
     private ?UserExperienceAnalyticsHealthState $healthStatus = null;
     
@@ -54,10 +54,11 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     private ?float $workFromAnywhereScore = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereModelPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereModelPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsWorkFromAnywhereModelPerformance');
     }
 
     /**
@@ -113,7 +114,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Gets the healthStatus property value. The health state of the user experience analytics work from anywhere model. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * Gets the healthStatus property value. The healthStatus property
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
@@ -202,7 +203,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     }
 
     /**
-     * Sets the healthStatus property value. The health state of the user experience analytics work from anywhere model. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * Sets the healthStatus property value. The healthStatus property
      *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?UserExperienceAnalyticsHealthState $value ): void {

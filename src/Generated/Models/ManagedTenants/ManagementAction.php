@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementAction extends Entity implements Parsable 
 {
     /**
-     * @var ManagementCategory|null $category The category for the management action. Possible values are: custom, devices, identity, unknownFutureValue. Optional. Read-only.
+     * @var ManagementCategory|null $category The category property
     */
     private ?ManagementCategory $category = null;
     
@@ -44,6 +44,7 @@ class ManagementAction extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.managedTenants.managementAction');
     }
 
     /**
@@ -56,7 +57,7 @@ class ManagementAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the category property value. The category for the management action. Possible values are: custom, devices, identity, unknownFutureValue. Optional. Read-only.
+     * Gets the category property value. The category property
      * @return ManagementCategory|null
     */
     public function getCategory(): ?ManagementCategory {
@@ -134,7 +135,7 @@ class ManagementAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the category property value. The category for the management action. Possible values are: custom, devices, identity, unknownFutureValue. Optional. Read-only.
+     * Sets the category property value. The category property
      *  @param ManagementCategory|null $value Value to set for the category property.
     */
     public function setCategory(?ManagementCategory $value ): void {

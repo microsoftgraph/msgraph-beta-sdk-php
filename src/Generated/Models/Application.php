@@ -231,10 +231,11 @@ class Application extends DirectoryObject implements Parsable
     private ?WindowsApplication $windows = null;
     
     /**
-     * Instantiates a new Application and sets the default values.
+     * Instantiates a new application and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.application');
     }
 
     /**

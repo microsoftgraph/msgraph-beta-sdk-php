@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -31,6 +31,11 @@ class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable
     private ?string $displayName = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var TrainingStatus|null $trainingStatus Status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
     */
     private ?TrainingStatus $trainingStatus = null;
@@ -39,7 +44,8 @@ class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable
      * Instantiates a new userTrainingStatusInfo and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.userTrainingStatusInfo');
     }
 
     /**
@@ -93,8 +99,17 @@ class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable
             'assignedDateTime' => function (ParseNode $n) use ($o) { $o->setAssignedDateTime($n->getDateTimeValue()); },
             'completionDateTime' => function (ParseNode $n) use ($o) { $o->setCompletionDateTime($n->getDateTimeValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'trainingStatus' => function (ParseNode $n) use ($o) { $o->setTrainingStatus($n->getEnumValue(TrainingStatus::class)); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -113,6 +128,7 @@ class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable
         $writer->writeDateTimeValue('assignedDateTime', $this->assignedDateTime);
         $writer->writeDateTimeValue('completionDateTime', $this->completionDateTime);
         $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('trainingStatus', $this->trainingStatus);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -147,6 +163,14 @@ class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

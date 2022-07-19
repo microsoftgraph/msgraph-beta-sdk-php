@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PositionDetail implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -36,6 +36,11 @@ class PositionDetail implements AdditionalDataHolder, Parsable
     private ?string $jobTitle = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $role The role the position entailed.
     */
     private ?string $role = null;
@@ -54,7 +59,8 @@ class PositionDetail implements AdditionalDataHolder, Parsable
      * Instantiates a new positionDetail and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.positionDetail');
     }
 
     /**
@@ -109,6 +115,7 @@ class PositionDetail implements AdditionalDataHolder, Parsable
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'endMonthYear' => function (ParseNode $n) use ($o) { $o->setEndMonthYear($n->getDateValue()); },
             'jobTitle' => function (ParseNode $n) use ($o) { $o->setJobTitle($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'role' => function (ParseNode $n) use ($o) { $o->setRole($n->getStringValue()); },
             'startMonthYear' => function (ParseNode $n) use ($o) { $o->setStartMonthYear($n->getDateValue()); },
             'summary' => function (ParseNode $n) use ($o) { $o->setSummary($n->getStringValue()); },
@@ -121,6 +128,14 @@ class PositionDetail implements AdditionalDataHolder, Parsable
     */
     public function getJobTitle(): ?string {
         return $this->jobTitle;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -156,6 +171,7 @@ class PositionDetail implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('description', $this->description);
         $writer->writeDateValue('endMonthYear', $this->endMonthYear);
         $writer->writeStringValue('jobTitle', $this->jobTitle);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('role', $this->role);
         $writer->writeDateValue('startMonthYear', $this->startMonthYear);
         $writer->writeStringValue('summary', $this->summary);
@@ -200,6 +216,14 @@ class PositionDetail implements AdditionalDataHolder, Parsable
     */
     public function setJobTitle(?string $value ): void {
         $this->jobTitle = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -45,10 +45,11 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
     private ?string $eventType = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthDevicePerformanceDetails and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthDevicePerformanceDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsAppHealthDevicePerformanceDetails');
     }
 
     /**

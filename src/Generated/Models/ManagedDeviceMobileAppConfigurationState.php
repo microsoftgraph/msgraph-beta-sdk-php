@@ -14,7 +14,7 @@ class ManagedDeviceMobileAppConfigurationState extends Entity implements Parsabl
     private ?string $displayName = null;
     
     /**
-     * @var PolicyPlatformType|null $platformType Platform type that the policy applies to
+     * @var PolicyPlatformType|null $platformType Supported platform types for policies.
     */
     private ?PolicyPlatformType $platformType = null;
     
@@ -29,7 +29,7 @@ class ManagedDeviceMobileAppConfigurationState extends Entity implements Parsabl
     private ?array $settingStates = null;
     
     /**
-     * @var ComplianceStatus|null $state The compliance state of the policy
+     * @var ComplianceStatus|null $state The state property
     */
     private ?ComplianceStatus $state = null;
     
@@ -53,6 +53,7 @@ class ManagedDeviceMobileAppConfigurationState extends Entity implements Parsabl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.managedDeviceMobileAppConfigurationState');
     }
 
     /**
@@ -91,7 +92,7 @@ class ManagedDeviceMobileAppConfigurationState extends Entity implements Parsabl
     }
 
     /**
-     * Gets the platformType property value. Platform type that the policy applies to
+     * Gets the platformType property value. Supported platform types for policies.
      * @return PolicyPlatformType|null
     */
     public function getPlatformType(): ?PolicyPlatformType {
@@ -115,7 +116,7 @@ class ManagedDeviceMobileAppConfigurationState extends Entity implements Parsabl
     }
 
     /**
-     * Gets the state property value. The compliance state of the policy
+     * Gets the state property value. The state property
      * @return ComplianceStatus|null
     */
     public function getState(): ?ComplianceStatus {
@@ -171,7 +172,7 @@ class ManagedDeviceMobileAppConfigurationState extends Entity implements Parsabl
     }
 
     /**
-     * Sets the platformType property value. Platform type that the policy applies to
+     * Sets the platformType property value. Supported platform types for policies.
      *  @param PolicyPlatformType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?PolicyPlatformType $value ): void {
@@ -195,7 +196,7 @@ class ManagedDeviceMobileAppConfigurationState extends Entity implements Parsabl
     }
 
     /**
-     * Sets the state property value. The compliance state of the policy
+     * Sets the state property value. The state property
      *  @param ComplianceStatus|null $value Value to set for the state property.
     */
     public function setState(?ComplianceStatus $value ): void {

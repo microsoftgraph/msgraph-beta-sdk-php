@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,17 +35,22 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable
     private ?bool $hideRecoveryOptions = null;
     
     /**
-     * @var BitLockerRecoveryInformationType|null $recoveryInformationToStore Configure what pieces of BitLocker recovery information are stored to AD DS. Possible values are: passwordAndKey, passwordOnly.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var BitLockerRecoveryInformationType|null $recoveryInformationToStore BitLockerRecoveryInformationType types
     */
     private ?BitLockerRecoveryInformationType $recoveryInformationToStore = null;
     
     /**
-     * @var ConfigurationUsage|null $recoveryKeyUsage Indicates whether users are allowed or required to generate a 256-bit recovery key for fixed or system disk. Possible values are: blocked, required, allowed, notConfigured.
+     * @var ConfigurationUsage|null $recoveryKeyUsage Possible values of the ConfigurationUsage list.
     */
     private ?ConfigurationUsage $recoveryKeyUsage = null;
     
     /**
-     * @var ConfigurationUsage|null $recoveryPasswordUsage Indicates whether users are allowed or required to generate a 48-digit recovery password for fixed or system disk. Possible values are: blocked, required, allowed, notConfigured.
+     * @var ConfigurationUsage|null $recoveryPasswordUsage Possible values of the ConfigurationUsage list.
     */
     private ?ConfigurationUsage $recoveryPasswordUsage = null;
     
@@ -53,7 +58,8 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable
      * Instantiates a new bitLockerRecoveryOptions and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.bitLockerRecoveryOptions');
     }
 
     /**
@@ -108,6 +114,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable
             'enableBitLockerAfterRecoveryInformationToStore' => function (ParseNode $n) use ($o) { $o->setEnableBitLockerAfterRecoveryInformationToStore($n->getBooleanValue()); },
             'enableRecoveryInformationSaveToStore' => function (ParseNode $n) use ($o) { $o->setEnableRecoveryInformationSaveToStore($n->getBooleanValue()); },
             'hideRecoveryOptions' => function (ParseNode $n) use ($o) { $o->setHideRecoveryOptions($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recoveryInformationToStore' => function (ParseNode $n) use ($o) { $o->setRecoveryInformationToStore($n->getEnumValue(BitLockerRecoveryInformationType::class)); },
             'recoveryKeyUsage' => function (ParseNode $n) use ($o) { $o->setRecoveryKeyUsage($n->getEnumValue(ConfigurationUsage::class)); },
             'recoveryPasswordUsage' => function (ParseNode $n) use ($o) { $o->setRecoveryPasswordUsage($n->getEnumValue(ConfigurationUsage::class)); },
@@ -123,7 +130,15 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the recoveryInformationToStore property value. Configure what pieces of BitLocker recovery information are stored to AD DS. Possible values are: passwordAndKey, passwordOnly.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the recoveryInformationToStore property value. BitLockerRecoveryInformationType types
      * @return BitLockerRecoveryInformationType|null
     */
     public function getRecoveryInformationToStore(): ?BitLockerRecoveryInformationType {
@@ -131,7 +146,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the recoveryKeyUsage property value. Indicates whether users are allowed or required to generate a 256-bit recovery key for fixed or system disk. Possible values are: blocked, required, allowed, notConfigured.
+     * Gets the recoveryKeyUsage property value. Possible values of the ConfigurationUsage list.
      * @return ConfigurationUsage|null
     */
     public function getRecoveryKeyUsage(): ?ConfigurationUsage {
@@ -139,7 +154,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the recoveryPasswordUsage property value. Indicates whether users are allowed or required to generate a 48-digit recovery password for fixed or system disk. Possible values are: blocked, required, allowed, notConfigured.
+     * Gets the recoveryPasswordUsage property value. Possible values of the ConfigurationUsage list.
      * @return ConfigurationUsage|null
     */
     public function getRecoveryPasswordUsage(): ?ConfigurationUsage {
@@ -155,6 +170,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('enableBitLockerAfterRecoveryInformationToStore', $this->enableBitLockerAfterRecoveryInformationToStore);
         $writer->writeBooleanValue('enableRecoveryInformationSaveToStore', $this->enableRecoveryInformationSaveToStore);
         $writer->writeBooleanValue('hideRecoveryOptions', $this->hideRecoveryOptions);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('recoveryInformationToStore', $this->recoveryInformationToStore);
         $writer->writeEnumValue('recoveryKeyUsage', $this->recoveryKeyUsage);
         $writer->writeEnumValue('recoveryPasswordUsage', $this->recoveryPasswordUsage);
@@ -202,7 +218,15 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the recoveryInformationToStore property value. Configure what pieces of BitLocker recovery information are stored to AD DS. Possible values are: passwordAndKey, passwordOnly.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the recoveryInformationToStore property value. BitLockerRecoveryInformationType types
      *  @param BitLockerRecoveryInformationType|null $value Value to set for the recoveryInformationToStore property.
     */
     public function setRecoveryInformationToStore(?BitLockerRecoveryInformationType $value ): void {
@@ -210,7 +234,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the recoveryKeyUsage property value. Indicates whether users are allowed or required to generate a 256-bit recovery key for fixed or system disk. Possible values are: blocked, required, allowed, notConfigured.
+     * Sets the recoveryKeyUsage property value. Possible values of the ConfigurationUsage list.
      *  @param ConfigurationUsage|null $value Value to set for the recoveryKeyUsage property.
     */
     public function setRecoveryKeyUsage(?ConfigurationUsage $value ): void {
@@ -218,7 +242,7 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the recoveryPasswordUsage property value. Indicates whether users are allowed or required to generate a 48-digit recovery password for fixed or system disk. Possible values are: blocked, required, allowed, notConfigured.
+     * Sets the recoveryPasswordUsage property value. Possible values of the ConfigurationUsage list.
      *  @param ConfigurationUsage|null $value Value to set for the recoveryPasswordUsage property.
     */
     public function setRecoveryPasswordUsage(?ConfigurationUsage $value ): void {

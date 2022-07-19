@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPackageInformation implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var WindowsArchitecture|null $applicableArchitecture The Windows architecture for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
+     * @var WindowsArchitecture|null $applicableArchitecture Contains properties for Windows architecture.
     */
     private ?WindowsArchitecture $applicableArchitecture = null;
     
@@ -50,10 +50,16 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
     private ?WindowsMinimumOperatingSystem $minimumSupportedOperatingSystem = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new windowsPackageInformation and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windowsPackageInformation');
     }
 
     /**
@@ -74,7 +80,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the applicableArchitecture property value. The Windows architecture for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
+     * Gets the applicableArchitecture property value. Contains properties for Windows architecture.
      * @return WindowsArchitecture|null
     */
     public function getApplicableArchitecture(): ?WindowsArchitecture {
@@ -103,6 +109,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
             'identityResourceIdentifier' => function (ParseNode $n) use ($o) { $o->setIdentityResourceIdentifier($n->getStringValue()); },
             'identityVersion' => function (ParseNode $n) use ($o) { $o->setIdentityVersion($n->getStringValue()); },
             'minimumSupportedOperatingSystem' => function (ParseNode $n) use ($o) { $o->setMinimumSupportedOperatingSystem($n->getObjectValue(array(WindowsMinimumOperatingSystem::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -147,6 +154,14 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -158,6 +173,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('identityResourceIdentifier', $this->identityResourceIdentifier);
         $writer->writeStringValue('identityVersion', $this->identityVersion);
         $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->minimumSupportedOperatingSystem);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -170,7 +186,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the applicableArchitecture property value. The Windows architecture for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
+     * Sets the applicableArchitecture property value. Contains properties for Windows architecture.
      *  @param WindowsArchitecture|null $value Value to set for the applicableArchitecture property.
     */
     public function setApplicableArchitecture(?WindowsArchitecture $value ): void {
@@ -223,6 +239,14 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
     */
     public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value ): void {
         $this->minimumSupportedOperatingSystem = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

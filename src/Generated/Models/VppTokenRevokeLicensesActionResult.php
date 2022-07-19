@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements Parsable 
 {
     /**
-     * @var VppTokenActionFailureReason|null $actionFailureReason The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
+     * @var VppTokenActionFailureReason|null $actionFailureReason Possible types of reasons for an Apple Volume Purchase Program token action failure.
     */
     private ?VppTokenActionFailureReason $actionFailureReason = null;
     
@@ -28,6 +28,7 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.vppTokenRevokeLicensesActionResult');
     }
 
     /**
@@ -40,7 +41,7 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements
     }
 
     /**
-     * Gets the actionFailureReason property value. The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
+     * Gets the actionFailureReason property value. Possible types of reasons for an Apple Volume Purchase Program token action failure.
      * @return VppTokenActionFailureReason|null
     */
     public function getActionFailureReason(): ?VppTokenActionFailureReason {
@@ -88,7 +89,7 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements
     }
 
     /**
-     * Sets the actionFailureReason property value. The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
+     * Sets the actionFailureReason property value. Possible types of reasons for an Apple Volume Purchase Program token action failure.
      *  @param VppTokenActionFailureReason|null $value Value to set for the actionFailureReason property.
     */
     public function setActionFailureReason(?VppTokenActionFailureReason $value ): void {

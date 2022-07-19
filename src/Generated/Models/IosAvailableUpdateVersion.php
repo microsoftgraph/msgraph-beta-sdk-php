@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -19,6 +19,11 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
      * @var DateTime|null $expirationDateTime The expiration date of the update.
     */
     private ?DateTime $expirationDateTime = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var DateTime|null $postingDateTime The posting date of the update.
@@ -39,7 +44,8 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
      * Instantiates a new iosAvailableUpdateVersion and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.iosAvailableUpdateVersion');
     }
 
     /**
@@ -75,10 +81,19 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'postingDateTime' => function (ParseNode $n) use ($o) { $o->setPostingDateTime($n->getDateTimeValue()); },
             'productVersion' => function (ParseNode $n) use ($o) { $o->setProductVersion($n->getStringValue()); },
             'supportedDevices' => function (ParseNode $n) use ($o) { $o->setSupportedDevices($n->getCollectionOfPrimitiveValues()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,6 +126,7 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('postingDateTime', $this->postingDateTime);
         $writer->writeStringValue('productVersion', $this->productVersion);
         $writer->writeCollectionOfPrimitiveValues('supportedDevices', $this->supportedDevices);
@@ -131,6 +147,14 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
     */
     public function setExpirationDateTime(?DateTime $value ): void {
         $this->expirationDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

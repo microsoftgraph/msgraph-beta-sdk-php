@@ -26,7 +26,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     private ?string $customAttributeName = null;
     
     /**
-     * @var DeviceCustomAttributeValueType|null $customAttributeType The expected type of the custom attribute's value. Possible values are: integer, string, dateTime.
+     * @var DeviceCustomAttributeValueType|null $customAttributeType Represents the expected type for a macOS custom attribute script value.
     */
     private ?DeviceCustomAttributeValueType $customAttributeType = null;
     
@@ -66,7 +66,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     private ?array $roleScopeTagIds = null;
     
     /**
-     * @var RunAsAccountType|null $runAsAccount Indicates the type of execution context. Possible values are: system, user.
+     * @var RunAsAccountType|null $runAsAccount Indicates the type of execution context the app runs in.
     */
     private ?RunAsAccountType $runAsAccount = null;
     
@@ -86,10 +86,11 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     private ?array $userRunStates = null;
     
     /**
-     * Instantiates a new DeviceCustomAttributeShellScript and sets the default values.
+     * Instantiates a new deviceCustomAttributeShellScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceCustomAttributeShellScript');
     }
 
     /**
@@ -126,7 +127,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     }
 
     /**
-     * Gets the customAttributeType property value. The expected type of the custom attribute's value. Possible values are: integer, string, dateTime.
+     * Gets the customAttributeType property value. Represents the expected type for a macOS custom attribute script value.
      * @return DeviceCustomAttributeValueType|null
     */
     public function getCustomAttributeType(): ?DeviceCustomAttributeValueType {
@@ -215,7 +216,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     }
 
     /**
-     * Gets the runAsAccount property value. Indicates the type of execution context. Possible values are: system, user.
+     * Gets the runAsAccount property value. Indicates the type of execution context the app runs in.
      * @return RunAsAccountType|null
     */
     public function getRunAsAccount(): ?RunAsAccountType {
@@ -294,7 +295,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     }
 
     /**
-     * Sets the customAttributeType property value. The expected type of the custom attribute's value. Possible values are: integer, string, dateTime.
+     * Sets the customAttributeType property value. Represents the expected type for a macOS custom attribute script value.
      *  @param DeviceCustomAttributeValueType|null $value Value to set for the customAttributeType property.
     */
     public function setCustomAttributeType(?DeviceCustomAttributeValueType $value ): void {
@@ -358,7 +359,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     }
 
     /**
-     * Sets the runAsAccount property value. Indicates the type of execution context. Possible values are: system, user.
+     * Sets the runAsAccount property value. Indicates the type of execution context the app runs in.
      *  @param RunAsAccountType|null $value Value to set for the runAsAccount property.
     */
     public function setRunAsAccount(?RunAsAccountType $value ): void {

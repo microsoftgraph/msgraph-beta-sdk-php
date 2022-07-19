@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddContentHeaderAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var ContentAlignment|null $alignment Possible values are: left, right, center.
+     * @var ContentAlignment|null $alignment The alignment property
     */
     private ?ContentAlignment $alignment = null;
     
@@ -48,6 +48,7 @@ class AddContentHeaderAction extends InformationProtectionAction implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.addContentHeaderAction');
     }
 
     /**
@@ -60,7 +61,7 @@ class AddContentHeaderAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Gets the alignment property value. Possible values are: left, right, center.
+     * Gets the alignment property value. The alignment property
      * @return ContentAlignment|null
     */
     public function getAlignment(): ?ContentAlignment {
@@ -148,7 +149,7 @@ class AddContentHeaderAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Sets the alignment property value. Possible values are: left, right, center.
+     * Sets the alignment property value. The alignment property
      *  @param ContentAlignment|null $value Value to set for the alignment property.
     */
     public function setAlignment(?ContentAlignment $value ): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessDevices implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -40,10 +40,16 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
     private ?array $includeDeviceStates = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new conditionalAccessDevices and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.conditionalAccessDevices');
     }
 
     /**
@@ -99,6 +105,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
             'excludeDeviceStates' => function (ParseNode $n) use ($o) { $o->setExcludeDeviceStates($n->getCollectionOfPrimitiveValues()); },
             'includeDevices' => function (ParseNode $n) use ($o) { $o->setIncludeDevices($n->getCollectionOfPrimitiveValues()); },
             'includeDeviceStates' => function (ParseNode $n) use ($o) { $o->setIncludeDeviceStates($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -119,6 +126,14 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -128,6 +143,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfPrimitiveValues('excludeDeviceStates', $this->excludeDeviceStates);
         $writer->writeCollectionOfPrimitiveValues('includeDevices', $this->includeDevices);
         $writer->writeCollectionOfPrimitiveValues('includeDeviceStates', $this->includeDeviceStates);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -177,6 +193,14 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
     */
     public function setIncludeDeviceStates(?array $value ): void {
         $this->includeDeviceStates = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

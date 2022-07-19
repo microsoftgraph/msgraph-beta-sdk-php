@@ -13,6 +13,7 @@ class WindowsInformationProtectionStoreApp extends WindowsInformationProtectionA
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsInformationProtectionStoreApp');
     }
 
     /**

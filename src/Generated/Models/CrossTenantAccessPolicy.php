@@ -14,7 +14,7 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
     private ?array $allowedCloudEndpoints = null;
     
     /**
-     * @var CrossTenantAccessPolicyConfigurationDefault|null $EscapedDefault Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
+     * @var CrossTenantAccessPolicyConfigurationDefault|null $escapedDefault Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
     */
     private ?CrossTenantAccessPolicyConfigurationDefault $escapedDefault = null;
     
@@ -28,6 +28,7 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase impleme
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.crossTenantAccessPolicy');
     }
 
     /**

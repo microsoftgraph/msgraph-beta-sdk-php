@@ -10,14 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationIdentityMatchingOptions implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var EducationUserRole|null $appliesTo The user role type to assign to the license. Possible values are: student, teacher, faculty.
+     * @var EducationUserRole|null $appliesTo The appliesTo property
     */
     private ?EducationUserRole $appliesTo = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $sourcePropertyName The name of the source property, which should be a field name in the source data. This property is case-sensitive.
@@ -38,7 +43,8 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, Parsable
      * Instantiates a new educationIdentityMatchingOptions and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.educationIdentityMatchingOptions');
     }
 
     /**
@@ -59,7 +65,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the appliesTo property value. The user role type to assign to the license. Possible values are: student, teacher, faculty.
+     * Gets the appliesTo property value. The appliesTo property
      * @return EducationUserRole|null
     */
     public function getAppliesTo(): ?EducationUserRole {
@@ -74,10 +80,19 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'appliesTo' => function (ParseNode $n) use ($o) { $o->setAppliesTo($n->getEnumValue(EducationUserRole::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'sourcePropertyName' => function (ParseNode $n) use ($o) { $o->setSourcePropertyName($n->getStringValue()); },
             'targetDomain' => function (ParseNode $n) use ($o) { $o->setTargetDomain($n->getStringValue()); },
             'targetPropertyName' => function (ParseNode $n) use ($o) { $o->setTargetPropertyName($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -110,6 +125,7 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('appliesTo', $this->appliesTo);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('sourcePropertyName', $this->sourcePropertyName);
         $writer->writeStringValue('targetDomain', $this->targetDomain);
         $writer->writeStringValue('targetPropertyName', $this->targetPropertyName);
@@ -125,11 +141,19 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the appliesTo property value. The user role type to assign to the license. Possible values are: student, teacher, faculty.
+     * Sets the appliesTo property value. The appliesTo property
      *  @param EducationUserRole|null $value Value to set for the appliesTo property.
     */
     public function setAppliesTo(?EducationUserRole $value ): void {
         $this->appliesTo = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

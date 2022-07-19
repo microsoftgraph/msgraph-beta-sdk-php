@@ -25,10 +25,11 @@ class ExternalItem extends Entity implements Parsable
     private ?Properties $properties = null;
     
     /**
-     * Instantiates a new ExternalItem and sets the default values.
+     * Instantiates a new externalItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.externalConnectors.externalItem');
     }
 
     /**

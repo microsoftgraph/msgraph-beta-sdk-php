@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
      * @var int|null $endMonth The month of the end date of the freeze period. Valid values 1 to 12
     */
     private ?int $endMonth = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $startDay The day of the start date of the freeze period. Valid values 1 to 31
@@ -38,7 +43,8 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
      * Instantiates a new androidDeviceOwnerSystemUpdateFreezePeriod and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerSystemUpdateFreezePeriod');
     }
 
     /**
@@ -83,9 +89,18 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
         return  [
             'endDay' => function (ParseNode $n) use ($o) { $o->setEndDay($n->getIntegerValue()); },
             'endMonth' => function (ParseNode $n) use ($o) { $o->setEndMonth($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'startDay' => function (ParseNode $n) use ($o) { $o->setStartDay($n->getIntegerValue()); },
             'startMonth' => function (ParseNode $n) use ($o) { $o->setStartMonth($n->getIntegerValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,6 +126,7 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('endDay', $this->endDay);
         $writer->writeIntegerValue('endMonth', $this->endMonth);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('startDay', $this->startDay);
         $writer->writeIntegerValue('startMonth', $this->startMonth);
         $writer->writeAdditionalData($this->additionalData);
@@ -138,6 +154,14 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
     */
     public function setEndMonth(?int $value ): void {
         $this->endMonth = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

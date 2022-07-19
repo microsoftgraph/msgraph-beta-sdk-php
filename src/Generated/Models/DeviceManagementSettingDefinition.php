@@ -59,7 +59,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
     private ?string $placeholderText = null;
     
     /**
-     * @var DeviceManangementIntentValueType|null $valueType The data type of the value. Possible values are: integer, boolean, string, complex, collection, abstractComplex.
+     * @var DeviceManangementIntentValueType|null $valueType The valueType property
     */
     private ?DeviceManangementIntentValueType $valueType = null;
     
@@ -68,6 +68,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementSettingDefinition');
     }
 
     /**
@@ -190,7 +191,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the valueType property value. The data type of the value. Possible values are: integer, boolean, string, complex, collection, abstractComplex.
+     * Gets the valueType property value. The valueType property
      * @return DeviceManangementIntentValueType|null
     */
     public function getValueType(): ?DeviceManangementIntentValueType {
@@ -297,7 +298,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the valueType property value. The data type of the value. Possible values are: integer, boolean, string, complex, collection, abstractComplex.
+     * Sets the valueType property value. The valueType property
      *  @param DeviceManangementIntentValueType|null $value Value to set for the valueType property.
     */
     public function setValueType(?DeviceManangementIntentValueType $value ): void {

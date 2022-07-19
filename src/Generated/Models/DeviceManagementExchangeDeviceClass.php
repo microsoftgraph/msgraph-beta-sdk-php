@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementExchangeDeviceClass implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,7 +20,12 @@ class DeviceManagementExchangeDeviceClass implements AdditionalDataHolder, Parsa
     private ?string $name = null;
     
     /**
-     * @var DeviceManagementExchangeAccessRuleType|null $type Type of device which is impacted by this rule e.g. Model, Family. Possible values are: family, model.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var DeviceManagementExchangeAccessRuleType|null $type Criteria which defines the type of device this access rule will apply to
     */
     private ?DeviceManagementExchangeAccessRuleType $type = null;
     
@@ -28,7 +33,8 @@ class DeviceManagementExchangeDeviceClass implements AdditionalDataHolder, Parsa
      * Instantiates a new deviceManagementExchangeDeviceClass and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementExchangeDeviceClass');
     }
 
     /**
@@ -56,6 +62,7 @@ class DeviceManagementExchangeDeviceClass implements AdditionalDataHolder, Parsa
         $o = $this;
         return  [
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(DeviceManagementExchangeAccessRuleType::class)); },
         ];
     }
@@ -69,7 +76,15 @@ class DeviceManagementExchangeDeviceClass implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Gets the type property value. Type of device which is impacted by this rule e.g. Model, Family. Possible values are: family, model.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the type property value. Criteria which defines the type of device this access rule will apply to
      * @return DeviceManagementExchangeAccessRuleType|null
     */
     public function getType(): ?DeviceManagementExchangeAccessRuleType {
@@ -82,6 +97,7 @@ class DeviceManagementExchangeDeviceClass implements AdditionalDataHolder, Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -103,7 +119,15 @@ class DeviceManagementExchangeDeviceClass implements AdditionalDataHolder, Parsa
     }
 
     /**
-     * Sets the type property value. Type of device which is impacted by this rule e.g. Model, Family. Possible values are: family, model.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the type property value. Criteria which defines the type of device this access rule will apply to
      *  @param DeviceManagementExchangeAccessRuleType|null $value Value to set for the type property.
     */
     public function setType(?DeviceManagementExchangeAccessRuleType $value ): void {

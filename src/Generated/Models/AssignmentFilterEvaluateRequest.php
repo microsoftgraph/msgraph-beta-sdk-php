@@ -10,9 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<string>|null $orderBy Order the devices should be sorted in. Default is ascending on device name.
@@ -20,7 +25,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
     private ?array $orderBy = null;
     
     /**
-     * @var DevicePlatformType|null $platform Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * @var DevicePlatformType|null $platform Supported platform types.
     */
     private ?DevicePlatformType $platform = null;
     
@@ -28,6 +33,11 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @var string|null $rule Rule definition of the Assignment Filter.
     */
     private ?string $rule = null;
+    
+    /**
+     * @var string|null $search Search keyword applied to scope found devices.
+    */
+    private ?string $search = null;
     
     /**
      * @var int|null $skip Number of records to skip. Default value is 0
@@ -43,7 +53,8 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * Instantiates a new assignmentFilterEvaluateRequest and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.assignmentFilterEvaluateRequest');
     }
 
     /**
@@ -70,12 +81,22 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'orderBy' => function (ParseNode $n) use ($o) { $o->setOrderBy($n->getCollectionOfPrimitiveValues()); },
             'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
             'rule' => function (ParseNode $n) use ($o) { $o->setRule($n->getStringValue()); },
+            'search' => function (ParseNode $n) use ($o) { $o->setSearch($n->getStringValue()); },
             'skip' => function (ParseNode $n) use ($o) { $o->setSkip($n->getIntegerValue()); },
             'top' => function (ParseNode $n) use ($o) { $o->setTop($n->getIntegerValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -87,7 +108,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the platform property value. Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * Gets the platform property value. Supported platform types.
      * @return DevicePlatformType|null
     */
     public function getPlatform(): ?DevicePlatformType {
@@ -100,6 +121,14 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
     */
     public function getRule(): ?string {
         return $this->rule;
+    }
+
+    /**
+     * Gets the search property value. Search keyword applied to scope found devices.
+     * @return string|null
+    */
+    public function getSearch(): ?string {
+        return $this->search;
     }
 
     /**
@@ -123,9 +152,11 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfPrimitiveValues('orderBy', $this->orderBy);
         $writer->writeEnumValue('platform', $this->platform);
         $writer->writeStringValue('rule', $this->rule);
+        $writer->writeStringValue('search', $this->search);
         $writer->writeIntegerValue('skip', $this->skip);
         $writer->writeIntegerValue('top', $this->top);
         $writer->writeAdditionalData($this->additionalData);
@@ -140,6 +171,14 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the orderBy property value. Order the devices should be sorted in. Default is ascending on device name.
      *  @param array<string>|null $value Value to set for the orderBy property.
     */
@@ -148,7 +187,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the platform property value. Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * Sets the platform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the platform property.
     */
     public function setPlatform(?DevicePlatformType $value ): void {
@@ -161,6 +200,14 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
     */
     public function setRule(?string $value ): void {
         $this->rule = $value;
+    }
+
+    /**
+     * Sets the search property value. Search keyword applied to scope found devices.
+     *  @param string|null $value Value to set for the search property.
+    */
+    public function setSearch(?string $value ): void {
+        $this->search = $value;
     }
 
     /**

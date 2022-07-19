@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDriverUpdateProfile extends Entity implements Parsable 
 {
     /**
-     * @var DriverUpdateProfileApprovalType|null $approvalType Driver update profile approval type. For example, manual or automatic approval. Possible values are: manual, automatic.
+     * @var DriverUpdateProfileApprovalType|null $approvalType An enum type to represent approval type of a driver update profile.
     */
     private ?DriverUpdateProfileApprovalType $approvalType = null;
     
@@ -70,10 +70,11 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
     private ?array $roleScopeTagIds = null;
     
     /**
-     * Instantiates a new WindowsDriverUpdateProfile and sets the default values.
+     * Instantiates a new windowsDriverUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsDriverUpdateProfile');
     }
 
     /**
@@ -86,7 +87,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the approvalType property value. Driver update profile approval type. For example, manual or automatic approval. Possible values are: manual, automatic.
+     * Gets the approvalType property value. An enum type to represent approval type of a driver update profile.
      * @return DriverUpdateProfileApprovalType|null
     */
     public function getApprovalType(): ?DriverUpdateProfileApprovalType {
@@ -224,7 +225,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the approvalType property value. Driver update profile approval type. For example, manual or automatic approval. Possible values are: manual, automatic.
+     * Sets the approvalType property value. An enum type to represent approval type of a driver update profile.
      *  @param DriverUpdateProfileApprovalType|null $value Value to set for the approvalType property.
     */
     public function setApprovalType(?DriverUpdateProfileApprovalType $value ): void {

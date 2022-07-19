@@ -33,6 +33,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.applyLabelAction');
     }
 
     /**

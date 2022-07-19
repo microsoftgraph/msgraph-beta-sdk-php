@@ -15,12 +15,12 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
     private ?int $applicableDeviceCount = null;
     
     /**
-     * @var DriverApprovalStatus|null $approvalStatus The approval status for this driver. Possible values are: needsReview, declined, approved, suspended.
+     * @var DriverApprovalStatus|null $approvalStatus An enum type to represent approval status of a driver.
     */
     private ?DriverApprovalStatus $approvalStatus = null;
     
     /**
-     * @var DriverCategory|null $category The category for this driver. Possible values are: recommended, previouslyApproved, other.
+     * @var DriverCategory|null $category An enum type to represent which category a driver belongs to.
     */
     private ?DriverCategory $category = null;
     
@@ -59,6 +59,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsDriverUpdateInventory');
     }
 
     /**
@@ -79,7 +80,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
     }
 
     /**
-     * Gets the approvalStatus property value. The approval status for this driver. Possible values are: needsReview, declined, approved, suspended.
+     * Gets the approvalStatus property value. An enum type to represent approval status of a driver.
      * @return DriverApprovalStatus|null
     */
     public function getApprovalStatus(): ?DriverApprovalStatus {
@@ -87,7 +88,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
     }
 
     /**
-     * Gets the category property value. The category for this driver. Possible values are: recommended, previouslyApproved, other.
+     * Gets the category property value. An enum type to represent which category a driver belongs to.
      * @return DriverCategory|null
     */
     public function getCategory(): ?DriverCategory {
@@ -187,7 +188,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
     }
 
     /**
-     * Sets the approvalStatus property value. The approval status for this driver. Possible values are: needsReview, declined, approved, suspended.
+     * Sets the approvalStatus property value. An enum type to represent approval status of a driver.
      *  @param DriverApprovalStatus|null $value Value to set for the approvalStatus property.
     */
     public function setApprovalStatus(?DriverApprovalStatus $value ): void {
@@ -195,7 +196,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
     }
 
     /**
-     * Sets the category property value. The category for this driver. Possible values are: recommended, previouslyApproved, other.
+     * Sets the category property value. An enum type to represent which category a driver belongs to.
      *  @param DriverCategory|null $value Value to set for the category property.
     */
     public function setCategory(?DriverCategory $value ): void {

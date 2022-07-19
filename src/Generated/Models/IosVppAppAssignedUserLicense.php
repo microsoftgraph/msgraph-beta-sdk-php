@@ -13,6 +13,7 @@ class IosVppAppAssignedUserLicense extends IosVppAppAssignedLicense implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosVppAppAssignedUserLicense');
     }
 
     /**

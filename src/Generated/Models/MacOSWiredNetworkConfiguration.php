@@ -19,7 +19,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     private ?EapFastConfiguration $eapFastConfiguration = null;
     
     /**
-     * @var EapType|null $eapType Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the wired network. Possible values are: eapTls, leap, eapSim, eapTtls, peap, eapFast, teap.
+     * @var EapType|null $eapType Extensible Authentication Protocol (EAP) configuration types.
     */
     private ?EapType $eapType = null;
     
@@ -34,7 +34,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     private ?MacOSCertificateProfileBase $identityCertificateForClientAuthentication = null;
     
     /**
-     * @var WiredNetworkInterface|null $networkInterface Network interface. Possible values are: anyEthernet, firstActiveEthernet, secondActiveEthernet, thirdActiveEthernet, firstEthernet, secondEthernet, thirdEthernet.
+     * @var WiredNetworkInterface|null $networkInterface Apple network interface type.
     */
     private ?WiredNetworkInterface $networkInterface = null;
     
@@ -63,6 +63,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOSWiredNetworkConfiguration');
     }
 
     /**
@@ -91,7 +92,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Gets the eapType property value. Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the wired network. Possible values are: eapTls, leap, eapSim, eapTtls, peap, eapFast, teap.
+     * Gets the eapType property value. Extensible Authentication Protocol (EAP) configuration types.
      * @return EapType|null
     */
     public function getEapType(): ?EapType {
@@ -135,7 +136,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Gets the networkInterface property value. Network interface. Possible values are: anyEthernet, firstActiveEthernet, secondActiveEthernet, thirdActiveEthernet, firstEthernet, secondEthernet, thirdEthernet.
+     * Gets the networkInterface property value. Apple network interface type.
      * @return WiredNetworkInterface|null
     */
     public function getNetworkInterface(): ?WiredNetworkInterface {
@@ -209,7 +210,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Sets the eapType property value. Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the wired network. Possible values are: eapTls, leap, eapSim, eapTtls, peap, eapFast, teap.
+     * Sets the eapType property value. Extensible Authentication Protocol (EAP) configuration types.
      *  @param EapType|null $value Value to set for the eapType property.
     */
     public function setEapType(?EapType $value ): void {
@@ -233,7 +234,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     }
 
     /**
-     * Sets the networkInterface property value. Network interface. Possible values are: anyEthernet, firstActiveEthernet, secondActiveEthernet, thirdActiveEthernet, firstEthernet, secondEthernet, thirdEthernet.
+     * Sets the networkInterface property value. Apple network interface type.
      *  @param WiredNetworkInterface|null $value Value to set for the networkInterface property.
     */
     public function setNetworkInterface(?WiredNetworkInterface $value ): void {

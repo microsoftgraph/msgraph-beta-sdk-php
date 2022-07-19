@@ -9,107 +9,107 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var Enablement|null $bluetooth Defines whether a user is allowed to enable Bluetooth. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $bluetooth Possible values of a property
     */
     private ?Enablement $bluetooth = null;
     
     /**
-     * @var Enablement|null $bootFromBuiltInNetworkAdapters Defines whether a user is allowed to boot from built-in network adapters. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $bootFromBuiltInNetworkAdapters Possible values of a property
     */
     private ?Enablement $bootFromBuiltInNetworkAdapters = null;
     
     /**
-     * @var Enablement|null $bootFromExternalMedia Defines whether a user is allowed to boot from external media. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $bootFromExternalMedia Possible values of a property
     */
     private ?Enablement $bootFromExternalMedia = null;
     
     /**
-     * @var Enablement|null $cameras Defines whether built-in cameras are enabled. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $cameras Possible values of a property
     */
     private ?Enablement $cameras = null;
     
     /**
-     * @var ChangeUefiSettingsPermission|null $changeUefiSettingsPermission Defines the permission level granted to users to change UEFI settings. Possible values are: notConfiguredOnly, none.
+     * @var ChangeUefiSettingsPermission|null $changeUefiSettingsPermission Defines the permission level granted to users to enable them change Uefi settings
     */
     private ?ChangeUefiSettingsPermission $changeUefiSettingsPermission = null;
     
     /**
-     * @var Enablement|null $frontCamera Defines whether a user is allowed to enable Front Camera. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $frontCamera Possible values of a property
     */
     private ?Enablement $frontCamera = null;
     
     /**
-     * @var Enablement|null $infraredCamera Defines whether a user is allowed to enable Infrared camera. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $infraredCamera Possible values of a property
     */
     private ?Enablement $infraredCamera = null;
     
     /**
-     * @var Enablement|null $microphone Defines whether a user is allowed to enable Microphone. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $microphone Possible values of a property
     */
     private ?Enablement $microphone = null;
     
     /**
-     * @var Enablement|null $microphonesAndSpeakers Defines whether built-in microphones or speakers are enabled. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $microphonesAndSpeakers Possible values of a property
     */
     private ?Enablement $microphonesAndSpeakers = null;
     
     /**
-     * @var Enablement|null $nearFieldCommunication Defines whether a user is allowed to enable Near Field Communication. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $nearFieldCommunication Possible values of a property
     */
     private ?Enablement $nearFieldCommunication = null;
     
     /**
-     * @var Enablement|null $radios Defines whether built-in radios e.g. WIFI, NFC, Bluetooth, are enabled. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $radios Possible values of a property
     */
     private ?Enablement $radios = null;
     
     /**
-     * @var Enablement|null $rearCamera Defines whether a user is allowed to enable rear camera. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $rearCamera Possible values of a property
     */
     private ?Enablement $rearCamera = null;
     
     /**
-     * @var Enablement|null $sdCard Defines whether a user is allowed to enable SD Card Port. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $sdCard Possible values of a property
     */
     private ?Enablement $sdCard = null;
     
     /**
-     * @var Enablement|null $simultaneousMultiThreading Defines whether a user is allowed to enable Simultaneous MultiThreading. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $simultaneousMultiThreading Possible values of a property
     */
     private ?Enablement $simultaneousMultiThreading = null;
     
     /**
-     * @var Enablement|null $usbTypeAPort Defines whether a user is allowed to enable USB Type A Port. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $usbTypeAPort Possible values of a property
     */
     private ?Enablement $usbTypeAPort = null;
     
     /**
-     * @var Enablement|null $virtualizationOfCpuAndIO Defines whether CPU and IO virtualization is enabled. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $virtualizationOfCpuAndIO Possible values of a property
     */
     private ?Enablement $virtualizationOfCpuAndIO = null;
     
     /**
-     * @var Enablement|null $wakeOnLAN Defines whether a user is allowed to enable Wake on LAN. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $wakeOnLAN Possible values of a property
     */
     private ?Enablement $wakeOnLAN = null;
     
     /**
-     * @var Enablement|null $wakeOnPower Defines whether a user is allowed to enable Wake On Power. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $wakeOnPower Possible values of a property
     */
     private ?Enablement $wakeOnPower = null;
     
     /**
-     * @var Enablement|null $wiFi Defines whether a user is allowed to enable WiFi. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $wiFi Possible values of a property
     */
     private ?Enablement $wiFi = null;
     
     /**
-     * @var Enablement|null $windowsPlatformBinaryTable Defines whether a user is allowed to enable Windows Platform Binary Table. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $windowsPlatformBinaryTable Possible values of a property
     */
     private ?Enablement $windowsPlatformBinaryTable = null;
     
     /**
-     * @var Enablement|null $wirelessWideAreaNetwork Defines whether a user is allowed to enable Wireless Wide Area Network. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $wirelessWideAreaNetwork Possible values of a property
     */
     private ?Enablement $wirelessWideAreaNetwork = null;
     
@@ -118,6 +118,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10DeviceFirmwareConfigurationInterface');
     }
 
     /**
@@ -130,7 +131,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the bluetooth property value. Defines whether a user is allowed to enable Bluetooth. Possible values are: notConfigured, enabled, disabled.
+     * Gets the bluetooth property value. Possible values of a property
      * @return Enablement|null
     */
     public function getBluetooth(): ?Enablement {
@@ -138,7 +139,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the bootFromBuiltInNetworkAdapters property value. Defines whether a user is allowed to boot from built-in network adapters. Possible values are: notConfigured, enabled, disabled.
+     * Gets the bootFromBuiltInNetworkAdapters property value. Possible values of a property
      * @return Enablement|null
     */
     public function getBootFromBuiltInNetworkAdapters(): ?Enablement {
@@ -146,7 +147,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the bootFromExternalMedia property value. Defines whether a user is allowed to boot from external media. Possible values are: notConfigured, enabled, disabled.
+     * Gets the bootFromExternalMedia property value. Possible values of a property
      * @return Enablement|null
     */
     public function getBootFromExternalMedia(): ?Enablement {
@@ -154,7 +155,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the cameras property value. Defines whether built-in cameras are enabled. Possible values are: notConfigured, enabled, disabled.
+     * Gets the cameras property value. Possible values of a property
      * @return Enablement|null
     */
     public function getCameras(): ?Enablement {
@@ -162,7 +163,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the changeUefiSettingsPermission property value. Defines the permission level granted to users to change UEFI settings. Possible values are: notConfiguredOnly, none.
+     * Gets the changeUefiSettingsPermission property value. Defines the permission level granted to users to enable them change Uefi settings
      * @return ChangeUefiSettingsPermission|null
     */
     public function getChangeUefiSettingsPermission(): ?ChangeUefiSettingsPermission {
@@ -201,7 +202,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the frontCamera property value. Defines whether a user is allowed to enable Front Camera. Possible values are: notConfigured, enabled, disabled.
+     * Gets the frontCamera property value. Possible values of a property
      * @return Enablement|null
     */
     public function getFrontCamera(): ?Enablement {
@@ -209,7 +210,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the infraredCamera property value. Defines whether a user is allowed to enable Infrared camera. Possible values are: notConfigured, enabled, disabled.
+     * Gets the infraredCamera property value. Possible values of a property
      * @return Enablement|null
     */
     public function getInfraredCamera(): ?Enablement {
@@ -217,7 +218,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the microphone property value. Defines whether a user is allowed to enable Microphone. Possible values are: notConfigured, enabled, disabled.
+     * Gets the microphone property value. Possible values of a property
      * @return Enablement|null
     */
     public function getMicrophone(): ?Enablement {
@@ -225,7 +226,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the microphonesAndSpeakers property value. Defines whether built-in microphones or speakers are enabled. Possible values are: notConfigured, enabled, disabled.
+     * Gets the microphonesAndSpeakers property value. Possible values of a property
      * @return Enablement|null
     */
     public function getMicrophonesAndSpeakers(): ?Enablement {
@@ -233,7 +234,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the nearFieldCommunication property value. Defines whether a user is allowed to enable Near Field Communication. Possible values are: notConfigured, enabled, disabled.
+     * Gets the nearFieldCommunication property value. Possible values of a property
      * @return Enablement|null
     */
     public function getNearFieldCommunication(): ?Enablement {
@@ -241,7 +242,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the radios property value. Defines whether built-in radios e.g. WIFI, NFC, Bluetooth, are enabled. Possible values are: notConfigured, enabled, disabled.
+     * Gets the radios property value. Possible values of a property
      * @return Enablement|null
     */
     public function getRadios(): ?Enablement {
@@ -249,7 +250,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the rearCamera property value. Defines whether a user is allowed to enable rear camera. Possible values are: notConfigured, enabled, disabled.
+     * Gets the rearCamera property value. Possible values of a property
      * @return Enablement|null
     */
     public function getRearCamera(): ?Enablement {
@@ -257,7 +258,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the sdCard property value. Defines whether a user is allowed to enable SD Card Port. Possible values are: notConfigured, enabled, disabled.
+     * Gets the sdCard property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSdCard(): ?Enablement {
@@ -265,7 +266,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the simultaneousMultiThreading property value. Defines whether a user is allowed to enable Simultaneous MultiThreading. Possible values are: notConfigured, enabled, disabled.
+     * Gets the simultaneousMultiThreading property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSimultaneousMultiThreading(): ?Enablement {
@@ -273,7 +274,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the usbTypeAPort property value. Defines whether a user is allowed to enable USB Type A Port. Possible values are: notConfigured, enabled, disabled.
+     * Gets the usbTypeAPort property value. Possible values of a property
      * @return Enablement|null
     */
     public function getUsbTypeAPort(): ?Enablement {
@@ -281,7 +282,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the virtualizationOfCpuAndIO property value. Defines whether CPU and IO virtualization is enabled. Possible values are: notConfigured, enabled, disabled.
+     * Gets the virtualizationOfCpuAndIO property value. Possible values of a property
      * @return Enablement|null
     */
     public function getVirtualizationOfCpuAndIO(): ?Enablement {
@@ -289,7 +290,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the wakeOnLAN property value. Defines whether a user is allowed to enable Wake on LAN. Possible values are: notConfigured, enabled, disabled.
+     * Gets the wakeOnLAN property value. Possible values of a property
      * @return Enablement|null
     */
     public function getWakeOnLAN(): ?Enablement {
@@ -297,7 +298,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the wakeOnPower property value. Defines whether a user is allowed to enable Wake On Power. Possible values are: notConfigured, enabled, disabled.
+     * Gets the wakeOnPower property value. Possible values of a property
      * @return Enablement|null
     */
     public function getWakeOnPower(): ?Enablement {
@@ -305,7 +306,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the wiFi property value. Defines whether a user is allowed to enable WiFi. Possible values are: notConfigured, enabled, disabled.
+     * Gets the wiFi property value. Possible values of a property
      * @return Enablement|null
     */
     public function getWiFi(): ?Enablement {
@@ -313,7 +314,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the windowsPlatformBinaryTable property value. Defines whether a user is allowed to enable Windows Platform Binary Table. Possible values are: notConfigured, enabled, disabled.
+     * Gets the windowsPlatformBinaryTable property value. Possible values of a property
      * @return Enablement|null
     */
     public function getWindowsPlatformBinaryTable(): ?Enablement {
@@ -321,7 +322,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Gets the wirelessWideAreaNetwork property value. Defines whether a user is allowed to enable Wireless Wide Area Network. Possible values are: notConfigured, enabled, disabled.
+     * Gets the wirelessWideAreaNetwork property value. Possible values of a property
      * @return Enablement|null
     */
     public function getWirelessWideAreaNetwork(): ?Enablement {
@@ -358,7 +359,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the bluetooth property value. Defines whether a user is allowed to enable Bluetooth. Possible values are: notConfigured, enabled, disabled.
+     * Sets the bluetooth property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the bluetooth property.
     */
     public function setBluetooth(?Enablement $value ): void {
@@ -366,7 +367,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the bootFromBuiltInNetworkAdapters property value. Defines whether a user is allowed to boot from built-in network adapters. Possible values are: notConfigured, enabled, disabled.
+     * Sets the bootFromBuiltInNetworkAdapters property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the bootFromBuiltInNetworkAdapters property.
     */
     public function setBootFromBuiltInNetworkAdapters(?Enablement $value ): void {
@@ -374,7 +375,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the bootFromExternalMedia property value. Defines whether a user is allowed to boot from external media. Possible values are: notConfigured, enabled, disabled.
+     * Sets the bootFromExternalMedia property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the bootFromExternalMedia property.
     */
     public function setBootFromExternalMedia(?Enablement $value ): void {
@@ -382,7 +383,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the cameras property value. Defines whether built-in cameras are enabled. Possible values are: notConfigured, enabled, disabled.
+     * Sets the cameras property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the cameras property.
     */
     public function setCameras(?Enablement $value ): void {
@@ -390,7 +391,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the changeUefiSettingsPermission property value. Defines the permission level granted to users to change UEFI settings. Possible values are: notConfiguredOnly, none.
+     * Sets the changeUefiSettingsPermission property value. Defines the permission level granted to users to enable them change Uefi settings
      *  @param ChangeUefiSettingsPermission|null $value Value to set for the changeUefiSettingsPermission property.
     */
     public function setChangeUefiSettingsPermission(?ChangeUefiSettingsPermission $value ): void {
@@ -398,7 +399,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the frontCamera property value. Defines whether a user is allowed to enable Front Camera. Possible values are: notConfigured, enabled, disabled.
+     * Sets the frontCamera property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the frontCamera property.
     */
     public function setFrontCamera(?Enablement $value ): void {
@@ -406,7 +407,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the infraredCamera property value. Defines whether a user is allowed to enable Infrared camera. Possible values are: notConfigured, enabled, disabled.
+     * Sets the infraredCamera property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the infraredCamera property.
     */
     public function setInfraredCamera(?Enablement $value ): void {
@@ -414,7 +415,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the microphone property value. Defines whether a user is allowed to enable Microphone. Possible values are: notConfigured, enabled, disabled.
+     * Sets the microphone property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the microphone property.
     */
     public function setMicrophone(?Enablement $value ): void {
@@ -422,7 +423,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the microphonesAndSpeakers property value. Defines whether built-in microphones or speakers are enabled. Possible values are: notConfigured, enabled, disabled.
+     * Sets the microphonesAndSpeakers property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the microphonesAndSpeakers property.
     */
     public function setMicrophonesAndSpeakers(?Enablement $value ): void {
@@ -430,7 +431,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the nearFieldCommunication property value. Defines whether a user is allowed to enable Near Field Communication. Possible values are: notConfigured, enabled, disabled.
+     * Sets the nearFieldCommunication property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the nearFieldCommunication property.
     */
     public function setNearFieldCommunication(?Enablement $value ): void {
@@ -438,7 +439,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the radios property value. Defines whether built-in radios e.g. WIFI, NFC, Bluetooth, are enabled. Possible values are: notConfigured, enabled, disabled.
+     * Sets the radios property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the radios property.
     */
     public function setRadios(?Enablement $value ): void {
@@ -446,7 +447,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the rearCamera property value. Defines whether a user is allowed to enable rear camera. Possible values are: notConfigured, enabled, disabled.
+     * Sets the rearCamera property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the rearCamera property.
     */
     public function setRearCamera(?Enablement $value ): void {
@@ -454,7 +455,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the sdCard property value. Defines whether a user is allowed to enable SD Card Port. Possible values are: notConfigured, enabled, disabled.
+     * Sets the sdCard property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the sdCard property.
     */
     public function setSdCard(?Enablement $value ): void {
@@ -462,7 +463,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the simultaneousMultiThreading property value. Defines whether a user is allowed to enable Simultaneous MultiThreading. Possible values are: notConfigured, enabled, disabled.
+     * Sets the simultaneousMultiThreading property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the simultaneousMultiThreading property.
     */
     public function setSimultaneousMultiThreading(?Enablement $value ): void {
@@ -470,7 +471,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the usbTypeAPort property value. Defines whether a user is allowed to enable USB Type A Port. Possible values are: notConfigured, enabled, disabled.
+     * Sets the usbTypeAPort property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the usbTypeAPort property.
     */
     public function setUsbTypeAPort(?Enablement $value ): void {
@@ -478,7 +479,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the virtualizationOfCpuAndIO property value. Defines whether CPU and IO virtualization is enabled. Possible values are: notConfigured, enabled, disabled.
+     * Sets the virtualizationOfCpuAndIO property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the virtualizationOfCpuAndIO property.
     */
     public function setVirtualizationOfCpuAndIO(?Enablement $value ): void {
@@ -486,7 +487,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the wakeOnLAN property value. Defines whether a user is allowed to enable Wake on LAN. Possible values are: notConfigured, enabled, disabled.
+     * Sets the wakeOnLAN property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the wakeOnLAN property.
     */
     public function setWakeOnLAN(?Enablement $value ): void {
@@ -494,7 +495,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the wakeOnPower property value. Defines whether a user is allowed to enable Wake On Power. Possible values are: notConfigured, enabled, disabled.
+     * Sets the wakeOnPower property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the wakeOnPower property.
     */
     public function setWakeOnPower(?Enablement $value ): void {
@@ -502,7 +503,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the wiFi property value. Defines whether a user is allowed to enable WiFi. Possible values are: notConfigured, enabled, disabled.
+     * Sets the wiFi property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the wiFi property.
     */
     public function setWiFi(?Enablement $value ): void {
@@ -510,7 +511,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the windowsPlatformBinaryTable property value. Defines whether a user is allowed to enable Windows Platform Binary Table. Possible values are: notConfigured, enabled, disabled.
+     * Sets the windowsPlatformBinaryTable property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the windowsPlatformBinaryTable property.
     */
     public function setWindowsPlatformBinaryTable(?Enablement $value ): void {
@@ -518,7 +519,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     }
 
     /**
-     * Sets the wirelessWideAreaNetwork property value. Defines whether a user is allowed to enable Wireless Wide Area Network. Possible values are: notConfigured, enabled, disabled.
+     * Sets the wirelessWideAreaNetwork property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the wirelessWideAreaNetwork property.
     */
     public function setWirelessWideAreaNetwork(?Enablement $value ): void {

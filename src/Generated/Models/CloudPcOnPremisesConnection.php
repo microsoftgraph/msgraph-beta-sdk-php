@@ -34,7 +34,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * @var CloudPcOnPremisesConnectionStatus|null $healthCheckStatus The status of the most recent health check done on the Azure network connection. For example, if status is passed, the Azure network connection has passed all checks run by the service. Possible values are: pending, running, passed, failed, unknownFutureValue. Read-only.
+     * @var CloudPcOnPremisesConnectionStatus|null $healthCheckStatus The healthCheckStatus property
     */
     private ?CloudPcOnPremisesConnectionStatus $healthCheckStatus = null;
     
@@ -49,7 +49,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     private ?bool $inUse = null;
     
     /**
-     * @var CloudPcManagementService|null $managedBy Specifies which services manage the Azure network connection. Possible values are: windows365, devBox, unknownFutureValue. Read-only.
+     * @var CloudPcManagementService|null $managedBy The managedBy property
     */
     private ?CloudPcManagementService $managedBy = null;
     
@@ -93,6 +93,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.cloudPcOnPremisesConnection');
     }
 
     /**
@@ -171,7 +172,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the healthCheckStatus property value. The status of the most recent health check done on the Azure network connection. For example, if status is passed, the Azure network connection has passed all checks run by the service. Possible values are: pending, running, passed, failed, unknownFutureValue. Read-only.
+     * Gets the healthCheckStatus property value. The healthCheckStatus property
      * @return CloudPcOnPremisesConnectionStatus|null
     */
     public function getHealthCheckStatus(): ?CloudPcOnPremisesConnectionStatus {
@@ -195,7 +196,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedBy property value. Specifies which services manage the Azure network connection. Possible values are: windows365, devBox, unknownFutureValue. Read-only.
+     * Gets the managedBy property value. The managedBy property
      * @return CloudPcManagementService|null
     */
     public function getManagedBy(): ?CloudPcManagementService {
@@ -323,7 +324,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the healthCheckStatus property value. The status of the most recent health check done on the Azure network connection. For example, if status is passed, the Azure network connection has passed all checks run by the service. Possible values are: pending, running, passed, failed, unknownFutureValue. Read-only.
+     * Sets the healthCheckStatus property value. The healthCheckStatus property
      *  @param CloudPcOnPremisesConnectionStatus|null $value Value to set for the healthCheckStatus property.
     */
     public function setHealthCheckStatus(?CloudPcOnPremisesConnectionStatus $value ): void {
@@ -347,7 +348,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the managedBy property value. Specifies which services manage the Azure network connection. Possible values are: windows365, devBox, unknownFutureValue. Read-only.
+     * Sets the managedBy property value. The managedBy property
      *  @param CloudPcManagementService|null $value Value to set for the managedBy property.
     */
     public function setManagedBy(?CloudPcManagementService $value ): void {

@@ -23,6 +23,7 @@ class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.dlpEvaluationWindowsDevicesInput');
     }
 
     /**

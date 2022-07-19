@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -46,6 +46,11 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
     private ?string $errorMessage = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $userId User identifier using the device.
     */
     private ?string $userId = null;
@@ -64,7 +69,8 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new officeClientCheckinStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.officeClientCheckinStatus');
     }
 
     /**
@@ -145,10 +151,19 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
             'devicePlatform' => function (ParseNode $n) use ($o) { $o->setDevicePlatform($n->getStringValue()); },
             'devicePlatformVersion' => function (ParseNode $n) use ($o) { $o->setDevicePlatformVersion($n->getStringValue()); },
             'errorMessage' => function (ParseNode $n) use ($o) { $o->setErrorMessage($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
             'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
             'wasSuccessful' => function (ParseNode $n) use ($o) { $o->setWasSuccessful($n->getBooleanValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -186,6 +201,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('devicePlatform', $this->devicePlatform);
         $writer->writeStringValue('devicePlatformVersion', $this->devicePlatformVersion);
         $writer->writeStringValue('errorMessage', $this->errorMessage);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('userId', $this->userId);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
         $writer->writeBooleanValue('wasSuccessful', $this->wasSuccessful);
@@ -246,6 +262,14 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
     */
     public function setErrorMessage(?string $value ): void {
         $this->errorMessage = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

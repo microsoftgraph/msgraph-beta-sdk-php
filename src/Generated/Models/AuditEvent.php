@@ -65,10 +65,11 @@ class AuditEvent extends Entity implements Parsable
     private ?array $resources = null;
     
     /**
-     * Instantiates a new AuditEvent and sets the default values.
+     * Instantiates a new auditEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.auditEvent');
     }
 
     /**

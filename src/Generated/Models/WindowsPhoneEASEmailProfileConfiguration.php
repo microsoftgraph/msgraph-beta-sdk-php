@@ -19,7 +19,7 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     private ?bool $applyOnlyToWindowsPhone81 = null;
     
     /**
-     * @var EmailSyncDuration|null $durationOfEmailToSync Duration of email to sync. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * @var EmailSyncDuration|null $durationOfEmailToSync Possible values for email sync duration.
     */
     private ?EmailSyncDuration $durationOfEmailToSync = null;
     
@@ -29,7 +29,7 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     private ?UserEmailSource $emailAddressSource = null;
     
     /**
-     * @var EmailSyncSchedule|null $emailSyncSchedule Email sync schedule. Possible values are: userDefined, asMessagesArrive, manual, fifteenMinutes, thirtyMinutes, sixtyMinutes, basedOnMyUsage.
+     * @var EmailSyncSchedule|null $emailSyncSchedule Possible values for email sync schedule.
     */
     private ?EmailSyncSchedule $emailSyncSchedule = null;
     
@@ -63,6 +63,7 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsPhoneEASEmailProfileConfiguration');
     }
 
     /**
@@ -91,7 +92,7 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     }
 
     /**
-     * Gets the durationOfEmailToSync property value. Duration of email to sync. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * Gets the durationOfEmailToSync property value. Possible values for email sync duration.
      * @return EmailSyncDuration|null
     */
     public function getDurationOfEmailToSync(): ?EmailSyncDuration {
@@ -107,7 +108,7 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     }
 
     /**
-     * Gets the emailSyncSchedule property value. Email sync schedule. Possible values are: userDefined, asMessagesArrive, manual, fifteenMinutes, thirtyMinutes, sixtyMinutes, basedOnMyUsage.
+     * Gets the emailSyncSchedule property value. Possible values for email sync schedule.
      * @return EmailSyncSchedule|null
     */
     public function getEmailSyncSchedule(): ?EmailSyncSchedule {
@@ -209,7 +210,7 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     }
 
     /**
-     * Sets the durationOfEmailToSync property value. Duration of email to sync. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * Sets the durationOfEmailToSync property value. Possible values for email sync duration.
      *  @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
     */
     public function setDurationOfEmailToSync(?EmailSyncDuration $value ): void {
@@ -225,7 +226,7 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     }
 
     /**
-     * Sets the emailSyncSchedule property value. Email sync schedule. Possible values are: userDefined, asMessagesArrive, manual, fifteenMinutes, thirtyMinutes, sixtyMinutes, basedOnMyUsage.
+     * Sets the emailSyncSchedule property value. Possible values for email sync schedule.
      *  @param EmailSyncSchedule|null $value Value to set for the emailSyncSchedule property.
     */
     public function setEmailSyncSchedule(?EmailSyncSchedule $value ): void {

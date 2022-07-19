@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * @var DeviceThreatProtectionLevel|null $advancedThreatProtectionRequiredSecurityLevel MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * @var DeviceThreatProtectionLevel|null $advancedThreatProtectionRequiredSecurityLevel Device threat protection levels for the Device Threat Protection API.
     */
     private ?DeviceThreatProtectionLevel $advancedThreatProtectionRequiredSecurityLevel = null;
     
@@ -19,7 +19,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     private ?bool $deviceThreatProtectionEnabled = null;
     
     /**
-     * @var DeviceThreatProtectionLevel|null $deviceThreatProtectionRequiredSecurityLevel Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * @var DeviceThreatProtectionLevel|null $deviceThreatProtectionRequiredSecurityLevel Device threat protection levels for the Device Threat Protection API.
     */
     private ?DeviceThreatProtectionLevel $deviceThreatProtectionRequiredSecurityLevel = null;
     
@@ -89,7 +89,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     private ?bool $passcodeRequired = null;
     
     /**
-     * @var RequiredPasswordType|null $passcodeRequiredType The required passcode type. Possible values are: deviceDefault, alphanumeric, numeric.
+     * @var RequiredPasswordType|null $passcodeRequiredType Possible values of required passwords.
     */
     private ?RequiredPasswordType $passcodeRequiredType = null;
     
@@ -108,6 +108,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosCompliancePolicy');
     }
 
     /**
@@ -120,7 +121,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Gets the advancedThreatProtectionRequiredSecurityLevel property value. MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Gets the advancedThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      * @return DeviceThreatProtectionLevel|null
     */
     public function getAdvancedThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
@@ -136,7 +137,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Gets the deviceThreatProtectionRequiredSecurityLevel property value. Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Gets the deviceThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      * @return DeviceThreatProtectionLevel|null
     */
     public function getDeviceThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
@@ -277,7 +278,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Gets the passcodeRequiredType property value. The required passcode type. Possible values are: deviceDefault, alphanumeric, numeric.
+     * Gets the passcodeRequiredType property value. Possible values of required passwords.
      * @return RequiredPasswordType|null
     */
     public function getPasscodeRequiredType(): ?RequiredPasswordType {
@@ -328,7 +329,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Sets the advancedThreatProtectionRequiredSecurityLevel property value. MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Sets the advancedThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      *  @param DeviceThreatProtectionLevel|null $value Value to set for the advancedThreatProtectionRequiredSecurityLevel property.
     */
     public function setAdvancedThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value ): void {
@@ -344,7 +345,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      *  @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
     */
     public function setDeviceThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value ): void {
@@ -456,7 +457,7 @@ class IosCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Sets the passcodeRequiredType property value. The required passcode type. Possible values are: deviceDefault, alphanumeric, numeric.
+     * Sets the passcodeRequiredType property value. Possible values of required passwords.
      *  @param RequiredPasswordType|null $value Value to set for the passcodeRequiredType property.
     */
     public function setPasscodeRequiredType(?RequiredPasswordType $value ): void {

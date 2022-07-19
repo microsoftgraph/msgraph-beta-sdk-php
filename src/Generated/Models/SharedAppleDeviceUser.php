@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SharedAppleDeviceUser implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, Parsable
     private ?int $dataUsed = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $userPrincipalName User name
     */
     private ?string $userPrincipalName = null;
@@ -38,7 +43,8 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, Parsable
      * Instantiates a new sharedAppleDeviceUser and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.sharedAppleDeviceUser');
     }
 
     /**
@@ -92,8 +98,17 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, Parsable
             'dataQuota' => function (ParseNode $n) use ($o) { $o->setDataQuota($n->getIntegerValue()); },
             'dataToSync' => function (ParseNode $n) use ($o) { $o->setDataToSync($n->getBooleanValue()); },
             'dataUsed' => function (ParseNode $n) use ($o) { $o->setDataUsed($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -112,6 +127,7 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('dataQuota', $this->dataQuota);
         $writer->writeBooleanValue('dataToSync', $this->dataToSync);
         $writer->writeIntegerValue('dataUsed', $this->dataUsed);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -146,6 +162,14 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, Parsable
     */
     public function setDataUsed(?int $value ): void {
         $this->dataUsed = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

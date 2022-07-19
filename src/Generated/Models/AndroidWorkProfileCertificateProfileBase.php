@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Certificate Validity Period Options.
     */
     private ?CertificateValidityPeriodScale $certificateValidityPeriodScale = null;
     
@@ -39,7 +39,7 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
     private ?SubjectAlternativeNameType $subjectAlternativeNameType = null;
     
     /**
-     * @var SubjectNameFormat|null $subjectNameFormat Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * @var SubjectNameFormat|null $subjectNameFormat Subject Name Format Options.
     */
     private ?SubjectNameFormat $subjectNameFormat = null;
     
@@ -48,6 +48,7 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidWorkProfileCertificateProfileBase');
     }
 
     /**
@@ -68,7 +69,7 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Gets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
@@ -133,7 +134,7 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Gets the subjectNameFormat property value. Subject Name Format Options.
      * @return SubjectNameFormat|null
     */
     public function getSubjectNameFormat(): ?SubjectNameFormat {
@@ -156,7 +157,7 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
     public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value ): void {
@@ -204,7 +205,7 @@ class AndroidWorkProfileCertificateProfileBase extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Sets the subjectNameFormat property value. Subject Name Format Options.
      *  @param SubjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
     public function setSubjectNameFormat(?SubjectNameFormat $value ): void {

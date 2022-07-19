@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class NumberRange implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class NumberRange implements AdditionalDataHolder, Parsable
      * @var int|null $lowerNumber Lower number.
     */
     private ?int $lowerNumber = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $upperNumber Upper number.
@@ -28,7 +33,8 @@ class NumberRange implements AdditionalDataHolder, Parsable
      * Instantiates a new numberRange and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.numberRange');
     }
 
     /**
@@ -56,6 +62,7 @@ class NumberRange implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'lowerNumber' => function (ParseNode $n) use ($o) { $o->setLowerNumber($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'upperNumber' => function (ParseNode $n) use ($o) { $o->setUpperNumber($n->getIntegerValue()); },
         ];
     }
@@ -66,6 +73,14 @@ class NumberRange implements AdditionalDataHolder, Parsable
     */
     public function getLowerNumber(): ?int {
         return $this->lowerNumber;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class NumberRange implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('lowerNumber', $this->lowerNumber);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('upperNumber', $this->upperNumber);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class NumberRange implements AdditionalDataHolder, Parsable
     */
     public function setLowerNumber(?int $value ): void {
         $this->lowerNumber = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

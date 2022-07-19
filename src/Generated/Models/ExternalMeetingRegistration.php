@@ -13,6 +13,7 @@ class ExternalMeetingRegistration extends MeetingRegistrationBase implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.externalMeetingRegistration');
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Settings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,10 +30,16 @@ class Settings implements AdditionalDataHolder, Parsable
     private ?bool $hasOptedOut = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new settings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.settings');
     }
 
     /**
@@ -63,6 +69,7 @@ class Settings implements AdditionalDataHolder, Parsable
             'hasGraphMailbox' => function (ParseNode $n) use ($o) { $o->setHasGraphMailbox($n->getBooleanValue()); },
             'hasLicense' => function (ParseNode $n) use ($o) { $o->setHasLicense($n->getBooleanValue()); },
             'hasOptedOut' => function (ParseNode $n) use ($o) { $o->setHasOptedOut($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -91,6 +98,14 @@ class Settings implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -98,6 +113,7 @@ class Settings implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('hasGraphMailbox', $this->hasGraphMailbox);
         $writer->writeBooleanValue('hasLicense', $this->hasLicense);
         $writer->writeBooleanValue('hasOptedOut', $this->hasOptedOut);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -131,6 +147,14 @@ class Settings implements AdditionalDataHolder, Parsable
     */
     public function setHasOptedOut(?bool $value ): void {
         $this->hasOptedOut = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

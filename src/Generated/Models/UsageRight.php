@@ -19,15 +19,16 @@ class UsageRight extends Entity implements Parsable
     private ?string $serviceIdentifier = null;
     
     /**
-     * @var UsageRightState|null $state The state of the usage right. Possible values are: active, inactive, warning, suspended.
+     * @var UsageRightState|null $state The state property
     */
     private ?UsageRightState $state = null;
     
     /**
-     * Instantiates a new UsageRight and sets the default values.
+     * Instantiates a new usageRight and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.usageRight');
     }
 
     /**
@@ -69,7 +70,7 @@ class UsageRight extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. The state of the usage right. Possible values are: active, inactive, warning, suspended.
+     * Gets the state property value. The state property
      * @return UsageRightState|null
     */
     public function getState(): ?UsageRightState {
@@ -104,7 +105,7 @@ class UsageRight extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. The state of the usage right. Possible values are: active, inactive, warning, suspended.
+     * Sets the state property value. The state property
      *  @param UsageRightState|null $value Value to set for the state property.
     */
     public function setState(?UsageRightState $value ): void {

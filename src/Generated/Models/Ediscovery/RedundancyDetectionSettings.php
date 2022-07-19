@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RedundancyDetectionSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class RedundancyDetectionSettings implements AdditionalDataHolder, Parsable
     private ?int $minWords = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $similarityThreshold Specifies the similarity level for documents to be put in the same near duplicate set. To learn more, see Document and email similarity threshold.
     */
     private ?int $similarityThreshold = null;
@@ -38,7 +43,8 @@ class RedundancyDetectionSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new redundancyDetectionSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.ediscovery.redundancyDetectionSettings');
     }
 
     /**
@@ -68,6 +74,7 @@ class RedundancyDetectionSettings implements AdditionalDataHolder, Parsable
             'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
             'maxWords' => function (ParseNode $n) use ($o) { $o->setMaxWords($n->getIntegerValue()); },
             'minWords' => function (ParseNode $n) use ($o) { $o->setMinWords($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'similarityThreshold' => function (ParseNode $n) use ($o) { $o->setSimilarityThreshold($n->getIntegerValue()); },
         ];
     }
@@ -97,6 +104,14 @@ class RedundancyDetectionSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the similarityThreshold property value. Specifies the similarity level for documents to be put in the same near duplicate set. To learn more, see Document and email similarity threshold.
      * @return int|null
     */
@@ -112,6 +127,7 @@ class RedundancyDetectionSettings implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('isEnabled', $this->isEnabled);
         $writer->writeIntegerValue('maxWords', $this->maxWords);
         $writer->writeIntegerValue('minWords', $this->minWords);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('similarityThreshold', $this->similarityThreshold);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -146,6 +162,14 @@ class RedundancyDetectionSettings implements AdditionalDataHolder, Parsable
     */
     public function setMinWords(?int $value ): void {
         $this->minWords = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

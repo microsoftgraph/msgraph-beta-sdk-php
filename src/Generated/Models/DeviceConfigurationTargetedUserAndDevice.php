@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceConfigurationTargetedUserAndDevice implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -29,6 +29,11 @@ class DeviceConfigurationTargetedUserAndDevice implements AdditionalDataHolder, 
      * @var DateTime|null $lastCheckinDateTime Last checkin time for this user/device pair.
     */
     private ?DateTime $lastCheckinDateTime = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $userDisplayName The display name of the user in the checkin
@@ -49,7 +54,8 @@ class DeviceConfigurationTargetedUserAndDevice implements AdditionalDataHolder, 
      * Instantiates a new deviceConfigurationTargetedUserAndDevice and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceConfigurationTargetedUserAndDevice');
     }
 
     /**
@@ -95,6 +101,7 @@ class DeviceConfigurationTargetedUserAndDevice implements AdditionalDataHolder, 
             'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
             'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
             'lastCheckinDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckinDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
             'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
             'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
@@ -107,6 +114,14 @@ class DeviceConfigurationTargetedUserAndDevice implements AdditionalDataHolder, 
     */
     public function getLastCheckinDateTime(): ?DateTime {
         return $this->lastCheckinDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -141,6 +156,7 @@ class DeviceConfigurationTargetedUserAndDevice implements AdditionalDataHolder, 
         $writer->writeStringValue('deviceId', $this->deviceId);
         $writer->writeStringValue('deviceName', $this->deviceName);
         $writer->writeDateTimeValue('lastCheckinDateTime', $this->lastCheckinDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('userDisplayName', $this->userDisplayName);
         $writer->writeStringValue('userId', $this->userId);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
@@ -177,6 +193,14 @@ class DeviceConfigurationTargetedUserAndDevice implements AdditionalDataHolder, 
     */
     public function setLastCheckinDateTime(?DateTime $value ): void {
         $this->lastCheckinDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

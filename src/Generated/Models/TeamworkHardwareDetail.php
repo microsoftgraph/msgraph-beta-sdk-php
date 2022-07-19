@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkHardwareDetail implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, Parsable
     private ?string $model = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $serialNumber Device serial number.
     */
     private ?string $serialNumber = null;
@@ -43,7 +48,8 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkHardwareDetail and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkHardwareDetail');
     }
 
     /**
@@ -73,6 +79,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, Parsable
             'macAddresses' => function (ParseNode $n) use ($o) { $o->setMacAddresses($n->getCollectionOfPrimitiveValues()); },
             'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
             'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
             'uniqueId' => function (ParseNode $n) use ($o) { $o->setUniqueId($n->getStringValue()); },
         ];
@@ -103,6 +110,14 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the serialNumber property value. Device serial number.
      * @return string|null
     */
@@ -126,6 +141,7 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfPrimitiveValues('macAddresses', $this->macAddresses);
         $writer->writeStringValue('manufacturer', $this->manufacturer);
         $writer->writeStringValue('model', $this->model);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('serialNumber', $this->serialNumber);
         $writer->writeStringValue('uniqueId', $this->uniqueId);
         $writer->writeAdditionalData($this->additionalData);
@@ -161,6 +177,14 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, Parsable
     */
     public function setModel(?string $value ): void {
         $this->model = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

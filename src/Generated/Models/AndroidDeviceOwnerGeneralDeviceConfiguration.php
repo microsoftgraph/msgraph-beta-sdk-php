@@ -94,7 +94,12 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     private ?AndroidDeviceOwnerUserFacingMessage $detailedHelpText = null;
     
     /**
-     * @var AndroidDeviceOwnerEnrollmentProfileType|null $enrollmentProfile Indicates which enrollment profile you want to configure. Possible values are: notConfigured, dedicatedDevice, fullyManaged.
+     * @var AndroidDeviceOwnerUserFacingMessage|null $deviceOwnerLockScreenMessage Represents the customized lock screen message provided to users when they attempt to modify managed settings on their device.
+    */
+    private ?AndroidDeviceOwnerUserFacingMessage $deviceOwnerLockScreenMessage = null;
+    
+    /**
+     * @var AndroidDeviceOwnerEnrollmentProfileType|null $enrollmentProfile Android Device Owner Enrollment Profile types.
     */
     private ?AndroidDeviceOwnerEnrollmentProfileType $enrollmentProfile = null;
     
@@ -509,6 +514,11 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     private ?bool $screenCaptureBlocked = null;
     
     /**
+     * @var bool|null $securityCommonCriteriaModeEnabled Represents the security common criteria mode enabled provided to users when they attempt to modify managed settings on their device.
+    */
+    private ?bool $securityCommonCriteriaModeEnabled = null;
+    
+    /**
      * @var bool|null $securityDeveloperSettingsEnabled Indicates whether or not the user is allowed to access developer settings like developer options and safe boot on the device.
     */
     private ?bool $securityDeveloperSettingsEnabled = null;
@@ -673,6 +683,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerGeneralDeviceConfiguration');
     }
 
     /**
@@ -821,7 +832,15 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the enrollmentProfile property value. Indicates which enrollment profile you want to configure. Possible values are: notConfigured, dedicatedDevice, fullyManaged.
+     * Gets the deviceOwnerLockScreenMessage property value. Represents the customized lock screen message provided to users when they attempt to modify managed settings on their device.
+     * @return AndroidDeviceOwnerUserFacingMessage|null
+    */
+    public function getDeviceOwnerLockScreenMessage(): ?AndroidDeviceOwnerUserFacingMessage {
+        return $this->deviceOwnerLockScreenMessage;
+    }
+
+    /**
+     * Gets the enrollmentProfile property value. Android Device Owner Enrollment Profile types.
      * @return AndroidDeviceOwnerEnrollmentProfileType|null
     */
     public function getEnrollmentProfile(): ?AndroidDeviceOwnerEnrollmentProfileType {
@@ -868,6 +887,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'dataRoamingBlocked' => function (ParseNode $n) use ($o) { $o->setDataRoamingBlocked($n->getBooleanValue()); },
             'dateTimeConfigurationBlocked' => function (ParseNode $n) use ($o) { $o->setDateTimeConfigurationBlocked($n->getBooleanValue()); },
             'detailedHelpText' => function (ParseNode $n) use ($o) { $o->setDetailedHelpText($n->getObjectValue(array(AndroidDeviceOwnerUserFacingMessage::class, 'createFromDiscriminatorValue'))); },
+            'deviceOwnerLockScreenMessage' => function (ParseNode $n) use ($o) { $o->setDeviceOwnerLockScreenMessage($n->getObjectValue(array(AndroidDeviceOwnerUserFacingMessage::class, 'createFromDiscriminatorValue'))); },
             'enrollmentProfile' => function (ParseNode $n) use ($o) { $o->setEnrollmentProfile($n->getEnumValue(AndroidDeviceOwnerEnrollmentProfileType::class)); },
             'factoryResetBlocked' => function (ParseNode $n) use ($o) { $o->setFactoryResetBlocked($n->getBooleanValue()); },
             'factoryResetDeviceAdministratorEmails' => function (ParseNode $n) use ($o) { $o->setFactoryResetDeviceAdministratorEmails($n->getCollectionOfPrimitiveValues()); },
@@ -951,6 +971,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'personalProfileScreenCaptureBlocked' => function (ParseNode $n) use ($o) { $o->setPersonalProfileScreenCaptureBlocked($n->getBooleanValue()); },
             'playStoreMode' => function (ParseNode $n) use ($o) { $o->setPlayStoreMode($n->getEnumValue(AndroidDeviceOwnerPlayStoreMode::class)); },
             'screenCaptureBlocked' => function (ParseNode $n) use ($o) { $o->setScreenCaptureBlocked($n->getBooleanValue()); },
+            'securityCommonCriteriaModeEnabled' => function (ParseNode $n) use ($o) { $o->setSecurityCommonCriteriaModeEnabled($n->getBooleanValue()); },
             'securityDeveloperSettingsEnabled' => function (ParseNode $n) use ($o) { $o->setSecurityDeveloperSettingsEnabled($n->getBooleanValue()); },
             'securityRequireVerifyApps' => function (ParseNode $n) use ($o) { $o->setSecurityRequireVerifyApps($n->getBooleanValue()); },
             'shortHelpText' => function (ParseNode $n) use ($o) { $o->setShortHelpText($n->getObjectValue(array(AndroidDeviceOwnerUserFacingMessage::class, 'createFromDiscriminatorValue'))); },
@@ -1627,6 +1648,14 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
+     * Gets the securityCommonCriteriaModeEnabled property value. Represents the security common criteria mode enabled provided to users when they attempt to modify managed settings on their device.
+     * @return bool|null
+    */
+    public function getSecurityCommonCriteriaModeEnabled(): ?bool {
+        return $this->securityCommonCriteriaModeEnabled;
+    }
+
+    /**
      * Gets the securityDeveloperSettingsEnabled property value. Indicates whether or not the user is allowed to access developer settings like developer options and safe boot on the device.
      * @return bool|null
     */
@@ -1905,6 +1934,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeBooleanValue('dataRoamingBlocked', $this->dataRoamingBlocked);
         $writer->writeBooleanValue('dateTimeConfigurationBlocked', $this->dateTimeConfigurationBlocked);
         $writer->writeObjectValue('detailedHelpText', $this->detailedHelpText);
+        $writer->writeObjectValue('deviceOwnerLockScreenMessage', $this->deviceOwnerLockScreenMessage);
         $writer->writeEnumValue('enrollmentProfile', $this->enrollmentProfile);
         $writer->writeBooleanValue('factoryResetBlocked', $this->factoryResetBlocked);
         $writer->writeCollectionOfPrimitiveValues('factoryResetDeviceAdministratorEmails', $this->factoryResetDeviceAdministratorEmails);
@@ -1988,6 +2018,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeBooleanValue('personalProfileScreenCaptureBlocked', $this->personalProfileScreenCaptureBlocked);
         $writer->writeEnumValue('playStoreMode', $this->playStoreMode);
         $writer->writeBooleanValue('screenCaptureBlocked', $this->screenCaptureBlocked);
+        $writer->writeBooleanValue('securityCommonCriteriaModeEnabled', $this->securityCommonCriteriaModeEnabled);
         $writer->writeBooleanValue('securityDeveloperSettingsEnabled', $this->securityDeveloperSettingsEnabled);
         $writer->writeBooleanValue('securityRequireVerifyApps', $this->securityRequireVerifyApps);
         $writer->writeObjectValue('shortHelpText', $this->shortHelpText);
@@ -2159,7 +2190,15 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the enrollmentProfile property value. Indicates which enrollment profile you want to configure. Possible values are: notConfigured, dedicatedDevice, fullyManaged.
+     * Sets the deviceOwnerLockScreenMessage property value. Represents the customized lock screen message provided to users when they attempt to modify managed settings on their device.
+     *  @param AndroidDeviceOwnerUserFacingMessage|null $value Value to set for the deviceOwnerLockScreenMessage property.
+    */
+    public function setDeviceOwnerLockScreenMessage(?AndroidDeviceOwnerUserFacingMessage $value ): void {
+        $this->deviceOwnerLockScreenMessage = $value;
+    }
+
+    /**
+     * Sets the enrollmentProfile property value. Android Device Owner Enrollment Profile types.
      *  @param AndroidDeviceOwnerEnrollmentProfileType|null $value Value to set for the enrollmentProfile property.
     */
     public function setEnrollmentProfile(?AndroidDeviceOwnerEnrollmentProfileType $value ): void {
@@ -2820,6 +2859,14 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function setScreenCaptureBlocked(?bool $value ): void {
         $this->screenCaptureBlocked = $value;
+    }
+
+    /**
+     * Sets the securityCommonCriteriaModeEnabled property value. Represents the security common criteria mode enabled provided to users when they attempt to modify managed settings on their device.
+     *  @param bool|null $value Value to set for the securityCommonCriteriaModeEnabled property.
+    */
+    public function setSecurityCommonCriteriaModeEnabled(?bool $value ): void {
+        $this->securityCommonCriteriaModeEnabled = $value;
     }
 
     /**

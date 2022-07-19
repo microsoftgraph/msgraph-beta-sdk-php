@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ObjectMapping implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,7 +25,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
     private ?bool $enabled = null;
     
     /**
-     * @var ObjectFlowTypes|null $flowTypes Which flow types are enabled for this object mapping. Add creates new objects in the target directory, Update modifies existing objects, and Delete deprovisions existing users. The default is Add, Update, Delete.
+     * @var ObjectFlowTypes|null $flowTypes The flowTypes property
     */
     private ?ObjectFlowTypes $flowTypes = null;
     
@@ -38,6 +38,11 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * @var string|null $name Human-friendly name of the object mapping.
     */
     private ?string $name = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var Filter|null $scope Defines a filter to be used when deciding whether a given object should be provisioned. For example, you might want to only provision users that are located in the US.
@@ -58,7 +63,8 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * Instantiates a new objectMapping and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.objectMapping');
     }
 
     /**
@@ -106,6 +112,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
             'flowTypes' => function (ParseNode $n) use ($o) { $o->setFlowTypes($n->getEnumValue(ObjectFlowTypes::class)); },
             'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(MetadataEntry::class, 'createFromDiscriminatorValue'))); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getObjectValue(array(Filter::class, 'createFromDiscriminatorValue'))); },
             'sourceObjectName' => function (ParseNode $n) use ($o) { $o->setSourceObjectName($n->getStringValue()); },
             'targetObjectName' => function (ParseNode $n) use ($o) { $o->setTargetObjectName($n->getStringValue()); },
@@ -113,7 +120,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the flowTypes property value. Which flow types are enabled for this object mapping. Add creates new objects in the target directory, Update modifies existing objects, and Delete deprovisions existing users. The default is Add, Update, Delete.
+     * Gets the flowTypes property value. The flowTypes property
      * @return ObjectFlowTypes|null
     */
     public function getFlowTypes(): ?ObjectFlowTypes {
@@ -134,6 +141,14 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
     */
     public function getName(): ?string {
         return $this->name;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -170,6 +185,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('flowTypes', $this->flowTypes);
         $writer->writeCollectionOfObjectValues('metadata', $this->metadata);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('scope', $this->scope);
         $writer->writeStringValue('sourceObjectName', $this->sourceObjectName);
         $writer->writeStringValue('targetObjectName', $this->targetObjectName);
@@ -201,7 +217,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the flowTypes property value. Which flow types are enabled for this object mapping. Add creates new objects in the target directory, Update modifies existing objects, and Delete deprovisions existing users. The default is Add, Update, Delete.
+     * Sets the flowTypes property value. The flowTypes property
      *  @param ObjectFlowTypes|null $value Value to set for the flowTypes property.
     */
     public function setFlowTypes(?ObjectFlowTypes $value ): void {
@@ -222,6 +238,14 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

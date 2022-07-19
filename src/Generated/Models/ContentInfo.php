@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ContentInfo implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var ContentFormat|null $format Possible values are: default, email.
+     * @var ContentFormat|null $format The format property
     */
     private ?ContentFormat $format = null;
     
@@ -30,7 +30,12 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     private ?array $metadata = null;
     
     /**
-     * @var ContentState|null $state Possible values are: rest, motion, use.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var ContentState|null $state The state property
     */
     private ?ContentState $state = null;
     
@@ -38,7 +43,8 @@ class ContentInfo implements AdditionalDataHolder, Parsable
      * Instantiates a new contentInfo and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.contentInfo');
     }
 
     /**
@@ -68,12 +74,13 @@ class ContentInfo implements AdditionalDataHolder, Parsable
             'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getEnumValue(ContentFormat::class)); },
             'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
             'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ContentState::class)); },
         ];
     }
 
     /**
-     * Gets the format property value. Possible values are: default, email.
+     * Gets the format property value. The format property
      * @return ContentFormat|null
     */
     public function getFormat(): ?ContentFormat {
@@ -97,7 +104,15 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the state property value. Possible values are: rest, motion, use.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the state property value. The state property
      * @return ContentState|null
     */
     public function getState(): ?ContentState {
@@ -112,6 +127,7 @@ class ContentInfo implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('format', $this->format);
         $writer->writeStringValue('identifier', $this->identifier);
         $writer->writeCollectionOfObjectValues('metadata', $this->metadata);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -125,7 +141,7 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the format property value. Possible values are: default, email.
+     * Sets the format property value. The format property
      *  @param ContentFormat|null $value Value to set for the format property.
     */
     public function setFormat(?ContentFormat $value ): void {
@@ -149,7 +165,15 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the state property value. Possible values are: rest, motion, use.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the state property value. The state property
      *  @param ContentState|null $value Value to set for the state property.
     */
     public function setState(?ContentState $value ): void {

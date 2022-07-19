@@ -14,7 +14,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     private ?bool $isExpeditable = null;
     
     /**
-     * @var QualityUpdateClassification|null $qualityUpdateClassification The classification on the quality update. Possible values are: all, security, nonSecurity, unknownFutureValue. Read-only.
+     * @var QualityUpdateClassification|null $qualityUpdateClassification The qualityUpdateClassification property
     */
     private ?QualityUpdateClassification $qualityUpdateClassification = null;
     
@@ -23,6 +23,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdates.qualityUpdateCatalogEntry');
     }
 
     /**
@@ -55,7 +56,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Gets the qualityUpdateClassification property value. The classification on the quality update. Possible values are: all, security, nonSecurity, unknownFutureValue. Read-only.
+     * Gets the qualityUpdateClassification property value. The qualityUpdateClassification property
      * @return QualityUpdateClassification|null
     */
     public function getQualityUpdateClassification(): ?QualityUpdateClassification {
@@ -81,7 +82,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     }
 
     /**
-     * Sets the qualityUpdateClassification property value. The classification on the quality update. Possible values are: all, security, nonSecurity, unknownFutureValue. Read-only.
+     * Sets the qualityUpdateClassification property value. The qualityUpdateClassification property
      *  @param QualityUpdateClassification|null $value Value to set for the qualityUpdateClassification property.
     */
     public function setQualityUpdateClassification(?QualityUpdateClassification $value ): void {

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WarrantyOffer implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,12 +26,17 @@ class WarrantyOffer implements AdditionalDataHolder, Parsable
     private ?DateTime $endDateTime = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var DateTime|null $startDateTime Warranty offer start date
     */
     private ?DateTime $startDateTime = null;
     
     /**
-     * @var WarrantyType|null $type Warranty offer type. Possible values are: unknown, manufacturer, contractual, unknownFutureValue.
+     * @var WarrantyType|null $type Models and Manufactures meatadata for managed devices in the account
     */
     private ?WarrantyType $type = null;
     
@@ -39,7 +44,8 @@ class WarrantyOffer implements AdditionalDataHolder, Parsable
      * Instantiates a new warrantyOffer and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.warrantyOffer');
     }
 
     /**
@@ -84,9 +90,18 @@ class WarrantyOffer implements AdditionalDataHolder, Parsable
         return  [
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(WarrantyType::class)); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,7 +113,7 @@ class WarrantyOffer implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the type property value. Warranty offer type. Possible values are: unknown, manufacturer, contractual, unknownFutureValue.
+     * Gets the type property value. Models and Manufactures meatadata for managed devices in the account
      * @return WarrantyType|null
     */
     public function getType(): ?WarrantyType {
@@ -112,6 +127,7 @@ class WarrantyOffer implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('description', $this->description);
         $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
         $writer->writeEnumValue('type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
@@ -142,6 +158,14 @@ class WarrantyOffer implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the startDateTime property value. Warranty offer start date
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
@@ -150,7 +174,7 @@ class WarrantyOffer implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the type property value. Warranty offer type. Possible values are: unknown, manufacturer, contractual, unknownFutureValue.
+     * Sets the type property value. Models and Manufactures meatadata for managed devices in the account
      *  @param WarrantyType|null $value Value to set for the type property.
     */
     public function setType(?WarrantyType $value ): void {

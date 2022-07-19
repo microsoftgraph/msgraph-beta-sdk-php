@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemActivityTimeSet implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,6 +26,11 @@ class ItemActivityTimeSet implements AdditionalDataHolder, Parsable
     private ?DateTime $observedDateTime = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var DateTime|null $recordedDateTime When the observation was recorded on the service.
     */
     private ?DateTime $recordedDateTime = null;
@@ -34,7 +39,8 @@ class ItemActivityTimeSet implements AdditionalDataHolder, Parsable
      * Instantiates a new itemActivityTimeSet and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.itemActivityTimeSet');
     }
 
     /**
@@ -63,6 +69,7 @@ class ItemActivityTimeSet implements AdditionalDataHolder, Parsable
         return  [
             'lastRecordedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRecordedDateTime($n->getDateTimeValue()); },
             'observedDateTime' => function (ParseNode $n) use ($o) { $o->setObservedDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recordedDateTime' => function (ParseNode $n) use ($o) { $o->setRecordedDateTime($n->getDateTimeValue()); },
         ];
     }
@@ -84,6 +91,14 @@ class ItemActivityTimeSet implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the recordedDateTime property value. When the observation was recorded on the service.
      * @return DateTime|null
     */
@@ -98,6 +113,7 @@ class ItemActivityTimeSet implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeDateTimeValue('lastRecordedDateTime', $this->lastRecordedDateTime);
         $writer->writeDateTimeValue('observedDateTime', $this->observedDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('recordedDateTime', $this->recordedDateTime);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -124,6 +140,14 @@ class ItemActivityTimeSet implements AdditionalDataHolder, Parsable
     */
     public function setObservedDateTime(?DateTime $value ): void {
         $this->observedDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

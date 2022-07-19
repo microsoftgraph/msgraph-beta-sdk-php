@@ -49,6 +49,7 @@ class CallRecordingEventMessageDetail extends EventMessageDetail implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.callRecordingEventMessageDetail');
     }
 
     /**

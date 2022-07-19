@@ -18,6 +18,7 @@ class OmaSettingBoolean extends OmaSetting implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.omaSettingBoolean');
     }
 
     /**

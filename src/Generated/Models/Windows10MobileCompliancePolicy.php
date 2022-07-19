@@ -74,7 +74,7 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
     private ?bool $passwordRequired = null;
     
     /**
-     * @var RequiredPasswordType|null $passwordRequiredType The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
+     * @var RequiredPasswordType|null $passwordRequiredType Possible values of required passwords.
     */
     private ?RequiredPasswordType $passwordRequiredType = null;
     
@@ -103,6 +103,7 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10MobileCompliancePolicy');
     }
 
     /**
@@ -247,7 +248,7 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
     }
 
     /**
-     * Gets the passwordRequiredType property value. The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
+     * Gets the passwordRequiredType property value. Possible values of required passwords.
      * @return RequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?RequiredPasswordType {
@@ -417,7 +418,7 @@ class Windows10MobileCompliancePolicy extends DeviceCompliancePolicy implements 
     }
 
     /**
-     * Sets the passwordRequiredType property value. The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
+     * Sets the passwordRequiredType property value. Possible values of required passwords.
      *  @param RequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?RequiredPasswordType $value ): void {

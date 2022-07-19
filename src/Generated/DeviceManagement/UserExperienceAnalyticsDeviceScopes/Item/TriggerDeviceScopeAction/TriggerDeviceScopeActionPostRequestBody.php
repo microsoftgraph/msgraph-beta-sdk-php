@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var string|null $actionName The actionName property
+     * @var string|null $actionName Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
     */
     private ?string $actionName = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -28,7 +28,7 @@ class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, P
      * Instantiates a new triggerDeviceScopeActionPostRequestBody and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -41,7 +41,7 @@ class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, P
     }
 
     /**
-     * Gets the actionName property value. The actionName property
+     * Gets the actionName property value. Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
      * @return string|null
     */
     public function getActionName(): ?string {
@@ -87,7 +87,7 @@ class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, P
     }
 
     /**
-     * Sets the actionName property value. The actionName property
+     * Sets the actionName property value. Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
      *  @param string|null $value Value to set for the actionName property.
     */
     public function setActionName(?string $value ): void {

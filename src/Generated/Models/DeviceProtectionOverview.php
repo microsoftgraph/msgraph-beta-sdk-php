@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceProtectionOverview implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -28,6 +28,11 @@ class DeviceProtectionOverview implements AdditionalDataHolder, Parsable
      * @var int|null $inactiveThreatAgentDeviceCount Device with inactive threat agent count
     */
     private ?int $inactiveThreatAgentDeviceCount = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $pendingFullScanDeviceCount Pending full scan device count.
@@ -73,7 +78,8 @@ class DeviceProtectionOverview implements AdditionalDataHolder, Parsable
      * Instantiates a new deviceProtectionOverview and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceProtectionOverview');
     }
 
     /**
@@ -119,6 +125,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, Parsable
             'cleanDeviceCount' => function (ParseNode $n) use ($o) { $o->setCleanDeviceCount($n->getIntegerValue()); },
             'criticalFailuresDeviceCount' => function (ParseNode $n) use ($o) { $o->setCriticalFailuresDeviceCount($n->getIntegerValue()); },
             'inactiveThreatAgentDeviceCount' => function (ParseNode $n) use ($o) { $o->setInactiveThreatAgentDeviceCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'pendingFullScanDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingFullScanDeviceCount($n->getIntegerValue()); },
             'pendingManualStepsDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingManualStepsDeviceCount($n->getIntegerValue()); },
             'pendingOfflineScanDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingOfflineScanDeviceCount($n->getIntegerValue()); },
@@ -136,6 +143,14 @@ class DeviceProtectionOverview implements AdditionalDataHolder, Parsable
     */
     public function getInactiveThreatAgentDeviceCount(): ?int {
         return $this->inactiveThreatAgentDeviceCount;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -210,6 +225,7 @@ class DeviceProtectionOverview implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('cleanDeviceCount', $this->cleanDeviceCount);
         $writer->writeIntegerValue('criticalFailuresDeviceCount', $this->criticalFailuresDeviceCount);
         $writer->writeIntegerValue('inactiveThreatAgentDeviceCount', $this->inactiveThreatAgentDeviceCount);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('pendingFullScanDeviceCount', $this->pendingFullScanDeviceCount);
         $writer->writeIntegerValue('pendingManualStepsDeviceCount', $this->pendingManualStepsDeviceCount);
         $writer->writeIntegerValue('pendingOfflineScanDeviceCount', $this->pendingOfflineScanDeviceCount);
@@ -251,6 +267,14 @@ class DeviceProtectionOverview implements AdditionalDataHolder, Parsable
     */
     public function setInactiveThreatAgentDeviceCount(?int $value ): void {
         $this->inactiveThreatAgentDeviceCount = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

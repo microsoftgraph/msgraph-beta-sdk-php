@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * @var EnrollmentNotificationBrandingOptions|null $brandingOptions Branding Options for the Enrollment Notification. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink, includeDeviceDetails.
+     * @var EnrollmentNotificationBrandingOptions|null $brandingOptions Branding Options for the Message Template. Branding is defined in the Intune Admin Console.
     */
     private ?EnrollmentNotificationBrandingOptions $brandingOptions = null;
     
@@ -24,12 +24,12 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     private ?string $notificationMessageTemplateId = null;
     
     /**
-     * @var EnrollmentRestrictionPlatformType|null $platformType Platform type of the Enrollment Notification. Possible values are: allPlatforms, ios, windows, windowsPhone, android, androidForWork, mac.
+     * @var EnrollmentRestrictionPlatformType|null $platformType This enum indicates the platform type for which the enrollment restriction applies.
     */
     private ?EnrollmentRestrictionPlatformType $platformType = null;
     
     /**
-     * @var EnrollmentNotificationTemplateType|null $templateType Template type of the Enrollment Notification. Possible values are: email, push, unknownFutureValue.
+     * @var EnrollmentNotificationTemplateType|null $templateType This enum indicates the Template type for which the enrollment notification applies.
     */
     private ?EnrollmentNotificationTemplateType $templateType = null;
     
@@ -38,6 +38,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceEnrollmentNotificationConfiguration');
     }
 
     /**
@@ -50,7 +51,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     }
 
     /**
-     * Gets the brandingOptions property value. Branding Options for the Enrollment Notification. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink, includeDeviceDetails.
+     * Gets the brandingOptions property value. Branding Options for the Message Template. Branding is defined in the Intune Admin Console.
      * @return EnrollmentNotificationBrandingOptions|null
     */
     public function getBrandingOptions(): ?EnrollmentNotificationBrandingOptions {
@@ -89,7 +90,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     }
 
     /**
-     * Gets the platformType property value. Platform type of the Enrollment Notification. Possible values are: allPlatforms, ios, windows, windowsPhone, android, androidForWork, mac.
+     * Gets the platformType property value. This enum indicates the platform type for which the enrollment restriction applies.
      * @return EnrollmentRestrictionPlatformType|null
     */
     public function getPlatformType(): ?EnrollmentRestrictionPlatformType {
@@ -97,7 +98,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     }
 
     /**
-     * Gets the templateType property value. Template type of the Enrollment Notification. Possible values are: email, push, unknownFutureValue.
+     * Gets the templateType property value. This enum indicates the Template type for which the enrollment notification applies.
      * @return EnrollmentNotificationTemplateType|null
     */
     public function getTemplateType(): ?EnrollmentNotificationTemplateType {
@@ -118,7 +119,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     }
 
     /**
-     * Sets the brandingOptions property value. Branding Options for the Enrollment Notification. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink, includeDeviceDetails.
+     * Sets the brandingOptions property value. Branding Options for the Message Template. Branding is defined in the Intune Admin Console.
      *  @param EnrollmentNotificationBrandingOptions|null $value Value to set for the brandingOptions property.
     */
     public function setBrandingOptions(?EnrollmentNotificationBrandingOptions $value ): void {
@@ -142,7 +143,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     }
 
     /**
-     * Sets the platformType property value. Platform type of the Enrollment Notification. Possible values are: allPlatforms, ios, windows, windowsPhone, android, androidForWork, mac.
+     * Sets the platformType property value. This enum indicates the platform type for which the enrollment restriction applies.
      *  @param EnrollmentRestrictionPlatformType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?EnrollmentRestrictionPlatformType $value ): void {
@@ -150,7 +151,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     }
 
     /**
-     * Sets the templateType property value. Template type of the Enrollment Notification. Possible values are: email, push, unknownFutureValue.
+     * Sets the templateType property value. This enum indicates the Template type for which the enrollment notification applies.
      *  @param EnrollmentNotificationTemplateType|null $value Value to set for the templateType property.
     */
     public function setTemplateType(?EnrollmentNotificationTemplateType $value ): void {

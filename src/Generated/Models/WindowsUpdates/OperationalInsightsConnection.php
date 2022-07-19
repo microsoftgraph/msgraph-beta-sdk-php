@@ -9,17 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OperationalInsightsConnection extends ResourceConnection implements Parsable 
 {
     /**
-     * @var string|null $azureResourceGroupName The azureResourceGroupName property
+     * @var string|null $azureResourceGroupName The name of the Azure resource group that contains the Log Analytics workspace.
     */
     private ?string $azureResourceGroupName = null;
     
     /**
-     * @var string|null $azureSubscriptionId The azureSubscriptionId property
+     * @var string|null $azureSubscriptionId The Azure subscription ID that contains the Log Analytics workspace.
     */
     private ?string $azureSubscriptionId = null;
     
     /**
-     * @var string|null $workspaceName The workspaceName property
+     * @var string|null $workspaceName The name of the Log Analytics workspace.
     */
     private ?string $workspaceName = null;
     
@@ -28,6 +28,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdates.operationalInsightsConnection');
     }
 
     /**
@@ -40,7 +41,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
     }
 
     /**
-     * Gets the azureResourceGroupName property value. The azureResourceGroupName property
+     * Gets the azureResourceGroupName property value. The name of the Azure resource group that contains the Log Analytics workspace.
      * @return string|null
     */
     public function getAzureResourceGroupName(): ?string {
@@ -48,7 +49,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
     }
 
     /**
-     * Gets the azureSubscriptionId property value. The azureSubscriptionId property
+     * Gets the azureSubscriptionId property value. The Azure subscription ID that contains the Log Analytics workspace.
      * @return string|null
     */
     public function getAzureSubscriptionId(): ?string {
@@ -69,7 +70,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
     }
 
     /**
-     * Gets the workspaceName property value. The workspaceName property
+     * Gets the workspaceName property value. The name of the Log Analytics workspace.
      * @return string|null
     */
     public function getWorkspaceName(): ?string {
@@ -88,7 +89,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
     }
 
     /**
-     * Sets the azureResourceGroupName property value. The azureResourceGroupName property
+     * Sets the azureResourceGroupName property value. The name of the Azure resource group that contains the Log Analytics workspace.
      *  @param string|null $value Value to set for the azureResourceGroupName property.
     */
     public function setAzureResourceGroupName(?string $value ): void {
@@ -96,7 +97,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
     }
 
     /**
-     * Sets the azureSubscriptionId property value. The azureSubscriptionId property
+     * Sets the azureSubscriptionId property value. The Azure subscription ID that contains the Log Analytics workspace.
      *  @param string|null $value Value to set for the azureSubscriptionId property.
     */
     public function setAzureSubscriptionId(?string $value ): void {
@@ -104,7 +105,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
     }
 
     /**
-     * Sets the workspaceName property value. The workspaceName property
+     * Sets the workspaceName property value. The name of the Log Analytics workspace.
      *  @param string|null $value Value to set for the workspaceName property.
     */
     public function setWorkspaceName(?string $value ): void {

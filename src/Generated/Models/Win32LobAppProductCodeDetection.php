@@ -19,7 +19,7 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
     private ?string $productVersion = null;
     
     /**
-     * @var Win32LobAppDetectionOperator|null $productVersionOperator The operator to detect product version. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * @var Win32LobAppDetectionOperator|null $productVersionOperator Contains properties for detection operator.
     */
     private ?Win32LobAppDetectionOperator $productVersionOperator = null;
     
@@ -28,6 +28,7 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppProductCodeDetection');
     }
 
     /**
@@ -69,7 +70,7 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
     }
 
     /**
-     * Gets the productVersionOperator property value. The operator to detect product version. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Gets the productVersionOperator property value. Contains properties for detection operator.
      * @return Win32LobAppDetectionOperator|null
     */
     public function getProductVersionOperator(): ?Win32LobAppDetectionOperator {
@@ -104,7 +105,7 @@ class Win32LobAppProductCodeDetection extends Win32LobAppDetection implements Pa
     }
 
     /**
-     * Sets the productVersionOperator property value. The operator to detect product version. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Sets the productVersionOperator property value. Contains properties for detection operator.
      *  @param Win32LobAppDetectionOperator|null $value Value to set for the productVersionOperator property.
     */
     public function setProductVersionOperator(?Win32LobAppDetectionOperator $value ): void {

@@ -18,6 +18,7 @@ class ProtectByTemplateAction extends InformationProtectionAction implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.protectByTemplateAction');
     }
 
     /**

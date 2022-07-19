@@ -45,10 +45,11 @@ class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Parsable
     private ?ImportedWindowsAutopilotDeviceIdentityState $state = null;
     
     /**
-     * Instantiates a new ImportedWindowsAutopilotDeviceIdentity and sets the default values.
+     * Instantiates a new importedWindowsAutopilotDeviceIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.importedWindowsAutopilotDeviceIdentity');
     }
 
     /**

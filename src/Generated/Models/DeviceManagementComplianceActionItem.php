@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementComplianceActionItem extends Entity implements Parsable 
 {
     /**
-     * @var DeviceManagementComplianceActionType|null $actionType What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+     * @var DeviceManagementComplianceActionType|null $actionType Scheduled Action Type Enum
     */
     private ?DeviceManagementComplianceActionType $actionType = null;
     
@@ -33,6 +33,7 @@ class DeviceManagementComplianceActionItem extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementComplianceActionItem');
     }
 
     /**
@@ -45,7 +46,7 @@ class DeviceManagementComplianceActionItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+     * Gets the actionType property value. Scheduled Action Type Enum
      * @return DeviceManagementComplianceActionType|null
     */
     public function getActionType(): ?DeviceManagementComplianceActionType {
@@ -103,7 +104,7 @@ class DeviceManagementComplianceActionItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+     * Sets the actionType property value. Scheduled Action Type Enum
      *  @param DeviceManagementComplianceActionType|null $value Value to set for the actionType property.
     */
     public function setActionType(?DeviceManagementComplianceActionType $value ): void {

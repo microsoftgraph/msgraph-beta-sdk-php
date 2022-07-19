@@ -29,6 +29,7 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.passwordAuthenticationMethod');
     }
 
     /**

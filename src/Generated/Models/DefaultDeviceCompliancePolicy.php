@@ -13,6 +13,7 @@ class DefaultDeviceCompliancePolicy extends DeviceCompliancePolicy implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.defaultDeviceCompliancePolicy');
     }
 
     /**

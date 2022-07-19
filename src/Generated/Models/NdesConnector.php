@@ -20,15 +20,16 @@ class NdesConnector extends Entity implements Parsable
     private ?DateTime $lastConnectionDateTime = null;
     
     /**
-     * @var NdesConnectorState|null $state Ndes Connector Status. Possible values are: none, active, inactive.
+     * @var NdesConnectorState|null $state The current status of the Ndes Connector.
     */
     private ?NdesConnectorState $state = null;
     
     /**
-     * Instantiates a new NdesConnector and sets the default values.
+     * Instantiates a new ndesConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.ndesConnector');
     }
 
     /**
@@ -70,7 +71,7 @@ class NdesConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. Ndes Connector Status. Possible values are: none, active, inactive.
+     * Gets the state property value. The current status of the Ndes Connector.
      * @return NdesConnectorState|null
     */
     public function getState(): ?NdesConnectorState {
@@ -105,7 +106,7 @@ class NdesConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. Ndes Connector Status. Possible values are: none, active, inactive.
+     * Sets the state property value. The current status of the Ndes Connector.
      *  @param NdesConnectorState|null $value Value to set for the state property.
     */
     public function setState(?NdesConnectorState $value ): void {

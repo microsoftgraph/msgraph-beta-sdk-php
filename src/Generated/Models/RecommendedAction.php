@@ -15,9 +15,14 @@ class RecommendedAction implements AdditionalDataHolder, Parsable
     private ?string $actionWebUrl = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var float|null $potentialScoreImpact Potential improvement in security score of the tenant from the recommended action.
@@ -33,7 +38,8 @@ class RecommendedAction implements AdditionalDataHolder, Parsable
      * Instantiates a new recommendedAction and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.recommendedAction');
     }
 
     /**
@@ -69,9 +75,18 @@ class RecommendedAction implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'actionWebUrl' => function (ParseNode $n) use ($o) { $o->setActionWebUrl($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'potentialScoreImpact' => function (ParseNode $n) use ($o) { $o->setPotentialScoreImpact($n->getFloatValue()); },
             'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -96,6 +111,7 @@ class RecommendedAction implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('actionWebUrl', $this->actionWebUrl);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeFloatValue('potentialScoreImpact', $this->potentialScoreImpact);
         $writer->writeStringValue('title', $this->title);
         $writer->writeAdditionalData($this->additionalData);
@@ -115,6 +131,14 @@ class RecommendedAction implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

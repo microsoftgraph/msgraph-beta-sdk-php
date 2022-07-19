@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EdgeSearchEngine extends EdgeSearchEngineBase implements Parsable 
 {
     /**
-     * @var EdgeSearchEngineType|null $edgeSearchEngineType Allows IT admins to set a predefined default search engine for MDM-Controlled devices. Possible values are: default, bing.
+     * @var EdgeSearchEngineType|null $edgeSearchEngineType Allows IT admind to set a predefined default search engine for MDM-Controlled devices
     */
     private ?EdgeSearchEngineType $edgeSearchEngineType = null;
     
@@ -18,6 +18,7 @@ class EdgeSearchEngine extends EdgeSearchEngineBase implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.edgeSearchEngine');
     }
 
     /**
@@ -30,7 +31,7 @@ class EdgeSearchEngine extends EdgeSearchEngineBase implements Parsable
     }
 
     /**
-     * Gets the edgeSearchEngineType property value. Allows IT admins to set a predefined default search engine for MDM-Controlled devices. Possible values are: default, bing.
+     * Gets the edgeSearchEngineType property value. Allows IT admind to set a predefined default search engine for MDM-Controlled devices
      * @return EdgeSearchEngineType|null
     */
     public function getEdgeSearchEngineType(): ?EdgeSearchEngineType {
@@ -58,7 +59,7 @@ class EdgeSearchEngine extends EdgeSearchEngineBase implements Parsable
     }
 
     /**
-     * Sets the edgeSearchEngineType property value. Allows IT admins to set a predefined default search engine for MDM-Controlled devices. Possible values are: default, bing.
+     * Sets the edgeSearchEngineType property value. Allows IT admind to set a predefined default search engine for MDM-Controlled devices
      *  @param EdgeSearchEngineType|null $value Value to set for the edgeSearchEngineType property.
     */
     public function setEdgeSearchEngineType(?EdgeSearchEngineType $value ): void {

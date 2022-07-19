@@ -11,12 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var ComplianceStatus|null $complianceState Managed Device ComplianceStatus. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * @var ComplianceStatus|null $complianceState The complianceState property
     */
     private ?ComplianceStatus $complianceState = null;
     
@@ -31,7 +31,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
     private ?string $deviceCompliancePolicyName = null;
     
     /**
-     * @var DeviceType|null $deviceType Managed Device Device Type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, cloudPC, blackberry, palm, unknown.
+     * @var DeviceType|null $deviceType Device type.
     */
     private ?DeviceType $deviceType = null;
     
@@ -51,12 +51,17 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
     private ?string $managedDeviceName = null;
     
     /**
-     * @var ManagementAgentType|null $managementAgent Managed Device ManagementAgentType. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, windowsManagementCloudApi.
+     * @var ManagementAgentType|null $managementAgent Management agent type.
     */
     private ?ManagementAgentType $managementAgent = null;
     
     /**
-     * @var ManagedDeviceOwnerType|null $ownerType Managed Device ManagedDeviceOwnerType. Possible values are: unknown, company, personal.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var ManagedDeviceOwnerType|null $ownerType Owner type of device.
     */
     private ?ManagedDeviceOwnerType $ownerType = null;
     
@@ -74,7 +79,8 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * Instantiates a new retireScheduledManagedDevice and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.retireScheduledManagedDevice');
     }
 
     /**
@@ -95,7 +101,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the complianceState property value. Managed Device ComplianceStatus. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Gets the complianceState property value. The complianceState property
      * @return ComplianceStatus|null
     */
     public function getComplianceState(): ?ComplianceStatus {
@@ -119,7 +125,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceType property value. Managed Device Device Type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, cloudPC, blackberry, palm, unknown.
+     * Gets the deviceType property value. Device type.
      * @return DeviceType|null
     */
     public function getDeviceType(): ?DeviceType {
@@ -141,6 +147,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
             'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
             'managedDeviceName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceName($n->getStringValue()); },
             'managementAgent' => function (ParseNode $n) use ($o) { $o->setManagementAgent($n->getEnumValue(ManagementAgentType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getEnumValue(ManagedDeviceOwnerType::class)); },
             'retireAfterDateTime' => function (ParseNode $n) use ($o) { $o->setRetireAfterDateTime($n->getDateTimeValue()); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
@@ -172,7 +179,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the managementAgent property value. Managed Device ManagementAgentType. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, windowsManagementCloudApi.
+     * Gets the managementAgent property value. Management agent type.
      * @return ManagementAgentType|null
     */
     public function getManagementAgent(): ?ManagementAgentType {
@@ -180,7 +187,15 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the ownerType property value. Managed Device ManagedDeviceOwnerType. Possible values are: unknown, company, personal.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the ownerType property value. Owner type of device.
      * @return ManagedDeviceOwnerType|null
     */
     public function getOwnerType(): ?ManagedDeviceOwnerType {
@@ -216,6 +231,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
         $writer->writeStringValue('managedDeviceName', $this->managedDeviceName);
         $writer->writeEnumValue('managementAgent', $this->managementAgent);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('ownerType', $this->ownerType);
         $writer->writeDateTimeValue('retireAfterDateTime', $this->retireAfterDateTime);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
@@ -231,7 +247,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the complianceState property value. Managed Device ComplianceStatus. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Sets the complianceState property value. The complianceState property
      *  @param ComplianceStatus|null $value Value to set for the complianceState property.
     */
     public function setComplianceState(?ComplianceStatus $value ): void {
@@ -255,7 +271,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceType property value. Managed Device Device Type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, cloudPC, blackberry, palm, unknown.
+     * Sets the deviceType property value. Device type.
      *  @param DeviceType|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?DeviceType $value ): void {
@@ -287,7 +303,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the managementAgent property value. Managed Device ManagementAgentType. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, windowsManagementCloudApi.
+     * Sets the managementAgent property value. Management agent type.
      *  @param ManagementAgentType|null $value Value to set for the managementAgent property.
     */
     public function setManagementAgent(?ManagementAgentType $value ): void {
@@ -295,7 +311,15 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ownerType property value. Managed Device ManagedDeviceOwnerType. Possible values are: unknown, company, personal.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the ownerType property value. Owner type of device.
      *  @param ManagedDeviceOwnerType|null $value Value to set for the ownerType property.
     */
     public function setOwnerType(?ManagedDeviceOwnerType $value ): void {

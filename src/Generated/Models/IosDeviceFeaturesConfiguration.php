@@ -74,7 +74,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     private ?IosSingleSignOnSettings $singleSignOnSettings = null;
     
     /**
-     * @var IosWallpaperDisplayLocation|null $wallpaperDisplayLocation A wallpaper display location specifier. Possible values are: notConfigured, lockScreen, homeScreen, lockAndHomeScreens.
+     * @var IosWallpaperDisplayLocation|null $wallpaperDisplayLocation An enum type for wallpaper display location specifier.
     */
     private ?IosWallpaperDisplayLocation $wallpaperDisplayLocation = null;
     
@@ -88,6 +88,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosDeviceFeaturesConfiguration');
     }
 
     /**
@@ -229,7 +230,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     }
 
     /**
-     * Gets the wallpaperDisplayLocation property value. A wallpaper display location specifier. Possible values are: notConfigured, lockScreen, homeScreen, lockAndHomeScreens.
+     * Gets the wallpaperDisplayLocation property value. An enum type for wallpaper display location specifier.
      * @return IosWallpaperDisplayLocation|null
     */
     public function getWallpaperDisplayLocation(): ?IosWallpaperDisplayLocation {
@@ -372,7 +373,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     }
 
     /**
-     * Sets the wallpaperDisplayLocation property value. A wallpaper display location specifier. Possible values are: notConfigured, lockScreen, homeScreen, lockAndHomeScreens.
+     * Sets the wallpaperDisplayLocation property value. An enum type for wallpaper display location specifier.
      *  @param IosWallpaperDisplayLocation|null $value Value to set for the wallpaperDisplayLocation property.
     */
     public function setWallpaperDisplayLocation(?IosWallpaperDisplayLocation $value ): void {

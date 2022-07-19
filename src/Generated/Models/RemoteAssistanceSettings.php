@@ -14,15 +14,16 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     private ?bool $allowSessionsToUnenrolledDevices = null;
     
     /**
-     * @var RemoteAssistanceState|null $remoteAssistanceState The current state of remote assistance for the account. Possible values are: disabled, enabled. This setting is configurable by the admin. Remote assistance settings that have not yet been configured by the admin have a disabled state. Returned by default. Possible values are: disabled, enabled.
+     * @var RemoteAssistanceState|null $remoteAssistanceState State of remote assistance for the account
     */
     private ?RemoteAssistanceState $remoteAssistanceState = null;
     
     /**
-     * Instantiates a new RemoteAssistanceSettings and sets the default values.
+     * Instantiates a new remoteAssistanceSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.remoteAssistanceSettings');
     }
 
     /**
@@ -55,7 +56,7 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the remoteAssistanceState property value. The current state of remote assistance for the account. Possible values are: disabled, enabled. This setting is configurable by the admin. Remote assistance settings that have not yet been configured by the admin have a disabled state. Returned by default. Possible values are: disabled, enabled.
+     * Gets the remoteAssistanceState property value. State of remote assistance for the account
      * @return RemoteAssistanceState|null
     */
     public function getRemoteAssistanceState(): ?RemoteAssistanceState {
@@ -81,7 +82,7 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the remoteAssistanceState property value. The current state of remote assistance for the account. Possible values are: disabled, enabled. This setting is configurable by the admin. Remote assistance settings that have not yet been configured by the admin have a disabled state. Returned by default. Possible values are: disabled, enabled.
+     * Sets the remoteAssistanceState property value. State of remote assistance for the account
      *  @param RemoteAssistanceState|null $value Value to set for the remoteAssistanceState property.
     */
     public function setRemoteAssistanceState(?RemoteAssistanceState $value ): void {

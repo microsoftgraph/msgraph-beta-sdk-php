@@ -10,20 +10,26 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConfigurationManagerAction implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var ConfigurationManagerActionType|null $action The action type to trigger on Configuration Manager client. Possible values are: refreshMachinePolicy, refreshUserPolicy, wakeUpClient, appEvaluation, quickScan, fullScan, windowsDefenderUpdateSignatures.
+     * @var ConfigurationManagerActionType|null $action Action type on Configuration Manager client
     */
     private ?ConfigurationManagerActionType $action = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new configurationManagerAction and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.configurationManagerAction');
     }
 
     /**
@@ -36,7 +42,7 @@ class ConfigurationManagerAction implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the action property value. The action type to trigger on Configuration Manager client. Possible values are: refreshMachinePolicy, refreshUserPolicy, wakeUpClient, appEvaluation, quickScan, fullScan, windowsDefenderUpdateSignatures.
+     * Gets the action property value. Action type on Configuration Manager client
      * @return ConfigurationManagerActionType|null
     */
     public function getAction(): ?ConfigurationManagerActionType {
@@ -59,7 +65,16 @@ class ConfigurationManagerAction implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(ConfigurationManagerActionType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -68,11 +83,12 @@ class ConfigurationManagerAction implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('action', $this->action);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
-     * Sets the action property value. The action type to trigger on Configuration Manager client. Possible values are: refreshMachinePolicy, refreshUserPolicy, wakeUpClient, appEvaluation, quickScan, fullScan, windowsDefenderUpdateSignatures.
+     * Sets the action property value. Action type on Configuration Manager client
      *  @param ConfigurationManagerActionType|null $value Value to set for the action property.
     */
     public function setAction(?ConfigurationManagerActionType $value ): void {
@@ -85,6 +101,14 @@ class ConfigurationManagerAction implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

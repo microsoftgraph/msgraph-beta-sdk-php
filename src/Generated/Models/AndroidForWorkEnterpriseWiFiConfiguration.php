@@ -14,7 +14,7 @@ class AndroidForWorkEnterpriseWiFiConfiguration extends AndroidForWorkWiFiConfig
     private ?WiFiAuthenticationMethod $authenticationMethod = null;
     
     /**
-     * @var AndroidEapType|null $eapType Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, eapTtls, peap.
+     * @var AndroidEapType|null $eapType Extensible Authentication Protocol (EAP) Configuration Types.
     */
     private ?AndroidEapType $eapType = null;
     
@@ -53,6 +53,7 @@ class AndroidForWorkEnterpriseWiFiConfiguration extends AndroidForWorkWiFiConfig
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidForWorkEnterpriseWiFiConfiguration');
     }
 
     /**
@@ -73,7 +74,7 @@ class AndroidForWorkEnterpriseWiFiConfiguration extends AndroidForWorkWiFiConfig
     }
 
     /**
-     * Gets the eapType property value. Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, eapTtls, peap.
+     * Gets the eapType property value. Extensible Authentication Protocol (EAP) Configuration Types.
      * @return AndroidEapType|null
     */
     public function getEapType(): ?AndroidEapType {
@@ -171,7 +172,7 @@ class AndroidForWorkEnterpriseWiFiConfiguration extends AndroidForWorkWiFiConfig
     }
 
     /**
-     * Sets the eapType property value. Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, eapTtls, peap.
+     * Sets the eapType property value. Extensible Authentication Protocol (EAP) Configuration Types.
      *  @param AndroidEapType|null $value Value to set for the eapType property.
     */
     public function setEapType(?AndroidEapType $value ): void {

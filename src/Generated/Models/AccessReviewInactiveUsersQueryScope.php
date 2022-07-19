@@ -19,6 +19,7 @@ class AccessReviewInactiveUsersQueryScope extends AccessReviewQueryScope impleme
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.accessReviewInactiveUsersQueryScope');
     }
 
     /**

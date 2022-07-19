@@ -14,7 +14,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
     private ?string $license = null;
     
     /**
-     * @var EditionUpgradeLicenseType|null $licenseType Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured.
+     * @var EditionUpgradeLicenseType|null $licenseType Edition Upgrade License type
     */
     private ?EditionUpgradeLicenseType $licenseType = null;
     
@@ -24,12 +24,12 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
     private ?string $productKey = null;
     
     /**
-     * @var Windows10EditionType|null $targetEdition Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN, notConfigured, windows10Home, windows10HomeChina, windows10HomeN, windows10HomeSingleLanguage, windows10Mobile, windows10IoTCore, windows10IoTCoreCommercial.
+     * @var Windows10EditionType|null $targetEdition Windows 10 Edition type.
     */
     private ?Windows10EditionType $targetEdition = null;
     
     /**
-     * @var WindowsSModeConfiguration|null $windowsSMode S mode configuration. Possible values are: noRestriction, block, unlock.
+     * @var WindowsSModeConfiguration|null $windowsSMode The possible options to configure S mode unlock
     */
     private ?WindowsSModeConfiguration $windowsSMode = null;
     
@@ -38,6 +38,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.editionUpgradeConfiguration');
     }
 
     /**
@@ -73,7 +74,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
     }
 
     /**
-     * Gets the licenseType property value. Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured.
+     * Gets the licenseType property value. Edition Upgrade License type
      * @return EditionUpgradeLicenseType|null
     */
     public function getLicenseType(): ?EditionUpgradeLicenseType {
@@ -89,7 +90,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
     }
 
     /**
-     * Gets the targetEdition property value. Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN, notConfigured, windows10Home, windows10HomeChina, windows10HomeN, windows10HomeSingleLanguage, windows10Mobile, windows10IoTCore, windows10IoTCoreCommercial.
+     * Gets the targetEdition property value. Windows 10 Edition type.
      * @return Windows10EditionType|null
     */
     public function getTargetEdition(): ?Windows10EditionType {
@@ -97,7 +98,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
     }
 
     /**
-     * Gets the windowsSMode property value. S mode configuration. Possible values are: noRestriction, block, unlock.
+     * Gets the windowsSMode property value. The possible options to configure S mode unlock
      * @return WindowsSModeConfiguration|null
     */
     public function getWindowsSMode(): ?WindowsSModeConfiguration {
@@ -126,7 +127,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
     }
 
     /**
-     * Sets the licenseType property value. Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured.
+     * Sets the licenseType property value. Edition Upgrade License type
      *  @param EditionUpgradeLicenseType|null $value Value to set for the licenseType property.
     */
     public function setLicenseType(?EditionUpgradeLicenseType $value ): void {
@@ -142,7 +143,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
     }
 
     /**
-     * Sets the targetEdition property value. Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN, notConfigured, windows10Home, windows10HomeChina, windows10HomeN, windows10HomeSingleLanguage, windows10Mobile, windows10IoTCore, windows10IoTCoreCommercial.
+     * Sets the targetEdition property value. Windows 10 Edition type.
      *  @param Windows10EditionType|null $value Value to set for the targetEdition property.
     */
     public function setTargetEdition(?Windows10EditionType $value ): void {
@@ -150,7 +151,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
     }
 
     /**
-     * Sets the windowsSMode property value. S mode configuration. Possible values are: noRestriction, block, unlock.
+     * Sets the windowsSMode property value. The possible options to configure S mode unlock
      *  @param WindowsSModeConfiguration|null $value Value to set for the windowsSMode property.
     */
     public function setWindowsSMode(?WindowsSModeConfiguration $value ): void {
