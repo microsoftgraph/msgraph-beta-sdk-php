@@ -19,7 +19,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
     private ?int $pinExpirationInDays = null;
     
     /**
-     * @var ConfigurationUsage|null $pinLowercaseCharactersUsage This value configures the use of lowercase characters in the Windows Hello for Business PIN. Possible values are: blocked, required, allowed, notConfigured.
+     * @var ConfigurationUsage|null $pinLowercaseCharactersUsage Possible values of the ConfigurationUsage list.
     */
     private ?ConfigurationUsage $pinLowercaseCharactersUsage = null;
     
@@ -44,12 +44,12 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
     private ?bool $pinRecoveryEnabled = null;
     
     /**
-     * @var ConfigurationUsage|null $pinSpecialCharactersUsage Controls the ability to use special characters in the Windows Hello for Business PIN. Possible values are: blocked, required, allowed, notConfigured.
+     * @var ConfigurationUsage|null $pinSpecialCharactersUsage Possible values of the ConfigurationUsage list.
     */
     private ?ConfigurationUsage $pinSpecialCharactersUsage = null;
     
     /**
-     * @var ConfigurationUsage|null $pinUppercaseCharactersUsage This value configures the use of uppercase characters in the Windows Hello for Business PIN. Possible values are: blocked, required, allowed, notConfigured.
+     * @var ConfigurationUsage|null $pinUppercaseCharactersUsage Possible values of the ConfigurationUsage list.
     */
     private ?ConfigurationUsage $pinUppercaseCharactersUsage = null;
     
@@ -83,6 +83,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsIdentityProtectionConfiguration');
     }
 
     /**
@@ -135,7 +136,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
     }
 
     /**
-     * Gets the pinLowercaseCharactersUsage property value. This value configures the use of lowercase characters in the Windows Hello for Business PIN. Possible values are: blocked, required, allowed, notConfigured.
+     * Gets the pinLowercaseCharactersUsage property value. Possible values of the ConfigurationUsage list.
      * @return ConfigurationUsage|null
     */
     public function getPinLowercaseCharactersUsage(): ?ConfigurationUsage {
@@ -175,7 +176,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
     }
 
     /**
-     * Gets the pinSpecialCharactersUsage property value. Controls the ability to use special characters in the Windows Hello for Business PIN. Possible values are: blocked, required, allowed, notConfigured.
+     * Gets the pinSpecialCharactersUsage property value. Possible values of the ConfigurationUsage list.
      * @return ConfigurationUsage|null
     */
     public function getPinSpecialCharactersUsage(): ?ConfigurationUsage {
@@ -183,7 +184,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
     }
 
     /**
-     * Gets the pinUppercaseCharactersUsage property value. This value configures the use of uppercase characters in the Windows Hello for Business PIN. Possible values are: blocked, required, allowed, notConfigured.
+     * Gets the pinUppercaseCharactersUsage property value. Possible values of the ConfigurationUsage list.
      * @return ConfigurationUsage|null
     */
     public function getPinUppercaseCharactersUsage(): ?ConfigurationUsage {
@@ -269,7 +270,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
     }
 
     /**
-     * Sets the pinLowercaseCharactersUsage property value. This value configures the use of lowercase characters in the Windows Hello for Business PIN. Possible values are: blocked, required, allowed, notConfigured.
+     * Sets the pinLowercaseCharactersUsage property value. Possible values of the ConfigurationUsage list.
      *  @param ConfigurationUsage|null $value Value to set for the pinLowercaseCharactersUsage property.
     */
     public function setPinLowercaseCharactersUsage(?ConfigurationUsage $value ): void {
@@ -309,7 +310,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
     }
 
     /**
-     * Sets the pinSpecialCharactersUsage property value. Controls the ability to use special characters in the Windows Hello for Business PIN. Possible values are: blocked, required, allowed, notConfigured.
+     * Sets the pinSpecialCharactersUsage property value. Possible values of the ConfigurationUsage list.
      *  @param ConfigurationUsage|null $value Value to set for the pinSpecialCharactersUsage property.
     */
     public function setPinSpecialCharactersUsage(?ConfigurationUsage $value ): void {
@@ -317,7 +318,7 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
     }
 
     /**
-     * Sets the pinUppercaseCharactersUsage property value. This value configures the use of uppercase characters in the Windows Hello for Business PIN. Possible values are: blocked, required, allowed, notConfigured.
+     * Sets the pinUppercaseCharactersUsage property value. Possible values of the ConfigurationUsage list.
      *  @param ConfigurationUsage|null $value Value to set for the pinUppercaseCharactersUsage property.
     */
     public function setPinUppercaseCharactersUsage(?ConfigurationUsage $value ): void {

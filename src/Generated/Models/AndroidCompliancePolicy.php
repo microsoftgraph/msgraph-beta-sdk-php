@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * @var DeviceThreatProtectionLevel|null $advancedThreatProtectionRequiredSecurityLevel MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * @var DeviceThreatProtectionLevel|null $advancedThreatProtectionRequiredSecurityLevel Device threat protection levels for the Device Threat Protection API.
     */
     private ?DeviceThreatProtectionLevel $advancedThreatProtectionRequiredSecurityLevel = null;
     
@@ -24,7 +24,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     private ?bool $deviceThreatProtectionEnabled = null;
     
     /**
-     * @var DeviceThreatProtectionLevel|null $deviceThreatProtectionRequiredSecurityLevel Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * @var DeviceThreatProtectionLevel|null $deviceThreatProtectionRequiredSecurityLevel Device threat protection levels for the Device Threat Protection API.
     */
     private ?DeviceThreatProtectionLevel $deviceThreatProtectionRequiredSecurityLevel = null;
     
@@ -69,7 +69,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     private ?bool $passwordRequired = null;
     
     /**
-     * @var AndroidRequiredPasswordType|null $passwordRequiredType Type of characters in password. Possible values are: deviceDefault, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, numeric, numericComplex, any.
+     * @var AndroidRequiredPasswordType|null $passwordRequiredType Android required password type.
     */
     private ?AndroidRequiredPasswordType $passwordRequiredType = null;
     
@@ -79,7 +79,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     private ?int $passwordSignInFailureCountBeforeFactoryReset = null;
     
     /**
-     * @var AndroidRequiredPasswordComplexity|null $requiredPasswordComplexity Indicates the required password complexity on Android. One of: NONE, LOW, MEDIUM, HIGH. This is a new API targeted to Android 11+. Possible values are: none, low, medium, high.
+     * @var AndroidRequiredPasswordComplexity|null $requiredPasswordComplexity The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
     */
     private ?AndroidRequiredPasswordComplexity $requiredPasswordComplexity = null;
     
@@ -148,6 +148,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidCompliancePolicy');
     }
 
     /**
@@ -160,7 +161,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Gets the advancedThreatProtectionRequiredSecurityLevel property value. MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Gets the advancedThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      * @return DeviceThreatProtectionLevel|null
     */
     public function getAdvancedThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
@@ -184,7 +185,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Gets the deviceThreatProtectionRequiredSecurityLevel property value. Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Gets the deviceThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      * @return DeviceThreatProtectionLevel|null
     */
     public function getDeviceThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
@@ -293,7 +294,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Gets the passwordRequiredType property value. Type of characters in password. Possible values are: deviceDefault, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, numeric, numericComplex, any.
+     * Gets the passwordRequiredType property value. Android required password type.
      * @return AndroidRequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?AndroidRequiredPasswordType {
@@ -309,7 +310,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Gets the requiredPasswordComplexity property value. Indicates the required password complexity on Android. One of: NONE, LOW, MEDIUM, HIGH. This is a new API targeted to Android 11+. Possible values are: none, low, medium, high.
+     * Gets the requiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
      * @return AndroidRequiredPasswordComplexity|null
     */
     public function getRequiredPasswordComplexity(): ?AndroidRequiredPasswordComplexity {
@@ -448,7 +449,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Sets the advancedThreatProtectionRequiredSecurityLevel property value. MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Sets the advancedThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      *  @param DeviceThreatProtectionLevel|null $value Value to set for the advancedThreatProtectionRequiredSecurityLevel property.
     */
     public function setAdvancedThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value ): void {
@@ -472,7 +473,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      *  @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
     */
     public function setDeviceThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value ): void {
@@ -544,7 +545,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Sets the passwordRequiredType property value. Type of characters in password. Possible values are: deviceDefault, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, numeric, numericComplex, any.
+     * Sets the passwordRequiredType property value. Android required password type.
      *  @param AndroidRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?AndroidRequiredPasswordType $value ): void {
@@ -560,7 +561,7 @@ class AndroidCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     }
 
     /**
-     * Sets the requiredPasswordComplexity property value. Indicates the required password complexity on Android. One of: NONE, LOW, MEDIUM, HIGH. This is a new API targeted to Android 11+. Possible values are: none, low, medium, high.
+     * Sets the requiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
      *  @param AndroidRequiredPasswordComplexity|null $value Value to set for the requiredPasswordComplexity property.
     */
     public function setRequiredPasswordComplexity(?AndroidRequiredPasswordComplexity $value ): void {

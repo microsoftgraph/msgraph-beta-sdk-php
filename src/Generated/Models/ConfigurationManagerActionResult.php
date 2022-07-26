@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConfigurationManagerActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * @var ConfigurationManagerActionDeliveryStatus|null $actionDeliveryStatus State of the action being delivered to on-prem server. Possible values are: unknown, pendingDelivery, deliveredToConnectorService, failedToDeliverToConnectorService, deliveredToOnPremisesServer.
+     * @var ConfigurationManagerActionDeliveryStatus|null $actionDeliveryStatus Delivery state of Configuration Manager device action
     */
     private ?ConfigurationManagerActionDeliveryStatus $actionDeliveryStatus = null;
     
@@ -23,6 +23,7 @@ class ConfigurationManagerActionResult extends DeviceActionResult implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.configurationManagerActionResult');
     }
 
     /**
@@ -35,7 +36,7 @@ class ConfigurationManagerActionResult extends DeviceActionResult implements Par
     }
 
     /**
-     * Gets the actionDeliveryStatus property value. State of the action being delivered to on-prem server. Possible values are: unknown, pendingDelivery, deliveredToConnectorService, failedToDeliverToConnectorService, deliveredToOnPremisesServer.
+     * Gets the actionDeliveryStatus property value. Delivery state of Configuration Manager device action
      * @return ConfigurationManagerActionDeliveryStatus|null
     */
     public function getActionDeliveryStatus(): ?ConfigurationManagerActionDeliveryStatus {
@@ -73,7 +74,7 @@ class ConfigurationManagerActionResult extends DeviceActionResult implements Par
     }
 
     /**
-     * Sets the actionDeliveryStatus property value. State of the action being delivered to on-prem server. Possible values are: unknown, pendingDelivery, deliveredToConnectorService, failedToDeliverToConnectorService, deliveredToOnPremisesServer.
+     * Sets the actionDeliveryStatus property value. Delivery state of Configuration Manager device action
      *  @param ConfigurationManagerActionDeliveryStatus|null $value Value to set for the actionDeliveryStatus property.
     */
     public function setActionDeliveryStatus(?ConfigurationManagerActionDeliveryStatus $value ): void {

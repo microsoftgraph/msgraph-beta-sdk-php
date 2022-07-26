@@ -24,7 +24,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
     private ?UsernameSource $usernameAADSource = null;
     
     /**
-     * @var UserEmailSource|null $usernameSource Username attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * @var UserEmailSource|null $usernameSource Possible values for username source or email source.
     */
     private ?UserEmailSource $usernameSource = null;
     
@@ -33,6 +33,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.easEmailProfileConfigurationBase');
     }
 
     /**
@@ -92,7 +93,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the usernameSource property value. Username attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * Gets the usernameSource property value. Possible values for username source or email source.
      * @return UserEmailSource|null
     */
     public function getUsernameSource(): ?UserEmailSource {
@@ -136,7 +137,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the usernameSource property value. Username attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * Sets the usernameSource property value. Possible values for username source or email source.
      *  @param UserEmailSource|null $value Value to set for the usernameSource property.
     */
     public function setUsernameSource(?UserEmailSource $value ): void {

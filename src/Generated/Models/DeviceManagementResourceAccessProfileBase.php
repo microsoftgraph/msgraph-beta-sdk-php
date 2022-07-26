@@ -45,10 +45,11 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
     private ?int $version = null;
     
     /**
-     * Instantiates a new DeviceManagementResourceAccessProfileBase and sets the default values.
+     * Instantiates a new deviceManagementResourceAccessProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementResourceAccessProfileBase');
     }
 
     /**
@@ -62,6 +63,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.windows10XCertificateProfile': return new Windows10XCertificateProfile();
+                case '#microsoft.graph.windows10XSCEPCertificateProfile': return new Windows10XSCEPCertificateProfile();
                 case '#microsoft.graph.windows10XTrustedRootCertificate': return new Windows10XTrustedRootCertificate();
                 case '#microsoft.graph.windows10XVpnConfiguration': return new Windows10XVpnConfiguration();
                 case '#microsoft.graph.windows10XWifiConfiguration': return new Windows10XWifiConfiguration();

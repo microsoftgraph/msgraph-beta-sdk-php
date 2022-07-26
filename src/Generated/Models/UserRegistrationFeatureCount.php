@@ -10,14 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserRegistrationFeatureCount implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var AuthenticationMethodFeature|null $feature Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication. Possible values are: ssprRegistered, ssprEnabled, ssprCapable, passwordlessCapable, mfaCapable.
+     * @var AuthenticationMethodFeature|null $feature The feature property
     */
     private ?AuthenticationMethodFeature $feature = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $userCount Number of users.
@@ -28,7 +33,8 @@ class UserRegistrationFeatureCount implements AdditionalDataHolder, Parsable
      * Instantiates a new userRegistrationFeatureCount and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.userRegistrationFeatureCount');
     }
 
     /**
@@ -49,7 +55,7 @@ class UserRegistrationFeatureCount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the feature property value. Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication. Possible values are: ssprRegistered, ssprEnabled, ssprCapable, passwordlessCapable, mfaCapable.
+     * Gets the feature property value. The feature property
      * @return AuthenticationMethodFeature|null
     */
     public function getFeature(): ?AuthenticationMethodFeature {
@@ -64,8 +70,17 @@ class UserRegistrationFeatureCount implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'feature' => function (ParseNode $n) use ($o) { $o->setFeature($n->getEnumValue(AuthenticationMethodFeature::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userCount' => function (ParseNode $n) use ($o) { $o->setUserCount($n->getIntegerValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class UserRegistrationFeatureCount implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('feature', $this->feature);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('userCount', $this->userCount);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -95,11 +111,19 @@ class UserRegistrationFeatureCount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the feature property value. Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication. Possible values are: ssprRegistered, ssprEnabled, ssprCapable, passwordlessCapable, mfaCapable.
+     * Sets the feature property value. The feature property
      *  @param AuthenticationMethodFeature|null $value Value to set for the feature property.
     */
     public function setFeature(?AuthenticationMethodFeature $value ): void {
         $this->feature = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -13,6 +13,7 @@ class DeviceHealthScriptDailySchedule extends DeviceHealthScriptTimeSchedule imp
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceHealthScriptDailySchedule');
     }
 
     /**

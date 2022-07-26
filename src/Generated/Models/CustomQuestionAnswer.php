@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomQuestionAnswer implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class CustomQuestionAnswer implements AdditionalDataHolder, Parsable
      * @var string|null $displayName Display name of the custom registration question. Read-only.
     */
     private ?string $displayName = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $questionId ID the custom registration question. Read-only.
@@ -33,7 +38,8 @@ class CustomQuestionAnswer implements AdditionalDataHolder, Parsable
      * Instantiates a new customQuestionAnswer and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.customQuestionAnswer');
     }
 
     /**
@@ -69,9 +75,18 @@ class CustomQuestionAnswer implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'questionId' => function (ParseNode $n) use ($o) { $o->setQuestionId($n->getStringValue()); },
             'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -96,6 +111,7 @@ class CustomQuestionAnswer implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('questionId', $this->questionId);
         $writer->writeStringValue('value', $this->value);
         $writer->writeAdditionalData($this->additionalData);
@@ -115,6 +131,14 @@ class CustomQuestionAnswer implements AdditionalDataHolder, Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

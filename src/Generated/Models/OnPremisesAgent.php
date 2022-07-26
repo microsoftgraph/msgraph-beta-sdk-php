@@ -24,7 +24,7 @@ class OnPremisesAgent extends Entity implements Parsable
     private ?string $machineName = null;
     
     /**
-     * @var AgentStatus|null $status Possible values are: active, inactive.
+     * @var AgentStatus|null $status The status property
     */
     private ?AgentStatus $status = null;
     
@@ -38,6 +38,7 @@ class OnPremisesAgent extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.onPremisesAgent');
     }
 
     /**
@@ -89,7 +90,7 @@ class OnPremisesAgent extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Possible values are: active, inactive.
+     * Gets the status property value. The status property
      * @return AgentStatus|null
     */
     public function getStatus(): ?AgentStatus {
@@ -142,7 +143,7 @@ class OnPremisesAgent extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Possible values are: active, inactive.
+     * Sets the status property value. The status property
      *  @param AgentStatus|null $value Value to set for the status property.
     */
     public function setStatus(?AgentStatus $value ): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OathTokenMetadata implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class OathTokenMetadata implements AdditionalDataHolder, Parsable
     private ?array $manufacturerProperties = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $serialNumber The serialNumber property
     */
     private ?string $serialNumber = null;
@@ -43,7 +48,8 @@ class OathTokenMetadata implements AdditionalDataHolder, Parsable
      * Instantiates a new oathTokenMetadata and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.oathTokenMetadata');
     }
 
     /**
@@ -81,6 +87,7 @@ class OathTokenMetadata implements AdditionalDataHolder, Parsable
             'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
             'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
             'manufacturerProperties' => function (ParseNode $n) use ($o) { $o->setManufacturerProperties($n->getCollectionOfObjectValues(array(KeyValue::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
             'tokenType' => function (ParseNode $n) use ($o) { $o->setTokenType($n->getStringValue()); },
         ];
@@ -100,6 +107,14 @@ class OathTokenMetadata implements AdditionalDataHolder, Parsable
     */
     public function getManufacturerProperties(): ?array {
         return $this->manufacturerProperties;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -126,6 +141,7 @@ class OathTokenMetadata implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('enabled', $this->enabled);
         $writer->writeStringValue('manufacturer', $this->manufacturer);
         $writer->writeCollectionOfObjectValues('manufacturerProperties', $this->manufacturerProperties);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('serialNumber', $this->serialNumber);
         $writer->writeStringValue('tokenType', $this->tokenType);
         $writer->writeAdditionalData($this->additionalData);
@@ -161,6 +177,14 @@ class OathTokenMetadata implements AdditionalDataHolder, Parsable
     */
     public function setManufacturerProperties(?array $value ): void {
         $this->manufacturerProperties = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

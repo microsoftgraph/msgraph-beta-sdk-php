@@ -9,17 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var EasAuthenticationMethod|null $authenticationMethod Authentication method for Exchange ActiveSync. Possible values are: usernameAndPassword, certificate, derivedCredential.
+     * @var EasAuthenticationMethod|null $authenticationMethod Exchange Active Sync authentication method.
     */
     private ?EasAuthenticationMethod $authenticationMethod = null;
     
     /**
-     * @var EmailSyncDuration|null $durationOfEmailToSync Duration of time email should be synced to. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * @var EmailSyncDuration|null $durationOfEmailToSync Possible values for email sync duration.
     */
     private ?EmailSyncDuration $durationOfEmailToSync = null;
     
     /**
-     * @var UserEmailSource|null $emailAddressSource Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * @var UserEmailSource|null $emailAddressSource Possible values for username source or email source.
     */
     private ?UserEmailSource $emailAddressSource = null;
     
@@ -39,7 +39,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     private ?bool $requireSsl = null;
     
     /**
-     * @var AndroidUsernameSource|null $usernameSource Username attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: username, userPrincipalName, samAccountName, primarySmtpAddress.
+     * @var AndroidUsernameSource|null $usernameSource Android username source.
     */
     private ?AndroidUsernameSource $usernameSource = null;
     
@@ -48,6 +48,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidForWorkEasEmailProfileBase');
     }
 
     /**
@@ -68,7 +69,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     }
 
     /**
-     * Gets the authenticationMethod property value. Authentication method for Exchange ActiveSync. Possible values are: usernameAndPassword, certificate, derivedCredential.
+     * Gets the authenticationMethod property value. Exchange Active Sync authentication method.
      * @return EasAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?EasAuthenticationMethod {
@@ -76,7 +77,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     }
 
     /**
-     * Gets the durationOfEmailToSync property value. Duration of time email should be synced to. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * Gets the durationOfEmailToSync property value. Possible values for email sync duration.
      * @return EmailSyncDuration|null
     */
     public function getDurationOfEmailToSync(): ?EmailSyncDuration {
@@ -84,7 +85,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     }
 
     /**
-     * Gets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * Gets the emailAddressSource property value. Possible values for username source or email source.
      * @return UserEmailSource|null
     */
     public function getEmailAddressSource(): ?UserEmailSource {
@@ -133,7 +134,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     }
 
     /**
-     * Gets the usernameSource property value. Username attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: username, userPrincipalName, samAccountName, primarySmtpAddress.
+     * Gets the usernameSource property value. Android username source.
      * @return AndroidUsernameSource|null
     */
     public function getUsernameSource(): ?AndroidUsernameSource {
@@ -156,7 +157,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     }
 
     /**
-     * Sets the authenticationMethod property value. Authentication method for Exchange ActiveSync. Possible values are: usernameAndPassword, certificate, derivedCredential.
+     * Sets the authenticationMethod property value. Exchange Active Sync authentication method.
      *  @param EasAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?EasAuthenticationMethod $value ): void {
@@ -164,7 +165,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     }
 
     /**
-     * Sets the durationOfEmailToSync property value. Duration of time email should be synced to. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * Sets the durationOfEmailToSync property value. Possible values for email sync duration.
      *  @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
     */
     public function setDurationOfEmailToSync(?EmailSyncDuration $value ): void {
@@ -172,7 +173,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     }
 
     /**
-     * Sets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * Sets the emailAddressSource property value. Possible values for username source or email source.
      *  @param UserEmailSource|null $value Value to set for the emailAddressSource property.
     */
     public function setEmailAddressSource(?UserEmailSource $value ): void {
@@ -204,7 +205,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     }
 
     /**
-     * Sets the usernameSource property value. Username attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: username, userPrincipalName, samAccountName, primarySmtpAddress.
+     * Sets the usernameSource property value. Android username source.
      *  @param AndroidUsernameSource|null $value Value to set for the usernameSource property.
     */
     public function setUsernameSource(?AndroidUsernameSource $value ): void {

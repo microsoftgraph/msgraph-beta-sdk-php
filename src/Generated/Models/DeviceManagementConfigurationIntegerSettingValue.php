@@ -18,6 +18,7 @@ class DeviceManagementConfigurationIntegerSettingValue extends DeviceManagementC
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationIntegerSettingValue');
     }
 
     /**

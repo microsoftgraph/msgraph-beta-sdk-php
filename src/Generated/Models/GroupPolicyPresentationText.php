@@ -13,6 +13,7 @@ class GroupPolicyPresentationText extends GroupPolicyPresentation implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyPresentationText');
     }
 
     /**

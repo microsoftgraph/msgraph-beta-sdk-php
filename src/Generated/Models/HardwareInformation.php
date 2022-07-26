@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class HardwareInformation implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
      * @var int|null $batteryHealthPercentage The device’s current battery’s health percentage. Valid values 0 to 100
     */
     private ?int $batteryHealthPercentage = null;
+    
+    /**
+     * @var float|null $batteryLevelPercentage The battery level, between 0.0 and 100, or null if the battery level cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 5.0 and later, and is available only when Device Information access right is obtained. Valid values 0 to 100
+    */
+    private ?float $batteryLevelPercentage = null;
     
     /**
      * @var string|null $batterySerialNumber The serial number of the device’s current battery
@@ -40,19 +45,34 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     private ?string $deviceFullQualifiedDomainName = null;
     
     /**
-     * @var DeviceGuardLocalSystemAuthorityCredentialGuardState|null $deviceGuardLocalSystemAuthorityCredentialGuardState Local System Authority (LSA) credential guard status. . Possible values are: running, rebootRequired, notLicensed, notConfigured, virtualizationBasedSecurityNotRunning.
+     * @var DeviceGuardLocalSystemAuthorityCredentialGuardState|null $deviceGuardLocalSystemAuthorityCredentialGuardState The deviceGuardLocalSystemAuthorityCredentialGuardState property
     */
     private ?DeviceGuardLocalSystemAuthorityCredentialGuardState $deviceGuardLocalSystemAuthorityCredentialGuardState = null;
     
     /**
-     * @var DeviceGuardVirtualizationBasedSecurityHardwareRequirementState|null $deviceGuardVirtualizationBasedSecurityHardwareRequirementState Virtualization-based security hardware requirement status. Possible values are: meetHardwareRequirements, secureBootRequired, dmaProtectionRequired, hyperVNotSupportedForGuestVM, hyperVNotAvailable.
+     * @var DeviceGuardVirtualizationBasedSecurityHardwareRequirementState|null $deviceGuardVirtualizationBasedSecurityHardwareRequirementState The deviceGuardVirtualizationBasedSecurityHardwareRequirementState property
     */
     private ?DeviceGuardVirtualizationBasedSecurityHardwareRequirementState $deviceGuardVirtualizationBasedSecurityHardwareRequirementState = null;
     
     /**
-     * @var DeviceGuardVirtualizationBasedSecurityState|null $deviceGuardVirtualizationBasedSecurityState Virtualization-based security status. . Possible values are: running, rebootRequired, require64BitArchitecture, notLicensed, notConfigured, doesNotMeetHardwareRequirements, other.
+     * @var DeviceGuardVirtualizationBasedSecurityState|null $deviceGuardVirtualizationBasedSecurityState The deviceGuardVirtualizationBasedSecurityState property
     */
     private ?DeviceGuardVirtualizationBasedSecurityState $deviceGuardVirtualizationBasedSecurityState = null;
+    
+    /**
+     * @var int|null $deviceLicensingLastErrorCode A standard error code indicating the last error, or 0 indicating no error (default). The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing. Valid values 0 to 2147483647
+    */
+    private ?int $deviceLicensingLastErrorCode = null;
+    
+    /**
+     * @var string|null $deviceLicensingLastErrorDescription Error text message as a descripition for deviceLicensingLastErrorCode. The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing.
+    */
+    private ?string $deviceLicensingLastErrorDescription = null;
+    
+    /**
+     * @var DeviceLicensingStatus|null $deviceLicensingStatus Indicates the device licensing status after Windows device based subscription has been enabled.
+    */
+    private ?DeviceLicensingStatus $deviceLicensingStatus = null;
     
     /**
      * @var string|null $esimIdentifier eSIM identifier
@@ -105,6 +125,11 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     private ?string $model = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $operatingSystemEdition String that specifies the OS edition.
     */
     private ?string $operatingSystemEdition = null;
@@ -128,6 +153,16 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
      * @var string|null $phoneNumber Phone number of the device
     */
     private ?string $phoneNumber = null;
+    
+    /**
+     * @var string|null $productName The product name, e.g. iPad8,12 etc. The update frequency of this property is weekly. Note this property is currently supported only on iOS/MacOS devices, and is available only when Device Information access right is obtained.
+    */
+    private ?string $productName = null;
+    
+    /**
+     * @var int|null $residentUsersCount The number of users currently on this device, or null (default) if the value of this property cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 13.4 and later, and is available only when Device Information access right is obtained. Valid values 0 to 2147483647
+    */
+    private ?int $residentUsersCount = null;
     
     /**
      * @var string|null $serialNumber Serial number.
@@ -180,10 +215,16 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     private ?string $wifiMac = null;
     
     /**
+     * @var array<string>|null $wiredIPv4Addresses A list of wired IPv4 addresses. The update frequency (the maximum delay for the change of property value to be synchronized from the device to the cloud storage) of this property is daily. Note this property is currently supported only on devices running on Windows.
+    */
+    private ?array $wiredIPv4Addresses = null;
+    
+    /**
      * Instantiates a new hardwareInformation and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.hardwareInformation');
     }
 
     /**
@@ -220,6 +261,14 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the batteryLevelPercentage property value. The battery level, between 0.0 and 100, or null if the battery level cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 5.0 and later, and is available only when Device Information access right is obtained. Valid values 0 to 100
+     * @return float|null
+    */
+    public function getBatteryLevelPercentage(): ?float {
+        return $this->batteryLevelPercentage;
+    }
+
+    /**
      * Gets the batterySerialNumber property value. The serial number of the device’s current battery
      * @return string|null
     */
@@ -244,7 +293,7 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceGuardLocalSystemAuthorityCredentialGuardState property value. Local System Authority (LSA) credential guard status. . Possible values are: running, rebootRequired, notLicensed, notConfigured, virtualizationBasedSecurityNotRunning.
+     * Gets the deviceGuardLocalSystemAuthorityCredentialGuardState property value. The deviceGuardLocalSystemAuthorityCredentialGuardState property
      * @return DeviceGuardLocalSystemAuthorityCredentialGuardState|null
     */
     public function getDeviceGuardLocalSystemAuthorityCredentialGuardState(): ?DeviceGuardLocalSystemAuthorityCredentialGuardState {
@@ -252,7 +301,7 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceGuardVirtualizationBasedSecurityHardwareRequirementState property value. Virtualization-based security hardware requirement status. Possible values are: meetHardwareRequirements, secureBootRequired, dmaProtectionRequired, hyperVNotSupportedForGuestVM, hyperVNotAvailable.
+     * Gets the deviceGuardVirtualizationBasedSecurityHardwareRequirementState property value. The deviceGuardVirtualizationBasedSecurityHardwareRequirementState property
      * @return DeviceGuardVirtualizationBasedSecurityHardwareRequirementState|null
     */
     public function getDeviceGuardVirtualizationBasedSecurityHardwareRequirementState(): ?DeviceGuardVirtualizationBasedSecurityHardwareRequirementState {
@@ -260,11 +309,35 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceGuardVirtualizationBasedSecurityState property value. Virtualization-based security status. . Possible values are: running, rebootRequired, require64BitArchitecture, notLicensed, notConfigured, doesNotMeetHardwareRequirements, other.
+     * Gets the deviceGuardVirtualizationBasedSecurityState property value. The deviceGuardVirtualizationBasedSecurityState property
      * @return DeviceGuardVirtualizationBasedSecurityState|null
     */
     public function getDeviceGuardVirtualizationBasedSecurityState(): ?DeviceGuardVirtualizationBasedSecurityState {
         return $this->deviceGuardVirtualizationBasedSecurityState;
+    }
+
+    /**
+     * Gets the deviceLicensingLastErrorCode property value. A standard error code indicating the last error, or 0 indicating no error (default). The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing. Valid values 0 to 2147483647
+     * @return int|null
+    */
+    public function getDeviceLicensingLastErrorCode(): ?int {
+        return $this->deviceLicensingLastErrorCode;
+    }
+
+    /**
+     * Gets the deviceLicensingLastErrorDescription property value. Error text message as a descripition for deviceLicensingLastErrorCode. The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing.
+     * @return string|null
+    */
+    public function getDeviceLicensingLastErrorDescription(): ?string {
+        return $this->deviceLicensingLastErrorDescription;
+    }
+
+    /**
+     * Gets the deviceLicensingStatus property value. Indicates the device licensing status after Windows device based subscription has been enabled.
+     * @return DeviceLicensingStatus|null
+    */
+    public function getDeviceLicensingStatus(): ?DeviceLicensingStatus {
+        return $this->deviceLicensingStatus;
     }
 
     /**
@@ -284,12 +357,16 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
         return  [
             'batteryChargeCycles' => function (ParseNode $n) use ($o) { $o->setBatteryChargeCycles($n->getIntegerValue()); },
             'batteryHealthPercentage' => function (ParseNode $n) use ($o) { $o->setBatteryHealthPercentage($n->getIntegerValue()); },
+            'batteryLevelPercentage' => function (ParseNode $n) use ($o) { $o->setBatteryLevelPercentage($n->getFloatValue()); },
             'batterySerialNumber' => function (ParseNode $n) use ($o) { $o->setBatterySerialNumber($n->getStringValue()); },
             'cellularTechnology' => function (ParseNode $n) use ($o) { $o->setCellularTechnology($n->getStringValue()); },
             'deviceFullQualifiedDomainName' => function (ParseNode $n) use ($o) { $o->setDeviceFullQualifiedDomainName($n->getStringValue()); },
             'deviceGuardLocalSystemAuthorityCredentialGuardState' => function (ParseNode $n) use ($o) { $o->setDeviceGuardLocalSystemAuthorityCredentialGuardState($n->getEnumValue(DeviceGuardLocalSystemAuthorityCredentialGuardState::class)); },
             'deviceGuardVirtualizationBasedSecurityHardwareRequirementState' => function (ParseNode $n) use ($o) { $o->setDeviceGuardVirtualizationBasedSecurityHardwareRequirementState($n->getEnumValue(DeviceGuardVirtualizationBasedSecurityHardwareRequirementState::class)); },
             'deviceGuardVirtualizationBasedSecurityState' => function (ParseNode $n) use ($o) { $o->setDeviceGuardVirtualizationBasedSecurityState($n->getEnumValue(DeviceGuardVirtualizationBasedSecurityState::class)); },
+            'deviceLicensingLastErrorCode' => function (ParseNode $n) use ($o) { $o->setDeviceLicensingLastErrorCode($n->getIntegerValue()); },
+            'deviceLicensingLastErrorDescription' => function (ParseNode $n) use ($o) { $o->setDeviceLicensingLastErrorDescription($n->getStringValue()); },
+            'deviceLicensingStatus' => function (ParseNode $n) use ($o) { $o->setDeviceLicensingStatus($n->getEnumValue(DeviceLicensingStatus::class)); },
             'esimIdentifier' => function (ParseNode $n) use ($o) { $o->setEsimIdentifier($n->getStringValue()); },
             'freeStorageSpace' => function (ParseNode $n) use ($o) { $o->setFreeStorageSpace($n->getIntegerValue()); },
             'imei' => function (ParseNode $n) use ($o) { $o->setImei($n->getStringValue()); },
@@ -300,11 +377,14 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
             'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
             'meid' => function (ParseNode $n) use ($o) { $o->setMeid($n->getStringValue()); },
             'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'operatingSystemEdition' => function (ParseNode $n) use ($o) { $o->setOperatingSystemEdition($n->getStringValue()); },
             'operatingSystemLanguage' => function (ParseNode $n) use ($o) { $o->setOperatingSystemLanguage($n->getStringValue()); },
             'operatingSystemProductType' => function (ParseNode $n) use ($o) { $o->setOperatingSystemProductType($n->getIntegerValue()); },
             'osBuildNumber' => function (ParseNode $n) use ($o) { $o->setOsBuildNumber($n->getStringValue()); },
             'phoneNumber' => function (ParseNode $n) use ($o) { $o->setPhoneNumber($n->getStringValue()); },
+            'productName' => function (ParseNode $n) use ($o) { $o->setProductName($n->getStringValue()); },
+            'residentUsersCount' => function (ParseNode $n) use ($o) { $o->setResidentUsersCount($n->getIntegerValue()); },
             'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
             'sharedDeviceCachedUsers' => function (ParseNode $n) use ($o) { $o->setSharedDeviceCachedUsers($n->getCollectionOfObjectValues(array(SharedAppleDeviceUser::class, 'createFromDiscriminatorValue'))); },
             'subnetAddress' => function (ParseNode $n) use ($o) { $o->setSubnetAddress($n->getStringValue()); },
@@ -315,6 +395,7 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
             'tpmSpecificationVersion' => function (ParseNode $n) use ($o) { $o->setTpmSpecificationVersion($n->getStringValue()); },
             'tpmVersion' => function (ParseNode $n) use ($o) { $o->setTpmVersion($n->getStringValue()); },
             'wifiMac' => function (ParseNode $n) use ($o) { $o->setWifiMac($n->getStringValue()); },
+            'wiredIPv4Addresses' => function (ParseNode $n) use ($o) { $o->setWiredIPv4Addresses($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 
@@ -391,6 +472,14 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the operatingSystemEdition property value. String that specifies the OS edition.
      * @return string|null
     */
@@ -428,6 +517,22 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     */
     public function getPhoneNumber(): ?string {
         return $this->phoneNumber;
+    }
+
+    /**
+     * Gets the productName property value. The product name, e.g. iPad8,12 etc. The update frequency of this property is weekly. Note this property is currently supported only on iOS/MacOS devices, and is available only when Device Information access right is obtained.
+     * @return string|null
+    */
+    public function getProductName(): ?string {
+        return $this->productName;
+    }
+
+    /**
+     * Gets the residentUsersCount property value. The number of users currently on this device, or null (default) if the value of this property cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 13.4 and later, and is available only when Device Information access right is obtained. Valid values 0 to 2147483647
+     * @return int|null
+    */
+    public function getResidentUsersCount(): ?int {
+        return $this->residentUsersCount;
     }
 
     /**
@@ -511,18 +616,30 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the wiredIPv4Addresses property value. A list of wired IPv4 addresses. The update frequency (the maximum delay for the change of property value to be synchronized from the device to the cloud storage) of this property is daily. Note this property is currently supported only on devices running on Windows.
+     * @return array<string>|null
+    */
+    public function getWiredIPv4Addresses(): ?array {
+        return $this->wiredIPv4Addresses;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('batteryChargeCycles', $this->batteryChargeCycles);
         $writer->writeIntegerValue('batteryHealthPercentage', $this->batteryHealthPercentage);
+        $writer->writeFloatValue('batteryLevelPercentage', $this->batteryLevelPercentage);
         $writer->writeStringValue('batterySerialNumber', $this->batterySerialNumber);
         $writer->writeStringValue('cellularTechnology', $this->cellularTechnology);
         $writer->writeStringValue('deviceFullQualifiedDomainName', $this->deviceFullQualifiedDomainName);
         $writer->writeEnumValue('deviceGuardLocalSystemAuthorityCredentialGuardState', $this->deviceGuardLocalSystemAuthorityCredentialGuardState);
         $writer->writeEnumValue('deviceGuardVirtualizationBasedSecurityHardwareRequirementState', $this->deviceGuardVirtualizationBasedSecurityHardwareRequirementState);
         $writer->writeEnumValue('deviceGuardVirtualizationBasedSecurityState', $this->deviceGuardVirtualizationBasedSecurityState);
+        $writer->writeIntegerValue('deviceLicensingLastErrorCode', $this->deviceLicensingLastErrorCode);
+        $writer->writeStringValue('deviceLicensingLastErrorDescription', $this->deviceLicensingLastErrorDescription);
+        $writer->writeEnumValue('deviceLicensingStatus', $this->deviceLicensingStatus);
         $writer->writeStringValue('esimIdentifier', $this->esimIdentifier);
         $writer->writeIntegerValue('freeStorageSpace', $this->freeStorageSpace);
         $writer->writeStringValue('imei', $this->imei);
@@ -533,11 +650,14 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('manufacturer', $this->manufacturer);
         $writer->writeStringValue('meid', $this->meid);
         $writer->writeStringValue('model', $this->model);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('operatingSystemEdition', $this->operatingSystemEdition);
         $writer->writeStringValue('operatingSystemLanguage', $this->operatingSystemLanguage);
         $writer->writeIntegerValue('operatingSystemProductType', $this->operatingSystemProductType);
         $writer->writeStringValue('osBuildNumber', $this->osBuildNumber);
         $writer->writeStringValue('phoneNumber', $this->phoneNumber);
+        $writer->writeStringValue('productName', $this->productName);
+        $writer->writeIntegerValue('residentUsersCount', $this->residentUsersCount);
         $writer->writeStringValue('serialNumber', $this->serialNumber);
         $writer->writeCollectionOfObjectValues('sharedDeviceCachedUsers', $this->sharedDeviceCachedUsers);
         $writer->writeStringValue('subnetAddress', $this->subnetAddress);
@@ -548,6 +668,7 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('tpmSpecificationVersion', $this->tpmSpecificationVersion);
         $writer->writeStringValue('tpmVersion', $this->tpmVersion);
         $writer->writeStringValue('wifiMac', $this->wifiMac);
+        $writer->writeCollectionOfPrimitiveValues('wiredIPv4Addresses', $this->wiredIPv4Addresses);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -576,6 +697,14 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the batteryLevelPercentage property value. The battery level, between 0.0 and 100, or null if the battery level cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 5.0 and later, and is available only when Device Information access right is obtained. Valid values 0 to 100
+     *  @param float|null $value Value to set for the batteryLevelPercentage property.
+    */
+    public function setBatteryLevelPercentage(?float $value ): void {
+        $this->batteryLevelPercentage = $value;
+    }
+
+    /**
      * Sets the batterySerialNumber property value. The serial number of the device’s current battery
      *  @param string|null $value Value to set for the batterySerialNumber property.
     */
@@ -600,7 +729,7 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceGuardLocalSystemAuthorityCredentialGuardState property value. Local System Authority (LSA) credential guard status. . Possible values are: running, rebootRequired, notLicensed, notConfigured, virtualizationBasedSecurityNotRunning.
+     * Sets the deviceGuardLocalSystemAuthorityCredentialGuardState property value. The deviceGuardLocalSystemAuthorityCredentialGuardState property
      *  @param DeviceGuardLocalSystemAuthorityCredentialGuardState|null $value Value to set for the deviceGuardLocalSystemAuthorityCredentialGuardState property.
     */
     public function setDeviceGuardLocalSystemAuthorityCredentialGuardState(?DeviceGuardLocalSystemAuthorityCredentialGuardState $value ): void {
@@ -608,7 +737,7 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceGuardVirtualizationBasedSecurityHardwareRequirementState property value. Virtualization-based security hardware requirement status. Possible values are: meetHardwareRequirements, secureBootRequired, dmaProtectionRequired, hyperVNotSupportedForGuestVM, hyperVNotAvailable.
+     * Sets the deviceGuardVirtualizationBasedSecurityHardwareRequirementState property value. The deviceGuardVirtualizationBasedSecurityHardwareRequirementState property
      *  @param DeviceGuardVirtualizationBasedSecurityHardwareRequirementState|null $value Value to set for the deviceGuardVirtualizationBasedSecurityHardwareRequirementState property.
     */
     public function setDeviceGuardVirtualizationBasedSecurityHardwareRequirementState(?DeviceGuardVirtualizationBasedSecurityHardwareRequirementState $value ): void {
@@ -616,11 +745,35 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceGuardVirtualizationBasedSecurityState property value. Virtualization-based security status. . Possible values are: running, rebootRequired, require64BitArchitecture, notLicensed, notConfigured, doesNotMeetHardwareRequirements, other.
+     * Sets the deviceGuardVirtualizationBasedSecurityState property value. The deviceGuardVirtualizationBasedSecurityState property
      *  @param DeviceGuardVirtualizationBasedSecurityState|null $value Value to set for the deviceGuardVirtualizationBasedSecurityState property.
     */
     public function setDeviceGuardVirtualizationBasedSecurityState(?DeviceGuardVirtualizationBasedSecurityState $value ): void {
         $this->deviceGuardVirtualizationBasedSecurityState = $value;
+    }
+
+    /**
+     * Sets the deviceLicensingLastErrorCode property value. A standard error code indicating the last error, or 0 indicating no error (default). The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing. Valid values 0 to 2147483647
+     *  @param int|null $value Value to set for the deviceLicensingLastErrorCode property.
+    */
+    public function setDeviceLicensingLastErrorCode(?int $value ): void {
+        $this->deviceLicensingLastErrorCode = $value;
+    }
+
+    /**
+     * Sets the deviceLicensingLastErrorDescription property value. Error text message as a descripition for deviceLicensingLastErrorCode. The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing.
+     *  @param string|null $value Value to set for the deviceLicensingLastErrorDescription property.
+    */
+    public function setDeviceLicensingLastErrorDescription(?string $value ): void {
+        $this->deviceLicensingLastErrorDescription = $value;
+    }
+
+    /**
+     * Sets the deviceLicensingStatus property value. Indicates the device licensing status after Windows device based subscription has been enabled.
+     *  @param DeviceLicensingStatus|null $value Value to set for the deviceLicensingStatus property.
+    */
+    public function setDeviceLicensingStatus(?DeviceLicensingStatus $value ): void {
+        $this->deviceLicensingStatus = $value;
     }
 
     /**
@@ -704,6 +857,14 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the operatingSystemEdition property value. String that specifies the OS edition.
      *  @param string|null $value Value to set for the operatingSystemEdition property.
     */
@@ -741,6 +902,22 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     */
     public function setPhoneNumber(?string $value ): void {
         $this->phoneNumber = $value;
+    }
+
+    /**
+     * Sets the productName property value. The product name, e.g. iPad8,12 etc. The update frequency of this property is weekly. Note this property is currently supported only on iOS/MacOS devices, and is available only when Device Information access right is obtained.
+     *  @param string|null $value Value to set for the productName property.
+    */
+    public function setProductName(?string $value ): void {
+        $this->productName = $value;
+    }
+
+    /**
+     * Sets the residentUsersCount property value. The number of users currently on this device, or null (default) if the value of this property cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 13.4 and later, and is available only when Device Information access right is obtained. Valid values 0 to 2147483647
+     *  @param int|null $value Value to set for the residentUsersCount property.
+    */
+    public function setResidentUsersCount(?int $value ): void {
+        $this->residentUsersCount = $value;
     }
 
     /**
@@ -821,6 +998,14 @@ class HardwareInformation implements AdditionalDataHolder, Parsable
     */
     public function setWifiMac(?string $value ): void {
         $this->wifiMac = $value;
+    }
+
+    /**
+     * Sets the wiredIPv4Addresses property value. A list of wired IPv4 addresses. The update frequency (the maximum delay for the change of property value to be synchronized from the device to the cloud storage) of this property is daily. Note this property is currently supported only on devices running on Windows.
+     *  @param array<string>|null $value Value to set for the wiredIPv4Addresses property.
+    */
+    public function setWiredIPv4Addresses(?array $value ): void {
+        $this->wiredIPv4Addresses = $value;
     }
 
 }

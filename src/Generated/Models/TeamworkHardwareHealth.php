@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkHardwareHealth implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,10 +25,16 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, Parsable
     private ?TeamworkPeripheralHealth $hdmiIngestHealth = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new teamworkHardwareHealth and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkHardwareHealth');
     }
 
     /**
@@ -65,6 +71,7 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, Parsable
         return  [
             'computeHealth' => function (ParseNode $n) use ($o) { $o->setComputeHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
             'hdmiIngestHealth' => function (ParseNode $n) use ($o) { $o->setHdmiIngestHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -77,12 +84,21 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('computeHealth', $this->computeHealth);
         $writer->writeObjectValue('hdmiIngestHealth', $this->hdmiIngestHealth);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -108,6 +124,14 @@ class TeamworkHardwareHealth implements AdditionalDataHolder, Parsable
     */
     public function setHdmiIngestHealth(?TeamworkPeripheralHealth $value ): void {
         $this->hdmiIngestHealth = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

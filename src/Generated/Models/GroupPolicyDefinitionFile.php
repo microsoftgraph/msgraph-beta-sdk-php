@@ -40,7 +40,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var GroupPolicyType|null $policyType Specifies the type of group policy. Possible values are: admxBacked, admxIngested.
+     * @var GroupPolicyType|null $policyType Type of Group Policy File or Definition.
     */
     private ?GroupPolicyType $policyType = null;
     
@@ -64,6 +64,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyDefinitionFile');
     }
 
     /**
@@ -151,7 +152,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the policyType property value. Specifies the type of group policy. Possible values are: admxBacked, admxIngested.
+     * Gets the policyType property value. Type of Group Policy File or Definition.
      * @return GroupPolicyType|null
     */
     public function getPolicyType(): ?GroupPolicyType {
@@ -249,7 +250,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the policyType property value. Specifies the type of group policy. Possible values are: admxBacked, admxIngested.
+     * Sets the policyType property value. Type of Group Policy File or Definition.
      *  @param GroupPolicyType|null $value Value to set for the policyType property.
     */
     public function setPolicyType(?GroupPolicyType $value ): void {

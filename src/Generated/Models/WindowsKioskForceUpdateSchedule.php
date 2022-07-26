@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -21,12 +21,17 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, Parsable
     private ?int $dayofMonth = null;
     
     /**
-     * @var DayOfWeek|null $dayofWeek Day of week. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     * @var DayOfWeek|null $dayofWeek The dayofWeek property
     */
     private ?DayOfWeek $dayofWeek = null;
     
     /**
-     * @var Windows10AppsUpdateRecurrence|null $recurrence Recurrence schedule. Possible values are: none, daily, weekly, monthly.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var Windows10AppsUpdateRecurrence|null $recurrence Possible values for App update on Windows10 recurrence.
     */
     private ?Windows10AppsUpdateRecurrence $recurrence = null;
     
@@ -44,7 +49,8 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, Parsable
      * Instantiates a new windowsKioskForceUpdateSchedule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windowsKioskForceUpdateSchedule');
     }
 
     /**
@@ -73,7 +79,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the dayofWeek property value. Day of week. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     * Gets the dayofWeek property value. The dayofWeek property
      * @return DayOfWeek|null
     */
     public function getDayofWeek(): ?DayOfWeek {
@@ -89,6 +95,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, Parsable
         return  [
             'dayofMonth' => function (ParseNode $n) use ($o) { $o->setDayofMonth($n->getIntegerValue()); },
             'dayofWeek' => function (ParseNode $n) use ($o) { $o->setDayofWeek($n->getEnumValue(DayOfWeek::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recurrence' => function (ParseNode $n) use ($o) { $o->setRecurrence($n->getEnumValue(Windows10AppsUpdateRecurrence::class)); },
             'runImmediatelyIfAfterStartDateTime' => function (ParseNode $n) use ($o) { $o->setRunImmediatelyIfAfterStartDateTime($n->getBooleanValue()); },
             'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
@@ -96,7 +103,15 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the recurrence property value. Recurrence schedule. Possible values are: none, daily, weekly, monthly.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the recurrence property value. Possible values for App update on Windows10 recurrence.
      * @return Windows10AppsUpdateRecurrence|null
     */
     public function getRecurrence(): ?Windows10AppsUpdateRecurrence {
@@ -126,6 +141,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('dayofMonth', $this->dayofMonth);
         $writer->writeEnumValue('dayofWeek', $this->dayofWeek);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('recurrence', $this->recurrence);
         $writer->writeBooleanValue('runImmediatelyIfAfterStartDateTime', $this->runImmediatelyIfAfterStartDateTime);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
@@ -149,7 +165,7 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the dayofWeek property value. Day of week. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     * Sets the dayofWeek property value. The dayofWeek property
      *  @param DayOfWeek|null $value Value to set for the dayofWeek property.
     */
     public function setDayofWeek(?DayOfWeek $value ): void {
@@ -157,7 +173,15 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the recurrence property value. Recurrence schedule. Possible values are: none, daily, weekly, monthly.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the recurrence property value. Possible values for App update on Windows10 recurrence.
      *  @param Windows10AppsUpdateRecurrence|null $value Value to set for the recurrence property.
     */
     public function setRecurrence(?Windows10AppsUpdateRecurrence $value ): void {

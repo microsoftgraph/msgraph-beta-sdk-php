@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
      * @var string|null $displayName The display name of the customer tenant as set by Azure AD. Read only
     */
     private ?string $displayName = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $tenantId The Azure AD-assigned tenant ID of the customer tenant.
@@ -28,7 +33,8 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
      * Instantiates a new delegatedAdminRelationshipCustomerParticipant and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.delegatedAdminRelationshipCustomerParticipant');
     }
 
     /**
@@ -64,8 +70,17 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
         $o = $this;
         return  [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('tenantId', $this->tenantId);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class DelegatedAdminRelationshipCustomerParticipant implements AdditionalDataHol
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

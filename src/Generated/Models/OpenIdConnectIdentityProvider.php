@@ -34,12 +34,12 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     private ?string $metadataUrl = null;
     
     /**
-     * @var OpenIdConnectResponseMode|null $responseMode The response mode defines the method used to send data back from the custom identity provider to Azure AD B2C. Possible values: form_post, query. Required.
+     * @var OpenIdConnectResponseMode|null $responseMode The responseMode property
     */
     private ?OpenIdConnectResponseMode $responseMode = null;
     
     /**
-     * @var OpenIdConnectResponseTypes|null $responseType The response type describes the type of information sent back in the initial call to the authorization_endpoint of the custom identity provider. Possible values: code , id_token , token.  Required.
+     * @var OpenIdConnectResponseTypes|null $responseType The responseType property
     */
     private ?OpenIdConnectResponseTypes $responseType = null;
     
@@ -53,6 +53,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.openIdConnectIdentityProvider');
     }
 
     /**
@@ -123,7 +124,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     }
 
     /**
-     * Gets the responseMode property value. The response mode defines the method used to send data back from the custom identity provider to Azure AD B2C. Possible values: form_post, query. Required.
+     * Gets the responseMode property value. The responseMode property
      * @return OpenIdConnectResponseMode|null
     */
     public function getResponseMode(): ?OpenIdConnectResponseMode {
@@ -131,7 +132,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     }
 
     /**
-     * Gets the responseType property value. The response type describes the type of information sent back in the initial call to the authorization_endpoint of the custom identity provider. Possible values: code , id_token , token.  Required.
+     * Gets the responseType property value. The responseType property
      * @return OpenIdConnectResponseTypes|null
     */
     public function getResponseType(): ?OpenIdConnectResponseTypes {
@@ -203,7 +204,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     }
 
     /**
-     * Sets the responseMode property value. The response mode defines the method used to send data back from the custom identity provider to Azure AD B2C. Possible values: form_post, query. Required.
+     * Sets the responseMode property value. The responseMode property
      *  @param OpenIdConnectResponseMode|null $value Value to set for the responseMode property.
     */
     public function setResponseMode(?OpenIdConnectResponseMode $value ): void {
@@ -211,7 +212,7 @@ class OpenIdConnectIdentityProvider extends IdentityProviderBase implements Pars
     }
 
     /**
-     * Sets the responseType property value. The response type describes the type of information sent back in the initial call to the authorization_endpoint of the custom identity provider. Possible values: code , id_token , token.  Required.
+     * Sets the responseType property value. The responseType property
      *  @param OpenIdConnectResponseTypes|null $value Value to set for the responseType property.
     */
     public function setResponseType(?OpenIdConnectResponseTypes $value ): void {

@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VpnOnDemandRule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var VpnOnDemandRuleConnectionAction|null $action Action. Possible values are: connect, evaluateConnection, ignore, disconnect.
+     * @var VpnOnDemandRuleConnectionAction|null $action VPN On-Demand Rule Connection Action.
     */
     private ?VpnOnDemandRuleConnectionAction $action = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,7 +25,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
     private ?array $dnsSearchDomains = null;
     
     /**
-     * @var VpnOnDemandRuleConnectionDomainAction|null $domainAction Domain Action (Only applicable when Action is evaluate connection). Possible values are: connectIfNeeded, neverConnect.
+     * @var VpnOnDemandRuleConnectionDomainAction|null $domainAction VPN On-Demand Rule Connection Domain Action.
     */
     private ?VpnOnDemandRuleConnectionDomainAction $domainAction = null;
     
@@ -33,6 +33,11 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @var array<string>|null $domains Domains (Only applicable when Action is evaluate connection).
     */
     private ?array $domains = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $probeRequiredUrl Probe Required Url (Only applicable when Action is evaluate connection and DomainAction is connect if needed).
@@ -53,7 +58,8 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * Instantiates a new vpnOnDemandRule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.vpnOnDemandRule');
     }
 
     /**
@@ -66,7 +72,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the action property value. Action. Possible values are: connect, evaluateConnection, ignore, disconnect.
+     * Gets the action property value. VPN On-Demand Rule Connection Action.
      * @return VpnOnDemandRuleConnectionAction|null
     */
     public function getAction(): ?VpnOnDemandRuleConnectionAction {
@@ -90,7 +96,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the domainAction property value. Domain Action (Only applicable when Action is evaluate connection). Possible values are: connectIfNeeded, neverConnect.
+     * Gets the domainAction property value. VPN On-Demand Rule Connection Domain Action.
      * @return VpnOnDemandRuleConnectionDomainAction|null
     */
     public function getDomainAction(): ?VpnOnDemandRuleConnectionDomainAction {
@@ -116,10 +122,19 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
             'dnsSearchDomains' => function (ParseNode $n) use ($o) { $o->setDnsSearchDomains($n->getCollectionOfPrimitiveValues()); },
             'domainAction' => function (ParseNode $n) use ($o) { $o->setDomainAction($n->getEnumValue(VpnOnDemandRuleConnectionDomainAction::class)); },
             'domains' => function (ParseNode $n) use ($o) { $o->setDomains($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'probeRequiredUrl' => function (ParseNode $n) use ($o) { $o->setProbeRequiredUrl($n->getStringValue()); },
             'probeUrl' => function (ParseNode $n) use ($o) { $o->setProbeUrl($n->getStringValue()); },
             'ssids' => function (ParseNode $n) use ($o) { $o->setSsids($n->getCollectionOfPrimitiveValues()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -155,6 +170,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfPrimitiveValues('dnsSearchDomains', $this->dnsSearchDomains);
         $writer->writeEnumValue('domainAction', $this->domainAction);
         $writer->writeCollectionOfPrimitiveValues('domains', $this->domains);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('probeRequiredUrl', $this->probeRequiredUrl);
         $writer->writeStringValue('probeUrl', $this->probeUrl);
         $writer->writeCollectionOfPrimitiveValues('ssids', $this->ssids);
@@ -162,7 +178,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the action property value. Action. Possible values are: connect, evaluateConnection, ignore, disconnect.
+     * Sets the action property value. VPN On-Demand Rule Connection Action.
      *  @param VpnOnDemandRuleConnectionAction|null $value Value to set for the action property.
     */
     public function setAction(?VpnOnDemandRuleConnectionAction $value ): void {
@@ -186,7 +202,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the domainAction property value. Domain Action (Only applicable when Action is evaluate connection). Possible values are: connectIfNeeded, neverConnect.
+     * Sets the domainAction property value. VPN On-Demand Rule Connection Domain Action.
      *  @param VpnOnDemandRuleConnectionDomainAction|null $value Value to set for the domainAction property.
     */
     public function setDomainAction(?VpnOnDemandRuleConnectionDomainAction $value ): void {
@@ -199,6 +215,14 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
     */
     public function setDomains(?array $value ): void {
         $this->domains = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

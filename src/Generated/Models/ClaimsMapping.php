@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ClaimsMapping implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class ClaimsMapping implements AdditionalDataHolder, Parsable
     private ?string $givenName = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $surname The claim that provides the last name of the user.
     */
     private ?string $surname = null;
@@ -43,7 +48,8 @@ class ClaimsMapping implements AdditionalDataHolder, Parsable
      * Instantiates a new claimsMapping and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.claimsMapping');
     }
 
     /**
@@ -89,6 +95,7 @@ class ClaimsMapping implements AdditionalDataHolder, Parsable
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
             'givenName' => function (ParseNode $n) use ($o) { $o->setGivenName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'surname' => function (ParseNode $n) use ($o) { $o->setSurname($n->getStringValue()); },
             'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
         ];
@@ -100,6 +107,14 @@ class ClaimsMapping implements AdditionalDataHolder, Parsable
     */
     public function getGivenName(): ?string {
         return $this->givenName;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -126,6 +141,7 @@ class ClaimsMapping implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('email', $this->email);
         $writer->writeStringValue('givenName', $this->givenName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('surname', $this->surname);
         $writer->writeStringValue('userId', $this->userId);
         $writer->writeAdditionalData($this->additionalData);
@@ -161,6 +177,14 @@ class ClaimsMapping implements AdditionalDataHolder, Parsable
     */
     public function setGivenName(?string $value ): void {
         $this->givenName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

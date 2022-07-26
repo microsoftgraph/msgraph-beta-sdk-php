@@ -39,10 +39,11 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
     private ?bool $isForegroundApp = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthDeviceAppImpact and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthDeviceAppImpact and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsBatteryHealthDeviceAppImpact');
     }
 
     /**

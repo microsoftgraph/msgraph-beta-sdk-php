@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroupIdSource implements Parsable 
 {
     /**
-     * @var DeliveryOptimizationGroupIdOptionsType|null $groupIdSourceOption Set this policy to restrict peer selection to a specific source. Possible values are: notConfigured, adSite, authenticatedDomainSid, dhcpUserOption, dnsSuffix.
+     * @var DeliveryOptimizationGroupIdOptionsType|null $groupIdSourceOption Possible values for the DeliveryOptimizationGroupIdOptionsType setting.
     */
     private ?DeliveryOptimizationGroupIdOptionsType $groupIdSourceOption = null;
     
@@ -18,6 +18,7 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deliveryOptimizationGroupIdSourceOptions');
     }
 
     /**
@@ -41,7 +42,7 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
     }
 
     /**
-     * Gets the groupIdSourceOption property value. Set this policy to restrict peer selection to a specific source. Possible values are: notConfigured, adSite, authenticatedDomainSid, dhcpUserOption, dnsSuffix.
+     * Gets the groupIdSourceOption property value. Possible values for the DeliveryOptimizationGroupIdOptionsType setting.
      * @return DeliveryOptimizationGroupIdOptionsType|null
     */
     public function getGroupIdSourceOption(): ?DeliveryOptimizationGroupIdOptionsType {
@@ -58,7 +59,7 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
     }
 
     /**
-     * Sets the groupIdSourceOption property value. Set this policy to restrict peer selection to a specific source. Possible values are: notConfigured, adSite, authenticatedDomainSid, dhcpUserOption, dnsSuffix.
+     * Sets the groupIdSourceOption property value. Possible values for the DeliveryOptimizationGroupIdOptionsType setting.
      *  @param DeliveryOptimizationGroupIdOptionsType|null $value Value to set for the groupIdSourceOption property.
     */
     public function setGroupIdSourceOption(?DeliveryOptimizationGroupIdOptionsType $value ): void {

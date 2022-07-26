@@ -9,17 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CommunicationsIdentitySet extends IdentitySet implements Parsable 
 {
     /**
-     * @var Identity|null $assertedIdentity The assertedIdentity property
+     * @var Identity|null $assertedIdentity An identity the participant would like to present itself as to the other participants in the call.
     */
     private ?Identity $assertedIdentity = null;
     
     /**
-     * @var Identity|null $azureCommunicationServicesUser The azureCommunicationServicesUser property
+     * @var Identity|null $azureCommunicationServicesUser The Azure Communication Services user associated with this action.
     */
     private ?Identity $azureCommunicationServicesUser = null;
     
     /**
-     * @var EndpointType|null $endpointType The endpointType property
+     * @var EndpointType|null $endpointType Type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
     */
     private ?EndpointType $endpointType = null;
     
@@ -28,6 +28,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.communicationsIdentitySet');
     }
 
     /**
@@ -40,7 +41,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Gets the assertedIdentity property value. The assertedIdentity property
+     * Gets the assertedIdentity property value. An identity the participant would like to present itself as to the other participants in the call.
      * @return Identity|null
     */
     public function getAssertedIdentity(): ?Identity {
@@ -48,7 +49,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Gets the azureCommunicationServicesUser property value. The azureCommunicationServicesUser property
+     * Gets the azureCommunicationServicesUser property value. The Azure Communication Services user associated with this action.
      * @return Identity|null
     */
     public function getAzureCommunicationServicesUser(): ?Identity {
@@ -56,7 +57,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Gets the endpointType property value. The endpointType property
+     * Gets the endpointType property value. Type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
      * @return EndpointType|null
     */
     public function getEndpointType(): ?EndpointType {
@@ -88,7 +89,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Sets the assertedIdentity property value. The assertedIdentity property
+     * Sets the assertedIdentity property value. An identity the participant would like to present itself as to the other participants in the call.
      *  @param Identity|null $value Value to set for the assertedIdentity property.
     */
     public function setAssertedIdentity(?Identity $value ): void {
@@ -96,7 +97,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Sets the azureCommunicationServicesUser property value. The azureCommunicationServicesUser property
+     * Sets the azureCommunicationServicesUser property value. The Azure Communication Services user associated with this action.
      *  @param Identity|null $value Value to set for the azureCommunicationServicesUser property.
     */
     public function setAzureCommunicationServicesUser(?Identity $value ): void {
@@ -104,7 +105,7 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     }
 
     /**
-     * Sets the endpointType property value. The endpointType property
+     * Sets the endpointType property value. Type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
      *  @param EndpointType|null $value Value to set for the endpointType property.
     */
     public function setEndpointType(?EndpointType $value ): void {

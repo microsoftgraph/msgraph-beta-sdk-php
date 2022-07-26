@@ -54,10 +54,11 @@ class DataClassificationService extends Entity implements Parsable
     private ?array $sensitivityLabels = null;
     
     /**
-     * Instantiates a new DataClassificationService and sets the default values.
+     * Instantiates a new dataClassificationService and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.dataClassificationService');
     }
 
     /**

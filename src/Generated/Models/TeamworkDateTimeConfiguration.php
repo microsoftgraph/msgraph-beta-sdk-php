@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -19,6 +19,11 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * @var string|null $dateFormat The date format for the device.
     */
     private ?string $dateFormat = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var Time|null $officeHoursEndTime The time of the day when the device is turned off.
@@ -44,7 +49,8 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkDateTimeConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkDateTimeConfiguration');
     }
 
     /**
@@ -80,11 +86,20 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'dateFormat' => function (ParseNode $n) use ($o) { $o->setDateFormat($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'officeHoursEndTime' => function (ParseNode $n) use ($o) { $o->setOfficeHoursEndTime($n->getTimeValue()); },
             'officeHoursStartTime' => function (ParseNode $n) use ($o) { $o->setOfficeHoursStartTime($n->getTimeValue()); },
             'timeFormat' => function (ParseNode $n) use ($o) { $o->setTimeFormat($n->getStringValue()); },
             'timeZone' => function (ParseNode $n) use ($o) { $o->setTimeZone($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -125,6 +140,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('dateFormat', $this->dateFormat);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeTimeValue('officeHoursEndTime', $this->officeHoursEndTime);
         $writer->writeTimeValue('officeHoursStartTime', $this->officeHoursStartTime);
         $writer->writeStringValue('timeFormat', $this->timeFormat);
@@ -146,6 +162,14 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
     */
     public function setDateFormat(?string $value ): void {
         $this->dateFormat = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

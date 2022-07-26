@@ -16,7 +16,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
     private ?string $activityIdentifier = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -71,7 +71,12 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
     private ?SynchronizationError $error = null;
     
     /**
-     * @var SynchronizationTaskExecutionResult|null $state Code summarizing the result of this run. Possible values are: Succeeded, Failed, EntryLevelErrors.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var SynchronizationTaskExecutionResult|null $state The state property
     */
     private ?SynchronizationTaskExecutionResult $state = null;
     
@@ -89,7 +94,8 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * Instantiates a new synchronizationTaskExecution and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.synchronizationTaskExecution');
     }
 
     /**
@@ -215,6 +221,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
             'countImportedDeltas' => function (ParseNode $n) use ($o) { $o->setCountImportedDeltas($n->getIntegerValue()); },
             'countImportedReferenceDeltas' => function (ParseNode $n) use ($o) { $o->setCountImportedReferenceDeltas($n->getIntegerValue()); },
             'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(SynchronizationError::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(SynchronizationTaskExecutionResult::class)); },
             'timeBegan' => function (ParseNode $n) use ($o) { $o->setTimeBegan($n->getDateTimeValue()); },
             'timeEnded' => function (ParseNode $n) use ($o) { $o->setTimeEnded($n->getDateTimeValue()); },
@@ -222,7 +229,15 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the state property value. Code summarizing the result of this run. Possible values are: Succeeded, Failed, EntryLevelErrors.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the state property value. The state property
      * @return SynchronizationTaskExecutionResult|null
     */
     public function getState(): ?SynchronizationTaskExecutionResult {
@@ -261,6 +276,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('countImportedDeltas', $this->countImportedDeltas);
         $writer->writeIntegerValue('countImportedReferenceDeltas', $this->countImportedReferenceDeltas);
         $writer->writeObjectValue('error', $this->error);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeDateTimeValue('timeBegan', $this->timeBegan);
         $writer->writeDateTimeValue('timeEnded', $this->timeEnded);
@@ -364,7 +380,15 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the state property value. Code summarizing the result of this run. Possible values are: Succeeded, Failed, EntryLevelErrors.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the state property value. The state property
      *  @param SynchronizationTaskExecutionResult|null $value Value to set for the state property.
     */
     public function setState(?SynchronizationTaskExecutionResult $value ): void {

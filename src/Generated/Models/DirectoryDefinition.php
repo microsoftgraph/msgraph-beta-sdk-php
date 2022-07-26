@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DirectoryDefinition extends Entity implements Parsable 
 {
     /**
-     * @var DirectoryDefinitionDiscoverabilities|null $discoverabilities Read only value indicating what type of discovery the app supports. Possible values are: AttributeDataTypes, AttributeNames, AttributeReadOnly, None, ReferenceAttributes, UnknownFutureValue.
+     * @var DirectoryDefinitionDiscoverabilities|null $discoverabilities The discoverabilities property
     */
     private ?DirectoryDefinitionDiscoverabilities $discoverabilities = null;
     
@@ -44,6 +44,7 @@ class DirectoryDefinition extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.directoryDefinition');
     }
 
     /**
@@ -56,7 +57,7 @@ class DirectoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the discoverabilities property value. Read only value indicating what type of discovery the app supports. Possible values are: AttributeDataTypes, AttributeNames, AttributeReadOnly, None, ReferenceAttributes, UnknownFutureValue.
+     * Gets the discoverabilities property value. The discoverabilities property
      * @return DirectoryDefinitionDiscoverabilities|null
     */
     public function getDiscoverabilities(): ?DirectoryDefinitionDiscoverabilities {
@@ -134,7 +135,7 @@ class DirectoryDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the discoverabilities property value. Read only value indicating what type of discovery the app supports. Possible values are: AttributeDataTypes, AttributeNames, AttributeReadOnly, None, ReferenceAttributes, UnknownFutureValue.
+     * Sets the discoverabilities property value. The discoverabilities property
      *  @param DirectoryDefinitionDiscoverabilities|null $value Value to set for the discoverabilities property.
     */
     public function setDiscoverabilities(?DirectoryDefinitionDiscoverabilities $value ): void {

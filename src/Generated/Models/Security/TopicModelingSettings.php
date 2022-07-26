@@ -10,27 +10,32 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TopicModelingSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var bool|null $dynamicallyAdjustTopicCount To learn more, see Adjust maximum number of themes dynamically.
+     * @var bool|null $dynamicallyAdjustTopicCount Indicates whether the themes model should dynamically optimize the number of generated topics. To learn more, see Adjust maximum number of themes dynamically.
     */
     private ?bool $dynamicallyAdjustTopicCount = null;
     
     /**
-     * @var bool|null $ignoreNumbers To learn more, see Include numbers in themes.
+     * @var bool|null $ignoreNumbers Indicates whether the themes model should exclude numbers while parsing document texts. To learn more, see Include numbers in themes.
     */
     private ?bool $ignoreNumbers = null;
     
     /**
-     * @var bool|null $isEnabled Indicates whether themes is enabled for the case.
+     * @var bool|null $isEnabled Indicates whether themes model is enabled for the case.
     */
     private ?bool $isEnabled = null;
     
     /**
-     * @var int|null $topicCount To learn more, see Maximum number of themes.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var int|null $topicCount The total number of topics that the themes model will generate for a review set. To learn more, see Maximum number of themes.
     */
     private ?int $topicCount = null;
     
@@ -38,7 +43,8 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new topicModelingSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.security.topicModelingSettings');
     }
 
     /**
@@ -59,7 +65,7 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the dynamicallyAdjustTopicCount property value. To learn more, see Adjust maximum number of themes dynamically.
+     * Gets the dynamicallyAdjustTopicCount property value. Indicates whether the themes model should dynamically optimize the number of generated topics. To learn more, see Adjust maximum number of themes dynamically.
      * @return bool|null
     */
     public function getDynamicallyAdjustTopicCount(): ?bool {
@@ -76,12 +82,13 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
             'dynamicallyAdjustTopicCount' => function (ParseNode $n) use ($o) { $o->setDynamicallyAdjustTopicCount($n->getBooleanValue()); },
             'ignoreNumbers' => function (ParseNode $n) use ($o) { $o->setIgnoreNumbers($n->getBooleanValue()); },
             'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'topicCount' => function (ParseNode $n) use ($o) { $o->setTopicCount($n->getIntegerValue()); },
         ];
     }
 
     /**
-     * Gets the ignoreNumbers property value. To learn more, see Include numbers in themes.
+     * Gets the ignoreNumbers property value. Indicates whether the themes model should exclude numbers while parsing document texts. To learn more, see Include numbers in themes.
      * @return bool|null
     */
     public function getIgnoreNumbers(): ?bool {
@@ -89,7 +96,7 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the isEnabled property value. Indicates whether themes is enabled for the case.
+     * Gets the isEnabled property value. Indicates whether themes model is enabled for the case.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -97,7 +104,15 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the topicCount property value. To learn more, see Maximum number of themes.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the topicCount property value. The total number of topics that the themes model will generate for a review set. To learn more, see Maximum number of themes.
      * @return int|null
     */
     public function getTopicCount(): ?int {
@@ -112,6 +127,7 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('dynamicallyAdjustTopicCount', $this->dynamicallyAdjustTopicCount);
         $writer->writeBooleanValue('ignoreNumbers', $this->ignoreNumbers);
         $writer->writeBooleanValue('isEnabled', $this->isEnabled);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('topicCount', $this->topicCount);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -125,7 +141,7 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the dynamicallyAdjustTopicCount property value. To learn more, see Adjust maximum number of themes dynamically.
+     * Sets the dynamicallyAdjustTopicCount property value. Indicates whether the themes model should dynamically optimize the number of generated topics. To learn more, see Adjust maximum number of themes dynamically.
      *  @param bool|null $value Value to set for the dynamicallyAdjustTopicCount property.
     */
     public function setDynamicallyAdjustTopicCount(?bool $value ): void {
@@ -133,7 +149,7 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ignoreNumbers property value. To learn more, see Include numbers in themes.
+     * Sets the ignoreNumbers property value. Indicates whether the themes model should exclude numbers while parsing document texts. To learn more, see Include numbers in themes.
      *  @param bool|null $value Value to set for the ignoreNumbers property.
     */
     public function setIgnoreNumbers(?bool $value ): void {
@@ -141,7 +157,7 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isEnabled property value. Indicates whether themes is enabled for the case.
+     * Sets the isEnabled property value. Indicates whether themes model is enabled for the case.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value ): void {
@@ -149,7 +165,15 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the topicCount property value. To learn more, see Maximum number of themes.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the topicCount property value. The total number of topics that the themes model will generate for a review set. To learn more, see Maximum number of themes.
      *  @param int|null $value Value to set for the topicCount property.
     */
     public function setTopicCount(?int $value ): void {

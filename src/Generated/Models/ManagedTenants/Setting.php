@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Setting implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class Setting implements AdditionalDataHolder, Parsable
     private ?string $jsonValue = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var bool|null $overwriteAllowed A flag indicating whether the setting can be override existing configurations when applied. Required. Read-only.
     */
     private ?bool $overwriteAllowed = null;
@@ -35,7 +40,7 @@ class Setting implements AdditionalDataHolder, Parsable
     private ?string $settingId = null;
     
     /**
-     * @var ManagementParameterValueType|null $valueType The data type for the setting. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only.
+     * @var ManagementParameterValueType|null $valueType The valueType property
     */
     private ?ManagementParameterValueType $valueType = null;
     
@@ -43,7 +48,8 @@ class Setting implements AdditionalDataHolder, Parsable
      * Instantiates a new setting and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedTenants.setting');
     }
 
     /**
@@ -80,6 +86,7 @@ class Setting implements AdditionalDataHolder, Parsable
         return  [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'jsonValue' => function (ParseNode $n) use ($o) { $o->setJsonValue($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'overwriteAllowed' => function (ParseNode $n) use ($o) { $o->setOverwriteAllowed($n->getBooleanValue()); },
             'settingId' => function (ParseNode $n) use ($o) { $o->setSettingId($n->getStringValue()); },
             'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getEnumValue(ManagementParameterValueType::class)); },
@@ -92,6 +99,14 @@ class Setting implements AdditionalDataHolder, Parsable
     */
     public function getJsonValue(): ?string {
         return $this->jsonValue;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,7 +126,7 @@ class Setting implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the valueType property value. The data type for the setting. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only.
+     * Gets the valueType property value. The valueType property
      * @return ManagementParameterValueType|null
     */
     public function getValueType(): ?ManagementParameterValueType {
@@ -125,6 +140,7 @@ class Setting implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('jsonValue', $this->jsonValue);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('overwriteAllowed', $this->overwriteAllowed);
         $writer->writeStringValue('settingId', $this->settingId);
         $writer->writeEnumValue('valueType', $this->valueType);
@@ -156,6 +172,14 @@ class Setting implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the overwriteAllowed property value. A flag indicating whether the setting can be override existing configurations when applied. Required. Read-only.
      *  @param bool|null $value Value to set for the overwriteAllowed property.
     */
@@ -172,7 +196,7 @@ class Setting implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the valueType property value. The data type for the setting. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only.
+     * Sets the valueType property value. The valueType property
      *  @param ManagementParameterValueType|null $value Value to set for the valueType property.
     */
     public function setValueType(?ManagementParameterValueType $value ): void {

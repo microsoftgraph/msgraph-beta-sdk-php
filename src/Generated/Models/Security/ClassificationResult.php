@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ClassificationResult implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
     private ?int $count = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $sensitiveTypeId The sensitiveTypeId property
     */
     private ?string $sensitiveTypeId = null;
@@ -33,7 +38,8 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
      * Instantiates a new classificationResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.security.classificationResult');
     }
 
     /**
@@ -78,8 +84,17 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
         return  [
             'confidenceLevel' => function (ParseNode $n) use ($o) { $o->setConfidenceLevel($n->getIntegerValue()); },
             'count' => function (ParseNode $n) use ($o) { $o->setCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'sensitiveTypeId' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeId($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('confidenceLevel', $this->confidenceLevel);
         $writer->writeIntegerValue('count', $this->count);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('sensitiveTypeId', $this->sensitiveTypeId);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
     */
     public function setCount(?int $value ): void {
         $this->count = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

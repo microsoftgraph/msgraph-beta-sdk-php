@@ -43,6 +43,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation impl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyPresentationDecimalTextBox');
     }
 
     /**

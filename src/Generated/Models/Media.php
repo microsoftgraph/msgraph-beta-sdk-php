@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Media implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,10 +25,16 @@ class Media implements AdditionalDataHolder, Parsable
     private ?MediaSource $mediaSource = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new media and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.media');
     }
 
     /**
@@ -57,6 +63,7 @@ class Media implements AdditionalDataHolder, Parsable
         return  [
             'isTranscriptionShown' => function (ParseNode $n) use ($o) { $o->setIsTranscriptionShown($n->getBooleanValue()); },
             'mediaSource' => function (ParseNode $n) use ($o) { $o->setMediaSource($n->getObjectValue(array(MediaSource::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -77,12 +84,21 @@ class Media implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isTranscriptionShown', $this->isTranscriptionShown);
         $writer->writeObjectValue('mediaSource', $this->mediaSource);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -108,6 +124,14 @@ class Media implements AdditionalDataHolder, Parsable
     */
     public function setMediaSource(?MediaSource $value ): void {
         $this->mediaSource = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

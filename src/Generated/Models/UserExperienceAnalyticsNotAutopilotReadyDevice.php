@@ -54,10 +54,11 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
     private ?string $serialNumber = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsNotAutopilotReadyDevice and sets the default values.
+     * Instantiates a new userExperienceAnalyticsNotAutopilotReadyDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsNotAutopilotReadyDevice');
     }
 
     /**

@@ -11,6 +11,8 @@ use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCustomers\D
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminCustomers\Item\DelegatedAdminCustomerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationships\DelegatedAdminRelationshipsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\DelegatedAdminRelationships\Item\DelegatedAdminRelationshipItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\FindTenantInformationByDomainNameWithDomainName\FindTenantInformationByDomainNameWithDomainNameRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\FindTenantInformationByTenantIdWithTenantId\FindTenantInformationByTenantIdWithTenantIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -137,6 +139,24 @@ class TenantRelationshipsRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['delegatedAdminRelationship%2Did'] = $id;
         return new DelegatedAdminRelationshipItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to call the findTenantInformationByDomainName method.
+     * @param string $domainName Usage: domainName='{domainName}'
+     * @return FindTenantInformationByDomainNameWithDomainNameRequestBuilder
+    */
+    public function findTenantInformationByDomainNameWithDomainName(string $domainName): FindTenantInformationByDomainNameWithDomainNameRequestBuilder {
+        return new FindTenantInformationByDomainNameWithDomainNameRequestBuilder($this->pathParameters, $this->requestAdapter, $domainName);
+    }
+
+    /**
+     * Provides operations to call the findTenantInformationByTenantId method.
+     * @param string $tenantId Usage: tenantId='{tenantId}'
+     * @return FindTenantInformationByTenantIdWithTenantIdRequestBuilder
+    */
+    public function findTenantInformationByTenantIdWithTenantId(string $tenantId): FindTenantInformationByTenantIdWithTenantIdRequestBuilder {
+        return new FindTenantInformationByTenantIdWithTenantIdRequestBuilder($this->pathParameters, $this->requestAdapter, $tenantId);
     }
 
     /**

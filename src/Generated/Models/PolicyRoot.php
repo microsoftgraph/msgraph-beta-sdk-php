@@ -20,7 +20,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     private ?array $activityBasedTimeoutPolicies = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -85,7 +85,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     private ?DirectoryRoleAccessReviewPolicy $directoryRoleAccessReviewPolicy = null;
     
     /**
-     * @var ExternalIdentitiesPolicy|null $externalIdentitiesPolicy The externalIdentitiesPolicy property
+     * @var ExternalIdentitiesPolicy|null $externalIdentitiesPolicy Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
     */
     private ?ExternalIdentitiesPolicy $externalIdentitiesPolicy = null;
     
@@ -113,6 +113,11 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @var array<MobilityManagementPolicy>|null $mobileDeviceManagementPolicies The mobileDeviceManagementPolicies property
     */
     private ?array $mobileDeviceManagementPolicies = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<PermissionGrantPolicy>|null $permissionGrantPolicies The policy that specifies the conditions under which consent can be granted.
@@ -148,7 +153,8 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * Instantiates a new PolicyRoot and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.policyRoot');
     }
 
     /**
@@ -281,7 +287,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the externalIdentitiesPolicy property value. The externalIdentitiesPolicy property
+     * Gets the externalIdentitiesPolicy property value. Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
      * @return ExternalIdentitiesPolicy|null
     */
     public function getExternalIdentitiesPolicy(): ?ExternalIdentitiesPolicy {
@@ -323,6 +329,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
             'identitySecurityDefaultsEnforcementPolicy' => function (ParseNode $n) use ($o) { $o->setIdentitySecurityDefaultsEnforcementPolicy($n->getObjectValue(array(IdentitySecurityDefaultsEnforcementPolicy::class, 'createFromDiscriminatorValue'))); },
             'mobileAppManagementPolicies' => function (ParseNode $n) use ($o) { $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues(array(MobilityManagementPolicy::class, 'createFromDiscriminatorValue'))); },
             'mobileDeviceManagementPolicies' => function (ParseNode $n) use ($o) { $o->setMobileDeviceManagementPolicies($n->getCollectionOfObjectValues(array(MobilityManagementPolicy::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'permissionGrantPolicies' => function (ParseNode $n) use ($o) { $o->setPermissionGrantPolicies($n->getCollectionOfObjectValues(array(PermissionGrantPolicy::class, 'createFromDiscriminatorValue'))); },
             'roleManagementPolicies' => function (ParseNode $n) use ($o) { $o->setRoleManagementPolicies($n->getCollectionOfObjectValues(array(UnifiedRoleManagementPolicy::class, 'createFromDiscriminatorValue'))); },
             'roleManagementPolicyAssignments' => function (ParseNode $n) use ($o) { $o->setRoleManagementPolicyAssignments($n->getCollectionOfObjectValues(array(UnifiedRoleManagementPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
@@ -362,6 +369,14 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     */
     public function getMobileDeviceManagementPolicies(): ?array {
         return $this->mobileDeviceManagementPolicies;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -437,6 +452,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('identitySecurityDefaultsEnforcementPolicy', $this->identitySecurityDefaultsEnforcementPolicy);
         $writer->writeCollectionOfObjectValues('mobileAppManagementPolicies', $this->mobileAppManagementPolicies);
         $writer->writeCollectionOfObjectValues('mobileDeviceManagementPolicies', $this->mobileDeviceManagementPolicies);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('permissionGrantPolicies', $this->permissionGrantPolicies);
         $writer->writeCollectionOfObjectValues('roleManagementPolicies', $this->roleManagementPolicies);
         $writer->writeCollectionOfObjectValues('roleManagementPolicyAssignments', $this->roleManagementPolicyAssignments);
@@ -567,7 +583,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the externalIdentitiesPolicy property value. The externalIdentitiesPolicy property
+     * Sets the externalIdentitiesPolicy property value. Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
      *  @param ExternalIdentitiesPolicy|null $value Value to set for the externalIdentitiesPolicy property.
     */
     public function setExternalIdentitiesPolicy(?ExternalIdentitiesPolicy $value ): void {
@@ -612,6 +628,14 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     */
     public function setMobileDeviceManagementPolicies(?array $value ): void {
         $this->mobileDeviceManagementPolicies = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

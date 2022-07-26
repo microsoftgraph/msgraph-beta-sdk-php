@@ -44,6 +44,11 @@ class ApplicationTemplate extends Entity implements Parsable
     private ?string $publisher = null;
     
     /**
+     * @var SupportedClaimConfiguration|null $supportedClaimConfiguration The supportedClaimConfiguration property
+    */
+    private ?SupportedClaimConfiguration $supportedClaimConfiguration = null;
+    
+    /**
      * @var array<string>|null $supportedProvisioningTypes The list of provisioning modes supported by this application. The only valid value is sync.
     */
     private ?array $supportedProvisioningTypes = null;
@@ -58,6 +63,7 @@ class ApplicationTemplate extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.applicationTemplate');
     }
 
     /**
@@ -107,6 +113,7 @@ class ApplicationTemplate extends Entity implements Parsable
             'informationalUrls' => function (ParseNode $n) use ($o) { $o->setInformationalUrls($n->getObjectValue(array(InformationalUrls::class, 'createFromDiscriminatorValue'))); },
             'logoUrl' => function (ParseNode $n) use ($o) { $o->setLogoUrl($n->getStringValue()); },
             'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
+            'supportedClaimConfiguration' => function (ParseNode $n) use ($o) { $o->setSupportedClaimConfiguration($n->getObjectValue(array(SupportedClaimConfiguration::class, 'createFromDiscriminatorValue'))); },
             'supportedProvisioningTypes' => function (ParseNode $n) use ($o) { $o->setSupportedProvisioningTypes($n->getCollectionOfPrimitiveValues()); },
             'supportedSingleSignOnModes' => function (ParseNode $n) use ($o) { $o->setSupportedSingleSignOnModes($n->getCollectionOfPrimitiveValues()); },
         ]);
@@ -145,6 +152,14 @@ class ApplicationTemplate extends Entity implements Parsable
     }
 
     /**
+     * Gets the supportedClaimConfiguration property value. The supportedClaimConfiguration property
+     * @return SupportedClaimConfiguration|null
+    */
+    public function getSupportedClaimConfiguration(): ?SupportedClaimConfiguration {
+        return $this->supportedClaimConfiguration;
+    }
+
+    /**
      * Gets the supportedProvisioningTypes property value. The list of provisioning modes supported by this application. The only valid value is sync.
      * @return array<string>|null
     */
@@ -173,6 +188,7 @@ class ApplicationTemplate extends Entity implements Parsable
         $writer->writeObjectValue('informationalUrls', $this->informationalUrls);
         $writer->writeStringValue('logoUrl', $this->logoUrl);
         $writer->writeStringValue('publisher', $this->publisher);
+        $writer->writeObjectValue('supportedClaimConfiguration', $this->supportedClaimConfiguration);
         $writer->writeCollectionOfPrimitiveValues('supportedProvisioningTypes', $this->supportedProvisioningTypes);
         $writer->writeCollectionOfPrimitiveValues('supportedSingleSignOnModes', $this->supportedSingleSignOnModes);
     }
@@ -231,6 +247,14 @@ class ApplicationTemplate extends Entity implements Parsable
     */
     public function setPublisher(?string $value ): void {
         $this->publisher = $value;
+    }
+
+    /**
+     * Sets the supportedClaimConfiguration property value. The supportedClaimConfiguration property
+     *  @param SupportedClaimConfiguration|null $value Value to set for the supportedClaimConfiguration property.
+    */
+    public function setSupportedClaimConfiguration(?SupportedClaimConfiguration $value ): void {
+        $this->supportedClaimConfiguration = $value;
     }
 
     /**

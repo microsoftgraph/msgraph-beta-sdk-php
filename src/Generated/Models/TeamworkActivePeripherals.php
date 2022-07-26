@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
     private ?TeamworkPeripheral $microphone = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var TeamworkPeripheral|null $roomCamera The roomCamera property
     */
     private ?TeamworkPeripheral $roomCamera = null;
@@ -43,7 +48,8 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkActivePeripherals and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkActivePeripherals');
     }
 
     /**
@@ -89,6 +95,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
             'communicationSpeaker' => function (ParseNode $n) use ($o) { $o->setCommunicationSpeaker($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
             'contentCamera' => function (ParseNode $n) use ($o) { $o->setContentCamera($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
             'microphone' => function (ParseNode $n) use ($o) { $o->setMicrophone($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'roomCamera' => function (ParseNode $n) use ($o) { $o->setRoomCamera($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
             'speaker' => function (ParseNode $n) use ($o) { $o->setSpeaker($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
         ];
@@ -100,6 +107,14 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
     */
     public function getMicrophone(): ?TeamworkPeripheral {
         return $this->microphone;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -126,6 +141,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('communicationSpeaker', $this->communicationSpeaker);
         $writer->writeObjectValue('contentCamera', $this->contentCamera);
         $writer->writeObjectValue('microphone', $this->microphone);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('roomCamera', $this->roomCamera);
         $writer->writeObjectValue('speaker', $this->speaker);
         $writer->writeAdditionalData($this->additionalData);
@@ -161,6 +177,14 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
     */
     public function setMicrophone(?TeamworkPeripheral $value ): void {
         $this->microphone = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

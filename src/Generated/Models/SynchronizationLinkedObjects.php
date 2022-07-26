@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
     private ?array $members = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var array<SynchronizationJobSubject>|null $owners The owners property
     */
     private ?array $owners = null;
@@ -33,7 +38,8 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
      * Instantiates a new synchronizationLinkedObjects and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.synchronizationLinkedObjects');
     }
 
     /**
@@ -62,6 +68,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
         return  [
             'manager' => function (ParseNode $n) use ($o) { $o->setManager($n->getObjectValue(array(SynchronizationJobSubject::class, 'createFromDiscriminatorValue'))); },
             'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfObjectValues(array(SynchronizationJobSubject::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'owners' => function (ParseNode $n) use ($o) { $o->setOwners($n->getCollectionOfObjectValues(array(SynchronizationJobSubject::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -83,6 +90,14 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the owners property value. The owners property
      * @return array<SynchronizationJobSubject>|null
     */
@@ -97,6 +112,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('manager', $this->manager);
         $writer->writeCollectionOfObjectValues('members', $this->members);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('owners', $this->owners);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
     */
     public function setMembers(?array $value ): void {
         $this->members = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

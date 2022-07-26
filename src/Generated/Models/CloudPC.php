@@ -15,6 +15,11 @@ class CloudPC extends Entity implements Parsable
     private ?string $aadDeviceId = null;
     
     /**
+     * @var CloudPcConnectivityResult|null $connectivityResult The connectivityResult property
+    */
+    private ?CloudPcConnectivityResult $connectivityResult = null;
+    
+    /**
      * @var string|null $displayName The display name of the Cloud PC.
     */
     private ?string $displayName = null;
@@ -90,7 +95,7 @@ class CloudPC extends Entity implements Parsable
     private ?CloudPcServicePlanType $servicePlanType = null;
     
     /**
-     * @var CloudPcStatus|null $status The status of the Cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed, restoring.
+     * @var CloudPcStatus|null $status The status property
     */
     private ?CloudPcStatus $status = null;
     
@@ -110,10 +115,11 @@ class CloudPC extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new CloudPC and sets the default values.
+     * Instantiates a new cloudPC and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.cloudPC');
     }
 
     /**
@@ -134,6 +140,14 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the connectivityResult property value. The connectivityResult property
+     * @return CloudPcConnectivityResult|null
+    */
+    public function getConnectivityResult(): ?CloudPcConnectivityResult {
+        return $this->connectivityResult;
+    }
+
+    /**
      * Gets the displayName property value. The display name of the Cloud PC.
      * @return string|null
     */
@@ -149,6 +163,7 @@ class CloudPC extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'aadDeviceId' => function (ParseNode $n) use ($o) { $o->setAadDeviceId($n->getStringValue()); },
+            'connectivityResult' => function (ParseNode $n) use ($o) { $o->setConnectivityResult($n->getObjectValue(array(CloudPcConnectivityResult::class, 'createFromDiscriminatorValue'))); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'gracePeriodEndDateTime' => function (ParseNode $n) use ($o) { $o->setGracePeriodEndDateTime($n->getDateTimeValue()); },
             'imageDisplayName' => function (ParseNode $n) use ($o) { $o->setImageDisplayName($n->getStringValue()); },
@@ -284,7 +299,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of the Cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed, restoring.
+     * Gets the status property value. The status property
      * @return CloudPcStatus|null
     */
     public function getStatus(): ?CloudPcStatus {
@@ -322,6 +337,7 @@ class CloudPC extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('aadDeviceId', $this->aadDeviceId);
+        $writer->writeObjectValue('connectivityResult', $this->connectivityResult);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeDateTimeValue('gracePeriodEndDateTime', $this->gracePeriodEndDateTime);
         $writer->writeStringValue('imageDisplayName', $this->imageDisplayName);
@@ -349,6 +365,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setAadDeviceId(?string $value ): void {
         $this->aadDeviceId = $value;
+    }
+
+    /**
+     * Sets the connectivityResult property value. The connectivityResult property
+     *  @param CloudPcConnectivityResult|null $value Value to set for the connectivityResult property.
+    */
+    public function setConnectivityResult(?CloudPcConnectivityResult $value ): void {
+        $this->connectivityResult = $value;
     }
 
     /**
@@ -472,7 +496,7 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of the Cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed, restoring.
+     * Sets the status property value. The status property
      *  @param CloudPcStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CloudPcStatus $value ): void {

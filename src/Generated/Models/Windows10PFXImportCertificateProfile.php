@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10PFXImportCertificateProfile extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var KeyStorageProviderOption|null $keyStorageProvider Not yet documented. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * @var KeyStorageProviderOption|null $keyStorageProvider Key Storage Provider (KSP) Import Options.
     */
     private ?KeyStorageProviderOption $keyStorageProvider = null;
     
@@ -18,6 +18,7 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration implement
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10PFXImportCertificateProfile');
     }
 
     /**
@@ -41,7 +42,7 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration implement
     }
 
     /**
-     * Gets the keyStorageProvider property value. Not yet documented. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * Gets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      * @return KeyStorageProviderOption|null
     */
     public function getKeyStorageProvider(): ?KeyStorageProviderOption {
@@ -58,7 +59,7 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration implement
     }
 
     /**
-     * Sets the keyStorageProvider property value. Not yet documented. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * Sets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      *  @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
     */
     public function setKeyStorageProvider(?KeyStorageProviderOption $value ): void {

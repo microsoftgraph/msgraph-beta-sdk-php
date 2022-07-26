@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -36,6 +36,11 @@ class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Pa
     private ?DateTime $latestSimulationDateTime = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $simulationCount Number of attack simulation and training campaigns that the user was included in.
     */
     private ?int $simulationCount = null;
@@ -44,7 +49,8 @@ class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Pa
      * Instantiates a new attackSimulationSimulationUserCoverage and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.attackSimulationSimulationUserCoverage');
     }
 
     /**
@@ -99,6 +105,7 @@ class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Pa
             'clickCount' => function (ParseNode $n) use ($o) { $o->setClickCount($n->getIntegerValue()); },
             'compromisedCount' => function (ParseNode $n) use ($o) { $o->setCompromisedCount($n->getIntegerValue()); },
             'latestSimulationDateTime' => function (ParseNode $n) use ($o) { $o->setLatestSimulationDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'simulationCount' => function (ParseNode $n) use ($o) { $o->setSimulationCount($n->getIntegerValue()); },
         ];
     }
@@ -109,6 +116,14 @@ class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Pa
     */
     public function getLatestSimulationDateTime(): ?DateTime {
         return $this->latestSimulationDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -128,6 +143,7 @@ class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Pa
         $writer->writeIntegerValue('clickCount', $this->clickCount);
         $writer->writeIntegerValue('compromisedCount', $this->compromisedCount);
         $writer->writeDateTimeValue('latestSimulationDateTime', $this->latestSimulationDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('simulationCount', $this->simulationCount);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -170,6 +186,14 @@ class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Pa
     */
     public function setLatestSimulationDateTime(?DateTime $value ): void {
         $this->latestSimulationDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

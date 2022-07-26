@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
     private ?string $failureDetails = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $remediation The detailed description of how to remediate this issue.
     */
     private ?string $remediation = null;
@@ -43,7 +48,8 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
      * Instantiates a new deviceManagementTroubleshootingErrorDetails and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementTroubleshootingErrorDetails');
     }
 
     /**
@@ -97,9 +103,18 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
             'context' => function (ParseNode $n) use ($o) { $o->setContext($n->getStringValue()); },
             'failure' => function (ParseNode $n) use ($o) { $o->setFailure($n->getStringValue()); },
             'failureDetails' => function (ParseNode $n) use ($o) { $o->setFailureDetails($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'remediation' => function (ParseNode $n) use ($o) { $o->setRemediation($n->getStringValue()); },
             'resources' => function (ParseNode $n) use ($o) { $o->setResources($n->getCollectionOfObjectValues(array(DeviceManagementTroubleshootingErrorResource::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -126,6 +141,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
         $writer->writeStringValue('context', $this->context);
         $writer->writeStringValue('failure', $this->failure);
         $writer->writeStringValue('failureDetails', $this->failureDetails);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('remediation', $this->remediation);
         $writer->writeCollectionOfObjectValues('resources', $this->resources);
         $writer->writeAdditionalData($this->additionalData);
@@ -161,6 +177,14 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
     */
     public function setFailureDetails(?string $value ): void {
         $this->failureDetails = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

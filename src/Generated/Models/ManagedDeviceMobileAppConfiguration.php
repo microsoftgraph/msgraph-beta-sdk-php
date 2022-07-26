@@ -70,10 +70,11 @@ class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable
     private ?int $version = null;
     
     /**
-     * Instantiates a new ManagedDeviceMobileAppConfiguration and sets the default values.
+     * Instantiates a new managedDeviceMobileAppConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.managedDeviceMobileAppConfiguration');
     }
 
     /**

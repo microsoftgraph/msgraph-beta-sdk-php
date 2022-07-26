@@ -29,10 +29,11 @@ class MacOsVppAppAssignedLicense extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new MacOsVppAppAssignedLicense and sets the default values.
+     * Instantiates a new macOsVppAppAssignedLicense and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOsVppAppAssignedLicense');
     }
 
     /**

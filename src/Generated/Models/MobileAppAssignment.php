@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppAssignment extends Entity implements Parsable 
 {
     /**
-     * @var InstallIntent|null $intent The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * @var InstallIntent|null $intent Possible values for the install intent chosen by the admin.
     */
     private ?InstallIntent $intent = null;
     
@@ -19,7 +19,7 @@ class MobileAppAssignment extends Entity implements Parsable
     private ?MobileAppAssignmentSettings $settings = null;
     
     /**
-     * @var DeviceAndAppManagementAssignmentSource|null $source The resource type which is the source for the assignment. Possible values are: direct, policySets.
+     * @var DeviceAndAppManagementAssignmentSource|null $source Represents source of assignment.
     */
     private ?DeviceAndAppManagementAssignmentSource $source = null;
     
@@ -38,6 +38,7 @@ class MobileAppAssignment extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mobileAppAssignment');
     }
 
     /**
@@ -65,7 +66,7 @@ class MobileAppAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the intent property value. The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Gets the intent property value. Possible values for the install intent chosen by the admin.
      * @return InstallIntent|null
     */
     public function getIntent(): ?InstallIntent {
@@ -81,7 +82,7 @@ class MobileAppAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the source property value. The resource type which is the source for the assignment. Possible values are: direct, policySets.
+     * Gets the source property value. Represents source of assignment.
      * @return DeviceAndAppManagementAssignmentSource|null
     */
     public function getSource(): ?DeviceAndAppManagementAssignmentSource {
@@ -118,7 +119,7 @@ class MobileAppAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the intent property value. The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Sets the intent property value. Possible values for the install intent chosen by the admin.
      *  @param InstallIntent|null $value Value to set for the intent property.
     */
     public function setIntent(?InstallIntent $value ): void {
@@ -134,7 +135,7 @@ class MobileAppAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the source property value. The resource type which is the source for the assignment. Possible values are: direct, policySets.
+     * Sets the source property value. Represents source of assignment.
      *  @param DeviceAndAppManagementAssignmentSource|null $value Value to set for the source property.
     */
     public function setSource(?DeviceAndAppManagementAssignmentSource $value ): void {

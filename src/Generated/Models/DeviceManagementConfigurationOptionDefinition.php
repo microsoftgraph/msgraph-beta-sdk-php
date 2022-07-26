@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -50,6 +50,11 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
     private ?string $name = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var DeviceManagementConfigurationSettingValue|null $optionValue Value of the option
     */
     private ?DeviceManagementConfigurationSettingValue $optionValue = null;
@@ -58,7 +63,8 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
      * Instantiates a new deviceManagementConfigurationOptionDefinition and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationOptionDefinition');
     }
 
     /**
@@ -124,6 +130,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
             'helpText' => function (ParseNode $n) use ($o) { $o->setHelpText($n->getStringValue()); },
             'itemId' => function (ParseNode $n) use ($o) { $o->setItemId($n->getStringValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'optionValue' => function (ParseNode $n) use ($o) { $o->setOptionValue($n->getObjectValue(array(DeviceManagementConfigurationSettingValue::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -153,6 +160,14 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the optionValue property value. Value of the option
      * @return DeviceManagementConfigurationSettingValue|null
     */
@@ -172,6 +187,7 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
         $writer->writeStringValue('helpText', $this->helpText);
         $writer->writeStringValue('itemId', $this->itemId);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('optionValue', $this->optionValue);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -238,6 +254,14 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

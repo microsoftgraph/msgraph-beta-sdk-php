@@ -11,12 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SynchronizationStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var SynchronizationStatusCode|null $code High-level status code of the synchronization job. Possible values are: NotConfigured, NotRun, Active, Paused, Quarantine.
+     * @var SynchronizationStatusCode|null $code The code property
     */
     private ?SynchronizationStatusCode $code = null;
     
@@ -44,6 +44,11 @@ class SynchronizationStatus implements AdditionalDataHolder, Parsable
      * @var SynchronizationTaskExecution|null $lastSuccessfulExecutionWithExports Details of the last execution of the job, which exported objects into the target directory.
     */
     private ?SynchronizationTaskExecution $lastSuccessfulExecutionWithExports = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<SynchronizationProgress>|null $progress Details of the progress of a job toward completion.
@@ -79,7 +84,8 @@ class SynchronizationStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new synchronizationStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.synchronizationStatus');
     }
 
     /**
@@ -100,7 +106,7 @@ class SynchronizationStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the code property value. High-level status code of the synchronization job. Possible values are: NotConfigured, NotRun, Active, Paused, Quarantine.
+     * Gets the code property value. The code property
      * @return SynchronizationStatusCode|null
     */
     public function getCode(): ?SynchronizationStatusCode {
@@ -136,6 +142,7 @@ class SynchronizationStatus implements AdditionalDataHolder, Parsable
             'lastExecution' => function (ParseNode $n) use ($o) { $o->setLastExecution($n->getObjectValue(array(SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'))); },
             'lastSuccessfulExecution' => function (ParseNode $n) use ($o) { $o->setLastSuccessfulExecution($n->getObjectValue(array(SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'))); },
             'lastSuccessfulExecutionWithExports' => function (ParseNode $n) use ($o) { $o->setLastSuccessfulExecutionWithExports($n->getObjectValue(array(SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'progress' => function (ParseNode $n) use ($o) { $o->setProgress($n->getCollectionOfObjectValues(array(SynchronizationProgress::class, 'createFromDiscriminatorValue'))); },
             'quarantine' => function (ParseNode $n) use ($o) { $o->setQuarantine($n->getObjectValue(array(SynchronizationQuarantine::class, 'createFromDiscriminatorValue'))); },
             'steadyStateFirstAchievedTime' => function (ParseNode $n) use ($o) { $o->setSteadyStateFirstAchievedTime($n->getDateTimeValue()); },
@@ -167,6 +174,14 @@ class SynchronizationStatus implements AdditionalDataHolder, Parsable
     */
     public function getLastSuccessfulExecutionWithExports(): ?SynchronizationTaskExecution {
         return $this->lastSuccessfulExecutionWithExports;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -228,6 +243,7 @@ class SynchronizationStatus implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('lastExecution', $this->lastExecution);
         $writer->writeObjectValue('lastSuccessfulExecution', $this->lastSuccessfulExecution);
         $writer->writeObjectValue('lastSuccessfulExecutionWithExports', $this->lastSuccessfulExecutionWithExports);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('progress', $this->progress);
         $writer->writeObjectValue('quarantine', $this->quarantine);
         $writer->writeDateTimeValue('steadyStateFirstAchievedTime', $this->steadyStateFirstAchievedTime);
@@ -246,7 +262,7 @@ class SynchronizationStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the code property value. High-level status code of the synchronization job. Possible values are: NotConfigured, NotRun, Active, Paused, Quarantine.
+     * Sets the code property value. The code property
      *  @param SynchronizationStatusCode|null $value Value to set for the code property.
     */
     public function setCode(?SynchronizationStatusCode $value ): void {
@@ -291,6 +307,14 @@ class SynchronizationStatus implements AdditionalDataHolder, Parsable
     */
     public function setLastSuccessfulExecutionWithExports(?SynchronizationTaskExecution $value ): void {
         $this->lastSuccessfulExecutionWithExports = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

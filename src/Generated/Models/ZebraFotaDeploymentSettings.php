@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -32,7 +32,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     private ?string $deviceModel = null;
     
     /**
-     * @var ZebraFotaNetworkType|null $downloadRuleNetworkType Download network type as described in 'zebraFotaNetworkType'. Default: any. Possible values are: any, wifi, cellular, wifiAndCellular, unknownFutureValue.
+     * @var ZebraFotaNetworkType|null $downloadRuleNetworkType Represents various network types for Zebra FOTA deployment.
     */
     private ?ZebraFotaNetworkType $downloadRuleNetworkType = null;
     
@@ -72,12 +72,17 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     private ?Time $installRuleWindowStartTime = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $scheduleDurationInDays Maximum 28 days. Default is 28 days. Sequence of dates are: 1) Download start date. 2) Install start date. 3) Schedule end date. If any of the values are not provided, the date provided in the preceding step of the sequence is used. If no values are provided, the string value of the current UTC is used.
     */
     private ?int $scheduleDurationInDays = null;
     
     /**
-     * @var ZebraFotaScheduleMode|null $scheduleMode Deployment installation schedule mode. Default is installNow. All scheduled deployments date and time are in the device’s timezone. For Install Now, the date and time are in UTC (same date and time anywhere in the world). Possible values are: installNow, scheduled, unknownFutureValue.
+     * @var ZebraFotaScheduleMode|null $scheduleMode Represents various schedule modes for Zebra FOTA deployment.
     */
     private ?ZebraFotaScheduleMode $scheduleMode = null;
     
@@ -87,7 +92,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     private ?int $timeZoneOffsetInMinutes = null;
     
     /**
-     * @var ZebraFotaUpdateType|null $updateType The deployment's update type. Possible values are custom, latest, and auto. When custom mode is set, the request must provide artifact values. When latest type is set, the latest released update becomes the target OS. If latest is specified, the firmware target values are not required. Note: latest may update the device to a new Android version. When the value is set to auto, the device always looks for the latest package available and tries to update whenever a new package is available. This continues until the admin cancels the auto update. While other modes return an ID starting with FOTA-x, auto mode returns an ID starting with AUTO-x. Possible values are: custom, latest, auto, unknownFutureValue.
+     * @var ZebraFotaUpdateType|null $updateType Represents various update types for Zebra FOTA deployment.
     */
     private ?ZebraFotaUpdateType $updateType = null;
     
@@ -95,7 +100,8 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new zebraFotaDeploymentSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.zebraFotaDeploymentSettings');
     }
 
     /**
@@ -140,7 +146,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the downloadRuleNetworkType property value. Download network type as described in 'zebraFotaNetworkType'. Default: any. Possible values are: any, wifi, cellular, wifiAndCellular, unknownFutureValue.
+     * Gets the downloadRuleNetworkType property value. Represents various network types for Zebra FOTA deployment.
      * @return ZebraFotaNetworkType|null
     */
     public function getDownloadRuleNetworkType(): ?ZebraFotaNetworkType {
@@ -173,6 +179,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
             'installRuleStartDateTime' => function (ParseNode $n) use ($o) { $o->setInstallRuleStartDateTime($n->getDateTimeValue()); },
             'installRuleWindowEndTime' => function (ParseNode $n) use ($o) { $o->setInstallRuleWindowEndTime($n->getTimeValue()); },
             'installRuleWindowStartTime' => function (ParseNode $n) use ($o) { $o->setInstallRuleWindowStartTime($n->getTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'scheduleDurationInDays' => function (ParseNode $n) use ($o) { $o->setScheduleDurationInDays($n->getIntegerValue()); },
             'scheduleMode' => function (ParseNode $n) use ($o) { $o->setScheduleMode($n->getEnumValue(ZebraFotaScheduleMode::class)); },
             'timeZoneOffsetInMinutes' => function (ParseNode $n) use ($o) { $o->setTimeZoneOffsetInMinutes($n->getIntegerValue()); },
@@ -229,6 +236,14 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the scheduleDurationInDays property value. Maximum 28 days. Default is 28 days. Sequence of dates are: 1) Download start date. 2) Install start date. 3) Schedule end date. If any of the values are not provided, the date provided in the preceding step of the sequence is used. If no values are provided, the string value of the current UTC is used.
      * @return int|null
     */
@@ -237,7 +252,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the scheduleMode property value. Deployment installation schedule mode. Default is installNow. All scheduled deployments date and time are in the device’s timezone. For Install Now, the date and time are in UTC (same date and time anywhere in the world). Possible values are: installNow, scheduled, unknownFutureValue.
+     * Gets the scheduleMode property value. Represents various schedule modes for Zebra FOTA deployment.
      * @return ZebraFotaScheduleMode|null
     */
     public function getScheduleMode(): ?ZebraFotaScheduleMode {
@@ -253,7 +268,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the updateType property value. The deployment's update type. Possible values are custom, latest, and auto. When custom mode is set, the request must provide artifact values. When latest type is set, the latest released update becomes the target OS. If latest is specified, the firmware target values are not required. Note: latest may update the device to a new Android version. When the value is set to auto, the device always looks for the latest package available and tries to update whenever a new package is available. This continues until the admin cancels the auto update. While other modes return an ID starting with FOTA-x, auto mode returns an ID starting with AUTO-x. Possible values are: custom, latest, auto, unknownFutureValue.
+     * Gets the updateType property value. Represents various update types for Zebra FOTA deployment.
      * @return ZebraFotaUpdateType|null
     */
     public function getUpdateType(): ?ZebraFotaUpdateType {
@@ -276,6 +291,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
         $writer->writeDateTimeValue('installRuleStartDateTime', $this->installRuleStartDateTime);
         $writer->writeTimeValue('installRuleWindowEndTime', $this->installRuleWindowEndTime);
         $writer->writeTimeValue('installRuleWindowStartTime', $this->installRuleWindowStartTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('scheduleDurationInDays', $this->scheduleDurationInDays);
         $writer->writeEnumValue('scheduleMode', $this->scheduleMode);
         $writer->writeIntegerValue('timeZoneOffsetInMinutes', $this->timeZoneOffsetInMinutes);
@@ -316,7 +332,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the downloadRuleNetworkType property value. Download network type as described in 'zebraFotaNetworkType'. Default: any. Possible values are: any, wifi, cellular, wifiAndCellular, unknownFutureValue.
+     * Sets the downloadRuleNetworkType property value. Represents various network types for Zebra FOTA deployment.
      *  @param ZebraFotaNetworkType|null $value Value to set for the downloadRuleNetworkType property.
     */
     public function setDownloadRuleNetworkType(?ZebraFotaNetworkType $value ): void {
@@ -380,6 +396,14 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the scheduleDurationInDays property value. Maximum 28 days. Default is 28 days. Sequence of dates are: 1) Download start date. 2) Install start date. 3) Schedule end date. If any of the values are not provided, the date provided in the preceding step of the sequence is used. If no values are provided, the string value of the current UTC is used.
      *  @param int|null $value Value to set for the scheduleDurationInDays property.
     */
@@ -388,7 +412,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the scheduleMode property value. Deployment installation schedule mode. Default is installNow. All scheduled deployments date and time are in the device’s timezone. For Install Now, the date and time are in UTC (same date and time anywhere in the world). Possible values are: installNow, scheduled, unknownFutureValue.
+     * Sets the scheduleMode property value. Represents various schedule modes for Zebra FOTA deployment.
      *  @param ZebraFotaScheduleMode|null $value Value to set for the scheduleMode property.
     */
     public function setScheduleMode(?ZebraFotaScheduleMode $value ): void {
@@ -404,7 +428,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the updateType property value. The deployment's update type. Possible values are custom, latest, and auto. When custom mode is set, the request must provide artifact values. When latest type is set, the latest released update becomes the target OS. If latest is specified, the firmware target values are not required. Note: latest may update the device to a new Android version. When the value is set to auto, the device always looks for the latest package available and tries to update whenever a new package is available. This continues until the admin cancels the auto update. While other modes return an ID starting with FOTA-x, auto mode returns an ID starting with AUTO-x. Possible values are: custom, latest, auto, unknownFutureValue.
+     * Sets the updateType property value. Represents various update types for Zebra FOTA deployment.
      *  @param ZebraFotaUpdateType|null $value Value to set for the updateType property.
     */
     public function setUpdateType(?ZebraFotaUpdateType $value ): void {

@@ -21,7 +21,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
     private ?DateTime $acquiredDateTime = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -66,6 +66,11 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
     private ?string $id = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $pageCount The total number of pages that were printed. Read-only.
     */
     private ?int $pageCount = null;
@@ -76,7 +81,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
     private ?string $printerId = null;
     
     /**
-     * @var PrintJobProcessingState|null $processingState The print job's final processing state. Read-only.
+     * @var PrintJobProcessingState|null $processingState The processingState property
     */
     private ?PrintJobProcessingState $processingState = null;
     
@@ -89,7 +94,8 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
      * Instantiates a new archivedPrintJob and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.archivedPrintJob');
     }
 
     /**
@@ -198,6 +204,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
             'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
             'duplexPageCount' => function (ParseNode $n) use ($o) { $o->setDuplexPageCount($n->getIntegerValue()); },
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'pageCount' => function (ParseNode $n) use ($o) { $o->setPageCount($n->getIntegerValue()); },
             'printerId' => function (ParseNode $n) use ($o) { $o->setPrinterId($n->getStringValue()); },
             'processingState' => function (ParseNode $n) use ($o) { $o->setProcessingState($n->getEnumValue(PrintJobProcessingState::class)); },
@@ -211,6 +218,14 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
     */
     public function getId(): ?string {
         return $this->id;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -230,7 +245,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the processingState property value. The print job's final processing state. Read-only.
+     * Gets the processingState property value. The processingState property
      * @return PrintJobProcessingState|null
     */
     public function getProcessingState(): ?PrintJobProcessingState {
@@ -260,6 +275,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeIntegerValue('duplexPageCount', $this->duplexPageCount);
         $writer->writeStringValue('id', $this->id);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('pageCount', $this->pageCount);
         $writer->writeStringValue('printerId', $this->printerId);
         $writer->writeEnumValue('processingState', $this->processingState);
@@ -356,6 +372,14 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the pageCount property value. The total number of pages that were printed. Read-only.
      *  @param int|null $value Value to set for the pageCount property.
     */
@@ -372,7 +396,7 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the processingState property value. The print job's final processing state. Read-only.
+     * Sets the processingState property value. The processingState property
      *  @param PrintJobProcessingState|null $value Value to set for the processingState property.
     */
     public function setProcessingState(?PrintJobProcessingState $value ): void {

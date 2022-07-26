@@ -80,6 +80,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.managedTenants.deviceCompliancePolicySettingStateSummary');
     }
 
     /**

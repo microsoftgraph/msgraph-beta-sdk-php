@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TemplateParameter implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,7 +35,12 @@ class TemplateParameter implements AdditionalDataHolder, Parsable
     private ?string $jsonDefaultValue = null;
     
     /**
-     * @var ManagementParameterValueType|null $valueType The data type for the template parameter.. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var ManagementParameterValueType|null $valueType The valueType property
     */
     private ?ManagementParameterValueType $valueType = null;
     
@@ -43,7 +48,8 @@ class TemplateParameter implements AdditionalDataHolder, Parsable
      * Instantiates a new templateParameter and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedTenants.templateParameter');
     }
 
     /**
@@ -90,6 +96,7 @@ class TemplateParameter implements AdditionalDataHolder, Parsable
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'jsonAllowedValues' => function (ParseNode $n) use ($o) { $o->setJsonAllowedValues($n->getStringValue()); },
             'jsonDefaultValue' => function (ParseNode $n) use ($o) { $o->setJsonDefaultValue($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getEnumValue(ManagementParameterValueType::class)); },
         ];
     }
@@ -111,7 +118,15 @@ class TemplateParameter implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the valueType property value. The data type for the template parameter.. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the valueType property value. The valueType property
      * @return ManagementParameterValueType|null
     */
     public function getValueType(): ?ManagementParameterValueType {
@@ -127,6 +142,7 @@ class TemplateParameter implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('jsonAllowedValues', $this->jsonAllowedValues);
         $writer->writeStringValue('jsonDefaultValue', $this->jsonDefaultValue);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('valueType', $this->valueType);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -172,7 +188,15 @@ class TemplateParameter implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the valueType property value. The data type for the template parameter.. Possible values are: string, integer, boolean, guid, stringCollection, integerCollection, booleanCollection, guidCollection, unknownFutureValue. Required. Read-only.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the valueType property value. The valueType property
      *  @param ManagementParameterValueType|null $value Value to set for the valueType property.
     */
     public function setValueType(?ManagementParameterValueType $value ): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidEnrollmentCompanyCode implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class AndroidEnrollmentCompanyCode implements AdditionalDataHolder, Parsable
      * @var string|null $enrollmentToken Enrollment Token used by the User to enroll their device.
     */
     private ?string $enrollmentToken = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $qrCodeContent String used to generate a QR code for the token.
@@ -33,7 +38,8 @@ class AndroidEnrollmentCompanyCode implements AdditionalDataHolder, Parsable
      * Instantiates a new androidEnrollmentCompanyCode and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.androidEnrollmentCompanyCode');
     }
 
     /**
@@ -69,9 +75,18 @@ class AndroidEnrollmentCompanyCode implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'enrollmentToken' => function (ParseNode $n) use ($o) { $o->setEnrollmentToken($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'qrCodeContent' => function (ParseNode $n) use ($o) { $o->setQrCodeContent($n->getStringValue()); },
             'qrCodeImage' => function (ParseNode $n) use ($o) { $o->setQrCodeImage($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -96,6 +111,7 @@ class AndroidEnrollmentCompanyCode implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('enrollmentToken', $this->enrollmentToken);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('qrCodeContent', $this->qrCodeContent);
         $writer->writeObjectValue('qrCodeImage', $this->qrCodeImage);
         $writer->writeAdditionalData($this->additionalData);
@@ -115,6 +131,14 @@ class AndroidEnrollmentCompanyCode implements AdditionalDataHolder, Parsable
     */
     public function setEnrollmentToken(?string $value ): void {
         $this->enrollmentToken = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
      * @var string|null $externalCorrelationId The unique run ID for the logic app.
     */
     private ?string $externalCorrelationId = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var AccessPackageCustomExtensionStage|null $stage Indicates the stage of the request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
@@ -38,7 +43,8 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
      * Instantiates a new customExtensionHandlerInstance and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.customExtensionHandlerInstance');
     }
 
     /**
@@ -83,9 +89,18 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
         return  [
             'customExtensionId' => function (ParseNode $n) use ($o) { $o->setCustomExtensionId($n->getStringValue()); },
             'externalCorrelationId' => function (ParseNode $n) use ($o) { $o->setExternalCorrelationId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'stage' => function (ParseNode $n) use ($o) { $o->setStage($n->getEnumValue(AccessPackageCustomExtensionStage::class)); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(AccessPackageCustomExtensionHandlerStatus::class)); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,6 +126,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('customExtensionId', $this->customExtensionId);
         $writer->writeStringValue('externalCorrelationId', $this->externalCorrelationId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('stage', $this->stage);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeAdditionalData($this->additionalData);
@@ -138,6 +154,14 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
     */
     public function setExternalCorrelationId(?string $value ): void {
         $this->externalCorrelationId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

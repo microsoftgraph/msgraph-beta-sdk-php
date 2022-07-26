@@ -28,6 +28,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.accessReviewNotificationRecipientQueryScope');
     }
 
     /**

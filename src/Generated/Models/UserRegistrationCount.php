@@ -10,9 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserRegistrationCount implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $registrationCount Provides the registration count for your tenant.
@@ -20,7 +25,7 @@ class UserRegistrationCount implements AdditionalDataHolder, Parsable
     private ?int $registrationCount = null;
     
     /**
-     * @var RegistrationStatusType|null $registrationStatus Represents the status of user registration. Possible values are: registered, enabled, capable, and mfaRegistered.
+     * @var RegistrationStatusType|null $registrationStatus The registrationStatus property
     */
     private ?RegistrationStatusType $registrationStatus = null;
     
@@ -28,7 +33,8 @@ class UserRegistrationCount implements AdditionalDataHolder, Parsable
      * Instantiates a new userRegistrationCount and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.userRegistrationCount');
     }
 
     /**
@@ -55,9 +61,18 @@ class UserRegistrationCount implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'registrationCount' => function (ParseNode $n) use ($o) { $o->setRegistrationCount($n->getIntegerValue()); },
             'registrationStatus' => function (ParseNode $n) use ($o) { $o->setRegistrationStatus($n->getEnumValue(RegistrationStatusType::class)); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -69,7 +84,7 @@ class UserRegistrationCount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the registrationStatus property value. Represents the status of user registration. Possible values are: registered, enabled, capable, and mfaRegistered.
+     * Gets the registrationStatus property value. The registrationStatus property
      * @return RegistrationStatusType|null
     */
     public function getRegistrationStatus(): ?RegistrationStatusType {
@@ -81,6 +96,7 @@ class UserRegistrationCount implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('registrationCount', $this->registrationCount);
         $writer->writeEnumValue('registrationStatus', $this->registrationStatus);
         $writer->writeAdditionalData($this->additionalData);
@@ -95,6 +111,14 @@ class UserRegistrationCount implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the registrationCount property value. Provides the registration count for your tenant.
      *  @param int|null $value Value to set for the registrationCount property.
     */
@@ -103,7 +127,7 @@ class UserRegistrationCount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the registrationStatus property value. Represents the status of user registration. Possible values are: registered, enabled, capable, and mfaRegistered.
+     * Sets the registrationStatus property value. The registrationStatus property
      *  @param RegistrationStatusType|null $value Value to set for the registrationStatus property.
     */
     public function setRegistrationStatus(?RegistrationStatusType $value ): void {

@@ -19,10 +19,11 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity implement
     private ?string $deviceName = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceWithoutCloudIdentity and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceWithoutCloudIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsDeviceWithoutCloudIdentity');
     }
 
     /**
