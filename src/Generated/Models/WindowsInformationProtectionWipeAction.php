@@ -15,7 +15,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
     private ?DateTime $lastCheckInDateTime = null;
     
     /**
-     * @var ActionState|null $status Wipe action status. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * @var ActionState|null $status The status property
     */
     private ?ActionState $status = null;
     
@@ -40,10 +40,11 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
     private ?string $targetedUserId = null;
     
     /**
-     * Instantiates a new windowsInformationProtectionWipeAction and sets the default values.
+     * Instantiates a new WindowsInformationProtectionWipeAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsInformationProtectionWipeAction');
     }
 
     /**
@@ -80,7 +81,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Wipe action status. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * Gets the status property value. The status property
      * @return ActionState|null
     */
     public function getStatus(): ?ActionState {
@@ -142,7 +143,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Wipe action status. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * Sets the status property value. The status property
      *  @param ActionState|null $value Value to set for the status property.
     */
     public function setStatus(?ActionState $value ): void {

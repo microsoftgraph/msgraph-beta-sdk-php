@@ -18,6 +18,7 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementCollectionSettingDefinition');
     }
 
     /**

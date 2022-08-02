@@ -19,10 +19,11 @@ class DocumentCommentReply extends Entity implements Parsable
     private ?string $location = null;
     
     /**
-     * Instantiates a new documentCommentReply and sets the default values.
+     * Instantiates a new DocumentCommentReply and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.documentCommentReply');
     }
 
     /**

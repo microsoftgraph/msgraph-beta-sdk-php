@@ -18,6 +18,7 @@ class DeviceManagementConfigurationGroupSettingValue extends DeviceManagementCon
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationGroupSettingValue');
     }
 
     /**

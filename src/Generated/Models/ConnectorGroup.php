@@ -14,7 +14,7 @@ class ConnectorGroup extends Entity implements Parsable
     private ?array $applications = null;
     
     /**
-     * @var ConnectorGroupType|null $connectorGroupType Indicates the type of hybrid agent. This pre-set by the system. Possible values are: applicationProxy. Read-only.
+     * @var ConnectorGroupType|null $connectorGroupType The connectorGroupType property
     */
     private ?ConnectorGroupType $connectorGroupType = null;
     
@@ -43,6 +43,7 @@ class ConnectorGroup extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.connectorGroup');
     }
 
     /**
@@ -63,7 +64,7 @@ class ConnectorGroup extends Entity implements Parsable
     }
 
     /**
-     * Gets the connectorGroupType property value. Indicates the type of hybrid agent. This pre-set by the system. Possible values are: applicationProxy. Read-only.
+     * Gets the connectorGroupType property value. The connectorGroupType property
      * @return ConnectorGroupType|null
     */
     public function getConnectorGroupType(): ?ConnectorGroupType {
@@ -141,7 +142,7 @@ class ConnectorGroup extends Entity implements Parsable
     }
 
     /**
-     * Sets the connectorGroupType property value. Indicates the type of hybrid agent. This pre-set by the system. Possible values are: applicationProxy. Read-only.
+     * Sets the connectorGroupType property value. The connectorGroupType property
      *  @param ConnectorGroupType|null $value Value to set for the connectorGroupType property.
     */
     public function setConnectorGroupType(?ConnectorGroupType $value ): void {

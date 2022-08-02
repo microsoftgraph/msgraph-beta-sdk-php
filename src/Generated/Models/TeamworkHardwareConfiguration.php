@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
     private ?TeamworkPeripheral $hdmiIngest = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $processorModel The CPU model on the device.
     */
     private ?string $processorModel = null;
@@ -33,7 +38,8 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkHardwareConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkHardwareConfiguration');
     }
 
     /**
@@ -70,6 +76,7 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
         return  [
             'compute' => function (ParseNode $n) use ($o) { $o->setCompute($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
             'hdmiIngest' => function (ParseNode $n) use ($o) { $o->setHdmiIngest($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'processorModel' => function (ParseNode $n) use ($o) { $o->setProcessorModel($n->getStringValue()); },
         ];
     }
@@ -80,6 +87,14 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
     */
     public function getHdmiIngest(): ?TeamworkPeripheral {
         return $this->hdmiIngest;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -97,6 +112,7 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('compute', $this->compute);
         $writer->writeObjectValue('hdmiIngest', $this->hdmiIngest);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('processorModel', $this->processorModel);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
     */
     public function setHdmiIngest(?TeamworkPeripheral $value ): void {
         $this->hdmiIngest = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

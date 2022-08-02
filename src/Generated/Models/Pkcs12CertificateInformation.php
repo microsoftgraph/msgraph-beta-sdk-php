@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Pkcs12CertificateInformation implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class Pkcs12CertificateInformation implements AdditionalDataHolder, Parsable
     private ?int $notBefore = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $thumbprint The certificate thumbprint.
     */
     private ?string $thumbprint = null;
@@ -38,7 +43,8 @@ class Pkcs12CertificateInformation implements AdditionalDataHolder, Parsable
      * Instantiates a new pkcs12CertificateInformation and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.pkcs12CertificateInformation');
     }
 
     /**
@@ -68,6 +74,7 @@ class Pkcs12CertificateInformation implements AdditionalDataHolder, Parsable
             'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
             'notAfter' => function (ParseNode $n) use ($o) { $o->setNotAfter($n->getIntegerValue()); },
             'notBefore' => function (ParseNode $n) use ($o) { $o->setNotBefore($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'thumbprint' => function (ParseNode $n) use ($o) { $o->setThumbprint($n->getStringValue()); },
         ];
     }
@@ -97,6 +104,14 @@ class Pkcs12CertificateInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the thumbprint property value. The certificate thumbprint.
      * @return string|null
     */
@@ -112,6 +127,7 @@ class Pkcs12CertificateInformation implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('isActive', $this->isActive);
         $writer->writeIntegerValue('notAfter', $this->notAfter);
         $writer->writeIntegerValue('notBefore', $this->notBefore);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('thumbprint', $this->thumbprint);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -146,6 +162,14 @@ class Pkcs12CertificateInformation implements AdditionalDataHolder, Parsable
     */
     public function setNotBefore(?int $value ): void {
         $this->notBefore = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

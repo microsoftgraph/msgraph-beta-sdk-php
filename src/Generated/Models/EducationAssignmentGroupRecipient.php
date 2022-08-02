@@ -13,6 +13,7 @@ class EducationAssignmentGroupRecipient extends EducationAssignmentRecipient imp
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.educationAssignmentGroupRecipient');
     }
 
     /**

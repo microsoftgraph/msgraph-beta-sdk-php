@@ -2,15 +2,17 @@
 
 namespace Microsoft\Graph\Beta\Generated\DeviceManagement\GroupPolicyConfigurations;
 
+use Microsoft\Kiota\Abstractions\RequestOption;
+
 class GroupPolicyConfigurationsRequestBuilderGetRequestConfiguration 
 {
     /**
-     * @var array|null $headers Request headers
+     * @var array<string, string>|null $headers Request headers
     */
     public ?array $headers = null;
     
     /**
-     * @var array|null $options Request options
+     * @var array<string, RequestOption>|null $options Request options
     */
     public ?array $options = null;
     

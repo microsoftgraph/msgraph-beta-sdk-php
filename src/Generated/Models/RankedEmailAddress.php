@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RankedEmailAddress implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class RankedEmailAddress implements AdditionalDataHolder, Parsable
      * @var string|null $address The email address.
     */
     private ?string $address = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var float|null $rank The rank of the email address. A rank is used as a sort key, in relation to the other returned results. A higher rank value corresponds to a more relevant result. Relevance is determined by communication, collaboration, and business relationship signals.
@@ -28,7 +33,8 @@ class RankedEmailAddress implements AdditionalDataHolder, Parsable
      * Instantiates a new rankedEmailAddress and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.rankedEmailAddress');
     }
 
     /**
@@ -64,8 +70,17 @@ class RankedEmailAddress implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'rank' => function (ParseNode $n) use ($o) { $o->setRank($n->getFloatValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class RankedEmailAddress implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('address', $this->address);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeFloatValue('rank', $this->rank);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class RankedEmailAddress implements AdditionalDataHolder, Parsable
     */
     public function setAddress(?string $value ): void {
         $this->address = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

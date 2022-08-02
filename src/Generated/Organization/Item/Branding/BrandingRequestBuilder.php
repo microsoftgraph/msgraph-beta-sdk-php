@@ -13,6 +13,7 @@ use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Favicon\FaviconReq
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\OrganizationalBrandingLocalizationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\LocalizationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\SquareLogo\SquareLogoRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\SquareLogoDark\SquareLogoDarkRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -66,6 +67,13 @@ class BrandingRequestBuilder
     */
     public function squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The squareLogoDark property
+    */
+    public function squareLogoDark(): SquareLogoDarkRequestBuilder {
+        return new SquareLogoDarkRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

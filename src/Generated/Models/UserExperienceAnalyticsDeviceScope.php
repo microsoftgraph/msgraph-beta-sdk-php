@@ -35,7 +35,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var DeviceScopeOperator|null $operator Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals. Possible values are: none, equals, unknownFutureValue.
+     * @var DeviceScopeOperator|null $operator Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals.
     */
     private ?DeviceScopeOperator $operator = null;
     
@@ -45,12 +45,12 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
     private ?string $ownerId = null;
     
     /**
-     * @var DeviceScopeParameter|null $parameter Device scope configuration parameter. It will be extended in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag. Possible values are: none, scopeTag, unknownFutureValue.
+     * @var DeviceScopeParameter|null $parameter Device scope configuration parameter. It will be expend in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag.
     */
     private ?DeviceScopeParameter $parameter = null;
     
     /**
-     * @var DeviceScopeStatus|null $status Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none. Possible values are: none, computing, insufficientData, completed, unknownFutureValue.
+     * @var DeviceScopeStatus|null $status Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none.
     */
     private ?DeviceScopeStatus $status = null;
     
@@ -65,10 +65,11 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
     private ?string $valueObjectId = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsDeviceScope and sets the default values.
+     * Instantiates a new userExperienceAnalyticsDeviceScope and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsDeviceScope');
     }
 
     /**
@@ -142,7 +143,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
     }
 
     /**
-     * Gets the operator property value. Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals. Possible values are: none, equals, unknownFutureValue.
+     * Gets the operator property value. Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals.
      * @return DeviceScopeOperator|null
     */
     public function getOperator(): ?DeviceScopeOperator {
@@ -158,7 +159,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
     }
 
     /**
-     * Gets the parameter property value. Device scope configuration parameter. It will be extended in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag. Possible values are: none, scopeTag, unknownFutureValue.
+     * Gets the parameter property value. Device scope configuration parameter. It will be expend in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag.
      * @return DeviceScopeParameter|null
     */
     public function getParameter(): ?DeviceScopeParameter {
@@ -166,7 +167,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none. Possible values are: none, computing, insufficientData, completed, unknownFutureValue.
+     * Gets the status property value. Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none.
      * @return DeviceScopeStatus|null
     */
     public function getStatus(): ?DeviceScopeStatus {
@@ -249,7 +250,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
     }
 
     /**
-     * Sets the operator property value. Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals. Possible values are: none, equals, unknownFutureValue.
+     * Sets the operator property value. Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals.
      *  @param DeviceScopeOperator|null $value Value to set for the operator property.
     */
     public function setOperator(?DeviceScopeOperator $value ): void {
@@ -265,7 +266,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
     }
 
     /**
-     * Sets the parameter property value. Device scope configuration parameter. It will be extended in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag. Possible values are: none, scopeTag, unknownFutureValue.
+     * Sets the parameter property value. Device scope configuration parameter. It will be expend in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag.
      *  @param DeviceScopeParameter|null $value Value to set for the parameter property.
     */
     public function setParameter(?DeviceScopeParameter $value ): void {
@@ -273,7 +274,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none. Possible values are: none, computing, insufficientData, completed, unknownFutureValue.
+     * Sets the status property value. Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none.
      *  @param DeviceScopeStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceScopeStatus $value ): void {

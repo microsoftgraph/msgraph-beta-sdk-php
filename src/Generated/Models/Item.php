@@ -99,6 +99,7 @@ class Item extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.item');
     }
 
     /**

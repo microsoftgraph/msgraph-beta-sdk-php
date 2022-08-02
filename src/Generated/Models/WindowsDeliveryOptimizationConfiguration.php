@@ -34,7 +34,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     private ?array $cacheServerHostNames = null;
     
     /**
-     * @var WindowsDeliveryOptimizationMode|null $deliveryOptimizationMode Specifies the download method that delivery optimization can use to manage network bandwidth consumption for large content distribution scenarios. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+     * @var WindowsDeliveryOptimizationMode|null $deliveryOptimizationMode Delivery optimization mode for peer distribution
     */
     private ?WindowsDeliveryOptimizationMode $deliveryOptimizationMode = null;
     
@@ -84,12 +84,12 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     private ?string $modifyCacheLocation = null;
     
     /**
-     * @var DeliveryOptimizationRestrictPeerSelectionByOptions|null $restrictPeerSelectionBy Specifies to restrict peer selection via selected option.
+     * @var DeliveryOptimizationRestrictPeerSelectionByOptions|null $restrictPeerSelectionBy Values to restrict peer selection by.
     */
     private ?DeliveryOptimizationRestrictPeerSelectionByOptions $restrictPeerSelectionBy = null;
     
     /**
-     * @var Enablement|null $vpnPeerCaching Specifies whether the device is allowed to participate in Peer Caching while connected via VPN to the domain network.
+     * @var Enablement|null $vpnPeerCaching Possible values of a property
     */
     private ?Enablement $vpnPeerCaching = null;
     
@@ -98,6 +98,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsDeliveryOptimizationConfiguration');
     }
 
     /**
@@ -150,7 +151,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the deliveryOptimizationMode property value. Specifies the download method that delivery optimization can use to manage network bandwidth consumption for large content distribution scenarios. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+     * Gets the deliveryOptimizationMode property value. Delivery optimization mode for peer distribution
      * @return WindowsDeliveryOptimizationMode|null
     */
     public function getDeliveryOptimizationMode(): ?WindowsDeliveryOptimizationMode {
@@ -257,7 +258,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the restrictPeerSelectionBy property value. Specifies to restrict peer selection via selected option.
+     * Gets the restrictPeerSelectionBy property value. Values to restrict peer selection by.
      * @return DeliveryOptimizationRestrictPeerSelectionByOptions|null
     */
     public function getRestrictPeerSelectionBy(): ?DeliveryOptimizationRestrictPeerSelectionByOptions {
@@ -265,7 +266,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the vpnPeerCaching property value. Specifies whether the device is allowed to participate in Peer Caching while connected via VPN to the domain network.
+     * Gets the vpnPeerCaching property value. Possible values of a property
      * @return Enablement|null
     */
     public function getVpnPeerCaching(): ?Enablement {
@@ -338,7 +339,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the deliveryOptimizationMode property value. Specifies the download method that delivery optimization can use to manage network bandwidth consumption for large content distribution scenarios. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+     * Sets the deliveryOptimizationMode property value. Delivery optimization mode for peer distribution
      *  @param WindowsDeliveryOptimizationMode|null $value Value to set for the deliveryOptimizationMode property.
     */
     public function setDeliveryOptimizationMode(?WindowsDeliveryOptimizationMode $value ): void {
@@ -418,7 +419,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the restrictPeerSelectionBy property value. Specifies to restrict peer selection via selected option.
+     * Sets the restrictPeerSelectionBy property value. Values to restrict peer selection by.
      *  @param DeliveryOptimizationRestrictPeerSelectionByOptions|null $value Value to set for the restrictPeerSelectionBy property.
     */
     public function setRestrictPeerSelectionBy(?DeliveryOptimizationRestrictPeerSelectionByOptions $value ): void {
@@ -426,7 +427,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the vpnPeerCaching property value. Specifies whether the device is allowed to participate in Peer Caching while connected via VPN to the domain network.
+     * Sets the vpnPeerCaching property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the vpnPeerCaching property.
     */
     public function setVpnPeerCaching(?Enablement $value ): void {

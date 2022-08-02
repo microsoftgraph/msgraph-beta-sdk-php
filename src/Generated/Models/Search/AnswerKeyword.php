@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AnswerKeyword implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class AnswerKeyword implements AdditionalDataHolder, Parsable
     private ?bool $matchSimilarKeywords = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var array<string>|null $reservedKeywords Unique keywords that will guarantee the search answer is triggered.
     */
     private ?array $reservedKeywords = null;
@@ -33,7 +38,8 @@ class AnswerKeyword implements AdditionalDataHolder, Parsable
      * Instantiates a new answerKeyword and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.search.answerKeyword');
     }
 
     /**
@@ -62,6 +68,7 @@ class AnswerKeyword implements AdditionalDataHolder, Parsable
         return  [
             'keywords' => function (ParseNode $n) use ($o) { $o->setKeywords($n->getCollectionOfPrimitiveValues()); },
             'matchSimilarKeywords' => function (ParseNode $n) use ($o) { $o->setMatchSimilarKeywords($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'reservedKeywords' => function (ParseNode $n) use ($o) { $o->setReservedKeywords($n->getCollectionOfPrimitiveValues()); },
         ];
     }
@@ -83,6 +90,14 @@ class AnswerKeyword implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the reservedKeywords property value. Unique keywords that will guarantee the search answer is triggered.
      * @return array<string>|null
     */
@@ -97,6 +112,7 @@ class AnswerKeyword implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfPrimitiveValues('keywords', $this->keywords);
         $writer->writeBooleanValue('matchSimilarKeywords', $this->matchSimilarKeywords);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfPrimitiveValues('reservedKeywords', $this->reservedKeywords);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class AnswerKeyword implements AdditionalDataHolder, Parsable
     */
     public function setMatchSimilarKeywords(?bool $value ): void {
         $this->matchSimilarKeywords = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

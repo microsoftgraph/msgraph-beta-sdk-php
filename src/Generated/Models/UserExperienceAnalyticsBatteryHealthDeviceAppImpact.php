@@ -43,6 +43,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsBatteryHealthDeviceAppImpact');
     }
 
     /**

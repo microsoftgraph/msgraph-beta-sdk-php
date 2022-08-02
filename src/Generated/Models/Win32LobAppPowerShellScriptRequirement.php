@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement implements Parsable 
 {
     /**
-     * @var Win32LobAppPowerShellScriptDetectionType|null $detectionType The detection type for script output. Possible values are: notConfigured, string, dateTime, integer, float, version, boolean.
+     * @var Win32LobAppPowerShellScriptDetectionType|null $detectionType Contains all supported Powershell Script output detection type.
     */
     private ?Win32LobAppPowerShellScriptDetectionType $detectionType = null;
     
@@ -29,7 +29,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
     private ?bool $runAs32Bit = null;
     
     /**
-     * @var RunAsAccountType|null $runAsAccount Indicates the type of execution context the script runs in. Possible values are: system, user.
+     * @var RunAsAccountType|null $runAsAccount Indicates the type of execution context the app runs in.
     */
     private ?RunAsAccountType $runAsAccount = null;
     
@@ -43,6 +43,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppPowerShellScriptRequirement');
     }
 
     /**
@@ -55,7 +56,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
     }
 
     /**
-     * Gets the detectionType property value. The detection type for script output. Possible values are: notConfigured, string, dateTime, integer, float, version, boolean.
+     * Gets the detectionType property value. Contains all supported Powershell Script output detection type.
      * @return Win32LobAppPowerShellScriptDetectionType|null
     */
     public function getDetectionType(): ?Win32LobAppPowerShellScriptDetectionType {
@@ -103,7 +104,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
     }
 
     /**
-     * Gets the runAsAccount property value. Indicates the type of execution context the script runs in. Possible values are: system, user.
+     * Gets the runAsAccount property value. Indicates the type of execution context the app runs in.
      * @return RunAsAccountType|null
     */
     public function getRunAsAccount(): ?RunAsAccountType {
@@ -133,7 +134,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
     }
 
     /**
-     * Sets the detectionType property value. The detection type for script output. Possible values are: notConfigured, string, dateTime, integer, float, version, boolean.
+     * Sets the detectionType property value. Contains all supported Powershell Script output detection type.
      *  @param Win32LobAppPowerShellScriptDetectionType|null $value Value to set for the detectionType property.
     */
     public function setDetectionType(?Win32LobAppPowerShellScriptDetectionType $value ): void {
@@ -165,7 +166,7 @@ class Win32LobAppPowerShellScriptRequirement extends Win32LobAppRequirement impl
     }
 
     /**
-     * Sets the runAsAccount property value. Indicates the type of execution context the script runs in. Possible values are: system, user.
+     * Sets the runAsAccount property value. Indicates the type of execution context the app runs in.
      *  @param RunAsAccountType|null $value Value to set for the runAsAccount property.
     */
     public function setRunAsAccount(?RunAsAccountType $value ): void {

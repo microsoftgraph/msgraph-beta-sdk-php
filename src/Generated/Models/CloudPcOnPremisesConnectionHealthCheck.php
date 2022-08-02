@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -36,6 +36,11 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
     private ?CloudPcOnPremisesConnectionHealthCheckErrorType $errorType = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $recommendedAction The recommended action to fix the corresponding error.
     */
     private ?string $recommendedAction = null;
@@ -46,7 +51,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
     private ?DateTime $startDateTime = null;
     
     /**
-     * @var CloudPcOnPremisesConnectionStatus|null $status The status of the health check item. Possible values are: pending, running, passed, failed, unknownFutureValue. Read-only.
+     * @var CloudPcOnPremisesConnectionStatus|null $status The status property
     */
     private ?CloudPcOnPremisesConnectionStatus $status = null;
     
@@ -54,7 +59,8 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * Instantiates a new cloudPcOnPremisesConnectionHealthCheck and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.cloudPcOnPremisesConnectionHealthCheck');
     }
 
     /**
@@ -117,10 +123,19 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
             'errorType' => function (ParseNode $n) use ($o) { $o->setErrorType($n->getEnumValue(CloudPcOnPremisesConnectionHealthCheckErrorType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recommendedAction' => function (ParseNode $n) use ($o) { $o->setRecommendedAction($n->getStringValue()); },
             'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -140,7 +155,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Gets the status property value. The status of the health check item. Possible values are: pending, running, passed, failed, unknownFutureValue. Read-only.
+     * Gets the status property value. The status property
      * @return CloudPcOnPremisesConnectionStatus|null
     */
     public function getStatus(): ?CloudPcOnPremisesConnectionStatus {
@@ -156,6 +171,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
         $writer->writeEnumValue('errorType', $this->errorType);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('recommendedAction', $this->recommendedAction);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
         $writer->writeEnumValue('status', $this->status);
@@ -203,6 +219,14 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the recommendedAction property value. The recommended action to fix the corresponding error.
      *  @param string|null $value Value to set for the recommendedAction property.
     */
@@ -219,7 +243,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Sets the status property value. The status of the health check item. Possible values are: pending, running, passed, failed, unknownFutureValue. Read-only.
+     * Sets the status property value. The status property
      *  @param CloudPcOnPremisesConnectionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?CloudPcOnPremisesConnectionStatus $value ): void {

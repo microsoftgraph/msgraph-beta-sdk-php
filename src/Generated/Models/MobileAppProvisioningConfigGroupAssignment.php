@@ -18,6 +18,7 @@ class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mobileAppProvisioningConfigGroupAssignment');
     }
 
     /**

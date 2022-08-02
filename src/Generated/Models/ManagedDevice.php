@@ -50,7 +50,12 @@ class ManagedDevice extends Entity implements Parsable
     private ?bool $azureADRegistered = null;
     
     /**
-     * @var ChassisType|null $chassisType Chassis type of the device. This property is read-only. Possible values are: unknown, desktop, laptop, worksWorkstation, enterpriseServer, phone, tablet, mobileOther, mobileUnknown.
+     * @var bool|null $bootstrapTokenEscrowed Reports if the managed device has an escrowed Bootstrap Token. This is only for macOS devices. To get, include BootstrapTokenEscrowed in the select clause and query with a device id. If FALSE, no bootstrap token is escrowed. If TRUE, the device has escrowed a bootstrap token with Intune. This property is read-only.
+    */
+    private ?bool $bootstrapTokenEscrowed = null;
+    
+    /**
+     * @var ChassisType|null $chassisType Chassis type.
     */
     private ?ChassisType $chassisType = null;
     
@@ -70,7 +75,7 @@ class ManagedDevice extends Entity implements Parsable
     private ?DateTime $complianceGracePeriodExpirationDateTime = null;
     
     /**
-     * @var ComplianceState|null $complianceState Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager.
+     * @var ComplianceState|null $complianceState Compliance state.
     */
     private ?ComplianceState $complianceState = null;
     
@@ -120,9 +125,14 @@ class ManagedDevice extends Entity implements Parsable
     private ?array $deviceConfigurationStates = null;
     
     /**
-     * @var DeviceEnrollmentType|null $deviceEnrollmentType Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
+     * @var DeviceEnrollmentType|null $deviceEnrollmentType Possible ways of adding a mobile device to management.
     */
     private ?DeviceEnrollmentType $deviceEnrollmentType = null;
+    
+    /**
+     * @var bool|null $deviceFirmwareConfigurationInterfaceManaged Indicates whether the device is DFCI managed. When TRUE the device is DFCI managed. When FALSE, the device is not DFCI managed. The default value is FALSE.
+    */
+    private ?bool $deviceFirmwareConfigurationInterfaceManaged = null;
     
     /**
      * @var DeviceHealthAttestationState|null $deviceHealthAttestationState The device health attestation state. This property is read-only.
@@ -135,12 +145,12 @@ class ManagedDevice extends Entity implements Parsable
     private ?string $deviceName = null;
     
     /**
-     * @var DeviceRegistrationState|null $deviceRegistrationState Device registration state. This property is read-only. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown.
+     * @var DeviceRegistrationState|null $deviceRegistrationState Device registration status.
     */
     private ?DeviceRegistrationState $deviceRegistrationState = null;
     
     /**
-     * @var DeviceType|null $deviceType Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     * @var DeviceType|null $deviceType Device type.
     */
     private ?DeviceType $deviceType = null;
     
@@ -180,12 +190,12 @@ class ManagedDevice extends Entity implements Parsable
     private ?string $ethernetMacAddress = null;
     
     /**
-     * @var DeviceManagementExchangeAccessState|null $exchangeAccessState The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined.
+     * @var DeviceManagementExchangeAccessState|null $exchangeAccessState Device Exchange Access State.
     */
     private ?DeviceManagementExchangeAccessState $exchangeAccessState = null;
     
     /**
-     * @var DeviceManagementExchangeAccessStateReason|null $exchangeAccessStateReason The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp.
+     * @var DeviceManagementExchangeAccessStateReason|null $exchangeAccessStateReason Device Exchange Access State Reason.
     */
     private ?DeviceManagementExchangeAccessStateReason $exchangeAccessStateReason = null;
     
@@ -230,7 +240,7 @@ class ManagedDevice extends Entity implements Parsable
     private ?string $jailBroken = null;
     
     /**
-     * @var JoinType|null $joinType Device join type. Possible values are: unknown, azureADJoined, azureADRegistered, hybridAzureADJoined.
+     * @var JoinType|null $joinType Device enrollment join type.
     */
     private ?JoinType $joinType = null;
     
@@ -245,7 +255,7 @@ class ManagedDevice extends Entity implements Parsable
     private ?array $logCollectionRequests = null;
     
     /**
-     * @var LostModeState|null $lostModeState Indicates if Lost mode is enabled or disabled. This property is read-only. Possible values are: disabled, enabled.
+     * @var LostModeState|null $lostModeState State of lost mode, indicating if lost mode is enabled or disabled
     */
     private ?LostModeState $lostModeState = null;
     
@@ -260,12 +270,12 @@ class ManagedDevice extends Entity implements Parsable
     private ?string $managedDeviceName = null;
     
     /**
-     * @var ManagedDeviceOwnerType|null $managedDeviceOwnerType Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+     * @var ManagedDeviceOwnerType|null $managedDeviceOwnerType Owner type of device.
     */
     private ?ManagedDeviceOwnerType $managedDeviceOwnerType = null;
     
     /**
-     * @var ManagementAgentType|null $managementAgent Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
+     * @var ManagementAgentType|null $managementAgent Management agent type.
     */
     private ?ManagementAgentType $managementAgent = null;
     
@@ -275,12 +285,12 @@ class ManagedDevice extends Entity implements Parsable
     private ?DateTime $managementCertificateExpirationDate = null;
     
     /**
-     * @var ManagedDeviceManagementFeatures|null $managementFeatures Device management features. Possible values are: none, microsoftManagedDesktop.
+     * @var ManagedDeviceManagementFeatures|null $managementFeatures Device management features.
     */
     private ?ManagedDeviceManagementFeatures $managementFeatures = null;
     
     /**
-     * @var ManagementState|null $managementState Management state of the device. This property is read-only. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
+     * @var ManagementState|null $managementState Management state of device in Microsoft Intune.
     */
     private ?ManagementState $managementState = null;
     
@@ -315,12 +325,12 @@ class ManagedDevice extends Entity implements Parsable
     private ?string $osVersion = null;
     
     /**
-     * @var OwnerType|null $ownerType Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+     * @var OwnerType|null $ownerType Owner type of device.
     */
     private ?OwnerType $ownerType = null;
     
     /**
-     * @var ManagedDevicePartnerReportedHealthState|null $partnerReportedThreatState Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. This property is read-only. Possible values are: unknown, activated, deactivated, secured, lowSeverity, mediumSeverity, highSeverity, unresponsive, compromised, misconfigured.
+     * @var ManagedDevicePartnerReportedHealthState|null $partnerReportedThreatState Available health states for the Device Health API
     */
     private ?ManagedDevicePartnerReportedHealthState $partnerReportedThreatState = null;
     
@@ -340,7 +350,7 @@ class ManagedDevice extends Entity implements Parsable
     private ?DateTime $preferMdmOverGroupPolicyAppliedDateTime = null;
     
     /**
-     * @var ManagedDeviceArchitecture|null $processorArchitecture Processor architecture. This property is read-only. Possible values are: unknown, x86, x64, arm, arM64.
+     * @var ManagedDeviceArchitecture|null $processorArchitecture Processor architecture
     */
     private ?ManagedDeviceArchitecture $processorArchitecture = null;
     
@@ -455,10 +465,11 @@ class ManagedDevice extends Entity implements Parsable
     private ?int $windowsRemediatedMalwareCount = null;
     
     /**
-     * Instantiates a new ManagedDevice and sets the default values.
+     * Instantiates a new managedDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.managedDevice');
     }
 
     /**
@@ -542,7 +553,15 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the chassisType property value. Chassis type of the device. This property is read-only. Possible values are: unknown, desktop, laptop, worksWorkstation, enterpriseServer, phone, tablet, mobileOther, mobileUnknown.
+     * Gets the bootstrapTokenEscrowed property value. Reports if the managed device has an escrowed Bootstrap Token. This is only for macOS devices. To get, include BootstrapTokenEscrowed in the select clause and query with a device id. If FALSE, no bootstrap token is escrowed. If TRUE, the device has escrowed a bootstrap token with Intune. This property is read-only.
+     * @return bool|null
+    */
+    public function getBootstrapTokenEscrowed(): ?bool {
+        return $this->bootstrapTokenEscrowed;
+    }
+
+    /**
+     * Gets the chassisType property value. Chassis type.
      * @return ChassisType|null
     */
     public function getChassisType(): ?ChassisType {
@@ -574,7 +593,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the complianceState property value. Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager.
+     * Gets the complianceState property value. Compliance state.
      * @return ComplianceState|null
     */
     public function getComplianceState(): ?ComplianceState {
@@ -654,11 +673,19 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
+     * Gets the deviceEnrollmentType property value. Possible ways of adding a mobile device to management.
      * @return DeviceEnrollmentType|null
     */
     public function getDeviceEnrollmentType(): ?DeviceEnrollmentType {
         return $this->deviceEnrollmentType;
+    }
+
+    /**
+     * Gets the deviceFirmwareConfigurationInterfaceManaged property value. Indicates whether the device is DFCI managed. When TRUE the device is DFCI managed. When FALSE, the device is not DFCI managed. The default value is FALSE.
+     * @return bool|null
+    */
+    public function getDeviceFirmwareConfigurationInterfaceManaged(): ?bool {
+        return $this->deviceFirmwareConfigurationInterfaceManaged;
     }
 
     /**
@@ -678,7 +705,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceRegistrationState property value. Device registration state. This property is read-only. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown.
+     * Gets the deviceRegistrationState property value. Device registration status.
      * @return DeviceRegistrationState|null
     */
     public function getDeviceRegistrationState(): ?DeviceRegistrationState {
@@ -686,7 +713,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceType property value. Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     * Gets the deviceType property value. Device type.
      * @return DeviceType|null
     */
     public function getDeviceType(): ?DeviceType {
@@ -750,7 +777,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the exchangeAccessState property value. The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined.
+     * Gets the exchangeAccessState property value. Device Exchange Access State.
      * @return DeviceManagementExchangeAccessState|null
     */
     public function getExchangeAccessState(): ?DeviceManagementExchangeAccessState {
@@ -758,7 +785,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the exchangeAccessStateReason property value. The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp.
+     * Gets the exchangeAccessStateReason property value. Device Exchange Access State Reason.
      * @return DeviceManagementExchangeAccessStateReason|null
     */
     public function getExchangeAccessStateReason(): ?DeviceManagementExchangeAccessStateReason {
@@ -788,6 +815,7 @@ class ManagedDevice extends Entity implements Parsable
             'azureActiveDirectoryDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureActiveDirectoryDeviceId($n->getStringValue()); },
             'azureADDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureADDeviceId($n->getStringValue()); },
             'azureADRegistered' => function (ParseNode $n) use ($o) { $o->setAzureADRegistered($n->getBooleanValue()); },
+            'bootstrapTokenEscrowed' => function (ParseNode $n) use ($o) { $o->setBootstrapTokenEscrowed($n->getBooleanValue()); },
             'chassisType' => function (ParseNode $n) use ($o) { $o->setChassisType($n->getEnumValue(ChassisType::class)); },
             'chromeOSDeviceInfo' => function (ParseNode $n) use ($o) { $o->setChromeOSDeviceInfo($n->getCollectionOfObjectValues(array(ChromeOSDeviceProperty::class, 'createFromDiscriminatorValue'))); },
             'cloudPcRemoteActionResults' => function (ParseNode $n) use ($o) { $o->setCloudPcRemoteActionResults($n->getCollectionOfObjectValues(array(CloudPcRemoteActionResult::class, 'createFromDiscriminatorValue'))); },
@@ -803,6 +831,7 @@ class ManagedDevice extends Entity implements Parsable
             'deviceCompliancePolicyStates' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicyStates($n->getCollectionOfObjectValues(array(DeviceCompliancePolicyState::class, 'createFromDiscriminatorValue'))); },
             'deviceConfigurationStates' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationStates($n->getCollectionOfObjectValues(array(DeviceConfigurationState::class, 'createFromDiscriminatorValue'))); },
             'deviceEnrollmentType' => function (ParseNode $n) use ($o) { $o->setDeviceEnrollmentType($n->getEnumValue(DeviceEnrollmentType::class)); },
+            'deviceFirmwareConfigurationInterfaceManaged' => function (ParseNode $n) use ($o) { $o->setDeviceFirmwareConfigurationInterfaceManaged($n->getBooleanValue()); },
             'deviceHealthAttestationState' => function (ParseNode $n) use ($o) { $o->setDeviceHealthAttestationState($n->getObjectValue(array(DeviceHealthAttestationState::class, 'createFromDiscriminatorValue'))); },
             'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
             'deviceRegistrationState' => function (ParseNode $n) use ($o) { $o->setDeviceRegistrationState($n->getEnumValue(DeviceRegistrationState::class)); },
@@ -929,7 +958,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the joinType property value. Device join type. Possible values are: unknown, azureADJoined, azureADRegistered, hybridAzureADJoined.
+     * Gets the joinType property value. Device enrollment join type.
      * @return JoinType|null
     */
     public function getJoinType(): ?JoinType {
@@ -953,7 +982,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the lostModeState property value. Indicates if Lost mode is enabled or disabled. This property is read-only. Possible values are: disabled, enabled.
+     * Gets the lostModeState property value. State of lost mode, indicating if lost mode is enabled or disabled
      * @return LostModeState|null
     */
     public function getLostModeState(): ?LostModeState {
@@ -977,7 +1006,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedDeviceOwnerType property value. Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+     * Gets the managedDeviceOwnerType property value. Owner type of device.
      * @return ManagedDeviceOwnerType|null
     */
     public function getManagedDeviceOwnerType(): ?ManagedDeviceOwnerType {
@@ -985,7 +1014,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
+     * Gets the managementAgent property value. Management agent type.
      * @return ManagementAgentType|null
     */
     public function getManagementAgent(): ?ManagementAgentType {
@@ -1001,7 +1030,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the managementFeatures property value. Device management features. Possible values are: none, microsoftManagedDesktop.
+     * Gets the managementFeatures property value. Device management features.
      * @return ManagedDeviceManagementFeatures|null
     */
     public function getManagementFeatures(): ?ManagedDeviceManagementFeatures {
@@ -1009,7 +1038,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the managementState property value. Management state of the device. This property is read-only. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
+     * Gets the managementState property value. Management state of device in Microsoft Intune.
      * @return ManagementState|null
     */
     public function getManagementState(): ?ManagementState {
@@ -1065,7 +1094,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the ownerType property value. Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+     * Gets the ownerType property value. Owner type of device.
      * @return OwnerType|null
     */
     public function getOwnerType(): ?OwnerType {
@@ -1073,7 +1102,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the partnerReportedThreatState property value. Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. This property is read-only. Possible values are: unknown, activated, deactivated, secured, lowSeverity, mediumSeverity, highSeverity, unresponsive, compromised, misconfigured.
+     * Gets the partnerReportedThreatState property value. Available health states for the Device Health API
      * @return ManagedDevicePartnerReportedHealthState|null
     */
     public function getPartnerReportedThreatState(): ?ManagedDevicePartnerReportedHealthState {
@@ -1105,7 +1134,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the processorArchitecture property value. Processor architecture. This property is read-only. Possible values are: unknown, x86, x64, arm, arM64.
+     * Gets the processorArchitecture property value. Processor architecture
      * @return ManagedDeviceArchitecture|null
     */
     public function getProcessorArchitecture(): ?ManagedDeviceArchitecture {
@@ -1302,6 +1331,7 @@ class ManagedDevice extends Entity implements Parsable
         $writer->writeStringValue('azureActiveDirectoryDeviceId', $this->azureActiveDirectoryDeviceId);
         $writer->writeStringValue('azureADDeviceId', $this->azureADDeviceId);
         $writer->writeBooleanValue('azureADRegistered', $this->azureADRegistered);
+        $writer->writeBooleanValue('bootstrapTokenEscrowed', $this->bootstrapTokenEscrowed);
         $writer->writeEnumValue('chassisType', $this->chassisType);
         $writer->writeCollectionOfObjectValues('chromeOSDeviceInfo', $this->chromeOSDeviceInfo);
         $writer->writeCollectionOfObjectValues('cloudPcRemoteActionResults', $this->cloudPcRemoteActionResults);
@@ -1317,6 +1347,7 @@ class ManagedDevice extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceCompliancePolicyStates', $this->deviceCompliancePolicyStates);
         $writer->writeCollectionOfObjectValues('deviceConfigurationStates', $this->deviceConfigurationStates);
         $writer->writeEnumValue('deviceEnrollmentType', $this->deviceEnrollmentType);
+        $writer->writeBooleanValue('deviceFirmwareConfigurationInterfaceManaged', $this->deviceFirmwareConfigurationInterfaceManaged);
         $writer->writeObjectValue('deviceHealthAttestationState', $this->deviceHealthAttestationState);
         $writer->writeStringValue('deviceName', $this->deviceName);
         $writer->writeEnumValue('deviceRegistrationState', $this->deviceRegistrationState);
@@ -1450,7 +1481,15 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the chassisType property value. Chassis type of the device. This property is read-only. Possible values are: unknown, desktop, laptop, worksWorkstation, enterpriseServer, phone, tablet, mobileOther, mobileUnknown.
+     * Sets the bootstrapTokenEscrowed property value. Reports if the managed device has an escrowed Bootstrap Token. This is only for macOS devices. To get, include BootstrapTokenEscrowed in the select clause and query with a device id. If FALSE, no bootstrap token is escrowed. If TRUE, the device has escrowed a bootstrap token with Intune. This property is read-only.
+     *  @param bool|null $value Value to set for the bootstrapTokenEscrowed property.
+    */
+    public function setBootstrapTokenEscrowed(?bool $value ): void {
+        $this->bootstrapTokenEscrowed = $value;
+    }
+
+    /**
+     * Sets the chassisType property value. Chassis type.
      *  @param ChassisType|null $value Value to set for the chassisType property.
     */
     public function setChassisType(?ChassisType $value ): void {
@@ -1482,7 +1521,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the complianceState property value. Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager.
+     * Sets the complianceState property value. Compliance state.
      *  @param ComplianceState|null $value Value to set for the complianceState property.
     */
     public function setComplianceState(?ComplianceState $value ): void {
@@ -1562,11 +1601,19 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
+     * Sets the deviceEnrollmentType property value. Possible ways of adding a mobile device to management.
      *  @param DeviceEnrollmentType|null $value Value to set for the deviceEnrollmentType property.
     */
     public function setDeviceEnrollmentType(?DeviceEnrollmentType $value ): void {
         $this->deviceEnrollmentType = $value;
+    }
+
+    /**
+     * Sets the deviceFirmwareConfigurationInterfaceManaged property value. Indicates whether the device is DFCI managed. When TRUE the device is DFCI managed. When FALSE, the device is not DFCI managed. The default value is FALSE.
+     *  @param bool|null $value Value to set for the deviceFirmwareConfigurationInterfaceManaged property.
+    */
+    public function setDeviceFirmwareConfigurationInterfaceManaged(?bool $value ): void {
+        $this->deviceFirmwareConfigurationInterfaceManaged = $value;
     }
 
     /**
@@ -1586,7 +1633,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceRegistrationState property value. Device registration state. This property is read-only. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown.
+     * Sets the deviceRegistrationState property value. Device registration status.
      *  @param DeviceRegistrationState|null $value Value to set for the deviceRegistrationState property.
     */
     public function setDeviceRegistrationState(?DeviceRegistrationState $value ): void {
@@ -1594,7 +1641,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceType property value. Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     * Sets the deviceType property value. Device type.
      *  @param DeviceType|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?DeviceType $value ): void {
@@ -1658,7 +1705,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the exchangeAccessState property value. The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined.
+     * Sets the exchangeAccessState property value. Device Exchange Access State.
      *  @param DeviceManagementExchangeAccessState|null $value Value to set for the exchangeAccessState property.
     */
     public function setExchangeAccessState(?DeviceManagementExchangeAccessState $value ): void {
@@ -1666,7 +1713,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the exchangeAccessStateReason property value. The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp.
+     * Sets the exchangeAccessStateReason property value. Device Exchange Access State Reason.
      *  @param DeviceManagementExchangeAccessStateReason|null $value Value to set for the exchangeAccessStateReason property.
     */
     public function setExchangeAccessStateReason(?DeviceManagementExchangeAccessStateReason $value ): void {
@@ -1738,7 +1785,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the joinType property value. Device join type. Possible values are: unknown, azureADJoined, azureADRegistered, hybridAzureADJoined.
+     * Sets the joinType property value. Device enrollment join type.
      *  @param JoinType|null $value Value to set for the joinType property.
     */
     public function setJoinType(?JoinType $value ): void {
@@ -1762,7 +1809,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the lostModeState property value. Indicates if Lost mode is enabled or disabled. This property is read-only. Possible values are: disabled, enabled.
+     * Sets the lostModeState property value. State of lost mode, indicating if lost mode is enabled or disabled
      *  @param LostModeState|null $value Value to set for the lostModeState property.
     */
     public function setLostModeState(?LostModeState $value ): void {
@@ -1786,7 +1833,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the managedDeviceOwnerType property value. Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+     * Sets the managedDeviceOwnerType property value. Owner type of device.
      *  @param ManagedDeviceOwnerType|null $value Value to set for the managedDeviceOwnerType property.
     */
     public function setManagedDeviceOwnerType(?ManagedDeviceOwnerType $value ): void {
@@ -1794,7 +1841,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
+     * Sets the managementAgent property value. Management agent type.
      *  @param ManagementAgentType|null $value Value to set for the managementAgent property.
     */
     public function setManagementAgent(?ManagementAgentType $value ): void {
@@ -1810,7 +1857,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the managementFeatures property value. Device management features. Possible values are: none, microsoftManagedDesktop.
+     * Sets the managementFeatures property value. Device management features.
      *  @param ManagedDeviceManagementFeatures|null $value Value to set for the managementFeatures property.
     */
     public function setManagementFeatures(?ManagedDeviceManagementFeatures $value ): void {
@@ -1818,7 +1865,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the managementState property value. Management state of the device. This property is read-only. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
+     * Sets the managementState property value. Management state of device in Microsoft Intune.
      *  @param ManagementState|null $value Value to set for the managementState property.
     */
     public function setManagementState(?ManagementState $value ): void {
@@ -1874,7 +1921,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the ownerType property value. Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+     * Sets the ownerType property value. Owner type of device.
      *  @param OwnerType|null $value Value to set for the ownerType property.
     */
     public function setOwnerType(?OwnerType $value ): void {
@@ -1882,7 +1929,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the partnerReportedThreatState property value. Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. This property is read-only. Possible values are: unknown, activated, deactivated, secured, lowSeverity, mediumSeverity, highSeverity, unresponsive, compromised, misconfigured.
+     * Sets the partnerReportedThreatState property value. Available health states for the Device Health API
      *  @param ManagedDevicePartnerReportedHealthState|null $value Value to set for the partnerReportedThreatState property.
     */
     public function setPartnerReportedThreatState(?ManagedDevicePartnerReportedHealthState $value ): void {
@@ -1914,7 +1961,7 @@ class ManagedDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the processorArchitecture property value. Processor architecture. This property is read-only. Possible values are: unknown, x86, x64, arm, arM64.
+     * Sets the processorArchitecture property value. Processor architecture
      *  @param ManagedDeviceArchitecture|null $value Value to set for the processorArchitecture property.
     */
     public function setProcessorArchitecture(?ManagedDeviceArchitecture $value ): void {

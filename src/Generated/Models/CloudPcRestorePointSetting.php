@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcRestorePointSetting implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, Parsable
      * @var int|null $frequencyInHours The time interval in hours to take snapshots (restore points) of a Cloud PC automatically. Possible values are 4, 6, 12, 16, and 24. The default frequency is 12 hours.
     */
     private ?int $frequencyInHours = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var bool|null $userRestoreEnabled If true, the user has the ability to use snapshots to restore Cloud PCs. If false, non-admin users cannot use snapshots to restore the Cloud PC.
@@ -28,7 +33,8 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, Parsable
      * Instantiates a new cloudPcRestorePointSetting and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.cloudPcRestorePointSetting');
     }
 
     /**
@@ -56,6 +62,7 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'frequencyInHours' => function (ParseNode $n) use ($o) { $o->setFrequencyInHours($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userRestoreEnabled' => function (ParseNode $n) use ($o) { $o->setUserRestoreEnabled($n->getBooleanValue()); },
         ];
     }
@@ -66,6 +73,14 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, Parsable
     */
     public function getFrequencyInHours(): ?int {
         return $this->frequencyInHours;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('frequencyInHours', $this->frequencyInHours);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('userRestoreEnabled', $this->userRestoreEnabled);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, Parsable
     */
     public function setFrequencyInHours(?int $value ): void {
         $this->frequencyInHours = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

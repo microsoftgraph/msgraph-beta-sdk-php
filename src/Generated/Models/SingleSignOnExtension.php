@@ -10,15 +10,21 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SingleSignOnExtension implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new singleSignOnExtension and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.singleSignOnExtension');
     }
 
     /**
@@ -32,8 +38,16 @@ class SingleSignOnExtension implements AdditionalDataHolder, Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.credentialSingleSignOnExtension': return new CredentialSingleSignOnExtension();
+                case '#microsoft.graph.iosAzureAdSingleSignOnExtension': return new IosAzureAdSingleSignOnExtension();
+                case '#microsoft.graph.iosCredentialSingleSignOnExtension': return new IosCredentialSingleSignOnExtension();
+                case '#microsoft.graph.iosKerberosSingleSignOnExtension': return new IosKerberosSingleSignOnExtension();
+                case '#microsoft.graph.iosRedirectSingleSignOnExtension': return new IosRedirectSingleSignOnExtension();
                 case '#microsoft.graph.iosSingleSignOnExtension': return new IosSingleSignOnExtension();
                 case '#microsoft.graph.kerberosSingleSignOnExtension': return new KerberosSingleSignOnExtension();
+                case '#microsoft.graph.macOSAzureAdSingleSignOnExtension': return new MacOSAzureAdSingleSignOnExtension();
+                case '#microsoft.graph.macOSCredentialSingleSignOnExtension': return new MacOSCredentialSingleSignOnExtension();
+                case '#microsoft.graph.macOSKerberosSingleSignOnExtension': return new MacOSKerberosSingleSignOnExtension();
+                case '#microsoft.graph.macOSRedirectSingleSignOnExtension': return new MacOSRedirectSingleSignOnExtension();
                 case '#microsoft.graph.macOSSingleSignOnExtension': return new MacOSSingleSignOnExtension();
                 case '#microsoft.graph.redirectSingleSignOnExtension': return new RedirectSingleSignOnExtension();
             }
@@ -56,7 +70,16 @@ class SingleSignOnExtension implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -64,6 +87,7 @@ class SingleSignOnExtension implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -73,6 +97,14 @@ class SingleSignOnExtension implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

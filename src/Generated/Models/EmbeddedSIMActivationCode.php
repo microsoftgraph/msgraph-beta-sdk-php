@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmbeddedSIMActivationCode implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,6 +25,11 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, Parsable
     private ?string $matchingIdentifier = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $smdpPlusServerAddress The fully qualified domain name of the SM-DP+ server as specified in the GSM Association SPG .22 RSP Technical Specification.
     */
     private ?string $smdpPlusServerAddress = null;
@@ -33,7 +38,8 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, Parsable
      * Instantiates a new embeddedSIMActivationCode and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.embeddedSIMActivationCode');
     }
 
     /**
@@ -62,6 +68,7 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, Parsable
         return  [
             'integratedCircuitCardIdentifier' => function (ParseNode $n) use ($o) { $o->setIntegratedCircuitCardIdentifier($n->getStringValue()); },
             'matchingIdentifier' => function (ParseNode $n) use ($o) { $o->setMatchingIdentifier($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'smdpPlusServerAddress' => function (ParseNode $n) use ($o) { $o->setSmdpPlusServerAddress($n->getStringValue()); },
         ];
     }
@@ -83,6 +90,14 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the smdpPlusServerAddress property value. The fully qualified domain name of the SM-DP+ server as specified in the GSM Association SPG .22 RSP Technical Specification.
      * @return string|null
     */
@@ -97,6 +112,7 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('integratedCircuitCardIdentifier', $this->integratedCircuitCardIdentifier);
         $writer->writeStringValue('matchingIdentifier', $this->matchingIdentifier);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('smdpPlusServerAddress', $this->smdpPlusServerAddress);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -123,6 +139,14 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, Parsable
     */
     public function setMatchingIdentifier(?string $value ): void {
         $this->matchingIdentifier = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

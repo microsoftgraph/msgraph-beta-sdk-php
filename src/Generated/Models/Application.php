@@ -16,7 +16,7 @@ class Application extends DirectoryObject implements Parsable
     private ?ApiApplication $api = null;
     
     /**
-     * @var string|null $appId The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
+     * @var string|null $appId The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).
     */
     private ?string $appId = null;
     
@@ -71,7 +71,7 @@ class Application extends DirectoryObject implements Parsable
     private ?string $displayName = null;
     
     /**
-     * @var array<ExtensionProperty>|null $extensionProperties Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * @var array<ExtensionProperty>|null $extensionProperties Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
     */
     private ?array $extensionProperties = null;
     
@@ -235,6 +235,7 @@ class Application extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.application');
     }
 
     /**
@@ -255,7 +256,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
+     * Gets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -343,7 +344,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Gets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
      * @return array<ExtensionProperty>|null
     */
     public function getExtensionProperties(): ?array {
@@ -713,7 +714,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
+     * Sets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).
      *  @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value ): void {
@@ -801,7 +802,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Sets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
      *  @param array<ExtensionProperty>|null $value Value to set for the extensionProperties property.
     */
     public function setExtensionProperties(?array $value ): void {

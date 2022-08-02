@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsInformationProtectionApp implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class WindowsInformationProtectionApp implements AdditionalDataHolder, Parsable
     private ?string $displayName = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $productName The product name.
     */
     private ?string $productName = null;
@@ -43,7 +48,8 @@ class WindowsInformationProtectionApp implements AdditionalDataHolder, Parsable
      * Instantiates a new windowsInformationProtectionApp and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windowsInformationProtectionApp');
     }
 
     /**
@@ -105,9 +111,18 @@ class WindowsInformationProtectionApp implements AdditionalDataHolder, Parsable
             'denied' => function (ParseNode $n) use ($o) { $o->setDenied($n->getBooleanValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'productName' => function (ParseNode $n) use ($o) { $o->setProductName($n->getStringValue()); },
             'publisherName' => function (ParseNode $n) use ($o) { $o->setPublisherName($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -134,6 +149,7 @@ class WindowsInformationProtectionApp implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('denied', $this->denied);
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('productName', $this->productName);
         $writer->writeStringValue('publisherName', $this->publisherName);
         $writer->writeAdditionalData($this->additionalData);
@@ -169,6 +185,14 @@ class WindowsInformationProtectionApp implements AdditionalDataHolder, Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

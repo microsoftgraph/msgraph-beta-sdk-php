@@ -39,7 +39,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
     private ?string $ssid = null;
     
     /**
-     * @var AospDeviceOwnerWiFiSecurityType|null $wiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wep, wpaPersonal, wpaEnterprise.
+     * @var AospDeviceOwnerWiFiSecurityType|null $wiFiSecurityType Wi-Fi Security Types for AOSP Device Owner.
     */
     private ?AospDeviceOwnerWiFiSecurityType $wiFiSecurityType = null;
     
@@ -48,6 +48,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.aospDeviceOwnerWiFiConfiguration');
     }
 
     /**
@@ -132,7 +133,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the wiFiSecurityType property value. Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wep, wpaPersonal, wpaEnterprise.
+     * Gets the wiFiSecurityType property value. Wi-Fi Security Types for AOSP Device Owner.
      * @return AospDeviceOwnerWiFiSecurityType|null
     */
     public function getWiFiSecurityType(): ?AospDeviceOwnerWiFiSecurityType {
@@ -203,7 +204,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the wiFiSecurityType property value. Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wep, wpaPersonal, wpaEnterprise.
+     * Sets the wiFiSecurityType property value. Wi-Fi Security Types for AOSP Device Owner.
      *  @param AospDeviceOwnerWiFiSecurityType|null $value Value to set for the wiFiSecurityType property.
     */
     public function setWiFiSecurityType(?AospDeviceOwnerWiFiSecurityType $value ): void {

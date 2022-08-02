@@ -24,7 +24,7 @@ class SynchronizationTemplate extends Entity implements Parsable
     private ?bool $discoverable = null;
     
     /**
-     * @var bool|null $EscapedDefault true if this template is recommended to be the default for the application.
+     * @var bool|null $escapedDefault true if this template is recommended to be the default for the application.
     */
     private ?bool $escapedDefault = null;
     
@@ -48,6 +48,7 @@ class SynchronizationTemplate extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.synchronizationTemplate');
     }
 
     /**

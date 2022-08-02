@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DiscoveredSensitiveType implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,10 +35,16 @@ class DiscoveredSensitiveType implements AdditionalDataHolder, Parsable
     private ?string $id = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new discoveredSensitiveType and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.discoveredSensitiveType');
     }
 
     /**
@@ -93,6 +99,7 @@ class DiscoveredSensitiveType implements AdditionalDataHolder, Parsable
             'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
             'count' => function (ParseNode $n) use ($o) { $o->setCount($n->getIntegerValue()); },
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -105,6 +112,14 @@ class DiscoveredSensitiveType implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -113,6 +128,7 @@ class DiscoveredSensitiveType implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('confidence', $this->confidence);
         $writer->writeIntegerValue('count', $this->count);
         $writer->writeStringValue('id', $this->id);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -154,6 +170,14 @@ class DiscoveredSensitiveType implements AdditionalDataHolder, Parsable
     */
     public function setId(?string $value ): void {
         $this->id = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

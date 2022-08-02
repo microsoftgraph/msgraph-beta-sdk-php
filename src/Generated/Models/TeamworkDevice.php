@@ -45,7 +45,7 @@ class TeamworkDevice extends Entity implements Parsable
     private ?TeamworkUserIdentity $currentUser = null;
     
     /**
-     * @var TeamworkDeviceType|null $deviceType The type of device. The possible values are: unknown, ipPhone, teamsRoom, surfaceHub, collaborationBar, teamsDisplay, touchConsole, lowCostPhone, teamsPanel, sip, unknownFutureValue.
+     * @var TeamworkDeviceType|null $deviceType The deviceType property
     */
     private ?TeamworkDeviceType $deviceType = null;
     
@@ -85,10 +85,11 @@ class TeamworkDevice extends Entity implements Parsable
     private ?array $operations = null;
     
     /**
-     * Instantiates a new TeamworkDevice and sets the default values.
+     * Instantiates a new teamworkDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.teamworkDevice');
     }
 
     /**
@@ -157,7 +158,7 @@ class TeamworkDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceType property value. The type of device. The possible values are: unknown, ipPhone, teamsRoom, surfaceHub, collaborationBar, teamsDisplay, touchConsole, lowCostPhone, teamsPanel, sip, unknownFutureValue.
+     * Gets the deviceType property value. The deviceType property
      * @return TeamworkDeviceType|null
     */
     public function getDeviceType(): ?TeamworkDeviceType {
@@ -325,7 +326,7 @@ class TeamworkDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceType property value. The type of device. The possible values are: unknown, ipPhone, teamsRoom, surfaceHub, collaborationBar, teamsDisplay, touchConsole, lowCostPhone, teamsPanel, sip, unknownFutureValue.
+     * Sets the deviceType property value. The deviceType property
      *  @param TeamworkDeviceType|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?TeamworkDeviceType $value ): void {

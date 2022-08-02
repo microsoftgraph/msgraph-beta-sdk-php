@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * @var InstallIntent|null $intent Install intent of the MobileAppPolicySetItem. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * @var InstallIntent|null $intent Possible values for the install intent chosen by the admin.
     */
     private ?InstallIntent $intent = null;
     
@@ -23,6 +23,7 @@ class MobileAppPolicySetItem extends PolicySetItem implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mobileAppPolicySetItem');
     }
 
     /**
@@ -47,7 +48,7 @@ class MobileAppPolicySetItem extends PolicySetItem implements Parsable
     }
 
     /**
-     * Gets the intent property value. Install intent of the MobileAppPolicySetItem. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Gets the intent property value. Possible values for the install intent chosen by the admin.
      * @return InstallIntent|null
     */
     public function getIntent(): ?InstallIntent {
@@ -73,7 +74,7 @@ class MobileAppPolicySetItem extends PolicySetItem implements Parsable
     }
 
     /**
-     * Sets the intent property value. Install intent of the MobileAppPolicySetItem. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * Sets the intent property value. Possible values for the install intent chosen by the admin.
      *  @param InstallIntent|null $value Value to set for the intent property.
     */
     public function setIntent(?InstallIntent $value ): void {

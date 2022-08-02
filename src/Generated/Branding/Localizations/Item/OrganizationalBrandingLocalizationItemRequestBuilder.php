@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Branding\Localizations\Item\BackgroundImage\B
 use Microsoft\Graph\Beta\Generated\Branding\Localizations\Item\BannerLogo\BannerLogoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\Localizations\Item\Favicon\FaviconRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\Localizations\Item\SquareLogo\SquareLogoRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Branding\Localizations\Item\SquareLogoDark\SquareLogoDarkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OrganizationalBrandingLocalization;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -57,6 +58,13 @@ class OrganizationalBrandingLocalizationItemRequestBuilder
     */
     public function squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The squareLogoDark property
+    */
+    public function squareLogoDark(): SquareLogoDarkRequestBuilder {
+        return new SquareLogoDarkRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

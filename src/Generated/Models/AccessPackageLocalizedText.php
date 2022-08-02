@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
      * @var string|null $languageCode The ISO code for the intended language. Required.
     */
     private ?string $languageCode = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $text The text in the specific language. Required.
@@ -28,7 +33,8 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
      * Instantiates a new accessPackageLocalizedText and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.accessPackageLocalizedText');
     }
 
     /**
@@ -56,6 +62,7 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'languageCode' => function (ParseNode $n) use ($o) { $o->setLanguageCode($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
         ];
     }
@@ -66,6 +73,14 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
     */
     public function getLanguageCode(): ?string {
         return $this->languageCode;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('languageCode', $this->languageCode);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('text', $this->text);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
     */
     public function setLanguageCode(?string $value ): void {
         $this->languageCode = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

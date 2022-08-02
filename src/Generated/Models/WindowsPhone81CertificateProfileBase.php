@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Certificate Validity Period Options.
     */
     private ?CertificateValidityPeriodScale $certificateValidityPeriodScale = null;
     
@@ -24,7 +24,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     private ?array $extendedKeyUsages = null;
     
     /**
-     * @var KeyStorageProviderOption|null $keyStorageProvider Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * @var KeyStorageProviderOption|null $keyStorageProvider Key Storage Provider (KSP) Import Options.
     */
     private ?KeyStorageProviderOption $keyStorageProvider = null;
     
@@ -34,12 +34,12 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     private ?int $renewalThresholdPercentage = null;
     
     /**
-     * @var SubjectAlternativeNameType|null $subjectAlternativeNameType Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * @var SubjectAlternativeNameType|null $subjectAlternativeNameType Subject Alternative Name Options.
     */
     private ?SubjectAlternativeNameType $subjectAlternativeNameType = null;
     
     /**
-     * @var SubjectNameFormat|null $subjectNameFormat Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * @var SubjectNameFormat|null $subjectNameFormat Subject Name Format Options.
     */
     private ?SubjectNameFormat $subjectNameFormat = null;
     
@@ -48,6 +48,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsPhone81CertificateProfileBase');
     }
 
     /**
@@ -67,7 +68,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     }
 
     /**
-     * Gets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Gets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
@@ -108,7 +109,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     }
 
     /**
-     * Gets the keyStorageProvider property value. Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * Gets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      * @return KeyStorageProviderOption|null
     */
     public function getKeyStorageProvider(): ?KeyStorageProviderOption {
@@ -124,7 +125,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     }
 
     /**
-     * Gets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Gets the subjectAlternativeNameType property value. Subject Alternative Name Options.
      * @return SubjectAlternativeNameType|null
     */
     public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
@@ -132,7 +133,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     }
 
     /**
-     * Gets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Gets the subjectNameFormat property value. Subject Name Format Options.
      * @return SubjectNameFormat|null
     */
     public function getSubjectNameFormat(): ?SubjectNameFormat {
@@ -155,7 +156,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     }
 
     /**
-     * Sets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
     public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value ): void {
@@ -179,7 +180,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     }
 
     /**
-     * Sets the keyStorageProvider property value. Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * Sets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      *  @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
     */
     public function setKeyStorageProvider(?KeyStorageProviderOption $value ): void {
@@ -195,7 +196,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     }
 
     /**
-     * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Sets the subjectAlternativeNameType property value. Subject Alternative Name Options.
      *  @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
     public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value ): void {
@@ -203,7 +204,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration implement
     }
 
     /**
-     * Sets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Sets the subjectNameFormat property value. Subject Name Format Options.
      *  @param SubjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
     public function setSubjectNameFormat(?SubjectNameFormat $value ): void {

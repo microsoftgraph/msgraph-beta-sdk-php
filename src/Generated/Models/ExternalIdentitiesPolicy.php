@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalIdentitiesPolicy extends PolicyBase implements Parsable 
 {
     /**
-     * @var bool|null $allowDeletedIdentitiesDataRemoval The allowDeletedIdentitiesDataRemoval property
+     * @var bool|null $allowDeletedIdentitiesDataRemoval Notifies Azure AD whether to clean up the user information about the external identity, from the guest tenant, when the user is deleted in their home tenant.
     */
     private ?bool $allowDeletedIdentitiesDataRemoval = null;
     
     /**
-     * @var bool|null $allowExternalIdentitiesToLeave The allowExternalIdentitiesToLeave property
+     * @var bool|null $allowExternalIdentitiesToLeave Defines whether external users can leave the guest tenant. If set to false, self-service controls are not enabled, and the admin of the guest tenant must manually remove the external user from the guest tenant.
     */
     private ?bool $allowExternalIdentitiesToLeave = null;
     
@@ -23,6 +23,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.externalIdentitiesPolicy');
     }
 
     /**
@@ -35,7 +36,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the allowDeletedIdentitiesDataRemoval property value. The allowDeletedIdentitiesDataRemoval property
+     * Gets the allowDeletedIdentitiesDataRemoval property value. Notifies Azure AD whether to clean up the user information about the external identity, from the guest tenant, when the user is deleted in their home tenant.
      * @return bool|null
     */
     public function getAllowDeletedIdentitiesDataRemoval(): ?bool {
@@ -43,7 +44,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the allowExternalIdentitiesToLeave property value. The allowExternalIdentitiesToLeave property
+     * Gets the allowExternalIdentitiesToLeave property value. Defines whether external users can leave the guest tenant. If set to false, self-service controls are not enabled, and the admin of the guest tenant must manually remove the external user from the guest tenant.
      * @return bool|null
     */
     public function getAllowExternalIdentitiesToLeave(): ?bool {
@@ -73,7 +74,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the allowDeletedIdentitiesDataRemoval property value. The allowDeletedIdentitiesDataRemoval property
+     * Sets the allowDeletedIdentitiesDataRemoval property value. Notifies Azure AD whether to clean up the user information about the external identity, from the guest tenant, when the user is deleted in their home tenant.
      *  @param bool|null $value Value to set for the allowDeletedIdentitiesDataRemoval property.
     */
     public function setAllowDeletedIdentitiesDataRemoval(?bool $value ): void {
@@ -81,7 +82,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the allowExternalIdentitiesToLeave property value. The allowExternalIdentitiesToLeave property
+     * Sets the allowExternalIdentitiesToLeave property value. Defines whether external users can leave the guest tenant. If set to false, self-service controls are not enabled, and the admin of the guest tenant must manually remove the external user from the guest tenant.
      *  @param bool|null $value Value to set for the allowExternalIdentitiesToLeave property.
     */
     public function setAllowExternalIdentitiesToLeave(?bool $value ): void {

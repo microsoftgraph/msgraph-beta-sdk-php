@@ -55,7 +55,7 @@ class Bookmark extends SearchAnswer implements Parsable
     private ?array $powerAppIds = null;
     
     /**
-     * @var AnswerState|null $state State of the bookmark. Possible values are: published, draft, excluded, or unknownFutureValue.
+     * @var AnswerState|null $state The state property
     */
     private ?AnswerState $state = null;
     
@@ -69,6 +69,7 @@ class Bookmark extends SearchAnswer implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.search.bookmark');
     }
 
     /**
@@ -174,7 +175,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Gets the state property value. State of the bookmark. Possible values are: published, draft, excluded, or unknownFutureValue.
+     * Gets the state property value. The state property
      * @return AnswerState|null
     */
     public function getState(): ?AnswerState {
@@ -281,7 +282,7 @@ class Bookmark extends SearchAnswer implements Parsable
     }
 
     /**
-     * Sets the state property value. State of the bookmark. Possible values are: published, draft, excluded, or unknownFutureValue.
+     * Sets the state property value. The state property
      *  @param AnswerState|null $value Value to set for the state property.
     */
     public function setState(?AnswerState $value ): void {

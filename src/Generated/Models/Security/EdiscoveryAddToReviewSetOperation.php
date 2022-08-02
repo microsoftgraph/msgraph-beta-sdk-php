@@ -23,6 +23,7 @@ class EdiscoveryAddToReviewSetOperation extends CaseOperation implements Parsabl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.ediscoveryAddToReviewSetOperation');
     }
 
     /**

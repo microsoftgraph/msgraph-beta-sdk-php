@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
      * @var int|null $durationInDays The duration in days for recurrence.
     */
     private ?int $durationInDays = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $recurrenceCount The count of recurrences, if the value of recurrenceEndType is occurrences, or 0 otherwise.
@@ -38,7 +43,8 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new accessReviewRecurrenceSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.accessReviewRecurrenceSettings');
     }
 
     /**
@@ -74,10 +80,19 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'durationInDays' => function (ParseNode $n) use ($o) { $o->setDurationInDays($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recurrenceCount' => function (ParseNode $n) use ($o) { $o->setRecurrenceCount($n->getIntegerValue()); },
             'recurrenceEndType' => function (ParseNode $n) use ($o) { $o->setRecurrenceEndType($n->getStringValue()); },
             'recurrenceType' => function (ParseNode $n) use ($o) { $o->setRecurrenceType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -110,6 +125,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('durationInDays', $this->durationInDays);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('recurrenceCount', $this->recurrenceCount);
         $writer->writeStringValue('recurrenceEndType', $this->recurrenceEndType);
         $writer->writeStringValue('recurrenceType', $this->recurrenceType);
@@ -130,6 +146,14 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
     */
     public function setDurationInDays(?int $value ): void {
         $this->durationInDays = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

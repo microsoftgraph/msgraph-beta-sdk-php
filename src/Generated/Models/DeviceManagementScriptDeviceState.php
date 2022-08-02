@@ -35,7 +35,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
     private ?string $resultMessage = null;
     
     /**
-     * @var RunState|null $runState State of latest run of the device management script. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * @var RunState|null $runState Indicates the type of execution status of the device management script.
     */
     private ?RunState $runState = null;
     
@@ -44,6 +44,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementScriptDeviceState');
     }
 
     /**
@@ -112,7 +113,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Gets the runState property value. State of latest run of the device management script. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Gets the runState property value. Indicates the type of execution status of the device management script.
      * @return RunState|null
     */
     public function getRunState(): ?RunState {
@@ -174,7 +175,7 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Sets the runState property value. State of latest run of the device management script. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Sets the runState property value. Indicates the type of execution status of the device management script.
      *  @param RunState|null $value Value to set for the runState property.
     */
     public function setRunState(?RunState $value ): void {

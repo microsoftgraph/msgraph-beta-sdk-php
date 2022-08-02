@@ -33,6 +33,7 @@ class TeamCreatedEventMessageDetail extends EventMessageDetail implements Parsab
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.teamCreatedEventMessageDetail');
     }
 
     /**

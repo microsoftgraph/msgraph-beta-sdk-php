@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implements Parsable 
 {
     /**
-     * @var WindowsQualityUpdateClassification|null $classification Classification of the quality update. Possible values are: all, security, nonSecurity.
+     * @var WindowsQualityUpdateClassification|null $classification Windows quality update classification
     */
     private ?WindowsQualityUpdateClassification $classification = null;
     
@@ -28,6 +28,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsQualityUpdateCatalogItem');
     }
 
     /**
@@ -40,7 +41,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     }
 
     /**
-     * Gets the classification property value. Classification of the quality update. Possible values are: all, security, nonSecurity.
+     * Gets the classification property value. Windows quality update classification
      * @return WindowsQualityUpdateClassification|null
     */
     public function getClassification(): ?WindowsQualityUpdateClassification {
@@ -88,7 +89,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     }
 
     /**
-     * Sets the classification property value. Classification of the quality update. Possible values are: all, security, nonSecurity.
+     * Sets the classification property value. Windows quality update classification
      *  @param WindowsQualityUpdateClassification|null $value Value to set for the classification property.
     */
     public function setClassification(?WindowsQualityUpdateClassification $value ): void {

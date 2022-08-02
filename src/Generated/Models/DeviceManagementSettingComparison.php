@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var DeviceManagementComparisonResult|null $comparisonResult Setting comparison result. Possible values are: unknown, equal, notEqual, added, removed.
+     * @var DeviceManagementComparisonResult|null $comparisonResult Setting comparison result type
     */
     private ?DeviceManagementComparisonResult $comparisonResult = null;
     
@@ -45,10 +45,16 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
     private ?string $newValueJson = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceManagementSettingComparison and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementSettingComparison');
     }
 
     /**
@@ -69,7 +75,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the comparisonResult property value. Setting comparison result. Possible values are: unknown, equal, notEqual, added, removed.
+     * Gets the comparisonResult property value. Setting comparison result type
      * @return DeviceManagementComparisonResult|null
     */
     public function getComparisonResult(): ?DeviceManagementComparisonResult {
@@ -113,6 +119,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
             'newValueJson' => function (ParseNode $n) use ($o) { $o->setNewValueJson($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -133,6 +140,14 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -143,6 +158,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('id', $this->id);
         $writer->writeStringValue('newValueJson', $this->newValueJson);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -155,7 +171,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the comparisonResult property value. Setting comparison result. Possible values are: unknown, equal, notEqual, added, removed.
+     * Sets the comparisonResult property value. Setting comparison result type
      *  @param DeviceManagementComparisonResult|null $value Value to set for the comparisonResult property.
     */
     public function setComparisonResult(?DeviceManagementComparisonResult $value ): void {
@@ -200,6 +216,14 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
     */
     public function setNewValueJson(?string $value ): void {
         $this->newValueJson = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

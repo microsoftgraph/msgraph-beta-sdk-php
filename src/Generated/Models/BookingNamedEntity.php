@@ -18,6 +18,7 @@ class BookingNamedEntity extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.bookingNamedEntity');
     }
 
     /**
@@ -31,8 +32,10 @@ class BookingNamedEntity extends Entity implements Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.bookingBusiness': return new BookingBusiness();
+                case '#microsoft.graph.bookingCustomer': return new BookingCustomer();
                 case '#microsoft.graph.bookingPerson': return new BookingPerson();
                 case '#microsoft.graph.bookingService': return new BookingService();
+                case '#microsoft.graph.bookingStaffMember': return new BookingStaffMember();
             }
         }
         return new BookingNamedEntity();

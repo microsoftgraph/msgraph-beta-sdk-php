@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsFirewallRule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var StateManagementSetting|null $action The action the rule enforces. If not specified, the default is Allowed. Possible values are: notConfigured, blocked, allowed.
+     * @var StateManagementSetting|null $action State Management Setting.
     */
     private ?StateManagementSetting $action = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,7 +30,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     private ?string $displayName = null;
     
     /**
-     * @var StateManagementSetting|null $edgeTraversal Indicates whether edge traversal is enabled or disabled for this rule. The EdgeTraversal setting indicates that specific inbound traffic is allowed to tunnel through NATs and other edge devices using the Teredo tunneling technology. In order for this setting to work correctly, the application or service with the inbound firewall rule needs to support IPv6. The primary application of this setting allows listeners on the host to be globally addressable through a Teredo IPv6 address. New rules have the EdgeTraversal property disabled by default. Possible values are: notConfigured, blocked, allowed.
+     * @var StateManagementSetting|null $edgeTraversal State Management Setting.
     */
     private ?StateManagementSetting $edgeTraversal = null;
     
@@ -40,7 +40,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     private ?string $filePath = null;
     
     /**
-     * @var WindowsFirewallRuleInterfaceTypes|null $interfaceTypes The interface types of the rule. Possible values are: notConfigured, remoteAccess, wireless, lan.
+     * @var WindowsFirewallRuleInterfaceTypes|null $interfaceTypes Flags representing firewall rule interface types.
     */
     private ?WindowsFirewallRuleInterfaceTypes $interfaceTypes = null;
     
@@ -60,12 +60,17 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     private ?string $localUserAuthorizations = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $packageFamilyName The package family name of a Microsoft Store application that's affected by the firewall rule.
     */
     private ?string $packageFamilyName = null;
     
     /**
-     * @var WindowsFirewallRuleNetworkProfileTypes|null $profileTypes Specifies the profiles to which the rule belongs. If not specified, the default is All. Possible values are: notConfigured, domain, private, public.
+     * @var WindowsFirewallRuleNetworkProfileTypes|null $profileTypes Flags representing which network profile types apply to a firewall rule.
     */
     private ?WindowsFirewallRuleNetworkProfileTypes $profileTypes = null;
     
@@ -90,7 +95,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     private ?string $serviceName = null;
     
     /**
-     * @var WindowsFirewallRuleTrafficDirectionType|null $trafficDirection The traffic direction that the rule is enabled for. If not specified, the default is Out. Possible values are: notConfigured, out, in.
+     * @var WindowsFirewallRuleTrafficDirectionType|null $trafficDirection Firewall rule traffic directions.
     */
     private ?WindowsFirewallRuleTrafficDirectionType $trafficDirection = null;
     
@@ -98,7 +103,8 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
      * Instantiates a new windowsFirewallRule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windowsFirewallRule');
     }
 
     /**
@@ -111,7 +117,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the action property value. The action the rule enforces. If not specified, the default is Allowed. Possible values are: notConfigured, blocked, allowed.
+     * Gets the action property value. State Management Setting.
      * @return StateManagementSetting|null
     */
     public function getAction(): ?StateManagementSetting {
@@ -143,7 +149,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the edgeTraversal property value. Indicates whether edge traversal is enabled or disabled for this rule. The EdgeTraversal setting indicates that specific inbound traffic is allowed to tunnel through NATs and other edge devices using the Teredo tunneling technology. In order for this setting to work correctly, the application or service with the inbound firewall rule needs to support IPv6. The primary application of this setting allows listeners on the host to be globally addressable through a Teredo IPv6 address. New rules have the EdgeTraversal property disabled by default. Possible values are: notConfigured, blocked, allowed.
+     * Gets the edgeTraversal property value. State Management Setting.
      * @return StateManagementSetting|null
     */
     public function getEdgeTraversal(): ?StateManagementSetting {
@@ -166,6 +172,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
             'localAddressRanges' => function (ParseNode $n) use ($o) { $o->setLocalAddressRanges($n->getCollectionOfPrimitiveValues()); },
             'localPortRanges' => function (ParseNode $n) use ($o) { $o->setLocalPortRanges($n->getCollectionOfPrimitiveValues()); },
             'localUserAuthorizations' => function (ParseNode $n) use ($o) { $o->setLocalUserAuthorizations($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'packageFamilyName' => function (ParseNode $n) use ($o) { $o->setPackageFamilyName($n->getStringValue()); },
             'profileTypes' => function (ParseNode $n) use ($o) { $o->setProfileTypes($n->getEnumValue(WindowsFirewallRuleNetworkProfileTypes::class)); },
             'protocol' => function (ParseNode $n) use ($o) { $o->setProtocol($n->getIntegerValue()); },
@@ -185,7 +192,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the interfaceTypes property value. The interface types of the rule. Possible values are: notConfigured, remoteAccess, wireless, lan.
+     * Gets the interfaceTypes property value. Flags representing firewall rule interface types.
      * @return WindowsFirewallRuleInterfaceTypes|null
     */
     public function getInterfaceTypes(): ?WindowsFirewallRuleInterfaceTypes {
@@ -217,6 +224,14 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the packageFamilyName property value. The package family name of a Microsoft Store application that's affected by the firewall rule.
      * @return string|null
     */
@@ -225,7 +240,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the profileTypes property value. Specifies the profiles to which the rule belongs. If not specified, the default is All. Possible values are: notConfigured, domain, private, public.
+     * Gets the profileTypes property value. Flags representing which network profile types apply to a firewall rule.
      * @return WindowsFirewallRuleNetworkProfileTypes|null
     */
     public function getProfileTypes(): ?WindowsFirewallRuleNetworkProfileTypes {
@@ -265,7 +280,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the trafficDirection property value. The traffic direction that the rule is enabled for. If not specified, the default is Out. Possible values are: notConfigured, out, in.
+     * Gets the trafficDirection property value. Firewall rule traffic directions.
      * @return WindowsFirewallRuleTrafficDirectionType|null
     */
     public function getTrafficDirection(): ?WindowsFirewallRuleTrafficDirectionType {
@@ -286,6 +301,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfPrimitiveValues('localAddressRanges', $this->localAddressRanges);
         $writer->writeCollectionOfPrimitiveValues('localPortRanges', $this->localPortRanges);
         $writer->writeStringValue('localUserAuthorizations', $this->localUserAuthorizations);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('packageFamilyName', $this->packageFamilyName);
         $writer->writeEnumValue('profileTypes', $this->profileTypes);
         $writer->writeIntegerValue('protocol', $this->protocol);
@@ -297,7 +313,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the action property value. The action the rule enforces. If not specified, the default is Allowed. Possible values are: notConfigured, blocked, allowed.
+     * Sets the action property value. State Management Setting.
      *  @param StateManagementSetting|null $value Value to set for the action property.
     */
     public function setAction(?StateManagementSetting $value ): void {
@@ -329,7 +345,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the edgeTraversal property value. Indicates whether edge traversal is enabled or disabled for this rule. The EdgeTraversal setting indicates that specific inbound traffic is allowed to tunnel through NATs and other edge devices using the Teredo tunneling technology. In order for this setting to work correctly, the application or service with the inbound firewall rule needs to support IPv6. The primary application of this setting allows listeners on the host to be globally addressable through a Teredo IPv6 address. New rules have the EdgeTraversal property disabled by default. Possible values are: notConfigured, blocked, allowed.
+     * Sets the edgeTraversal property value. State Management Setting.
      *  @param StateManagementSetting|null $value Value to set for the edgeTraversal property.
     */
     public function setEdgeTraversal(?StateManagementSetting $value ): void {
@@ -345,7 +361,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the interfaceTypes property value. The interface types of the rule. Possible values are: notConfigured, remoteAccess, wireless, lan.
+     * Sets the interfaceTypes property value. Flags representing firewall rule interface types.
      *  @param WindowsFirewallRuleInterfaceTypes|null $value Value to set for the interfaceTypes property.
     */
     public function setInterfaceTypes(?WindowsFirewallRuleInterfaceTypes $value ): void {
@@ -377,6 +393,14 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the packageFamilyName property value. The package family name of a Microsoft Store application that's affected by the firewall rule.
      *  @param string|null $value Value to set for the packageFamilyName property.
     */
@@ -385,7 +409,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the profileTypes property value. Specifies the profiles to which the rule belongs. If not specified, the default is All. Possible values are: notConfigured, domain, private, public.
+     * Sets the profileTypes property value. Flags representing which network profile types apply to a firewall rule.
      *  @param WindowsFirewallRuleNetworkProfileTypes|null $value Value to set for the profileTypes property.
     */
     public function setProfileTypes(?WindowsFirewallRuleNetworkProfileTypes $value ): void {
@@ -425,7 +449,7 @@ class WindowsFirewallRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the trafficDirection property value. The traffic direction that the rule is enabled for. If not specified, the default is Out. Possible values are: notConfigured, out, in.
+     * Sets the trafficDirection property value. Firewall rule traffic directions.
      *  @param WindowsFirewallRuleTrafficDirectionType|null $value Value to set for the trafficDirection property.
     */
     public function setTrafficDirection(?WindowsFirewallRuleTrafficDirectionType $value ): void {

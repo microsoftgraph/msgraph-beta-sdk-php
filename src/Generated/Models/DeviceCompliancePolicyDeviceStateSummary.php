@@ -54,10 +54,11 @@ class DeviceCompliancePolicyDeviceStateSummary extends Entity implements Parsabl
     private ?int $unknownDeviceCount = null;
     
     /**
-     * Instantiates a new deviceCompliancePolicyDeviceStateSummary and sets the default values.
+     * Instantiates a new DeviceCompliancePolicyDeviceStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceCompliancePolicyDeviceStateSummary');
     }
 
     /**

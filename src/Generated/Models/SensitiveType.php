@@ -54,10 +54,11 @@ class SensitiveType extends Entity implements Parsable
     private ?string $state = null;
     
     /**
-     * Instantiates a new SensitiveType and sets the default values.
+     * Instantiates a new sensitiveType and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.sensitiveType');
     }
 
     /**

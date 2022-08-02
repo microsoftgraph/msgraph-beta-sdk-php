@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceManagementConfigurationSettingValueDefinition implements Parsable 
 {
     /**
-     * @var DeviceManagementConfigurationStringFormat|null $format Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
+     * @var array<string>|null $fileTypes Supported file types for this setting.
+    */
+    private ?array $fileTypes = null;
+    
+    /**
+     * @var DeviceManagementConfigurationStringFormat|null $format The format property
     */
     private ?DeviceManagementConfigurationStringFormat $format = null;
     
@@ -24,12 +29,12 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     private ?bool $isSecret = null;
     
     /**
-     * @var int|null $maximumLength Maximum length of string. Valid values 0 to 87516
+     * @var int|null $maximumLength Maximum length of string
     */
     private ?int $maximumLength = null;
     
     /**
-     * @var int|null $minimumLength Minimum length of string. Valid values 0 to 87516
+     * @var int|null $minimumLength Minimum length of string
     */
     private ?int $minimumLength = null;
     
@@ -38,6 +43,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationStringSettingValueDefinition');
     }
 
     /**
@@ -56,6 +62,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'fileTypes' => function (ParseNode $n) use ($o) { $o->setFileTypes($n->getCollectionOfPrimitiveValues()); },
             'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getEnumValue(DeviceManagementConfigurationStringFormat::class)); },
             'inputValidationSchema' => function (ParseNode $n) use ($o) { $o->setInputValidationSchema($n->getStringValue()); },
             'isSecret' => function (ParseNode $n) use ($o) { $o->setIsSecret($n->getBooleanValue()); },
@@ -65,7 +72,15 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
+     * Gets the fileTypes property value. Supported file types for this setting.
+     * @return array<string>|null
+    */
+    public function getFileTypes(): ?array {
+        return $this->fileTypes;
+    }
+
+    /**
+     * Gets the format property value. The format property
      * @return DeviceManagementConfigurationStringFormat|null
     */
     public function getFormat(): ?DeviceManagementConfigurationStringFormat {
@@ -89,7 +104,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
+     * Gets the maximumLength property value. Maximum length of string
      * @return int|null
     */
     public function getMaximumLength(): ?int {
@@ -97,7 +112,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
+     * Gets the minimumLength property value. Minimum length of string
      * @return int|null
     */
     public function getMinimumLength(): ?int {
@@ -110,6 +125,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeCollectionOfPrimitiveValues('fileTypes', $this->fileTypes);
         $writer->writeEnumValue('format', $this->format);
         $writer->writeStringValue('inputValidationSchema', $this->inputValidationSchema);
         $writer->writeBooleanValue('isSecret', $this->isSecret);
@@ -118,7 +134,15 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the format property value. Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
+     * Sets the fileTypes property value. Supported file types for this setting.
+     *  @param array<string>|null $value Value to set for the fileTypes property.
+    */
+    public function setFileTypes(?array $value ): void {
+        $this->fileTypes = $value;
+    }
+
+    /**
+     * Sets the format property value. The format property
      *  @param DeviceManagementConfigurationStringFormat|null $value Value to set for the format property.
     */
     public function setFormat(?DeviceManagementConfigurationStringFormat $value ): void {
@@ -142,7 +166,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
+     * Sets the maximumLength property value. Maximum length of string
      *  @param int|null $value Value to set for the maximumLength property.
     */
     public function setMaximumLength(?int $value ): void {
@@ -150,7 +174,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
+     * Sets the minimumLength property value. Minimum length of string
      *  @param int|null $value Value to set for the minimumLength property.
     */
     public function setMinimumLength(?int $value ): void {

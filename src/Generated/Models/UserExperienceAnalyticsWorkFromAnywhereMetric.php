@@ -18,6 +18,7 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric');
     }
 
     /**

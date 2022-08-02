@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UpdateStatusPostRequestBody implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -21,7 +21,7 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, Parsable
     private ?string $note = null;
     
     /**
-     * @var DeviceAppManagementTaskStatus|null $status The status property
+     * @var DeviceAppManagementTaskStatus|null $status Device app management task status.
     */
     private ?DeviceAppManagementTaskStatus $status = null;
     
@@ -29,7 +29,7 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, Parsable
      * Instantiates a new updateStatusPostRequestBody and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -70,7 +70,7 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. Device app management task status.
      * @return DeviceAppManagementTaskStatus|null
     */
     public function getStatus(): ?DeviceAppManagementTaskStatus {
@@ -104,7 +104,7 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. Device app management task status.
      *  @param DeviceAppManagementTaskStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceAppManagementTaskStatus $value ): void {

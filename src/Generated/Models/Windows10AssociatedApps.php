@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10AssociatedApps implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var Windows10AppType|null $appType Application type. Possible values are: desktop, universal.
+     * @var Windows10AppType|null $appType Windows 10 Application type.
     */
     private ?Windows10AppType $appType = null;
     
@@ -25,10 +25,16 @@ class Windows10AssociatedApps implements AdditionalDataHolder, Parsable
     private ?string $identifier = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new windows10AssociatedApps and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windows10AssociatedApps');
     }
 
     /**
@@ -49,7 +55,7 @@ class Windows10AssociatedApps implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the appType property value. Application type. Possible values are: desktop, universal.
+     * Gets the appType property value. Windows 10 Application type.
      * @return Windows10AppType|null
     */
     public function getAppType(): ?Windows10AppType {
@@ -65,6 +71,7 @@ class Windows10AssociatedApps implements AdditionalDataHolder, Parsable
         return  [
             'appType' => function (ParseNode $n) use ($o) { $o->setAppType($n->getEnumValue(Windows10AppType::class)); },
             'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -77,12 +84,21 @@ class Windows10AssociatedApps implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('appType', $this->appType);
         $writer->writeStringValue('identifier', $this->identifier);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -95,7 +111,7 @@ class Windows10AssociatedApps implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the appType property value. Application type. Possible values are: desktop, universal.
+     * Sets the appType property value. Windows 10 Application type.
      *  @param Windows10AppType|null $value Value to set for the appType property.
     */
     public function setAppType(?Windows10AppType $value ): void {
@@ -108,6 +124,14 @@ class Windows10AssociatedApps implements AdditionalDataHolder, Parsable
     */
     public function setIdentifier(?string $value ): void {
         $this->identifier = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

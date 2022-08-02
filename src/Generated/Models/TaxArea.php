@@ -30,10 +30,11 @@ class TaxArea extends Entity implements Parsable
     private ?string $taxType = null;
     
     /**
-     * Instantiates a new taxArea and sets the default values.
+     * Instantiates a new TaxArea and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.taxArea');
     }
 
     /**

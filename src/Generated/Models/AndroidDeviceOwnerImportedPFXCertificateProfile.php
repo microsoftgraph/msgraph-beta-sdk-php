@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwnerCertificateProfileBase implements Parsable 
 {
     /**
-     * @var IntendedPurpose|null $intendedPurpose Intended Purpose of the Certificate Profile - which could be Unassigned, SmimeEncryption, SmimeSigning etc. Possible values are: unassigned, smimeEncryption, smimeSigning, vpn, wifi.
+     * @var IntendedPurpose|null $intendedPurpose PFX Import Options.
     */
     private ?IntendedPurpose $intendedPurpose = null;
     
@@ -23,6 +23,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerImportedPFXCertificateProfile');
     }
 
     /**
@@ -47,7 +48,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
     }
 
     /**
-     * Gets the intendedPurpose property value. Intended Purpose of the Certificate Profile - which could be Unassigned, SmimeEncryption, SmimeSigning etc. Possible values are: unassigned, smimeEncryption, smimeSigning, vpn, wifi.
+     * Gets the intendedPurpose property value. PFX Import Options.
      * @return IntendedPurpose|null
     */
     public function getIntendedPurpose(): ?IntendedPurpose {
@@ -73,7 +74,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
     }
 
     /**
-     * Sets the intendedPurpose property value. Intended Purpose of the Certificate Profile - which could be Unassigned, SmimeEncryption, SmimeSigning etc. Possible values are: unassigned, smimeEncryption, smimeSigning, vpn, wifi.
+     * Sets the intendedPurpose property value. PFX Import Options.
      *  @param IntendedPurpose|null $value Value to set for the intendedPurpose property.
     */
     public function setIntendedPurpose(?IntendedPurpose $value ): void {

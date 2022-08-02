@@ -25,10 +25,11 @@ class ExternalGroup extends Entity implements Parsable
     private ?array $members = null;
     
     /**
-     * Instantiates a new ExternalGroup and sets the default values.
+     * Instantiates a new externalGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.externalConnectors.externalGroup');
     }
 
     /**

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSKernelExtension implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class MacOSKernelExtension implements AdditionalDataHolder, Parsable
      * @var string|null $bundleId Bundle ID of the kernel extension.
     */
     private ?string $bundleId = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $teamIdentifier The team identifier that was used to sign the kernel extension.
@@ -28,7 +33,8 @@ class MacOSKernelExtension implements AdditionalDataHolder, Parsable
      * Instantiates a new macOSKernelExtension and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.macOSKernelExtension');
     }
 
     /**
@@ -64,8 +70,17 @@ class MacOSKernelExtension implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'bundleId' => function (ParseNode $n) use ($o) { $o->setBundleId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'teamIdentifier' => function (ParseNode $n) use ($o) { $o->setTeamIdentifier($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class MacOSKernelExtension implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('bundleId', $this->bundleId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('teamIdentifier', $this->teamIdentifier);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class MacOSKernelExtension implements AdditionalDataHolder, Parsable
     */
     public function setBundleId(?string $value ): void {
         $this->bundleId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

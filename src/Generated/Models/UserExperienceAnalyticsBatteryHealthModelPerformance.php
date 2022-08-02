@@ -48,6 +48,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsBatteryHealthModelPerformance');
     }
 
     /**

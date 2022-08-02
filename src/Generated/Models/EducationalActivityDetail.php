@@ -20,7 +20,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
     private ?array $activities = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -55,6 +55,11 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
     private ?string $notes = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $webUrl Link to the degree or program page.
     */
     private ?string $webUrl = null;
@@ -63,7 +68,8 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * Instantiates a new educationalActivityDetail and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.educationalActivityDetail');
     }
 
     /**
@@ -138,6 +144,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
             'fieldsOfStudy' => function (ParseNode $n) use ($o) { $o->setFieldsOfStudy($n->getCollectionOfPrimitiveValues()); },
             'grade' => function (ParseNode $n) use ($o) { $o->setGrade($n->getStringValue()); },
             'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ];
     }
@@ -167,6 +174,14 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the webUrl property value. Link to the degree or program page.
      * @return string|null
     */
@@ -187,6 +202,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfPrimitiveValues('fieldsOfStudy', $this->fieldsOfStudy);
         $writer->writeStringValue('grade', $this->grade);
         $writer->writeStringValue('notes', $this->notes);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('webUrl', $this->webUrl);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -261,6 +277,14 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
     */
     public function setNotes(?string $value ): void {
         $this->notes = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

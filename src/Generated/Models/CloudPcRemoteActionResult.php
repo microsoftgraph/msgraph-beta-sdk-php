@@ -21,7 +21,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
     private ?ActionState $actionState = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -41,6 +41,11 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
     private ?string $managedDeviceId = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var DateTime|null $startDateTime Time the action was initiated. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
     */
     private ?DateTime $startDateTime = null;
@@ -54,7 +59,8 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * Instantiates a new cloudPcRemoteActionResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.cloudPcRemoteActionResult');
     }
 
     /**
@@ -110,6 +116,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
             'cloudPcId' => function (ParseNode $n) use ($o) { $o->setCloudPcId($n->getStringValue()); },
             'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
             'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
             'statusDetails' => function (ParseNode $n) use ($o) { $o->setStatusDetails($n->getObjectValue(array(CloudPcStatusDetails::class, 'createFromDiscriminatorValue'))); },
         ];
@@ -129,6 +136,14 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
     */
     public function getManagedDeviceId(): ?string {
         return $this->managedDeviceId;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -157,6 +172,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('cloudPcId', $this->cloudPcId);
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
         $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
         $writer->writeObjectValue('statusDetails', $this->statusDetails);
         $writer->writeAdditionalData($this->additionalData);
@@ -208,6 +224,14 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
     */
     public function setManagedDeviceId(?string $value ): void {
         $this->managedDeviceId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

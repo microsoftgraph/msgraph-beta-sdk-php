@@ -101,10 +101,11 @@ class Employee extends Entity implements Parsable
     private ?Date $terminationDate = null;
     
     /**
-     * Instantiates a new employee and sets the default values.
+     * Instantiates a new Employee and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.employee');
     }
 
     /**
