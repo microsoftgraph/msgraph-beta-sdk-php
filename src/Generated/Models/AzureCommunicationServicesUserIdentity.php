@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureCommunicationServicesUserIdentity extends Identity implements Parsable 
 {
     /**
-     * @var string|null $azureCommunicationServicesResourceId The azureCommunicationServicesResourceId property
+     * @var string|null $azureCommunicationServicesResourceId The Azure Communication Services resource ID associated with the user.
     */
     private ?string $azureCommunicationServicesResourceId = null;
     
@@ -18,6 +18,7 @@ class AzureCommunicationServicesUserIdentity extends Identity implements Parsabl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.azureCommunicationServicesUserIdentity');
     }
 
     /**
@@ -30,7 +31,7 @@ class AzureCommunicationServicesUserIdentity extends Identity implements Parsabl
     }
 
     /**
-     * Gets the azureCommunicationServicesResourceId property value. The azureCommunicationServicesResourceId property
+     * Gets the azureCommunicationServicesResourceId property value. The Azure Communication Services resource ID associated with the user.
      * @return string|null
     */
     public function getAzureCommunicationServicesResourceId(): ?string {
@@ -58,7 +59,7 @@ class AzureCommunicationServicesUserIdentity extends Identity implements Parsabl
     }
 
     /**
-     * Sets the azureCommunicationServicesResourceId property value. The azureCommunicationServicesResourceId property
+     * Sets the azureCommunicationServicesResourceId property value. The Azure Communication Services resource ID associated with the user.
      *  @param string|null $value Value to set for the azureCommunicationServicesResourceId property.
     */
     public function setAzureCommunicationServicesResourceId(?string $value ): void {

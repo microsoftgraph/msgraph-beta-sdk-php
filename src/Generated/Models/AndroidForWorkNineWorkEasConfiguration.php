@@ -28,6 +28,7 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidForWorkNineWorkEasConfiguration');
     }
 
     /**

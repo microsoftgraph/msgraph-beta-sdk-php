@@ -35,12 +35,12 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     private ?int $enrolledDeviceCount = null;
     
     /**
-     * @var AndroidDeviceOwnerEnrollmentMode|null $enrollmentMode The enrollment mode of devices that use this enrollment profile. Possible values are: corporateOwnedDedicatedDevice, corporateOwnedFullyManaged, corporateOwnedWorkProfile, corporateOwnedAOSPUserlessDevice, corporateOwnedAOSPUserAssociatedDevice.
+     * @var AndroidDeviceOwnerEnrollmentMode|null $enrollmentMode The enrollment mode for an enrollment profile.
     */
     private ?AndroidDeviceOwnerEnrollmentMode $enrollmentMode = null;
     
     /**
-     * @var AndroidDeviceOwnerEnrollmentTokenType|null $enrollmentTokenType The enrollment token type for an enrollment profile. Possible values are: default, corporateOwnedDedicatedDeviceWithAzureADSharedMode.
+     * @var AndroidDeviceOwnerEnrollmentTokenType|null $enrollmentTokenType The enrollment token type for an enrollment profile.
     */
     private ?AndroidDeviceOwnerEnrollmentTokenType $enrollmentTokenType = null;
     
@@ -95,7 +95,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     private ?string $wifiPassword = null;
     
     /**
-     * @var AospWifiSecurityType|null $wifiSecurityType String that contains the wi-fi security type. Possible values are: none, wpa, wep.
+     * @var AospWifiSecurityType|null $wifiSecurityType This enum represents Wi-Fi Security Types for Android Device Owner AOSP Scenarios.
     */
     private ?AospWifiSecurityType $wifiSecurityType = null;
     
@@ -109,6 +109,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerEnrollmentProfile');
     }
 
     /**
@@ -161,7 +162,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentMode property value. The enrollment mode of devices that use this enrollment profile. Possible values are: corporateOwnedDedicatedDevice, corporateOwnedFullyManaged, corporateOwnedWorkProfile, corporateOwnedAOSPUserlessDevice, corporateOwnedAOSPUserAssociatedDevice.
+     * Gets the enrollmentMode property value. The enrollment mode for an enrollment profile.
      * @return AndroidDeviceOwnerEnrollmentMode|null
     */
     public function getEnrollmentMode(): ?AndroidDeviceOwnerEnrollmentMode {
@@ -169,7 +170,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentTokenType property value. The enrollment token type for an enrollment profile. Possible values are: default, corporateOwnedDedicatedDeviceWithAzureADSharedMode.
+     * Gets the enrollmentTokenType property value. The enrollment token type for an enrollment profile.
      * @return AndroidDeviceOwnerEnrollmentTokenType|null
     */
     public function getEnrollmentTokenType(): ?AndroidDeviceOwnerEnrollmentTokenType {
@@ -286,7 +287,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the wifiSecurityType property value. String that contains the wi-fi security type. Possible values are: none, wpa, wep.
+     * Gets the wifiSecurityType property value. This enum represents Wi-Fi Security Types for Android Device Owner AOSP Scenarios.
      * @return AospWifiSecurityType|null
     */
     public function getWifiSecurityType(): ?AospWifiSecurityType {
@@ -369,7 +370,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentMode property value. The enrollment mode of devices that use this enrollment profile. Possible values are: corporateOwnedDedicatedDevice, corporateOwnedFullyManaged, corporateOwnedWorkProfile, corporateOwnedAOSPUserlessDevice, corporateOwnedAOSPUserAssociatedDevice.
+     * Sets the enrollmentMode property value. The enrollment mode for an enrollment profile.
      *  @param AndroidDeviceOwnerEnrollmentMode|null $value Value to set for the enrollmentMode property.
     */
     public function setEnrollmentMode(?AndroidDeviceOwnerEnrollmentMode $value ): void {
@@ -377,7 +378,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentTokenType property value. The enrollment token type for an enrollment profile. Possible values are: default, corporateOwnedDedicatedDeviceWithAzureADSharedMode.
+     * Sets the enrollmentTokenType property value. The enrollment token type for an enrollment profile.
      *  @param AndroidDeviceOwnerEnrollmentTokenType|null $value Value to set for the enrollmentTokenType property.
     */
     public function setEnrollmentTokenType(?AndroidDeviceOwnerEnrollmentTokenType $value ): void {
@@ -465,7 +466,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the wifiSecurityType property value. String that contains the wi-fi security type. Possible values are: none, wpa, wep.
+     * Sets the wifiSecurityType property value. This enum represents Wi-Fi Security Types for Android Device Owner AOSP Scenarios.
      *  @param AospWifiSecurityType|null $value Value to set for the wifiSecurityType property.
     */
     public function setWifiSecurityType(?AospWifiSecurityType $value ): void {

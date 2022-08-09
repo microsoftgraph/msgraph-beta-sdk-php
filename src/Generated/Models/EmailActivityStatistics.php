@@ -29,6 +29,7 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.emailActivityStatistics');
     }
 
     /**

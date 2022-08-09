@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,6 +26,11 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
     private ?DateTime $lastMembershipUpdated = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var MembershipRuleProcessingStatusDetails|null $status Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.  Required. Read-only.
     */
     private ?MembershipRuleProcessingStatusDetails $status = null;
@@ -34,7 +39,8 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new membershipRuleProcessingStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.membershipRuleProcessingStatus');
     }
 
     /**
@@ -71,6 +77,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
         return  [
             'errorMessage' => function (ParseNode $n) use ($o) { $o->setErrorMessage($n->getStringValue()); },
             'lastMembershipUpdated' => function (ParseNode $n) use ($o) { $o->setLastMembershipUpdated($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(MembershipRuleProcessingStatusDetails::class)); },
         ];
     }
@@ -81,6 +88,14 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
     */
     public function getLastMembershipUpdated(): ?DateTime {
         return $this->lastMembershipUpdated;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('errorMessage', $this->errorMessage);
         $writer->writeDateTimeValue('lastMembershipUpdated', $this->lastMembershipUpdated);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -124,6 +140,14 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
     */
     public function setLastMembershipUpdated(?DateTime $value ): void {
         $this->lastMembershipUpdated = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

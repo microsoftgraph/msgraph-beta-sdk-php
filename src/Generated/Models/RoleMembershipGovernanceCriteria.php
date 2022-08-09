@@ -23,6 +23,7 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.roleMembershipGovernanceCriteria');
     }
 
     /**

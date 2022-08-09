@@ -13,6 +13,7 @@ class AndroidDeviceComplianceLocalActionLockDevice extends AndroidDeviceComplian
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceComplianceLocalActionLockDevice');
     }
 
     /**

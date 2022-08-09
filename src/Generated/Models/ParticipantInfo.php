@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ParticipantInfo implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,7 +20,7 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
     private ?string $countryCode = null;
     
     /**
-     * @var EndpointType|null $endpointType The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only.
+     * @var EndpointType|null $endpointType The type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue. Read-only.
     */
     private ?EndpointType $endpointType = null;
     
@@ -33,6 +33,16 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
      * @var string|null $languageId The language culture string. Read-only.
     */
     private ?string $languageId = null;
+    
+    /**
+     * @var IdentitySet|null $nonAnonymizedIdentity The nonAnonymizedIdentity property
+    */
+    private ?IdentitySet $nonAnonymizedIdentity = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $participantId The participant ID of the participant. Read-only.
@@ -53,7 +63,8 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
      * Instantiates a new participantInfo and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.participantInfo');
     }
 
     /**
@@ -82,7 +93,7 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the endpointType property value. The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only.
+     * Gets the endpointType property value. The type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue. Read-only.
      * @return EndpointType|null
     */
     public function getEndpointType(): ?EndpointType {
@@ -100,6 +111,8 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
             'endpointType' => function (ParseNode $n) use ($o) { $o->setEndpointType($n->getEnumValue(EndpointType::class)); },
             'identity' => function (ParseNode $n) use ($o) { $o->setIdentity($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
             'languageId' => function (ParseNode $n) use ($o) { $o->setLanguageId($n->getStringValue()); },
+            'nonAnonymizedIdentity' => function (ParseNode $n) use ($o) { $o->setNonAnonymizedIdentity($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'participantId' => function (ParseNode $n) use ($o) { $o->setParticipantId($n->getStringValue()); },
             'platformId' => function (ParseNode $n) use ($o) { $o->setPlatformId($n->getStringValue()); },
             'region' => function (ParseNode $n) use ($o) { $o->setRegion($n->getStringValue()); },
@@ -120,6 +133,22 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
     */
     public function getLanguageId(): ?string {
         return $this->languageId;
+    }
+
+    /**
+     * Gets the nonAnonymizedIdentity property value. The nonAnonymizedIdentity property
+     * @return IdentitySet|null
+    */
+    public function getNonAnonymizedIdentity(): ?IdentitySet {
+        return $this->nonAnonymizedIdentity;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -155,6 +184,8 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('endpointType', $this->endpointType);
         $writer->writeObjectValue('identity', $this->identity);
         $writer->writeStringValue('languageId', $this->languageId);
+        $writer->writeObjectValue('nonAnonymizedIdentity', $this->nonAnonymizedIdentity);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('participantId', $this->participantId);
         $writer->writeStringValue('platformId', $this->platformId);
         $writer->writeStringValue('region', $this->region);
@@ -178,7 +209,7 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the endpointType property value. The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only.
+     * Sets the endpointType property value. The type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue. Read-only.
      *  @param EndpointType|null $value Value to set for the endpointType property.
     */
     public function setEndpointType(?EndpointType $value ): void {
@@ -199,6 +230,22 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
     */
     public function setLanguageId(?string $value ): void {
         $this->languageId = $value;
+    }
+
+    /**
+     * Sets the nonAnonymizedIdentity property value. The nonAnonymizedIdentity property
+     *  @param IdentitySet|null $value Value to set for the nonAnonymizedIdentity property.
+    */
+    public function setNonAnonymizedIdentity(?IdentitySet $value ): void {
+        $this->nonAnonymizedIdentity = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

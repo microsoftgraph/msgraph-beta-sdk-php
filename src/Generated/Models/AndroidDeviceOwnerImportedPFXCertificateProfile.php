@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwnerCertificateProfileBase implements Parsable 
 {
     /**
-     * @var IntendedPurpose|null $intendedPurpose Intended Purpose of the Certificate Profile - which could be Unassigned, SmimeEncryption, SmimeSigning etc. Possible values are: unassigned, smimeEncryption, smimeSigning, vpn, wifi.
+     * @var AndroidDeviceOwnerCertificateAccessType|null $certificateAccessType Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+    */
+    private ?AndroidDeviceOwnerCertificateAccessType $certificateAccessType = null;
+    
+    /**
+     * @var IntendedPurpose|null $intendedPurpose PFX Import Options.
     */
     private ?IntendedPurpose $intendedPurpose = null;
     
@@ -19,10 +24,16 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
     private ?array $managedDeviceCertificateStates = null;
     
     /**
+     * @var array<AndroidDeviceOwnerSilentCertificateAccess>|null $silentCertificateAccessDetails Certificate access information. This collection can contain a maximum of 50 elements.
+    */
+    private ?array $silentCertificateAccessDetails = null;
+    
+    /**
      * Instantiates a new AndroidDeviceOwnerImportedPFXCertificateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerImportedPFXCertificateProfile');
     }
 
     /**
@@ -35,19 +46,29 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
     }
 
     /**
+     * Gets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+     * @return AndroidDeviceOwnerCertificateAccessType|null
+    */
+    public function getCertificateAccessType(): ?AndroidDeviceOwnerCertificateAccessType {
+        return $this->certificateAccessType;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'certificateAccessType' => function (ParseNode $n) use ($o) { $o->setCertificateAccessType($n->getEnumValue(AndroidDeviceOwnerCertificateAccessType::class)); },
             'intendedPurpose' => function (ParseNode $n) use ($o) { $o->setIntendedPurpose($n->getEnumValue(IntendedPurpose::class)); },
             'managedDeviceCertificateStates' => function (ParseNode $n) use ($o) { $o->setManagedDeviceCertificateStates($n->getCollectionOfObjectValues(array(ManagedDeviceCertificateState::class, 'createFromDiscriminatorValue'))); },
+            'silentCertificateAccessDetails' => function (ParseNode $n) use ($o) { $o->setSilentCertificateAccessDetails($n->getCollectionOfObjectValues(array(AndroidDeviceOwnerSilentCertificateAccess::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
     /**
-     * Gets the intendedPurpose property value. Intended Purpose of the Certificate Profile - which could be Unassigned, SmimeEncryption, SmimeSigning etc. Possible values are: unassigned, smimeEncryption, smimeSigning, vpn, wifi.
+     * Gets the intendedPurpose property value. PFX Import Options.
      * @return IntendedPurpose|null
     */
     public function getIntendedPurpose(): ?IntendedPurpose {
@@ -63,17 +84,35 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
     }
 
     /**
+     * Gets the silentCertificateAccessDetails property value. Certificate access information. This collection can contain a maximum of 50 elements.
+     * @return array<AndroidDeviceOwnerSilentCertificateAccess>|null
+    */
+    public function getSilentCertificateAccessDetails(): ?array {
+        return $this->silentCertificateAccessDetails;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('certificateAccessType', $this->certificateAccessType);
         $writer->writeEnumValue('intendedPurpose', $this->intendedPurpose);
         $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->managedDeviceCertificateStates);
+        $writer->writeCollectionOfObjectValues('silentCertificateAccessDetails', $this->silentCertificateAccessDetails);
     }
 
     /**
-     * Sets the intendedPurpose property value. Intended Purpose of the Certificate Profile - which could be Unassigned, SmimeEncryption, SmimeSigning etc. Possible values are: unassigned, smimeEncryption, smimeSigning, vpn, wifi.
+     * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+     *  @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
+    */
+    public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value ): void {
+        $this->certificateAccessType = $value;
+    }
+
+    /**
+     * Sets the intendedPurpose property value. PFX Import Options.
      *  @param IntendedPurpose|null $value Value to set for the intendedPurpose property.
     */
     public function setIntendedPurpose(?IntendedPurpose $value ): void {
@@ -86,6 +125,14 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
     */
     public function setManagedDeviceCertificateStates(?array $value ): void {
         $this->managedDeviceCertificateStates = $value;
+    }
+
+    /**
+     * Sets the silentCertificateAccessDetails property value. Certificate access information. This collection can contain a maximum of 50 elements.
+     *  @param array<AndroidDeviceOwnerSilentCertificateAccess>|null $value Value to set for the silentCertificateAccessDetails property.
+    */
+    public function setSilentCertificateAccessDetails(?array $value ): void {
+        $this->silentCertificateAccessDetails = $value;
     }
 
 }

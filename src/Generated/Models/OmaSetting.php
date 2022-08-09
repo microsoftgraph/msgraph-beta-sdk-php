@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OmaSetting implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class OmaSetting implements AdditionalDataHolder, Parsable
     private ?bool $isEncrypted = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $omaUri OMA.
     */
     private ?string $omaUri = null;
@@ -43,7 +48,8 @@ class OmaSetting implements AdditionalDataHolder, Parsable
      * Instantiates a new omaSetting and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.omaSetting');
     }
 
     /**
@@ -102,6 +108,7 @@ class OmaSetting implements AdditionalDataHolder, Parsable
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'isEncrypted' => function (ParseNode $n) use ($o) { $o->setIsEncrypted($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'omaUri' => function (ParseNode $n) use ($o) { $o->setOmaUri($n->getStringValue()); },
             'secretReferenceValueId' => function (ParseNode $n) use ($o) { $o->setSecretReferenceValueId($n->getStringValue()); },
         ];
@@ -113,6 +120,14 @@ class OmaSetting implements AdditionalDataHolder, Parsable
     */
     public function getIsEncrypted(): ?bool {
         return $this->isEncrypted;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -139,6 +154,7 @@ class OmaSetting implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeBooleanValue('isEncrypted', $this->isEncrypted);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('omaUri', $this->omaUri);
         $writer->writeStringValue('secretReferenceValueId', $this->secretReferenceValueId);
         $writer->writeAdditionalData($this->additionalData);
@@ -174,6 +190,14 @@ class OmaSetting implements AdditionalDataHolder, Parsable
     */
     public function setIsEncrypted(?bool $value ): void {
         $this->isEncrypted = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

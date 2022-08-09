@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ClientUserAgent extends UserAgent implements Parsable 
 {
     /**
-     * @var ClientPlatform|null $platform Identifies the platform used by this endpoint. Possible values are: unknown, windows, macOS, iOS, android, web, ipPhone, roomSystem, surfaceHub, holoLens, unknownFutureValue.
+     * @var ClientPlatform|null $platform The platform property
     */
     private ?ClientPlatform $platform = null;
     
     /**
-     * @var ProductFamily|null $productFamily Identifies the family of application software used by this endpoint. Possible values are: unknown, teams, skypeForBusiness, lync, unknownFutureValue, azureCommunicationServices.  Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: azureCommunicationServices.
+     * @var ProductFamily|null $productFamily The productFamily property
     */
     private ?ProductFamily $productFamily = null;
     
@@ -23,6 +23,7 @@ class ClientUserAgent extends UserAgent implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.callRecords.clientUserAgent');
     }
 
     /**
@@ -47,7 +48,7 @@ class ClientUserAgent extends UserAgent implements Parsable
     }
 
     /**
-     * Gets the platform property value. Identifies the platform used by this endpoint. Possible values are: unknown, windows, macOS, iOS, android, web, ipPhone, roomSystem, surfaceHub, holoLens, unknownFutureValue.
+     * Gets the platform property value. The platform property
      * @return ClientPlatform|null
     */
     public function getPlatform(): ?ClientPlatform {
@@ -55,7 +56,7 @@ class ClientUserAgent extends UserAgent implements Parsable
     }
 
     /**
-     * Gets the productFamily property value. Identifies the family of application software used by this endpoint. Possible values are: unknown, teams, skypeForBusiness, lync, unknownFutureValue, azureCommunicationServices.  Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: azureCommunicationServices.
+     * Gets the productFamily property value. The productFamily property
      * @return ProductFamily|null
     */
     public function getProductFamily(): ?ProductFamily {
@@ -73,7 +74,7 @@ class ClientUserAgent extends UserAgent implements Parsable
     }
 
     /**
-     * Sets the platform property value. Identifies the platform used by this endpoint. Possible values are: unknown, windows, macOS, iOS, android, web, ipPhone, roomSystem, surfaceHub, holoLens, unknownFutureValue.
+     * Sets the platform property value. The platform property
      *  @param ClientPlatform|null $value Value to set for the platform property.
     */
     public function setPlatform(?ClientPlatform $value ): void {
@@ -81,7 +82,7 @@ class ClientUserAgent extends UserAgent implements Parsable
     }
 
     /**
-     * Sets the productFamily property value. Identifies the family of application software used by this endpoint. Possible values are: unknown, teams, skypeForBusiness, lync, unknownFutureValue, azureCommunicationServices.  Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: azureCommunicationServices.
+     * Sets the productFamily property value. The productFamily property
      *  @param ProductFamily|null $value Value to set for the productFamily property.
     */
     public function setProductFamily(?ProductFamily $value ): void {

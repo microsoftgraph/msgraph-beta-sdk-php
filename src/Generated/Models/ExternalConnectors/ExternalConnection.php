@@ -10,6 +10,16 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalConnection extends Entity implements Parsable 
 {
     /**
+     * @var ActivitySettings|null $activitySettings Collects configurable settings related to activities involving connector content.
+    */
+    private ?ActivitySettings $activitySettings = null;
+    
+    /**
+     * @var ComplianceSettings|null $complianceSettings The complianceSettings property
+    */
+    private ?ComplianceSettings $complianceSettings = null;
+    
+    /**
      * @var Configuration|null $configuration Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
     */
     private ?Configuration $configuration = null;
@@ -23,6 +33,11 @@ class ExternalConnection extends Entity implements Parsable
      * @var string|null $description Description of the connection displayed in the Microsoft 365 admin center. Optional.
     */
     private ?string $description = null;
+    
+    /**
+     * @var ContentExperienceType|null $enabledContentExperiences The enabledContentExperiences property
+    */
+    private ?ContentExperienceType $enabledContentExperiences = null;
     
     /**
      * @var array<ExternalGroup>|null $groups The groups property
@@ -70,10 +85,11 @@ class ExternalConnection extends Entity implements Parsable
     private ?ConnectionState $state = null;
     
     /**
-     * Instantiates a new ExternalConnection and sets the default values.
+     * Instantiates a new externalConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.externalConnectors.externalConnection');
     }
 
     /**
@@ -83,6 +99,22 @@ class ExternalConnection extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): ExternalConnection {
         return new ExternalConnection();
+    }
+
+    /**
+     * Gets the activitySettings property value. Collects configurable settings related to activities involving connector content.
+     * @return ActivitySettings|null
+    */
+    public function getActivitySettings(): ?ActivitySettings {
+        return $this->activitySettings;
+    }
+
+    /**
+     * Gets the complianceSettings property value. The complianceSettings property
+     * @return ComplianceSettings|null
+    */
+    public function getComplianceSettings(): ?ComplianceSettings {
+        return $this->complianceSettings;
     }
 
     /**
@@ -110,15 +142,26 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
+     * Gets the enabledContentExperiences property value. The enabledContentExperiences property
+     * @return ContentExperienceType|null
+    */
+    public function getEnabledContentExperiences(): ?ContentExperienceType {
+        return $this->enabledContentExperiences;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'activitySettings' => function (ParseNode $n) use ($o) { $o->setActivitySettings($n->getObjectValue(array(ActivitySettings::class, 'createFromDiscriminatorValue'))); },
+            'complianceSettings' => function (ParseNode $n) use ($o) { $o->setComplianceSettings($n->getObjectValue(array(ComplianceSettings::class, 'createFromDiscriminatorValue'))); },
             'configuration' => function (ParseNode $n) use ($o) { $o->setConfiguration($n->getObjectValue(array(Configuration::class, 'createFromDiscriminatorValue'))); },
             'connectorId' => function (ParseNode $n) use ($o) { $o->setConnectorId($n->getStringValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'enabledContentExperiences' => function (ParseNode $n) use ($o) { $o->setEnabledContentExperiences($n->getEnumValue(ContentExperienceType::class)); },
             'groups' => function (ParseNode $n) use ($o) { $o->setGroups($n->getCollectionOfObjectValues(array(ExternalGroup::class, 'createFromDiscriminatorValue'))); },
             'ingestedItemsCount' => function (ParseNode $n) use ($o) { $o->setIngestedItemsCount($n->getIntegerValue()); },
             'items' => function (ParseNode $n) use ($o) { $o->setItems($n->getCollectionOfObjectValues(array(ExternalItem::class, 'createFromDiscriminatorValue'))); },
@@ -209,9 +252,12 @@ class ExternalConnection extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('activitySettings', $this->activitySettings);
+        $writer->writeObjectValue('complianceSettings', $this->complianceSettings);
         $writer->writeObjectValue('configuration', $this->configuration);
         $writer->writeStringValue('connectorId', $this->connectorId);
         $writer->writeStringValue('description', $this->description);
+        $writer->writeEnumValue('enabledContentExperiences', $this->enabledContentExperiences);
         $writer->writeCollectionOfObjectValues('groups', $this->groups);
         $writer->writeIntegerValue('ingestedItemsCount', $this->ingestedItemsCount);
         $writer->writeCollectionOfObjectValues('items', $this->items);
@@ -221,6 +267,22 @@ class ExternalConnection extends Entity implements Parsable
         $writer->writeObjectValue('schema', $this->schema);
         $writer->writeObjectValue('searchSettings', $this->searchSettings);
         $writer->writeEnumValue('state', $this->state);
+    }
+
+    /**
+     * Sets the activitySettings property value. Collects configurable settings related to activities involving connector content.
+     *  @param ActivitySettings|null $value Value to set for the activitySettings property.
+    */
+    public function setActivitySettings(?ActivitySettings $value ): void {
+        $this->activitySettings = $value;
+    }
+
+    /**
+     * Sets the complianceSettings property value. The complianceSettings property
+     *  @param ComplianceSettings|null $value Value to set for the complianceSettings property.
+    */
+    public function setComplianceSettings(?ComplianceSettings $value ): void {
+        $this->complianceSettings = $value;
     }
 
     /**
@@ -245,6 +307,14 @@ class ExternalConnection extends Entity implements Parsable
     */
     public function setDescription(?string $value ): void {
         $this->description = $value;
+    }
+
+    /**
+     * Sets the enabledContentExperiences property value. The enabledContentExperiences property
+     *  @param ContentExperienceType|null $value Value to set for the enabledContentExperiences property.
+    */
+    public function setEnabledContentExperiences(?ContentExperienceType $value ): void {
+        $this->enabledContentExperiences = $value;
     }
 
     /**

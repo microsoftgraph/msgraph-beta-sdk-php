@@ -20,7 +20,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     private ?ExcludedApps $excludedApps = null;
     
     /**
-     * @var OfficeSuiteInstallProgressDisplayLevel|null $installProgressDisplayLevel To specify the level of display for the Installation Progress Setup UI on the Device. Possible values are: none, full.
+     * @var OfficeSuiteInstallProgressDisplayLevel|null $installProgressDisplayLevel The Enum to specify the level of display for the Installation Progress Setup UI on the Device.
     */
     private ?OfficeSuiteInstallProgressDisplayLevel $installProgressDisplayLevel = null;
     
@@ -35,9 +35,14 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     private ?StreamInterface $officeConfigurationXml = null;
     
     /**
-     * @var WindowsArchitecture|null $officePlatformArchitecture The property to represent the Office365 app suite version. Possible values are: none, x86, x64, arm, neutral, arm64.
+     * @var WindowsArchitecture|null $officePlatformArchitecture Contains properties for Windows architecture.
     */
     private ?WindowsArchitecture $officePlatformArchitecture = null;
+    
+    /**
+     * @var OfficeSuiteDefaultFileFormatType|null $officeSuiteAppDefaultFileFormat Describes the OfficeSuiteApp file format types that can be selected.
+    */
+    private ?OfficeSuiteDefaultFileFormatType $officeSuiteAppDefaultFileFormat = null;
     
     /**
      * @var array<string>|null $productIds The Product Ids that represent the Office365 Suite SKU.
@@ -55,7 +60,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     private ?string $targetVersion = null;
     
     /**
-     * @var OfficeUpdateChannel|null $updateChannel The property to represent the Office365 Update Channel. Possible values are: none, current, deferred, firstReleaseCurrent, firstReleaseDeferred, monthlyEnterprise.
+     * @var OfficeUpdateChannel|null $updateChannel The Enum to specify the Office365 Updates Channel.
     */
     private ?OfficeUpdateChannel $updateChannel = null;
     
@@ -74,6 +79,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.officeSuiteApp');
     }
 
     /**
@@ -114,6 +120,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
             'localesToInstall' => function (ParseNode $n) use ($o) { $o->setLocalesToInstall($n->getCollectionOfPrimitiveValues()); },
             'officeConfigurationXml' => function (ParseNode $n) use ($o) { $o->setOfficeConfigurationXml($n->getBinaryContent()); },
             'officePlatformArchitecture' => function (ParseNode $n) use ($o) { $o->setOfficePlatformArchitecture($n->getEnumValue(WindowsArchitecture::class)); },
+            'officeSuiteAppDefaultFileFormat' => function (ParseNode $n) use ($o) { $o->setOfficeSuiteAppDefaultFileFormat($n->getEnumValue(OfficeSuiteDefaultFileFormatType::class)); },
             'productIds' => function (ParseNode $n) use ($o) { $o->setProductIds($n->getCollectionOfPrimitiveValues()); },
             'shouldUninstallOlderVersionsOfOffice' => function (ParseNode $n) use ($o) { $o->setShouldUninstallOlderVersionsOfOffice($n->getBooleanValue()); },
             'targetVersion' => function (ParseNode $n) use ($o) { $o->setTargetVersion($n->getStringValue()); },
@@ -124,7 +131,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the installProgressDisplayLevel property value. To specify the level of display for the Installation Progress Setup UI on the Device. Possible values are: none, full.
+     * Gets the installProgressDisplayLevel property value. The Enum to specify the level of display for the Installation Progress Setup UI on the Device.
      * @return OfficeSuiteInstallProgressDisplayLevel|null
     */
     public function getInstallProgressDisplayLevel(): ?OfficeSuiteInstallProgressDisplayLevel {
@@ -148,11 +155,19 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the officePlatformArchitecture property value. The property to represent the Office365 app suite version. Possible values are: none, x86, x64, arm, neutral, arm64.
+     * Gets the officePlatformArchitecture property value. Contains properties for Windows architecture.
      * @return WindowsArchitecture|null
     */
     public function getOfficePlatformArchitecture(): ?WindowsArchitecture {
         return $this->officePlatformArchitecture;
+    }
+
+    /**
+     * Gets the officeSuiteAppDefaultFileFormat property value. Describes the OfficeSuiteApp file format types that can be selected.
+     * @return OfficeSuiteDefaultFileFormatType|null
+    */
+    public function getOfficeSuiteAppDefaultFileFormat(): ?OfficeSuiteDefaultFileFormatType {
+        return $this->officeSuiteAppDefaultFileFormat;
     }
 
     /**
@@ -180,7 +195,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     }
 
     /**
-     * Gets the updateChannel property value. The property to represent the Office365 Update Channel. Possible values are: none, current, deferred, firstReleaseCurrent, firstReleaseDeferred, monthlyEnterprise.
+     * Gets the updateChannel property value. The Enum to specify the Office365 Updates Channel.
      * @return OfficeUpdateChannel|null
     */
     public function getUpdateChannel(): ?OfficeUpdateChannel {
@@ -215,6 +230,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
         $writer->writeCollectionOfPrimitiveValues('localesToInstall', $this->localesToInstall);
         $writer->writeBinaryContent('officeConfigurationXml', $this->officeConfigurationXml);
         $writer->writeEnumValue('officePlatformArchitecture', $this->officePlatformArchitecture);
+        $writer->writeEnumValue('officeSuiteAppDefaultFileFormat', $this->officeSuiteAppDefaultFileFormat);
         $writer->writeCollectionOfPrimitiveValues('productIds', $this->productIds);
         $writer->writeBooleanValue('shouldUninstallOlderVersionsOfOffice', $this->shouldUninstallOlderVersionsOfOffice);
         $writer->writeStringValue('targetVersion', $this->targetVersion);
@@ -240,7 +256,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the installProgressDisplayLevel property value. To specify the level of display for the Installation Progress Setup UI on the Device. Possible values are: none, full.
+     * Sets the installProgressDisplayLevel property value. The Enum to specify the level of display for the Installation Progress Setup UI on the Device.
      *  @param OfficeSuiteInstallProgressDisplayLevel|null $value Value to set for the installProgressDisplayLevel property.
     */
     public function setInstallProgressDisplayLevel(?OfficeSuiteInstallProgressDisplayLevel $value ): void {
@@ -264,11 +280,19 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the officePlatformArchitecture property value. The property to represent the Office365 app suite version. Possible values are: none, x86, x64, arm, neutral, arm64.
+     * Sets the officePlatformArchitecture property value. Contains properties for Windows architecture.
      *  @param WindowsArchitecture|null $value Value to set for the officePlatformArchitecture property.
     */
     public function setOfficePlatformArchitecture(?WindowsArchitecture $value ): void {
         $this->officePlatformArchitecture = $value;
+    }
+
+    /**
+     * Sets the officeSuiteAppDefaultFileFormat property value. Describes the OfficeSuiteApp file format types that can be selected.
+     *  @param OfficeSuiteDefaultFileFormatType|null $value Value to set for the officeSuiteAppDefaultFileFormat property.
+    */
+    public function setOfficeSuiteAppDefaultFileFormat(?OfficeSuiteDefaultFileFormatType $value ): void {
+        $this->officeSuiteAppDefaultFileFormat = $value;
     }
 
     /**
@@ -296,7 +320,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     }
 
     /**
-     * Sets the updateChannel property value. The property to represent the Office365 Update Channel. Possible values are: none, current, deferred, firstReleaseCurrent, firstReleaseDeferred, monthlyEnterprise.
+     * Sets the updateChannel property value. The Enum to specify the Office365 Updates Channel.
      *  @param OfficeUpdateChannel|null $value Value to set for the updateChannel property.
     */
     public function setUpdateChannel(?OfficeUpdateChannel $value ): void {

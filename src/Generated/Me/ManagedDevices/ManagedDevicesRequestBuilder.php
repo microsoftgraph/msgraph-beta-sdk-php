@@ -5,10 +5,12 @@ namespace Microsoft\Graph\Beta\Generated\Me\ManagedDevices;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\AppDiagnosticsWithUpn\AppDiagnosticsWithUpnRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\BulkReprovisionCloudPc\BulkReprovisionCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\BulkRestoreCloudPc\BulkRestoreCloudPcRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\BulkSetCloudPcReviewStatus\BulkSetCloudPcReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\DownloadAppDiagnostics\DownloadAppDiagnosticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\ExecuteAction\ExecuteActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\ManagedDevices\MoveDevicesToOU\MoveDevicesToOURequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ManagedDevice;
@@ -46,10 +48,17 @@ class ManagedDevicesRequestBuilder
     }
     
     /**
-     * The count property
+     * The Count property
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The downloadAppDiagnostics property
+    */
+    public function downloadAppDiagnostics(): DownloadAppDiagnosticsRequestBuilder {
+        return new DownloadAppDiagnosticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -81,6 +90,15 @@ class ManagedDevicesRequestBuilder
     */
     private string $urlTemplate;
     
+    /**
+     * Provides operations to call the appDiagnostics method.
+     * @param string $upn Usage: upn='{upn}'
+     * @return AppDiagnosticsWithUpnRequestBuilder
+    */
+    public function appDiagnosticsWithUpn(string $upn): AppDiagnosticsWithUpnRequestBuilder {
+        return new AppDiagnosticsWithUpnRequestBuilder($this->pathParameters, $this->requestAdapter, $upn);
+    }
+
     /**
      * Instantiates a new ManagedDevicesRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSettingDefinition extends Entity implements Parsable 
 {
     /**
-     * @var DeviceManagementConfigurationSettingAccessTypes|null $accessTypes Read/write access mode of the setting. Possible values are: none, add, copy, delete, get, replace, execute.
+     * @var DeviceManagementConfigurationSettingAccessTypes|null $accessTypes The accessTypes property
     */
     private ?DeviceManagementConfigurationSettingAccessTypes $accessTypes = null;
     
@@ -79,12 +79,12 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     private ?string $rootDefinitionId = null;
     
     /**
-     * @var DeviceManagementConfigurationSettingUsage|null $settingUsage Setting type, for example, configuration and compliance. Possible values are: none, configuration, compliance.
+     * @var DeviceManagementConfigurationSettingUsage|null $settingUsage Supported setting types
     */
     private ?DeviceManagementConfigurationSettingUsage $settingUsage = null;
     
     /**
-     * @var DeviceManagementConfigurationControlType|null $uxBehavior Setting control type representation in the UX. Possible values are: default, dropdown, smallTextBox, largeTextBox, toggle, multiheaderGrid, contextPane.
+     * @var DeviceManagementConfigurationControlType|null $uxBehavior Setting control type representation in the UX
     */
     private ?DeviceManagementConfigurationControlType $uxBehavior = null;
     
@@ -94,15 +94,16 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     private ?string $version = null;
     
     /**
-     * @var DeviceManagementConfigurationSettingVisibility|null $visibility Setting visibility scope to UX. Possible values are: none, settingsCatalog, template.
+     * @var DeviceManagementConfigurationSettingVisibility|null $visibility Supported setting types
     */
     private ?DeviceManagementConfigurationSettingVisibility $visibility = null;
     
     /**
-     * Instantiates a new deviceManagementConfigurationSettingDefinition and sets the default values.
+     * Instantiates a new DeviceManagementConfigurationSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationSettingDefinition');
     }
 
     /**
@@ -115,9 +116,12 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionDefinition': return new DeviceManagementConfigurationChoiceSettingCollectionDefinition();
                 case '#microsoft.graph.deviceManagementConfigurationChoiceSettingDefinition': return new DeviceManagementConfigurationChoiceSettingDefinition();
                 case '#microsoft.graph.deviceManagementConfigurationRedirectSettingDefinition': return new DeviceManagementConfigurationRedirectSettingDefinition();
+                case '#microsoft.graph.deviceManagementConfigurationSettingGroupCollectionDefinition': return new DeviceManagementConfigurationSettingGroupCollectionDefinition();
                 case '#microsoft.graph.deviceManagementConfigurationSettingGroupDefinition': return new DeviceManagementConfigurationSettingGroupDefinition();
+                case '#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionDefinition': return new DeviceManagementConfigurationSimpleSettingCollectionDefinition();
                 case '#microsoft.graph.deviceManagementConfigurationSimpleSettingDefinition': return new DeviceManagementConfigurationSimpleSettingDefinition();
             }
         }
@@ -125,7 +129,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the accessTypes property value. Read/write access mode of the setting. Possible values are: none, add, copy, delete, get, replace, execute.
+     * Gets the accessTypes property value. The accessTypes property
      * @return DeviceManagementConfigurationSettingAccessTypes|null
     */
     public function getAccessTypes(): ?DeviceManagementConfigurationSettingAccessTypes {
@@ -265,7 +269,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the settingUsage property value. Setting type, for example, configuration and compliance. Possible values are: none, configuration, compliance.
+     * Gets the settingUsage property value. Supported setting types
      * @return DeviceManagementConfigurationSettingUsage|null
     */
     public function getSettingUsage(): ?DeviceManagementConfigurationSettingUsage {
@@ -273,7 +277,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the uxBehavior property value. Setting control type representation in the UX. Possible values are: default, dropdown, smallTextBox, largeTextBox, toggle, multiheaderGrid, contextPane.
+     * Gets the uxBehavior property value. Setting control type representation in the UX
      * @return DeviceManagementConfigurationControlType|null
     */
     public function getUxBehavior(): ?DeviceManagementConfigurationControlType {
@@ -289,7 +293,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Gets the visibility property value. Setting visibility scope to UX. Possible values are: none, settingsCatalog, template.
+     * Gets the visibility property value. Supported setting types
      * @return DeviceManagementConfigurationSettingVisibility|null
     */
     public function getVisibility(): ?DeviceManagementConfigurationSettingVisibility {
@@ -323,7 +327,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the accessTypes property value. Read/write access mode of the setting. Possible values are: none, add, copy, delete, get, replace, execute.
+     * Sets the accessTypes property value. The accessTypes property
      *  @param DeviceManagementConfigurationSettingAccessTypes|null $value Value to set for the accessTypes property.
     */
     public function setAccessTypes(?DeviceManagementConfigurationSettingAccessTypes $value ): void {
@@ -435,7 +439,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the settingUsage property value. Setting type, for example, configuration and compliance. Possible values are: none, configuration, compliance.
+     * Sets the settingUsage property value. Supported setting types
      *  @param DeviceManagementConfigurationSettingUsage|null $value Value to set for the settingUsage property.
     */
     public function setSettingUsage(?DeviceManagementConfigurationSettingUsage $value ): void {
@@ -443,7 +447,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the uxBehavior property value. Setting control type representation in the UX. Possible values are: default, dropdown, smallTextBox, largeTextBox, toggle, multiheaderGrid, contextPane.
+     * Sets the uxBehavior property value. Setting control type representation in the UX
      *  @param DeviceManagementConfigurationControlType|null $value Value to set for the uxBehavior property.
     */
     public function setUxBehavior(?DeviceManagementConfigurationControlType $value ): void {
@@ -459,7 +463,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     }
 
     /**
-     * Sets the visibility property value. Setting visibility scope to UX. Possible values are: none, settingsCatalog, template.
+     * Sets the visibility property value. Supported setting types
      *  @param DeviceManagementConfigurationSettingVisibility|null $value Value to set for the visibility property.
     */
     public function setVisibility(?DeviceManagementConfigurationSettingVisibility $value ): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extends Entity implements Parsable 
 {
     /**
-     * @var WindowsDefenderApplicationControlSupplementalPolicyStatuses|null $deploymentStatus The deployment state of the policy. Possible values are: unknown, success, tokenError, notAuthorizedByToken, policyNotFound.
+     * @var WindowsDefenderApplicationControlSupplementalPolicyStatuses|null $deploymentStatus Enum values for the various WindowsDefenderApplicationControl supplemental policy deployment statuses.
     */
     private ?WindowsDefenderApplicationControlSupplementalPolicyStatuses $deploymentStatus = null;
     
@@ -64,6 +64,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus');
     }
 
     /**
@@ -76,7 +77,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
     }
 
     /**
-     * Gets the deploymentStatus property value. The deployment state of the policy. Possible values are: unknown, success, tokenError, notAuthorizedByToken, policyNotFound.
+     * Gets the deploymentStatus property value. Enum values for the various WindowsDefenderApplicationControl supplemental policy deployment statuses.
      * @return WindowsDefenderApplicationControlSupplementalPolicyStatuses|null
     */
     public function getDeploymentStatus(): ?WindowsDefenderApplicationControlSupplementalPolicyStatuses {
@@ -194,7 +195,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
     }
 
     /**
-     * Sets the deploymentStatus property value. The deployment state of the policy. Possible values are: unknown, success, tokenError, notAuthorizedByToken, policyNotFound.
+     * Sets the deploymentStatus property value. Enum values for the various WindowsDefenderApplicationControl supplemental policy deployment statuses.
      *  @param WindowsDefenderApplicationControlSupplementalPolicyStatuses|null $value Value to set for the deploymentStatus property.
     */
     public function setDeploymentStatus(?WindowsDefenderApplicationControlSupplementalPolicyStatuses $value ): void {

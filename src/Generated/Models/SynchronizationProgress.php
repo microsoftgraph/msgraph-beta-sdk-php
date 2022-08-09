@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SynchronizationProgress implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -19,6 +19,11 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
      * @var int|null $completedUnits The numerator of a progress ratio; the number of units of changes already processed.
     */
     private ?int $completedUnits = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var DateTime|null $progressObservationDateTime The time of a progress observation as an offset in minutes from UTC.
@@ -39,7 +44,8 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
      * Instantiates a new synchronizationProgress and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.synchronizationProgress');
     }
 
     /**
@@ -75,10 +81,19 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'completedUnits' => function (ParseNode $n) use ($o) { $o->setCompletedUnits($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'progressObservationDateTime' => function (ParseNode $n) use ($o) { $o->setProgressObservationDateTime($n->getDateTimeValue()); },
             'totalUnits' => function (ParseNode $n) use ($o) { $o->setTotalUnits($n->getIntegerValue()); },
             'units' => function (ParseNode $n) use ($o) { $o->setUnits($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,6 +126,7 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('completedUnits', $this->completedUnits);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('progressObservationDateTime', $this->progressObservationDateTime);
         $writer->writeIntegerValue('totalUnits', $this->totalUnits);
         $writer->writeStringValue('units', $this->units);
@@ -131,6 +147,14 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
     */
     public function setCompletedUnits(?int $value ): void {
         $this->completedUnits = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

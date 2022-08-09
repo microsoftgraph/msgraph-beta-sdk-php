@@ -76,10 +76,11 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
     private ?int $version = null;
     
     /**
-     * Instantiates a new iosLobAppProvisioningConfiguration and sets the default values.
+     * Instantiates a new IosLobAppProvisioningConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosLobAppProvisioningConfiguration');
     }
 
     /**

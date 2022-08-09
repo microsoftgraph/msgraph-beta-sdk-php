@@ -18,6 +18,7 @@ class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCat
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementTemplateSettingCategory');
     }
 
     /**

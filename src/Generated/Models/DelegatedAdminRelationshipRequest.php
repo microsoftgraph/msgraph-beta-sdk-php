@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DelegatedAdminRelationshipRequest extends Entity implements Parsable 
 {
     /**
-     * @var DelegatedAdminRelationshipRequestAction|null $action The action to be performed on the delegated admin relationship.
+     * @var DelegatedAdminRelationshipRequestAction|null $action The action property
     */
     private ?DelegatedAdminRelationshipRequestAction $action = null;
     
@@ -34,6 +34,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.delegatedAdminRelationshipRequest');
     }
 
     /**
@@ -46,7 +47,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the action property value. The action to be performed on the delegated admin relationship.
+     * Gets the action property value. The action property
      * @return DelegatedAdminRelationshipRequestAction|null
     */
     public function getAction(): ?DelegatedAdminRelationshipRequestAction {
@@ -104,7 +105,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the action property value. The action to be performed on the delegated admin relationship.
+     * Sets the action property value. The action property
      *  @param DelegatedAdminRelationshipRequestAction|null $value Value to set for the action property.
     */
     public function setAction(?DelegatedAdminRelationshipRequestAction $value ): void {

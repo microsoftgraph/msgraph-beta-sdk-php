@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrinterStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
      * @var array<string>|null $details The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
     */
     private ?array $details = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var PrinterProcessingState|null $processingState The processingState property
@@ -40,7 +45,7 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
     private ?array $processingStateReasons = null;
     
     /**
-     * @var PrinterProcessingState|null $state The current processing state. Valid values are described in the following table. Read-only.
+     * @var PrinterProcessingState|null $state The state property
     */
     private ?PrinterProcessingState $state = null;
     
@@ -48,7 +53,8 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new printerStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.printerStatus');
     }
 
     /**
@@ -93,11 +99,20 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
         return  [
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'processingState' => function (ParseNode $n) use ($o) { $o->setProcessingState($n->getEnumValue(PrinterProcessingState::class)); },
             'processingStateDescription' => function (ParseNode $n) use ($o) { $o->setProcessingStateDescription($n->getStringValue()); },
             'processingStateReasons' => function (ParseNode $n) use ($o) { $o->setProcessingStateReasons($n->getCollectionOfPrimitiveValues()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(PrinterProcessingState::class)); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -125,7 +140,7 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the state property value. The current processing state. Valid values are described in the following table. Read-only.
+     * Gets the state property value. The state property
      * @return PrinterProcessingState|null
     */
     public function getState(): ?PrinterProcessingState {
@@ -139,6 +154,7 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('description', $this->description);
         $writer->writeCollectionOfPrimitiveValues('details', $this->details);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('processingState', $this->processingState);
         $writer->writeStringValue('processingStateDescription', $this->processingStateDescription);
         $writer->writeCollectionOfPrimitiveValues('processingStateReasons', $this->processingStateReasons);
@@ -171,6 +187,14 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the processingState property value. The processingState property
      *  @param PrinterProcessingState|null $value Value to set for the processingState property.
     */
@@ -195,7 +219,7 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the state property value. The current processing state. Valid values are described in the following table. Read-only.
+     * Sets the state property value. The state property
      *  @param PrinterProcessingState|null $value Value to set for the state property.
     */
     public function setState(?PrinterProcessingState $value ): void {

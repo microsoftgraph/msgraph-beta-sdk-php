@@ -85,10 +85,11 @@ class Recommendation extends Entity implements Parsable
     private ?RecommendationStatus $status = null;
     
     /**
-     * Instantiates a new recommendation and sets the default values.
+     * Instantiates a new Recommendation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.recommendation');
     }
 
     /**

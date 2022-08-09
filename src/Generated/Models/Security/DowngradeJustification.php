@@ -10,25 +10,31 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DowngradeJustification implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var bool|null $isDowngradeJustified The isDowngradeJustified property
+     * @var bool|null $isDowngradeJustified Indicates whether the downgrade is or is not justified.
     */
     private ?bool $isDowngradeJustified = null;
     
     /**
-     * @var string|null $justificationMessage The justificationMessage property
+     * @var string|null $justificationMessage Message that indicates why a downgrade is justified. The message will appear in administrative logs.
     */
     private ?string $justificationMessage = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new downgradeJustification and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.security.downgradeJustification');
     }
 
     /**
@@ -57,11 +63,12 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
         return  [
             'isDowngradeJustified' => function (ParseNode $n) use ($o) { $o->setIsDowngradeJustified($n->getBooleanValue()); },
             'justificationMessage' => function (ParseNode $n) use ($o) { $o->setJustificationMessage($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the isDowngradeJustified property value. The isDowngradeJustified property
+     * Gets the isDowngradeJustified property value. Indicates whether the downgrade is or is not justified.
      * @return bool|null
     */
     public function getIsDowngradeJustified(): ?bool {
@@ -69,11 +76,19 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the justificationMessage property value. The justificationMessage property
+     * Gets the justificationMessage property value. Message that indicates why a downgrade is justified. The message will appear in administrative logs.
      * @return string|null
     */
     public function getJustificationMessage(): ?string {
         return $this->justificationMessage;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -83,6 +98,7 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('isDowngradeJustified', $this->isDowngradeJustified);
         $writer->writeStringValue('justificationMessage', $this->justificationMessage);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -95,7 +111,7 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isDowngradeJustified property value. The isDowngradeJustified property
+     * Sets the isDowngradeJustified property value. Indicates whether the downgrade is or is not justified.
      *  @param bool|null $value Value to set for the isDowngradeJustified property.
     */
     public function setIsDowngradeJustified(?bool $value ): void {
@@ -103,11 +119,19 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the justificationMessage property value. The justificationMessage property
+     * Sets the justificationMessage property value. Message that indicates why a downgrade is justified. The message will appear in administrative logs.
      *  @param string|null $value Value to set for the justificationMessage property.
     */
     public function setJustificationMessage(?string $value ): void {
         $this->justificationMessage = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

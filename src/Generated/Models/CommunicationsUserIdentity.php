@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CommunicationsUserIdentity extends Identity implements Parsable 
 {
     /**
-     * @var string|null $tenantId The tenantId property
+     * @var string|null $tenantId The user's tenant ID.
     */
     private ?string $tenantId = null;
     
@@ -18,6 +18,7 @@ class CommunicationsUserIdentity extends Identity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.communicationsUserIdentity');
     }
 
     /**
@@ -41,7 +42,7 @@ class CommunicationsUserIdentity extends Identity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. The user's tenant ID.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -58,7 +59,7 @@ class CommunicationsUserIdentity extends Identity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. The user's tenant ID.
      *  @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value ): void {

@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyPresentationDropdownList extends GroupPolicyPresentation implements Parsable 
+class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
      * @var GroupPolicyPresentationDropdownListItem|null $defaultItem Localized string value identifying the default choice of the list of items.
@@ -28,6 +28,7 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyPresentation implem
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyPresentationDropdownList');
     }
 
     /**

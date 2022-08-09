@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceScopeActionResult implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var string|null $deviceScopeAction The triggered action name. Possible values are: .
+     * @var string|null $deviceScopeAction Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
     */
     private ?string $deviceScopeAction = null;
     
@@ -30,15 +30,21 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
     private ?string $failedMessage = null;
     
     /**
-     * @var DeviceScopeActionStatus|null $status Indicates the status of the attempt device scope action. When succeeded, the action was succeessfully triggered, When failed, the action was failed to trigger. Possible values are: failed, succeeded, unknownFutureValue.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var DeviceScopeActionStatus|null $status Indicates the status of the attempted device scope action
     */
     private ?DeviceScopeActionStatus $status = null;
     
     /**
-     * Instantiates a new DeviceScopeActionResult and sets the default values.
+     * Instantiates a new deviceScopeActionResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceScopeActionResult');
     }
 
     /**
@@ -59,7 +65,7 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceScopeAction property value. The triggered action name. Possible values are: .
+     * Gets the deviceScopeAction property value. Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
      * @return string|null
     */
     public function getDeviceScopeAction(): ?string {
@@ -92,12 +98,21 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
             'deviceScopeAction' => function (ParseNode $n) use ($o) { $o->setDeviceScopeAction($n->getStringValue()); },
             'deviceScopeId' => function (ParseNode $n) use ($o) { $o->setDeviceScopeId($n->getStringValue()); },
             'failedMessage' => function (ParseNode $n) use ($o) { $o->setFailedMessage($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DeviceScopeActionStatus::class)); },
         ];
     }
 
     /**
-     * Gets the status property value. Indicates the status of the attempt device scope action. When succeeded, the action was succeessfully triggered, When failed, the action was failed to trigger. Possible values are: failed, succeeded, unknownFutureValue.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the status property value. Indicates the status of the attempted device scope action
      * @return DeviceScopeActionStatus|null
     */
     public function getStatus(): ?DeviceScopeActionStatus {
@@ -112,6 +127,7 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('deviceScopeAction', $this->deviceScopeAction);
         $writer->writeStringValue('deviceScopeId', $this->deviceScopeId);
         $writer->writeStringValue('failedMessage', $this->failedMessage);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -125,7 +141,7 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceScopeAction property value. The triggered action name. Possible values are: .
+     * Sets the deviceScopeAction property value. Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
      *  @param string|null $value Value to set for the deviceScopeAction property.
     */
     public function setDeviceScopeAction(?string $value ): void {
@@ -149,7 +165,15 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the status property value. Indicates the status of the attempt device scope action. When succeeded, the action was succeessfully triggered, When failed, the action was failed to trigger. Possible values are: failed, succeeded, unknownFutureValue.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the status property value. Indicates the status of the attempted device scope action
      *  @param DeviceScopeActionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceScopeActionStatus $value ): void {

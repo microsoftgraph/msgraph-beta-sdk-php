@@ -24,7 +24,7 @@ class SecurityBaselineState extends Entity implements Parsable
     private ?array $settingStates = null;
     
     /**
-     * @var SecurityBaselineComplianceState|null $state Security baseline compliance state
+     * @var SecurityBaselineComplianceState|null $state Security Baseline Compliance State
     */
     private ?SecurityBaselineComplianceState $state = null;
     
@@ -38,6 +38,7 @@ class SecurityBaselineState extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.securityBaselineState');
     }
 
     /**
@@ -89,7 +90,7 @@ class SecurityBaselineState extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. Security baseline compliance state
+     * Gets the state property value. Security Baseline Compliance State
      * @return SecurityBaselineComplianceState|null
     */
     public function getState(): ?SecurityBaselineComplianceState {
@@ -142,7 +143,7 @@ class SecurityBaselineState extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. Security baseline compliance state
+     * Sets the state property value. Security Baseline Compliance State
      *  @param SecurityBaselineComplianceState|null $value Value to set for the state property.
     */
     public function setState(?SecurityBaselineComplianceState $value ): void {

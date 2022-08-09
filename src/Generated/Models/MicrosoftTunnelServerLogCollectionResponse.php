@@ -40,15 +40,16 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
     private ?DateTime $startDateTime = null;
     
     /**
-     * @var MicrosoftTunnelLogCollectionStatus|null $status The status of log collection. Possible values are: pending, completed, failed.
+     * @var MicrosoftTunnelLogCollectionStatus|null $status Enum type that represent the status of log collection.
     */
     private ?MicrosoftTunnelLogCollectionStatus $status = null;
     
     /**
-     * Instantiates a new MicrosoftTunnelServerLogCollectionResponse and sets the default values.
+     * Instantiates a new microsoftTunnelServerLogCollectionResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.microsoftTunnelServerLogCollectionResponse');
     }
 
     /**
@@ -126,7 +127,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
     }
 
     /**
-     * Gets the status property value. The status of log collection. Possible values are: pending, completed, failed.
+     * Gets the status property value. Enum type that represent the status of log collection.
      * @return MicrosoftTunnelLogCollectionStatus|null
     */
     public function getStatus(): ?MicrosoftTunnelLogCollectionStatus {
@@ -197,7 +198,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
     }
 
     /**
-     * Sets the status property value. The status of log collection. Possible values are: pending, completed, failed.
+     * Sets the status property value. Enum type that represent the status of log collection.
      *  @param MicrosoftTunnelLogCollectionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?MicrosoftTunnelLogCollectionStatus $value ): void {

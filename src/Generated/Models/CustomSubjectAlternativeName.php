@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomSubjectAlternativeName implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,7 +20,12 @@ class CustomSubjectAlternativeName implements AdditionalDataHolder, Parsable
     private ?string $name = null;
     
     /**
-     * @var SubjectAlternativeNameType|null $sanType Custom SAN Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var SubjectAlternativeNameType|null $sanType Subject Alternative Name Options.
     */
     private ?SubjectAlternativeNameType $sanType = null;
     
@@ -28,7 +33,8 @@ class CustomSubjectAlternativeName implements AdditionalDataHolder, Parsable
      * Instantiates a new customSubjectAlternativeName and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.customSubjectAlternativeName');
     }
 
     /**
@@ -56,6 +62,7 @@ class CustomSubjectAlternativeName implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'sanType' => function (ParseNode $n) use ($o) { $o->setSanType($n->getEnumValue(SubjectAlternativeNameType::class)); },
         ];
     }
@@ -69,7 +76,15 @@ class CustomSubjectAlternativeName implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the sanType property value. Custom SAN Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the sanType property value. Subject Alternative Name Options.
      * @return SubjectAlternativeNameType|null
     */
     public function getSanType(): ?SubjectAlternativeNameType {
@@ -82,6 +97,7 @@ class CustomSubjectAlternativeName implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('sanType', $this->sanType);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -103,7 +119,15 @@ class CustomSubjectAlternativeName implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sanType property value. Custom SAN Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the sanType property value. Subject Alternative Name Options.
      *  @param SubjectAlternativeNameType|null $value Value to set for the sanType property.
     */
     public function setSanType(?SubjectAlternativeNameType $value ): void {

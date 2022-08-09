@@ -120,7 +120,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     private ?string $errorUrl = null;
     
     /**
-     * @var array<FederatedIdentityCredential>|null $federatedIdentityCredentials The federatedIdentityCredentials property
+     * @var array<FederatedIdentityCredential>|null $federatedIdentityCredentials Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).
     */
     private ?array $federatedIdentityCredentials = null;
     
@@ -289,6 +289,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.servicePrincipal');
     }
 
     /**
@@ -477,7 +478,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the federatedIdentityCredentials property value. The federatedIdentityCredentials property
+     * Gets the federatedIdentityCredentials property value. Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).
      * @return array<FederatedIdentityCredential>|null
     */
     public function getFederatedIdentityCredentials(): ?array {
@@ -1045,7 +1046,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the federatedIdentityCredentials property value. The federatedIdentityCredentials property
+     * Sets the federatedIdentityCredentials property value. Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (eq when counting empty collections).
      *  @param array<FederatedIdentityCredential>|null $value Value to set for the federatedIdentityCredentials property.
     */
     public function setFederatedIdentityCredentials(?array $value ): void {

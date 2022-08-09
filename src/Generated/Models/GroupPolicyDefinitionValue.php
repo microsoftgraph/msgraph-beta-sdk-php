@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyDefinitionValue extends Entity implements Parsable 
 {
     /**
-     * @var GroupPolicyConfigurationType|null $configurationType Specifies how the value should be configured. This can be either as a Policy or as a Preference. Possible values are: policy, preference.
+     * @var GroupPolicyConfigurationType|null $configurationType Group Policy Configuration Type
     */
     private ?GroupPolicyConfigurationType $configurationType = null;
     
@@ -44,6 +44,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyDefinitionValue');
     }
 
     /**
@@ -56,7 +57,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
     }
 
     /**
-     * Gets the configurationType property value. Specifies how the value should be configured. This can be either as a Policy or as a Preference. Possible values are: policy, preference.
+     * Gets the configurationType property value. Group Policy Configuration Type
      * @return GroupPolicyConfigurationType|null
     */
     public function getConfigurationType(): ?GroupPolicyConfigurationType {
@@ -134,7 +135,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
     }
 
     /**
-     * Sets the configurationType property value. Specifies how the value should be configured. This can be either as a Policy or as a Preference. Possible values are: policy, preference.
+     * Sets the configurationType property value. Group Policy Configuration Type
      *  @param GroupPolicyConfigurationType|null $value Value to set for the configurationType property.
     */
     public function setConfigurationType(?GroupPolicyConfigurationType $value ): void {

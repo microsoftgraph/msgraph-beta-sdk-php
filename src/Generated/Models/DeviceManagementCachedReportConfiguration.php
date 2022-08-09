@@ -45,7 +45,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     private ?array $select = null;
     
     /**
-     * @var DeviceManagementReportStatus|null $status Status of the cached report. Possible values are: unknown, notStarted, inProgress, completed, failed.
+     * @var DeviceManagementReportStatus|null $status Possible statuses associated with a generated report
     */
     private ?DeviceManagementReportStatus $status = null;
     
@@ -54,6 +54,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementCachedReportConfiguration');
     }
 
     /**
@@ -140,7 +141,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Gets the status property value. Status of the cached report. Possible values are: unknown, notStarted, inProgress, completed, failed.
+     * Gets the status property value. Possible statuses associated with a generated report
      * @return DeviceManagementReportStatus|null
     */
     public function getStatus(): ?DeviceManagementReportStatus {
@@ -220,7 +221,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     }
 
     /**
-     * Sets the status property value. Status of the cached report. Possible values are: unknown, notStarted, inProgress, completed, failed.
+     * Sets the status property value. Possible statuses associated with a generated report
      *  @param DeviceManagementReportStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceManagementReportStatus $value ): void {

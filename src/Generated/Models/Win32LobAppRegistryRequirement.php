@@ -14,7 +14,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
     private ?bool $check32BitOn64System = null;
     
     /**
-     * @var Win32LobAppRegistryDetectionType|null $detectionType The registry data detection type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
+     * @var Win32LobAppRegistryDetectionType|null $detectionType Contains all supported registry data detection type.
     */
     private ?Win32LobAppRegistryDetectionType $detectionType = null;
     
@@ -33,6 +33,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppRegistryRequirement');
     }
 
     /**
@@ -53,7 +54,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
     }
 
     /**
-     * Gets the detectionType property value. The registry data detection type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
+     * Gets the detectionType property value. Contains all supported registry data detection type.
      * @return Win32LobAppRegistryDetectionType|null
     */
     public function getDetectionType(): ?Win32LobAppRegistryDetectionType {
@@ -111,7 +112,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
     }
 
     /**
-     * Sets the detectionType property value. The registry data detection type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
+     * Sets the detectionType property value. Contains all supported registry data detection type.
      *  @param Win32LobAppRegistryDetectionType|null $value Value to set for the detectionType property.
     */
     public function setDetectionType(?Win32LobAppRegistryDetectionType $value ): void {

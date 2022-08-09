@@ -28,6 +28,7 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.riskyServicePrincipalHistoryItem');
     }
 
     /**

@@ -28,6 +28,7 @@ class ShiftItem extends ScheduleEntity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.shiftItem');
     }
 
     /**

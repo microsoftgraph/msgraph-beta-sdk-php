@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LicenseInfoDetail implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class LicenseInfoDetail implements AdditionalDataHolder, Parsable
      * @var AzureADLicenseType|null $licenseType The licenseType property
     */
     private ?AzureADLicenseType $licenseType = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $totalAssignedCount The totalAssignedCount property
@@ -38,7 +43,8 @@ class LicenseInfoDetail implements AdditionalDataHolder, Parsable
      * Instantiates a new licenseInfoDetail and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.licenseInfoDetail');
     }
 
     /**
@@ -66,6 +72,7 @@ class LicenseInfoDetail implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'licenseType' => function (ParseNode $n) use ($o) { $o->setLicenseType($n->getEnumValue(AzureADLicenseType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'totalAssignedCount' => function (ParseNode $n) use ($o) { $o->setTotalAssignedCount($n->getIntegerValue()); },
             'totalLicenseCount' => function (ParseNode $n) use ($o) { $o->setTotalLicenseCount($n->getIntegerValue()); },
             'totalUsageCount' => function (ParseNode $n) use ($o) { $o->setTotalUsageCount($n->getIntegerValue()); },
@@ -78,6 +85,14 @@ class LicenseInfoDetail implements AdditionalDataHolder, Parsable
     */
     public function getLicenseType(): ?AzureADLicenseType {
         return $this->licenseType;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -110,6 +125,7 @@ class LicenseInfoDetail implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('licenseType', $this->licenseType);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('totalAssignedCount', $this->totalAssignedCount);
         $writer->writeIntegerValue('totalLicenseCount', $this->totalLicenseCount);
         $writer->writeIntegerValue('totalUsageCount', $this->totalUsageCount);
@@ -130,6 +146,14 @@ class LicenseInfoDetail implements AdditionalDataHolder, Parsable
     */
     public function setLicenseType(?AzureADLicenseType $value ): void {
         $this->licenseType = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

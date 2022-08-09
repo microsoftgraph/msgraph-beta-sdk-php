@@ -105,10 +105,11 @@ class SecureScoreControlProfile extends Entity implements Parsable
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
-     * Instantiates a new secureScoreControlProfile and sets the default values.
+     * Instantiates a new SecureScoreControlProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.secureScoreControlProfile');
     }
 
     /**

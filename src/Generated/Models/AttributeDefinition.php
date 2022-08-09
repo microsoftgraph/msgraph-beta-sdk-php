@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttributeDefinition implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -50,7 +50,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
     private ?bool $multivalued = null;
     
     /**
-     * @var Mutability|null $mutability An attribute's mutability. Possible values are:  ReadWrite, ReadOnly, Immutable, WriteOnly. Default is ReadWrite.
+     * @var Mutability|null $mutability The mutability property
     */
     private ?Mutability $mutability = null;
     
@@ -58,6 +58,11 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @var string|null $name Name of the attribute. Must be unique within the object definition. Not nullable.
     */
     private ?string $name = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<ReferencedObject>|null $referencedObjects For attributes with reference type, lists referenced objects (for example, the manager attribute would list User as the referenced object).
@@ -70,7 +75,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
     private ?bool $required = null;
     
     /**
-     * @var AttributeType|null $type Attribute value type. Possible values are: String, Integer, Reference, Binary, Boolean,DateTime. Default is String.
+     * @var AttributeType|null $type The type property
     */
     private ?AttributeType $type = null;
     
@@ -78,7 +83,8 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * Instantiates a new attributeDefinition and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.attributeDefinition');
     }
 
     /**
@@ -146,6 +152,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
             'multivalued' => function (ParseNode $n) use ($o) { $o->setMultivalued($n->getBooleanValue()); },
             'mutability' => function (ParseNode $n) use ($o) { $o->setMutability($n->getEnumValue(Mutability::class)); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'referencedObjects' => function (ParseNode $n) use ($o) { $o->setReferencedObjects($n->getCollectionOfObjectValues(array(ReferencedObject::class, 'createFromDiscriminatorValue'))); },
             'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(AttributeType::class)); },
@@ -177,7 +184,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the mutability property value. An attribute's mutability. Possible values are:  ReadWrite, ReadOnly, Immutable, WriteOnly. Default is ReadWrite.
+     * Gets the mutability property value. The mutability property
      * @return Mutability|null
     */
     public function getMutability(): ?Mutability {
@@ -190,6 +197,14 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
     */
     public function getName(): ?string {
         return $this->name;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -209,7 +224,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the type property value. Attribute value type. Possible values are: String, Integer, Reference, Binary, Boolean,DateTime. Default is String.
+     * Gets the type property value. The type property
      * @return AttributeType|null
     */
     public function getType(): ?AttributeType {
@@ -230,6 +245,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('multivalued', $this->multivalued);
         $writer->writeEnumValue('mutability', $this->mutability);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('referencedObjects', $this->referencedObjects);
         $writer->writeBooleanValue('required', $this->required);
         $writer->writeEnumValue('type', $this->type);
@@ -301,7 +317,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the mutability property value. An attribute's mutability. Possible values are:  ReadWrite, ReadOnly, Immutable, WriteOnly. Default is ReadWrite.
+     * Sets the mutability property value. The mutability property
      *  @param Mutability|null $value Value to set for the mutability property.
     */
     public function setMutability(?Mutability $value ): void {
@@ -314,6 +330,14 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**
@@ -333,7 +357,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the type property value. Attribute value type. Possible values are: String, Integer, Reference, Binary, Boolean,DateTime. Default is String.
+     * Sets the type property value. The type property
      *  @param AttributeType|null $value Value to set for the type property.
     */
     public function setType(?AttributeType $value ): void {

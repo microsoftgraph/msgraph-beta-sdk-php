@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InformationProtection extends Entity implements Parsable 
 {
     /**
-     * @var InformationProtectionPolicySetting|null $labelPolicySettings The labelPolicySettings property
+     * @var InformationProtectionPolicySetting|null $labelPolicySettings Read the Microsoft Purview Information Protection policy settings for the user or organization.
     */
     private ?InformationProtectionPolicySetting $labelPolicySettings = null;
     
     /**
-     * @var array<SensitivityLabel>|null $sensitivityLabels The sensitivityLabels property
+     * @var array<SensitivityLabel>|null $sensitivityLabels Read the Microsoft Purview Information Protection labels for the user or organization.
     */
     private ?array $sensitivityLabels = null;
     
@@ -24,6 +24,7 @@ class InformationProtection extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.informationProtection');
     }
 
     /**
@@ -48,7 +49,7 @@ class InformationProtection extends Entity implements Parsable
     }
 
     /**
-     * Gets the labelPolicySettings property value. The labelPolicySettings property
+     * Gets the labelPolicySettings property value. Read the Microsoft Purview Information Protection policy settings for the user or organization.
      * @return InformationProtectionPolicySetting|null
     */
     public function getLabelPolicySettings(): ?InformationProtectionPolicySetting {
@@ -56,7 +57,7 @@ class InformationProtection extends Entity implements Parsable
     }
 
     /**
-     * Gets the sensitivityLabels property value. The sensitivityLabels property
+     * Gets the sensitivityLabels property value. Read the Microsoft Purview Information Protection labels for the user or organization.
      * @return array<SensitivityLabel>|null
     */
     public function getSensitivityLabels(): ?array {
@@ -74,7 +75,7 @@ class InformationProtection extends Entity implements Parsable
     }
 
     /**
-     * Sets the labelPolicySettings property value. The labelPolicySettings property
+     * Sets the labelPolicySettings property value. Read the Microsoft Purview Information Protection policy settings for the user or organization.
      *  @param InformationProtectionPolicySetting|null $value Value to set for the labelPolicySettings property.
     */
     public function setLabelPolicySettings(?InformationProtectionPolicySetting $value ): void {
@@ -82,7 +83,7 @@ class InformationProtection extends Entity implements Parsable
     }
 
     /**
-     * Sets the sensitivityLabels property value. The sensitivityLabels property
+     * Sets the sensitivityLabels property value. Read the Microsoft Purview Information Protection labels for the user or organization.
      *  @param array<SensitivityLabel>|null $value Value to set for the sensitivityLabels property.
     */
     public function setSensitivityLabels(?array $value ): void {

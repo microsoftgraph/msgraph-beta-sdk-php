@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SiteSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class SiteSettings implements AdditionalDataHolder, Parsable
      * @var string|null $languageTag The language tag for the language used on this site.
     */
     private ?string $languageTag = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $timeZone Indicates the time offset for the time zone of the site from Coordinated Universal Time (UTC).
@@ -28,7 +33,8 @@ class SiteSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new siteSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.siteSettings');
     }
 
     /**
@@ -56,6 +62,7 @@ class SiteSettings implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'languageTag' => function (ParseNode $n) use ($o) { $o->setLanguageTag($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'timeZone' => function (ParseNode $n) use ($o) { $o->setTimeZone($n->getStringValue()); },
         ];
     }
@@ -66,6 +73,14 @@ class SiteSettings implements AdditionalDataHolder, Parsable
     */
     public function getLanguageTag(): ?string {
         return $this->languageTag;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class SiteSettings implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('languageTag', $this->languageTag);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('timeZone', $this->timeZone);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class SiteSettings implements AdditionalDataHolder, Parsable
     */
     public function setLanguageTag(?string $value ): void {
         $this->languageTag = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

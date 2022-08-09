@@ -20,7 +20,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     private ?OnPremisesConditionalAccessSettings $conditionalAccessSettings = null;
     
     /**
-     * @var DeviceManagementExchangeAccessLevel|null $defaultAccessLevel Default access state in Exchange. This rule applies globally to the entire Exchange organization. Possible values are: none, allow, block, quarantine.
+     * @var DeviceManagementExchangeAccessLevel|null $defaultAccessLevel Access Level in Exchange.
     */
     private ?DeviceManagementExchangeAccessLevel $defaultAccessLevel = null;
     
@@ -39,6 +39,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementExchangeOnPremisesPolicy');
     }
 
     /**
@@ -67,7 +68,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     }
 
     /**
-     * Gets the defaultAccessLevel property value. Default access state in Exchange. This rule applies globally to the entire Exchange organization. Possible values are: none, allow, block, quarantine.
+     * Gets the defaultAccessLevel property value. Access Level in Exchange.
      * @return DeviceManagementExchangeAccessLevel|null
     */
     public function getDefaultAccessLevel(): ?DeviceManagementExchangeAccessLevel {
@@ -135,7 +136,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     }
 
     /**
-     * Sets the defaultAccessLevel property value. Default access state in Exchange. This rule applies globally to the entire Exchange organization. Possible values are: none, allow, block, quarantine.
+     * Sets the defaultAccessLevel property value. Access Level in Exchange.
      *  @param DeviceManagementExchangeAccessLevel|null $value Value to set for the defaultAccessLevel property.
     */
     public function setDefaultAccessLevel(?DeviceManagementExchangeAccessLevel $value ): void {

@@ -29,6 +29,7 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10XWifiConfiguration');
     }
 
     /**

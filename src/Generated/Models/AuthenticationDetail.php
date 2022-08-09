@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationDetail implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -41,6 +41,11 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
     private ?string $authenticationStepResultDetail = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var bool|null $succeeded Indicates the status of the authentication step. Possible values: succeeded, failed.
     */
     private ?bool $succeeded = null;
@@ -49,7 +54,8 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * Instantiates a new authenticationDetail and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.authenticationDetail');
     }
 
     /**
@@ -121,8 +127,17 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
             'authenticationStepDateTime' => function (ParseNode $n) use ($o) { $o->setAuthenticationStepDateTime($n->getDateTimeValue()); },
             'authenticationStepRequirement' => function (ParseNode $n) use ($o) { $o->setAuthenticationStepRequirement($n->getStringValue()); },
             'authenticationStepResultDetail' => function (ParseNode $n) use ($o) { $o->setAuthenticationStepResultDetail($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'succeeded' => function (ParseNode $n) use ($o) { $o->setSucceeded($n->getBooleanValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -143,6 +158,7 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
         $writer->writeDateTimeValue('authenticationStepDateTime', $this->authenticationStepDateTime);
         $writer->writeStringValue('authenticationStepRequirement', $this->authenticationStepRequirement);
         $writer->writeStringValue('authenticationStepResultDetail', $this->authenticationStepResultDetail);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('succeeded', $this->succeeded);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -193,6 +209,14 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
     */
     public function setAuthenticationStepResultDetail(?string $value ): void {
         $this->authenticationStepResultDetail = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

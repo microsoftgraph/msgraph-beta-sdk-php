@@ -13,6 +13,7 @@ class EducationSynchronizationOAuth1ConnectionSettings extends EducationSynchron
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.educationSynchronizationOAuth1ConnectionSettings');
     }
 
     /**

@@ -49,7 +49,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
     private ?string $mdmSettingUri = null;
     
     /**
-     * @var MdmSupportedState|null $mdmSupportedState Indicates if the setting is supported in Mdm or not. Possible values are: unknown, supported, unsupported, deprecated.
+     * @var MdmSupportedState|null $mdmSupportedState Mdm Support Status of the setting.
     */
     private ?MdmSupportedState $mdmSupportedState = null;
     
@@ -84,12 +84,12 @@ class GroupPolicySettingMapping extends Entity implements Parsable
     private ?string $settingName = null;
     
     /**
-     * @var GroupPolicySettingScope|null $settingScope The scope of the setting. Possible values are: unknown, device, user.
+     * @var GroupPolicySettingScope|null $settingScope Scope of the group policy setting.
     */
     private ?GroupPolicySettingScope $settingScope = null;
     
     /**
-     * @var GroupPolicySettingType|null $settingType The setting type (security or admx) of the Group Policy. Possible values are: unknown, policy, account, securityOptions, userRightsAssignment, auditSetting, windowsFirewallSettings, appLockerRuleCollection, dataSourcesSettings, devicesSettings, driveMapSettings, environmentVariables, filesSettings, folderOptions, folders, iniFiles, internetOptions, localUsersAndGroups, networkOptions, networkShares, ntServices, powerOptions, printers, regionalOptionsSettings, registrySettings, scheduledTasks, shortcutSettings, startMenuSettings.
+     * @var GroupPolicySettingType|null $settingType Setting type of the group policy.
     */
     private ?GroupPolicySettingType $settingType = null;
     
@@ -113,6 +113,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicySettingMapping');
     }
 
     /**
@@ -219,7 +220,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
     }
 
     /**
-     * Gets the mdmSupportedState property value. Indicates if the setting is supported in Mdm or not. Possible values are: unknown, supported, unsupported, deprecated.
+     * Gets the mdmSupportedState property value. Mdm Support Status of the setting.
      * @return MdmSupportedState|null
     */
     public function getMdmSupportedState(): ?MdmSupportedState {
@@ -275,7 +276,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
     }
 
     /**
-     * Gets the settingScope property value. The scope of the setting. Possible values are: unknown, device, user.
+     * Gets the settingScope property value. Scope of the group policy setting.
      * @return GroupPolicySettingScope|null
     */
     public function getSettingScope(): ?GroupPolicySettingScope {
@@ -283,7 +284,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
     }
 
     /**
-     * Gets the settingType property value. The setting type (security or admx) of the Group Policy. Possible values are: unknown, policy, account, securityOptions, userRightsAssignment, auditSetting, windowsFirewallSettings, appLockerRuleCollection, dataSourcesSettings, devicesSettings, driveMapSettings, environmentVariables, filesSettings, folderOptions, folders, iniFiles, internetOptions, localUsersAndGroups, networkOptions, networkShares, ntServices, powerOptions, printers, regionalOptionsSettings, registrySettings, scheduledTasks, shortcutSettings, startMenuSettings.
+     * Gets the settingType property value. Setting type of the group policy.
      * @return GroupPolicySettingType|null
     */
     public function getSettingType(): ?GroupPolicySettingType {
@@ -407,7 +408,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
     }
 
     /**
-     * Sets the mdmSupportedState property value. Indicates if the setting is supported in Mdm or not. Possible values are: unknown, supported, unsupported, deprecated.
+     * Sets the mdmSupportedState property value. Mdm Support Status of the setting.
      *  @param MdmSupportedState|null $value Value to set for the mdmSupportedState property.
     */
     public function setMdmSupportedState(?MdmSupportedState $value ): void {
@@ -463,7 +464,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
     }
 
     /**
-     * Sets the settingScope property value. The scope of the setting. Possible values are: unknown, device, user.
+     * Sets the settingScope property value. Scope of the group policy setting.
      *  @param GroupPolicySettingScope|null $value Value to set for the settingScope property.
     */
     public function setSettingScope(?GroupPolicySettingScope $value ): void {
@@ -471,7 +472,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
     }
 
     /**
-     * Sets the settingType property value. The setting type (security or admx) of the Group Policy. Possible values are: unknown, policy, account, securityOptions, userRightsAssignment, auditSetting, windowsFirewallSettings, appLockerRuleCollection, dataSourcesSettings, devicesSettings, driveMapSettings, environmentVariables, filesSettings, folderOptions, folders, iniFiles, internetOptions, localUsersAndGroups, networkOptions, networkShares, ntServices, powerOptions, printers, regionalOptionsSettings, registrySettings, scheduledTasks, shortcutSettings, startMenuSettings.
+     * Sets the settingType property value. Setting type of the group policy.
      *  @param GroupPolicySettingType|null $value Value to set for the settingType property.
     */
     public function setSettingType(?GroupPolicySettingType $value ): void {

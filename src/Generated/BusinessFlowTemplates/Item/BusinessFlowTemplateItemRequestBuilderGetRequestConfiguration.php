@@ -2,15 +2,17 @@
 
 namespace Microsoft\Graph\Beta\Generated\BusinessFlowTemplates\Item;
 
+use Microsoft\Kiota\Abstractions\RequestOption;
+
 class BusinessFlowTemplateItemRequestBuilderGetRequestConfiguration 
 {
     /**
-     * @var array|null $headers Request headers
+     * @var array<string, string>|null $headers Request headers
     */
     public ?array $headers = null;
     
     /**
-     * @var array|null $options Request options
+     * @var array<string, RequestOption>|null $options Request options
     */
     public ?array $options = null;
     

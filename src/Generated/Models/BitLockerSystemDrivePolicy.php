@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
      * @var int|null $minimumPinLength Indicates the minimum length of startup pin. Valid values 4 to 20
     */
     private ?int $minimumPinLength = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var bool|null $prebootRecoveryEnableMessageAndUrl Enable pre-boot recovery message and Url. If requireStartupAuthentication is false, this value does not affect.
@@ -55,22 +60,22 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     private ?bool $startupAuthenticationRequired = null;
     
     /**
-     * @var ConfigurationUsage|null $startupAuthenticationTpmKeyUsage Indicates if TPM startup key is allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * @var ConfigurationUsage|null $startupAuthenticationTpmKeyUsage Possible values of the ConfigurationUsage list.
     */
     private ?ConfigurationUsage $startupAuthenticationTpmKeyUsage = null;
     
     /**
-     * @var ConfigurationUsage|null $startupAuthenticationTpmPinAndKeyUsage Indicates if TPM startup pin key and key are allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * @var ConfigurationUsage|null $startupAuthenticationTpmPinAndKeyUsage Possible values of the ConfigurationUsage list.
     */
     private ?ConfigurationUsage $startupAuthenticationTpmPinAndKeyUsage = null;
     
     /**
-     * @var ConfigurationUsage|null $startupAuthenticationTpmPinUsage Indicates if TPM startup pin is allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * @var ConfigurationUsage|null $startupAuthenticationTpmPinUsage Possible values of the ConfigurationUsage list.
     */
     private ?ConfigurationUsage $startupAuthenticationTpmPinUsage = null;
     
     /**
-     * @var ConfigurationUsage|null $startupAuthenticationTpmUsage Indicates if TPM startup is allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * @var ConfigurationUsage|null $startupAuthenticationTpmUsage Possible values of the ConfigurationUsage list.
     */
     private ?ConfigurationUsage $startupAuthenticationTpmUsage = null;
     
@@ -78,7 +83,8 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
      * Instantiates a new bitLockerSystemDrivePolicy and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.bitLockerSystemDrivePolicy');
     }
 
     /**
@@ -115,6 +121,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
         return  [
             'encryptionMethod' => function (ParseNode $n) use ($o) { $o->setEncryptionMethod($n->getEnumValue(BitLockerEncryptionMethod::class)); },
             'minimumPinLength' => function (ParseNode $n) use ($o) { $o->setMinimumPinLength($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'prebootRecoveryEnableMessageAndUrl' => function (ParseNode $n) use ($o) { $o->setPrebootRecoveryEnableMessageAndUrl($n->getBooleanValue()); },
             'prebootRecoveryMessage' => function (ParseNode $n) use ($o) { $o->setPrebootRecoveryMessage($n->getStringValue()); },
             'prebootRecoveryUrl' => function (ParseNode $n) use ($o) { $o->setPrebootRecoveryUrl($n->getStringValue()); },
@@ -134,6 +141,14 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     */
     public function getMinimumPinLength(): ?int {
         return $this->minimumPinLength;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -185,7 +200,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the startupAuthenticationTpmKeyUsage property value. Indicates if TPM startup key is allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * Gets the startupAuthenticationTpmKeyUsage property value. Possible values of the ConfigurationUsage list.
      * @return ConfigurationUsage|null
     */
     public function getStartupAuthenticationTpmKeyUsage(): ?ConfigurationUsage {
@@ -193,7 +208,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the startupAuthenticationTpmPinAndKeyUsage property value. Indicates if TPM startup pin key and key are allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * Gets the startupAuthenticationTpmPinAndKeyUsage property value. Possible values of the ConfigurationUsage list.
      * @return ConfigurationUsage|null
     */
     public function getStartupAuthenticationTpmPinAndKeyUsage(): ?ConfigurationUsage {
@@ -201,7 +216,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the startupAuthenticationTpmPinUsage property value. Indicates if TPM startup pin is allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * Gets the startupAuthenticationTpmPinUsage property value. Possible values of the ConfigurationUsage list.
      * @return ConfigurationUsage|null
     */
     public function getStartupAuthenticationTpmPinUsage(): ?ConfigurationUsage {
@@ -209,7 +224,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the startupAuthenticationTpmUsage property value. Indicates if TPM startup is allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * Gets the startupAuthenticationTpmUsage property value. Possible values of the ConfigurationUsage list.
      * @return ConfigurationUsage|null
     */
     public function getStartupAuthenticationTpmUsage(): ?ConfigurationUsage {
@@ -223,6 +238,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('encryptionMethod', $this->encryptionMethod);
         $writer->writeIntegerValue('minimumPinLength', $this->minimumPinLength);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('prebootRecoveryEnableMessageAndUrl', $this->prebootRecoveryEnableMessageAndUrl);
         $writer->writeStringValue('prebootRecoveryMessage', $this->prebootRecoveryMessage);
         $writer->writeStringValue('prebootRecoveryUrl', $this->prebootRecoveryUrl);
@@ -258,6 +274,14 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     */
     public function setMinimumPinLength(?int $value ): void {
         $this->minimumPinLength = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**
@@ -309,7 +333,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the startupAuthenticationTpmKeyUsage property value. Indicates if TPM startup key is allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * Sets the startupAuthenticationTpmKeyUsage property value. Possible values of the ConfigurationUsage list.
      *  @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmKeyUsage property.
     */
     public function setStartupAuthenticationTpmKeyUsage(?ConfigurationUsage $value ): void {
@@ -317,7 +341,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the startupAuthenticationTpmPinAndKeyUsage property value. Indicates if TPM startup pin key and key are allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * Sets the startupAuthenticationTpmPinAndKeyUsage property value. Possible values of the ConfigurationUsage list.
      *  @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmPinAndKeyUsage property.
     */
     public function setStartupAuthenticationTpmPinAndKeyUsage(?ConfigurationUsage $value ): void {
@@ -325,7 +349,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the startupAuthenticationTpmPinUsage property value. Indicates if TPM startup pin is allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * Sets the startupAuthenticationTpmPinUsage property value. Possible values of the ConfigurationUsage list.
      *  @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmPinUsage property.
     */
     public function setStartupAuthenticationTpmPinUsage(?ConfigurationUsage $value ): void {
@@ -333,7 +357,7 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the startupAuthenticationTpmUsage property value. Indicates if TPM startup is allowed/required/disallowed. Possible values are: blocked, required, allowed, notConfigured.
+     * Sets the startupAuthenticationTpmUsage property value. Possible values of the ConfigurationUsage list.
      *  @param ConfigurationUsage|null $value Value to set for the startupAuthenticationTpmUsage property.
     */
     public function setStartupAuthenticationTpmUsage(?ConfigurationUsage $value ): void {

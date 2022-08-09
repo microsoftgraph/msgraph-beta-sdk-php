@@ -49,7 +49,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
     private ?string $deviceName = null;
     
     /**
-     * @var DiskType|null $diskType The user experience analytics device disk type. Possible values are: unknown, hdd, ssd, unknownFutureValue.
+     * @var DiskType|null $diskType The diskType property
     */
     private ?DiskType $diskType = null;
     
@@ -64,7 +64,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
     private ?int $groupPolicyLoginTimeInMs = null;
     
     /**
-     * @var UserExperienceAnalyticsHealthState|null $healthStatus The health state of the user experience analytics device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * @var UserExperienceAnalyticsHealthState|null $healthStatus The healthStatus property
     */
     private ?UserExperienceAnalyticsHealthState $healthStatus = null;
     
@@ -113,6 +113,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsDevicePerformance');
     }
 
     /**
@@ -189,7 +190,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
     }
 
     /**
-     * Gets the diskType property value. The user experience analytics device disk type. Possible values are: unknown, hdd, ssd, unknownFutureValue.
+     * Gets the diskType property value. The diskType property
      * @return DiskType|null
     */
     public function getDiskType(): ?DiskType {
@@ -243,7 +244,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
     }
 
     /**
-     * Gets the healthStatus property value. The health state of the user experience analytics device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * Gets the healthStatus property value. The healthStatus property
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
@@ -407,7 +408,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
     }
 
     /**
-     * Sets the diskType property value. The user experience analytics device disk type. Possible values are: unknown, hdd, ssd, unknownFutureValue.
+     * Sets the diskType property value. The diskType property
      *  @param DiskType|null $value Value to set for the diskType property.
     */
     public function setDiskType(?DiskType $value ): void {
@@ -431,7 +432,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity implements Parsabl
     }
 
     /**
-     * Sets the healthStatus property value. The health state of the user experience analytics device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * Sets the healthStatus property value. The healthStatus property
      *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?UserExperienceAnalyticsHealthState $value ): void {

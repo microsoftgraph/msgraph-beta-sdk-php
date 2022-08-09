@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyPresentationListBox extends GroupPolicyPresentation implements Parsable 
+class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
      * @var bool|null $explicitValue If this option is specified true the user must specify the registry subkey value and the registry subkey name. The list box shows two columns, one for the name and one for the data. The default value is false.
@@ -23,6 +23,7 @@ class GroupPolicyPresentationListBox extends GroupPolicyPresentation implements 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyPresentationListBox');
     }
 
     /**

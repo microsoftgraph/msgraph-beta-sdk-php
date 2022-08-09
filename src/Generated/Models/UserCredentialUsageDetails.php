@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserCredentialUsageDetails extends Entity implements Parsable 
 {
     /**
-     * @var UsageAuthMethod|null $authMethod Represents the authentication method that the user used. Possible values are:email, mobileSMS, mobileCall, officePhone, securityQuestion (only used for self-service password reset), appNotification, appCode, alternateMobileCall (supported only in registration), fido, appPassword,unknownFutureValue
+     * @var UsageAuthMethod|null $authMethod The authMethod property
     */
     private ?UsageAuthMethod $authMethod = null;
     
@@ -25,7 +25,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
     private ?string $failureReason = null;
     
     /**
-     * @var FeatureType|null $feature Possible values are: registration, reset, unknownFutureValue.
+     * @var FeatureType|null $feature The feature property
     */
     private ?FeatureType $feature = null;
     
@@ -45,10 +45,11 @@ class UserCredentialUsageDetails extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new userCredentialUsageDetails and sets the default values.
+     * Instantiates a new UserCredentialUsageDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userCredentialUsageDetails');
     }
 
     /**
@@ -61,7 +62,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the authMethod property value. Represents the authentication method that the user used. Possible values are:email, mobileSMS, mobileCall, officePhone, securityQuestion (only used for self-service password reset), appNotification, appCode, alternateMobileCall (supported only in registration), fido, appPassword,unknownFutureValue
+     * Gets the authMethod property value. The authMethod property
      * @return UsageAuthMethod|null
     */
     public function getAuthMethod(): ?UsageAuthMethod {
@@ -85,7 +86,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
     }
 
     /**
-     * Gets the feature property value. Possible values are: registration, reset, unknownFutureValue.
+     * Gets the feature property value. The feature property
      * @return FeatureType|null
     */
     public function getFeature(): ?FeatureType {
@@ -149,7 +150,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the authMethod property value. Represents the authentication method that the user used. Possible values are:email, mobileSMS, mobileCall, officePhone, securityQuestion (only used for self-service password reset), appNotification, appCode, alternateMobileCall (supported only in registration), fido, appPassword,unknownFutureValue
+     * Sets the authMethod property value. The authMethod property
      *  @param UsageAuthMethod|null $value Value to set for the authMethod property.
     */
     public function setAuthMethod(?UsageAuthMethod $value ): void {
@@ -173,7 +174,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
     }
 
     /**
-     * Sets the feature property value. Possible values are: registration, reset, unknownFutureValue.
+     * Sets the feature property value. The feature property
      *  @param FeatureType|null $value Value to set for the feature property.
     */
     public function setFeature(?FeatureType $value ): void {

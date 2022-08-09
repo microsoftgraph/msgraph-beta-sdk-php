@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SynchronizationQuarantine implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -31,7 +31,12 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
     private ?DateTime $nextAttempt = null;
     
     /**
-     * @var QuarantineReason|null $reason A code that signifies why the quarantine was imposed. Possible values are: EncounteredBaseEscrowThreshold, EncounteredTotalEscrowThreshold, EncounteredEscrowProportionThreshold, EncounteredQuarantineException, QuarantinedOnDemand, TooManyDeletes, Unknown.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var QuarantineReason|null $reason The reason property
     */
     private ?QuarantineReason $reason = null;
     
@@ -49,7 +54,8 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * Instantiates a new synchronizationQuarantine and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.synchronizationQuarantine');
     }
 
     /**
@@ -95,6 +101,7 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
             'currentBegan' => function (ParseNode $n) use ($o) { $o->setCurrentBegan($n->getDateTimeValue()); },
             'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(SynchronizationError::class, 'createFromDiscriminatorValue'))); },
             'nextAttempt' => function (ParseNode $n) use ($o) { $o->setNextAttempt($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'reason' => function (ParseNode $n) use ($o) { $o->setReason($n->getEnumValue(QuarantineReason::class)); },
             'seriesBegan' => function (ParseNode $n) use ($o) { $o->setSeriesBegan($n->getDateTimeValue()); },
             'seriesCount' => function (ParseNode $n) use ($o) { $o->setSeriesCount($n->getIntegerValue()); },
@@ -110,7 +117,15 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the reason property value. A code that signifies why the quarantine was imposed. Possible values are: EncounteredBaseEscrowThreshold, EncounteredTotalEscrowThreshold, EncounteredEscrowProportionThreshold, EncounteredQuarantineException, QuarantinedOnDemand, TooManyDeletes, Unknown.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the reason property value. The reason property
      * @return QuarantineReason|null
     */
     public function getReason(): ?QuarantineReason {
@@ -141,6 +156,7 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
         $writer->writeDateTimeValue('currentBegan', $this->currentBegan);
         $writer->writeObjectValue('error', $this->error);
         $writer->writeDateTimeValue('nextAttempt', $this->nextAttempt);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('reason', $this->reason);
         $writer->writeDateTimeValue('seriesBegan', $this->seriesBegan);
         $writer->writeIntegerValue('seriesCount', $this->seriesCount);
@@ -180,7 +196,15 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the reason property value. A code that signifies why the quarantine was imposed. Possible values are: EncounteredBaseEscrowThreshold, EncounteredTotalEscrowThreshold, EncounteredEscrowProportionThreshold, EncounteredQuarantineException, QuarantinedOnDemand, TooManyDeletes, Unknown.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the reason property value. The reason property
      *  @param QuarantineReason|null $value Value to set for the reason property.
     */
     public function setReason(?QuarantineReason $value ): void {

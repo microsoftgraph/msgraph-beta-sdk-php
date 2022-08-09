@@ -16,7 +16,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     private ?DateInterval $accountSetupDuration = null;
     
     /**
-     * @var WindowsAutopilotDeploymentState|null $accountSetupStatus Deployment status for the enrollment status page account setup phase. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+     * @var WindowsAutopilotDeploymentState|null $accountSetupStatus The accountSetupStatus property
     */
     private ?WindowsAutopilotDeploymentState $accountSetupStatus = null;
     
@@ -36,7 +36,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     private ?DateTime $deploymentStartDateTime = null;
     
     /**
-     * @var WindowsAutopilotDeploymentState|null $deploymentState Deployment state like Success, Failure, InProgress, SuccessWithTimeout. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+     * @var WindowsAutopilotDeploymentState|null $deploymentState The deploymentState property
     */
     private ?WindowsAutopilotDeploymentState $deploymentState = null;
     
@@ -71,7 +71,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     private ?DateInterval $deviceSetupDuration = null;
     
     /**
-     * @var WindowsAutopilotDeploymentState|null $deviceSetupStatus Deployment status for the enrollment status page device setup phase. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+     * @var WindowsAutopilotDeploymentState|null $deviceSetupStatus The deviceSetupStatus property
     */
     private ?WindowsAutopilotDeploymentState $deviceSetupStatus = null;
     
@@ -86,12 +86,12 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     private ?DateTime $enrollmentStartDateTime = null;
     
     /**
-     * @var EnrollmentState|null $enrollmentState Enrollment state like Enrolled, Failed. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * @var EnrollmentState|null $enrollmentState The enrollmentState property
     */
     private ?EnrollmentState $enrollmentState = null;
     
     /**
-     * @var WindowsAutopilotEnrollmentType|null $enrollmentType Enrollment type. Possible values are: unknown, azureADJoinedWithAutopilotProfile, offlineDomainJoined, azureADJoinedUsingDeviceAuthWithAutopilotProfile, azureADJoinedUsingDeviceAuthWithoutAutopilotProfile, azureADJoinedWithOfflineAutopilotProfile, azureADJoinedWithWhiteGlove, offlineDomainJoinedWithWhiteGlove, offlineDomainJoinedWithOfflineAutopilotProfile.
+     * @var WindowsAutopilotEnrollmentType|null $enrollmentType The enrollmentType property
     */
     private ?WindowsAutopilotEnrollmentType $enrollmentType = null;
     
@@ -150,6 +150,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementAutopilotEvent');
     }
 
     /**
@@ -170,7 +171,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the accountSetupStatus property value. Deployment status for the enrollment status page account setup phase. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+     * Gets the accountSetupStatus property value. The accountSetupStatus property
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getAccountSetupStatus(): ?WindowsAutopilotDeploymentState {
@@ -202,7 +203,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the deploymentState property value. Deployment state like Success, Failure, InProgress, SuccessWithTimeout. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+     * Gets the deploymentState property value. The deploymentState property
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getDeploymentState(): ?WindowsAutopilotDeploymentState {
@@ -258,7 +259,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceSetupStatus property value. Deployment status for the enrollment status page device setup phase. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+     * Gets the deviceSetupStatus property value. The deviceSetupStatus property
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getDeviceSetupStatus(): ?WindowsAutopilotDeploymentState {
@@ -282,7 +283,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentState property value. Enrollment state like Enrolled, Failed. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Gets the enrollmentState property value. The enrollmentState property
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
@@ -290,7 +291,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentType property value. Enrollment type. Possible values are: unknown, azureADJoinedWithAutopilotProfile, offlineDomainJoined, azureADJoinedUsingDeviceAuthWithAutopilotProfile, azureADJoinedUsingDeviceAuthWithoutAutopilotProfile, azureADJoinedWithOfflineAutopilotProfile, azureADJoinedWithWhiteGlove, offlineDomainJoinedWithWhiteGlove, offlineDomainJoinedWithOfflineAutopilotProfile.
+     * Gets the enrollmentType property value. The enrollmentType property
      * @return WindowsAutopilotEnrollmentType|null
     */
     public function getEnrollmentType(): ?WindowsAutopilotEnrollmentType {
@@ -458,7 +459,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the accountSetupStatus property value. Deployment status for the enrollment status page account setup phase. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+     * Sets the accountSetupStatus property value. The accountSetupStatus property
      *  @param WindowsAutopilotDeploymentState|null $value Value to set for the accountSetupStatus property.
     */
     public function setAccountSetupStatus(?WindowsAutopilotDeploymentState $value ): void {
@@ -490,7 +491,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the deploymentState property value. Deployment state like Success, Failure, InProgress, SuccessWithTimeout. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+     * Sets the deploymentState property value. The deploymentState property
      *  @param WindowsAutopilotDeploymentState|null $value Value to set for the deploymentState property.
     */
     public function setDeploymentState(?WindowsAutopilotDeploymentState $value ): void {
@@ -546,7 +547,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceSetupStatus property value. Deployment status for the enrollment status page device setup phase. Possible values are: unknown, success, inProgress, failure, successWithTimeout, notAttempted, disabled.
+     * Sets the deviceSetupStatus property value. The deviceSetupStatus property
      *  @param WindowsAutopilotDeploymentState|null $value Value to set for the deviceSetupStatus property.
     */
     public function setDeviceSetupStatus(?WindowsAutopilotDeploymentState $value ): void {
@@ -570,7 +571,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentState property value. Enrollment state like Enrolled, Failed. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Sets the enrollmentState property value. The enrollmentState property
      *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
     public function setEnrollmentState(?EnrollmentState $value ): void {
@@ -578,7 +579,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentType property value. Enrollment type. Possible values are: unknown, azureADJoinedWithAutopilotProfile, offlineDomainJoined, azureADJoinedUsingDeviceAuthWithAutopilotProfile, azureADJoinedUsingDeviceAuthWithoutAutopilotProfile, azureADJoinedWithOfflineAutopilotProfile, azureADJoinedWithWhiteGlove, offlineDomainJoinedWithWhiteGlove, offlineDomainJoinedWithOfflineAutopilotProfile.
+     * Sets the enrollmentType property value. The enrollmentType property
      *  @param WindowsAutopilotEnrollmentType|null $value Value to set for the enrollmentType property.
     */
     public function setEnrollmentType(?WindowsAutopilotEnrollmentType $value ): void {

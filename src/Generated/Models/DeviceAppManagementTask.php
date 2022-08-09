@@ -15,7 +15,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
     private ?string $assignedTo = null;
     
     /**
-     * @var DeviceAppManagementTaskCategory|null $category The category. Possible values are: unknown, advancedThreatProtection.
+     * @var DeviceAppManagementTaskCategory|null $category Device app management task category.
     */
     private ?DeviceAppManagementTaskCategory $category = null;
     
@@ -50,12 +50,12 @@ class DeviceAppManagementTask extends Entity implements Parsable
     private ?DateTime $dueDateTime = null;
     
     /**
-     * @var DeviceAppManagementTaskPriority|null $priority The priority. Possible values are: none, high, low.
+     * @var DeviceAppManagementTaskPriority|null $priority Device app management task priority.
     */
     private ?DeviceAppManagementTaskPriority $priority = null;
     
     /**
-     * @var DeviceAppManagementTaskStatus|null $status The status. Possible values are: unknown, pending, active, completed, rejected.
+     * @var DeviceAppManagementTaskStatus|null $status Device app management task status.
     */
     private ?DeviceAppManagementTaskStatus $status = null;
     
@@ -64,6 +64,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceAppManagementTask');
     }
 
     /**
@@ -93,7 +94,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the category property value. The category. Possible values are: unknown, advancedThreatProtection.
+     * Gets the category property value. Device app management task category.
      * @return DeviceAppManagementTaskCategory|null
     */
     public function getCategory(): ?DeviceAppManagementTaskCategory {
@@ -169,7 +170,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the priority property value. The priority. Possible values are: none, high, low.
+     * Gets the priority property value. Device app management task priority.
      * @return DeviceAppManagementTaskPriority|null
     */
     public function getPriority(): ?DeviceAppManagementTaskPriority {
@@ -177,7 +178,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status. Possible values are: unknown, pending, active, completed, rejected.
+     * Gets the status property value. Device app management task status.
      * @return DeviceAppManagementTaskStatus|null
     */
     public function getStatus(): ?DeviceAppManagementTaskStatus {
@@ -211,7 +212,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the category property value. The category. Possible values are: unknown, advancedThreatProtection.
+     * Sets the category property value. Device app management task category.
      *  @param DeviceAppManagementTaskCategory|null $value Value to set for the category property.
     */
     public function setCategory(?DeviceAppManagementTaskCategory $value ): void {
@@ -267,7 +268,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the priority property value. The priority. Possible values are: none, high, low.
+     * Sets the priority property value. Device app management task priority.
      *  @param DeviceAppManagementTaskPriority|null $value Value to set for the priority property.
     */
     public function setPriority(?DeviceAppManagementTaskPriority $value ): void {
@@ -275,7 +276,7 @@ class DeviceAppManagementTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status. Possible values are: unknown, pending, active, completed, rejected.
+     * Sets the status property value. Device app management task status.
      *  @param DeviceAppManagementTaskStatus|null $value Value to set for the status property.
     */
     public function setStatus(?DeviceAppManagementTaskStatus $value ): void {

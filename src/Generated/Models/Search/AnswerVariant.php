@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AnswerVariant implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -31,6 +31,11 @@ class AnswerVariant implements AdditionalDataHolder, Parsable
     private ?string $languageTag = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var DevicePlatformType|null $platform The platform property
     */
     private ?DevicePlatformType $platform = null;
@@ -44,7 +49,8 @@ class AnswerVariant implements AdditionalDataHolder, Parsable
      * Instantiates a new answerVariant and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.search.answerVariant');
     }
 
     /**
@@ -90,6 +96,7 @@ class AnswerVariant implements AdditionalDataHolder, Parsable
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'languageTag' => function (ParseNode $n) use ($o) { $o->setLanguageTag($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
             'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
         ];
@@ -101,6 +108,14 @@ class AnswerVariant implements AdditionalDataHolder, Parsable
     */
     public function getLanguageTag(): ?string {
         return $this->languageTag;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -127,6 +142,7 @@ class AnswerVariant implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('languageTag', $this->languageTag);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('platform', $this->platform);
         $writer->writeStringValue('webUrl', $this->webUrl);
         $writer->writeAdditionalData($this->additionalData);
@@ -162,6 +178,14 @@ class AnswerVariant implements AdditionalDataHolder, Parsable
     */
     public function setLanguageTag(?string $value ): void {
         $this->languageTag = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

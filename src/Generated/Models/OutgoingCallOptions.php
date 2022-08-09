@@ -13,6 +13,7 @@ class OutgoingCallOptions extends CallOptions implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.outgoingCallOptions');
     }
 
     /**

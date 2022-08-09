@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, Parsabl
      * @var CrossTenantAccessPolicyTargetConfiguration|null $applications The list of applications targeted with your cross-tenant access policy.
     */
     private ?CrossTenantAccessPolicyTargetConfiguration $applications = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var CrossTenantAccessPolicyTargetConfiguration|null $usersAndGroups The list of users and groups targeted with your cross-tenant access policy.
@@ -28,7 +33,8 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, Parsabl
      * Instantiates a new crossTenantAccessPolicyB2BSetting and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.crossTenantAccessPolicyB2BSetting');
     }
 
     /**
@@ -64,8 +70,17 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, Parsabl
         $o = $this;
         return  [
             'applications' => function (ParseNode $n) use ($o) { $o->setApplications($n->getObjectValue(array(CrossTenantAccessPolicyTargetConfiguration::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'usersAndGroups' => function (ParseNode $n) use ($o) { $o->setUsersAndGroups($n->getObjectValue(array(CrossTenantAccessPolicyTargetConfiguration::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('applications', $this->applications);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('usersAndGroups', $this->usersAndGroups);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, Parsabl
     */
     public function setApplications(?CrossTenantAccessPolicyTargetConfiguration $value ): void {
         $this->applications = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -34,12 +34,12 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     private ?string $displayVersion = null;
     
     /**
-     * @var DeviceManagementTemplateLifecycleState|null $lifecycleState Indicate current lifecycle state of template. Possible values are: invalid, draft, active, superseded, deprecated, retired.
+     * @var DeviceManagementTemplateLifecycleState|null $lifecycleState Describes current lifecycle state of a template
     */
     private ?DeviceManagementTemplateLifecycleState $lifecycleState = null;
     
     /**
-     * @var DeviceManagementConfigurationPlatforms|null $platforms Platforms for this template. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * @var DeviceManagementConfigurationPlatforms|null $platforms Supported platform types.
     */
     private ?DeviceManagementConfigurationPlatforms $platforms = null;
     
@@ -54,12 +54,12 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     private ?array $settingTemplates = null;
     
     /**
-     * @var DeviceManagementConfigurationTechnologies|null $technologies Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * @var DeviceManagementConfigurationTechnologies|null $technologies Describes which technology this setting can be deployed with
     */
     private ?DeviceManagementConfigurationTechnologies $technologies = null;
     
     /**
-     * @var DeviceManagementConfigurationTemplateFamily|null $templateFamily TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.
+     * @var DeviceManagementConfigurationTemplateFamily|null $templateFamily Describes the TemplateFamily for the Template entity
     */
     private ?DeviceManagementConfigurationTemplateFamily $templateFamily = null;
     
@@ -69,10 +69,11 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     private ?int $version = null;
     
     /**
-     * Instantiates a new DeviceManagementConfigurationPolicyTemplate and sets the default values.
+     * Instantiates a new deviceManagementConfigurationPolicyTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationPolicyTemplate');
     }
 
     /**
@@ -147,7 +148,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
-     * Gets the lifecycleState property value. Indicate current lifecycle state of template. Possible values are: invalid, draft, active, superseded, deprecated, retired.
+     * Gets the lifecycleState property value. Describes current lifecycle state of a template
      * @return DeviceManagementTemplateLifecycleState|null
     */
     public function getLifecycleState(): ?DeviceManagementTemplateLifecycleState {
@@ -155,7 +156,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
-     * Gets the platforms property value. Platforms for this template. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * Gets the platforms property value. Supported platform types.
      * @return DeviceManagementConfigurationPlatforms|null
     */
     public function getPlatforms(): ?DeviceManagementConfigurationPlatforms {
@@ -179,7 +180,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
-     * Gets the technologies property value. Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Gets the technologies property value. Describes which technology this setting can be deployed with
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
@@ -187,7 +188,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
-     * Gets the templateFamily property value. TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.
+     * Gets the templateFamily property value. Describes the TemplateFamily for the Template entity
      * @return DeviceManagementConfigurationTemplateFamily|null
     */
     public function getTemplateFamily(): ?DeviceManagementConfigurationTemplateFamily {
@@ -263,7 +264,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
-     * Sets the lifecycleState property value. Indicate current lifecycle state of template. Possible values are: invalid, draft, active, superseded, deprecated, retired.
+     * Sets the lifecycleState property value. Describes current lifecycle state of a template
      *  @param DeviceManagementTemplateLifecycleState|null $value Value to set for the lifecycleState property.
     */
     public function setLifecycleState(?DeviceManagementTemplateLifecycleState $value ): void {
@@ -271,7 +272,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
-     * Sets the platforms property value. Platforms for this template. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * Sets the platforms property value. Supported platform types.
      *  @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platforms property.
     */
     public function setPlatforms(?DeviceManagementConfigurationPlatforms $value ): void {
@@ -295,7 +296,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
-     * Sets the technologies property value. Technologies for this template. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Sets the technologies property value. Describes which technology this setting can be deployed with
      *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value ): void {
@@ -303,7 +304,7 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
-     * Sets the templateFamily property value. TemplateFamily for this template. Possible values are: none, endpointSecurityAntivirus, endpointSecurityDiskEncryption, endpointSecurityFirewall, endpointSecurityEndpointDetectionAndResponse, endpointSecurityAttackSurfaceReduction, endpointSecurityAccountProtection, endpointSecurityApplicationControl, baseline.
+     * Sets the templateFamily property value. Describes the TemplateFamily for the Template entity
      *  @param DeviceManagementConfigurationTemplateFamily|null $value Value to set for the templateFamily property.
     */
     public function setTemplateFamily(?DeviceManagementConfigurationTemplateFamily $value ): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -45,6 +45,11 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     private ?bool $isServiceProvider = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $tenantId The tenant identifier for the partner Azure AD organization. Read-only. Key.
     */
     private ?string $tenantId = null;
@@ -53,7 +58,8 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
      * Instantiates a new crossTenantAccessPolicyConfigurationPartner and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.crossTenantAccessPolicyConfigurationPartner');
     }
 
     /**
@@ -118,6 +124,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
             'b2bDirectConnectOutbound' => function (ParseNode $n) use ($o) { $o->setB2bDirectConnectOutbound($n->getObjectValue(array(CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'))); },
             'inboundTrust' => function (ParseNode $n) use ($o) { $o->setInboundTrust($n->getObjectValue(array(CrossTenantAccessPolicyInboundTrust::class, 'createFromDiscriminatorValue'))); },
             'isServiceProvider' => function (ParseNode $n) use ($o) { $o->setIsServiceProvider($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
         ];
     }
@@ -139,6 +146,14 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the tenantId property value. The tenant identifier for the partner Azure AD organization. Read-only. Key.
      * @return string|null
     */
@@ -157,6 +172,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
         $writer->writeObjectValue('b2bDirectConnectOutbound', $this->b2bDirectConnectOutbound);
         $writer->writeObjectValue('inboundTrust', $this->inboundTrust);
         $writer->writeBooleanValue('isServiceProvider', $this->isServiceProvider);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('tenantId', $this->tenantId);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -215,6 +231,14 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     */
     public function setIsServiceProvider(?bool $value ): void {
         $this->isServiceProvider = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

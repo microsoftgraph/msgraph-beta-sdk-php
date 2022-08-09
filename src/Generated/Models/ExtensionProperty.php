@@ -24,12 +24,12 @@ class ExtensionProperty extends DirectoryObject implements Parsable
     private ?bool $isSyncedFromOnPremises = null;
     
     /**
-     * @var string|null $name Name of the extension property. Not nullable.
+     * @var string|null $name Name of the extension property. Not nullable. Supports $filter (eq).
     */
     private ?string $name = null;
     
     /**
-     * @var array<string>|null $targetObjects Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
+     * @var array<string>|null $targetObjects Following values are supported. Not nullable. UserGroupAdministrativeUnitApplicationDeviceOrganization
     */
     private ?array $targetObjects = null;
     
@@ -38,6 +38,7 @@ class ExtensionProperty extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.extensionProperty');
     }
 
     /**
@@ -89,7 +90,7 @@ class ExtensionProperty extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the name property value. Name of the extension property. Not nullable.
+     * Gets the name property value. Name of the extension property. Not nullable. Supports $filter (eq).
      * @return string|null
     */
     public function getName(): ?string {
@@ -97,7 +98,7 @@ class ExtensionProperty extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the targetObjects property value. Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
+     * Gets the targetObjects property value. Following values are supported. Not nullable. UserGroupAdministrativeUnitApplicationDeviceOrganization
      * @return array<string>|null
     */
     public function getTargetObjects(): ?array {
@@ -142,7 +143,7 @@ class ExtensionProperty extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the name property value. Name of the extension property. Not nullable.
+     * Sets the name property value. Name of the extension property. Not nullable. Supports $filter (eq).
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {
@@ -150,7 +151,7 @@ class ExtensionProperty extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the targetObjects property value. Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
+     * Sets the targetObjects property value. Following values are supported. Not nullable. UserGroupAdministrativeUnitApplicationDeviceOrganization
      *  @param array<string>|null $value Value to set for the targetObjects property.
     */
     public function setTargetObjects(?array $value ): void {

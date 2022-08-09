@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,12 +20,17 @@ class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsab
     private ?string $displayName = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $sourceId Unique identifier of the policy
     */
     private ?string $sourceId = null;
     
     /**
-     * @var SecurityBaselinePolicySourceType|null $sourceType Authoring source of the policy. Possible values are: deviceConfiguration, deviceIntent.
+     * @var SecurityBaselinePolicySourceType|null $sourceType Authoring source of a policy
     */
     private ?SecurityBaselinePolicySourceType $sourceType = null;
     
@@ -33,7 +38,8 @@ class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsab
      * Instantiates a new securityBaselineContributingPolicy and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.securityBaselineContributingPolicy');
     }
 
     /**
@@ -69,9 +75,18 @@ class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsab
         $o = $this;
         return  [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'sourceId' => function (ParseNode $n) use ($o) { $o->setSourceId($n->getStringValue()); },
             'sourceType' => function (ParseNode $n) use ($o) { $o->setSourceType($n->getEnumValue(SecurityBaselinePolicySourceType::class)); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -83,7 +98,7 @@ class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Gets the sourceType property value. Authoring source of the policy. Possible values are: deviceConfiguration, deviceIntent.
+     * Gets the sourceType property value. Authoring source of a policy
      * @return SecurityBaselinePolicySourceType|null
     */
     public function getSourceType(): ?SecurityBaselinePolicySourceType {
@@ -96,6 +111,7 @@ class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('sourceId', $this->sourceId);
         $writer->writeEnumValue('sourceType', $this->sourceType);
         $writer->writeAdditionalData($this->additionalData);
@@ -118,6 +134,14 @@ class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsab
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the sourceId property value. Unique identifier of the policy
      *  @param string|null $value Value to set for the sourceId property.
     */
@@ -126,7 +150,7 @@ class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Sets the sourceType property value. Authoring source of the policy. Possible values are: deviceConfiguration, deviceIntent.
+     * Sets the sourceType property value. Authoring source of a policy
      *  @param SecurityBaselinePolicySourceType|null $value Value to set for the sourceType property.
     */
     public function setSourceType(?SecurityBaselinePolicySourceType $value ): void {

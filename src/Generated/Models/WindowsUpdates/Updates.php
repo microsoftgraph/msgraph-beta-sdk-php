@@ -20,7 +20,7 @@ class Updates extends Entity implements Parsable
     private ?array $deployments = null;
     
     /**
-     * @var array<ResourceConnection>|null $resourceConnections The resourceConnections property
+     * @var array<ResourceConnection>|null $resourceConnections Service connections to external resources such as analytics workspaces.
     */
     private ?array $resourceConnections = null;
     
@@ -34,6 +34,7 @@ class Updates extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdates.updates');
     }
 
     /**
@@ -76,7 +77,7 @@ class Updates extends Entity implements Parsable
     }
 
     /**
-     * Gets the resourceConnections property value. The resourceConnections property
+     * Gets the resourceConnections property value. Service connections to external resources such as analytics workspaces.
      * @return array<ResourceConnection>|null
     */
     public function getResourceConnections(): ?array {
@@ -120,7 +121,7 @@ class Updates extends Entity implements Parsable
     }
 
     /**
-     * Sets the resourceConnections property value. The resourceConnections property
+     * Sets the resourceConnections property value. Service connections to external resources such as analytics workspaces.
      *  @param array<ResourceConnection>|null $value Value to set for the resourceConnections property.
     */
     public function setResourceConnections(?array $value ): void {

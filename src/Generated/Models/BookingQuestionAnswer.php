@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BookingQuestionAnswer implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,6 +35,11 @@ class BookingQuestionAnswer implements AdditionalDataHolder, Parsable
     private ?bool $isRequired = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $question The question.
     */
     private ?string $question = null;
@@ -53,7 +58,8 @@ class BookingQuestionAnswer implements AdditionalDataHolder, Parsable
      * Instantiates a new bookingQuestionAnswer and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.bookingQuestionAnswer');
     }
 
     /**
@@ -108,6 +114,7 @@ class BookingQuestionAnswer implements AdditionalDataHolder, Parsable
             'answerInputType' => function (ParseNode $n) use ($o) { $o->setAnswerInputType($n->getEnumValue(AnswerInputType::class)); },
             'answerOptions' => function (ParseNode $n) use ($o) { $o->setAnswerOptions($n->getCollectionOfPrimitiveValues()); },
             'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'question' => function (ParseNode $n) use ($o) { $o->setQuestion($n->getStringValue()); },
             'questionId' => function (ParseNode $n) use ($o) { $o->setQuestionId($n->getStringValue()); },
             'selectedOptions' => function (ParseNode $n) use ($o) { $o->setSelectedOptions($n->getCollectionOfPrimitiveValues()); },
@@ -120,6 +127,14 @@ class BookingQuestionAnswer implements AdditionalDataHolder, Parsable
     */
     public function getIsRequired(): ?bool {
         return $this->isRequired;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -155,6 +170,7 @@ class BookingQuestionAnswer implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('answerInputType', $this->answerInputType);
         $writer->writeCollectionOfPrimitiveValues('answerOptions', $this->answerOptions);
         $writer->writeBooleanValue('isRequired', $this->isRequired);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('question', $this->question);
         $writer->writeStringValue('questionId', $this->questionId);
         $writer->writeCollectionOfPrimitiveValues('selectedOptions', $this->selectedOptions);
@@ -199,6 +215,14 @@ class BookingQuestionAnswer implements AdditionalDataHolder, Parsable
     */
     public function setIsRequired(?bool $value ): void {
         $this->isRequired = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

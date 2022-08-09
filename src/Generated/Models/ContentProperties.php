@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ContentProperties implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -36,10 +36,16 @@ class ContentProperties implements AdditionalDataHolder, Parsable
     private ?ContentMetadata $metadata = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new contentProperties and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.contentProperties');
     }
 
     /**
@@ -78,6 +84,7 @@ class ContentProperties implements AdditionalDataHolder, Parsable
             'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getStringValue()); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getObjectValue(array(ContentMetadata::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -106,6 +113,14 @@ class ContentProperties implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -114,6 +129,7 @@ class ContentProperties implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('lastModifiedBy', $this->lastModifiedBy);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeObjectValue('metadata', $this->metadata);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -155,6 +171,14 @@ class ContentProperties implements AdditionalDataHolder, Parsable
     */
     public function setMetadata(?ContentMetadata $value ): void {
         $this->metadata = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

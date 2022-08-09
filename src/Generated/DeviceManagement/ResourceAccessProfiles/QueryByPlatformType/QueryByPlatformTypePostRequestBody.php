@@ -11,12 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class QueryByPlatformTypePostRequestBody implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var PolicyPlatformType|null $platformType The platformType property
+     * @var PolicyPlatformType|null $platformType Supported platform types for policies.
     */
     private ?PolicyPlatformType $platformType = null;
     
@@ -24,7 +24,7 @@ class QueryByPlatformTypePostRequestBody implements AdditionalDataHolder, Parsab
      * Instantiates a new queryByPlatformTypePostRequestBody and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
     }
 
     /**
@@ -56,7 +56,7 @@ class QueryByPlatformTypePostRequestBody implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Gets the platformType property value. The platformType property
+     * Gets the platformType property value. Supported platform types for policies.
      * @return PolicyPlatformType|null
     */
     public function getPlatformType(): ?PolicyPlatformType {
@@ -81,7 +81,7 @@ class QueryByPlatformTypePostRequestBody implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Sets the platformType property value. The platformType property
+     * Sets the platformType property value. Supported platform types for policies.
      *  @param PolicyPlatformType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?PolicyPlatformType $value ): void {

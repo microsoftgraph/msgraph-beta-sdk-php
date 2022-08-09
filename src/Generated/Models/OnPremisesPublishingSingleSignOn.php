@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, Parsable
      * @var KerberosSignOnSettings|null $kerberosSignOnSettings The Kerberos Constrained Delegation settings for applications that use Integrated Window Authentication.
     */
     private ?KerberosSignOnSettings $kerberosSignOnSettings = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var SingleSignOnMode|null $singleSignOnMode The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased.
@@ -28,7 +33,8 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, Parsable
      * Instantiates a new onPremisesPublishingSingleSignOn and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.onPremisesPublishingSingleSignOn');
     }
 
     /**
@@ -56,6 +62,7 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'kerberosSignOnSettings' => function (ParseNode $n) use ($o) { $o->setKerberosSignOnSettings($n->getObjectValue(array(KerberosSignOnSettings::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'singleSignOnMode' => function (ParseNode $n) use ($o) { $o->setSingleSignOnMode($n->getEnumValue(SingleSignOnMode::class)); },
         ];
     }
@@ -66,6 +73,14 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, Parsable
     */
     public function getKerberosSignOnSettings(): ?KerberosSignOnSettings {
         return $this->kerberosSignOnSettings;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('kerberosSignOnSettings', $this->kerberosSignOnSettings);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('singleSignOnMode', $this->singleSignOnMode);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, Parsable
     */
     public function setKerberosSignOnSettings(?KerberosSignOnSettings $value ): void {
         $this->kerberosSignOnSettings = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

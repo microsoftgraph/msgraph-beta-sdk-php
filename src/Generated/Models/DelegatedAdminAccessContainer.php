@@ -15,20 +15,26 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
     private ?string $accessContainerId = null;
     
     /**
-     * @var DelegatedAdminAccessContainerType|null $accessContainerType The type of access container (for example, security group) that will be assigned one or more roles through a delegated admin relationship. The possible values are: securityGroup, unknownFutureValue.
+     * @var DelegatedAdminAccessContainerType|null $accessContainerType The accessContainerType property
     */
     private ?DelegatedAdminAccessContainerType $accessContainerType = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new delegatedAdminAccessContainer and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.delegatedAdminAccessContainer');
     }
 
     /**
@@ -49,7 +55,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the accessContainerType property value. The type of access container (for example, security group) that will be assigned one or more roles through a delegated admin relationship. The possible values are: securityGroup, unknownFutureValue.
+     * Gets the accessContainerType property value. The accessContainerType property
      * @return DelegatedAdminAccessContainerType|null
     */
     public function getAccessContainerType(): ?DelegatedAdminAccessContainerType {
@@ -73,7 +79,16 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
         return  [
             'accessContainerId' => function (ParseNode $n) use ($o) { $o->setAccessContainerId($n->getStringValue()); },
             'accessContainerType' => function (ParseNode $n) use ($o) { $o->setAccessContainerType($n->getEnumValue(DelegatedAdminAccessContainerType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -83,6 +98,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('accessContainerId', $this->accessContainerId);
         $writer->writeEnumValue('accessContainerType', $this->accessContainerType);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -95,7 +111,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the accessContainerType property value. The type of access container (for example, security group) that will be assigned one or more roles through a delegated admin relationship. The possible values are: securityGroup, unknownFutureValue.
+     * Sets the accessContainerType property value. The accessContainerType property
      *  @param DelegatedAdminAccessContainerType|null $value Value to set for the accessContainerType property.
     */
     public function setAccessContainerType(?DelegatedAdminAccessContainerType $value ): void {
@@ -108,6 +124,14 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

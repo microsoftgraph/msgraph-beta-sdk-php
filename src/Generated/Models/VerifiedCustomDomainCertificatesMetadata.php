@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -31,6 +31,11 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
     private ?string $issuerName = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $subjectName The subject name of the custom domain certificate.
     */
     private ?string $subjectName = null;
@@ -44,7 +49,8 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * Instantiates a new verifiedCustomDomainCertificatesMetadata and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.verifiedCustomDomainCertificatesMetadata');
     }
 
     /**
@@ -82,6 +88,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
             'expiryDate' => function (ParseNode $n) use ($o) { $o->setExpiryDate($n->getDateTimeValue()); },
             'issueDate' => function (ParseNode $n) use ($o) { $o->setIssueDate($n->getDateTimeValue()); },
             'issuerName' => function (ParseNode $n) use ($o) { $o->setIssuerName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'subjectName' => function (ParseNode $n) use ($o) { $o->setSubjectName($n->getStringValue()); },
             'thumbprint' => function (ParseNode $n) use ($o) { $o->setThumbprint($n->getStringValue()); },
         ];
@@ -101,6 +108,14 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
     */
     public function getIssuerName(): ?string {
         return $this->issuerName;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -127,6 +142,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
         $writer->writeDateTimeValue('expiryDate', $this->expiryDate);
         $writer->writeDateTimeValue('issueDate', $this->issueDate);
         $writer->writeStringValue('issuerName', $this->issuerName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('subjectName', $this->subjectName);
         $writer->writeStringValue('thumbprint', $this->thumbprint);
         $writer->writeAdditionalData($this->additionalData);
@@ -162,6 +178,14 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
     */
     public function setIssuerName(?string $value ): void {
         $this->issuerName = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

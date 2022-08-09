@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyPresentationCheckBox extends GroupPolicyPresentation implements Parsable 
+class GroupPolicyPresentationCheckBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
      * @var bool|null $defaultChecked Default value for the check box. The default value is false.
@@ -18,6 +18,7 @@ class GroupPolicyPresentationCheckBox extends GroupPolicyPresentation implements
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyPresentationCheckBox');
     }
 
     /**

@@ -28,6 +28,7 @@ class MarkContent extends LabelActionBase implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.markContent');
     }
 
     /**
