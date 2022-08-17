@@ -45,15 +45,16 @@ class ConditionalAccessPolicy extends Entity implements Parsable
     private ?ConditionalAccessSessionControls $sessionControls = null;
     
     /**
-     * @var ConditionalAccessPolicyState|null $state Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required.
+     * @var ConditionalAccessPolicyState|null $state The state property
     */
     private ?ConditionalAccessPolicyState $state = null;
     
     /**
-     * Instantiates a new conditionalAccessPolicy and sets the default values.
+     * Instantiates a new ConditionalAccessPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.conditionalAccessPolicy');
     }
 
     /**
@@ -140,7 +141,7 @@ class ConditionalAccessPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required.
+     * Gets the state property value. The state property
      * @return ConditionalAccessPolicyState|null
     */
     public function getState(): ?ConditionalAccessPolicyState {
@@ -220,7 +221,7 @@ class ConditionalAccessPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required.
+     * Sets the state property value. The state property
      *  @param ConditionalAccessPolicyState|null $value Value to set for the state property.
     */
     public function setState(?ConditionalAccessPolicyState $value ): void {

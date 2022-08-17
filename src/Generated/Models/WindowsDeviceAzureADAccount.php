@@ -18,6 +18,7 @@ class WindowsDeviceAzureADAccount extends WindowsDeviceAccount implements Parsab
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsDeviceAzureADAccount');
     }
 
     /**

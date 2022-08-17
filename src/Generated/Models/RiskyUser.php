@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RiskyUser extends Entity implements Parsable 
 {
     /**
-     * @var array<RiskyUserHistoryItem>|null $history The activity related to user risk level change
+     * @var array<RiskyUserHistoryItem>|null $history The history property
     */
     private ?array $history = null;
     
@@ -59,6 +59,7 @@ class RiskyUser extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.riskyUser');
     }
 
     /**
@@ -97,7 +98,7 @@ class RiskyUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the history property value. The activity related to user risk level change
+     * Gets the history property value. The history property
      * @return array<RiskyUserHistoryItem>|null
     */
     public function getHistory(): ?array {
@@ -186,7 +187,7 @@ class RiskyUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the history property value. The activity related to user risk level change
+     * Sets the history property value. The history property
      *  @param array<RiskyUserHistoryItem>|null $value Value to set for the history property.
     */
     public function setHistory(?array $value ): void {

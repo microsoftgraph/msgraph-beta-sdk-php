@@ -60,7 +60,7 @@ class Site extends BaseItem implements Parsable
     private ?array $lists = null;
     
     /**
-     * @var Onenote|null $onenote Calls the OneNote service for notebook related operations.
+     * @var Onenote|null $onenote The onenote property
     */
     private ?Onenote $onenote = null;
     
@@ -114,6 +114,7 @@ class Site extends BaseItem implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.site');
     }
 
     /**
@@ -236,7 +237,7 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the onenote property value. Calls the OneNote service for notebook related operations.
+     * Gets the onenote property value. The onenote property
      * @return Onenote|null
     */
     public function getOnenote(): ?Onenote {
@@ -424,7 +425,7 @@ class Site extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the onenote property value. Calls the OneNote service for notebook related operations.
+     * Sets the onenote property value. The onenote property
      *  @param Onenote|null $value Value to set for the onenote property.
     */
     public function setOnenote(?Onenote $value ): void {

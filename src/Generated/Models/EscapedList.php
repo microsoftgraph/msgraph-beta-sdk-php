@@ -14,12 +14,12 @@ class EscapedList extends BaseItem implements Parsable
     private ?array $activities = null;
     
     /**
-     * @var array<ColumnDefinition>|null $columns The collection of field definitions for this list.
+     * @var array<ColumnDefinition>|null $columns The columns property
     */
     private ?array $columns = null;
     
     /**
-     * @var array<ContentType>|null $contentTypes The collection of content types present in this list.
+     * @var array<ContentType>|null $contentTypes The contentTypes property
     */
     private ?array $contentTypes = null;
     
@@ -34,7 +34,7 @@ class EscapedList extends BaseItem implements Parsable
     private ?Drive $drive = null;
     
     /**
-     * @var ListInfo|null $EscapedList Provides additional details about the list.
+     * @var ListInfo|null $escapedList Provides additional details about the list.
     */
     private ?ListInfo $escapedList = null;
     
@@ -49,7 +49,7 @@ class EscapedList extends BaseItem implements Parsable
     private ?array $operations = null;
     
     /**
-     * @var SharepointIds|null $sharepointIds Returns identifiers useful for SharePoint REST compatibility. Read-only.
+     * @var SharepointIds|null $sharepointIds The sharepointIds property
     */
     private ?SharepointIds $sharepointIds = null;
     
@@ -68,6 +68,7 @@ class EscapedList extends BaseItem implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.list');
     }
 
     /**
@@ -88,7 +89,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the columns property value. The collection of field definitions for this list.
+     * Gets the columns property value. The columns property
      * @return array<ColumnDefinition>|null
     */
     public function getColumns(): ?array {
@@ -96,7 +97,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the contentTypes property value. The collection of content types present in this list.
+     * Gets the contentTypes property value. The contentTypes property
      * @return array<ContentType>|null
     */
     public function getContentTypes(): ?array {
@@ -165,7 +166,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
+     * Gets the sharepointIds property value. The sharepointIds property
      * @return SharepointIds|null
     */
     public function getSharepointIds(): ?SharepointIds {
@@ -216,7 +217,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the columns property value. The collection of field definitions for this list.
+     * Sets the columns property value. The columns property
      *  @param array<ColumnDefinition>|null $value Value to set for the columns property.
     */
     public function setColumns(?array $value ): void {
@@ -224,7 +225,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the contentTypes property value. The collection of content types present in this list.
+     * Sets the contentTypes property value. The contentTypes property
      *  @param array<ContentType>|null $value Value to set for the contentTypes property.
     */
     public function setContentTypes(?array $value ): void {
@@ -272,7 +273,7 @@ class EscapedList extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the sharepointIds property value. Returns identifiers useful for SharePoint REST compatibility. Read-only.
+     * Sets the sharepointIds property value. The sharepointIds property
      *  @param SharepointIds|null $value Value to set for the sharepointIds property.
     */
     public function setSharepointIds(?SharepointIds $value ): void {

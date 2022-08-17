@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var AppLogDecryptionAlgorithm|null $appLogDecryptionAlgorithm DecryptionAlgorithm for Content. Possible values are: aes256.
+     * @var AppLogDecryptionAlgorithm|null $appLogDecryptionAlgorithm The appLogDecryptionAlgorithm property
     */
     private ?AppLogDecryptionAlgorithm $appLogDecryptionAlgorithm = null;
     
@@ -30,10 +30,16 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
     private ?string $downloadUrl = null;
     
     /**
-     * Instantiates a new AppLogCollectionDownloadDetails and sets the default values.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * Instantiates a new appLogCollectionDownloadDetails and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.appLogCollectionDownloadDetails');
     }
 
     /**
@@ -54,7 +60,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the appLogDecryptionAlgorithm property value. DecryptionAlgorithm for Content. Possible values are: aes256.
+     * Gets the appLogDecryptionAlgorithm property value. The appLogDecryptionAlgorithm property
      * @return AppLogDecryptionAlgorithm|null
     */
     public function getAppLogDecryptionAlgorithm(): ?AppLogDecryptionAlgorithm {
@@ -87,7 +93,16 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
             'appLogDecryptionAlgorithm' => function (ParseNode $n) use ($o) { $o->setAppLogDecryptionAlgorithm($n->getEnumValue(AppLogDecryptionAlgorithm::class)); },
             'decryptionKey' => function (ParseNode $n) use ($o) { $o->setDecryptionKey($n->getStringValue()); },
             'downloadUrl' => function (ParseNode $n) use ($o) { $o->setDownloadUrl($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('appLogDecryptionAlgorithm', $this->appLogDecryptionAlgorithm);
         $writer->writeStringValue('decryptionKey', $this->decryptionKey);
         $writer->writeStringValue('downloadUrl', $this->downloadUrl);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -110,7 +126,7 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the appLogDecryptionAlgorithm property value. DecryptionAlgorithm for Content. Possible values are: aes256.
+     * Sets the appLogDecryptionAlgorithm property value. The appLogDecryptionAlgorithm property
      *  @param AppLogDecryptionAlgorithm|null $value Value to set for the appLogDecryptionAlgorithm property.
     */
     public function setAppLogDecryptionAlgorithm(?AppLogDecryptionAlgorithm $value ): void {
@@ -131,6 +147,14 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
     */
     public function setDownloadUrl(?string $value ): void {
         $this->downloadUrl = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

@@ -45,7 +45,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var GroupPolicyMigrationReadiness|null $migrationReadiness The Intune coverage for the associated Group Policy Object file. Possible values are: none, partial, complete, error, notApplicable.
+     * @var GroupPolicyMigrationReadiness|null $migrationReadiness Indicates if the Group Policy Object file is covered and ready for Intune migration.
     */
     private ?GroupPolicyMigrationReadiness $migrationReadiness = null;
     
@@ -84,6 +84,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyMigrationReport');
     }
 
     /**
@@ -176,7 +177,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the migrationReadiness property value. The Intune coverage for the associated Group Policy Object file. Possible values are: none, partial, complete, error, notApplicable.
+     * Gets the migrationReadiness property value. Indicates if the Group Policy Object file is covered and ready for Intune migration.
      * @return GroupPolicyMigrationReadiness|null
     */
     public function getMigrationReadiness(): ?GroupPolicyMigrationReadiness {
@@ -310,7 +311,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the migrationReadiness property value. The Intune coverage for the associated Group Policy Object file. Possible values are: none, partial, complete, error, notApplicable.
+     * Sets the migrationReadiness property value. Indicates if the Group Policy Object file is covered and ready for Intune migration.
      *  @param GroupPolicyMigrationReadiness|null $value Value to set for the migrationReadiness property.
     */
     public function setMigrationReadiness(?GroupPolicyMigrationReadiness $value ): void {

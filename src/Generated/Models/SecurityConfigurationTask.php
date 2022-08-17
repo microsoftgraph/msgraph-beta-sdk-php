@@ -9,17 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsable 
 {
     /**
-     * @var EndpointSecurityConfigurationApplicablePlatform|null $applicablePlatform The applicable platform. Possible values are: unknown, macOS, windows10AndLater, windows10AndWindowsServer.
+     * @var EndpointSecurityConfigurationApplicablePlatform|null $applicablePlatform The endpoint security configuration applicable platform.
     */
     private ?EndpointSecurityConfigurationApplicablePlatform $applicablePlatform = null;
     
     /**
-     * @var EndpointSecurityConfigurationType|null $endpointSecurityPolicy The endpoint security policy type. Possible values are: unknown, antivirus, diskEncryption, firewall, endpointDetectionAndResponse, attackSurfaceReduction, accountProtection.
+     * @var EndpointSecurityConfigurationType|null $endpointSecurityPolicy The endpoint security policy type.
     */
     private ?EndpointSecurityConfigurationType $endpointSecurityPolicy = null;
     
     /**
-     * @var EndpointSecurityConfigurationProfileType|null $endpointSecurityPolicyProfile The endpoint security policy profile. Possible values are: unknown, antivirus, windowsSecurity, bitLocker, fileVault, firewall, firewallRules, endpointDetectionAndResponse, deviceControl, appAndBrowserIsolation, exploitProtection, webProtection, applicationControl, attackSurfaceReductionRules, accountProtection.
+     * @var EndpointSecurityConfigurationProfileType|null $endpointSecurityPolicyProfile The endpoint security policy profile type.
     */
     private ?EndpointSecurityConfigurationProfileType $endpointSecurityPolicyProfile = null;
     
@@ -48,6 +48,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.securityConfigurationTask');
     }
 
     /**
@@ -60,7 +61,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     }
 
     /**
-     * Gets the applicablePlatform property value. The applicable platform. Possible values are: unknown, macOS, windows10AndLater, windows10AndWindowsServer.
+     * Gets the applicablePlatform property value. The endpoint security configuration applicable platform.
      * @return EndpointSecurityConfigurationApplicablePlatform|null
     */
     public function getApplicablePlatform(): ?EndpointSecurityConfigurationApplicablePlatform {
@@ -68,7 +69,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     }
 
     /**
-     * Gets the endpointSecurityPolicy property value. The endpoint security policy type. Possible values are: unknown, antivirus, diskEncryption, firewall, endpointDetectionAndResponse, attackSurfaceReduction, accountProtection.
+     * Gets the endpointSecurityPolicy property value. The endpoint security policy type.
      * @return EndpointSecurityConfigurationType|null
     */
     public function getEndpointSecurityPolicy(): ?EndpointSecurityConfigurationType {
@@ -76,7 +77,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     }
 
     /**
-     * Gets the endpointSecurityPolicyProfile property value. The endpoint security policy profile. Possible values are: unknown, antivirus, windowsSecurity, bitLocker, fileVault, firewall, firewallRules, endpointDetectionAndResponse, deviceControl, appAndBrowserIsolation, exploitProtection, webProtection, applicationControl, attackSurfaceReductionRules, accountProtection.
+     * Gets the endpointSecurityPolicyProfile property value. The endpoint security policy profile type.
      * @return EndpointSecurityConfigurationProfileType|null
     */
     public function getEndpointSecurityPolicyProfile(): ?EndpointSecurityConfigurationProfileType {
@@ -148,7 +149,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     }
 
     /**
-     * Sets the applicablePlatform property value. The applicable platform. Possible values are: unknown, macOS, windows10AndLater, windows10AndWindowsServer.
+     * Sets the applicablePlatform property value. The endpoint security configuration applicable platform.
      *  @param EndpointSecurityConfigurationApplicablePlatform|null $value Value to set for the applicablePlatform property.
     */
     public function setApplicablePlatform(?EndpointSecurityConfigurationApplicablePlatform $value ): void {
@@ -156,7 +157,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     }
 
     /**
-     * Sets the endpointSecurityPolicy property value. The endpoint security policy type. Possible values are: unknown, antivirus, diskEncryption, firewall, endpointDetectionAndResponse, attackSurfaceReduction, accountProtection.
+     * Sets the endpointSecurityPolicy property value. The endpoint security policy type.
      *  @param EndpointSecurityConfigurationType|null $value Value to set for the endpointSecurityPolicy property.
     */
     public function setEndpointSecurityPolicy(?EndpointSecurityConfigurationType $value ): void {
@@ -164,7 +165,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     }
 
     /**
-     * Sets the endpointSecurityPolicyProfile property value. The endpoint security policy profile. Possible values are: unknown, antivirus, windowsSecurity, bitLocker, fileVault, firewall, firewallRules, endpointDetectionAndResponse, deviceControl, appAndBrowserIsolation, exploitProtection, webProtection, applicationControl, attackSurfaceReductionRules, accountProtection.
+     * Sets the endpointSecurityPolicyProfile property value. The endpoint security policy profile type.
      *  @param EndpointSecurityConfigurationProfileType|null $value Value to set for the endpointSecurityPolicyProfile property.
     */
     public function setEndpointSecurityPolicyProfile(?EndpointSecurityConfigurationProfileType $value ): void {

@@ -10,22 +10,27 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var CompanyPortalAction|null $action Device Action. Possible values are: unknown, remove, reset.
+     * @var CompanyPortalAction|null $action Action on a device that can be executed in the Company Portal
     */
     private ?CompanyPortalAction $action = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var OwnerType|null $ownerType Device ownership type. Possible values are: unknown, company, personal.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var OwnerType|null $ownerType Owner type of device.
     */
     private ?OwnerType $ownerType = null;
     
     /**
-     * @var DevicePlatformType|null $platform Device OS/Platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * @var DevicePlatformType|null $platform Supported platform types.
     */
     private ?DevicePlatformType $platform = null;
     
@@ -33,7 +38,8 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
      * Instantiates a new companyPortalBlockedAction and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.companyPortalBlockedAction');
     }
 
     /**
@@ -46,7 +52,7 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the action property value. Device Action. Possible values are: unknown, remove, reset.
+     * Gets the action property value. Action on a device that can be executed in the Company Portal
      * @return CompanyPortalAction|null
     */
     public function getAction(): ?CompanyPortalAction {
@@ -69,13 +75,22 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(CompanyPortalAction::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getEnumValue(OwnerType::class)); },
             'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
         ];
     }
 
     /**
-     * Gets the ownerType property value. Device ownership type. Possible values are: unknown, company, personal.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the ownerType property value. Owner type of device.
      * @return OwnerType|null
     */
     public function getOwnerType(): ?OwnerType {
@@ -83,7 +98,7 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the platform property value. Device OS/Platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * Gets the platform property value. Supported platform types.
      * @return DevicePlatformType|null
     */
     public function getPlatform(): ?DevicePlatformType {
@@ -96,13 +111,14 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('action', $this->action);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('ownerType', $this->ownerType);
         $writer->writeEnumValue('platform', $this->platform);
         $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
-     * Sets the action property value. Device Action. Possible values are: unknown, remove, reset.
+     * Sets the action property value. Action on a device that can be executed in the Company Portal
      *  @param CompanyPortalAction|null $value Value to set for the action property.
     */
     public function setAction(?CompanyPortalAction $value ): void {
@@ -118,7 +134,15 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ownerType property value. Device ownership type. Possible values are: unknown, company, personal.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the ownerType property value. Owner type of device.
      *  @param OwnerType|null $value Value to set for the ownerType property.
     */
     public function setOwnerType(?OwnerType $value ): void {
@@ -126,7 +150,7 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the platform property value. Device OS/Platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * Sets the platform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the platform property.
     */
     public function setPlatform(?DevicePlatformType $value ): void {

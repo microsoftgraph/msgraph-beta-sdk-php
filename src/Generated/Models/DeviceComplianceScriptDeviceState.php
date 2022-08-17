@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceComplianceScriptDeviceState extends Entity implements Parsable 
 {
     /**
-     * @var RunState|null $detectionState Detection state from the lastest device compliance script execution. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * @var RunState|null $detectionState Indicates the type of execution status of the device management script.
     */
     private ?RunState $detectionState = null;
     
@@ -49,6 +49,7 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceComplianceScriptDeviceState');
     }
 
     /**
@@ -61,7 +62,7 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Gets the detectionState property value. Detection state from the lastest device compliance script execution. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Gets the detectionState property value. Indicates the type of execution status of the device management script.
      * @return RunState|null
     */
     public function getDetectionState(): ?RunState {
@@ -149,7 +150,7 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
     }
 
     /**
-     * Sets the detectionState property value. Detection state from the lastest device compliance script execution. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Sets the detectionState property value. Indicates the type of execution status of the device management script.
      *  @param RunState|null $value Value to set for the detectionState property.
     */
     public function setDetectionState(?RunState $value ): void {

@@ -29,6 +29,7 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsVpnConfiguration');
     }
 
     /**
@@ -43,6 +44,7 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.windows10VpnConfiguration': return new Windows10VpnConfiguration();
                 case '#microsoft.graph.windows81VpnConfiguration': return new Windows81VpnConfiguration();
+                case '#microsoft.graph.windowsPhone81VpnConfiguration': return new WindowsPhone81VpnConfiguration();
             }
         }
         return new WindowsVpnConfiguration();

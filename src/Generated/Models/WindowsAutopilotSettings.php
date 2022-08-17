@@ -20,7 +20,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
     private ?DateTime $lastSyncDateTime = null;
     
     /**
-     * @var WindowsAutopilotSyncStatus|null $syncStatus Indicates the status of sync with Device data sync (DDS) service. Possible values are: unknown, inProgress, completed, failed.
+     * @var WindowsAutopilotSyncStatus|null $syncStatus The syncStatus property
     */
     private ?WindowsAutopilotSyncStatus $syncStatus = null;
     
@@ -29,6 +29,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsAutopilotSettings');
     }
 
     /**
@@ -70,7 +71,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the syncStatus property value. Indicates the status of sync with Device data sync (DDS) service. Possible values are: unknown, inProgress, completed, failed.
+     * Gets the syncStatus property value. The syncStatus property
      * @return WindowsAutopilotSyncStatus|null
     */
     public function getSyncStatus(): ?WindowsAutopilotSyncStatus {
@@ -105,7 +106,7 @@ class WindowsAutopilotSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the syncStatus property value. Indicates the status of sync with Device data sync (DDS) service. Possible values are: unknown, inProgress, completed, failed.
+     * Sets the syncStatus property value. The syncStatus property
      *  @param WindowsAutopilotSyncStatus|null $value Value to set for the syncStatus property.
     */
     public function setSyncStatus(?WindowsAutopilotSyncStatus $value ): void {

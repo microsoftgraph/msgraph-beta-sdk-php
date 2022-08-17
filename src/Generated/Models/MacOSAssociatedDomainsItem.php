@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,10 +30,16 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable
     private ?array $domains = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new macOSAssociatedDomainsItem and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.macOSAssociatedDomainsItem');
     }
 
     /**
@@ -87,7 +93,16 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable
             'applicationIdentifier' => function (ParseNode $n) use ($o) { $o->setApplicationIdentifier($n->getStringValue()); },
             'directDownloadsEnabled' => function (ParseNode $n) use ($o) { $o->setDirectDownloadsEnabled($n->getBooleanValue()); },
             'domains' => function (ParseNode $n) use ($o) { $o->setDomains($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('applicationIdentifier', $this->applicationIdentifier);
         $writer->writeBooleanValue('directDownloadsEnabled', $this->directDownloadsEnabled);
         $writer->writeCollectionOfPrimitiveValues('domains', $this->domains);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -131,6 +147,14 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable
     */
     public function setDomains(?array $value ): void {
         $this->domains = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

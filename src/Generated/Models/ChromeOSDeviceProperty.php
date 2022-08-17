@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ChromeOSDeviceProperty implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, Parsable
      * @var string|null $name Name of the property
     */
     private ?string $name = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var bool|null $updatable Whether this property is updatable
@@ -38,7 +43,8 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, Parsable
      * Instantiates a new chromeOSDeviceProperty and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.chromeOSDeviceProperty');
     }
 
     /**
@@ -66,6 +72,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'updatable' => function (ParseNode $n) use ($o) { $o->setUpdatable($n->getBooleanValue()); },
             'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
             'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getStringValue()); },
@@ -78,6 +85,14 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, Parsable
     */
     public function getName(): ?string {
         return $this->name;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -110,6 +125,7 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('updatable', $this->updatable);
         $writer->writeStringValue('value', $this->value);
         $writer->writeStringValue('valueType', $this->valueType);
@@ -130,6 +146,14 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, Parsable
     */
     public function setName(?string $value ): void {
         $this->name = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

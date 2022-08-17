@@ -10,17 +10,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CertificationControl implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var string|null $name Certification control name
+     * @var string|null $name The name property
     */
     private ?string $name = null;
     
     /**
-     * @var string|null $url URL for the Microsoft Service Trust Portal
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var string|null $url The url property
     */
     private ?string $url = null;
     
@@ -28,7 +33,8 @@ class CertificationControl implements AdditionalDataHolder, Parsable
      * Instantiates a new certificationControl and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.certificationControl');
     }
 
     /**
@@ -56,12 +62,13 @@ class CertificationControl implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the name property value. Certification control name
+     * Gets the name property value. The name property
      * @return string|null
     */
     public function getName(): ?string {
@@ -69,7 +76,15 @@ class CertificationControl implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the url property value. URL for the Microsoft Service Trust Portal
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the url property value. The url property
      * @return string|null
     */
     public function getUrl(): ?string {
@@ -82,6 +97,7 @@ class CertificationControl implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('url', $this->url);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -95,7 +111,7 @@ class CertificationControl implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the name property value. Certification control name
+     * Sets the name property value. The name property
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {
@@ -103,7 +119,15 @@ class CertificationControl implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the url property value. URL for the Microsoft Service Trust Portal
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the url property value. The url property
      *  @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value ): void {

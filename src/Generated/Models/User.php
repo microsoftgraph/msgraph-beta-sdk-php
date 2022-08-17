@@ -21,7 +21,7 @@ class User extends DirectoryObject implements Parsable
     private ?bool $accountEnabled = null;
     
     /**
-     * @var array<UserActivity>|null $activities The user's activities across devices. Read-only. Nullable.
+     * @var array<UserActivity>|null $activities The activities property
     */
     private ?array $activities = null;
     
@@ -46,6 +46,11 @@ class User extends DirectoryObject implements Parsable
     private ?array $appConsentRequestsForApproval = null;
     
     /**
+     * @var array<ServicePrincipal>|null $appRoleAssignedResources The appRoleAssignedResources property
+    */
+    private ?array $appRoleAssignedResources = null;
+    
+    /**
      * @var array<AppRoleAssignment>|null $appRoleAssignments Represents the app roles a user has been granted for an application. Supports $expand.
     */
     private ?array $appRoleAssignments = null;
@@ -66,7 +71,7 @@ class User extends DirectoryObject implements Parsable
     private ?array $assignedPlans = null;
     
     /**
-     * @var Authentication|null $authentication The authentication methods that are supported for the user.
+     * @var Authentication|null $authentication The authentication property
     */
     private ?Authentication $authentication = null;
     
@@ -226,6 +231,11 @@ class User extends DirectoryObject implements Parsable
     private ?string $employeeId = null;
     
     /**
+     * @var DateTime|null $employeeLeaveDateTime The employeeLeaveDateTime property
+    */
+    private ?DateTime $employeeLeaveDateTime = null;
+    
+    /**
      * @var EmployeeOrgData|null $employeeOrgData Represents organization data (e.g. division and costCenter) associated with a user. Supports $filter (eq, ne, not , ge, le, in).
     */
     private ?EmployeeOrgData $employeeOrgData = null;
@@ -236,7 +246,7 @@ class User extends DirectoryObject implements Parsable
     private ?string $employeeType = null;
     
     /**
-     * @var UserPrint|null $EscapedPrint The print property
+     * @var UserPrint|null $escapedPrint The print property
     */
     private ?UserPrint $escapedPrint = null;
     
@@ -246,7 +256,7 @@ class User extends DirectoryObject implements Parsable
     private ?array $events = null;
     
     /**
-     * @var array<Extension>|null $extensions The collection of open extensions defined for the user. Nullable.
+     * @var array<Extension>|null $extensions The collection of open extensions defined for the user. Supports $expand. Nullable.
     */
     private ?array $extensions = null;
     
@@ -356,7 +366,7 @@ class User extends DirectoryObject implements Parsable
     private ?array $licenseAssignmentStates = null;
     
     /**
-     * @var array<LicenseDetails>|null $licenseDetails A collection of this user's license details. Read-only.
+     * @var array<LicenseDetails>|null $licenseDetails The licenseDetails property
     */
     private ?array $licenseDetails = null;
     
@@ -461,7 +471,7 @@ class User extends DirectoryObject implements Parsable
     private ?string $onPremisesDomainName = null;
     
     /**
-     * @var OnPremisesExtensionAttributes|null $onPremisesExtensionAttributes Contains extensionAttributes1-15 for the user. The individual extension attributes are neither selectable nor filterable. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. These extension attributes are also known as Exchange custom attributes 1-15. Returned only on $select.
+     * @var OnPremisesExtensionAttributes|null $onPremisesExtensionAttributes Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
     */
     private ?OnPremisesExtensionAttributes $onPremisesExtensionAttributes = null;
     
@@ -491,7 +501,7 @@ class User extends DirectoryObject implements Parsable
     private ?string $onPremisesSecurityIdentifier = null;
     
     /**
-     * @var bool|null $onPremisesSyncEnabled true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
+     * @var bool|null $onPremisesSyncEnabled true if this user object is currently being synced from an on-premises Active Directory (AD); otherwise the user isn't being synced and can be managed in Azure Active Directory (Azure AD). Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
     */
     private ?bool $onPremisesSyncEnabled = null;
     
@@ -501,7 +511,7 @@ class User extends DirectoryObject implements Parsable
     private ?string $onPremisesUserPrincipalName = null;
     
     /**
-     * @var array<string>|null $otherMails A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, and counting empty collections).
+     * @var array<string>|null $otherMails A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, and counting empty collections).
     */
     private ?array $otherMails = null;
     
@@ -576,7 +586,7 @@ class User extends DirectoryObject implements Parsable
     private ?string $preferredLanguage = null;
     
     /**
-     * @var string|null $preferredName The preferred name for the user. Returned only on $select.
+     * @var string|null $preferredName The preferred name for the user. Not Supported. This attribute returns an empty string.Returned only on $select.
     */
     private ?string $preferredName = null;
     
@@ -631,7 +641,7 @@ class User extends DirectoryObject implements Parsable
     private ?Security $security = null;
     
     /**
-     * @var string|null $securityIdentifier The securityIdentifier property
+     * @var string|null $securityIdentifier Security identifier (SID) of the user, used in Windows scenarios. Read-only. Returned by default. Supports $select and $filter (eq, not, ge, le, startsWith).
     */
     private ?string $securityIdentifier = null;
     
@@ -691,7 +701,7 @@ class User extends DirectoryObject implements Parsable
     private ?Todo $todo = null;
     
     /**
-     * @var array<DirectoryObject>|null $transitiveMemberOf The transitiveMemberOf property
+     * @var array<DirectoryObject>|null $transitiveMemberOf The groups, including nested groups, and directory roles that a user is a member of. Nullable.
     */
     private ?array $transitiveMemberOf = null;
     
@@ -730,6 +740,7 @@ class User extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.user');
     }
 
     /**
@@ -758,7 +769,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the activities property value. The user's activities across devices. Read-only. Nullable.
+     * Gets the activities property value. The activities property
      * @return array<UserActivity>|null
     */
     public function getActivities(): ?array {
@@ -798,6 +809,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the appRoleAssignedResources property value. The appRoleAssignedResources property
+     * @return array<ServicePrincipal>|null
+    */
+    public function getAppRoleAssignedResources(): ?array {
+        return $this->appRoleAssignedResources;
+    }
+
+    /**
      * Gets the appRoleAssignments property value. Represents the app roles a user has been granted for an application. Supports $expand.
      * @return array<AppRoleAssignment>|null
     */
@@ -830,7 +849,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the authentication property value. The authentication methods that are supported for the user.
+     * Gets the authentication property value. The authentication property
      * @return Authentication|null
     */
     public function getAuthentication(): ?Authentication {
@@ -1086,6 +1105,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the employeeLeaveDateTime property value. The employeeLeaveDateTime property
+     * @return DateTime|null
+    */
+    public function getEmployeeLeaveDateTime(): ?DateTime {
+        return $this->employeeLeaveDateTime;
+    }
+
+    /**
      * Gets the employeeOrgData property value. Represents organization data (e.g. division and costCenter) associated with a user. Supports $filter (eq, ne, not , ge, le, in).
      * @return EmployeeOrgData|null
     */
@@ -1110,7 +1137,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the extensions property value. The collection of open extensions defined for the user. Nullable.
+     * Gets the extensions property value. The collection of open extensions defined for the user. Supports $expand. Nullable.
      * @return array<Extension>|null
     */
     public function getExtensions(): ?array {
@@ -1155,6 +1182,7 @@ class User extends DirectoryObject implements Parsable
             'agreementAcceptances' => function (ParseNode $n) use ($o) { $o->setAgreementAcceptances($n->getCollectionOfObjectValues(array(AgreementAcceptance::class, 'createFromDiscriminatorValue'))); },
             'analytics' => function (ParseNode $n) use ($o) { $o->setAnalytics($n->getObjectValue(array(UserAnalytics::class, 'createFromDiscriminatorValue'))); },
             'appConsentRequestsForApproval' => function (ParseNode $n) use ($o) { $o->setAppConsentRequestsForApproval($n->getCollectionOfObjectValues(array(AppConsentRequest::class, 'createFromDiscriminatorValue'))); },
+            'appRoleAssignedResources' => function (ParseNode $n) use ($o) { $o->setAppRoleAssignedResources($n->getCollectionOfObjectValues(array(ServicePrincipal::class, 'createFromDiscriminatorValue'))); },
             'appRoleAssignments' => function (ParseNode $n) use ($o) { $o->setAppRoleAssignments($n->getCollectionOfObjectValues(array(AppRoleAssignment::class, 'createFromDiscriminatorValue'))); },
             'approvals' => function (ParseNode $n) use ($o) { $o->setApprovals($n->getCollectionOfObjectValues(array(Approval::class, 'createFromDiscriminatorValue'))); },
             'assignedLicenses' => function (ParseNode $n) use ($o) { $o->setAssignedLicenses($n->getCollectionOfObjectValues(array(AssignedLicense::class, 'createFromDiscriminatorValue'))); },
@@ -1191,6 +1219,7 @@ class User extends DirectoryObject implements Parsable
             'drives' => function (ParseNode $n) use ($o) { $o->setDrives($n->getCollectionOfObjectValues(array(Drive::class, 'createFromDiscriminatorValue'))); },
             'employeeHireDate' => function (ParseNode $n) use ($o) { $o->setEmployeeHireDate($n->getDateTimeValue()); },
             'employeeId' => function (ParseNode $n) use ($o) { $o->setEmployeeId($n->getStringValue()); },
+            'employeeLeaveDateTime' => function (ParseNode $n) use ($o) { $o->setEmployeeLeaveDateTime($n->getDateTimeValue()); },
             'employeeOrgData' => function (ParseNode $n) use ($o) { $o->setEmployeeOrgData($n->getObjectValue(array(EmployeeOrgData::class, 'createFromDiscriminatorValue'))); },
             'employeeType' => function (ParseNode $n) use ($o) { $o->setEmployeeType($n->getStringValue()); },
             'print' => function (ParseNode $n) use ($o) { $o->setPrint($n->getObjectValue(array(UserPrint::class, 'createFromDiscriminatorValue'))); },
@@ -1439,7 +1468,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the licenseDetails property value. A collection of this user's license details. Read-only.
+     * Gets the licenseDetails property value. The licenseDetails property
      * @return array<LicenseDetails>|null
     */
     public function getLicenseDetails(): ?array {
@@ -1607,7 +1636,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. The individual extension attributes are neither selectable nor filterable. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. These extension attributes are also known as Exchange custom attributes 1-15. Returned only on $select.
+     * Gets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
      * @return OnPremisesExtensionAttributes|null
     */
     public function getOnPremisesExtensionAttributes(): ?OnPremisesExtensionAttributes {
@@ -1655,7 +1684,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
+     * Gets the onPremisesSyncEnabled property value. true if this user object is currently being synced from an on-premises Active Directory (AD); otherwise the user isn't being synced and can be managed in Azure Active Directory (Azure AD). Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
      * @return bool|null
     */
     public function getOnPremisesSyncEnabled(): ?bool {
@@ -1671,7 +1700,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, and counting empty collections).
+     * Gets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, and counting empty collections).
      * @return array<string>|null
     */
     public function getOtherMails(): ?array {
@@ -1791,7 +1820,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the preferredName property value. The preferred name for the user. Returned only on $select.
+     * Gets the preferredName property value. The preferred name for the user. Not Supported. This attribute returns an empty string.Returned only on $select.
      * @return string|null
     */
     public function getPreferredName(): ?string {
@@ -1887,7 +1916,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the securityIdentifier property value. The securityIdentifier property
+     * Gets the securityIdentifier property value. Security identifier (SID) of the user, used in Windows scenarios. Read-only. Returned by default. Supports $select and $filter (eq, not, ge, le, startsWith).
      * @return string|null
     */
     public function getSecurityIdentifier(): ?string {
@@ -1983,7 +2012,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Gets the transitiveMemberOf property value. The groups, including nested groups, and directory roles that a user is a member of. Nullable.
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveMemberOf(): ?array {
@@ -2051,6 +2080,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('agreementAcceptances', $this->agreementAcceptances);
         $writer->writeObjectValue('analytics', $this->analytics);
         $writer->writeCollectionOfObjectValues('appConsentRequestsForApproval', $this->appConsentRequestsForApproval);
+        $writer->writeCollectionOfObjectValues('appRoleAssignedResources', $this->appRoleAssignedResources);
         $writer->writeCollectionOfObjectValues('appRoleAssignments', $this->appRoleAssignments);
         $writer->writeCollectionOfObjectValues('approvals', $this->approvals);
         $writer->writeCollectionOfObjectValues('assignedLicenses', $this->assignedLicenses);
@@ -2087,6 +2117,7 @@ class User extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('drives', $this->drives);
         $writer->writeDateTimeValue('employeeHireDate', $this->employeeHireDate);
         $writer->writeStringValue('employeeId', $this->employeeId);
+        $writer->writeDateTimeValue('employeeLeaveDateTime', $this->employeeLeaveDateTime);
         $writer->writeObjectValue('employeeOrgData', $this->employeeOrgData);
         $writer->writeStringValue('employeeType', $this->employeeType);
         $writer->writeObjectValue('print', $this->escapedPrint);
@@ -2206,7 +2237,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the activities property value. The user's activities across devices. Read-only. Nullable.
+     * Sets the activities property value. The activities property
      *  @param array<UserActivity>|null $value Value to set for the activities property.
     */
     public function setActivities(?array $value ): void {
@@ -2246,6 +2277,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the appRoleAssignedResources property value. The appRoleAssignedResources property
+     *  @param array<ServicePrincipal>|null $value Value to set for the appRoleAssignedResources property.
+    */
+    public function setAppRoleAssignedResources(?array $value ): void {
+        $this->appRoleAssignedResources = $value;
+    }
+
+    /**
      * Sets the appRoleAssignments property value. Represents the app roles a user has been granted for an application. Supports $expand.
      *  @param array<AppRoleAssignment>|null $value Value to set for the appRoleAssignments property.
     */
@@ -2278,7 +2317,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the authentication property value. The authentication methods that are supported for the user.
+     * Sets the authentication property value. The authentication property
      *  @param Authentication|null $value Value to set for the authentication property.
     */
     public function setAuthentication(?Authentication $value ): void {
@@ -2534,6 +2573,14 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
+     * Sets the employeeLeaveDateTime property value. The employeeLeaveDateTime property
+     *  @param DateTime|null $value Value to set for the employeeLeaveDateTime property.
+    */
+    public function setEmployeeLeaveDateTime(?DateTime $value ): void {
+        $this->employeeLeaveDateTime = $value;
+    }
+
+    /**
      * Sets the employeeOrgData property value. Represents organization data (e.g. division and costCenter) associated with a user. Supports $filter (eq, ne, not , ge, le, in).
      *  @param EmployeeOrgData|null $value Value to set for the employeeOrgData property.
     */
@@ -2558,7 +2605,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the extensions property value. The collection of open extensions defined for the user. Nullable.
+     * Sets the extensions property value. The collection of open extensions defined for the user. Supports $expand. Nullable.
      *  @param array<Extension>|null $value Value to set for the extensions property.
     */
     public function setExtensions(?array $value ): void {
@@ -2734,7 +2781,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the licenseDetails property value. A collection of this user's license details. Read-only.
+     * Sets the licenseDetails property value. The licenseDetails property
      *  @param array<LicenseDetails>|null $value Value to set for the licenseDetails property.
     */
     public function setLicenseDetails(?array $value ): void {
@@ -2902,7 +2949,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. The individual extension attributes are neither selectable nor filterable. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. These extension attributes are also known as Exchange custom attributes 1-15. Returned only on $select.
+     * Sets the onPremisesExtensionAttributes property value. Contains extensionAttributes1-15 for the user. These extension attributes are also known as Exchange custom attributes 1-15. For an onPremisesSyncEnabled user, the source of authority for this set of properties is the on-premises and is read-only. For a cloud-only user (where onPremisesSyncEnabled is false), these properties can be set during creation or update of a user object.  For a cloud-only user previously synced from on-premises Active Directory, these properties are read-only in Microsoft Graph but can be fully managed through the Exchange Admin Center or the Exchange Online V2 module in PowerShell. Supports $filter (eq, ne, not, in).
      *  @param OnPremisesExtensionAttributes|null $value Value to set for the onPremisesExtensionAttributes property.
     */
     public function setOnPremisesExtensionAttributes(?OnPremisesExtensionAttributes $value ): void {
@@ -2950,7 +2997,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
+     * Sets the onPremisesSyncEnabled property value. true if this user object is currently being synced from an on-premises Active Directory (AD); otherwise the user isn't being synced and can be managed in Azure Active Directory (Azure AD). Read-only. Supports $filter (eq, ne, not, in, and eq on null values).
      *  @param bool|null $value Value to set for the onPremisesSyncEnabled property.
     */
     public function setOnPremisesSyncEnabled(?bool $value ): void {
@@ -2966,7 +3013,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, and counting empty collections).
+     * Sets the otherMails property value. A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, and counting empty collections).
      *  @param array<string>|null $value Value to set for the otherMails property.
     */
     public function setOtherMails(?array $value ): void {
@@ -3086,7 +3133,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the preferredName property value. The preferred name for the user. Returned only on $select.
+     * Sets the preferredName property value. The preferred name for the user. Not Supported. This attribute returns an empty string.Returned only on $select.
      *  @param string|null $value Value to set for the preferredName property.
     */
     public function setPreferredName(?string $value ): void {
@@ -3182,7 +3229,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the securityIdentifier property value. The securityIdentifier property
+     * Sets the securityIdentifier property value. Security identifier (SID) of the user, used in Windows scenarios. Read-only. Returned by default. Supports $select and $filter (eq, not, ge, le, startsWith).
      *  @param string|null $value Value to set for the securityIdentifier property.
     */
     public function setSecurityIdentifier(?string $value ): void {
@@ -3278,7 +3325,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Sets the transitiveMemberOf property value. The groups, including nested groups, and directory roles that a user is a member of. Nullable.
      *  @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
     */
     public function setTransitiveMemberOf(?array $value ): void {

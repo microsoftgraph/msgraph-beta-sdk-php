@@ -14,7 +14,7 @@ class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable
     private ?UserFlowApiConnectorConfiguration $apiConnectorConfiguration = null;
     
     /**
-     * @var array<IdentityProvider>|null $identityProviders The identity providers included in the user flow.
+     * @var array<IdentityProvider>|null $identityProviders The identityProviders property
     */
     private ?array $identityProviders = null;
     
@@ -38,6 +38,7 @@ class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.b2xIdentityUserFlow');
     }
 
     /**
@@ -73,7 +74,7 @@ class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable
     }
 
     /**
-     * Gets the identityProviders property value. The identity providers included in the user flow.
+     * Gets the identityProviders property value. The identityProviders property
      * @return array<IdentityProvider>|null
     */
     public function getIdentityProviders(): ?array {
@@ -126,7 +127,7 @@ class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable
     }
 
     /**
-     * Sets the identityProviders property value. The identity providers included in the user flow.
+     * Sets the identityProviders property value. The identityProviders property
      *  @param array<IdentityProvider>|null $value Value to set for the identityProviders property.
     */
     public function setIdentityProviders(?array $value ): void {

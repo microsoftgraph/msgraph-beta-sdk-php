@@ -9,42 +9,42 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrinterBase extends Entity implements Parsable 
 {
     /**
-     * @var PrinterCapabilities|null $capabilities The capabilities of the printer/printerShare.
+     * @var PrinterCapabilities|null $capabilities The capabilities property
     */
     private ?PrinterCapabilities $capabilities = null;
     
     /**
-     * @var PrinterDefaults|null $defaults The default print settings of printer/printerShare.
+     * @var PrinterDefaults|null $defaults The defaults property
     */
     private ?PrinterDefaults $defaults = null;
     
     /**
-     * @var string|null $displayName The name of the printer/printerShare.
+     * @var string|null $displayName The displayName property
     */
     private ?string $displayName = null;
     
     /**
-     * @var bool|null $isAcceptingJobs Whether the printer/printerShare is currently accepting new print jobs.
+     * @var bool|null $isAcceptingJobs The isAcceptingJobs property
     */
     private ?bool $isAcceptingJobs = null;
     
     /**
-     * @var array<PrintJob>|null $jobs The list of jobs that are queued for printing by the printer/printerShare.
+     * @var array<PrintJob>|null $jobs The jobs property
     */
     private ?array $jobs = null;
     
     /**
-     * @var PrinterLocation|null $location The physical and/or organizational location of the printer/printerShare.
+     * @var PrinterLocation|null $location The location property
     */
     private ?PrinterLocation $location = null;
     
     /**
-     * @var string|null $manufacturer The manufacturer of the printer/printerShare.
+     * @var string|null $manufacturer The manufacturer property
     */
     private ?string $manufacturer = null;
     
     /**
-     * @var string|null $model The model name of the printer/printerShare.
+     * @var string|null $model The model property
     */
     private ?string $model = null;
     
@@ -54,7 +54,7 @@ class PrinterBase extends Entity implements Parsable
     private ?string $name = null;
     
     /**
-     * @var PrinterStatus|null $status The processing status of the printer/printerShare, including any errors.
+     * @var PrinterStatus|null $status The status property
     */
     private ?PrinterStatus $status = null;
     
@@ -63,6 +63,7 @@ class PrinterBase extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.printerBase');
     }
 
     /**
@@ -83,7 +84,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the capabilities property value. The capabilities of the printer/printerShare.
+     * Gets the capabilities property value. The capabilities property
      * @return PrinterCapabilities|null
     */
     public function getCapabilities(): ?PrinterCapabilities {
@@ -91,7 +92,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the defaults property value. The default print settings of printer/printerShare.
+     * Gets the defaults property value. The defaults property
      * @return PrinterDefaults|null
     */
     public function getDefaults(): ?PrinterDefaults {
@@ -99,7 +100,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The name of the printer/printerShare.
+     * Gets the displayName property value. The displayName property
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -127,7 +128,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the isAcceptingJobs property value. Whether the printer/printerShare is currently accepting new print jobs.
+     * Gets the isAcceptingJobs property value. The isAcceptingJobs property
      * @return bool|null
     */
     public function getIsAcceptingJobs(): ?bool {
@@ -135,7 +136,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the jobs property value. The list of jobs that are queued for printing by the printer/printerShare.
+     * Gets the jobs property value. The jobs property
      * @return array<PrintJob>|null
     */
     public function getJobs(): ?array {
@@ -143,7 +144,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the location property value. The physical and/or organizational location of the printer/printerShare.
+     * Gets the location property value. The location property
      * @return PrinterLocation|null
     */
     public function getLocation(): ?PrinterLocation {
@@ -151,7 +152,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the manufacturer property value. The manufacturer of the printer/printerShare.
+     * Gets the manufacturer property value. The manufacturer property
      * @return string|null
     */
     public function getManufacturer(): ?string {
@@ -159,7 +160,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the model property value. The model name of the printer/printerShare.
+     * Gets the model property value. The model property
      * @return string|null
     */
     public function getModel(): ?string {
@@ -175,7 +176,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The processing status of the printer/printerShare, including any errors.
+     * Gets the status property value. The status property
      * @return PrinterStatus|null
     */
     public function getStatus(): ?PrinterStatus {
@@ -201,7 +202,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the capabilities property value. The capabilities of the printer/printerShare.
+     * Sets the capabilities property value. The capabilities property
      *  @param PrinterCapabilities|null $value Value to set for the capabilities property.
     */
     public function setCapabilities(?PrinterCapabilities $value ): void {
@@ -209,7 +210,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the defaults property value. The default print settings of printer/printerShare.
+     * Sets the defaults property value. The defaults property
      *  @param PrinterDefaults|null $value Value to set for the defaults property.
     */
     public function setDefaults(?PrinterDefaults $value ): void {
@@ -217,7 +218,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The name of the printer/printerShare.
+     * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -225,7 +226,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the isAcceptingJobs property value. Whether the printer/printerShare is currently accepting new print jobs.
+     * Sets the isAcceptingJobs property value. The isAcceptingJobs property
      *  @param bool|null $value Value to set for the isAcceptingJobs property.
     */
     public function setIsAcceptingJobs(?bool $value ): void {
@@ -233,7 +234,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the jobs property value. The list of jobs that are queued for printing by the printer/printerShare.
+     * Sets the jobs property value. The jobs property
      *  @param array<PrintJob>|null $value Value to set for the jobs property.
     */
     public function setJobs(?array $value ): void {
@@ -241,7 +242,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the location property value. The physical and/or organizational location of the printer/printerShare.
+     * Sets the location property value. The location property
      *  @param PrinterLocation|null $value Value to set for the location property.
     */
     public function setLocation(?PrinterLocation $value ): void {
@@ -249,7 +250,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the manufacturer property value. The manufacturer of the printer/printerShare.
+     * Sets the manufacturer property value. The manufacturer property
      *  @param string|null $value Value to set for the manufacturer property.
     */
     public function setManufacturer(?string $value ): void {
@@ -257,7 +258,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the model property value. The model name of the printer/printerShare.
+     * Sets the model property value. The model property
      *  @param string|null $value Value to set for the model property.
     */
     public function setModel(?string $value ): void {
@@ -273,7 +274,7 @@ class PrinterBase extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The processing status of the printer/printerShare, including any errors.
+     * Sets the status property value. The status property
      *  @param PrinterStatus|null $value Value to set for the status property.
     */
     public function setStatus(?PrinterStatus $value ): void {

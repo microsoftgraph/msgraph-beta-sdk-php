@@ -23,6 +23,7 @@ class IPv4Range extends IpRange implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iPv4Range');
     }
 
     /**

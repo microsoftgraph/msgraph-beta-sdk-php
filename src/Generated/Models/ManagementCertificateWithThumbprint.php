@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementCertificateWithThumbprint implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class ManagementCertificateWithThumbprint implements AdditionalDataHolder, Parsa
      * @var string|null $certificate The Base 64 encoded management certificate
     */
     private ?string $certificate = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $thumbprint The thumbprint of the management certificate
@@ -28,7 +33,8 @@ class ManagementCertificateWithThumbprint implements AdditionalDataHolder, Parsa
      * Instantiates a new managementCertificateWithThumbprint and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managementCertificateWithThumbprint');
     }
 
     /**
@@ -64,8 +70,17 @@ class ManagementCertificateWithThumbprint implements AdditionalDataHolder, Parsa
         $o = $this;
         return  [
             'certificate' => function (ParseNode $n) use ($o) { $o->setCertificate($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'thumbprint' => function (ParseNode $n) use ($o) { $o->setThumbprint($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class ManagementCertificateWithThumbprint implements AdditionalDataHolder, Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('certificate', $this->certificate);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('thumbprint', $this->thumbprint);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class ManagementCertificateWithThumbprint implements AdditionalDataHolder, Parsa
     */
     public function setCertificate(?string $value ): void {
         $this->certificate = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

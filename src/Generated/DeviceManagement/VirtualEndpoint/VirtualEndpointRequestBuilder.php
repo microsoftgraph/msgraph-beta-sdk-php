@@ -11,6 +11,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Clo
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\CloudPCs\Item\CloudPCItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\DeviceImages\DeviceImagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\DeviceImages\Item\CloudPcDeviceImageItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartnerSettings\ExternalPartnerSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ExternalPartnerSettings\Item\CloudPcExternalPartnerSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GalleryImages\GalleryImagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GalleryImages\Item\CloudPcGalleryImageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\GetEffectivePermissions\GetEffectivePermissionsRequestBuilder;
@@ -58,6 +60,13 @@ class VirtualEndpointRequestBuilder
     */
     public function deviceImages(): DeviceImagesRequestBuilder {
         return new DeviceImagesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The externalPartnerSettings property
+    */
+    public function externalPartnerSettings(): ExternalPartnerSettingsRequestBuilder {
+        return new ExternalPartnerSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -261,6 +270,17 @@ class VirtualEndpointRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['cloudPcDeviceImage%2Did'] = $id;
         return new CloudPcDeviceImageItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.externalPartnerSettings.item collection
+     * @param string $id Unique identifier of the item
+     * @return CloudPcExternalPartnerSettingItemRequestBuilder
+    */
+    public function externalPartnerSettingsById(string $id): CloudPcExternalPartnerSettingItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcExternalPartnerSetting%2Did'] = $id;
+        return new CloudPcExternalPartnerSettingItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -85,7 +85,7 @@ class DepOnboardingSetting extends Entity implements Parsable
     private ?string $tokenName = null;
     
     /**
-     * @var DepTokenType|null $tokenType Gets or sets the Dep Token Type. Possible values are: none, dep, appleSchoolManager.
+     * @var DepTokenType|null $tokenType The tokenType property
     */
     private ?DepTokenType $tokenType = null;
     
@@ -94,6 +94,7 @@ class DepOnboardingSetting extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.depOnboardingSetting');
     }
 
     /**
@@ -252,7 +253,7 @@ class DepOnboardingSetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the tokenType property value. Gets or sets the Dep Token Type. Possible values are: none, dep, appleSchoolManager.
+     * Gets the tokenType property value. The tokenType property
      * @return DepTokenType|null
     */
     public function getTokenType(): ?DepTokenType {
@@ -404,7 +405,7 @@ class DepOnboardingSetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the tokenType property value. Gets or sets the Dep Token Type. Possible values are: none, dep, appleSchoolManager.
+     * Sets the tokenType property value. The tokenType property
      *  @param DepTokenType|null $value Value to set for the tokenType property.
     */
     public function setTokenType(?DepTokenType $value ): void {

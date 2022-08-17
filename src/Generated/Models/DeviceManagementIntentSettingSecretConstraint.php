@@ -13,6 +13,7 @@ class DeviceManagementIntentSettingSecretConstraint extends DeviceManagementCons
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementIntentSettingSecretConstraint');
     }
 
     /**

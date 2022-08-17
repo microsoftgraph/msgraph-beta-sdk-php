@@ -24,7 +24,7 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
     private ?string $nodeName = null;
     
     /**
-     * @var GroupPolicySettingScope|null $settingScope Setting Scope of the unsupported extension. Possible values are: unknown, device, user.
+     * @var GroupPolicySettingScope|null $settingScope Scope of the group policy setting.
     */
     private ?GroupPolicySettingScope $settingScope = null;
     
@@ -33,6 +33,7 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.unsupportedGroupPolicyExtension');
     }
 
     /**
@@ -83,7 +84,7 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
     }
 
     /**
-     * Gets the settingScope property value. Setting Scope of the unsupported extension. Possible values are: unknown, device, user.
+     * Gets the settingScope property value. Scope of the group policy setting.
      * @return GroupPolicySettingScope|null
     */
     public function getSettingScope(): ?GroupPolicySettingScope {
@@ -127,7 +128,7 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
     }
 
     /**
-     * Sets the settingScope property value. Setting Scope of the unsupported extension. Possible values are: unknown, device, user.
+     * Sets the settingScope property value. Scope of the group policy setting.
      *  @param GroupPolicySettingScope|null $value Value to set for the settingScope property.
     */
     public function setSettingScope(?GroupPolicySettingScope $value ): void {

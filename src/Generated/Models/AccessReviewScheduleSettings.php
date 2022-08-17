@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -56,6 +56,11 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsable
     private ?bool $mailNotificationsEnabled = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var array<AccessReviewRecommendationInsightSetting>|null $recommendationInsightSettings Optional. Describes the types of insights that aid reviewers to make access review decisions. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationInsightSettings setting will be used instead of the value of this property.
     */
     private ?array $recommendationInsightSettings = null;
@@ -84,7 +89,8 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new accessReviewScheduleSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.accessReviewScheduleSettings');
     }
 
     /**
@@ -159,6 +165,7 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsable
             'instanceDurationInDays' => function (ParseNode $n) use ($o) { $o->setInstanceDurationInDays($n->getIntegerValue()); },
             'justificationRequiredOnApproval' => function (ParseNode $n) use ($o) { $o->setJustificationRequiredOnApproval($n->getBooleanValue()); },
             'mailNotificationsEnabled' => function (ParseNode $n) use ($o) { $o->setMailNotificationsEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recommendationInsightSettings' => function (ParseNode $n) use ($o) { $o->setRecommendationInsightSettings($n->getCollectionOfObjectValues(array(AccessReviewRecommendationInsightSetting::class, 'createFromDiscriminatorValue'))); },
             'recommendationLookBackDuration' => function (ParseNode $n) use ($o) { $o->setRecommendationLookBackDuration($n->getDateIntervalValue()); },
             'recommendationsEnabled' => function (ParseNode $n) use ($o) { $o->setRecommendationsEnabled($n->getBooleanValue()); },
@@ -189,6 +196,14 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsable
     */
     public function getMailNotificationsEnabled(): ?bool {
         return $this->mailNotificationsEnabled;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -244,6 +259,7 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('instanceDurationInDays', $this->instanceDurationInDays);
         $writer->writeBooleanValue('justificationRequiredOnApproval', $this->justificationRequiredOnApproval);
         $writer->writeBooleanValue('mailNotificationsEnabled', $this->mailNotificationsEnabled);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('recommendationInsightSettings', $this->recommendationInsightSettings);
         $writer->writeDateIntervalValue('recommendationLookBackDuration', $this->recommendationLookBackDuration);
         $writer->writeBooleanValue('recommendationsEnabled', $this->recommendationsEnabled);
@@ -322,6 +338,14 @@ class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsable
     */
     public function setMailNotificationsEnabled(?bool $value ): void {
         $this->mailNotificationsEnabled = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

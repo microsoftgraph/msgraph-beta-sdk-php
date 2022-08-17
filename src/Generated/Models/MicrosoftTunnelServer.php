@@ -30,7 +30,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     private ?string $serverImageDigest = null;
     
     /**
-     * @var MicrosoftTunnelServerHealthStatus|null $tunnelServerHealthStatus The MicrosoftTunnelServer's health status. Possible values are: unknown, healthy, unhealthy, warning, offline, upgradeInProgress, upgradeFailed.
+     * @var MicrosoftTunnelServerHealthStatus|null $tunnelServerHealthStatus Enum of possible MicrosoftTunnelServer health status types
     */
     private ?MicrosoftTunnelServerHealthStatus $tunnelServerHealthStatus = null;
     
@@ -39,6 +39,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.microsoftTunnelServer');
     }
 
     /**
@@ -98,7 +99,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Gets the tunnelServerHealthStatus property value. The MicrosoftTunnelServer's health status. Possible values are: unknown, healthy, unhealthy, warning, offline, upgradeInProgress, upgradeFailed.
+     * Gets the tunnelServerHealthStatus property value. Enum of possible MicrosoftTunnelServer health status types
      * @return MicrosoftTunnelServerHealthStatus|null
     */
     public function getTunnelServerHealthStatus(): ?MicrosoftTunnelServerHealthStatus {
@@ -151,7 +152,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Sets the tunnelServerHealthStatus property value. The MicrosoftTunnelServer's health status. Possible values are: unknown, healthy, unhealthy, warning, offline, upgradeInProgress, upgradeFailed.
+     * Sets the tunnelServerHealthStatus property value. Enum of possible MicrosoftTunnelServer health status types
      *  @param MicrosoftTunnelServerHealthStatus|null $value Value to set for the tunnelServerHealthStatus property.
     */
     public function setTunnelServerHealthStatus(?MicrosoftTunnelServerHealthStatus $value ): void {

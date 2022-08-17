@@ -10,17 +10,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class KeyValuePair implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var string|null $name The name property
+     * @var string|null $name Name for this key-value pair.
     */
     private ?string $name = null;
     
     /**
-     * @var string|null $value The value property
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var string|null $value Value for this key-value pair.
     */
     private ?string $value = null;
     
@@ -28,7 +33,8 @@ class KeyValuePair implements AdditionalDataHolder, Parsable
      * Instantiates a new keyValuePair and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.security.keyValuePair');
     }
 
     /**
@@ -56,12 +62,13 @@ class KeyValuePair implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name for this key-value pair.
      * @return string|null
     */
     public function getName(): ?string {
@@ -69,7 +76,15 @@ class KeyValuePair implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the value property value. Value for this key-value pair.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -82,6 +97,7 @@ class KeyValuePair implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('value', $this->value);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -95,7 +111,7 @@ class KeyValuePair implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name for this key-value pair.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {
@@ -103,7 +119,15 @@ class KeyValuePair implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the value property value. Value for this key-value pair.
      *  @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value ): void {

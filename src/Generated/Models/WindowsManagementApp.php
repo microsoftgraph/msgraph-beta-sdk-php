@@ -19,7 +19,7 @@ class WindowsManagementApp extends Entity implements Parsable
     private ?array $healthStates = null;
     
     /**
-     * @var ManagedInstallerStatus|null $managedInstaller Managed Installer Status. Possible values are: disabled, enabled.
+     * @var ManagedInstallerStatus|null $managedInstaller ManagedInstallerStatus
     */
     private ?ManagedInstallerStatus $managedInstaller = null;
     
@@ -29,10 +29,11 @@ class WindowsManagementApp extends Entity implements Parsable
     private ?string $managedInstallerConfiguredDateTime = null;
     
     /**
-     * Instantiates a new windowsManagementApp and sets the default values.
+     * Instantiates a new WindowsManagementApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsManagementApp');
     }
 
     /**
@@ -75,7 +76,7 @@ class WindowsManagementApp extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedInstaller property value. Managed Installer Status. Possible values are: disabled, enabled.
+     * Gets the managedInstaller property value. ManagedInstallerStatus
      * @return ManagedInstallerStatus|null
     */
     public function getManagedInstaller(): ?ManagedInstallerStatus {
@@ -119,7 +120,7 @@ class WindowsManagementApp extends Entity implements Parsable
     }
 
     /**
-     * Sets the managedInstaller property value. Managed Installer Status. Possible values are: disabled, enabled.
+     * Sets the managedInstaller property value. ManagedInstallerStatus
      *  @param ManagedInstallerStatus|null $value Value to set for the managedInstaller property.
     */
     public function setManagedInstaller(?ManagedInstallerStatus $value ): void {

@@ -23,6 +23,7 @@ class DeviceManagementSettingIntegerConstraint extends DeviceManagementConstrain
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementSettingIntegerConstraint');
     }
 
     /**

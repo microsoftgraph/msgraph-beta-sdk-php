@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessSessionControls implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,6 +35,11 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, Parsable
     private ?bool $disableResilienceDefaults = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var PersistentBrowserSessionControl|null $persistentBrowser Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly.
     */
     private ?PersistentBrowserSessionControl $persistentBrowser = null;
@@ -48,7 +53,8 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, Parsable
      * Instantiates a new conditionalAccessSessionControls and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.conditionalAccessSessionControls');
     }
 
     /**
@@ -111,9 +117,18 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, Parsable
             'cloudAppSecurity' => function (ParseNode $n) use ($o) { $o->setCloudAppSecurity($n->getObjectValue(array(CloudAppSecuritySessionControl::class, 'createFromDiscriminatorValue'))); },
             'continuousAccessEvaluation' => function (ParseNode $n) use ($o) { $o->setContinuousAccessEvaluation($n->getObjectValue(array(ContinuousAccessEvaluationSessionControl::class, 'createFromDiscriminatorValue'))); },
             'disableResilienceDefaults' => function (ParseNode $n) use ($o) { $o->setDisableResilienceDefaults($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'persistentBrowser' => function (ParseNode $n) use ($o) { $o->setPersistentBrowser($n->getObjectValue(array(PersistentBrowserSessionControl::class, 'createFromDiscriminatorValue'))); },
             'signInFrequency' => function (ParseNode $n) use ($o) { $o->setSignInFrequency($n->getObjectValue(array(SignInFrequencySessionControl::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -141,6 +156,7 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('cloudAppSecurity', $this->cloudAppSecurity);
         $writer->writeObjectValue('continuousAccessEvaluation', $this->continuousAccessEvaluation);
         $writer->writeBooleanValue('disableResilienceDefaults', $this->disableResilienceDefaults);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('persistentBrowser', $this->persistentBrowser);
         $writer->writeObjectValue('signInFrequency', $this->signInFrequency);
         $writer->writeAdditionalData($this->additionalData);
@@ -184,6 +200,14 @@ class ConditionalAccessSessionControls implements AdditionalDataHolder, Parsable
     */
     public function setDisableResilienceDefaults(?bool $value ): void {
         $this->disableResilienceDefaults = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

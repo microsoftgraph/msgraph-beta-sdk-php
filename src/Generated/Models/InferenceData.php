@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InferenceData implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class InferenceData implements AdditionalDataHolder, Parsable
      * @var float|null $confidenceScore Confidence score reflecting the accuracy of the data inferred about the user.
     */
     private ?float $confidenceScore = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var bool|null $userHasVerifiedAccuracy Records if the user has confirmed this inference as being True or False.
@@ -28,7 +33,8 @@ class InferenceData implements AdditionalDataHolder, Parsable
      * Instantiates a new inferenceData and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.inferenceData');
     }
 
     /**
@@ -64,8 +70,17 @@ class InferenceData implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'confidenceScore' => function (ParseNode $n) use ($o) { $o->setConfidenceScore($n->getFloatValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userHasVerifiedAccuracy' => function (ParseNode $n) use ($o) { $o->setUserHasVerifiedAccuracy($n->getBooleanValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class InferenceData implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeFloatValue('confidenceScore', $this->confidenceScore);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('userHasVerifiedAccuracy', $this->userHasVerifiedAccuracy);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class InferenceData implements AdditionalDataHolder, Parsable
     */
     public function setConfidenceScore(?float $value ): void {
         $this->confidenceScore = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

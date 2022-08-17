@@ -29,7 +29,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * @var MultiFactorAuthConfiguration|null $multiFactorAuthConfiguration Specifies the authentication policy for a user to complete registration using Azure AD Join or Azure AD registered within your organization. The possible values are: 0 (meaning notRequired), 1 (meaning required), and 2 (meaning unknownFutureValue). The default value is 0.
+     * @var MultiFactorAuthConfiguration|null $multiFactorAuthConfiguration The multiFactorAuthConfiguration property
     */
     private ?MultiFactorAuthConfiguration $multiFactorAuthConfiguration = null;
     
@@ -43,6 +43,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceRegistrationPolicy');
     }
 
     /**
@@ -103,7 +104,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the multiFactorAuthConfiguration property value. Specifies the authentication policy for a user to complete registration using Azure AD Join or Azure AD registered within your organization. The possible values are: 0 (meaning notRequired), 1 (meaning required), and 2 (meaning unknownFutureValue). The default value is 0.
+     * Gets the multiFactorAuthConfiguration property value. The multiFactorAuthConfiguration property
      * @return MultiFactorAuthConfiguration|null
     */
     public function getMultiFactorAuthConfiguration(): ?MultiFactorAuthConfiguration {
@@ -165,7 +166,7 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the multiFactorAuthConfiguration property value. Specifies the authentication policy for a user to complete registration using Azure AD Join or Azure AD registered within your organization. The possible values are: 0 (meaning notRequired), 1 (meaning required), and 2 (meaning unknownFutureValue). The default value is 0.
+     * Sets the multiFactorAuthConfiguration property value. The multiFactorAuthConfiguration property
      *  @param MultiFactorAuthConfiguration|null $value Value to set for the multiFactorAuthConfiguration property.
     */
     public function setMultiFactorAuthConfiguration(?MultiFactorAuthConfiguration $value ): void {

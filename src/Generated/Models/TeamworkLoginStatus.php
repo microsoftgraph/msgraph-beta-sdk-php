@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkLoginStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class TeamworkLoginStatus implements AdditionalDataHolder, Parsable
      * @var TeamworkConnection|null $exchangeConnection Information about the Exchange connection.
     */
     private ?TeamworkConnection $exchangeConnection = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var TeamworkConnection|null $skypeConnection Information about the Skype for Business connection.
@@ -33,7 +38,8 @@ class TeamworkLoginStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new teamworkLoginStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkLoginStatus');
     }
 
     /**
@@ -69,9 +75,18 @@ class TeamworkLoginStatus implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'exchangeConnection' => function (ParseNode $n) use ($o) { $o->setExchangeConnection($n->getObjectValue(array(TeamworkConnection::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'skypeConnection' => function (ParseNode $n) use ($o) { $o->setSkypeConnection($n->getObjectValue(array(TeamworkConnection::class, 'createFromDiscriminatorValue'))); },
             'teamsConnection' => function (ParseNode $n) use ($o) { $o->setTeamsConnection($n->getObjectValue(array(TeamworkConnection::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -96,6 +111,7 @@ class TeamworkLoginStatus implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('exchangeConnection', $this->exchangeConnection);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('skypeConnection', $this->skypeConnection);
         $writer->writeObjectValue('teamsConnection', $this->teamsConnection);
         $writer->writeAdditionalData($this->additionalData);
@@ -115,6 +131,14 @@ class TeamworkLoginStatus implements AdditionalDataHolder, Parsable
     */
     public function setExchangeConnection(?TeamworkConnection $value ): void {
         $this->exchangeConnection = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

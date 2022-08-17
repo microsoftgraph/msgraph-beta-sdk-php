@@ -55,15 +55,16 @@ class SecureScore extends Entity implements Parsable
     private ?float $maxScore = null;
     
     /**
-     * @var SecurityVendorInformation|null $vendorInformation Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required.
+     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
     */
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
-     * Instantiates a new secureScore and sets the default values.
+     * Instantiates a new SecureScore and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.secureScore');
     }
 
     /**
@@ -168,7 +169,7 @@ class SecureScore extends Entity implements Parsable
     }
 
     /**
-     * Gets the vendorInformation property value. Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required.
+     * Gets the vendorInformation property value. The vendorInformation property
      * @return SecurityVendorInformation|null
     */
     public function getVendorInformation(): ?SecurityVendorInformation {
@@ -266,7 +267,7 @@ class SecureScore extends Entity implements Parsable
     }
 
     /**
-     * Sets the vendorInformation property value. Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required.
+     * Sets the vendorInformation property value. The vendorInformation property
      *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
     public function setVendorInformation(?SecurityVendorInformation $value ): void {

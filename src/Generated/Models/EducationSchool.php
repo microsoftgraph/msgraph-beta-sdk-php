@@ -14,7 +14,7 @@ class EducationSchool extends EducationOrganization implements Parsable
     private ?PhysicalAddress $address = null;
     
     /**
-     * @var AdministrativeUnit|null $administrativeUnit The underlying administrativeUnit for this school.
+     * @var AdministrativeUnit|null $administrativeUnit The administrativeUnit property
     */
     private ?AdministrativeUnit $administrativeUnit = null;
     
@@ -83,6 +83,7 @@ class EducationSchool extends EducationOrganization implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.educationSchool');
     }
 
     /**
@@ -103,7 +104,7 @@ class EducationSchool extends EducationOrganization implements Parsable
     }
 
     /**
-     * Gets the administrativeUnit property value. The underlying administrativeUnit for this school.
+     * Gets the administrativeUnit property value. The administrativeUnit property
      * @return AdministrativeUnit|null
     */
     public function getAdministrativeUnit(): ?AdministrativeUnit {
@@ -261,7 +262,7 @@ class EducationSchool extends EducationOrganization implements Parsable
     }
 
     /**
-     * Sets the administrativeUnit property value. The underlying administrativeUnit for this school.
+     * Sets the administrativeUnit property value. The administrativeUnit property
      *  @param AdministrativeUnit|null $value Value to set for the administrativeUnit property.
     */
     public function setAdministrativeUnit(?AdministrativeUnit $value ): void {

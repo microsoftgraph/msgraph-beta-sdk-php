@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,12 +20,17 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
     private ?string $name = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var array<string>|null $osEditionTypes Applicability rule OS edition type.
     */
     private ?array $osEditionTypes = null;
     
     /**
-     * @var DeviceManagementApplicabilityRuleType|null $ruleType Applicability Rule type. Possible values are: include, exclude.
+     * @var DeviceManagementApplicabilityRuleType|null $ruleType Supported Applicability rule types for Device Configuration
     */
     private ?DeviceManagementApplicabilityRuleType $ruleType = null;
     
@@ -33,7 +38,8 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
      * Instantiates a new deviceManagementApplicabilityRuleOsEdition and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementApplicabilityRuleOsEdition');
     }
 
     /**
@@ -61,6 +67,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
         $o = $this;
         return  [
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'osEditionTypes' => function (ParseNode $n) use ($o) { $o->setOsEditionTypes($n->getCollectionOfPrimitiveValues()); },
             'ruleType' => function (ParseNode $n) use ($o) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
         ];
@@ -75,6 +82,14 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the osEditionTypes property value. Applicability rule OS edition type.
      * @return array<string>|null
     */
@@ -83,7 +98,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
     }
 
     /**
-     * Gets the ruleType property value. Applicability Rule type. Possible values are: include, exclude.
+     * Gets the ruleType property value. Supported Applicability rule types for Device Configuration
      * @return DeviceManagementApplicabilityRuleType|null
     */
     public function getRuleType(): ?DeviceManagementApplicabilityRuleType {
@@ -96,6 +111,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfPrimitiveValues('osEditionTypes', $this->osEditionTypes);
         $writer->writeEnumValue('ruleType', $this->ruleType);
         $writer->writeAdditionalData($this->additionalData);
@@ -118,6 +134,14 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the osEditionTypes property value. Applicability rule OS edition type.
      *  @param array<string>|null $value Value to set for the osEditionTypes property.
     */
@@ -126,7 +150,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
     }
 
     /**
-     * Sets the ruleType property value. Applicability Rule type. Possible values are: include, exclude.
+     * Sets the ruleType property value. Supported Applicability rule types for Device Configuration
      *  @param DeviceManagementApplicabilityRuleType|null $value Value to set for the ruleType property.
     */
     public function setRuleType(?DeviceManagementApplicabilityRuleType $value ): void {

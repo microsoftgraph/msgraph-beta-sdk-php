@@ -54,7 +54,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     private ?bool $classroomForceUnpromptedAppAndDeviceLock = null;
     
     /**
-     * @var AppListType|null $compliantAppListType List that is in the CompliantAppsList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+     * @var AppListType|null $compliantAppListType Possible values of the compliance app list.
     */
     private ?AppListType $compliantAppListType = null;
     
@@ -244,7 +244,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     private ?bool $passwordRequired = null;
     
     /**
-     * @var RequiredPasswordType|null $passwordRequiredType Type of password that is required. Possible values are: deviceDefault, alphanumeric, numeric.
+     * @var RequiredPasswordType|null $passwordRequiredType Possible values of required passwords.
     */
     private ?RequiredPasswordType $passwordRequiredType = null;
     
@@ -308,6 +308,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOSGeneralDeviceConfiguration');
     }
 
     /**
@@ -392,7 +393,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     }
 
     /**
-     * Gets the compliantAppListType property value. List that is in the CompliantAppsList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+     * Gets the compliantAppListType property value. Possible values of the compliance app list.
      * @return AppListType|null
     */
     public function getCompliantAppListType(): ?AppListType {
@@ -765,7 +766,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     }
 
     /**
-     * Gets the passwordRequiredType property value. Type of password that is required. Possible values are: deviceDefault, alphanumeric, numeric.
+     * Gets the passwordRequiredType property value. Possible values of required passwords.
      * @return RequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?RequiredPasswordType {
@@ -1000,7 +1001,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     }
 
     /**
-     * Sets the compliantAppListType property value. List that is in the CompliantAppsList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+     * Sets the compliantAppListType property value. Possible values of the compliance app list.
      *  @param AppListType|null $value Value to set for the compliantAppListType property.
     */
     public function setCompliantAppListType(?AppListType $value ): void {
@@ -1304,7 +1305,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration implements Par
     }
 
     /**
-     * Sets the passwordRequiredType property value. Type of password that is required. Possible values are: deviceDefault, alphanumeric, numeric.
+     * Sets the passwordRequiredType property value. Possible values of required passwords.
      *  @param RequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?RequiredPasswordType $value ): void {

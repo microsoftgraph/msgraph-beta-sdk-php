@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Certificate Validity Period Options.
     */
     private ?CertificateValidityPeriodScale $certificateValidityPeriodScale = null;
     
@@ -19,7 +19,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
     private ?int $certificateValidityPeriodValue = null;
     
     /**
-     * @var KeyStorageProviderOption|null $keyStorageProvider Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * @var KeyStorageProviderOption|null $keyStorageProvider Key Storage Provider (KSP) Import Options.
     */
     private ?KeyStorageProviderOption $keyStorageProvider = null;
     
@@ -34,7 +34,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
     private ?SubjectAlternativeNameType $subjectAlternativeNameType = null;
     
     /**
-     * @var SubjectNameFormat|null $subjectNameFormat Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * @var SubjectNameFormat|null $subjectNameFormat Subject Name Format Options.
     */
     private ?SubjectNameFormat $subjectNameFormat = null;
     
@@ -43,6 +43,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsCertificateProfileBase');
     }
 
     /**
@@ -57,7 +58,9 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
             switch ($mappingValue) {
                 case '#microsoft.graph.windows10CertificateProfileBase': return new Windows10CertificateProfileBase();
                 case '#microsoft.graph.windows10ImportedPFXCertificateProfile': return new Windows10ImportedPFXCertificateProfile();
+                case '#microsoft.graph.windows10PkcsCertificateProfile': return new Windows10PkcsCertificateProfile();
                 case '#microsoft.graph.windows81CertificateProfileBase': return new Windows81CertificateProfileBase();
+                case '#microsoft.graph.windows81SCEPCertificateProfile': return new Windows81SCEPCertificateProfile();
                 case '#microsoft.graph.windowsPhone81ImportedPFXCertificateProfile': return new WindowsPhone81ImportedPFXCertificateProfile();
             }
         }
@@ -65,7 +68,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
     }
 
     /**
-     * Gets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Gets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
@@ -97,7 +100,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
     }
 
     /**
-     * Gets the keyStorageProvider property value. Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * Gets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      * @return KeyStorageProviderOption|null
     */
     public function getKeyStorageProvider(): ?KeyStorageProviderOption {
@@ -121,7 +124,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
     }
 
     /**
-     * Gets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Gets the subjectNameFormat property value. Subject Name Format Options.
      * @return SubjectNameFormat|null
     */
     public function getSubjectNameFormat(): ?SubjectNameFormat {
@@ -143,7 +146,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
     }
 
     /**
-     * Sets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
     public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value ): void {
@@ -159,7 +162,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
     }
 
     /**
-     * Sets the keyStorageProvider property value. Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * Sets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      *  @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
     */
     public function setKeyStorageProvider(?KeyStorageProviderOption $value ): void {
@@ -183,7 +186,7 @@ class WindowsCertificateProfileBase extends DeviceConfiguration implements Parsa
     }
 
     /**
-     * Sets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
+     * Sets the subjectNameFormat property value. Subject Name Format Options.
      *  @param SubjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
     public function setSubjectNameFormat(?SubjectNameFormat $value ): void {

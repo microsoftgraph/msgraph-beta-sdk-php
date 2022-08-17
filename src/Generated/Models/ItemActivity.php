@@ -15,7 +15,7 @@ class ItemActivity extends Entity implements Parsable
     private ?AccessAction $access = null;
     
     /**
-     * @var DateTime|null $activityDateTime Details about when the activity took place. Read-only.
+     * @var DateTime|null $activityDateTime The activityDateTime property
     */
     private ?DateTime $activityDateTime = null;
     
@@ -34,6 +34,7 @@ class ItemActivity extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.itemActivity');
     }
 
     /**
@@ -54,7 +55,7 @@ class ItemActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityDateTime property value. Details about when the activity took place. Read-only.
+     * Gets the activityDateTime property value. The activityDateTime property
      * @return DateTime|null
     */
     public function getActivityDateTime(): ?DateTime {
@@ -112,7 +113,7 @@ class ItemActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityDateTime property value. Details about when the activity took place. Read-only.
+     * Sets the activityDateTime property value. The activityDateTime property
      *  @param DateTime|null $value Value to set for the activityDateTime property.
     */
     public function setActivityDateTime(?DateTime $value ): void {

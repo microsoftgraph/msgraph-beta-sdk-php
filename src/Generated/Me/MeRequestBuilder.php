@@ -13,6 +13,8 @@ use Microsoft\Graph\Beta\Generated\Me\AgreementAcceptances\Item\AgreementAccepta
 use Microsoft\Graph\Beta\Generated\Me\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\AppConsentRequestsForApproval\AppConsentRequestsForApprovalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\AppConsentRequestsForApproval\Item\AppConsentRequestItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignedResources\AppRoleAssignedResourcesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignedResources\Item\ServicePrincipalItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignments\AppRoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignments\Item\AppRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Approvals\ApprovalsRequestBuilder;
@@ -193,6 +195,13 @@ class MeRequestBuilder
     */
     public function appConsentRequestsForApproval(): AppConsentRequestsForApprovalRequestBuilder {
         return new AppConsentRequestsForApprovalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The appRoleAssignedResources property
+    */
+    public function appRoleAssignedResources(): AppRoleAssignedResourcesRequestBuilder {
+        return new AppRoleAssignedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -808,6 +817,17 @@ class MeRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['appConsentRequest%2Did'] = $id;
         return new AppConsentRequestItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.me.appRoleAssignedResources.item collection
+     * @param string $id Unique identifier of the item
+     * @return ServicePrincipalItemRequestBuilder
+    */
+    public function appRoleAssignedResourcesById(string $id): ServicePrincipalItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['servicePrincipal%2Did'] = $id;
+        return new ServicePrincipalItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

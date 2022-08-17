@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CorsConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,6 +35,11 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     private ?int $maxAgeInSeconds = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $resource The resource property
     */
     private ?string $resource = null;
@@ -43,7 +48,8 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
      * Instantiates a new corsConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.corsConfiguration');
     }
 
     /**
@@ -98,6 +104,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
             'allowedMethods' => function (ParseNode $n) use ($o) { $o->setAllowedMethods($n->getCollectionOfPrimitiveValues()); },
             'allowedOrigins' => function (ParseNode $n) use ($o) { $o->setAllowedOrigins($n->getCollectionOfPrimitiveValues()); },
             'maxAgeInSeconds' => function (ParseNode $n) use ($o) { $o->setMaxAgeInSeconds($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getStringValue()); },
         ];
     }
@@ -108,6 +115,14 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     */
     public function getMaxAgeInSeconds(): ?int {
         return $this->maxAgeInSeconds;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -127,6 +142,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfPrimitiveValues('allowedMethods', $this->allowedMethods);
         $writer->writeCollectionOfPrimitiveValues('allowedOrigins', $this->allowedOrigins);
         $writer->writeIntegerValue('maxAgeInSeconds', $this->maxAgeInSeconds);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('resource', $this->resource);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -169,6 +185,14 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     */
     public function setMaxAgeInSeconds(?int $value ): void {
         $this->maxAgeInSeconds = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

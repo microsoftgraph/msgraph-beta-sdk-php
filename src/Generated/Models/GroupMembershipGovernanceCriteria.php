@@ -18,6 +18,7 @@ class GroupMembershipGovernanceCriteria extends GovernanceCriteria implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupMembershipGovernanceCriteria');
     }
 
     /**

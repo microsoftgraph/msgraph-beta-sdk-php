@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkbookFilter extends Entity implements Parsable 
 {
     /**
-     * @var WorkbookFilterCriteria|null $criteria The currently applied filter on the given column. Read-only.
+     * @var WorkbookFilterCriteria|null $criteria The criteria property
     */
     private ?WorkbookFilterCriteria $criteria = null;
     
@@ -18,6 +18,7 @@ class WorkbookFilter extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.workbookFilter');
     }
 
     /**
@@ -30,7 +31,7 @@ class WorkbookFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the criteria property value. The currently applied filter on the given column. Read-only.
+     * Gets the criteria property value. The criteria property
      * @return WorkbookFilterCriteria|null
     */
     public function getCriteria(): ?WorkbookFilterCriteria {
@@ -58,7 +59,7 @@ class WorkbookFilter extends Entity implements Parsable
     }
 
     /**
-     * Sets the criteria property value. The currently applied filter on the given column. Read-only.
+     * Sets the criteria property value. The criteria property
      *  @param WorkbookFilterCriteria|null $value Value to set for the criteria property.
     */
     public function setCriteria(?WorkbookFilterCriteria $value ): void {

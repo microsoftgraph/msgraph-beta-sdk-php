@@ -28,6 +28,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceComanagementAuthorityConfiguration');
     }
 
     /**

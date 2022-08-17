@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,7 +25,12 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
     private ?string $minimumOperatingSystemVersion = null;
     
     /**
-     * @var DeviceType|null $type Device type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var DeviceType|null $type Device type.
     */
     private ?DeviceType $type = null;
     
@@ -33,7 +38,8 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
      * Instantiates a new mobileAppSupportedDeviceType and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.mobileAppSupportedDeviceType');
     }
 
     /**
@@ -62,6 +68,7 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
         return  [
             'maximumOperatingSystemVersion' => function (ParseNode $n) use ($o) { $o->setMaximumOperatingSystemVersion($n->getStringValue()); },
             'minimumOperatingSystemVersion' => function (ParseNode $n) use ($o) { $o->setMinimumOperatingSystemVersion($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(DeviceType::class)); },
         ];
     }
@@ -83,7 +90,15 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the type property value. Device type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the type property value. Device type.
      * @return DeviceType|null
     */
     public function getType(): ?DeviceType {
@@ -97,6 +112,7 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('maximumOperatingSystemVersion', $this->maximumOperatingSystemVersion);
         $writer->writeStringValue('minimumOperatingSystemVersion', $this->minimumOperatingSystemVersion);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('type', $this->type);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -126,7 +142,15 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the type property value. Device type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the type property value. Device type.
      *  @param DeviceType|null $value Value to set for the type property.
     */
     public function setType(?DeviceType $value ): void {

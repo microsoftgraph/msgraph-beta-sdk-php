@@ -11,32 +11,37 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var string|null $assignedTo Assigns the control to the user who will take the action.
+     * @var string|null $assignedTo The assignedTo property
     */
     private ?string $assignedTo = null;
     
     /**
-     * @var string|null $comment Provides optional comment about the control.
+     * @var string|null $comment The comment property
     */
     private ?string $comment = null;
     
     /**
-     * @var string|null $state State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty).
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var string|null $state The state property
     */
     private ?string $state = null;
     
     /**
-     * @var string|null $updatedBy ID of the user who updated tenant state.
+     * @var string|null $updatedBy The updatedBy property
     */
     private ?string $updatedBy = null;
     
     /**
-     * @var DateTime|null $updatedDateTime Time at which the control state was updated.
+     * @var DateTime|null $updatedDateTime The updatedDateTime property
     */
     private ?DateTime $updatedDateTime = null;
     
@@ -44,7 +49,8 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
      * Instantiates a new secureScoreControlStateUpdate and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.secureScoreControlStateUpdate');
     }
 
     /**
@@ -65,7 +71,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assignedTo property value. Assigns the control to the user who will take the action.
+     * Gets the assignedTo property value. The assignedTo property
      * @return string|null
     */
     public function getAssignedTo(): ?string {
@@ -73,7 +79,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the comment property value. Provides optional comment about the control.
+     * Gets the comment property value. The comment property
      * @return string|null
     */
     public function getComment(): ?string {
@@ -89,6 +95,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
         return  [
             'assignedTo' => function (ParseNode $n) use ($o) { $o->setAssignedTo($n->getStringValue()); },
             'comment' => function (ParseNode $n) use ($o) { $o->setComment($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
             'updatedBy' => function (ParseNode $n) use ($o) { $o->setUpdatedBy($n->getStringValue()); },
             'updatedDateTime' => function (ParseNode $n) use ($o) { $o->setUpdatedDateTime($n->getDateTimeValue()); },
@@ -96,7 +103,15 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the state property value. State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty).
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the state property value. The state property
      * @return string|null
     */
     public function getState(): ?string {
@@ -104,7 +119,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the updatedBy property value. ID of the user who updated tenant state.
+     * Gets the updatedBy property value. The updatedBy property
      * @return string|null
     */
     public function getUpdatedBy(): ?string {
@@ -112,7 +127,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the updatedDateTime property value. Time at which the control state was updated.
+     * Gets the updatedDateTime property value. The updatedDateTime property
      * @return DateTime|null
     */
     public function getUpdatedDateTime(): ?DateTime {
@@ -126,6 +141,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('assignedTo', $this->assignedTo);
         $writer->writeStringValue('comment', $this->comment);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('state', $this->state);
         $writer->writeStringValue('updatedBy', $this->updatedBy);
         $writer->writeDateTimeValue('updatedDateTime', $this->updatedDateTime);
@@ -141,7 +157,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assignedTo property value. Assigns the control to the user who will take the action.
+     * Sets the assignedTo property value. The assignedTo property
      *  @param string|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?string $value ): void {
@@ -149,7 +165,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the comment property value. Provides optional comment about the control.
+     * Sets the comment property value. The comment property
      *  @param string|null $value Value to set for the comment property.
     */
     public function setComment(?string $value ): void {
@@ -157,7 +173,15 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the state property value. State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty).
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the state property value. The state property
      *  @param string|null $value Value to set for the state property.
     */
     public function setState(?string $value ): void {
@@ -165,7 +189,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the updatedBy property value. ID of the user who updated tenant state.
+     * Sets the updatedBy property value. The updatedBy property
      *  @param string|null $value Value to set for the updatedBy property.
     */
     public function setUpdatedBy(?string $value ): void {
@@ -173,7 +197,7 @@ class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the updatedDateTime property value. Time at which the control state was updated.
+     * Sets the updatedDateTime property value. The updatedDateTime property
      *  @param DateTime|null $value Value to set for the updatedDateTime property.
     */
     public function setUpdatedDateTime(?DateTime $value ): void {

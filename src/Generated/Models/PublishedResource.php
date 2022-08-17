@@ -19,7 +19,7 @@ class PublishedResource extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * @var OnPremisesPublishingType|null $publishingType Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
+     * @var OnPremisesPublishingType|null $publishingType The publishingType property
     */
     private ?OnPremisesPublishingType $publishingType = null;
     
@@ -33,6 +33,7 @@ class PublishedResource extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.publishedResource');
     }
 
     /**
@@ -75,7 +76,7 @@ class PublishedResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the publishingType property value. Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
+     * Gets the publishingType property value. The publishingType property
      * @return OnPremisesPublishingType|null
     */
     public function getPublishingType(): ?OnPremisesPublishingType {
@@ -119,7 +120,7 @@ class PublishedResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the publishingType property value. Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
+     * Sets the publishingType property value. The publishingType property
      *  @param OnPremisesPublishingType|null $value Value to set for the publishingType property.
     */
     public function setPublishingType(?OnPremisesPublishingType $value ): void {

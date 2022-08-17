@@ -18,6 +18,7 @@ class WindowsFeatureUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsFeatureUpdateCatalogItem');
     }
 
     /**

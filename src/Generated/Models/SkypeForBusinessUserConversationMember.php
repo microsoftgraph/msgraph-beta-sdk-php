@@ -23,6 +23,7 @@ class SkypeForBusinessUserConversationMember extends ConversationMember implemen
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.skypeForBusinessUserConversationMember');
     }
 
     /**

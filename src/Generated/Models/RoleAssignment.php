@@ -34,7 +34,7 @@ class RoleAssignment extends Entity implements Parsable
     private ?array $scopeMembers = null;
     
     /**
-     * @var RoleAssignmentScopeType|null $scopeType Specifies the type of scope for a Role Assignment. Default type 'ResourceScope' allows assignment of ResourceScopes. For 'AllDevices', 'AllLicensedUsers', and 'AllDevicesAndLicensedUsers', the ResourceScopes property should be left empty. Possible values are: resourceScope, allDevices, allLicensedUsers, allDevicesAndLicensedUsers.
+     * @var RoleAssignmentScopeType|null $scopeType Specifies the type of scope for a Role Assignment.
     */
     private ?RoleAssignmentScopeType $scopeType = null;
     
@@ -43,6 +43,7 @@ class RoleAssignment extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.roleAssignment');
     }
 
     /**
@@ -118,7 +119,7 @@ class RoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Gets the scopeType property value. Specifies the type of scope for a Role Assignment. Default type 'ResourceScope' allows assignment of ResourceScopes. For 'AllDevices', 'AllLicensedUsers', and 'AllDevicesAndLicensedUsers', the ResourceScopes property should be left empty. Possible values are: resourceScope, allDevices, allLicensedUsers, allDevicesAndLicensedUsers.
+     * Gets the scopeType property value. Specifies the type of scope for a Role Assignment.
      * @return RoleAssignmentScopeType|null
     */
     public function getScopeType(): ?RoleAssignmentScopeType {
@@ -180,7 +181,7 @@ class RoleAssignment extends Entity implements Parsable
     }
 
     /**
-     * Sets the scopeType property value. Specifies the type of scope for a Role Assignment. Default type 'ResourceScope' allows assignment of ResourceScopes. For 'AllDevices', 'AllLicensedUsers', and 'AllDevicesAndLicensedUsers', the ResourceScopes property should be left empty. Possible values are: resourceScope, allDevices, allLicensedUsers, allDevicesAndLicensedUsers.
+     * Sets the scopeType property value. Specifies the type of scope for a Role Assignment.
      *  @param RoleAssignmentScopeType|null $value Value to set for the scopeType property.
     */
     public function setScopeType(?RoleAssignmentScopeType $value ): void {

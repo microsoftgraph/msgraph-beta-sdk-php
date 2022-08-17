@@ -10,27 +10,32 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ControlScore implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var string|null $controlCategory Control action category (Identity, Data, Device, Apps, Infrastructure).
+     * @var string|null $controlCategory The controlCategory property
     */
     private ?string $controlCategory = null;
     
     /**
-     * @var string|null $controlName Control unique name.
+     * @var string|null $controlName The controlName property
     */
     private ?string $controlName = null;
     
     /**
-     * @var string|null $description Description of the control.
+     * @var string|null $description The description property
     */
     private ?string $description = null;
     
     /**
-     * @var float|null $score Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var float|null $score The score property
     */
     private ?float $score = null;
     
@@ -38,7 +43,8 @@ class ControlScore implements AdditionalDataHolder, Parsable
      * Instantiates a new controlScore and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.controlScore');
     }
 
     /**
@@ -59,7 +65,7 @@ class ControlScore implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the controlCategory property value. Control action category (Identity, Data, Device, Apps, Infrastructure).
+     * Gets the controlCategory property value. The controlCategory property
      * @return string|null
     */
     public function getControlCategory(): ?string {
@@ -67,7 +73,7 @@ class ControlScore implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the controlName property value. Control unique name.
+     * Gets the controlName property value. The controlName property
      * @return string|null
     */
     public function getControlName(): ?string {
@@ -75,7 +81,7 @@ class ControlScore implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the description property value. Description of the control.
+     * Gets the description property value. The description property
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -92,12 +98,21 @@ class ControlScore implements AdditionalDataHolder, Parsable
             'controlCategory' => function (ParseNode $n) use ($o) { $o->setControlCategory($n->getStringValue()); },
             'controlName' => function (ParseNode $n) use ($o) { $o->setControlName($n->getStringValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'score' => function (ParseNode $n) use ($o) { $o->setScore($n->getFloatValue()); },
         ];
     }
 
     /**
-     * Gets the score property value. Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the score property value. The score property
      * @return float|null
     */
     public function getScore(): ?float {
@@ -112,6 +127,7 @@ class ControlScore implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('controlCategory', $this->controlCategory);
         $writer->writeStringValue('controlName', $this->controlName);
         $writer->writeStringValue('description', $this->description);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeFloatValue('score', $this->score);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -125,7 +141,7 @@ class ControlScore implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the controlCategory property value. Control action category (Identity, Data, Device, Apps, Infrastructure).
+     * Sets the controlCategory property value. The controlCategory property
      *  @param string|null $value Value to set for the controlCategory property.
     */
     public function setControlCategory(?string $value ): void {
@@ -133,7 +149,7 @@ class ControlScore implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the controlName property value. Control unique name.
+     * Sets the controlName property value. The controlName property
      *  @param string|null $value Value to set for the controlName property.
     */
     public function setControlName(?string $value ): void {
@@ -141,7 +157,7 @@ class ControlScore implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the description property value. Description of the control.
+     * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -149,7 +165,15 @@ class ControlScore implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the score property value. Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the score property value. The score property
      *  @param float|null $value Value to set for the score property.
     */
     public function setScore(?float $value ): void {

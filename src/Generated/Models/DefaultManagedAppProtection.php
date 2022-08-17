@@ -24,27 +24,27 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     private ?string $allowedIosDeviceModels = null;
     
     /**
-     * @var ManagedAppRemediationAction|null $appActionIfAndroidDeviceManufacturerNotAllowed Defines a managed app behavior, either block or wipe, if the specified device manufacturer is not allowed. (Android only). Possible values are: block, wipe, warn.
+     * @var ManagedAppRemediationAction|null $appActionIfAndroidDeviceManufacturerNotAllowed An admin initiated action to be applied on a managed app.
     */
     private ?ManagedAppRemediationAction $appActionIfAndroidDeviceManufacturerNotAllowed = null;
     
     /**
-     * @var ManagedAppRemediationAction|null $appActionIfAndroidDeviceModelNotAllowed Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. (Android Only). Possible values are: block, wipe, warn.
+     * @var ManagedAppRemediationAction|null $appActionIfAndroidDeviceModelNotAllowed An admin initiated action to be applied on a managed app.
     */
     private ?ManagedAppRemediationAction $appActionIfAndroidDeviceModelNotAllowed = null;
     
     /**
-     * @var ManagedAppRemediationAction|null $appActionIfAndroidSafetyNetAppsVerificationFailed Defines a managed app behavior, either warn or block, if the specified Android App Verification requirement fails. Possible values are: block, wipe, warn.
+     * @var ManagedAppRemediationAction|null $appActionIfAndroidSafetyNetAppsVerificationFailed An admin initiated action to be applied on a managed app.
     */
     private ?ManagedAppRemediationAction $appActionIfAndroidSafetyNetAppsVerificationFailed = null;
     
     /**
-     * @var ManagedAppRemediationAction|null $appActionIfAndroidSafetyNetDeviceAttestationFailed Defines a managed app behavior, either warn or block, if the specified Android SafetyNet Attestation requirement fails. Possible values are: block, wipe, warn.
+     * @var ManagedAppRemediationAction|null $appActionIfAndroidSafetyNetDeviceAttestationFailed An admin initiated action to be applied on a managed app.
     */
     private ?ManagedAppRemediationAction $appActionIfAndroidSafetyNetDeviceAttestationFailed = null;
     
     /**
-     * @var ManagedAppRemediationAction|null $appActionIfDeviceLockNotSet Defines a managed app behavior, either warn, block or wipe, if the screen lock is required on device but is not set. (android only). Possible values are: block, wipe, warn.
+     * @var ManagedAppRemediationAction|null $appActionIfDeviceLockNotSet An admin initiated action to be applied on a managed app.
     */
     private ?ManagedAppRemediationAction $appActionIfDeviceLockNotSet = null;
     
@@ -64,12 +64,12 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     private ?ManagedAppRemediationAction $appActionIfDevicePasscodeComplexityLessThanMedium = null;
     
     /**
-     * @var ManagedAppRemediationAction|null $appActionIfIosDeviceModelNotAllowed Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. (iOS Only). Possible values are: block, wipe, warn.
+     * @var ManagedAppRemediationAction|null $appActionIfIosDeviceModelNotAllowed An admin initiated action to be applied on a managed app.
     */
     private ?ManagedAppRemediationAction $appActionIfIosDeviceModelNotAllowed = null;
     
     /**
-     * @var ManagedAppDataEncryptionType|null $appDataEncryptionType Type of encryption which should be used for data in a managed app. (iOS Only). Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
+     * @var ManagedAppDataEncryptionType|null $appDataEncryptionType Represents the level to which app data is encrypted for managed apps
     */
     private ?ManagedAppDataEncryptionType $appDataEncryptionType = null;
     
@@ -234,17 +234,17 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     private ?bool $requireClass3Biometrics = null;
     
     /**
-     * @var AndroidManagedAppSafetyNetAppsVerificationType|null $requiredAndroidSafetyNetAppsVerificationType Defines the Android SafetyNet Apps Verification requirement for a managed app to work. Possible values are: none, enabled.
+     * @var AndroidManagedAppSafetyNetAppsVerificationType|null $requiredAndroidSafetyNetAppsVerificationType An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
     */
     private ?AndroidManagedAppSafetyNetAppsVerificationType $requiredAndroidSafetyNetAppsVerificationType = null;
     
     /**
-     * @var AndroidManagedAppSafetyNetDeviceAttestationType|null $requiredAndroidSafetyNetDeviceAttestationType Defines the Android SafetyNet Device Attestation requirement for a managed app to work. Possible values are: none, basicIntegrity, basicIntegrityAndDeviceCertification.
+     * @var AndroidManagedAppSafetyNetDeviceAttestationType|null $requiredAndroidSafetyNetDeviceAttestationType An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
     */
     private ?AndroidManagedAppSafetyNetDeviceAttestationType $requiredAndroidSafetyNetDeviceAttestationType = null;
     
     /**
-     * @var AndroidManagedAppSafetyNetEvaluationType|null $requiredAndroidSafetyNetEvaluationType Defines the Android SafetyNet evaluation type requirement for a managed app to work. (Android Only). Possible values are: basic, hardwareBacked.
+     * @var AndroidManagedAppSafetyNetEvaluationType|null $requiredAndroidSafetyNetEvaluationType An admin enforced Android SafetyNet evaluation type requirement on a managed app.
     */
     private ?AndroidManagedAppSafetyNetEvaluationType $requiredAndroidSafetyNetEvaluationType = null;
     
@@ -278,6 +278,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.defaultManagedAppProtection');
     }
 
     /**
@@ -314,7 +315,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Gets the appActionIfAndroidDeviceManufacturerNotAllowed property value. Defines a managed app behavior, either block or wipe, if the specified device manufacturer is not allowed. (Android only). Possible values are: block, wipe, warn.
+     * Gets the appActionIfAndroidDeviceManufacturerNotAllowed property value. An admin initiated action to be applied on a managed app.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidDeviceManufacturerNotAllowed(): ?ManagedAppRemediationAction {
@@ -322,7 +323,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Gets the appActionIfAndroidDeviceModelNotAllowed property value. Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. (Android Only). Possible values are: block, wipe, warn.
+     * Gets the appActionIfAndroidDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidDeviceModelNotAllowed(): ?ManagedAppRemediationAction {
@@ -330,7 +331,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Gets the appActionIfAndroidSafetyNetAppsVerificationFailed property value. Defines a managed app behavior, either warn or block, if the specified Android App Verification requirement fails. Possible values are: block, wipe, warn.
+     * Gets the appActionIfAndroidSafetyNetAppsVerificationFailed property value. An admin initiated action to be applied on a managed app.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidSafetyNetAppsVerificationFailed(): ?ManagedAppRemediationAction {
@@ -338,7 +339,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Gets the appActionIfAndroidSafetyNetDeviceAttestationFailed property value. Defines a managed app behavior, either warn or block, if the specified Android SafetyNet Attestation requirement fails. Possible values are: block, wipe, warn.
+     * Gets the appActionIfAndroidSafetyNetDeviceAttestationFailed property value. An admin initiated action to be applied on a managed app.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfAndroidSafetyNetDeviceAttestationFailed(): ?ManagedAppRemediationAction {
@@ -346,7 +347,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Gets the appActionIfDeviceLockNotSet property value. Defines a managed app behavior, either warn, block or wipe, if the screen lock is required on device but is not set. (android only). Possible values are: block, wipe, warn.
+     * Gets the appActionIfDeviceLockNotSet property value. An admin initiated action to be applied on a managed app.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfDeviceLockNotSet(): ?ManagedAppRemediationAction {
@@ -378,7 +379,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Gets the appActionIfIosDeviceModelNotAllowed property value. Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. (iOS Only). Possible values are: block, wipe, warn.
+     * Gets the appActionIfIosDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfIosDeviceModelNotAllowed(): ?ManagedAppRemediationAction {
@@ -386,7 +387,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Gets the appDataEncryptionType property value. Type of encryption which should be used for data in a managed app. (iOS Only). Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
+     * Gets the appDataEncryptionType property value. Represents the level to which app data is encrypted for managed apps
      * @return ManagedAppDataEncryptionType|null
     */
     public function getAppDataEncryptionType(): ?ManagedAppDataEncryptionType {
@@ -713,7 +714,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Gets the requiredAndroidSafetyNetAppsVerificationType property value. Defines the Android SafetyNet Apps Verification requirement for a managed app to work. Possible values are: none, enabled.
+     * Gets the requiredAndroidSafetyNetAppsVerificationType property value. An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
      * @return AndroidManagedAppSafetyNetAppsVerificationType|null
     */
     public function getRequiredAndroidSafetyNetAppsVerificationType(): ?AndroidManagedAppSafetyNetAppsVerificationType {
@@ -721,7 +722,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Gets the requiredAndroidSafetyNetDeviceAttestationType property value. Defines the Android SafetyNet Device Attestation requirement for a managed app to work. Possible values are: none, basicIntegrity, basicIntegrityAndDeviceCertification.
+     * Gets the requiredAndroidSafetyNetDeviceAttestationType property value. An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
      * @return AndroidManagedAppSafetyNetDeviceAttestationType|null
     */
     public function getRequiredAndroidSafetyNetDeviceAttestationType(): ?AndroidManagedAppSafetyNetDeviceAttestationType {
@@ -729,7 +730,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Gets the requiredAndroidSafetyNetEvaluationType property value. Defines the Android SafetyNet evaluation type requirement for a managed app to work. (Android Only). Possible values are: basic, hardwareBacked.
+     * Gets the requiredAndroidSafetyNetEvaluationType property value. An admin enforced Android SafetyNet evaluation type requirement on a managed app.
      * @return AndroidManagedAppSafetyNetEvaluationType|null
     */
     public function getRequiredAndroidSafetyNetEvaluationType(): ?AndroidManagedAppSafetyNetEvaluationType {
@@ -862,7 +863,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Sets the appActionIfAndroidDeviceManufacturerNotAllowed property value. Defines a managed app behavior, either block or wipe, if the specified device manufacturer is not allowed. (Android only). Possible values are: block, wipe, warn.
+     * Sets the appActionIfAndroidDeviceManufacturerNotAllowed property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidDeviceManufacturerNotAllowed property.
     */
     public function setAppActionIfAndroidDeviceManufacturerNotAllowed(?ManagedAppRemediationAction $value ): void {
@@ -870,7 +871,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Sets the appActionIfAndroidDeviceModelNotAllowed property value. Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. (Android Only). Possible values are: block, wipe, warn.
+     * Sets the appActionIfAndroidDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidDeviceModelNotAllowed property.
     */
     public function setAppActionIfAndroidDeviceModelNotAllowed(?ManagedAppRemediationAction $value ): void {
@@ -878,7 +879,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Sets the appActionIfAndroidSafetyNetAppsVerificationFailed property value. Defines a managed app behavior, either warn or block, if the specified Android App Verification requirement fails. Possible values are: block, wipe, warn.
+     * Sets the appActionIfAndroidSafetyNetAppsVerificationFailed property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidSafetyNetAppsVerificationFailed property.
     */
     public function setAppActionIfAndroidSafetyNetAppsVerificationFailed(?ManagedAppRemediationAction $value ): void {
@@ -886,7 +887,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Sets the appActionIfAndroidSafetyNetDeviceAttestationFailed property value. Defines a managed app behavior, either warn or block, if the specified Android SafetyNet Attestation requirement fails. Possible values are: block, wipe, warn.
+     * Sets the appActionIfAndroidSafetyNetDeviceAttestationFailed property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfAndroidSafetyNetDeviceAttestationFailed property.
     */
     public function setAppActionIfAndroidSafetyNetDeviceAttestationFailed(?ManagedAppRemediationAction $value ): void {
@@ -894,7 +895,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Sets the appActionIfDeviceLockNotSet property value. Defines a managed app behavior, either warn, block or wipe, if the screen lock is required on device but is not set. (android only). Possible values are: block, wipe, warn.
+     * Sets the appActionIfDeviceLockNotSet property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfDeviceLockNotSet property.
     */
     public function setAppActionIfDeviceLockNotSet(?ManagedAppRemediationAction $value ): void {
@@ -926,7 +927,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Sets the appActionIfIosDeviceModelNotAllowed property value. Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. (iOS Only). Possible values are: block, wipe, warn.
+     * Sets the appActionIfIosDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfIosDeviceModelNotAllowed property.
     */
     public function setAppActionIfIosDeviceModelNotAllowed(?ManagedAppRemediationAction $value ): void {
@@ -934,7 +935,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Sets the appDataEncryptionType property value. Type of encryption which should be used for data in a managed app. (iOS Only). Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
+     * Sets the appDataEncryptionType property value. Represents the level to which app data is encrypted for managed apps
      *  @param ManagedAppDataEncryptionType|null $value Value to set for the appDataEncryptionType property.
     */
     public function setAppDataEncryptionType(?ManagedAppDataEncryptionType $value ): void {
@@ -1198,7 +1199,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Sets the requiredAndroidSafetyNetAppsVerificationType property value. Defines the Android SafetyNet Apps Verification requirement for a managed app to work. Possible values are: none, enabled.
+     * Sets the requiredAndroidSafetyNetAppsVerificationType property value. An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
      *  @param AndroidManagedAppSafetyNetAppsVerificationType|null $value Value to set for the requiredAndroidSafetyNetAppsVerificationType property.
     */
     public function setRequiredAndroidSafetyNetAppsVerificationType(?AndroidManagedAppSafetyNetAppsVerificationType $value ): void {
@@ -1206,7 +1207,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Sets the requiredAndroidSafetyNetDeviceAttestationType property value. Defines the Android SafetyNet Device Attestation requirement for a managed app to work. Possible values are: none, basicIntegrity, basicIntegrityAndDeviceCertification.
+     * Sets the requiredAndroidSafetyNetDeviceAttestationType property value. An admin enforced Android SafetyNet Device Attestation requirement on a managed app.
      *  @param AndroidManagedAppSafetyNetDeviceAttestationType|null $value Value to set for the requiredAndroidSafetyNetDeviceAttestationType property.
     */
     public function setRequiredAndroidSafetyNetDeviceAttestationType(?AndroidManagedAppSafetyNetDeviceAttestationType $value ): void {
@@ -1214,7 +1215,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     }
 
     /**
-     * Sets the requiredAndroidSafetyNetEvaluationType property value. Defines the Android SafetyNet evaluation type requirement for a managed app to work. (Android Only). Possible values are: basic, hardwareBacked.
+     * Sets the requiredAndroidSafetyNetEvaluationType property value. An admin enforced Android SafetyNet evaluation type requirement on a managed app.
      *  @param AndroidManagedAppSafetyNetEvaluationType|null $value Value to set for the requiredAndroidSafetyNetEvaluationType property.
     */
     public function setRequiredAndroidSafetyNetEvaluationType(?AndroidManagedAppSafetyNetEvaluationType $value ): void {

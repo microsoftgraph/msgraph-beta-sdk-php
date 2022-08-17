@@ -18,6 +18,7 @@ class InsightValueInt extends UserExperienceAnalyticsInsightValue implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.insightValueInt');
     }
 
     /**

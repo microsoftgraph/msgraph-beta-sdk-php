@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkloadStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -19,6 +19,11 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
      * @var string|null $displayName The display name for the workload. Required. Read-only.
     */
     private ?string $displayName = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var DateTime|null $offboardedDateTime The date and time the workload was offboarded. Optional. Read-only.
@@ -31,7 +36,7 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
     private ?DateTime $onboardedDateTime = null;
     
     /**
-     * @var WorkloadOnboardingStatus|null $onboardingStatus The onboarding status for the workload. Possible values are: notOnboarded, onboarded, unknownFutureValue. Optional. Read-only.
+     * @var WorkloadOnboardingStatus|null $onboardingStatus The onboardingStatus property
     */
     private ?WorkloadOnboardingStatus $onboardingStatus = null;
     
@@ -39,7 +44,8 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new workloadStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedTenants.workloadStatus');
     }
 
     /**
@@ -75,10 +81,19 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'offboardedDateTime' => function (ParseNode $n) use ($o) { $o->setOffboardedDateTime($n->getDateTimeValue()); },
             'onboardedDateTime' => function (ParseNode $n) use ($o) { $o->setOnboardedDateTime($n->getDateTimeValue()); },
             'onboardingStatus' => function (ParseNode $n) use ($o) { $o->setOnboardingStatus($n->getEnumValue(WorkloadOnboardingStatus::class)); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,7 +113,7 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the onboardingStatus property value. The onboarding status for the workload. Possible values are: notOnboarded, onboarded, unknownFutureValue. Optional. Read-only.
+     * Gets the onboardingStatus property value. The onboardingStatus property
      * @return WorkloadOnboardingStatus|null
     */
     public function getOnboardingStatus(): ?WorkloadOnboardingStatus {
@@ -111,6 +126,7 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateTimeValue('offboardedDateTime', $this->offboardedDateTime);
         $writer->writeDateTimeValue('onboardedDateTime', $this->onboardedDateTime);
         $writer->writeEnumValue('onboardingStatus', $this->onboardingStatus);
@@ -134,6 +150,14 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the offboardedDateTime property value. The date and time the workload was offboarded. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the offboardedDateTime property.
     */
@@ -150,7 +174,7 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the onboardingStatus property value. The onboarding status for the workload. Possible values are: notOnboarded, onboarded, unknownFutureValue. Optional. Read-only.
+     * Sets the onboardingStatus property value. The onboardingStatus property
      *  @param WorkloadOnboardingStatus|null $value Value to set for the onboardingStatus property.
     */
     public function setOnboardingStatus(?WorkloadOnboardingStatus $value ): void {

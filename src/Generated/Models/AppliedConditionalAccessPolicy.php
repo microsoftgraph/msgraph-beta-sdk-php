@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -60,6 +60,11 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
     private ?array $includeRulesSatisfied = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var AppliedConditionalAccessPolicyResult|null $result Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
     */
     private ?AppliedConditionalAccessPolicyResult $result = null;
@@ -73,7 +78,8 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
      * Instantiates a new appliedConditionalAccessPolicy and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.appliedConditionalAccessPolicy');
     }
 
     /**
@@ -165,6 +171,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
             'excludeRulesSatisfied' => function (ParseNode $n) use ($o) { $o->setExcludeRulesSatisfied($n->getCollectionOfObjectValues(array(ConditionalAccessRuleSatisfied::class, 'createFromDiscriminatorValue'))); },
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
             'includeRulesSatisfied' => function (ParseNode $n) use ($o) { $o->setIncludeRulesSatisfied($n->getCollectionOfObjectValues(array(ConditionalAccessRuleSatisfied::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'result' => function (ParseNode $n) use ($o) { $o->setResult($n->getEnumValue(AppliedConditionalAccessPolicyResult::class)); },
             'sessionControlsNotSatisfied' => function (ParseNode $n) use ($o) { $o->setSessionControlsNotSatisfied($n->getCollectionOfPrimitiveValues()); },
         ];
@@ -184,6 +191,14 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
     */
     public function getIncludeRulesSatisfied(): ?array {
         return $this->includeRulesSatisfied;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -216,6 +231,7 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfObjectValues('excludeRulesSatisfied', $this->excludeRulesSatisfied);
         $writer->writeStringValue('id', $this->id);
         $writer->writeCollectionOfObjectValues('includeRulesSatisfied', $this->includeRulesSatisfied);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('result', $this->result);
         $writer->writeCollectionOfPrimitiveValues('sessionControlsNotSatisfied', $this->sessionControlsNotSatisfied);
         $writer->writeAdditionalData($this->additionalData);
@@ -299,6 +315,14 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
     */
     public function setIncludeRulesSatisfied(?array $value ): void {
         $this->includeRulesSatisfied = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

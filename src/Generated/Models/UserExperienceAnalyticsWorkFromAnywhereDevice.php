@@ -64,7 +64,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     private ?string $deviceName = null;
     
     /**
-     * @var UserExperienceAnalyticsHealthState|null $healthStatus The user experience work from anywhere per device health status. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * @var UserExperienceAnalyticsHealthState|null $healthStatus The healthStatus property
     */
     private ?UserExperienceAnalyticsHealthState $healthStatus = null;
     
@@ -164,7 +164,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     private ?bool $tpmCheckFailed = null;
     
     /**
-     * @var OperatingSystemUpgradeEligibility|null $upgradeEligibility The user experience work from anywhere windows upgrade eligibility status of device. Possible values are: upgraded, unknown, notCapable, capable.
+     * @var OperatingSystemUpgradeEligibility|null $upgradeEligibility Work From Anywhere windows device upgrade eligibility status
     */
     private ?OperatingSystemUpgradeEligibility $upgradeEligibility = null;
     
@@ -183,6 +183,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsWorkFromAnywhereDevice');
     }
 
     /**
@@ -327,7 +328,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the healthStatus property value. The user experience work from anywhere per device health status. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * Gets the healthStatus property value. The healthStatus property
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
@@ -487,7 +488,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Gets the upgradeEligibility property value. The user experience work from anywhere windows upgrade eligibility status of device. Possible values are: upgraded, unknown, notCapable, capable.
+     * Gets the upgradeEligibility property value. Work From Anywhere windows device upgrade eligibility status
      * @return OperatingSystemUpgradeEligibility|null
     */
     public function getUpgradeEligibility(): ?OperatingSystemUpgradeEligibility {
@@ -641,7 +642,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the healthStatus property value. The user experience work from anywhere per device health status. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * Sets the healthStatus property value. The healthStatus property
      *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?UserExperienceAnalyticsHealthState $value ): void {
@@ -801,7 +802,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity implements Pa
     }
 
     /**
-     * Sets the upgradeEligibility property value. The user experience work from anywhere windows upgrade eligibility status of device. Possible values are: upgraded, unknown, notCapable, capable.
+     * Sets the upgradeEligibility property value. Work From Anywhere windows device upgrade eligibility status
      *  @param OperatingSystemUpgradeEligibility|null $value Value to set for the upgradeEligibility property.
     */
     public function setUpgradeEligibility(?OperatingSystemUpgradeEligibility $value ): void {

@@ -23,6 +23,7 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.educationSynchronizationOAuth2ClientCredentialsConnectionSettings');
     }
 
     /**

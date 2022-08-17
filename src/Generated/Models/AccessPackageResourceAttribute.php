@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -45,10 +45,16 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
     private ?bool $isPersistedOnAssignmentRemoval = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new accessPackageResourceAttribute and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.accessPackageResourceAttribute');
     }
 
     /**
@@ -105,6 +111,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
             'isEditable' => function (ParseNode $n) use ($o) { $o->setIsEditable($n->getBooleanValue()); },
             'isPersistedOnAssignmentRemoval' => function (ParseNode $n) use ($o) { $o->setIsPersistedOnAssignmentRemoval($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -133,6 +140,14 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -143,6 +158,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('id', $this->id);
         $writer->writeBooleanValue('isEditable', $this->isEditable);
         $writer->writeBooleanValue('isPersistedOnAssignmentRemoval', $this->isPersistedOnAssignmentRemoval);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -200,6 +216,14 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
     */
     public function setIsPersistedOnAssignmentRemoval(?bool $value ): void {
         $this->isPersistedOnAssignmentRemoval = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }
