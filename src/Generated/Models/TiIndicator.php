@@ -300,10 +300,11 @@ class TiIndicator extends Entity implements Parsable
     private ?string $userAgent = null;
     
     /**
-     * Instantiates a new tiIndicator and sets the default values.
+     * Instantiates a new TiIndicator and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.tiIndicator');
     }
 
     /**

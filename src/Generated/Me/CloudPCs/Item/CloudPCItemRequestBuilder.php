@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\ChangeUserAccountType\ChangeUserAccountTypeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\EndGracePeriod\EndGracePeriodRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\GetCloudPcConnectivityHistory\GetCloudPcConnectivityHistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\GetCloudPcLaunchInfo\GetCloudPcLaunchInfoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\Reboot\RebootRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\CloudPCs\Item\Rename\RenameRequestBuilder;
@@ -197,6 +198,14 @@ class CloudPCItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
+    }
+
+    /**
+     * Provides operations to call the getCloudPcConnectivityHistory method.
+     * @return GetCloudPcConnectivityHistoryRequestBuilder
+    */
+    public function getCloudPcConnectivityHistory(): GetCloudPcConnectivityHistoryRequestBuilder {
+        return new GetCloudPcConnectivityHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**

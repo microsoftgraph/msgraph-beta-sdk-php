@@ -65,7 +65,7 @@ class LabelPolicySettingsRequestBuilder
     }
 
     /**
-     * Get labelPolicySettings from security
+     * Read the Microsoft Purview Information Protection policy settings for the user or organization.
      * @param LabelPolicySettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +132,7 @@ class LabelPolicySettingsRequestBuilder
     }
 
     /**
-     * Get labelPolicySettings from security
+     * Read the Microsoft Purview Information Protection policy settings for the user or organization.
      * @param LabelPolicySettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

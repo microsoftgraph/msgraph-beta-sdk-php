@@ -18,6 +18,7 @@ class Windows10EnrollmentCompletionPageConfigurationPolicySetItem extends Policy
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10EnrollmentCompletionPageConfigurationPolicySetItem');
     }
 
     /**

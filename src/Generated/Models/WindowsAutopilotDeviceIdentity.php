@@ -35,12 +35,12 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     private ?DateTime $deploymentProfileAssignedDateTime = null;
     
     /**
-     * @var WindowsAutopilotProfileAssignmentDetailedStatus|null $deploymentProfileAssignmentDetailedStatus Profile assignment detailed status of the Windows autopilot device. Possible values are: none, hardwareRequirementsNotMet, surfaceHubProfileNotSupported, holoLensProfileNotSupported, windowsPcProfileNotSupported, surfaceHub2SProfileNotSupported, unknownFutureValue.
+     * @var WindowsAutopilotProfileAssignmentDetailedStatus|null $deploymentProfileAssignmentDetailedStatus The deploymentProfileAssignmentDetailedStatus property
     */
     private ?WindowsAutopilotProfileAssignmentDetailedStatus $deploymentProfileAssignmentDetailedStatus = null;
     
     /**
-     * @var WindowsAutopilotProfileAssignmentStatus|null $deploymentProfileAssignmentStatus Profile assignment status of the Windows autopilot device. Possible values are: unknown, assignedInSync, assignedOutOfSync, assignedUnkownSyncState, notAssigned, pending, failed.
+     * @var WindowsAutopilotProfileAssignmentStatus|null $deploymentProfileAssignmentStatus The deploymentProfileAssignmentStatus property
     */
     private ?WindowsAutopilotProfileAssignmentStatus $deploymentProfileAssignmentStatus = null;
     
@@ -65,7 +65,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * @var EnrollmentState|null $enrollmentState Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * @var EnrollmentState|null $enrollmentState The enrollmentState property
     */
     private ?EnrollmentState $enrollmentState = null;
     
@@ -110,7 +110,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     private ?string $purchaseOrderIdentifier = null;
     
     /**
-     * @var WindowsAutopilotDeviceRemediationState|null $remediationState Device Remediation State. Possible values are: unknown, noRemediationRequired, automaticRemediationRequired, manualRemediationRequired, unknownFutureValue.
+     * @var WindowsAutopilotDeviceRemediationState|null $remediationState Device remediation status, indicating whether or not hardware has been changed for an Autopilot-registered device.
     */
     private ?WindowsAutopilotDeviceRemediationState $remediationState = null;
     
@@ -149,6 +149,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsAutopilotDeviceIdentity');
     }
 
     /**
@@ -201,7 +202,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the deploymentProfileAssignmentDetailedStatus property value. Profile assignment detailed status of the Windows autopilot device. Possible values are: none, hardwareRequirementsNotMet, surfaceHubProfileNotSupported, holoLensProfileNotSupported, windowsPcProfileNotSupported, surfaceHub2SProfileNotSupported, unknownFutureValue.
+     * Gets the deploymentProfileAssignmentDetailedStatus property value. The deploymentProfileAssignmentDetailedStatus property
      * @return WindowsAutopilotProfileAssignmentDetailedStatus|null
     */
     public function getDeploymentProfileAssignmentDetailedStatus(): ?WindowsAutopilotProfileAssignmentDetailedStatus {
@@ -209,7 +210,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the deploymentProfileAssignmentStatus property value. Profile assignment status of the Windows autopilot device. Possible values are: unknown, assignedInSync, assignedOutOfSync, assignedUnkownSyncState, notAssigned, pending, failed.
+     * Gets the deploymentProfileAssignmentStatus property value. The deploymentProfileAssignmentStatus property
      * @return WindowsAutopilotProfileAssignmentStatus|null
     */
     public function getDeploymentProfileAssignmentStatus(): ?WindowsAutopilotProfileAssignmentStatus {
@@ -249,7 +250,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Gets the enrollmentState property value. The enrollmentState property
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
@@ -358,7 +359,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the remediationState property value. Device Remediation State. Possible values are: unknown, noRemediationRequired, automaticRemediationRequired, manualRemediationRequired, unknownFutureValue.
+     * Gets the remediationState property value. Device remediation status, indicating whether or not hardware has been changed for an Autopilot-registered device.
      * @return WindowsAutopilotDeviceRemediationState|null
     */
     public function getRemediationState(): ?WindowsAutopilotDeviceRemediationState {
@@ -489,7 +490,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the deploymentProfileAssignmentDetailedStatus property value. Profile assignment detailed status of the Windows autopilot device. Possible values are: none, hardwareRequirementsNotMet, surfaceHubProfileNotSupported, holoLensProfileNotSupported, windowsPcProfileNotSupported, surfaceHub2SProfileNotSupported, unknownFutureValue.
+     * Sets the deploymentProfileAssignmentDetailedStatus property value. The deploymentProfileAssignmentDetailedStatus property
      *  @param WindowsAutopilotProfileAssignmentDetailedStatus|null $value Value to set for the deploymentProfileAssignmentDetailedStatus property.
     */
     public function setDeploymentProfileAssignmentDetailedStatus(?WindowsAutopilotProfileAssignmentDetailedStatus $value ): void {
@@ -497,7 +498,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the deploymentProfileAssignmentStatus property value. Profile assignment status of the Windows autopilot device. Possible values are: unknown, assignedInSync, assignedOutOfSync, assignedUnkownSyncState, notAssigned, pending, failed.
+     * Sets the deploymentProfileAssignmentStatus property value. The deploymentProfileAssignmentStatus property
      *  @param WindowsAutopilotProfileAssignmentStatus|null $value Value to set for the deploymentProfileAssignmentStatus property.
     */
     public function setDeploymentProfileAssignmentStatus(?WindowsAutopilotProfileAssignmentStatus $value ): void {
@@ -537,7 +538,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Sets the enrollmentState property value. The enrollmentState property
      *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
     public function setEnrollmentState(?EnrollmentState $value ): void {
@@ -609,7 +610,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the remediationState property value. Device Remediation State. Possible values are: unknown, noRemediationRequired, automaticRemediationRequired, manualRemediationRequired, unknownFutureValue.
+     * Sets the remediationState property value. Device remediation status, indicating whether or not hardware has been changed for an Autopilot-registered device.
      *  @param WindowsAutopilotDeviceRemediationState|null $value Value to set for the remediationState property.
     */
     public function setRemediationState(?WindowsAutopilotDeviceRemediationState $value ): void {

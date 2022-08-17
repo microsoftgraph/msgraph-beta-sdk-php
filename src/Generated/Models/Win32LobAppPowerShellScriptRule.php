@@ -24,12 +24,12 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule implements Parsabl
     private ?bool $enforceSignatureCheck = null;
     
     /**
-     * @var Win32LobAppPowerShellScriptRuleOperationType|null $operationType The script output comparison operation type. Use NotConfigured (the default value) if the rule is used for detection. Possible values are: notConfigured, string, dateTime, integer, float, version, boolean.
+     * @var Win32LobAppPowerShellScriptRuleOperationType|null $operationType Contains all supported Powershell Script output detection type.
     */
     private ?Win32LobAppPowerShellScriptRuleOperationType $operationType = null;
     
     /**
-     * @var Win32LobAppRuleOperator|null $operator The script output operator. Use NotConfigured (the default value) if the rule is used for detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * @var Win32LobAppRuleOperator|null $operator Contains properties for detection operator.
     */
     private ?Win32LobAppRuleOperator $operator = null;
     
@@ -53,6 +53,7 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule implements Parsabl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppPowerShellScriptRule');
     }
 
     /**
@@ -107,7 +108,7 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule implements Parsabl
     }
 
     /**
-     * Gets the operationType property value. The script output comparison operation type. Use NotConfigured (the default value) if the rule is used for detection. Possible values are: notConfigured, string, dateTime, integer, float, version, boolean.
+     * Gets the operationType property value. Contains all supported Powershell Script output detection type.
      * @return Win32LobAppPowerShellScriptRuleOperationType|null
     */
     public function getOperationType(): ?Win32LobAppPowerShellScriptRuleOperationType {
@@ -115,7 +116,7 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule implements Parsabl
     }
 
     /**
-     * Gets the operator property value. The script output operator. Use NotConfigured (the default value) if the rule is used for detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Gets the operator property value. Contains properties for detection operator.
      * @return Win32LobAppRuleOperator|null
     */
     public function getOperator(): ?Win32LobAppRuleOperator {
@@ -187,7 +188,7 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule implements Parsabl
     }
 
     /**
-     * Sets the operationType property value. The script output comparison operation type. Use NotConfigured (the default value) if the rule is used for detection. Possible values are: notConfigured, string, dateTime, integer, float, version, boolean.
+     * Sets the operationType property value. Contains all supported Powershell Script output detection type.
      *  @param Win32LobAppPowerShellScriptRuleOperationType|null $value Value to set for the operationType property.
     */
     public function setOperationType(?Win32LobAppPowerShellScriptRuleOperationType $value ): void {
@@ -195,7 +196,7 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule implements Parsabl
     }
 
     /**
-     * Sets the operator property value. The script output operator. Use NotConfigured (the default value) if the rule is used for detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Sets the operator property value. Contains properties for detection operator.
      *  @param Win32LobAppRuleOperator|null $value Value to set for the operator property.
     */
     public function setOperator(?Win32LobAppRuleOperator $value ): void {

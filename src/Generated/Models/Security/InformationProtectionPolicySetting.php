@@ -15,17 +15,17 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     private ?string $defaultLabelId = null;
     
     /**
-     * @var bool|null $isDowngradeJustificationRequired The isDowngradeJustificationRequired property
+     * @var bool|null $isDowngradeJustificationRequired Exposes whether justification input is required on label downgrade.
     */
     private ?bool $isDowngradeJustificationRequired = null;
     
     /**
-     * @var bool|null $isMandatory The isMandatory property
+     * @var bool|null $isMandatory Exposes whether mandatory labeling is enabled.
     */
     private ?bool $isMandatory = null;
     
     /**
-     * @var string|null $moreInfoUrl The moreInfoUrl property
+     * @var string|null $moreInfoUrl Exposes the more information URL that can be configured by the administrator.
     */
     private ?string $moreInfoUrl = null;
     
@@ -34,6 +34,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.informationProtectionPolicySetting');
     }
 
     /**
@@ -68,7 +69,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the isDowngradeJustificationRequired property value. The isDowngradeJustificationRequired property
+     * Gets the isDowngradeJustificationRequired property value. Exposes whether justification input is required on label downgrade.
      * @return bool|null
     */
     public function getIsDowngradeJustificationRequired(): ?bool {
@@ -76,7 +77,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the isMandatory property value. The isMandatory property
+     * Gets the isMandatory property value. Exposes whether mandatory labeling is enabled.
      * @return bool|null
     */
     public function getIsMandatory(): ?bool {
@@ -84,7 +85,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the moreInfoUrl property value. The moreInfoUrl property
+     * Gets the moreInfoUrl property value. Exposes the more information URL that can be configured by the administrator.
      * @return string|null
     */
     public function getMoreInfoUrl(): ?string {
@@ -112,7 +113,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the isDowngradeJustificationRequired property value. The isDowngradeJustificationRequired property
+     * Sets the isDowngradeJustificationRequired property value. Exposes whether justification input is required on label downgrade.
      *  @param bool|null $value Value to set for the isDowngradeJustificationRequired property.
     */
     public function setIsDowngradeJustificationRequired(?bool $value ): void {
@@ -120,7 +121,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the isMandatory property value. The isMandatory property
+     * Sets the isMandatory property value. Exposes whether mandatory labeling is enabled.
      *  @param bool|null $value Value to set for the isMandatory property.
     */
     public function setIsMandatory(?bool $value ): void {
@@ -128,7 +129,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the moreInfoUrl property value. The moreInfoUrl property
+     * Sets the moreInfoUrl property value. Exposes the more information URL that can be configured by the administrator.
      *  @param string|null $value Value to set for the moreInfoUrl property.
     */
     public function setMoreInfoUrl(?string $value ): void {

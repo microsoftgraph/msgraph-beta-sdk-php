@@ -15,7 +15,12 @@ class ExternalItem extends Entity implements Parsable
     private ?array $acl = null;
     
     /**
-     * @var ExternalItemContent|null $content A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
+     * @var array<ExternalActivity>|null $activities Write-only property. Returns results.
+    */
+    private ?array $activities = null;
+    
+    /**
+     * @var ExternalItemContent|null $content A plain-text representation of the contents of the item. The text in this property is full-text indexed. Optional.
     */
     private ?ExternalItemContent $content = null;
     
@@ -29,6 +34,7 @@ class ExternalItem extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.externalConnectors.externalItem');
     }
 
     /**
@@ -49,7 +55,15 @@ class ExternalItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the content property value. A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
+     * Gets the activities property value. Write-only property. Returns results.
+     * @return array<ExternalActivity>|null
+    */
+    public function getActivities(): ?array {
+        return $this->activities;
+    }
+
+    /**
+     * Gets the content property value. A plain-text representation of the contents of the item. The text in this property is full-text indexed. Optional.
      * @return ExternalItemContent|null
     */
     public function getContent(): ?ExternalItemContent {
@@ -64,6 +78,7 @@ class ExternalItem extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'acl' => function (ParseNode $n) use ($o) { $o->setAcl($n->getCollectionOfObjectValues(array(Acl::class, 'createFromDiscriminatorValue'))); },
+            'activities' => function (ParseNode $n) use ($o) { $o->setActivities($n->getCollectionOfObjectValues(array(ExternalActivity::class, 'createFromDiscriminatorValue'))); },
             'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getObjectValue(array(ExternalItemContent::class, 'createFromDiscriminatorValue'))); },
             'properties' => function (ParseNode $n) use ($o) { $o->setProperties($n->getObjectValue(array(Properties::class, 'createFromDiscriminatorValue'))); },
         ]);
@@ -84,6 +99,7 @@ class ExternalItem extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('acl', $this->acl);
+        $writer->writeCollectionOfObjectValues('activities', $this->activities);
         $writer->writeObjectValue('content', $this->content);
         $writer->writeObjectValue('properties', $this->properties);
     }
@@ -97,7 +113,15 @@ class ExternalItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the content property value. A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
+     * Sets the activities property value. Write-only property. Returns results.
+     *  @param array<ExternalActivity>|null $value Value to set for the activities property.
+    */
+    public function setActivities(?array $value ): void {
+        $this->activities = $value;
+    }
+
+    /**
+     * Sets the content property value. A plain-text representation of the contents of the item. The text in this property is full-text indexed. Optional.
      *  @param ExternalItemContent|null $value Value to set for the content property.
     */
     public function setContent(?ExternalItemContent $value ): void {

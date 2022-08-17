@@ -20,7 +20,7 @@ class PolicySetItem extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * @var ErrorCode|null $errorCode Error code if any occured. Possible values are: noError, unauthorized, notFound, deleted.
+     * @var ErrorCode|null $errorCode The errorCode property
     */
     private ?ErrorCode $errorCode = null;
     
@@ -45,7 +45,7 @@ class PolicySetItem extends Entity implements Parsable
     private ?string $payloadId = null;
     
     /**
-     * @var PolicySetStatus|null $status Status of the PolicySetItem. Possible values are: unknown, validating, partialSuccess, success, error, notAssigned.
+     * @var PolicySetStatus|null $status The enum to specify the status of PolicySet.
     */
     private ?PolicySetStatus $status = null;
     
@@ -54,6 +54,7 @@ class PolicySetItem extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.policySetItem');
     }
 
     /**
@@ -101,7 +102,7 @@ class PolicySetItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the errorCode property value. Error code if any occured. Possible values are: noError, unauthorized, notFound, deleted.
+     * Gets the errorCode property value. The errorCode property
      * @return ErrorCode|null
     */
     public function getErrorCode(): ?ErrorCode {
@@ -159,7 +160,7 @@ class PolicySetItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Status of the PolicySetItem. Possible values are: unknown, validating, partialSuccess, success, error, notAssigned.
+     * Gets the status property value. The enum to specify the status of PolicySet.
      * @return PolicySetStatus|null
     */
     public function getStatus(): ?PolicySetStatus {
@@ -199,7 +200,7 @@ class PolicySetItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the errorCode property value. Error code if any occured. Possible values are: noError, unauthorized, notFound, deleted.
+     * Sets the errorCode property value. The errorCode property
      *  @param ErrorCode|null $value Value to set for the errorCode property.
     */
     public function setErrorCode(?ErrorCode $value ): void {
@@ -239,7 +240,7 @@ class PolicySetItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Status of the PolicySetItem. Possible values are: unknown, validating, partialSuccess, success, error, notAssigned.
+     * Sets the status property value. The enum to specify the status of PolicySet.
      *  @param PolicySetStatus|null $value Value to set for the status property.
     */
     public function setStatus(?PolicySetStatus $value ): void {

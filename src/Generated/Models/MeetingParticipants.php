@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingParticipants implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
      * @var array<MeetingParticipantInfo>|null $contributors The contributors property
     */
     private ?array $contributors = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var MeetingParticipantInfo|null $organizer Information of the meeting organizer.
@@ -38,7 +43,8 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
      * Instantiates a new meetingParticipants and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.meetingParticipants');
     }
 
     /**
@@ -83,9 +89,18 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
         return  [
             'attendees' => function (ParseNode $n) use ($o) { $o->setAttendees($n->getCollectionOfObjectValues(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
             'contributors' => function (ParseNode $n) use ($o) { $o->setContributors($n->getCollectionOfObjectValues(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'organizer' => function (ParseNode $n) use ($o) { $o->setOrganizer($n->getObjectValue(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
             'producers' => function (ParseNode $n) use ($o) { $o->setProducers($n->getCollectionOfObjectValues(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,6 +126,7 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('attendees', $this->attendees);
         $writer->writeCollectionOfObjectValues('contributors', $this->contributors);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('organizer', $this->organizer);
         $writer->writeCollectionOfObjectValues('producers', $this->producers);
         $writer->writeAdditionalData($this->additionalData);
@@ -138,6 +154,14 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
     */
     public function setContributors(?array $value ): void {
         $this->contributors = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

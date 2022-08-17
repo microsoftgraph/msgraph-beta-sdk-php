@@ -85,7 +85,7 @@ class Group extends DirectoryObject implements Parsable
     private ?string $description = null;
     
     /**
-     * @var string|null $displayName The display name for the group. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * @var string|null $displayName The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
     */
     private ?string $displayName = null;
     
@@ -150,7 +150,7 @@ class Group extends DirectoryObject implements Parsable
     private ?array $infoCatalogs = null;
     
     /**
-     * @var bool|null $isArchived When a group is associated with a team, this property determines whether the team is in read-only mode.
+     * @var bool|null $isArchived When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.
     */
     private ?bool $isArchived = null;
     
@@ -195,17 +195,12 @@ class Group extends DirectoryObject implements Parsable
     private ?string $mailNickname = null;
     
     /**
-     * @var string|null $mdmAppId The mdmAppId property
-    */
-    private ?string $mdmAppId = null;
-    
-    /**
      * @var array<DirectoryObject>|null $memberOf Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
     */
     private ?array $memberOf = null;
     
     /**
-     * @var array<DirectoryObject>|null $members Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
+     * @var array<DirectoryObject>|null $members Direct members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
     */
     private ?array $members = null;
     
@@ -370,12 +365,12 @@ class Group extends DirectoryObject implements Parsable
     private ?array $threads = null;
     
     /**
-     * @var array<DirectoryObject>|null $transitiveMemberOf The transitiveMemberOf property
+     * @var array<DirectoryObject>|null $transitiveMemberOf The groups that a group is a member of, either directly and through nested membership. Nullable.
     */
     private ?array $transitiveMemberOf = null;
     
     /**
-     * @var array<DirectoryObject>|null $transitiveMembers The transitiveMembers property
+     * @var array<DirectoryObject>|null $transitiveMembers The direct and transitive members of a group. Nullable.
     */
     private ?array $transitiveMembers = null;
     
@@ -395,12 +390,12 @@ class Group extends DirectoryObject implements Parsable
     private ?int $unseenMessagesCount = null;
     
     /**
-     * @var string|null $visibility Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
+     * @var string|null $visibility Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
     */
     private ?string $visibility = null;
     
     /**
-     * @var GroupWritebackConfiguration|null $writebackConfiguration The writebackConfiguration property
+     * @var GroupWritebackConfiguration|null $writebackConfiguration Specifies whether or not a group is configured to write back group object properties to on-premise Active Directory. These properties are used when group writeback is configured in the Azure AD Connect sync client.
     */
     private ?GroupWritebackConfiguration $writebackConfiguration = null;
     
@@ -409,6 +404,7 @@ class Group extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.group');
     }
 
     /**
@@ -541,7 +537,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name for the group. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * Gets the displayName property value. The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -640,7 +636,6 @@ class Group extends DirectoryObject implements Parsable
             'mail' => function (ParseNode $n) use ($o) { $o->setMail($n->getStringValue()); },
             'mailEnabled' => function (ParseNode $n) use ($o) { $o->setMailEnabled($n->getBooleanValue()); },
             'mailNickname' => function (ParseNode $n) use ($o) { $o->setMailNickname($n->getStringValue()); },
-            'mdmAppId' => function (ParseNode $n) use ($o) { $o->setMdmAppId($n->getStringValue()); },
             'memberOf' => function (ParseNode $n) use ($o) { $o->setMemberOf($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
             'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
             'membershipRule' => function (ParseNode $n) use ($o) { $o->setMembershipRule($n->getStringValue()); },
@@ -734,7 +729,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the isArchived property value. When a group is associated with a team, this property determines whether the team is in read-only mode.
+     * Gets the isArchived property value. When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.
      * @return bool|null
     */
     public function getIsArchived(): ?bool {
@@ -806,14 +801,6 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the mdmAppId property value. The mdmAppId property
-     * @return string|null
-    */
-    public function getMdmAppId(): ?string {
-        return $this->mdmAppId;
-    }
-
-    /**
      * Gets the memberOf property value. Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
      * @return array<DirectoryObject>|null
     */
@@ -822,7 +809,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the members property value. Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
+     * Gets the members property value. Direct members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @return array<DirectoryObject>|null
     */
     public function getMembers(): ?array {
@@ -1086,7 +1073,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Gets the transitiveMemberOf property value. The groups that a group is a member of, either directly and through nested membership. Nullable.
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveMemberOf(): ?array {
@@ -1094,7 +1081,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the transitiveMembers property value. The transitiveMembers property
+     * Gets the transitiveMembers property value. The direct and transitive members of a group. Nullable.
      * @return array<DirectoryObject>|null
     */
     public function getTransitiveMembers(): ?array {
@@ -1126,7 +1113,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
+     * Gets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
      * @return string|null
     */
     public function getVisibility(): ?string {
@@ -1134,7 +1121,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the writebackConfiguration property value. The writebackConfiguration property
+     * Gets the writebackConfiguration property value. Specifies whether or not a group is configured to write back group object properties to on-premise Active Directory. These properties are used when group writeback is configured in the Azure AD Connect sync client.
      * @return GroupWritebackConfiguration|null
     */
     public function getWritebackConfiguration(): ?GroupWritebackConfiguration {
@@ -1184,7 +1171,6 @@ class Group extends DirectoryObject implements Parsable
         $writer->writeStringValue('mail', $this->mail);
         $writer->writeBooleanValue('mailEnabled', $this->mailEnabled);
         $writer->writeStringValue('mailNickname', $this->mailNickname);
-        $writer->writeStringValue('mdmAppId', $this->mdmAppId);
         $writer->writeCollectionOfObjectValues('memberOf', $this->memberOf);
         $writer->writeCollectionOfObjectValues('members', $this->members);
         $writer->writeStringValue('membershipRule', $this->membershipRule);
@@ -1349,7 +1335,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name for the group. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * Sets the displayName property value. The display name for the group. Required. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -1453,7 +1439,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the isArchived property value. When a group is associated with a team, this property determines whether the team is in read-only mode.
+     * Sets the isArchived property value. When a group is associated with a team, this property determines whether the team is in read-only mode. To read this property, use the /group/{groupId}/team endpoint or the Get team API. To update this property, use the archiveTeam and unarchiveTeam APIs.
      *  @param bool|null $value Value to set for the isArchived property.
     */
     public function setIsArchived(?bool $value ): void {
@@ -1525,14 +1511,6 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the mdmAppId property value. The mdmAppId property
-     *  @param string|null $value Value to set for the mdmAppId property.
-    */
-    public function setMdmAppId(?string $value ): void {
-        $this->mdmAppId = $value;
-    }
-
-    /**
      * Sets the memberOf property value. Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
      *  @param array<DirectoryObject>|null $value Value to set for the memberOf property.
     */
@@ -1541,7 +1519,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the members property value. Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
+     * Sets the members property value. Direct members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      *  @param array<DirectoryObject>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value ): void {
@@ -1805,7 +1783,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the transitiveMemberOf property value. The transitiveMemberOf property
+     * Sets the transitiveMemberOf property value. The groups that a group is a member of, either directly and through nested membership. Nullable.
      *  @param array<DirectoryObject>|null $value Value to set for the transitiveMemberOf property.
     */
     public function setTransitiveMemberOf(?array $value ): void {
@@ -1813,7 +1791,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the transitiveMembers property value. The transitiveMembers property
+     * Sets the transitiveMembers property value. The direct and transitive members of a group. Nullable.
      *  @param array<DirectoryObject>|null $value Value to set for the transitiveMembers property.
     */
     public function setTransitiveMembers(?array $value ): void {
@@ -1845,7 +1823,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
+     * Sets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or HiddenMembership. HiddenMembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
      *  @param string|null $value Value to set for the visibility property.
     */
     public function setVisibility(?string $value ): void {
@@ -1853,7 +1831,7 @@ class Group extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the writebackConfiguration property value. The writebackConfiguration property
+     * Sets the writebackConfiguration property value. Specifies whether or not a group is configured to write back group object properties to on-premise Active Directory. These properties are used when group writeback is configured in the Azure AD Connect sync client.
      *  @param GroupWritebackConfiguration|null $value Value to set for the writebackConfiguration property.
     */
     public function setWritebackConfiguration(?GroupWritebackConfiguration $value ): void {

@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile implements Parsable 
 {
     /**
-     * @var CertificateStore|null $certificateStore Target store certificate. Possible values are: user, machine.
+     * @var CertificateStore|null $certificateStore CertificateStore types
     */
     private ?CertificateStore $certificateStore = null;
     
     /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Certificate Validity Period Options.
     */
     private ?CertificateValidityPeriodScale $certificateValidityPeriodScale = null;
     
@@ -34,17 +34,17 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     private ?array $hashAlgorithm = null;
     
     /**
-     * @var KeySize|null $keySize SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * @var KeySize|null $keySize Key Size Options.
     */
     private ?KeySize $keySize = null;
     
     /**
-     * @var KeyStorageProviderOption|null $keyStorageProvider Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * @var KeyStorageProviderOption|null $keyStorageProvider Key Storage Provider (KSP) Import Options.
     */
     private ?KeyStorageProviderOption $keyStorageProvider = null;
     
     /**
-     * @var KeyUsages|null $keyUsage SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * @var KeyUsages|null $keyUsage Key Usage Options.
     */
     private ?KeyUsages $keyUsage = null;
     
@@ -78,6 +78,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10XSCEPCertificateProfile');
     }
 
     /**
@@ -90,7 +91,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     }
 
     /**
-     * Gets the certificateStore property value. Target store certificate. Possible values are: user, machine.
+     * Gets the certificateStore property value. CertificateStore types
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
@@ -98,7 +99,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     }
 
     /**
-     * Gets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Gets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
@@ -153,7 +154,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     }
 
     /**
-     * Gets the keySize property value. SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * Gets the keySize property value. Key Size Options.
      * @return KeySize|null
     */
     public function getKeySize(): ?KeySize {
@@ -161,7 +162,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     }
 
     /**
-     * Gets the keyStorageProvider property value. Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * Gets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      * @return KeyStorageProviderOption|null
     */
     public function getKeyStorageProvider(): ?KeyStorageProviderOption {
@@ -169,7 +170,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     }
 
     /**
-     * Gets the keyUsage property value. SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * Gets the keyUsage property value. Key Usage Options.
      * @return KeyUsages|null
     */
     public function getKeyUsage(): ?KeyUsages {
@@ -238,7 +239,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     }
 
     /**
-     * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
+     * Sets the certificateStore property value. CertificateStore types
      *  @param CertificateStore|null $value Value to set for the certificateStore property.
     */
     public function setCertificateStore(?CertificateStore $value ): void {
@@ -246,7 +247,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     }
 
     /**
-     * Sets the certificateValidityPeriodScale property value. Scale for the Certificate Validity Period. Possible values are: days, months, years.
+     * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
     public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value ): void {
@@ -278,7 +279,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     }
 
     /**
-     * Sets the keySize property value. SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * Sets the keySize property value. Key Size Options.
      *  @param KeySize|null $value Value to set for the keySize property.
     */
     public function setKeySize(?KeySize $value ): void {
@@ -286,7 +287,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     }
 
     /**
-     * Sets the keyStorageProvider property value. Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     * Sets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      *  @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
     */
     public function setKeyStorageProvider(?KeyStorageProviderOption $value ): void {
@@ -294,7 +295,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     }
 
     /**
-     * Sets the keyUsage property value. SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * Sets the keyUsage property value. Key Usage Options.
      *  @param KeyUsages|null $value Value to set for the keyUsage property.
     */
     public function setKeyUsage(?KeyUsages $value ): void {

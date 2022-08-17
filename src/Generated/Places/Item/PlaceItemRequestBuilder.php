@@ -98,7 +98,7 @@ class PlaceItemRequestBuilder
     }
 
     /**
-     * Update entity in places
+     * Update the properties of place object, which can be a room or roomList. You can identify the **room** or **roomList** by specifying the **id** or **emailAddress** property.
      * @param Place $body 
      * @param PlaceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -159,7 +159,7 @@ class PlaceItemRequestBuilder
     }
 
     /**
-     * Update entity in places
+     * Update the properties of place object, which can be a room or roomList. You can identify the **room** or **roomList** by specifying the **id** or **emailAddress** property.
      * @param Place $body 
      * @param PlaceItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

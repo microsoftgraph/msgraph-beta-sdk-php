@@ -86,10 +86,11 @@ class CustomerPayment extends Entity implements Parsable
     private ?Date $postingDate = null;
     
     /**
-     * Instantiates a new CustomerPayment and sets the default values.
+     * Instantiates a new customerPayment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.customerPayment');
     }
 
     /**

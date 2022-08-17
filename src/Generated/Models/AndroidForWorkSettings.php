@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidForWorkSettings extends Entity implements Parsable 
 {
     /**
-     * @var AndroidForWorkBindStatus|null $bindStatus Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding.
+     * @var AndroidForWorkBindStatus|null $bindStatus Bind status of the tenant with the Google EMM API
     */
     private ?AndroidForWorkBindStatus $bindStatus = null;
     
@@ -20,7 +20,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
     private ?bool $deviceOwnerManagementEnabled = null;
     
     /**
-     * @var AndroidForWorkEnrollmentTarget|null $enrollmentTarget Indicates which users can enroll devices in Android for Work device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions.
+     * @var AndroidForWorkEnrollmentTarget|null $enrollmentTarget Android for Work device management targeting type for the account
     */
     private ?AndroidForWorkEnrollmentTarget $enrollmentTarget = null;
     
@@ -30,7 +30,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
     private ?DateTime $lastAppSyncDateTime = null;
     
     /**
-     * @var AndroidForWorkSyncStatus|null $lastAppSyncStatus Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none.
+     * @var AndroidForWorkSyncStatus|null $lastAppSyncStatus Sync status of the tenant with the Google EMM API
     */
     private ?AndroidForWorkSyncStatus $lastAppSyncStatus = null;
     
@@ -59,6 +59,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidForWorkSettings');
     }
 
     /**
@@ -71,7 +72,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the bindStatus property value. Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding.
+     * Gets the bindStatus property value. Bind status of the tenant with the Google EMM API
      * @return AndroidForWorkBindStatus|null
     */
     public function getBindStatus(): ?AndroidForWorkBindStatus {
@@ -87,7 +88,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentTarget property value. Indicates which users can enroll devices in Android for Work device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions.
+     * Gets the enrollmentTarget property value. Android for Work device management targeting type for the account
      * @return AndroidForWorkEnrollmentTarget|null
     */
     public function getEnrollmentTarget(): ?AndroidForWorkEnrollmentTarget {
@@ -122,7 +123,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastAppSyncStatus property value. Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none.
+     * Gets the lastAppSyncStatus property value. Sync status of the tenant with the Google EMM API
      * @return AndroidForWorkSyncStatus|null
     */
     public function getLastAppSyncStatus(): ?AndroidForWorkSyncStatus {
@@ -179,7 +180,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the bindStatus property value. Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding.
+     * Sets the bindStatus property value. Bind status of the tenant with the Google EMM API
      *  @param AndroidForWorkBindStatus|null $value Value to set for the bindStatus property.
     */
     public function setBindStatus(?AndroidForWorkBindStatus $value ): void {
@@ -195,7 +196,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentTarget property value. Indicates which users can enroll devices in Android for Work device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions.
+     * Sets the enrollmentTarget property value. Android for Work device management targeting type for the account
      *  @param AndroidForWorkEnrollmentTarget|null $value Value to set for the enrollmentTarget property.
     */
     public function setEnrollmentTarget(?AndroidForWorkEnrollmentTarget $value ): void {
@@ -211,7 +212,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastAppSyncStatus property value. Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none.
+     * Sets the lastAppSyncStatus property value. Sync status of the tenant with the Google EMM API
      *  @param AndroidForWorkSyncStatus|null $value Value to set for the lastAppSyncStatus property.
     */
     public function setLastAppSyncStatus(?AndroidForWorkSyncStatus $value ): void {

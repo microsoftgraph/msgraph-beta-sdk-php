@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Parsable 
 {
     /**
-     * @var DeviceManagementAutopilotPolicyComplianceStatus|null $complianceStatus The policy compliance status. Possible values are: unknown, compliant, installed, notCompliant, notInstalled, error.
+     * @var DeviceManagementAutopilotPolicyComplianceStatus|null $complianceStatus The complianceStatus property
     */
     private ?DeviceManagementAutopilotPolicyComplianceStatus $complianceStatus = null;
     
@@ -30,7 +30,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     private ?DateTime $lastReportedDateTime = null;
     
     /**
-     * @var DeviceManagementAutopilotPolicyType|null $policyType The type of policy. Possible values are: unknown, application, appModel, configurationPolicy.
+     * @var DeviceManagementAutopilotPolicyType|null $policyType The policyType property
     */
     private ?DeviceManagementAutopilotPolicyType $policyType = null;
     
@@ -44,6 +44,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementAutopilotPolicyStatusDetail');
     }
 
     /**
@@ -56,7 +57,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     }
 
     /**
-     * Gets the complianceStatus property value. The policy compliance status. Possible values are: unknown, compliant, installed, notCompliant, notInstalled, error.
+     * Gets the complianceStatus property value. The complianceStatus property
      * @return DeviceManagementAutopilotPolicyComplianceStatus|null
     */
     public function getComplianceStatus(): ?DeviceManagementAutopilotPolicyComplianceStatus {
@@ -104,7 +105,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     }
 
     /**
-     * Gets the policyType property value. The type of policy. Possible values are: unknown, application, appModel, configurationPolicy.
+     * Gets the policyType property value. The policyType property
      * @return DeviceManagementAutopilotPolicyType|null
     */
     public function getPolicyType(): ?DeviceManagementAutopilotPolicyType {
@@ -134,7 +135,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     }
 
     /**
-     * Sets the complianceStatus property value. The policy compliance status. Possible values are: unknown, compliant, installed, notCompliant, notInstalled, error.
+     * Sets the complianceStatus property value. The complianceStatus property
      *  @param DeviceManagementAutopilotPolicyComplianceStatus|null $value Value to set for the complianceStatus property.
     */
     public function setComplianceStatus(?DeviceManagementAutopilotPolicyComplianceStatus $value ): void {
@@ -166,7 +167,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     }
 
     /**
-     * Sets the policyType property value. The type of policy. Possible values are: unknown, application, appModel, configurationPolicy.
+     * Sets the policyType property value. The policyType property
      *  @param DeviceManagementAutopilotPolicyType|null $value Value to set for the policyType property.
     */
     public function setPolicyType(?DeviceManagementAutopilotPolicyType $value ): void {

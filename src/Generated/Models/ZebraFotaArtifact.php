@@ -9,35 +9,41 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ZebraFotaArtifact extends Entity implements Parsable 
 {
     /**
-     * @var string|null $boardSupportPackageVersion The version of the Board Support Package.
+     * @var string|null $boardSupportPackageVersion The version of the Board Support Package (BSP. E.g.: 01.18.02.00)
     */
     private ?string $boardSupportPackageVersion = null;
     
     /**
-     * @var string|null $deviceModel Artifact device model.
+     * @var string|null $description Artifact description. (e.g.: `LifeGuard Update 98 (released 24-September-2021)
+    */
+    private ?string $description = null;
+    
+    /**
+     * @var string|null $deviceModel Applicable device model (e.g.: TC8300)
     */
     private ?string $deviceModel = null;
     
     /**
-     * @var string|null $osVersion Artifact OS version.
+     * @var string|null $osVersion Artifact OS version (e.g.: 8.1.0)
     */
     private ?string $osVersion = null;
     
     /**
-     * @var string|null $patchVersion Artifact patch version.
+     * @var string|null $patchVersion Artifact patch version (e.g.: U00)
     */
     private ?string $patchVersion = null;
     
     /**
-     * @var string|null $releaseNotesUrl Artifact release notes URL.
+     * @var string|null $releaseNotesUrl Artifact release notes URL (e.g.: https://www.zebra.com/<filename.pdf>)
     */
     private ?string $releaseNotesUrl = null;
     
     /**
-     * Instantiates a new ZebraFotaArtifact and sets the default values.
+     * Instantiates a new zebraFotaArtifact and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.zebraFotaArtifact');
     }
 
     /**
@@ -50,7 +56,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
     }
 
     /**
-     * Gets the boardSupportPackageVersion property value. The version of the Board Support Package.
+     * Gets the boardSupportPackageVersion property value. The version of the Board Support Package (BSP. E.g.: 01.18.02.00)
      * @return string|null
     */
     public function getBoardSupportPackageVersion(): ?string {
@@ -58,7 +64,15 @@ class ZebraFotaArtifact extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceModel property value. Artifact device model.
+     * Gets the description property value. Artifact description. (e.g.: `LifeGuard Update 98 (released 24-September-2021)
+     * @return string|null
+    */
+    public function getDescription(): ?string {
+        return $this->description;
+    }
+
+    /**
+     * Gets the deviceModel property value. Applicable device model (e.g.: TC8300)
      * @return string|null
     */
     public function getDeviceModel(): ?string {
@@ -73,6 +87,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'boardSupportPackageVersion' => function (ParseNode $n) use ($o) { $o->setBoardSupportPackageVersion($n->getStringValue()); },
+            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'deviceModel' => function (ParseNode $n) use ($o) { $o->setDeviceModel($n->getStringValue()); },
             'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
             'patchVersion' => function (ParseNode $n) use ($o) { $o->setPatchVersion($n->getStringValue()); },
@@ -81,7 +96,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
     }
 
     /**
-     * Gets the osVersion property value. Artifact OS version.
+     * Gets the osVersion property value. Artifact OS version (e.g.: 8.1.0)
      * @return string|null
     */
     public function getOsVersion(): ?string {
@@ -89,7 +104,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
     }
 
     /**
-     * Gets the patchVersion property value. Artifact patch version.
+     * Gets the patchVersion property value. Artifact patch version (e.g.: U00)
      * @return string|null
     */
     public function getPatchVersion(): ?string {
@@ -97,7 +112,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
     }
 
     /**
-     * Gets the releaseNotesUrl property value. Artifact release notes URL.
+     * Gets the releaseNotesUrl property value. Artifact release notes URL (e.g.: https://www.zebra.com/<filename.pdf>)
      * @return string|null
     */
     public function getReleaseNotesUrl(): ?string {
@@ -111,6 +126,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('boardSupportPackageVersion', $this->boardSupportPackageVersion);
+        $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('deviceModel', $this->deviceModel);
         $writer->writeStringValue('osVersion', $this->osVersion);
         $writer->writeStringValue('patchVersion', $this->patchVersion);
@@ -118,7 +134,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
     }
 
     /**
-     * Sets the boardSupportPackageVersion property value. The version of the Board Support Package.
+     * Sets the boardSupportPackageVersion property value. The version of the Board Support Package (BSP. E.g.: 01.18.02.00)
      *  @param string|null $value Value to set for the boardSupportPackageVersion property.
     */
     public function setBoardSupportPackageVersion(?string $value ): void {
@@ -126,7 +142,15 @@ class ZebraFotaArtifact extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceModel property value. Artifact device model.
+     * Sets the description property value. Artifact description. (e.g.: `LifeGuard Update 98 (released 24-September-2021)
+     *  @param string|null $value Value to set for the description property.
+    */
+    public function setDescription(?string $value ): void {
+        $this->description = $value;
+    }
+
+    /**
+     * Sets the deviceModel property value. Applicable device model (e.g.: TC8300)
      *  @param string|null $value Value to set for the deviceModel property.
     */
     public function setDeviceModel(?string $value ): void {
@@ -134,7 +158,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
     }
 
     /**
-     * Sets the osVersion property value. Artifact OS version.
+     * Sets the osVersion property value. Artifact OS version (e.g.: 8.1.0)
      *  @param string|null $value Value to set for the osVersion property.
     */
     public function setOsVersion(?string $value ): void {
@@ -142,7 +166,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
     }
 
     /**
-     * Sets the patchVersion property value. Artifact patch version.
+     * Sets the patchVersion property value. Artifact patch version (e.g.: U00)
      *  @param string|null $value Value to set for the patchVersion property.
     */
     public function setPatchVersion(?string $value ): void {
@@ -150,7 +174,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
     }
 
     /**
-     * Sets the releaseNotesUrl property value. Artifact release notes URL.
+     * Sets the releaseNotesUrl property value. Artifact release notes URL (e.g.: https://www.zebra.com/<filename.pdf>)
      *  @param string|null $value Value to set for the releaseNotesUrl property.
     */
     public function setReleaseNotesUrl(?string $value ): void {

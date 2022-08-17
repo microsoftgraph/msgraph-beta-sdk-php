@@ -30,7 +30,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var DevicePlatformType|null $platform Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * @var DevicePlatformType|null $platform Supported platform types.
     */
     private ?DevicePlatformType $platform = null;
     
@@ -45,10 +45,11 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     private ?string $rule = null;
     
     /**
-     * Instantiates a new deviceAndAppManagementAssignmentFilter and sets the default values.
+     * Instantiates a new DeviceAndAppManagementAssignmentFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceAndAppManagementAssignmentFilter');
     }
 
     /**
@@ -117,7 +118,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Gets the platform property value. Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * Gets the platform property value. Supported platform types.
      * @return DevicePlatformType|null
     */
     public function getPlatform(): ?DevicePlatformType {
@@ -188,7 +189,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     }
 
     /**
-     * Sets the platform property value. Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     * Sets the platform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the platform property.
     */
     public function setPlatform(?DevicePlatformType $value ): void {

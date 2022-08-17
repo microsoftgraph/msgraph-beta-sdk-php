@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -36,6 +36,11 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
     private ?bool $isScreensaverEnabled = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var DateInterval|null $screensaverTimeout Screensaver timeout from 30 to 3600 secs. Not applicable for Teams Rooms devices.
     */
     private ?DateInterval $screensaverTimeout = null;
@@ -44,7 +49,8 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
      * Instantiates a new teamworkDisplayScreenConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkDisplayScreenConfiguration');
     }
 
     /**
@@ -91,6 +97,7 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
             'backlightTimeout' => function (ParseNode $n) use ($o) { $o->setBacklightTimeout($n->getDateIntervalValue()); },
             'isHighContrastEnabled' => function (ParseNode $n) use ($o) { $o->setIsHighContrastEnabled($n->getBooleanValue()); },
             'isScreensaverEnabled' => function (ParseNode $n) use ($o) { $o->setIsScreensaverEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'screensaverTimeout' => function (ParseNode $n) use ($o) { $o->setScreensaverTimeout($n->getDateIntervalValue()); },
         ];
     }
@@ -112,6 +119,14 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the screensaverTimeout property value. Screensaver timeout from 30 to 3600 secs. Not applicable for Teams Rooms devices.
      * @return DateInterval|null
     */
@@ -128,6 +143,7 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
         $writer->writeDateIntervalValue('backlightTimeout', $this->backlightTimeout);
         $writer->writeBooleanValue('isHighContrastEnabled', $this->isHighContrastEnabled);
         $writer->writeBooleanValue('isScreensaverEnabled', $this->isScreensaverEnabled);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeDateIntervalValue('screensaverTimeout', $this->screensaverTimeout);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -170,6 +186,14 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
     */
     public function setIsScreensaverEnabled(?bool $value ): void {
         $this->isScreensaverEnabled = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -14,32 +14,32 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     private ?ContentAlignment $alignment = null;
     
     /**
-     * @var string|null $fontColor The fontColor property
+     * @var string|null $fontColor Color of the font to use for the footer.
     */
     private ?string $fontColor = null;
     
     /**
-     * @var string|null $fontName The fontName property
+     * @var string|null $fontName Name of the font to use for the footer.
     */
     private ?string $fontName = null;
     
     /**
-     * @var int|null $fontSize The fontSize property
+     * @var int|null $fontSize Font size to use for the footer.
     */
     private ?int $fontSize = null;
     
     /**
-     * @var int|null $margin The margin property
+     * @var int|null $margin The margin of the header from the bottom of the document.
     */
     private ?int $margin = null;
     
     /**
-     * @var string|null $text The text property
+     * @var string|null $text The contents of the footer itself.
     */
     private ?string $text = null;
     
     /**
-     * @var string|null $uiElementName The uiElementName property
+     * @var string|null $uiElementName The name of the UI element where the footer should be placed.
     */
     private ?string $uiElementName = null;
     
@@ -48,6 +48,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.addContentFooterAction');
     }
 
     /**
@@ -85,7 +86,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Gets the fontColor property value. The fontColor property
+     * Gets the fontColor property value. Color of the font to use for the footer.
      * @return string|null
     */
     public function getFontColor(): ?string {
@@ -93,7 +94,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Gets the fontName property value. The fontName property
+     * Gets the fontName property value. Name of the font to use for the footer.
      * @return string|null
     */
     public function getFontName(): ?string {
@@ -101,7 +102,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Gets the fontSize property value. The fontSize property
+     * Gets the fontSize property value. Font size to use for the footer.
      * @return int|null
     */
     public function getFontSize(): ?int {
@@ -109,7 +110,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Gets the margin property value. The margin property
+     * Gets the margin property value. The margin of the header from the bottom of the document.
      * @return int|null
     */
     public function getMargin(): ?int {
@@ -117,7 +118,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Gets the text property value. The text property
+     * Gets the text property value. The contents of the footer itself.
      * @return string|null
     */
     public function getText(): ?string {
@@ -125,7 +126,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Gets the uiElementName property value. The uiElementName property
+     * Gets the uiElementName property value. The name of the UI element where the footer should be placed.
      * @return string|null
     */
     public function getUiElementName(): ?string {
@@ -156,7 +157,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Sets the fontColor property value. The fontColor property
+     * Sets the fontColor property value. Color of the font to use for the footer.
      *  @param string|null $value Value to set for the fontColor property.
     */
     public function setFontColor(?string $value ): void {
@@ -164,7 +165,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Sets the fontName property value. The fontName property
+     * Sets the fontName property value. Name of the font to use for the footer.
      *  @param string|null $value Value to set for the fontName property.
     */
     public function setFontName(?string $value ): void {
@@ -172,7 +173,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Sets the fontSize property value. The fontSize property
+     * Sets the fontSize property value. Font size to use for the footer.
      *  @param int|null $value Value to set for the fontSize property.
     */
     public function setFontSize(?int $value ): void {
@@ -180,7 +181,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Sets the margin property value. The margin property
+     * Sets the margin property value. The margin of the header from the bottom of the document.
      *  @param int|null $value Value to set for the margin property.
     */
     public function setMargin(?int $value ): void {
@@ -188,7 +189,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Sets the text property value. The text property
+     * Sets the text property value. The contents of the footer itself.
      *  @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value ): void {
@@ -196,7 +197,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     }
 
     /**
-     * Sets the uiElementName property value. The uiElementName property
+     * Sets the uiElementName property value. The name of the UI element where the footer should be placed.
      *  @param string|null $value Value to set for the uiElementName property.
     */
     public function setUiElementName(?string $value ): void {

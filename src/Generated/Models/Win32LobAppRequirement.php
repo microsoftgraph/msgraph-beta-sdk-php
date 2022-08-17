@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobAppRequirement implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,7 +20,12 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
     private ?string $detectionValue = null;
     
     /**
-     * @var Win32LobAppDetectionOperator|null $operator The operator for detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var Win32LobAppDetectionOperator|null $operator Contains properties for detection operator.
     */
     private ?Win32LobAppDetectionOperator $operator = null;
     
@@ -28,7 +33,8 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
      * Instantiates a new win32LobAppRequirement and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.win32LobAppRequirement');
     }
 
     /**
@@ -73,12 +79,21 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'detectionValue' => function (ParseNode $n) use ($o) { $o->setDetectionValue($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'operator' => function (ParseNode $n) use ($o) { $o->setOperator($n->getEnumValue(Win32LobAppDetectionOperator::class)); },
         ];
     }
 
     /**
-     * Gets the operator property value. The operator for detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the operator property value. Contains properties for detection operator.
      * @return Win32LobAppDetectionOperator|null
     */
     public function getOperator(): ?Win32LobAppDetectionOperator {
@@ -91,6 +106,7 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('detectionValue', $this->detectionValue);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('operator', $this->operator);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -112,7 +128,15 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the operator property value. The operator for detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the operator property value. Contains properties for detection operator.
      *  @param Win32LobAppDetectionOperator|null $value Value to set for the operator property.
     */
     public function setOperator(?Win32LobAppDetectionOperator $value ): void {

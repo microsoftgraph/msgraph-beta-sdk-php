@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var Enablement|null $allowDeviceHealthMonitoring Enables device health monitoring on the device. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $allowDeviceHealthMonitoring Possible values of a property
     */
     private ?Enablement $allowDeviceHealthMonitoring = null;
     
@@ -19,7 +19,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
     private ?string $configDeviceHealthMonitoringCustomScope = null;
     
     /**
-     * @var WindowsHealthMonitoringScope|null $configDeviceHealthMonitoringScope Specifies set of events collected from the device where health monitoring is enabled. Possible values are: undefined, healthMonitoring, bootPerformance, windowsUpdates.
+     * @var WindowsHealthMonitoringScope|null $configDeviceHealthMonitoringScope Device health monitoring scope
     */
     private ?WindowsHealthMonitoringScope $configDeviceHealthMonitoringScope = null;
     
@@ -28,6 +28,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsHealthMonitoringConfiguration');
     }
 
     /**
@@ -40,7 +41,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
     }
 
     /**
-     * Gets the allowDeviceHealthMonitoring property value. Enables device health monitoring on the device. Possible values are: notConfigured, enabled, disabled.
+     * Gets the allowDeviceHealthMonitoring property value. Possible values of a property
      * @return Enablement|null
     */
     public function getAllowDeviceHealthMonitoring(): ?Enablement {
@@ -56,7 +57,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
     }
 
     /**
-     * Gets the configDeviceHealthMonitoringScope property value. Specifies set of events collected from the device where health monitoring is enabled. Possible values are: undefined, healthMonitoring, bootPerformance, windowsUpdates.
+     * Gets the configDeviceHealthMonitoringScope property value. Device health monitoring scope
      * @return WindowsHealthMonitoringScope|null
     */
     public function getConfigDeviceHealthMonitoringScope(): ?WindowsHealthMonitoringScope {
@@ -88,7 +89,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
     }
 
     /**
-     * Sets the allowDeviceHealthMonitoring property value. Enables device health monitoring on the device. Possible values are: notConfigured, enabled, disabled.
+     * Sets the allowDeviceHealthMonitoring property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the allowDeviceHealthMonitoring property.
     */
     public function setAllowDeviceHealthMonitoring(?Enablement $value ): void {
@@ -104,7 +105,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
     }
 
     /**
-     * Sets the configDeviceHealthMonitoringScope property value. Specifies set of events collected from the device where health monitoring is enabled. Possible values are: undefined, healthMonitoring, bootPerformance, windowsUpdates.
+     * Sets the configDeviceHealthMonitoringScope property value. Device health monitoring scope
      *  @param WindowsHealthMonitoringScope|null $value Value to set for the configDeviceHealthMonitoringScope property.
     */
     public function setConfigDeviceHealthMonitoringScope(?WindowsHealthMonitoringScope $value ): void {

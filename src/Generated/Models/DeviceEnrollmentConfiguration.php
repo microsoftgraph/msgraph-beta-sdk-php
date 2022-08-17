@@ -25,7 +25,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
     private ?string $description = null;
     
     /**
-     * @var DeviceEnrollmentConfigurationType|null $deviceEnrollmentConfigurationType Support for Enrollment Configuration Type
+     * @var DeviceEnrollmentConfigurationType|null $deviceEnrollmentConfigurationType Describes the TemplateFamily for the Template entity
     */
     private ?DeviceEnrollmentConfigurationType $deviceEnrollmentConfigurationType = null;
     
@@ -59,6 +59,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceEnrollmentConfiguration');
     }
 
     /**
@@ -108,7 +109,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceEnrollmentConfigurationType property value. Support for Enrollment Configuration Type
+     * Gets the deviceEnrollmentConfigurationType property value. Describes the TemplateFamily for the Template entity
      * @return DeviceEnrollmentConfigurationType|null
     */
     public function getDeviceEnrollmentConfigurationType(): ?DeviceEnrollmentConfigurationType {
@@ -216,7 +217,7 @@ class DeviceEnrollmentConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceEnrollmentConfigurationType property value. Support for Enrollment Configuration Type
+     * Sets the deviceEnrollmentConfigurationType property value. Describes the TemplateFamily for the Template entity
      *  @param DeviceEnrollmentConfigurationType|null $value Value to set for the deviceEnrollmentConfigurationType property.
     */
     public function setDeviceEnrollmentConfigurationType(?DeviceEnrollmentConfigurationType $value ): void {

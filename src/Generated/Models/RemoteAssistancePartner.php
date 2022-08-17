@@ -25,7 +25,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
     private ?DateTime $onboardingRequestExpiryDateTime = null;
     
     /**
-     * @var RemoteAssistanceOnboardingStatus|null $onboardingStatus A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded.
+     * @var RemoteAssistanceOnboardingStatus|null $onboardingStatus The current TeamViewer connector status
     */
     private ?RemoteAssistanceOnboardingStatus $onboardingStatus = null;
     
@@ -35,10 +35,11 @@ class RemoteAssistancePartner extends Entity implements Parsable
     private ?string $onboardingUrl = null;
     
     /**
-     * Instantiates a new RemoteAssistancePartner and sets the default values.
+     * Instantiates a new remoteAssistancePartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.remoteAssistancePartner');
     }
 
     /**
@@ -90,7 +91,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
     }
 
     /**
-     * Gets the onboardingStatus property value. A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded.
+     * Gets the onboardingStatus property value. The current TeamViewer connector status
      * @return RemoteAssistanceOnboardingStatus|null
     */
     public function getOnboardingStatus(): ?RemoteAssistanceOnboardingStatus {
@@ -143,7 +144,7 @@ class RemoteAssistancePartner extends Entity implements Parsable
     }
 
     /**
-     * Sets the onboardingStatus property value. A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded.
+     * Sets the onboardingStatus property value. The current TeamViewer connector status
      *  @param RemoteAssistanceOnboardingStatus|null $value Value to set for the onboardingStatus property.
     */
     public function setOnboardingStatus(?RemoteAssistanceOnboardingStatus $value ): void {

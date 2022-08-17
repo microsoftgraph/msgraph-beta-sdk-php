@@ -15,12 +15,12 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     private ?array $associatedApps = null;
     
     /**
-     * @var Windows10VpnAuthenticationMethod|null $authenticationMethod Authentication method. Possible values are: certificate, usernameAndPassword, customEapXml, derivedCredential.
+     * @var Windows10VpnAuthenticationMethod|null $authenticationMethod Windows 10 VPN connection types.
     */
     private ?Windows10VpnAuthenticationMethod $authenticationMethod = null;
     
     /**
-     * @var Windows10VpnConnectionType|null $connectionType Connection type. Possible values are: pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, automatic, ikEv2, l2tp, pptp, citrix, paloAltoGlobalProtect, ciscoAnyConnect, unknownFutureValue, microsoftTunnel.
+     * @var Windows10VpnConnectionType|null $connectionType VPN connection types.
     */
     private ?Windows10VpnConnectionType $connectionType = null;
     
@@ -139,6 +139,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10VpnConfiguration');
     }
 
     /**
@@ -159,7 +160,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     }
 
     /**
-     * Gets the authenticationMethod property value. Authentication method. Possible values are: certificate, usernameAndPassword, customEapXml, derivedCredential.
+     * Gets the authenticationMethod property value. Windows 10 VPN connection types.
      * @return Windows10VpnAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?Windows10VpnAuthenticationMethod {
@@ -167,7 +168,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     }
 
     /**
-     * Gets the connectionType property value. Connection type. Possible values are: pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, automatic, ikEv2, l2tp, pptp, citrix, paloAltoGlobalProtect, ciscoAnyConnect, unknownFutureValue, microsoftTunnel.
+     * Gets the connectionType property value. VPN connection types.
      * @return Windows10VpnConnectionType|null
     */
     public function getConnectionType(): ?Windows10VpnConnectionType {
@@ -427,7 +428,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     }
 
     /**
-     * Sets the authenticationMethod property value. Authentication method. Possible values are: certificate, usernameAndPassword, customEapXml, derivedCredential.
+     * Sets the authenticationMethod property value. Windows 10 VPN connection types.
      *  @param Windows10VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
     public function setAuthenticationMethod(?Windows10VpnAuthenticationMethod $value ): void {
@@ -435,7 +436,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     }
 
     /**
-     * Sets the connectionType property value. Connection type. Possible values are: pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, automatic, ikEv2, l2tp, pptp, citrix, paloAltoGlobalProtect, ciscoAnyConnect, unknownFutureValue, microsoftTunnel.
+     * Sets the connectionType property value. VPN connection types.
      *  @param Windows10VpnConnectionType|null $value Value to set for the connectionType property.
     */
     public function setConnectionType(?Windows10VpnConnectionType $value ): void {

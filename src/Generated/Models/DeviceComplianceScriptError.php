@@ -10,17 +10,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var Code|null $code Error code. Possible values are: none, jsonFileInvalid, jsonFileMissing, jsonFileTooLarge, rulesMissing, duplicateRules, tooManyRulesSpecified, operatorMissing, operatorNotSupported, datatypeMissing, datatypeNotSupported, operatorDataTypeCombinationNotSupported, moreInfoUriMissing, moreInfoUriInvalid, moreInfoUriTooLarge, descriptionMissing, descriptionInvalid, descriptionTooLarge, titleMissing, titleInvalid, titleTooLarge, operandMissing, operandInvalid, operandTooLarge, settingNameMissing, settingNameInvalid, settingNameTooLarge, englishLocaleMissing, duplicateLocales, unrecognizedLocale, unknown, remediationStringsMissing.
+     * @var Code|null $code Error code for rule validation.
     */
     private ?Code $code = null;
     
     /**
-     * @var DeviceComplianceScriptRulesValidationError|null $deviceComplianceScriptRulesValidationError Error code. Possible values are: none, jsonFileInvalid, jsonFileMissing, jsonFileTooLarge, rulesMissing, duplicateRules, tooManyRulesSpecified, operatorMissing, operatorNotSupported, datatypeMissing, datatypeNotSupported, operatorDataTypeCombinationNotSupported, moreInfoUriMissing, moreInfoUriInvalid, moreInfoUriTooLarge, descriptionMissing, descriptionInvalid, descriptionTooLarge, titleMissing, titleInvalid, titleTooLarge, operandMissing, operandInvalid, operandTooLarge, settingNameMissing, settingNameInvalid, settingNameTooLarge, englishLocaleMissing, duplicateLocales, unrecognizedLocale, unknown, remediationStringsMissing.
+     * @var DeviceComplianceScriptRulesValidationError|null $deviceComplianceScriptRulesValidationError Error code for rule validation.
     */
     private ?DeviceComplianceScriptRulesValidationError $deviceComplianceScriptRulesValidationError = null;
     
@@ -30,10 +30,16 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
     private ?string $message = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceComplianceScriptError and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceComplianceScriptError');
     }
 
     /**
@@ -61,7 +67,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the code property value. Error code. Possible values are: none, jsonFileInvalid, jsonFileMissing, jsonFileTooLarge, rulesMissing, duplicateRules, tooManyRulesSpecified, operatorMissing, operatorNotSupported, datatypeMissing, datatypeNotSupported, operatorDataTypeCombinationNotSupported, moreInfoUriMissing, moreInfoUriInvalid, moreInfoUriTooLarge, descriptionMissing, descriptionInvalid, descriptionTooLarge, titleMissing, titleInvalid, titleTooLarge, operandMissing, operandInvalid, operandTooLarge, settingNameMissing, settingNameInvalid, settingNameTooLarge, englishLocaleMissing, duplicateLocales, unrecognizedLocale, unknown, remediationStringsMissing.
+     * Gets the code property value. Error code for rule validation.
      * @return Code|null
     */
     public function getCode(): ?Code {
@@ -69,7 +75,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceComplianceScriptRulesValidationError property value. Error code. Possible values are: none, jsonFileInvalid, jsonFileMissing, jsonFileTooLarge, rulesMissing, duplicateRules, tooManyRulesSpecified, operatorMissing, operatorNotSupported, datatypeMissing, datatypeNotSupported, operatorDataTypeCombinationNotSupported, moreInfoUriMissing, moreInfoUriInvalid, moreInfoUriTooLarge, descriptionMissing, descriptionInvalid, descriptionTooLarge, titleMissing, titleInvalid, titleTooLarge, operandMissing, operandInvalid, operandTooLarge, settingNameMissing, settingNameInvalid, settingNameTooLarge, englishLocaleMissing, duplicateLocales, unrecognizedLocale, unknown, remediationStringsMissing.
+     * Gets the deviceComplianceScriptRulesValidationError property value. Error code for rule validation.
      * @return DeviceComplianceScriptRulesValidationError|null
     */
     public function getDeviceComplianceScriptRulesValidationError(): ?DeviceComplianceScriptRulesValidationError {
@@ -86,6 +92,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
             'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getEnumValue(Code::class)); },
             'deviceComplianceScriptRulesValidationError' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceScriptRulesValidationError($n->getEnumValue(DeviceComplianceScriptRulesValidationError::class)); },
             'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -98,6 +105,14 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -105,6 +120,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('code', $this->code);
         $writer->writeEnumValue('deviceComplianceScriptRulesValidationError', $this->deviceComplianceScriptRulesValidationError);
         $writer->writeStringValue('message', $this->message);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -117,7 +133,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the code property value. Error code. Possible values are: none, jsonFileInvalid, jsonFileMissing, jsonFileTooLarge, rulesMissing, duplicateRules, tooManyRulesSpecified, operatorMissing, operatorNotSupported, datatypeMissing, datatypeNotSupported, operatorDataTypeCombinationNotSupported, moreInfoUriMissing, moreInfoUriInvalid, moreInfoUriTooLarge, descriptionMissing, descriptionInvalid, descriptionTooLarge, titleMissing, titleInvalid, titleTooLarge, operandMissing, operandInvalid, operandTooLarge, settingNameMissing, settingNameInvalid, settingNameTooLarge, englishLocaleMissing, duplicateLocales, unrecognizedLocale, unknown, remediationStringsMissing.
+     * Sets the code property value. Error code for rule validation.
      *  @param Code|null $value Value to set for the code property.
     */
     public function setCode(?Code $value ): void {
@@ -125,7 +141,7 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceComplianceScriptRulesValidationError property value. Error code. Possible values are: none, jsonFileInvalid, jsonFileMissing, jsonFileTooLarge, rulesMissing, duplicateRules, tooManyRulesSpecified, operatorMissing, operatorNotSupported, datatypeMissing, datatypeNotSupported, operatorDataTypeCombinationNotSupported, moreInfoUriMissing, moreInfoUriInvalid, moreInfoUriTooLarge, descriptionMissing, descriptionInvalid, descriptionTooLarge, titleMissing, titleInvalid, titleTooLarge, operandMissing, operandInvalid, operandTooLarge, settingNameMissing, settingNameInvalid, settingNameTooLarge, englishLocaleMissing, duplicateLocales, unrecognizedLocale, unknown, remediationStringsMissing.
+     * Sets the deviceComplianceScriptRulesValidationError property value. Error code for rule validation.
      *  @param DeviceComplianceScriptRulesValidationError|null $value Value to set for the deviceComplianceScriptRulesValidationError property.
     */
     public function setDeviceComplianceScriptRulesValidationError(?DeviceComplianceScriptRulesValidationError $value ): void {
@@ -138,6 +154,14 @@ class DeviceComplianceScriptError implements AdditionalDataHolder, Parsable
     */
     public function setMessage(?string $value ): void {
         $this->message = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

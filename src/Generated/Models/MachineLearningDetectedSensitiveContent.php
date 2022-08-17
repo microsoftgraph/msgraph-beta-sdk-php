@@ -23,6 +23,7 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.machineLearningDetectedSensitiveContent');
     }
 
     /**

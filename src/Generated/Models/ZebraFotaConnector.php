@@ -30,15 +30,16 @@ class ZebraFotaConnector extends Entity implements Parsable
     private ?DateTime $lastSyncDateTime = null;
     
     /**
-     * @var ZebraFotaConnectorState|null $state The Zebra connector state. Possible values are: none, connected, disconnected, unknownFutureValue.
+     * @var ZebraFotaConnectorState|null $state Represents various states for Zebra FOTA connector.
     */
     private ?ZebraFotaConnectorState $state = null;
     
     /**
-     * Instantiates a new ZebraFotaConnector and sets the default values.
+     * Instantiates a new zebraFotaConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.zebraFotaConnector');
     }
 
     /**
@@ -98,7 +99,7 @@ class ZebraFotaConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. The Zebra connector state. Possible values are: none, connected, disconnected, unknownFutureValue.
+     * Gets the state property value. Represents various states for Zebra FOTA connector.
      * @return ZebraFotaConnectorState|null
     */
     public function getState(): ?ZebraFotaConnectorState {
@@ -151,7 +152,7 @@ class ZebraFotaConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. The Zebra connector state. Possible values are: none, connected, disconnected, unknownFutureValue.
+     * Sets the state property value. Represents various states for Zebra FOTA connector.
      *  @param ZebraFotaConnectorState|null $value Value to set for the state property.
     */
     public function setState(?ZebraFotaConnectorState $value ): void {

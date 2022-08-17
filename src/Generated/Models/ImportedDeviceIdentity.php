@@ -20,7 +20,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     private ?string $description = null;
     
     /**
-     * @var EnrollmentState|null $enrollmentState The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * @var EnrollmentState|null $enrollmentState The enrollmentState property
     */
     private ?EnrollmentState $enrollmentState = null;
     
@@ -30,7 +30,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     private ?string $importedDeviceIdentifier = null;
     
     /**
-     * @var ImportedDeviceIdentityType|null $importedDeviceIdentityType Type of Imported Device Identity. Possible values are: unknown, imei, serialNumber.
+     * @var ImportedDeviceIdentityType|null $importedDeviceIdentityType The importedDeviceIdentityType property
     */
     private ?ImportedDeviceIdentityType $importedDeviceIdentityType = null;
     
@@ -45,15 +45,16 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var Platform|null $platform The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
+     * @var Platform|null $platform The platform property
     */
     private ?Platform $platform = null;
     
     /**
-     * Instantiates a new ImportedDeviceIdentity and sets the default values.
+     * Instantiates a new importedDeviceIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.importedDeviceIdentity');
     }
 
     /**
@@ -89,7 +90,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentState property value. The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Gets the enrollmentState property value. The enrollmentState property
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
@@ -123,7 +124,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the importedDeviceIdentityType property value. Type of Imported Device Identity. Possible values are: unknown, imei, serialNumber.
+     * Gets the importedDeviceIdentityType property value. The importedDeviceIdentityType property
      * @return ImportedDeviceIdentityType|null
     */
     public function getImportedDeviceIdentityType(): ?ImportedDeviceIdentityType {
@@ -147,7 +148,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the platform property value. The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
+     * Gets the platform property value. The platform property
      * @return Platform|null
     */
     public function getPlatform(): ?Platform {
@@ -187,7 +188,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentState property value. The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Sets the enrollmentState property value. The enrollmentState property
      *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
     public function setEnrollmentState(?EnrollmentState $value ): void {
@@ -203,7 +204,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the importedDeviceIdentityType property value. Type of Imported Device Identity. Possible values are: unknown, imei, serialNumber.
+     * Sets the importedDeviceIdentityType property value. The importedDeviceIdentityType property
      *  @param ImportedDeviceIdentityType|null $value Value to set for the importedDeviceIdentityType property.
     */
     public function setImportedDeviceIdentityType(?ImportedDeviceIdentityType $value ): void {
@@ -227,7 +228,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the platform property value. The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
+     * Sets the platform property value. The platform property
      *  @param Platform|null $value Value to set for the platform property.
     */
     public function setPlatform(?Platform $value ): void {

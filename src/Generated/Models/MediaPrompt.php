@@ -23,6 +23,7 @@ class MediaPrompt extends Prompt implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mediaPrompt');
     }
 
     /**

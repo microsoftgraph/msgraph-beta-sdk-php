@@ -31,7 +31,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
     private ?array $groupPolicyUploadedLanguageFiles = null;
     
     /**
-     * @var GroupPolicyUploadedDefinitionFileStatus|null $status The upload status of the uploaded ADMX file. Possible values are: none, uploadInProgress, available, assigned, removalInProgress, uploadFailed, removalFailed.
+     * @var GroupPolicyUploadedDefinitionFileStatus|null $status Type of Group Policy uploaded definition file status.
     */
     private ?GroupPolicyUploadedDefinitionFileStatus $status = null;
     
@@ -45,6 +45,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyUploadedDefinitionFile');
     }
 
     /**
@@ -105,7 +106,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
     }
 
     /**
-     * Gets the status property value. The upload status of the uploaded ADMX file. Possible values are: none, uploadInProgress, available, assigned, removalInProgress, uploadFailed, removalFailed.
+     * Gets the status property value. Type of Group Policy uploaded definition file status.
      * @return GroupPolicyUploadedDefinitionFileStatus|null
     */
     public function getStatus(): ?GroupPolicyUploadedDefinitionFileStatus {
@@ -167,7 +168,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
     }
 
     /**
-     * Sets the status property value. The upload status of the uploaded ADMX file. Possible values are: none, uploadInProgress, available, assigned, removalInProgress, uploadFailed, removalFailed.
+     * Sets the status property value. Type of Group Policy uploaded definition file status.
      *  @param GroupPolicyUploadedDefinitionFileStatus|null $value Value to set for the status property.
     */
     public function setStatus(?GroupPolicyUploadedDefinitionFileStatus $value ): void {

@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class RegisteredOwnersRequestBuilder 
 {
     /**
-     * The count property
+     * The Count property
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class RegisteredOwnersRequestBuilder
     private array $pathParameters;
     
     /**
-     * The ref property
+     * The Ref property
     */
     public function ref(): RefRequestBuilder {
         return new RefRequestBuilder($this->pathParameters, $this->requestAdapter);

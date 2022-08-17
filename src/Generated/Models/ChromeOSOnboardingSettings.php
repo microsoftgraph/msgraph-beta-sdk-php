@@ -20,7 +20,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var OnboardingStatus|null $onboardingStatus The ChromebookTenant's OnboardingStatus. Possible values are: unknown, inprogress, onboarded, failed, offboarding, unknownFutureValue.
+     * @var OnboardingStatus|null $onboardingStatus The onboarding status of the tenant.
     */
     private ?OnboardingStatus $onboardingStatus = null;
     
@@ -30,10 +30,11 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
     private ?string $ownerUserPrincipalName = null;
     
     /**
-     * Instantiates a new chromeOSOnboardingSettings and sets the default values.
+     * Instantiates a new ChromeOSOnboardingSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.chromeOSOnboardingSettings');
     }
 
     /**
@@ -76,7 +77,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the onboardingStatus property value. The ChromebookTenant's OnboardingStatus. Possible values are: unknown, inprogress, onboarded, failed, offboarding, unknownFutureValue.
+     * Gets the onboardingStatus property value. The onboarding status of the tenant.
      * @return OnboardingStatus|null
     */
     public function getOnboardingStatus(): ?OnboardingStatus {
@@ -120,7 +121,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the onboardingStatus property value. The ChromebookTenant's OnboardingStatus. Possible values are: unknown, inprogress, onboarded, failed, offboarding, unknownFutureValue.
+     * Sets the onboardingStatus property value. The onboarding status of the tenant.
      *  @param OnboardingStatus|null $value Value to set for the onboardingStatus property.
     */
     public function setOnboardingStatus(?OnboardingStatus $value ): void {

@@ -150,10 +150,11 @@ class SalesOrderLine extends Entity implements Parsable
     private ?string $unitPrice = null;
     
     /**
-     * Instantiates a new salesOrderLine and sets the default values.
+     * Instantiates a new SalesOrderLine and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.salesOrderLine');
     }
 
     /**

@@ -13,6 +13,7 @@ class AllLicensedUsersAssignmentTarget extends DeviceAndAppManagementAssignmentT
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.allLicensedUsersAssignmentTarget');
     }
 
     /**

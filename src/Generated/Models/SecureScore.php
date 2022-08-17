@@ -60,10 +60,11 @@ class SecureScore extends Entity implements Parsable
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
-     * Instantiates a new secureScore and sets the default values.
+     * Instantiates a new SecureScore and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.secureScore');
     }
 
     /**

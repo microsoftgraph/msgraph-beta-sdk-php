@@ -12,6 +12,9 @@ use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\AttendeeReport\Attende
 use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\MeetingAttendanceReport\MeetingAttendanceReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Recording\RecordingRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Registration\RegistrationRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Transcripts\Item\CallTranscriptItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\Transcripts\TranscriptsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\OnlineMeetings\Item\VirtualAppointment\VirtualAppointmentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OnlineMeeting;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -77,9 +80,23 @@ class OnlineMeetingItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
+     * The transcripts property
+    */
+    public function transcripts(): TranscriptsRequestBuilder {
+        return new TranscriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
+    
+    /**
+     * The virtualAppointment property
+    */
+    public function virtualAppointment(): VirtualAppointmentRequestBuilder {
+        return new VirtualAppointmentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.me.onlineMeetings.item.attendanceReports.item collection
@@ -228,6 +245,17 @@ class OnlineMeetingItemRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.me.onlineMeetings.item.transcripts.item collection
+     * @param string $id Unique identifier of the item
+     * @return CallTranscriptItemRequestBuilder
+    */
+    public function transcriptsById(string $id): CallTranscriptItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['callTranscript%2Did'] = $id;
+        return new CallTranscriptItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

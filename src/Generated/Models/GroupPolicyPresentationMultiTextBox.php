@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyPresentationMultiTextBox extends GroupPolicyPresentation implements Parsable 
+class GroupPolicyPresentationMultiTextBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
      * @var int|null $maxLength An unsigned integer that specifies the maximum number of text characters. Default value is 1023.
@@ -28,6 +28,7 @@ class GroupPolicyPresentationMultiTextBox extends GroupPolicyPresentation implem
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyPresentationMultiTextBox');
     }
 
     /**

@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SiteSourcesRequestBuilder 
 {
     /**
-     * The count property
+     * The Count property
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -53,7 +53,7 @@ class SiteSourcesRequestBuilder
     }
 
     /**
-     * Get siteSources from security
+     * Data sources that represent SharePoint sites.
      * @param SiteSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +102,7 @@ class SiteSourcesRequestBuilder
     }
 
     /**
-     * Get siteSources from security
+     * Data sources that represent SharePoint sites.
      * @param SiteSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

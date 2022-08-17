@@ -34,7 +34,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
     private ?string $configurationAccount = null;
     
     /**
-     * @var SecureAssessmentAccountType|null $configurationAccountType The account type used to by ConfigurationAccount. Possible values are: azureADAccount, domainAccount, localAccount, localGuestAccount.
+     * @var SecureAssessmentAccountType|null $configurationAccountType Type of accounts that are allowed for Windows10SecureAssessment ConfigurationAccount.
     */
     private ?SecureAssessmentAccountType $configurationAccountType = null;
     
@@ -53,6 +53,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10SecureAssessmentConfiguration');
     }
 
     /**
@@ -105,7 +106,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
     }
 
     /**
-     * Gets the configurationAccountType property value. The account type used to by ConfigurationAccount. Possible values are: azureADAccount, domainAccount, localAccount, localGuestAccount.
+     * Gets the configurationAccountType property value. Type of accounts that are allowed for Windows10SecureAssessment ConfigurationAccount.
      * @return SecureAssessmentAccountType|null
     */
     public function getConfigurationAccountType(): ?SecureAssessmentAccountType {
@@ -203,7 +204,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
     }
 
     /**
-     * Sets the configurationAccountType property value. The account type used to by ConfigurationAccount. Possible values are: azureADAccount, domainAccount, localAccount, localGuestAccount.
+     * Sets the configurationAccountType property value. Type of accounts that are allowed for Windows10SecureAssessment ConfigurationAccount.
      *  @param SecureAssessmentAccountType|null $value Value to set for the configurationAccountType property.
     */
     public function setConfigurationAccountType(?SecureAssessmentAccountType $value ): void {

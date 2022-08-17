@@ -13,6 +13,8 @@ use Microsoft\Graph\Beta\Generated\Me\AgreementAcceptances\Item\AgreementAccepta
 use Microsoft\Graph\Beta\Generated\Me\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\AppConsentRequestsForApproval\AppConsentRequestsForApprovalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\AppConsentRequestsForApproval\Item\AppConsentRequestItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignedResources\AppRoleAssignedResourcesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignedResources\Item\ServicePrincipalItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignments\AppRoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\AppRoleAssignments\Item\AppRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Approvals\ApprovalsRequestBuilder;
@@ -193,6 +195,13 @@ class MeRequestBuilder
     */
     public function appConsentRequestsForApproval(): AppConsentRequestsForApprovalRequestBuilder {
         return new AppConsentRequestsForApprovalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The appRoleAssignedResources property
+    */
+    public function appRoleAssignedResources(): AppRoleAssignedResourcesRequestBuilder {
+        return new AppRoleAssignedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -811,6 +820,17 @@ class MeRequestBuilder
     }
 
     /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.me.appRoleAssignedResources.item collection
+     * @param string $id Unique identifier of the item
+     * @return ServicePrincipalItemRequestBuilder
+    */
+    public function appRoleAssignedResourcesById(string $id): ServicePrincipalItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['servicePrincipal%2Did'] = $id;
+        return new ServicePrincipalItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.me.appRoleAssignments.item collection
      * @param string $id Unique identifier of the item
      * @return AppRoleAssignmentItemRequestBuilder
@@ -932,7 +952,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
+     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
      * @param MeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -1111,7 +1131,7 @@ class MeRequestBuilder
     }
 
     /**
-     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
+     * Retrieve the properties and relationships of user object. This operation returns by default only a subset of the more commonly used properties for each user. These _default_ properties are noted in the Properties section. To get properties that are _not_ returned by default, do a GET operation for the user and specify the properties in a `$select` OData query option. Because the **user** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in a **user** instance.
      * @param MeRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

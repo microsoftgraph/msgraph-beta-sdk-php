@@ -29,7 +29,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
     private ?string $managedDeviceId = null;
     
     /**
-     * @var PolicyPlatformType|null $platformType Platform type. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
+     * @var PolicyPlatformType|null $platformType Supported platform types for policies.
     */
     private ?PolicyPlatformType $platformType = null;
     
@@ -39,7 +39,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
     private ?array $restrictedApps = null;
     
     /**
-     * @var RestrictedAppsState|null $restrictedAppsState Restricted apps state. Possible values are: prohibitedApps, notApprovedApps.
+     * @var RestrictedAppsState|null $restrictedAppsState Restricted apps state
     */
     private ?RestrictedAppsState $restrictedAppsState = null;
     
@@ -54,10 +54,11 @@ class RestrictedAppsViolation extends Entity implements Parsable
     private ?string $userName = null;
     
     /**
-     * Instantiates a new restrictedAppsViolation and sets the default values.
+     * Instantiates a new RestrictedAppsViolation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.restrictedAppsViolation');
     }
 
     /**
@@ -121,7 +122,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
     }
 
     /**
-     * Gets the platformType property value. Platform type. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
+     * Gets the platformType property value. Supported platform types for policies.
      * @return PolicyPlatformType|null
     */
     public function getPlatformType(): ?PolicyPlatformType {
@@ -137,7 +138,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
     }
 
     /**
-     * Gets the restrictedAppsState property value. Restricted apps state. Possible values are: prohibitedApps, notApprovedApps.
+     * Gets the restrictedAppsState property value. Restricted apps state
      * @return RestrictedAppsState|null
     */
     public function getRestrictedAppsState(): ?RestrictedAppsState {
@@ -210,7 +211,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
     }
 
     /**
-     * Sets the platformType property value. Platform type. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
+     * Sets the platformType property value. Supported platform types for policies.
      *  @param PolicyPlatformType|null $value Value to set for the platformType property.
     */
     public function setPlatformType(?PolicyPlatformType $value ): void {
@@ -226,7 +227,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
     }
 
     /**
-     * Sets the restrictedAppsState property value. Restricted apps state. Possible values are: prohibitedApps, notApprovedApps.
+     * Sets the restrictedAppsState property value. Restricted apps state
      *  @param RestrictedAppsState|null $value Value to set for the restrictedAppsState property.
     */
     public function setRestrictedAppsState(?RestrictedAppsState $value ): void {

@@ -10,9 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class NdesConnector extends Entity implements Parsable 
 {
     /**
+     * @var string|null $connectorVersion The build version of the Ndes Connector.
+    */
+    private ?string $connectorVersion = null;
+    
+    /**
      * @var string|null $displayName The friendly name of the Ndes Connector.
     */
     private ?string $displayName = null;
+    
+    /**
+     * @var DateTime|null $enrolledDateTime Timestamp when on-prem certificate connector was enrolled in Intune.
+    */
+    private ?DateTime $enrolledDateTime = null;
     
     /**
      * @var DateTime|null $lastConnectionDateTime Last connection time for the Ndes Connector
@@ -20,15 +30,26 @@ class NdesConnector extends Entity implements Parsable
     private ?DateTime $lastConnectionDateTime = null;
     
     /**
-     * @var NdesConnectorState|null $state Ndes Connector Status. Possible values are: none, active, inactive.
+     * @var string|null $machineName Name of the machine running on-prem certificate connector service.
+    */
+    private ?string $machineName = null;
+    
+    /**
+     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
+    */
+    private ?array $roleScopeTagIds = null;
+    
+    /**
+     * @var NdesConnectorState|null $state The current status of the Ndes Connector.
     */
     private ?NdesConnectorState $state = null;
     
     /**
-     * Instantiates a new NdesConnector and sets the default values.
+     * Instantiates a new ndesConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.ndesConnector');
     }
 
     /**
@@ -41,11 +62,27 @@ class NdesConnector extends Entity implements Parsable
     }
 
     /**
+     * Gets the connectorVersion property value. The build version of the Ndes Connector.
+     * @return string|null
+    */
+    public function getConnectorVersion(): ?string {
+        return $this->connectorVersion;
+    }
+
+    /**
      * Gets the displayName property value. The friendly name of the Ndes Connector.
      * @return string|null
     */
     public function getDisplayName(): ?string {
         return $this->displayName;
+    }
+
+    /**
+     * Gets the enrolledDateTime property value. Timestamp when on-prem certificate connector was enrolled in Intune.
+     * @return DateTime|null
+    */
+    public function getEnrolledDateTime(): ?DateTime {
+        return $this->enrolledDateTime;
     }
 
     /**
@@ -55,8 +92,12 @@ class NdesConnector extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'connectorVersion' => function (ParseNode $n) use ($o) { $o->setConnectorVersion($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'enrolledDateTime' => function (ParseNode $n) use ($o) { $o->setEnrolledDateTime($n->getDateTimeValue()); },
             'lastConnectionDateTime' => function (ParseNode $n) use ($o) { $o->setLastConnectionDateTime($n->getDateTimeValue()); },
+            'machineName' => function (ParseNode $n) use ($o) { $o->setMachineName($n->getStringValue()); },
+            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(NdesConnectorState::class)); },
         ]);
     }
@@ -70,7 +111,23 @@ class NdesConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. Ndes Connector Status. Possible values are: none, active, inactive.
+     * Gets the machineName property value. Name of the machine running on-prem certificate connector service.
+     * @return string|null
+    */
+    public function getMachineName(): ?string {
+        return $this->machineName;
+    }
+
+    /**
+     * Gets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
+     * @return array<string>|null
+    */
+    public function getRoleScopeTagIds(): ?array {
+        return $this->roleScopeTagIds;
+    }
+
+    /**
+     * Gets the state property value. The current status of the Ndes Connector.
      * @return NdesConnectorState|null
     */
     public function getState(): ?NdesConnectorState {
@@ -83,9 +140,21 @@ class NdesConnector extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('connectorVersion', $this->connectorVersion);
         $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeDateTimeValue('enrolledDateTime', $this->enrolledDateTime);
         $writer->writeDateTimeValue('lastConnectionDateTime', $this->lastConnectionDateTime);
+        $writer->writeStringValue('machineName', $this->machineName);
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeEnumValue('state', $this->state);
+    }
+
+    /**
+     * Sets the connectorVersion property value. The build version of the Ndes Connector.
+     *  @param string|null $value Value to set for the connectorVersion property.
+    */
+    public function setConnectorVersion(?string $value ): void {
+        $this->connectorVersion = $value;
     }
 
     /**
@@ -97,6 +166,14 @@ class NdesConnector extends Entity implements Parsable
     }
 
     /**
+     * Sets the enrolledDateTime property value. Timestamp when on-prem certificate connector was enrolled in Intune.
+     *  @param DateTime|null $value Value to set for the enrolledDateTime property.
+    */
+    public function setEnrolledDateTime(?DateTime $value ): void {
+        $this->enrolledDateTime = $value;
+    }
+
+    /**
      * Sets the lastConnectionDateTime property value. Last connection time for the Ndes Connector
      *  @param DateTime|null $value Value to set for the lastConnectionDateTime property.
     */
@@ -105,7 +182,23 @@ class NdesConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. Ndes Connector Status. Possible values are: none, active, inactive.
+     * Sets the machineName property value. Name of the machine running on-prem certificate connector service.
+     *  @param string|null $value Value to set for the machineName property.
+    */
+    public function setMachineName(?string $value ): void {
+        $this->machineName = $value;
+    }
+
+    /**
+     * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
+     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+    */
+    public function setRoleScopeTagIds(?array $value ): void {
+        $this->roleScopeTagIds = $value;
+    }
+
+    /**
+     * Sets the state property value. The current status of the Ndes Connector.
      *  @param NdesConnectorState|null $value Value to set for the state property.
     */
     public function setState(?NdesConnectorState $value ): void {

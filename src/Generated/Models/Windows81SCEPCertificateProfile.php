@@ -14,17 +14,17 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase im
     private ?CertificateStore $certificateStore = null;
     
     /**
-     * @var HashAlgorithms|null $hashAlgorithm SCEP Hash Algorithm. Possible values are: sha1, sha2.
+     * @var HashAlgorithms|null $hashAlgorithm Hash Algorithm Options.
     */
     private ?HashAlgorithms $hashAlgorithm = null;
     
     /**
-     * @var KeySize|null $keySize SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * @var KeySize|null $keySize Key Size Options.
     */
     private ?KeySize $keySize = null;
     
     /**
-     * @var KeyUsages|null $keyUsage SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * @var KeyUsages|null $keyUsage Key Usage Options.
     */
     private ?KeyUsages $keyUsage = null;
     
@@ -58,6 +58,7 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase im
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows81SCEPCertificateProfile');
     }
 
     /**
@@ -97,7 +98,7 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase im
     }
 
     /**
-     * Gets the hashAlgorithm property value. SCEP Hash Algorithm. Possible values are: sha1, sha2.
+     * Gets the hashAlgorithm property value. Hash Algorithm Options.
      * @return HashAlgorithms|null
     */
     public function getHashAlgorithm(): ?HashAlgorithms {
@@ -105,7 +106,7 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase im
     }
 
     /**
-     * Gets the keySize property value. SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * Gets the keySize property value. Key Size Options.
      * @return KeySize|null
     */
     public function getKeySize(): ?KeySize {
@@ -113,7 +114,7 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase im
     }
 
     /**
-     * Gets the keyUsage property value. SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * Gets the keyUsage property value. Key Usage Options.
      * @return KeyUsages|null
     */
     public function getKeyUsage(): ?KeyUsages {
@@ -186,7 +187,7 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase im
     }
 
     /**
-     * Sets the hashAlgorithm property value. SCEP Hash Algorithm. Possible values are: sha1, sha2.
+     * Sets the hashAlgorithm property value. Hash Algorithm Options.
      *  @param HashAlgorithms|null $value Value to set for the hashAlgorithm property.
     */
     public function setHashAlgorithm(?HashAlgorithms $value ): void {
@@ -194,7 +195,7 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase im
     }
 
     /**
-     * Sets the keySize property value. SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * Sets the keySize property value. Key Size Options.
      *  @param KeySize|null $value Value to set for the keySize property.
     */
     public function setKeySize(?KeySize $value ): void {
@@ -202,7 +203,7 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase im
     }
 
     /**
-     * Sets the keyUsage property value. SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * Sets the keyUsage property value. Key Usage Options.
      *  @param KeyUsages|null $value Value to set for the keyUsage property.
     */
     public function setKeyUsage(?KeyUsages $value ): void {

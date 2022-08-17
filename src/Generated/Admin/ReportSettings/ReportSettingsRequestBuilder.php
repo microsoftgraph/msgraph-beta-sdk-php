@@ -65,7 +65,7 @@ class ReportSettingsRequestBuilder
     }
 
     /**
-     * Get reportSettings from admin
+     * A container for administrative resources to manage reports.
      * @param ReportSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +132,7 @@ class ReportSettingsRequestBuilder
     }
 
     /**
-     * Get reportSettings from admin
+     * A container for administrative resources to manage reports.
      * @param ReportSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

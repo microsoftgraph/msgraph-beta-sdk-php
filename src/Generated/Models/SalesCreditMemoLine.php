@@ -130,10 +130,11 @@ class SalesCreditMemoLine extends Entity implements Parsable
     private ?string $unitPrice = null;
     
     /**
-     * Instantiates a new salesCreditMemoLine and sets the default values.
+     * Instantiates a new SalesCreditMemoLine and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.salesCreditMemoLine');
     }
 
     /**

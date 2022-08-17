@@ -18,6 +18,7 @@ class GroupPolicyPresentationValueText extends GroupPolicyPresentationValue impl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyPresentationValueText');
     }
 
     /**

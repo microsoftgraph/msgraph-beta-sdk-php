@@ -30,6 +30,8 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\ConnectedOrganizationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\ConnectedOrganizations\Item\ConnectedOrganizationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Settings\SettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Subjects\Item\AccessPackageSubjectItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Subjects\SubjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\EntitlementManagement;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -141,6 +143,13 @@ class EntitlementManagementRequestBuilder
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The subjects property
+    */
+    public function subjects(): SubjectsRequestBuilder {
+        return new SubjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -416,6 +425,17 @@ class EntitlementManagementRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.subjects.item collection
+     * @param string $id Unique identifier of the item
+     * @return AccessPackageSubjectItemRequestBuilder
+    */
+    public function subjectsById(string $id): AccessPackageSubjectItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['accessPackageSubject%2Did'] = $id;
+        return new AccessPackageSubjectItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

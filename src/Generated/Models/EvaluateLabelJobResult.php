@@ -10,9 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EvaluateLabelJobResult implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var ResponsiblePolicy|null $responsiblePolicy The responsiblePolicy property
@@ -33,7 +38,8 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, Parsable
      * Instantiates a new evaluateLabelJobResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.evaluateLabelJobResult');
     }
 
     /**
@@ -60,10 +66,19 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'responsiblePolicy' => function (ParseNode $n) use ($o) { $o->setResponsiblePolicy($n->getObjectValue(array(ResponsiblePolicy::class, 'createFromDiscriminatorValue'))); },
             'responsibleSensitiveTypes' => function (ParseNode $n) use ($o) { $o->setResponsibleSensitiveTypes($n->getCollectionOfObjectValues(array(ResponsibleSensitiveType::class, 'createFromDiscriminatorValue'))); },
             'sensitivityLabel' => function (ParseNode $n) use ($o) { $o->setSensitivityLabel($n->getObjectValue(array(MatchingLabel::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -95,6 +110,7 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('responsiblePolicy', $this->responsiblePolicy);
         $writer->writeCollectionOfObjectValues('responsibleSensitiveTypes', $this->responsibleSensitiveTypes);
         $writer->writeObjectValue('sensitivityLabel', $this->sensitivityLabel);
@@ -107,6 +123,14 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

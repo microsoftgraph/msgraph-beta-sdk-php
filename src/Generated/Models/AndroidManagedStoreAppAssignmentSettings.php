@@ -14,7 +14,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
     private ?array $androidManagedStoreAppTrackIds = null;
     
     /**
-     * @var AndroidManagedStoreAutoUpdateMode|null $autoUpdateMode The prioritization of automatic updates for this app assignment. Possible values are: default, postponed, priority, unknownFutureValue.
+     * @var AndroidManagedStoreAutoUpdateMode|null $autoUpdateMode Prioritization for automatic updates of Android Managed Store apps set on assignment.
     */
     private ?AndroidManagedStoreAutoUpdateMode $autoUpdateMode = null;
     
@@ -23,6 +23,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidManagedStoreAppAssignmentSettings');
     }
 
     /**
@@ -43,7 +44,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
     }
 
     /**
-     * Gets the autoUpdateMode property value. The prioritization of automatic updates for this app assignment. Possible values are: default, postponed, priority, unknownFutureValue.
+     * Gets the autoUpdateMode property value. Prioritization for automatic updates of Android Managed Store apps set on assignment.
      * @return AndroidManagedStoreAutoUpdateMode|null
     */
     public function getAutoUpdateMode(): ?AndroidManagedStoreAutoUpdateMode {
@@ -81,7 +82,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
     }
 
     /**
-     * Sets the autoUpdateMode property value. The prioritization of automatic updates for this app assignment. Possible values are: default, postponed, priority, unknownFutureValue.
+     * Sets the autoUpdateMode property value. Prioritization for automatic updates of Android Managed Store apps set on assignment.
      *  @param AndroidManagedStoreAutoUpdateMode|null $value Value to set for the autoUpdateMode property.
     */
     public function setAutoUpdateMode(?AndroidManagedStoreAutoUpdateMode $value ): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskProfile implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
      * @var WindowsKioskAppConfiguration|null $appConfiguration The app base class used to identify the application info for the kiosk configuration
     */
     private ?WindowsKioskAppConfiguration $appConfiguration = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $profileId Key of the entity.
@@ -38,7 +43,8 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
      * Instantiates a new windowsKioskProfile and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windowsKioskProfile');
     }
 
     /**
@@ -74,10 +80,19 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'appConfiguration' => function (ParseNode $n) use ($o) { $o->setAppConfiguration($n->getObjectValue(array(WindowsKioskAppConfiguration::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'profileId' => function (ParseNode $n) use ($o) { $o->setProfileId($n->getStringValue()); },
             'profileName' => function (ParseNode $n) use ($o) { $o->setProfileName($n->getStringValue()); },
             'userAccountsConfiguration' => function (ParseNode $n) use ($o) { $o->setUserAccountsConfiguration($n->getCollectionOfObjectValues(array(WindowsKioskUser::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -110,6 +125,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('appConfiguration', $this->appConfiguration);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('profileId', $this->profileId);
         $writer->writeStringValue('profileName', $this->profileName);
         $writer->writeCollectionOfObjectValues('userAccountsConfiguration', $this->userAccountsConfiguration);
@@ -130,6 +146,14 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
     */
     public function setAppConfiguration(?WindowsKioskAppConfiguration $value ): void {
         $this->appConfiguration = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

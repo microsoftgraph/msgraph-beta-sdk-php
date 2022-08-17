@@ -29,7 +29,7 @@ class MobileAppRelationship extends Entity implements Parsable
     private ?string $targetPublisher = null;
     
     /**
-     * @var MobileAppRelationshipType|null $targetType The type of relationship indicating whether the target is a parent or child. Possible values are: child, parent.
+     * @var MobileAppRelationshipType|null $targetType Indicates whether the target of a relationship is the parent or the child in the relationship.
     */
     private ?MobileAppRelationshipType $targetType = null;
     
@@ -38,6 +38,7 @@ class MobileAppRelationship extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mobileAppRelationship');
     }
 
     /**
@@ -105,7 +106,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Gets the targetType property value. The type of relationship indicating whether the target is a parent or child. Possible values are: child, parent.
+     * Gets the targetType property value. Indicates whether the target of a relationship is the parent or the child in the relationship.
      * @return MobileAppRelationshipType|null
     */
     public function getTargetType(): ?MobileAppRelationshipType {
@@ -158,7 +159,7 @@ class MobileAppRelationship extends Entity implements Parsable
     }
 
     /**
-     * Sets the targetType property value. The type of relationship indicating whether the target is a parent or child. Possible values are: child, parent.
+     * Sets the targetType property value. Indicates whether the target of a relationship is the parent or the child in the relationship.
      *  @param MobileAppRelationshipType|null $value Value to set for the targetType property.
     */
     public function setTargetType(?MobileAppRelationshipType $value ): void {

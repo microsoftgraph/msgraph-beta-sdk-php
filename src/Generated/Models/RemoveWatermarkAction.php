@@ -18,6 +18,7 @@ class RemoveWatermarkAction extends InformationProtectionAction implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.removeWatermarkAction');
     }
 
     /**

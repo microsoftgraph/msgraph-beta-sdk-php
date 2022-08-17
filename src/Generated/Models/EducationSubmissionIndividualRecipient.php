@@ -18,6 +18,7 @@ class EducationSubmissionIndividualRecipient extends EducationSubmissionRecipien
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.educationSubmissionIndividualRecipient');
     }
 
     /**

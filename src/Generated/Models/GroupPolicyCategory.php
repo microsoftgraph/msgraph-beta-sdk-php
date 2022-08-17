@@ -30,6 +30,11 @@ class GroupPolicyCategory extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
+     * @var IngestionSource|null $ingestionSource Category Ingestion source
+    */
+    private ?IngestionSource $ingestionSource = null;
+    
+    /**
      * @var bool|null $isRoot Defines if the category is a root category
     */
     private ?bool $isRoot = null;
@@ -45,10 +50,11 @@ class GroupPolicyCategory extends Entity implements Parsable
     private ?GroupPolicyCategory $parent = null;
     
     /**
-     * Instantiates a new GroupPolicyCategory and sets the default values.
+     * Instantiates a new groupPolicyCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyCategory');
     }
 
     /**
@@ -103,10 +109,19 @@ class GroupPolicyCategory extends Entity implements Parsable
             'definitionFile' => function (ParseNode $n) use ($o) { $o->setDefinitionFile($n->getObjectValue(array(GroupPolicyDefinitionFile::class, 'createFromDiscriminatorValue'))); },
             'definitions' => function (ParseNode $n) use ($o) { $o->setDefinitions($n->getCollectionOfObjectValues(array(GroupPolicyDefinition::class, 'createFromDiscriminatorValue'))); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'ingestionSource' => function (ParseNode $n) use ($o) { $o->setIngestionSource($n->getEnumValue(IngestionSource::class)); },
             'isRoot' => function (ParseNode $n) use ($o) { $o->setIsRoot($n->getBooleanValue()); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(GroupPolicyCategory::class, 'createFromDiscriminatorValue'))); },
         ]);
+    }
+
+    /**
+     * Gets the ingestionSource property value. Category Ingestion source
+     * @return IngestionSource|null
+    */
+    public function getIngestionSource(): ?IngestionSource {
+        return $this->ingestionSource;
     }
 
     /**
@@ -143,6 +158,7 @@ class GroupPolicyCategory extends Entity implements Parsable
         $writer->writeObjectValue('definitionFile', $this->definitionFile);
         $writer->writeCollectionOfObjectValues('definitions', $this->definitions);
         $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeEnumValue('ingestionSource', $this->ingestionSource);
         $writer->writeBooleanValue('isRoot', $this->isRoot);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeObjectValue('parent', $this->parent);
@@ -178,6 +194,14 @@ class GroupPolicyCategory extends Entity implements Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the ingestionSource property value. Category Ingestion source
+     *  @param IngestionSource|null $value Value to set for the ingestionSource property.
+    */
+    public function setIngestionSource(?IngestionSource $value ): void {
+        $this->ingestionSource = $value;
     }
 
     /**

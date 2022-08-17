@@ -38,6 +38,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsDomainJoinConfiguration');
     }
 
     /**
