@@ -48,6 +48,7 @@ class AdministrativeUnit extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.administrativeUnit');
     }
 
     /**

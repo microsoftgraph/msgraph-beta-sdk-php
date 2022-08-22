@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,15 +30,21 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, Parsable
     private ?array $notSupportedDeviceIds = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var array<string>|null $successfulDeviceIds A list of all the Intune managed device IDs that completed the bulk action successfully.
     */
     private ?array $successfulDeviceIds = null;
     
     /**
-     * Instantiates a new CloudPcBulkRemoteActionResult and sets the default values.
+     * Instantiates a new cloudPcBulkRemoteActionResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.cloudPcBulkRemoteActionResult');
     }
 
     /**
@@ -76,6 +82,7 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, Parsable
             'failedDeviceIds' => function (ParseNode $n) use ($o) { $o->setFailedDeviceIds($n->getCollectionOfPrimitiveValues()); },
             'notFoundDeviceIds' => function (ParseNode $n) use ($o) { $o->setNotFoundDeviceIds($n->getCollectionOfPrimitiveValues()); },
             'notSupportedDeviceIds' => function (ParseNode $n) use ($o) { $o->setNotSupportedDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'successfulDeviceIds' => function (ParseNode $n) use ($o) { $o->setSuccessfulDeviceIds($n->getCollectionOfPrimitiveValues()); },
         ];
     }
@@ -97,6 +104,14 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the successfulDeviceIds property value. A list of all the Intune managed device IDs that completed the bulk action successfully.
      * @return array<string>|null
     */
@@ -112,6 +127,7 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfPrimitiveValues('failedDeviceIds', $this->failedDeviceIds);
         $writer->writeCollectionOfPrimitiveValues('notFoundDeviceIds', $this->notFoundDeviceIds);
         $writer->writeCollectionOfPrimitiveValues('notSupportedDeviceIds', $this->notSupportedDeviceIds);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfPrimitiveValues('successfulDeviceIds', $this->successfulDeviceIds);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -146,6 +162,14 @@ class CloudPcBulkRemoteActionResult implements AdditionalDataHolder, Parsable
     */
     public function setNotSupportedDeviceIds(?array $value ): void {
         $this->notSupportedDeviceIds = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

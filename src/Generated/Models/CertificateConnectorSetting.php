@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CertificateConnectorSetting implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -41,6 +41,11 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
     private ?int $lastUploadVersion = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $status Certificate connector status
     */
     private ?int $status = null;
@@ -49,7 +54,8 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * Instantiates a new certificateConnectorSetting and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.certificateConnectorSetting');
     }
 
     /**
@@ -105,6 +111,7 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
             'enrollmentError' => function (ParseNode $n) use ($o) { $o->setEnrollmentError($n->getStringValue()); },
             'lastConnectorConnectionTime' => function (ParseNode $n) use ($o) { $o->setLastConnectorConnectionTime($n->getDateTimeValue()); },
             'lastUploadVersion' => function (ParseNode $n) use ($o) { $o->setLastUploadVersion($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getIntegerValue()); },
         ];
     }
@@ -126,6 +133,14 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the status property value. Certificate connector status
      * @return int|null
     */
@@ -143,6 +158,7 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('enrollmentError', $this->enrollmentError);
         $writer->writeDateTimeValue('lastConnectorConnectionTime', $this->lastConnectorConnectionTime);
         $writer->writeIntegerValue('lastUploadVersion', $this->lastUploadVersion);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('status', $this->status);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -193,6 +209,14 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
     */
     public function setLastUploadVersion(?int $value ): void {
         $this->lastUploadVersion = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

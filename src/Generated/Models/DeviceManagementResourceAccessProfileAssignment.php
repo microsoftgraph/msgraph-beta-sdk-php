@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementResourceAccessProfileAssignment extends Entity implements Parsable 
 {
     /**
-     * @var DeviceManagementResourceAccessProfileIntent|null $intent The assignment intent for the resource access profile. Possible values are: apply, remove.
+     * @var DeviceManagementResourceAccessProfileIntent|null $intent The administrator intent for the assignment of the profile.
     */
     private ?DeviceManagementResourceAccessProfileIntent $intent = null;
     
@@ -28,6 +28,7 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementResourceAccessProfileAssignment');
     }
 
     /**
@@ -53,7 +54,7 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
     }
 
     /**
-     * Gets the intent property value. The assignment intent for the resource access profile. Possible values are: apply, remove.
+     * Gets the intent property value. The administrator intent for the assignment of the profile.
      * @return DeviceManagementResourceAccessProfileIntent|null
     */
     public function getIntent(): ?DeviceManagementResourceAccessProfileIntent {
@@ -88,7 +89,7 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
     }
 
     /**
-     * Sets the intent property value. The assignment intent for the resource access profile. Possible values are: apply, remove.
+     * Sets the intent property value. The administrator intent for the assignment of the profile.
      *  @param DeviceManagementResourceAccessProfileIntent|null $value Value to set for the intent property.
     */
     public function setIntent(?DeviceManagementResourceAccessProfileIntent $value ): void {

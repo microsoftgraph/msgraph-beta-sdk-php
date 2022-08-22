@@ -28,6 +28,7 @@ class TeamsAppUpgradedEventMessageDetail extends EventMessageDetail implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.teamsAppUpgradedEventMessageDetail');
     }
 
     /**

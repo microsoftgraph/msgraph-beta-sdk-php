@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -35,6 +35,11 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
     private ?int $nonCompliantDeviceCount = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $pendingDeviceCount The number of devices that have acknowledged the policy but are pending evaluation.
     */
     private ?int $pendingDeviceCount = null;
@@ -45,10 +50,11 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
     private ?int $targetedDeviceCount = null;
     
     /**
-     * Instantiates a new ConfigManagerPolicySummary and sets the default values.
+     * Instantiates a new configManagerPolicySummary and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.configManagerPolicySummary');
     }
 
     /**
@@ -103,6 +109,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
             'enforcedDeviceCount' => function (ParseNode $n) use ($o) { $o->setEnforcedDeviceCount($n->getIntegerValue()); },
             'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
             'nonCompliantDeviceCount' => function (ParseNode $n) use ($o) { $o->setNonCompliantDeviceCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'pendingDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingDeviceCount($n->getIntegerValue()); },
             'targetedDeviceCount' => function (ParseNode $n) use ($o) { $o->setTargetedDeviceCount($n->getIntegerValue()); },
         ];
@@ -114,6 +121,14 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
     */
     public function getNonCompliantDeviceCount(): ?int {
         return $this->nonCompliantDeviceCount;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -141,6 +156,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('enforcedDeviceCount', $this->enforcedDeviceCount);
         $writer->writeIntegerValue('failedDeviceCount', $this->failedDeviceCount);
         $writer->writeIntegerValue('nonCompliantDeviceCount', $this->nonCompliantDeviceCount);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('pendingDeviceCount', $this->pendingDeviceCount);
         $writer->writeIntegerValue('targetedDeviceCount', $this->targetedDeviceCount);
         $writer->writeAdditionalData($this->additionalData);
@@ -184,6 +200,14 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
     */
     public function setNonCompliantDeviceCount(?int $value ): void {
         $this->nonCompliantDeviceCount = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

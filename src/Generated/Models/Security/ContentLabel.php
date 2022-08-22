@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ContentLabel implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,15 +26,21 @@ class ContentLabel implements AdditionalDataHolder, Parsable
     private ?DateTime $createdDateTime = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $sensitivityLabelId The sensitivityLabelId property
     */
     private ?string $sensitivityLabelId = null;
     
     /**
-     * Instantiates a new ContentLabel and sets the default values.
+     * Instantiates a new contentLabel and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.security.contentLabel');
     }
 
     /**
@@ -79,8 +85,17 @@ class ContentLabel implements AdditionalDataHolder, Parsable
         return  [
             'assignmentMethod' => function (ParseNode $n) use ($o) { $o->setAssignmentMethod($n->getEnumValue(AssignmentMethod::class)); },
             'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'sensitivityLabelId' => function (ParseNode $n) use ($o) { $o->setSensitivityLabelId($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class ContentLabel implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('assignmentMethod', $this->assignmentMethod);
         $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('sensitivityLabelId', $this->sensitivityLabelId);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -124,6 +140,14 @@ class ContentLabel implements AdditionalDataHolder, Parsable
     */
     public function setCreatedDateTime(?DateTime $value ): void {
         $this->createdDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

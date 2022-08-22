@@ -13,6 +13,7 @@ class RemoveAccessApplyAction extends AccessReviewApplyAction implements Parsabl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.removeAccessApplyAction');
     }
 
     /**

@@ -66,10 +66,11 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     private ?string $version = null;
     
     /**
-     * Instantiates a new windowsDefenderApplicationControlSupplementalPolicy and sets the default values.
+     * Instantiates a new WindowsDefenderApplicationControlSupplementalPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy');
     }
 
     /**

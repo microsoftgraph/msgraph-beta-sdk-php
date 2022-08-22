@@ -44,7 +44,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     private ?int $eapolStartPeriodInSeconds = null;
     
     /**
-     * @var EapType|null $eapType Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, leap, eapSim, eapTtls, peap, eapFast, teap.
+     * @var EapType|null $eapType Extensible Authentication Protocol (EAP) configuration types.
     */
     private ?EapType $eapType = null;
     
@@ -148,6 +148,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsWifiEnterpriseEAPConfiguration');
     }
 
     /**
@@ -216,7 +217,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     }
 
     /**
-     * Gets the eapType property value. Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, leap, eapSim, eapTtls, peap, eapFast, teap.
+     * Gets the eapType property value. Extensible Authentication Protocol (EAP) configuration types.
      * @return EapType|null
     */
     public function getEapType(): ?EapType {
@@ -504,7 +505,7 @@ class WindowsWifiEnterpriseEAPConfiguration extends WindowsWifiConfiguration imp
     }
 
     /**
-     * Sets the eapType property value. Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, leap, eapSim, eapTtls, peap, eapFast, teap.
+     * Sets the eapType property value. Extensible Authentication Protocol (EAP) configuration types.
      *  @param EapType|null $value Value to set for the eapType property.
     */
     public function setEapType(?EapType $value ): void {

@@ -95,10 +95,11 @@ class Item extends Entity implements Parsable
     private ?string $unitPrice = null;
     
     /**
-     * Instantiates a new Item and sets the default values.
+     * Instantiates a new item and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.item');
     }
 
     /**

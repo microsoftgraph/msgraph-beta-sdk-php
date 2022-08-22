@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RemoteActionAudit extends Entity implements Parsable 
 {
     /**
-     * @var RemoteAction|null $action The action name. Possible values are: unknown, factoryReset, removeCompanyData, resetPasscode, remoteLock, enableLostMode, disableLostMode, locateDevice, rebootNow, recoverPasscode, cleanWindowsDevice, logoutSharedAppleDeviceActiveUser, quickScan, fullScan, windowsDefenderUpdateSignatures, factoryResetKeepEnrollmentData, updateDeviceAccount, automaticRedeployment, shutDown, rotateBitLockerKeys, rotateFileVaultKey, getFileVaultKey, setDeviceName, activateDeviceEsim.
+     * @var RemoteAction|null $action Remote actions Intune supports.
     */
     private ?RemoteAction $action = null;
     
     /**
-     * @var ActionState|null $actionState Action state. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * @var ActionState|null $actionState The actionState property
     */
     private ?ActionState $actionState = null;
     
@@ -59,6 +59,7 @@ class RemoteActionAudit extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.remoteActionAudit');
     }
 
     /**
@@ -71,7 +72,7 @@ class RemoteActionAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the action property value. The action name. Possible values are: unknown, factoryReset, removeCompanyData, resetPasscode, remoteLock, enableLostMode, disableLostMode, locateDevice, rebootNow, recoverPasscode, cleanWindowsDevice, logoutSharedAppleDeviceActiveUser, quickScan, fullScan, windowsDefenderUpdateSignatures, factoryResetKeepEnrollmentData, updateDeviceAccount, automaticRedeployment, shutDown, rotateBitLockerKeys, rotateFileVaultKey, getFileVaultKey, setDeviceName, activateDeviceEsim.
+     * Gets the action property value. Remote actions Intune supports.
      * @return RemoteAction|null
     */
     public function getAction(): ?RemoteAction {
@@ -79,7 +80,7 @@ class RemoteActionAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the actionState property value. Action state. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * Gets the actionState property value. The actionState property
      * @return ActionState|null
     */
     public function getActionState(): ?ActionState {
@@ -179,7 +180,7 @@ class RemoteActionAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the action property value. The action name. Possible values are: unknown, factoryReset, removeCompanyData, resetPasscode, remoteLock, enableLostMode, disableLostMode, locateDevice, rebootNow, recoverPasscode, cleanWindowsDevice, logoutSharedAppleDeviceActiveUser, quickScan, fullScan, windowsDefenderUpdateSignatures, factoryResetKeepEnrollmentData, updateDeviceAccount, automaticRedeployment, shutDown, rotateBitLockerKeys, rotateFileVaultKey, getFileVaultKey, setDeviceName, activateDeviceEsim.
+     * Sets the action property value. Remote actions Intune supports.
      *  @param RemoteAction|null $value Value to set for the action property.
     */
     public function setAction(?RemoteAction $value ): void {
@@ -187,7 +188,7 @@ class RemoteActionAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the actionState property value. Action state. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     * Sets the actionState property value. The actionState property
      *  @param ActionState|null $value Value to set for the actionState property.
     */
     public function setActionState(?ActionState $value ): void {

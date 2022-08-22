@@ -120,7 +120,7 @@ class EducationUser extends Entity implements Parsable
     private ?string $preferredLanguage = null;
     
     /**
-     * @var EducationUserRole|null $primaryRole Default role for a user. The user's role might be different in an individual class. Possible values are: student, teacher, faculty. Supports /$filter.
+     * @var EducationUserRole|null $primaryRole The primaryRole property
     */
     private ?EducationUserRole $primaryRole = null;
     
@@ -155,7 +155,7 @@ class EducationUser extends Entity implements Parsable
     private ?array $schools = null;
     
     /**
-     * @var bool|null $showInAddressList True if the Outlook Global Address List should contain this user; otherwise, false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false.
+     * @var bool|null $showInAddressList The showInAddressList property
     */
     private ?bool $showInAddressList = null;
     
@@ -185,7 +185,7 @@ class EducationUser extends Entity implements Parsable
     private ?string $usageLocation = null;
     
     /**
-     * @var User|null $user The directory user that corresponds to this user.
+     * @var User|null $user The user property
     */
     private ?User $user = null;
     
@@ -204,6 +204,7 @@ class EducationUser extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.educationUser');
     }
 
     /**
@@ -440,7 +441,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the primaryRole property value. Default role for a user. The user's role might be different in an individual class. Possible values are: student, teacher, faculty. Supports /$filter.
+     * Gets the primaryRole property value. The primaryRole property
      * @return EducationUserRole|null
     */
     public function getPrimaryRole(): ?EducationUserRole {
@@ -496,7 +497,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the showInAddressList property value. True if the Outlook Global Address List should contain this user; otherwise, false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false.
+     * Gets the showInAddressList property value. The showInAddressList property
      * @return bool|null
     */
     public function getShowInAddressList(): ?bool {
@@ -544,7 +545,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Gets the user property value. The directory user that corresponds to this user.
+     * Gets the user property value. The user property
      * @return User|null
     */
     public function getUser(): ?User {
@@ -790,7 +791,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the primaryRole property value. Default role for a user. The user's role might be different in an individual class. Possible values are: student, teacher, faculty. Supports /$filter.
+     * Sets the primaryRole property value. The primaryRole property
      *  @param EducationUserRole|null $value Value to set for the primaryRole property.
     */
     public function setPrimaryRole(?EducationUserRole $value ): void {
@@ -846,7 +847,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the showInAddressList property value. True if the Outlook Global Address List should contain this user; otherwise, false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false.
+     * Sets the showInAddressList property value. The showInAddressList property
      *  @param bool|null $value Value to set for the showInAddressList property.
     */
     public function setShowInAddressList(?bool $value ): void {
@@ -894,7 +895,7 @@ class EducationUser extends Entity implements Parsable
     }
 
     /**
-     * Sets the user property value. The directory user that corresponds to this user.
+     * Sets the user property value. The user property
      *  @param User|null $value Value to set for the user property.
     */
     public function setUser(?User $value ): void {

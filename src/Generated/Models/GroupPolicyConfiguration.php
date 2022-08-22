@@ -40,6 +40,11 @@ class GroupPolicyConfiguration extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
+     * @var GroupPolicyConfigurationIngestionType|null $policyConfigurationIngestionType Group Policy Configuration Ingestion Type
+    */
+    private ?GroupPolicyConfigurationIngestionType $policyConfigurationIngestionType = null;
+    
+    /**
      * @var array<string>|null $roleScopeTagIds The list of scope tags for the configuration.
     */
     private ?array $roleScopeTagIds = null;
@@ -49,6 +54,7 @@ class GroupPolicyConfiguration extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyConfiguration');
     }
 
     /**
@@ -113,6 +119,7 @@ class GroupPolicyConfiguration extends Entity implements Parsable
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'policyConfigurationIngestionType' => function (ParseNode $n) use ($o) { $o->setPolicyConfigurationIngestionType($n->getEnumValue(GroupPolicyConfigurationIngestionType::class)); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
         ]);
     }
@@ -123,6 +130,14 @@ class GroupPolicyConfiguration extends Entity implements Parsable
     */
     public function getLastModifiedDateTime(): ?DateTime {
         return $this->lastModifiedDateTime;
+    }
+
+    /**
+     * Gets the policyConfigurationIngestionType property value. Group Policy Configuration Ingestion Type
+     * @return GroupPolicyConfigurationIngestionType|null
+    */
+    public function getPolicyConfigurationIngestionType(): ?GroupPolicyConfigurationIngestionType {
+        return $this->policyConfigurationIngestionType;
     }
 
     /**
@@ -145,6 +160,7 @@ class GroupPolicyConfiguration extends Entity implements Parsable
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
+        $writer->writeEnumValue('policyConfigurationIngestionType', $this->policyConfigurationIngestionType);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
     }
 
@@ -194,6 +210,14 @@ class GroupPolicyConfiguration extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
         $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the policyConfigurationIngestionType property value. Group Policy Configuration Ingestion Type
+     *  @param GroupPolicyConfigurationIngestionType|null $value Value to set for the policyConfigurationIngestionType property.
+    */
+    public function setPolicyConfigurationIngestionType(?GroupPolicyConfigurationIngestionType $value ): void {
+        $this->policyConfigurationIngestionType = $value;
     }
 
     /**

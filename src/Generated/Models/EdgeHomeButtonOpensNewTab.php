@@ -13,6 +13,7 @@ class EdgeHomeButtonOpensNewTab extends EdgeHomeButtonConfiguration implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.edgeHomeButtonOpensNewTab');
     }
 
     /**

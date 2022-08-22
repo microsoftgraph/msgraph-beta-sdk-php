@@ -60,7 +60,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     private ?int $responsiveDesktopTimeInMs = null;
     
     /**
-     * @var UserExperienceAnalyticsOperatingSystemRestartCategory|null $restartCategory OS restart category. Possible values are: unknown, restartWithUpdate, restartWithoutUpdate, blueScreen, shutdownWithUpdate, shutdownWithoutUpdate, longPowerButtonPress, bootError, update.
+     * @var UserExperienceAnalyticsOperatingSystemRestartCategory|null $restartCategory Operating System restart category
     */
     private ?UserExperienceAnalyticsOperatingSystemRestartCategory $restartCategory = null;
     
@@ -94,6 +94,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsDeviceStartupHistory');
     }
 
     /**
@@ -212,7 +213,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Gets the restartCategory property value. OS restart category. Possible values are: unknown, restartWithUpdate, restartWithoutUpdate, blueScreen, shutdownWithUpdate, shutdownWithoutUpdate, longPowerButtonPress, bootError, update.
+     * Gets the restartCategory property value. Operating System restart category
      * @return UserExperienceAnalyticsOperatingSystemRestartCategory|null
     */
     public function getRestartCategory(): ?UserExperienceAnalyticsOperatingSystemRestartCategory {
@@ -364,7 +365,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     }
 
     /**
-     * Sets the restartCategory property value. OS restart category. Possible values are: unknown, restartWithUpdate, restartWithoutUpdate, blueScreen, shutdownWithUpdate, shutdownWithoutUpdate, longPowerButtonPress, bootError, update.
+     * Sets the restartCategory property value. Operating System restart category
      *  @param UserExperienceAnalyticsOperatingSystemRestartCategory|null $value Value to set for the restartCategory property.
     */
     public function setRestartCategory(?UserExperienceAnalyticsOperatingSystemRestartCategory $value ): void {

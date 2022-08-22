@@ -14,17 +14,17 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     private ?string $accountName = null;
     
     /**
-     * @var EmailSyncDuration|null $durationOfEmailToSync Duration of email to sync. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * @var EmailSyncDuration|null $durationOfEmailToSync Possible values for email sync duration.
     */
     private ?EmailSyncDuration $durationOfEmailToSync = null;
     
     /**
-     * @var UserEmailSource|null $emailAddressSource Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * @var UserEmailSource|null $emailAddressSource Possible values for username source or email source.
     */
     private ?UserEmailSource $emailAddressSource = null;
     
     /**
-     * @var EmailSyncSchedule|null $emailSyncSchedule Email sync schedule. Possible values are: userDefined, asMessagesArrive, manual, fifteenMinutes, thirtyMinutes, sixtyMinutes, basedOnMyUsage.
+     * @var EmailSyncSchedule|null $emailSyncSchedule Possible values for email sync schedule.
     */
     private ?EmailSyncSchedule $emailSyncSchedule = null;
     
@@ -58,6 +58,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10EasEmailProfileConfiguration');
     }
 
     /**
@@ -78,7 +79,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     }
 
     /**
-     * Gets the durationOfEmailToSync property value. Duration of email to sync. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * Gets the durationOfEmailToSync property value. Possible values for email sync duration.
      * @return EmailSyncDuration|null
     */
     public function getDurationOfEmailToSync(): ?EmailSyncDuration {
@@ -86,7 +87,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     }
 
     /**
-     * Gets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * Gets the emailAddressSource property value. Possible values for username source or email source.
      * @return UserEmailSource|null
     */
     public function getEmailAddressSource(): ?UserEmailSource {
@@ -94,7 +95,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     }
 
     /**
-     * Gets the emailSyncSchedule property value. Email sync schedule. Possible values are: userDefined, asMessagesArrive, manual, fifteenMinutes, thirtyMinutes, sixtyMinutes, basedOnMyUsage.
+     * Gets the emailSyncSchedule property value. Possible values for email sync schedule.
      * @return EmailSyncSchedule|null
     */
     public function getEmailSyncSchedule(): ?EmailSyncSchedule {
@@ -186,7 +187,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     }
 
     /**
-     * Sets the durationOfEmailToSync property value. Duration of email to sync. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
+     * Sets the durationOfEmailToSync property value. Possible values for email sync duration.
      *  @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
     */
     public function setDurationOfEmailToSync(?EmailSyncDuration $value ): void {
@@ -194,7 +195,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     }
 
     /**
-     * Sets the emailAddressSource property value. Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
+     * Sets the emailAddressSource property value. Possible values for username source or email source.
      *  @param UserEmailSource|null $value Value to set for the emailAddressSource property.
     */
     public function setEmailAddressSource(?UserEmailSource $value ): void {
@@ -202,7 +203,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     }
 
     /**
-     * Sets the emailSyncSchedule property value. Email sync schedule. Possible values are: userDefined, asMessagesArrive, manual, fifteenMinutes, thirtyMinutes, sixtyMinutes, basedOnMyUsage.
+     * Sets the emailSyncSchedule property value. Possible values for email sync schedule.
      *  @param EmailSyncSchedule|null $value Value to set for the emailSyncSchedule property.
     */
     public function setEmailSyncSchedule(?EmailSyncSchedule $value ): void {

@@ -10,25 +10,31 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Identity implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var string|null $displayName The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
+     * @var string|null $displayName The display name of the identity. This property is read-only.
     */
     private ?string $displayName = null;
     
     /**
-     * @var string|null $id Unique identifier for the identity.
+     * @var string|null $id The identifier of the identity. This property is read-only.
     */
     private ?string $id = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new identity and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.identity');
     }
 
     /**
@@ -41,6 +47,7 @@ class Identity implements AdditionalDataHolder, Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.auditUserIdentity': return new AuditUserIdentity();
                 case '#microsoft.graph.azureCommunicationServicesUserIdentity': return new AzureCommunicationServicesUserIdentity();
                 case '#microsoft.graph.communicationsApplicationIdentity': return new CommunicationsApplicationIdentity();
                 case '#microsoft.graph.communicationsApplicationInstanceIdentity': return new CommunicationsApplicationInstanceIdentity();
@@ -54,6 +61,7 @@ class Identity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.provisionedIdentity': return new ProvisionedIdentity();
                 case '#microsoft.graph.provisioningServicePrincipal': return new ProvisioningServicePrincipal();
                 case '#microsoft.graph.provisioningSystem': return new ProvisioningSystem();
+                case '#microsoft.graph.security.submissionUserIdentity': return new SubmissionUserIdentity();
                 case '#microsoft.graph.servicePrincipalIdentity': return new ServicePrincipalIdentity();
                 case '#microsoft.graph.sharePointIdentity': return new SharePointIdentity();
                 case '#microsoft.graph.teamworkApplicationIdentity': return new TeamworkApplicationIdentity();
@@ -75,7 +83,7 @@ class Identity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
+     * Gets the displayName property value. The display name of the identity. This property is read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -91,15 +99,24 @@ class Identity implements AdditionalDataHolder, Parsable
         return  [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the id property value. Unique identifier for the identity.
+     * Gets the id property value. The identifier of the identity. This property is read-only.
      * @return string|null
     */
     public function getId(): ?string {
         return $this->id;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -109,6 +126,7 @@ class Identity implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('id', $this->id);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -121,7 +139,7 @@ class Identity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
+     * Sets the displayName property value. The display name of the identity. This property is read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -129,11 +147,19 @@ class Identity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the id property value. Unique identifier for the identity.
+     * Sets the id property value. The identifier of the identity. This property is read-only.
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {
         $this->id = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

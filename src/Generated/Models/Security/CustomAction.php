@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var string|null $name The name property
+     * @var string|null $name Name of the custom action.
     */
     private ?string $name = null;
     
     /**
-     * @var array<KeyValuePair>|null $properties The properties property
+     * @var array<KeyValuePair>|null $properties Properties, in key-value pair format, of the action.
     */
     private ?array $properties = null;
     
@@ -23,6 +23,7 @@ class CustomAction extends InformationProtectionAction implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.customAction');
     }
 
     /**
@@ -47,7 +48,7 @@ class CustomAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. Name of the custom action.
      * @return string|null
     */
     public function getName(): ?string {
@@ -55,7 +56,7 @@ class CustomAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the properties property value. The properties property
+     * Gets the properties property value. Properties, in key-value pair format, of the action.
      * @return array<KeyValuePair>|null
     */
     public function getProperties(): ?array {
@@ -73,7 +74,7 @@ class CustomAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. Name of the custom action.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {
@@ -81,7 +82,7 @@ class CustomAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the properties property value. The properties property
+     * Sets the properties property value. Properties, in key-value pair format, of the action.
      *  @param array<KeyValuePair>|null $value Value to set for the properties property.
     */
     public function setProperties(?array $value ): void {

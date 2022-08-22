@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ComanagementEligibleDevice extends Entity implements Parsable 
 {
     /**
-     * @var DeviceRegistrationState|null $clientRegistrationStatus ClientRegistrationStatus. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown.
+     * @var DeviceRegistrationState|null $clientRegistrationStatus Device registration status.
     */
     private ?DeviceRegistrationState $clientRegistrationStatus = null;
     
@@ -19,7 +19,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     private ?string $deviceName = null;
     
     /**
-     * @var DeviceType|null $deviceType DeviceType. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     * @var DeviceType|null $deviceType Device type.
     */
     private ?DeviceType $deviceType = null;
     
@@ -29,12 +29,12 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     private ?int $entitySource = null;
     
     /**
-     * @var ManagementAgentType|null $managementAgents ManagementAgents. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
+     * @var ManagementAgentType|null $managementAgents Management agent type.
     */
     private ?ManagementAgentType $managementAgents = null;
     
     /**
-     * @var ManagementState|null $managementState ManagementState. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
+     * @var ManagementState|null $managementState Management state of device in Microsoft Intune.
     */
     private ?ManagementState $managementState = null;
     
@@ -64,7 +64,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     private ?string $osVersion = null;
     
     /**
-     * @var OwnerType|null $ownerType OwnerType. Possible values are: unknown, company, personal.
+     * @var OwnerType|null $ownerType Owner type of device.
     */
     private ?OwnerType $ownerType = null;
     
@@ -79,7 +79,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     private ?string $serialNumber = null;
     
     /**
-     * @var ComanagementEligibleType|null $status ComanagementEligibleStatus. Possible values are: comanaged, eligible, eligibleButNotAzureAdJoined, needsOsUpdate, ineligible.
+     * @var ComanagementEligibleType|null $status The status property
     */
     private ?ComanagementEligibleType $status = null;
     
@@ -108,6 +108,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.comanagementEligibleDevice');
     }
 
     /**
@@ -120,7 +121,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the clientRegistrationStatus property value. ClientRegistrationStatus. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown.
+     * Gets the clientRegistrationStatus property value. Device registration status.
      * @return DeviceRegistrationState|null
     */
     public function getClientRegistrationStatus(): ?DeviceRegistrationState {
@@ -136,7 +137,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceType property value. DeviceType. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     * Gets the deviceType property value. Device type.
      * @return DeviceType|null
     */
     public function getDeviceType(): ?DeviceType {
@@ -181,7 +182,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the managementAgents property value. ManagementAgents. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
+     * Gets the managementAgents property value. Management agent type.
      * @return ManagementAgentType|null
     */
     public function getManagementAgents(): ?ManagementAgentType {
@@ -189,7 +190,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the managementState property value. ManagementState. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
+     * Gets the managementState property value. Management state of device in Microsoft Intune.
      * @return ManagementState|null
     */
     public function getManagementState(): ?ManagementState {
@@ -237,7 +238,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the ownerType property value. OwnerType. Possible values are: unknown, company, personal.
+     * Gets the ownerType property value. Owner type of device.
      * @return OwnerType|null
     */
     public function getOwnerType(): ?OwnerType {
@@ -261,7 +262,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. ComanagementEligibleStatus. Possible values are: comanaged, eligible, eligibleButNotAzureAdJoined, needsOsUpdate, ineligible.
+     * Gets the status property value. The status property
      * @return ComanagementEligibleType|null
     */
     public function getStatus(): ?ComanagementEligibleType {
@@ -328,7 +329,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the clientRegistrationStatus property value. ClientRegistrationStatus. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown.
+     * Sets the clientRegistrationStatus property value. Device registration status.
      *  @param DeviceRegistrationState|null $value Value to set for the clientRegistrationStatus property.
     */
     public function setClientRegistrationStatus(?DeviceRegistrationState $value ): void {
@@ -344,7 +345,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceType property value. DeviceType. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     * Sets the deviceType property value. Device type.
      *  @param DeviceType|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?DeviceType $value ): void {
@@ -360,7 +361,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the managementAgents property value. ManagementAgents. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
+     * Sets the managementAgents property value. Management agent type.
      *  @param ManagementAgentType|null $value Value to set for the managementAgents property.
     */
     public function setManagementAgents(?ManagementAgentType $value ): void {
@@ -368,7 +369,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the managementState property value. ManagementState. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
+     * Sets the managementState property value. Management state of device in Microsoft Intune.
      *  @param ManagementState|null $value Value to set for the managementState property.
     */
     public function setManagementState(?ManagementState $value ): void {
@@ -416,7 +417,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the ownerType property value. OwnerType. Possible values are: unknown, company, personal.
+     * Sets the ownerType property value. Owner type of device.
      *  @param OwnerType|null $value Value to set for the ownerType property.
     */
     public function setOwnerType(?OwnerType $value ): void {
@@ -440,7 +441,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. ComanagementEligibleStatus. Possible values are: comanaged, eligible, eligibleButNotAzureAdJoined, needsOsUpdate, ineligible.
+     * Sets the status property value. The status property
      *  @param ComanagementEligibleType|null $value Value to set for the status property.
     */
     public function setStatus(?ComanagementEligibleType $value ): void {

@@ -30,6 +30,11 @@ class Settings extends Entity implements Parsable
     private ?array $excludedFileExtensionsForSyncApp = null;
     
     /**
+     * @var IdleSessionSignOut|null $idleSessionSignOut Specifies the idle session sign-out policies for the tenant.
+    */
+    private ?IdleSessionSignOut $idleSessionSignOut = null;
+    
+    /**
      * @var ImageTaggingChoice|null $imageTaggingOption Specifies the image tagging option for the tenant. Possible values are: disabled, basic, enhanced.
     */
     private ?ImageTaggingChoice $imageTaggingOption = null;
@@ -45,6 +50,11 @@ class Settings extends Entity implements Parsable
     private ?bool $isFileActivityNotificationEnabled = null;
     
     /**
+     * @var bool|null $isLegacyAuthProtocolsEnabled Indicates whether legacy authentication protocols are enabled for the tenant.
+    */
+    private ?bool $isLegacyAuthProtocolsEnabled = null;
+    
+    /**
      * @var bool|null $isLoopEnabled Indicates whetherif Fluid Framework is allowed on SharePoint sites.
     */
     private ?bool $isLoopEnabled = null;
@@ -53,6 +63,11 @@ class Settings extends Entity implements Parsable
      * @var bool|null $isMacSyncAppEnabled Indicates whether files can be synced using the OneDrive sync app for Mac.
     */
     private ?bool $isMacSyncAppEnabled = null;
+    
+    /**
+     * @var bool|null $isRequireAcceptingUserToMatchInvitedUserEnabled Indicates whether guests must sign in using the same account to which sharing invitations are sent.
+    */
+    private ?bool $isRequireAcceptingUserToMatchInvitedUserEnabled = null;
     
     /**
      * @var bool|null $isResharingByExternalUsersEnabled Indicates whether guests are allowed to reshare files, folders, and sites they don't own.
@@ -140,10 +155,11 @@ class Settings extends Entity implements Parsable
     private ?string $tenantDefaultTimezone = null;
     
     /**
-     * Instantiates a new Settings and sets the default values.
+     * Instantiates a new settings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.tenantAdmin.settings');
     }
 
     /**
@@ -198,11 +214,14 @@ class Settings extends Entity implements Parsable
             'availableManagedPathsForSiteCreation' => function (ParseNode $n) use ($o) { $o->setAvailableManagedPathsForSiteCreation($n->getCollectionOfPrimitiveValues()); },
             'deletedUserPersonalSiteRetentionPeriodInDays' => function (ParseNode $n) use ($o) { $o->setDeletedUserPersonalSiteRetentionPeriodInDays($n->getIntegerValue()); },
             'excludedFileExtensionsForSyncApp' => function (ParseNode $n) use ($o) { $o->setExcludedFileExtensionsForSyncApp($n->getCollectionOfPrimitiveValues()); },
+            'idleSessionSignOut' => function (ParseNode $n) use ($o) { $o->setIdleSessionSignOut($n->getObjectValue(array(IdleSessionSignOut::class, 'createFromDiscriminatorValue'))); },
             'imageTaggingOption' => function (ParseNode $n) use ($o) { $o->setImageTaggingOption($n->getEnumValue(ImageTaggingChoice::class)); },
             'isCommentingOnSitePagesEnabled' => function (ParseNode $n) use ($o) { $o->setIsCommentingOnSitePagesEnabled($n->getBooleanValue()); },
             'isFileActivityNotificationEnabled' => function (ParseNode $n) use ($o) { $o->setIsFileActivityNotificationEnabled($n->getBooleanValue()); },
+            'isLegacyAuthProtocolsEnabled' => function (ParseNode $n) use ($o) { $o->setIsLegacyAuthProtocolsEnabled($n->getBooleanValue()); },
             'isLoopEnabled' => function (ParseNode $n) use ($o) { $o->setIsLoopEnabled($n->getBooleanValue()); },
             'isMacSyncAppEnabled' => function (ParseNode $n) use ($o) { $o->setIsMacSyncAppEnabled($n->getBooleanValue()); },
+            'isRequireAcceptingUserToMatchInvitedUserEnabled' => function (ParseNode $n) use ($o) { $o->setIsRequireAcceptingUserToMatchInvitedUserEnabled($n->getBooleanValue()); },
             'isResharingByExternalUsersEnabled' => function (ParseNode $n) use ($o) { $o->setIsResharingByExternalUsersEnabled($n->getBooleanValue()); },
             'isSharePointMobileNotificationEnabled' => function (ParseNode $n) use ($o) { $o->setIsSharePointMobileNotificationEnabled($n->getBooleanValue()); },
             'isSharePointNewsfeedEnabled' => function (ParseNode $n) use ($o) { $o->setIsSharePointNewsfeedEnabled($n->getBooleanValue()); },
@@ -221,6 +240,14 @@ class Settings extends Entity implements Parsable
             'siteCreationDefaultStorageLimitInMB' => function (ParseNode $n) use ($o) { $o->setSiteCreationDefaultStorageLimitInMB($n->getIntegerValue()); },
             'tenantDefaultTimezone' => function (ParseNode $n) use ($o) { $o->setTenantDefaultTimezone($n->getStringValue()); },
         ]);
+    }
+
+    /**
+     * Gets the idleSessionSignOut property value. Specifies the idle session sign-out policies for the tenant.
+     * @return IdleSessionSignOut|null
+    */
+    public function getIdleSessionSignOut(): ?IdleSessionSignOut {
+        return $this->idleSessionSignOut;
     }
 
     /**
@@ -248,6 +275,14 @@ class Settings extends Entity implements Parsable
     }
 
     /**
+     * Gets the isLegacyAuthProtocolsEnabled property value. Indicates whether legacy authentication protocols are enabled for the tenant.
+     * @return bool|null
+    */
+    public function getIsLegacyAuthProtocolsEnabled(): ?bool {
+        return $this->isLegacyAuthProtocolsEnabled;
+    }
+
+    /**
      * Gets the isLoopEnabled property value. Indicates whetherif Fluid Framework is allowed on SharePoint sites.
      * @return bool|null
     */
@@ -261,6 +296,14 @@ class Settings extends Entity implements Parsable
     */
     public function getIsMacSyncAppEnabled(): ?bool {
         return $this->isMacSyncAppEnabled;
+    }
+
+    /**
+     * Gets the isRequireAcceptingUserToMatchInvitedUserEnabled property value. Indicates whether guests must sign in using the same account to which sharing invitations are sent.
+     * @return bool|null
+    */
+    public function getIsRequireAcceptingUserToMatchInvitedUserEnabled(): ?bool {
+        return $this->isRequireAcceptingUserToMatchInvitedUserEnabled;
     }
 
     /**
@@ -409,11 +452,14 @@ class Settings extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('availableManagedPathsForSiteCreation', $this->availableManagedPathsForSiteCreation);
         $writer->writeIntegerValue('deletedUserPersonalSiteRetentionPeriodInDays', $this->deletedUserPersonalSiteRetentionPeriodInDays);
         $writer->writeCollectionOfPrimitiveValues('excludedFileExtensionsForSyncApp', $this->excludedFileExtensionsForSyncApp);
+        $writer->writeObjectValue('idleSessionSignOut', $this->idleSessionSignOut);
         $writer->writeEnumValue('imageTaggingOption', $this->imageTaggingOption);
         $writer->writeBooleanValue('isCommentingOnSitePagesEnabled', $this->isCommentingOnSitePagesEnabled);
         $writer->writeBooleanValue('isFileActivityNotificationEnabled', $this->isFileActivityNotificationEnabled);
+        $writer->writeBooleanValue('isLegacyAuthProtocolsEnabled', $this->isLegacyAuthProtocolsEnabled);
         $writer->writeBooleanValue('isLoopEnabled', $this->isLoopEnabled);
         $writer->writeBooleanValue('isMacSyncAppEnabled', $this->isMacSyncAppEnabled);
+        $writer->writeBooleanValue('isRequireAcceptingUserToMatchInvitedUserEnabled', $this->isRequireAcceptingUserToMatchInvitedUserEnabled);
         $writer->writeBooleanValue('isResharingByExternalUsersEnabled', $this->isResharingByExternalUsersEnabled);
         $writer->writeBooleanValue('isSharePointMobileNotificationEnabled', $this->isSharePointMobileNotificationEnabled);
         $writer->writeBooleanValue('isSharePointNewsfeedEnabled', $this->isSharePointNewsfeedEnabled);
@@ -466,6 +512,14 @@ class Settings extends Entity implements Parsable
     }
 
     /**
+     * Sets the idleSessionSignOut property value. Specifies the idle session sign-out policies for the tenant.
+     *  @param IdleSessionSignOut|null $value Value to set for the idleSessionSignOut property.
+    */
+    public function setIdleSessionSignOut(?IdleSessionSignOut $value ): void {
+        $this->idleSessionSignOut = $value;
+    }
+
+    /**
      * Sets the imageTaggingOption property value. Specifies the image tagging option for the tenant. Possible values are: disabled, basic, enhanced.
      *  @param ImageTaggingChoice|null $value Value to set for the imageTaggingOption property.
     */
@@ -490,6 +544,14 @@ class Settings extends Entity implements Parsable
     }
 
     /**
+     * Sets the isLegacyAuthProtocolsEnabled property value. Indicates whether legacy authentication protocols are enabled for the tenant.
+     *  @param bool|null $value Value to set for the isLegacyAuthProtocolsEnabled property.
+    */
+    public function setIsLegacyAuthProtocolsEnabled(?bool $value ): void {
+        $this->isLegacyAuthProtocolsEnabled = $value;
+    }
+
+    /**
      * Sets the isLoopEnabled property value. Indicates whetherif Fluid Framework is allowed on SharePoint sites.
      *  @param bool|null $value Value to set for the isLoopEnabled property.
     */
@@ -503,6 +565,14 @@ class Settings extends Entity implements Parsable
     */
     public function setIsMacSyncAppEnabled(?bool $value ): void {
         $this->isMacSyncAppEnabled = $value;
+    }
+
+    /**
+     * Sets the isRequireAcceptingUserToMatchInvitedUserEnabled property value. Indicates whether guests must sign in using the same account to which sharing invitations are sent.
+     *  @param bool|null $value Value to set for the isRequireAcceptingUserToMatchInvitedUserEnabled property.
+    */
+    public function setIsRequireAcceptingUserToMatchInvitedUserEnabled(?bool $value ): void {
+        $this->isRequireAcceptingUserToMatchInvitedUserEnabled = $value;
     }
 
     /**

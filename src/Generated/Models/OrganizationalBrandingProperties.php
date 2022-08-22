@@ -115,6 +115,16 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     private ?StreamInterface $squareLogo = null;
     
     /**
+     * @var StreamInterface|null $squareLogoDark A square dark version of your company logo that appears in Windows 10 out-of-box experiences (OOBE) and when Windows Autopilot is enabled for deployment. Allowed types are PNG or JPEG not larger than 240 x 240 pixels and not more than 10 KB in size. We recommend using a transparent image with no padding around the logo.
+    */
+    private ?StreamInterface $squareLogoDark = null;
+    
+    /**
+     * @var string|null $squareLogoDarkRelativeUrl A relative URL for the squareLogoDark property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.
+    */
+    private ?string $squareLogoDarkRelativeUrl = null;
+    
+    /**
      * @var string|null $squareLogoRelativeUrl A relative URL for the squareLogo property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.
     */
     private ?string $squareLogoRelativeUrl = null;
@@ -129,6 +139,7 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.organizationalBrandingProperties');
     }
 
     /**
@@ -312,6 +323,8 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
             'loginPageTextVisibilitySettings' => function (ParseNode $n) use ($o) { $o->setLoginPageTextVisibilitySettings($n->getObjectValue(array(LoginPageTextVisibilitySettings::class, 'createFromDiscriminatorValue'))); },
             'signInPageText' => function (ParseNode $n) use ($o) { $o->setSignInPageText($n->getStringValue()); },
             'squareLogo' => function (ParseNode $n) use ($o) { $o->setSquareLogo($n->getBinaryContent()); },
+            'squareLogoDark' => function (ParseNode $n) use ($o) { $o->setSquareLogoDark($n->getBinaryContent()); },
+            'squareLogoDarkRelativeUrl' => function (ParseNode $n) use ($o) { $o->setSquareLogoDarkRelativeUrl($n->getStringValue()); },
             'squareLogoRelativeUrl' => function (ParseNode $n) use ($o) { $o->setSquareLogoRelativeUrl($n->getStringValue()); },
             'usernameHintText' => function (ParseNode $n) use ($o) { $o->setUsernameHintText($n->getStringValue()); },
         ]);
@@ -347,6 +360,22 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     */
     public function getSquareLogo(): ?StreamInterface {
         return $this->squareLogo;
+    }
+
+    /**
+     * Gets the squareLogoDark property value. A square dark version of your company logo that appears in Windows 10 out-of-box experiences (OOBE) and when Windows Autopilot is enabled for deployment. Allowed types are PNG or JPEG not larger than 240 x 240 pixels and not more than 10 KB in size. We recommend using a transparent image with no padding around the logo.
+     * @return StreamInterface|null
+    */
+    public function getSquareLogoDark(): ?StreamInterface {
+        return $this->squareLogoDark;
+    }
+
+    /**
+     * Gets the squareLogoDarkRelativeUrl property value. A relative URL for the squareLogoDark property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.
+     * @return string|null
+    */
+    public function getSquareLogoDarkRelativeUrl(): ?string {
+        return $this->squareLogoDarkRelativeUrl;
     }
 
     /**
@@ -392,6 +421,8 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
         $writer->writeObjectValue('loginPageTextVisibilitySettings', $this->loginPageTextVisibilitySettings);
         $writer->writeStringValue('signInPageText', $this->signInPageText);
         $writer->writeBinaryContent('squareLogo', $this->squareLogo);
+        $writer->writeBinaryContent('squareLogoDark', $this->squareLogoDark);
+        $writer->writeStringValue('squareLogoDarkRelativeUrl', $this->squareLogoDarkRelativeUrl);
         $writer->writeStringValue('squareLogoRelativeUrl', $this->squareLogoRelativeUrl);
         $writer->writeStringValue('usernameHintText', $this->usernameHintText);
     }
@@ -562,6 +593,22 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     */
     public function setSquareLogo(?StreamInterface $value ): void {
         $this->squareLogo = $value;
+    }
+
+    /**
+     * Sets the squareLogoDark property value. A square dark version of your company logo that appears in Windows 10 out-of-box experiences (OOBE) and when Windows Autopilot is enabled for deployment. Allowed types are PNG or JPEG not larger than 240 x 240 pixels and not more than 10 KB in size. We recommend using a transparent image with no padding around the logo.
+     *  @param StreamInterface|null $value Value to set for the squareLogoDark property.
+    */
+    public function setSquareLogoDark(?StreamInterface $value ): void {
+        $this->squareLogoDark = $value;
+    }
+
+    /**
+     * Sets the squareLogoDarkRelativeUrl property value. A relative URL for the squareLogoDark property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.
+     *  @param string|null $value Value to set for the squareLogoDarkRelativeUrl property.
+    */
+    public function setSquareLogoDarkRelativeUrl(?string $value ): void {
+        $this->squareLogoDarkRelativeUrl = $value;
     }
 
     /**

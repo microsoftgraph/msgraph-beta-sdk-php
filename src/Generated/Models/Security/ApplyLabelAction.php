@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApplyLabelAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var array<InformationProtectionAction>|null $actions The actions property
+     * @var array<InformationProtectionAction>|null $actions The collection of actions that should be implemented by the caller.
     */
     private ?array $actions = null;
     
@@ -19,7 +19,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
     private ?ActionSource $actionSource = null;
     
     /**
-     * @var array<string>|null $responsibleSensitiveTypeIds The responsibleSensitiveTypeIds property
+     * @var array<string>|null $responsibleSensitiveTypeIds If the label was the result of an automatic classification, supply the list of sensitive info type GUIDs that resulted in the returned label.
     */
     private ?array $responsibleSensitiveTypeIds = null;
     
@@ -33,6 +33,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.applyLabelAction');
     }
 
     /**
@@ -45,7 +46,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the actions property value. The actions property
+     * Gets the actions property value. The collection of actions that should be implemented by the caller.
      * @return array<InformationProtectionAction>|null
     */
     public function getActions(): ?array {
@@ -75,7 +76,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the responsibleSensitiveTypeIds property value. The responsibleSensitiveTypeIds property
+     * Gets the responsibleSensitiveTypeIds property value. If the label was the result of an automatic classification, supply the list of sensitive info type GUIDs that resulted in the returned label.
      * @return array<string>|null
     */
     public function getResponsibleSensitiveTypeIds(): ?array {
@@ -103,7 +104,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the actions property value. The actions property
+     * Sets the actions property value. The collection of actions that should be implemented by the caller.
      *  @param array<InformationProtectionAction>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value ): void {
@@ -119,7 +120,7 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the responsibleSensitiveTypeIds property value. The responsibleSensitiveTypeIds property
+     * Sets the responsibleSensitiveTypeIds property value. If the label was the result of an automatic classification, supply the list of sensitive info type GUIDs that resulted in the returned label.
      *  @param array<string>|null $value Value to set for the responsibleSensitiveTypeIds property.
     */
     public function setResponsibleSensitiveTypeIds(?array $value ): void {

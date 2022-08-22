@@ -18,6 +18,7 @@ class ClientCertificateAuthentication extends ApiAuthenticationConfigurationBase
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.clientCertificateAuthentication');
     }
 
     /**

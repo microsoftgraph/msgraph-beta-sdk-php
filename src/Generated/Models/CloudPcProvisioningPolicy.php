@@ -54,7 +54,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     private ?string $imageId = null;
     
     /**
-     * @var CloudPcProvisioningPolicyImageType|null $imageType The type of OS image (custom or gallery) you want to provision on Cloud PCs. Possible values are: gallery, custom.
+     * @var CloudPcProvisioningPolicyImageType|null $imageType The imageType property
     */
     private ?CloudPcProvisioningPolicyImageType $imageType = null;
     
@@ -64,7 +64,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     private ?bool $localAdminEnabled = null;
     
     /**
-     * @var CloudPcManagementService|null $managedBy Specifies which services manage the Azure network connection. Possible values are: windows365, devBox, unknownFutureValue. Read-only.
+     * @var CloudPcManagementService|null $managedBy The managedBy property
     */
     private ?CloudPcManagementService $managedBy = null;
     
@@ -88,6 +88,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.cloudPcProvisioningPolicy');
     }
 
     /**
@@ -197,7 +198,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the imageType property value. The type of OS image (custom or gallery) you want to provision on Cloud PCs. Possible values are: gallery, custom.
+     * Gets the imageType property value. The imageType property
      * @return CloudPcProvisioningPolicyImageType|null
     */
     public function getImageType(): ?CloudPcProvisioningPolicyImageType {
@@ -213,7 +214,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedBy property value. Specifies which services manage the Azure network connection. Possible values are: windows365, devBox, unknownFutureValue. Read-only.
+     * Gets the managedBy property value. The managedBy property
      * @return CloudPcManagementService|null
     */
     public function getManagedBy(): ?CloudPcManagementService {
@@ -340,7 +341,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the imageType property value. The type of OS image (custom or gallery) you want to provision on Cloud PCs. Possible values are: gallery, custom.
+     * Sets the imageType property value. The imageType property
      *  @param CloudPcProvisioningPolicyImageType|null $value Value to set for the imageType property.
     */
     public function setImageType(?CloudPcProvisioningPolicyImageType $value ): void {
@@ -356,7 +357,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the managedBy property value. Specifies which services manage the Azure network connection. Possible values are: windows365, devBox, unknownFutureValue. Read-only.
+     * Sets the managedBy property value. The managedBy property
      *  @param CloudPcManagementService|null $value Value to set for the managedBy property.
     */
     public function setManagedBy(?CloudPcManagementService $value ): void {

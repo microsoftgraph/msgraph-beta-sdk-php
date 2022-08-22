@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConfigurationManagerClientHealthState implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,7 +26,12 @@ class ConfigurationManagerClientHealthState implements AdditionalDataHolder, Par
     private ?DateTime $lastSyncDateTime = null;
     
     /**
-     * @var ConfigurationManagerClientState|null $state Current configuration manager client state. Possible values are: unknown, installed, healthy, installFailed, updateFailed, communicationError.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var ConfigurationManagerClientState|null $state Configuration manager client state
     */
     private ?ConfigurationManagerClientState $state = null;
     
@@ -34,7 +39,8 @@ class ConfigurationManagerClientHealthState implements AdditionalDataHolder, Par
      * Instantiates a new configurationManagerClientHealthState and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.configurationManagerClientHealthState');
     }
 
     /**
@@ -71,6 +77,7 @@ class ConfigurationManagerClientHealthState implements AdditionalDataHolder, Par
         return  [
             'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
             'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ConfigurationManagerClientState::class)); },
         ];
     }
@@ -84,7 +91,15 @@ class ConfigurationManagerClientHealthState implements AdditionalDataHolder, Par
     }
 
     /**
-     * Gets the state property value. Current configuration manager client state. Possible values are: unknown, installed, healthy, installFailed, updateFailed, communicationError.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the state property value. Configuration manager client state
      * @return ConfigurationManagerClientState|null
     */
     public function getState(): ?ConfigurationManagerClientState {
@@ -98,6 +113,7 @@ class ConfigurationManagerClientHealthState implements AdditionalDataHolder, Par
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('errorCode', $this->errorCode);
         $writer->writeDateTimeValue('lastSyncDateTime', $this->lastSyncDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -127,7 +143,15 @@ class ConfigurationManagerClientHealthState implements AdditionalDataHolder, Par
     }
 
     /**
-     * Sets the state property value. Current configuration manager client state. Possible values are: unknown, installed, healthy, installFailed, updateFailed, communicationError.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the state property value. Configuration manager client state
      *  @param ConfigurationManagerClientState|null $value Value to set for the state property.
     */
     public function setState(?ConfigurationManagerClientState $value ): void {

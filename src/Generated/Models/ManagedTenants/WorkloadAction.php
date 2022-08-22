@@ -15,7 +15,7 @@ class WorkloadAction implements AdditionalDataHolder, Parsable
     private ?string $actionId = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -40,6 +40,11 @@ class WorkloadAction implements AdditionalDataHolder, Parsable
     private ?array $licenses = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $service The service associated with workload action. Optional. Read-only.
     */
     private ?string $service = null;
@@ -53,7 +58,8 @@ class WorkloadAction implements AdditionalDataHolder, Parsable
      * Instantiates a new workloadAction and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedTenants.workloadAction');
     }
 
     /**
@@ -117,6 +123,7 @@ class WorkloadAction implements AdditionalDataHolder, Parsable
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'licenses' => function (ParseNode $n) use ($o) { $o->setLicenses($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'service' => function (ParseNode $n) use ($o) { $o->setService($n->getStringValue()); },
             'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(Setting::class, 'createFromDiscriminatorValue'))); },
         ];
@@ -128,6 +135,14 @@ class WorkloadAction implements AdditionalDataHolder, Parsable
     */
     public function getLicenses(): ?array {
         return $this->licenses;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -156,6 +171,7 @@ class WorkloadAction implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeCollectionOfPrimitiveValues('licenses', $this->licenses);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('service', $this->service);
         $writer->writeCollectionOfObjectValues('settings', $this->settings);
         $writer->writeAdditionalData($this->additionalData);
@@ -207,6 +223,14 @@ class WorkloadAction implements AdditionalDataHolder, Parsable
     */
     public function setLicenses(?array $value ): void {
         $this->licenses = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

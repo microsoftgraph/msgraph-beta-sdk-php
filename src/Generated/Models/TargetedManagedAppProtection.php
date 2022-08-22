@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TargetedManagedAppProtection extends ManagedAppProtection implements Parsable 
 {
     /**
-     * @var TargetedManagedAppGroupType|null $appGroupType Public Apps selection: group or individual. Possible values are: selectedPublicApps, allCoreMicrosoftApps, allMicrosoftApps, allApps.
+     * @var TargetedManagedAppGroupType|null $appGroupType Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps
     */
     private ?TargetedManagedAppGroupType $appGroupType = null;
     
@@ -24,7 +24,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
     private ?bool $isAssigned = null;
     
     /**
-     * @var AppManagementLevel|null $targetedAppManagementLevels The intended app management levels for this policy. Possible values are: unspecified, unmanaged, mdm, androidEnterprise.
+     * @var AppManagementLevel|null $targetedAppManagementLevels Management levels for apps
     */
     private ?AppManagementLevel $targetedAppManagementLevels = null;
     
@@ -33,6 +33,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.targetedManagedAppProtection');
     }
 
     /**
@@ -53,7 +54,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
     }
 
     /**
-     * Gets the appGroupType property value. Public Apps selection: group or individual. Possible values are: selectedPublicApps, allCoreMicrosoftApps, allMicrosoftApps, allApps.
+     * Gets the appGroupType property value. Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps
      * @return TargetedManagedAppGroupType|null
     */
     public function getAppGroupType(): ?TargetedManagedAppGroupType {
@@ -91,7 +92,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
     }
 
     /**
-     * Gets the targetedAppManagementLevels property value. The intended app management levels for this policy. Possible values are: unspecified, unmanaged, mdm, androidEnterprise.
+     * Gets the targetedAppManagementLevels property value. Management levels for apps
      * @return AppManagementLevel|null
     */
     public function getTargetedAppManagementLevels(): ?AppManagementLevel {
@@ -111,7 +112,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
     }
 
     /**
-     * Sets the appGroupType property value. Public Apps selection: group or individual. Possible values are: selectedPublicApps, allCoreMicrosoftApps, allMicrosoftApps, allApps.
+     * Sets the appGroupType property value. Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps
      *  @param TargetedManagedAppGroupType|null $value Value to set for the appGroupType property.
     */
     public function setAppGroupType(?TargetedManagedAppGroupType $value ): void {
@@ -135,7 +136,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
     }
 
     /**
-     * Sets the targetedAppManagementLevels property value. The intended app management levels for this policy. Possible values are: unspecified, unmanaged, mdm, androidEnterprise.
+     * Sets the targetedAppManagementLevels property value. Management levels for apps
      *  @param AppManagementLevel|null $value Value to set for the targetedAppManagementLevels property.
     */
     public function setTargetedAppManagementLevels(?AppManagementLevel $value ): void {

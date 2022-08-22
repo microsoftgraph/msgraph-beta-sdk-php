@@ -9,17 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var MacOSSoftwareUpdateBehavior|null $allOtherUpdateBehavior Update behavior for all other updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * @var MacOSSoftwareUpdateBehavior|null $allOtherUpdateBehavior Update behavior options for macOS software updates.
     */
     private ?MacOSSoftwareUpdateBehavior $allOtherUpdateBehavior = null;
     
     /**
-     * @var MacOSSoftwareUpdateBehavior|null $configDataUpdateBehavior Update behavior for configuration data file updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * @var MacOSSoftwareUpdateBehavior|null $configDataUpdateBehavior Update behavior options for macOS software updates.
     */
     private ?MacOSSoftwareUpdateBehavior $configDataUpdateBehavior = null;
     
     /**
-     * @var MacOSSoftwareUpdateBehavior|null $criticalUpdateBehavior Update behavior for critical updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * @var MacOSSoftwareUpdateBehavior|null $criticalUpdateBehavior Update behavior options for macOS software updates.
     */
     private ?MacOSSoftwareUpdateBehavior $criticalUpdateBehavior = null;
     
@@ -29,12 +29,12 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     private ?array $customUpdateTimeWindows = null;
     
     /**
-     * @var MacOSSoftwareUpdateBehavior|null $firmwareUpdateBehavior Update behavior for firmware updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * @var MacOSSoftwareUpdateBehavior|null $firmwareUpdateBehavior Update behavior options for macOS software updates.
     */
     private ?MacOSSoftwareUpdateBehavior $firmwareUpdateBehavior = null;
     
     /**
-     * @var MacOSSoftwareUpdateScheduleType|null $updateScheduleType Update schedule type. Possible values are: alwaysUpdate, updateDuringTimeWindows, updateOutsideOfTimeWindows.
+     * @var MacOSSoftwareUpdateScheduleType|null $updateScheduleType Update schedule type for macOS software updates.
     */
     private ?MacOSSoftwareUpdateScheduleType $updateScheduleType = null;
     
@@ -48,6 +48,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOSSoftwareUpdateConfiguration');
     }
 
     /**
@@ -60,7 +61,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the allOtherUpdateBehavior property value. Update behavior for all other updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * Gets the allOtherUpdateBehavior property value. Update behavior options for macOS software updates.
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getAllOtherUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
@@ -68,7 +69,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the configDataUpdateBehavior property value. Update behavior for configuration data file updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * Gets the configDataUpdateBehavior property value. Update behavior options for macOS software updates.
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getConfigDataUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
@@ -76,7 +77,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the criticalUpdateBehavior property value. Update behavior for critical updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * Gets the criticalUpdateBehavior property value. Update behavior options for macOS software updates.
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getCriticalUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
@@ -109,7 +110,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the firmwareUpdateBehavior property value. Update behavior for firmware updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * Gets the firmwareUpdateBehavior property value. Update behavior options for macOS software updates.
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getFirmwareUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
@@ -117,7 +118,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Gets the updateScheduleType property value. Update schedule type. Possible values are: alwaysUpdate, updateDuringTimeWindows, updateOutsideOfTimeWindows.
+     * Gets the updateScheduleType property value. Update schedule type for macOS software updates.
      * @return MacOSSoftwareUpdateScheduleType|null
     */
     public function getUpdateScheduleType(): ?MacOSSoftwareUpdateScheduleType {
@@ -148,7 +149,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the allOtherUpdateBehavior property value. Update behavior for all other updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * Sets the allOtherUpdateBehavior property value. Update behavior options for macOS software updates.
      *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the allOtherUpdateBehavior property.
     */
     public function setAllOtherUpdateBehavior(?MacOSSoftwareUpdateBehavior $value ): void {
@@ -156,7 +157,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the configDataUpdateBehavior property value. Update behavior for configuration data file updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * Sets the configDataUpdateBehavior property value. Update behavior options for macOS software updates.
      *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the configDataUpdateBehavior property.
     */
     public function setConfigDataUpdateBehavior(?MacOSSoftwareUpdateBehavior $value ): void {
@@ -164,7 +165,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the criticalUpdateBehavior property value. Update behavior for critical updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * Sets the criticalUpdateBehavior property value. Update behavior options for macOS software updates.
      *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the criticalUpdateBehavior property.
     */
     public function setCriticalUpdateBehavior(?MacOSSoftwareUpdateBehavior $value ): void {
@@ -180,7 +181,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the firmwareUpdateBehavior property value. Update behavior for firmware updates. Possible values are: notConfigured, default, downloadOnly, installASAP, notifyOnly, installLater.
+     * Sets the firmwareUpdateBehavior property value. Update behavior options for macOS software updates.
      *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the firmwareUpdateBehavior property.
     */
     public function setFirmwareUpdateBehavior(?MacOSSoftwareUpdateBehavior $value ): void {
@@ -188,7 +189,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     }
 
     /**
-     * Sets the updateScheduleType property value. Update schedule type. Possible values are: alwaysUpdate, updateDuringTimeWindows, updateOutsideOfTimeWindows.
+     * Sets the updateScheduleType property value. Update schedule type for macOS software updates.
      *  @param MacOSSoftwareUpdateScheduleType|null $value Value to set for the updateScheduleType property.
     */
     public function setUpdateScheduleType(?MacOSSoftwareUpdateScheduleType $value ): void {

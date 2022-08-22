@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -31,7 +31,12 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
     private ?DateTime $lastUpdatedDateTime = null;
     
     /**
-     * @var ZebraFotaDeploymentState|null $state See zebraFotaDeploymentState enum for possible values. Possible values are: pendingCreation, createFailed, created, inProgress, completed, pendingCancel, canceled, unknownFutureValue.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var ZebraFotaDeploymentState|null $state Represents the state of Zebra FOTA deployment.
     */
     private ?ZebraFotaDeploymentState $state = null;
     
@@ -89,7 +94,8 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new zebraFotaDeploymentStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.zebraFotaDeploymentStatus');
     }
 
     /**
@@ -135,6 +141,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
             'cancelRequested' => function (ParseNode $n) use ($o) { $o->setCancelRequested($n->getBooleanValue()); },
             'completeOrCanceledDateTime' => function (ParseNode $n) use ($o) { $o->setCompleteOrCanceledDateTime($n->getDateTimeValue()); },
             'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ZebraFotaDeploymentState::class)); },
             'totalAwaitingInstall' => function (ParseNode $n) use ($o) { $o->setTotalAwaitingInstall($n->getIntegerValue()); },
             'totalCanceled' => function (ParseNode $n) use ($o) { $o->setTotalCanceled($n->getIntegerValue()); },
@@ -158,7 +165,15 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the state property value. See zebraFotaDeploymentState enum for possible values. Possible values are: pendingCreation, createFailed, created, inProgress, completed, pendingCancel, canceled, unknownFutureValue.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the state property value. Represents the state of Zebra FOTA deployment.
      * @return ZebraFotaDeploymentState|null
     */
     public function getState(): ?ZebraFotaDeploymentState {
@@ -253,6 +268,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('cancelRequested', $this->cancelRequested);
         $writer->writeDateTimeValue('completeOrCanceledDateTime', $this->completeOrCanceledDateTime);
         $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeIntegerValue('totalAwaitingInstall', $this->totalAwaitingInstall);
         $writer->writeIntegerValue('totalCanceled', $this->totalCanceled);
@@ -300,7 +316,15 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the state property value. See zebraFotaDeploymentState enum for possible values. Possible values are: pendingCreation, createFailed, created, inProgress, completed, pendingCancel, canceled, unknownFutureValue.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the state property value. Represents the state of Zebra FOTA deployment.
      *  @param ZebraFotaDeploymentState|null $value Value to set for the state property.
     */
     public function setState(?ZebraFotaDeploymentState $value ): void {

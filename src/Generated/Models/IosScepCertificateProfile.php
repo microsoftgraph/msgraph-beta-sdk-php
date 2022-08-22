@@ -24,12 +24,12 @@ class IosScepCertificateProfile extends IosCertificateProfileBase implements Par
     private ?array $extendedKeyUsages = null;
     
     /**
-     * @var KeySize|null $keySize SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * @var KeySize|null $keySize Key Size Options.
     */
     private ?KeySize $keySize = null;
     
     /**
-     * @var KeyUsages|null $keyUsage SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * @var KeyUsages|null $keyUsage Key Usage Options.
     */
     private ?KeyUsages $keyUsage = null;
     
@@ -63,6 +63,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iosScepCertificateProfile');
     }
 
     /**
@@ -119,7 +120,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase implements Par
     }
 
     /**
-     * Gets the keySize property value. SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * Gets the keySize property value. Key Size Options.
      * @return KeySize|null
     */
     public function getKeySize(): ?KeySize {
@@ -127,7 +128,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase implements Par
     }
 
     /**
-     * Gets the keyUsage property value. SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * Gets the keyUsage property value. Key Usage Options.
      * @return KeyUsages|null
     */
     public function getKeyUsage(): ?KeyUsages {
@@ -217,7 +218,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase implements Par
     }
 
     /**
-     * Sets the keySize property value. SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * Sets the keySize property value. Key Size Options.
      *  @param KeySize|null $value Value to set for the keySize property.
     */
     public function setKeySize(?KeySize $value ): void {
@@ -225,7 +226,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase implements Par
     }
 
     /**
-     * Sets the keyUsage property value. SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * Sets the keyUsage property value. Key Usage Options.
      *  @param KeyUsages|null $value Value to set for the keyUsage property.
     */
     public function setKeyUsage(?KeyUsages $value ): void {

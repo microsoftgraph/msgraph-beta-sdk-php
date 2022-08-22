@@ -24,6 +24,7 @@ class UserLastSignInRecommendationInsightSetting extends AccessReviewRecommendat
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userLastSignInRecommendationInsightSetting');
     }
 
     /**

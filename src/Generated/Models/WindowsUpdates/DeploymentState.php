@@ -10,9 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeploymentState implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<DeploymentStateReason>|null $reasons Specifies the reasons the deployment has its state value. Read-only.
@@ -20,12 +25,12 @@ class DeploymentState implements AdditionalDataHolder, Parsable
     private ?array $reasons = null;
     
     /**
-     * @var RequestedDeploymentStateValue|null $requestedValue Specifies the requested state of the deployment. Supports a subset of the values for requestedDeploymentStateValue. Possible values are: none, paused, unknownFutureValue.
+     * @var RequestedDeploymentStateValue|null $requestedValue The requestedValue property
     */
     private ?RequestedDeploymentStateValue $requestedValue = null;
     
     /**
-     * @var DeploymentStateValue|null $value Specifies the state of the deployment. Supports a subset of the values for deploymentStateValue. Possible values are: scheduled, offering, paused, unknownFutureValue. Read-only.
+     * @var DeploymentStateValue|null $value The value property
     */
     private ?DeploymentStateValue $value = null;
     
@@ -33,7 +38,8 @@ class DeploymentState implements AdditionalDataHolder, Parsable
      * Instantiates a new deploymentState and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.windowsUpdates.deploymentState');
     }
 
     /**
@@ -60,10 +66,19 @@ class DeploymentState implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'reasons' => function (ParseNode $n) use ($o) { $o->setReasons($n->getCollectionOfObjectValues(array(DeploymentStateReason::class, 'createFromDiscriminatorValue'))); },
             'requestedValue' => function (ParseNode $n) use ($o) { $o->setRequestedValue($n->getEnumValue(RequestedDeploymentStateValue::class)); },
             'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getEnumValue(DeploymentStateValue::class)); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -75,7 +90,7 @@ class DeploymentState implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the requestedValue property value. Specifies the requested state of the deployment. Supports a subset of the values for requestedDeploymentStateValue. Possible values are: none, paused, unknownFutureValue.
+     * Gets the requestedValue property value. The requestedValue property
      * @return RequestedDeploymentStateValue|null
     */
     public function getRequestedValue(): ?RequestedDeploymentStateValue {
@@ -83,7 +98,7 @@ class DeploymentState implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the value property value. Specifies the state of the deployment. Supports a subset of the values for deploymentStateValue. Possible values are: scheduled, offering, paused, unknownFutureValue. Read-only.
+     * Gets the value property value. The value property
      * @return DeploymentStateValue|null
     */
     public function getValue(): ?DeploymentStateValue {
@@ -95,6 +110,7 @@ class DeploymentState implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('reasons', $this->reasons);
         $writer->writeEnumValue('requestedValue', $this->requestedValue);
         $writer->writeEnumValue('value', $this->value);
@@ -110,6 +126,14 @@ class DeploymentState implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the reasons property value. Specifies the reasons the deployment has its state value. Read-only.
      *  @param array<DeploymentStateReason>|null $value Value to set for the reasons property.
     */
@@ -118,7 +142,7 @@ class DeploymentState implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the requestedValue property value. Specifies the requested state of the deployment. Supports a subset of the values for requestedDeploymentStateValue. Possible values are: none, paused, unknownFutureValue.
+     * Sets the requestedValue property value. The requestedValue property
      *  @param RequestedDeploymentStateValue|null $value Value to set for the requestedValue property.
     */
     public function setRequestedValue(?RequestedDeploymentStateValue $value ): void {
@@ -126,7 +150,7 @@ class DeploymentState implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the value property value. Specifies the state of the deployment. Supports a subset of the values for deploymentStateValue. Possible values are: scheduled, offering, paused, unknownFutureValue. Read-only.
+     * Sets the value property value. The value property
      *  @param DeploymentStateValue|null $value Value to set for the value property.
     */
     public function setValue(?DeploymentStateValue $value ): void {

@@ -61,7 +61,7 @@ class MobileAppContentFile extends Entity implements Parsable
     private ?int $sizeEncrypted = null;
     
     /**
-     * @var MobileAppContentFileUploadState|null $uploadState The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut.
+     * @var MobileAppContentFileUploadState|null $uploadState Contains properties for upload request states.
     */
     private ?MobileAppContentFileUploadState $uploadState = null;
     
@@ -70,6 +70,7 @@ class MobileAppContentFile extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mobileAppContentFile');
     }
 
     /**
@@ -183,7 +184,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Gets the uploadState property value. The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut.
+     * Gets the uploadState property value. Contains properties for upload request states.
      * @return MobileAppContentFileUploadState|null
     */
     public function getUploadState(): ?MobileAppContentFileUploadState {
@@ -290,7 +291,7 @@ class MobileAppContentFile extends Entity implements Parsable
     }
 
     /**
-     * Sets the uploadState property value. The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut.
+     * Sets the uploadState property value. Contains properties for upload request states.
      *  @param MobileAppContentFileUploadState|null $value Value to set for the uploadState property.
     */
     public function setUploadState(?MobileAppContentFileUploadState $value ): void {

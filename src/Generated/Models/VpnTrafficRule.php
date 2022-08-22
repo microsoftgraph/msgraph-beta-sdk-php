@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VpnTrafficRule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,7 +20,7 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
     private ?string $appId = null;
     
     /**
-     * @var VpnTrafficRuleAppType|null $appType App type, if this traffic rule is triggered by an app. Possible values are: none, desktop, universal.
+     * @var VpnTrafficRuleAppType|null $appType Indicates the type of app that a VPN traffic rule is associated with.
     */
     private ?VpnTrafficRuleAppType $appType = null;
     
@@ -45,6 +45,11 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
     private ?string $name = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $protocols Protocols (0-255). Valid values 0 to 255
     */
     private ?int $protocols = null;
@@ -60,7 +65,7 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
     private ?array $remotePortRanges = null;
     
     /**
-     * @var VpnTrafficRuleRoutingPolicyType|null $routingPolicyType When app triggered, indicates whether to enable split tunneling along this route. Possible values are: none, splitTunnel, forceTunnel.
+     * @var VpnTrafficRuleRoutingPolicyType|null $routingPolicyType Specifies the routing policy for a VPN traffic rule.
     */
     private ?VpnTrafficRuleRoutingPolicyType $routingPolicyType = null;
     
@@ -68,7 +73,8 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
      * Instantiates a new vpnTrafficRule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.vpnTrafficRule');
     }
 
     /**
@@ -97,7 +103,7 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the appType property value. App type, if this traffic rule is triggered by an app. Possible values are: none, desktop, universal.
+     * Gets the appType property value. Indicates the type of app that a VPN traffic rule is associated with.
      * @return VpnTrafficRuleAppType|null
     */
     public function getAppType(): ?VpnTrafficRuleAppType {
@@ -125,6 +131,7 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
             'localAddressRanges' => function (ParseNode $n) use ($o) { $o->setLocalAddressRanges($n->getCollectionOfObjectValues(array(IPv4Range::class, 'createFromDiscriminatorValue'))); },
             'localPortRanges' => function (ParseNode $n) use ($o) { $o->setLocalPortRanges($n->getCollectionOfObjectValues(array(NumberRange::class, 'createFromDiscriminatorValue'))); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'protocols' => function (ParseNode $n) use ($o) { $o->setProtocols($n->getIntegerValue()); },
             'remoteAddressRanges' => function (ParseNode $n) use ($o) { $o->setRemoteAddressRanges($n->getCollectionOfObjectValues(array(IPv4Range::class, 'createFromDiscriminatorValue'))); },
             'remotePortRanges' => function (ParseNode $n) use ($o) { $o->setRemotePortRanges($n->getCollectionOfObjectValues(array(NumberRange::class, 'createFromDiscriminatorValue'))); },
@@ -157,6 +164,14 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the protocols property value. Protocols (0-255). Valid values 0 to 255
      * @return int|null
     */
@@ -181,7 +196,7 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the routingPolicyType property value. When app triggered, indicates whether to enable split tunneling along this route. Possible values are: none, splitTunnel, forceTunnel.
+     * Gets the routingPolicyType property value. Specifies the routing policy for a VPN traffic rule.
      * @return VpnTrafficRuleRoutingPolicyType|null
     */
     public function getRoutingPolicyType(): ?VpnTrafficRuleRoutingPolicyType {
@@ -199,6 +214,7 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfObjectValues('localAddressRanges', $this->localAddressRanges);
         $writer->writeCollectionOfObjectValues('localPortRanges', $this->localPortRanges);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('protocols', $this->protocols);
         $writer->writeCollectionOfObjectValues('remoteAddressRanges', $this->remoteAddressRanges);
         $writer->writeCollectionOfObjectValues('remotePortRanges', $this->remotePortRanges);
@@ -223,7 +239,7 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the appType property value. App type, if this traffic rule is triggered by an app. Possible values are: none, desktop, universal.
+     * Sets the appType property value. Indicates the type of app that a VPN traffic rule is associated with.
      *  @param VpnTrafficRuleAppType|null $value Value to set for the appType property.
     */
     public function setAppType(?VpnTrafficRuleAppType $value ): void {
@@ -263,6 +279,14 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the protocols property value. Protocols (0-255). Valid values 0 to 255
      *  @param int|null $value Value to set for the protocols property.
     */
@@ -287,7 +311,7 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the routingPolicyType property value. When app triggered, indicates whether to enable split tunneling along this route. Possible values are: none, splitTunnel, forceTunnel.
+     * Sets the routingPolicyType property value. Specifies the routing policy for a VPN traffic rule.
      *  @param VpnTrafficRuleRoutingPolicyType|null $value Value to set for the routingPolicyType property.
     */
     public function setRoutingPolicyType(?VpnTrafficRuleRoutingPolicyType $value ): void {

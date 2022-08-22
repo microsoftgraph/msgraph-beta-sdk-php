@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RiskUserActivity implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,7 +25,12 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
     private ?array $eventTypes = null;
     
     /**
-     * @var array<string>|null $riskEventTypes The type of risk event detected.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var array<string>|null $riskEventTypes The riskEventTypes property
     */
     private ?array $riskEventTypes = null;
     
@@ -33,7 +38,8 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
      * Instantiates a new riskUserActivity and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.riskUserActivity');
     }
 
     /**
@@ -78,12 +84,21 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
         return  [
             'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getEnumValue(RiskDetail::class)); },
             'eventTypes' => function (ParseNode $n) use ($o) { $o->setEventTypes($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'riskEventTypes' => function (ParseNode $n) use ($o) { $o->setRiskEventTypes($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 
     /**
-     * Gets the riskEventTypes property value. The type of risk event detected.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the riskEventTypes property value. The riskEventTypes property
      * @return array<string>|null
     */
     public function getRiskEventTypes(): ?array {
@@ -97,6 +112,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('detail', $this->detail);
         $writer->writeCollectionOfPrimitiveValues('eventTypes', $this->eventTypes);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfPrimitiveValues('riskEventTypes', $this->riskEventTypes);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -126,7 +142,15 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the riskEventTypes property value. The type of risk event detected.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the riskEventTypes property value. The riskEventTypes property
      *  @param array<string>|null $value Value to set for the riskEventTypes property.
     */
     public function setRiskEventTypes(?array $value ): void {

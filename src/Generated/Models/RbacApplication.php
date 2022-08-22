@@ -19,42 +19,42 @@ class RbacApplication extends Entity implements Parsable
     private ?array $roleAssignmentApprovals = null;
     
     /**
-     * @var array<UnifiedRoleAssignment>|null $roleAssignments Resource to grant access to users or groups.
+     * @var array<UnifiedRoleAssignment>|null $roleAssignments The roleAssignments property
     */
     private ?array $roleAssignments = null;
     
     /**
-     * @var array<UnifiedRoleAssignmentScheduleInstance>|null $roleAssignmentScheduleInstances Instances for active role assignments.
+     * @var array<UnifiedRoleAssignmentScheduleInstance>|null $roleAssignmentScheduleInstances The roleAssignmentScheduleInstances property
     */
     private ?array $roleAssignmentScheduleInstances = null;
     
     /**
-     * @var array<UnifiedRoleAssignmentScheduleRequest>|null $roleAssignmentScheduleRequests Requests for active role assignments to principals through PIM.
+     * @var array<UnifiedRoleAssignmentScheduleRequest>|null $roleAssignmentScheduleRequests The roleAssignmentScheduleRequests property
     */
     private ?array $roleAssignmentScheduleRequests = null;
     
     /**
-     * @var array<UnifiedRoleAssignmentSchedule>|null $roleAssignmentSchedules Schedules for active role assignment operations.
+     * @var array<UnifiedRoleAssignmentSchedule>|null $roleAssignmentSchedules The roleAssignmentSchedules property
     */
     private ?array $roleAssignmentSchedules = null;
     
     /**
-     * @var array<UnifiedRoleDefinition>|null $roleDefinitions Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+     * @var array<UnifiedRoleDefinition>|null $roleDefinitions The roleDefinitions property
     */
     private ?array $roleDefinitions = null;
     
     /**
-     * @var array<UnifiedRoleEligibilityScheduleInstance>|null $roleEligibilityScheduleInstances Instances for role eligibility requests.
+     * @var array<UnifiedRoleEligibilityScheduleInstance>|null $roleEligibilityScheduleInstances The roleEligibilityScheduleInstances property
     */
     private ?array $roleEligibilityScheduleInstances = null;
     
     /**
-     * @var array<UnifiedRoleEligibilityScheduleRequest>|null $roleEligibilityScheduleRequests Requests for role eligibilities for principals through PIM.
+     * @var array<UnifiedRoleEligibilityScheduleRequest>|null $roleEligibilityScheduleRequests The roleEligibilityScheduleRequests property
     */
     private ?array $roleEligibilityScheduleRequests = null;
     
     /**
-     * @var array<UnifiedRoleEligibilitySchedule>|null $roleEligibilitySchedules Schedules for role eligibility operations.
+     * @var array<UnifiedRoleEligibilitySchedule>|null $roleEligibilitySchedules The roleEligibilitySchedules property
     */
     private ?array $roleEligibilitySchedules = null;
     
@@ -68,6 +68,7 @@ class RbacApplication extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.rbacApplication');
     }
 
     /**
@@ -117,7 +118,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleAssignments property value. Resource to grant access to users or groups.
+     * Gets the roleAssignments property value. The roleAssignments property
      * @return array<UnifiedRoleAssignment>|null
     */
     public function getRoleAssignments(): ?array {
@@ -125,7 +126,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleAssignmentScheduleInstances property value. Instances for active role assignments.
+     * Gets the roleAssignmentScheduleInstances property value. The roleAssignmentScheduleInstances property
      * @return array<UnifiedRoleAssignmentScheduleInstance>|null
     */
     public function getRoleAssignmentScheduleInstances(): ?array {
@@ -133,7 +134,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleAssignmentScheduleRequests property value. Requests for active role assignments to principals through PIM.
+     * Gets the roleAssignmentScheduleRequests property value. The roleAssignmentScheduleRequests property
      * @return array<UnifiedRoleAssignmentScheduleRequest>|null
     */
     public function getRoleAssignmentScheduleRequests(): ?array {
@@ -141,7 +142,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleAssignmentSchedules property value. Schedules for active role assignment operations.
+     * Gets the roleAssignmentSchedules property value. The roleAssignmentSchedules property
      * @return array<UnifiedRoleAssignmentSchedule>|null
     */
     public function getRoleAssignmentSchedules(): ?array {
@@ -149,7 +150,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleDefinitions property value. Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+     * Gets the roleDefinitions property value. The roleDefinitions property
      * @return array<UnifiedRoleDefinition>|null
     */
     public function getRoleDefinitions(): ?array {
@@ -157,7 +158,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleEligibilityScheduleInstances property value. Instances for role eligibility requests.
+     * Gets the roleEligibilityScheduleInstances property value. The roleEligibilityScheduleInstances property
      * @return array<UnifiedRoleEligibilityScheduleInstance>|null
     */
     public function getRoleEligibilityScheduleInstances(): ?array {
@@ -165,7 +166,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleEligibilityScheduleRequests property value. Requests for role eligibilities for principals through PIM.
+     * Gets the roleEligibilityScheduleRequests property value. The roleEligibilityScheduleRequests property
      * @return array<UnifiedRoleEligibilityScheduleRequest>|null
     */
     public function getRoleEligibilityScheduleRequests(): ?array {
@@ -173,7 +174,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleEligibilitySchedules property value. Schedules for role eligibility operations.
+     * Gets the roleEligibilitySchedules property value. The roleEligibilitySchedules property
      * @return array<UnifiedRoleEligibilitySchedule>|null
     */
     public function getRoleEligibilitySchedules(): ?array {
@@ -224,7 +225,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleAssignments property value. Resource to grant access to users or groups.
+     * Sets the roleAssignments property value. The roleAssignments property
      *  @param array<UnifiedRoleAssignment>|null $value Value to set for the roleAssignments property.
     */
     public function setRoleAssignments(?array $value ): void {
@@ -232,7 +233,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleAssignmentScheduleInstances property value. Instances for active role assignments.
+     * Sets the roleAssignmentScheduleInstances property value. The roleAssignmentScheduleInstances property
      *  @param array<UnifiedRoleAssignmentScheduleInstance>|null $value Value to set for the roleAssignmentScheduleInstances property.
     */
     public function setRoleAssignmentScheduleInstances(?array $value ): void {
@@ -240,7 +241,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleAssignmentScheduleRequests property value. Requests for active role assignments to principals through PIM.
+     * Sets the roleAssignmentScheduleRequests property value. The roleAssignmentScheduleRequests property
      *  @param array<UnifiedRoleAssignmentScheduleRequest>|null $value Value to set for the roleAssignmentScheduleRequests property.
     */
     public function setRoleAssignmentScheduleRequests(?array $value ): void {
@@ -248,7 +249,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleAssignmentSchedules property value. Schedules for active role assignment operations.
+     * Sets the roleAssignmentSchedules property value. The roleAssignmentSchedules property
      *  @param array<UnifiedRoleAssignmentSchedule>|null $value Value to set for the roleAssignmentSchedules property.
     */
     public function setRoleAssignmentSchedules(?array $value ): void {
@@ -256,7 +257,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleDefinitions property value. Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+     * Sets the roleDefinitions property value. The roleDefinitions property
      *  @param array<UnifiedRoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
     public function setRoleDefinitions(?array $value ): void {
@@ -264,7 +265,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleEligibilityScheduleInstances property value. Instances for role eligibility requests.
+     * Sets the roleEligibilityScheduleInstances property value. The roleEligibilityScheduleInstances property
      *  @param array<UnifiedRoleEligibilityScheduleInstance>|null $value Value to set for the roleEligibilityScheduleInstances property.
     */
     public function setRoleEligibilityScheduleInstances(?array $value ): void {
@@ -272,7 +273,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleEligibilityScheduleRequests property value. Requests for role eligibilities for principals through PIM.
+     * Sets the roleEligibilityScheduleRequests property value. The roleEligibilityScheduleRequests property
      *  @param array<UnifiedRoleEligibilityScheduleRequest>|null $value Value to set for the roleEligibilityScheduleRequests property.
     */
     public function setRoleEligibilityScheduleRequests(?array $value ): void {
@@ -280,7 +281,7 @@ class RbacApplication extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleEligibilitySchedules property value. Schedules for role eligibility operations.
+     * Sets the roleEligibilitySchedules property value. The roleEligibilitySchedules property
      *  @param array<UnifiedRoleEligibilitySchedule>|null $value Value to set for the roleEligibilitySchedules property.
     */
     public function setRoleEligibilitySchedules(?array $value ): void {

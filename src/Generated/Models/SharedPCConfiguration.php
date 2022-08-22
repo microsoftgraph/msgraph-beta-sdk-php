@@ -15,7 +15,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     private ?SharedPCAccountManagerPolicy $accountManagerPolicy = null;
     
     /**
-     * @var SharedPCAllowedAccountType|null $allowedAccounts Indicates which type of accounts are allowed to use on a shared PC. Possible values are: notConfigured, guest, domain.
+     * @var SharedPCAllowedAccountType|null $allowedAccounts Type of accounts that are allowed to share the PC.
     */
     private ?SharedPCAllowedAccountType $allowedAccounts = null;
     
@@ -50,7 +50,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     private ?bool $enabled = null;
     
     /**
-     * @var Enablement|null $fastFirstSignIn Specifies whether to auto connect new non-admin Azure AD accounts to pre-configured candidate local accounts. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $fastFirstSignIn Possible values of a property
     */
     private ?Enablement $fastFirstSignIn = null;
     
@@ -70,7 +70,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     private ?string $kioskAppUserModelId = null;
     
     /**
-     * @var Enablement|null $localStorage Specifies whether local storage is allowed on a shared PC. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $localStorage Possible values of a property
     */
     private ?Enablement $localStorage = null;
     
@@ -80,22 +80,22 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     private ?Time $maintenanceStartTime = null;
     
     /**
-     * @var Enablement|null $setAccountManager Disables the account manager for shared PC mode. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $setAccountManager Possible values of a property
     */
     private ?Enablement $setAccountManager = null;
     
     /**
-     * @var Enablement|null $setEduPolicies Specifies whether the default shared PC education environment policies should be enabled/disabled/not configured. For Windows 10 RS2 and later, this policy will be applied without setting Enabled to true. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $setEduPolicies Possible values of a property
     */
     private ?Enablement $setEduPolicies = null;
     
     /**
-     * @var Enablement|null $setPowerPolicies Specifies whether the default shared PC power policies should be enabled/disabled. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $setPowerPolicies Possible values of a property
     */
     private ?Enablement $setPowerPolicies = null;
     
     /**
-     * @var Enablement|null $signInOnResume Specifies the requirement to sign in whenever the device wakes up from sleep mode. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $signInOnResume Possible values of a property
     */
     private ?Enablement $signInOnResume = null;
     
@@ -104,6 +104,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.sharedPCConfiguration');
     }
 
     /**
@@ -124,7 +125,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the allowedAccounts property value. Indicates which type of accounts are allowed to use on a shared PC. Possible values are: notConfigured, guest, domain.
+     * Gets the allowedAccounts property value. Type of accounts that are allowed to share the PC.
      * @return SharedPCAllowedAccountType|null
     */
     public function getAllowedAccounts(): ?SharedPCAllowedAccountType {
@@ -180,7 +181,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the fastFirstSignIn property value. Specifies whether to auto connect new non-admin Azure AD accounts to pre-configured candidate local accounts. Possible values are: notConfigured, enabled, disabled.
+     * Gets the fastFirstSignIn property value. Possible values of a property
      * @return Enablement|null
     */
     public function getFastFirstSignIn(): ?Enablement {
@@ -240,7 +241,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the localStorage property value. Specifies whether local storage is allowed on a shared PC. Possible values are: notConfigured, enabled, disabled.
+     * Gets the localStorage property value. Possible values of a property
      * @return Enablement|null
     */
     public function getLocalStorage(): ?Enablement {
@@ -256,7 +257,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the setAccountManager property value. Disables the account manager for shared PC mode. Possible values are: notConfigured, enabled, disabled.
+     * Gets the setAccountManager property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSetAccountManager(): ?Enablement {
@@ -264,7 +265,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the setEduPolicies property value. Specifies whether the default shared PC education environment policies should be enabled/disabled/not configured. For Windows 10 RS2 and later, this policy will be applied without setting Enabled to true. Possible values are: notConfigured, enabled, disabled.
+     * Gets the setEduPolicies property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSetEduPolicies(): ?Enablement {
@@ -272,7 +273,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the setPowerPolicies property value. Specifies whether the default shared PC power policies should be enabled/disabled. Possible values are: notConfigured, enabled, disabled.
+     * Gets the setPowerPolicies property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSetPowerPolicies(): ?Enablement {
@@ -280,7 +281,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Gets the signInOnResume property value. Specifies the requirement to sign in whenever the device wakes up from sleep mode. Possible values are: notConfigured, enabled, disabled.
+     * Gets the signInOnResume property value. Possible values of a property
      * @return Enablement|null
     */
     public function getSignInOnResume(): ?Enablement {
@@ -322,7 +323,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the allowedAccounts property value. Indicates which type of accounts are allowed to use on a shared PC. Possible values are: notConfigured, guest, domain.
+     * Sets the allowedAccounts property value. Type of accounts that are allowed to share the PC.
      *  @param SharedPCAllowedAccountType|null $value Value to set for the allowedAccounts property.
     */
     public function setAllowedAccounts(?SharedPCAllowedAccountType $value ): void {
@@ -378,7 +379,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the fastFirstSignIn property value. Specifies whether to auto connect new non-admin Azure AD accounts to pre-configured candidate local accounts. Possible values are: notConfigured, enabled, disabled.
+     * Sets the fastFirstSignIn property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the fastFirstSignIn property.
     */
     public function setFastFirstSignIn(?Enablement $value ): void {
@@ -410,7 +411,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the localStorage property value. Specifies whether local storage is allowed on a shared PC. Possible values are: notConfigured, enabled, disabled.
+     * Sets the localStorage property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the localStorage property.
     */
     public function setLocalStorage(?Enablement $value ): void {
@@ -426,7 +427,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the setAccountManager property value. Disables the account manager for shared PC mode. Possible values are: notConfigured, enabled, disabled.
+     * Sets the setAccountManager property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the setAccountManager property.
     */
     public function setSetAccountManager(?Enablement $value ): void {
@@ -434,7 +435,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the setEduPolicies property value. Specifies whether the default shared PC education environment policies should be enabled/disabled/not configured. For Windows 10 RS2 and later, this policy will be applied without setting Enabled to true. Possible values are: notConfigured, enabled, disabled.
+     * Sets the setEduPolicies property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the setEduPolicies property.
     */
     public function setSetEduPolicies(?Enablement $value ): void {
@@ -442,7 +443,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the setPowerPolicies property value. Specifies whether the default shared PC power policies should be enabled/disabled. Possible values are: notConfigured, enabled, disabled.
+     * Sets the setPowerPolicies property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the setPowerPolicies property.
     */
     public function setSetPowerPolicies(?Enablement $value ): void {
@@ -450,7 +451,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     }
 
     /**
-     * Sets the signInOnResume property value. Specifies the requirement to sign in whenever the device wakes up from sleep mode. Possible values are: notConfigured, enabled, disabled.
+     * Sets the signInOnResume property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the signInOnResume property.
     */
     public function setSignInOnResume(?Enablement $value ): void {

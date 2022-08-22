@@ -29,7 +29,7 @@ class AppConsentRequest extends Entity implements Parsable
     private ?array $pendingScopes = null;
     
     /**
-     * @var array<UserConsentRequest>|null $userConsentRequests A list of pending user consent requests.
+     * @var array<UserConsentRequest>|null $userConsentRequests A list of pending user consent requests. Supports $filter (eq).
     */
     private ?array $userConsentRequests = null;
     
@@ -38,6 +38,7 @@ class AppConsentRequest extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.appConsentRequest');
     }
 
     /**
@@ -97,7 +98,7 @@ class AppConsentRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the userConsentRequests property value. A list of pending user consent requests.
+     * Gets the userConsentRequests property value. A list of pending user consent requests. Supports $filter (eq).
      * @return array<UserConsentRequest>|null
     */
     public function getUserConsentRequests(): ?array {
@@ -150,7 +151,7 @@ class AppConsentRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the userConsentRequests property value. A list of pending user consent requests.
+     * Sets the userConsentRequests property value. A list of pending user consent requests. Supports $filter (eq).
      *  @param array<UserConsentRequest>|null $value Value to set for the userConsentRequests property.
     */
     public function setUserConsentRequests(?array $value ): void {

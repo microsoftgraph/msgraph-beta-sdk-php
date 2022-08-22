@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IdentityContainer implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @var array<IdentityApiConnector>|null $apiConnectors Represents entry point for API connectors.
     */
     private ?array $apiConnectors = null;
+    
+    /**
+     * @var array<AuthenticationEventListener>|null $authenticationEventListeners The authenticationEventListeners property
+    */
+    private ?array $authenticationEventListeners = null;
     
     /**
      * @var array<B2cIdentityUserFlow>|null $b2cUserFlows Represents entry point for B2C identity userflows.
@@ -40,9 +45,19 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     private ?ContinuousAccessEvaluationPolicy $continuousAccessEvaluationPolicy = null;
     
     /**
+     * @var array<CustomAuthenticationExtension>|null $customAuthenticationExtensions The customAuthenticationExtensions property
+    */
+    private ?array $customAuthenticationExtensions = null;
+    
+    /**
      * @var array<IdentityProviderBase>|null $identityProviders Represents entry point for identity provider base.
     */
     private ?array $identityProviders = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<IdentityUserFlowAttribute>|null $userFlowAttributes Represents entry point for identity userflow attributes.
@@ -58,7 +73,8 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * Instantiates a new IdentityContainer and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.identityContainer');
     }
 
     /**
@@ -84,6 +100,14 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     */
     public function getApiConnectors(): ?array {
         return $this->apiConnectors;
+    }
+
+    /**
+     * Gets the authenticationEventListeners property value. The authenticationEventListeners property
+     * @return array<AuthenticationEventListener>|null
+    */
+    public function getAuthenticationEventListeners(): ?array {
+        return $this->authenticationEventListeners;
     }
 
     /**
@@ -119,6 +143,14 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the customAuthenticationExtensions property value. The customAuthenticationExtensions property
+     * @return array<CustomAuthenticationExtension>|null
+    */
+    public function getCustomAuthenticationExtensions(): ?array {
+        return $this->customAuthenticationExtensions;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -126,11 +158,14 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'apiConnectors' => function (ParseNode $n) use ($o) { $o->setApiConnectors($n->getCollectionOfObjectValues(array(IdentityApiConnector::class, 'createFromDiscriminatorValue'))); },
+            'authenticationEventListeners' => function (ParseNode $n) use ($o) { $o->setAuthenticationEventListeners($n->getCollectionOfObjectValues(array(AuthenticationEventListener::class, 'createFromDiscriminatorValue'))); },
             'b2cUserFlows' => function (ParseNode $n) use ($o) { $o->setB2cUserFlows($n->getCollectionOfObjectValues(array(B2cIdentityUserFlow::class, 'createFromDiscriminatorValue'))); },
             'b2xUserFlows' => function (ParseNode $n) use ($o) { $o->setB2xUserFlows($n->getCollectionOfObjectValues(array(B2xIdentityUserFlow::class, 'createFromDiscriminatorValue'))); },
             'conditionalAccess' => function (ParseNode $n) use ($o) { $o->setConditionalAccess($n->getObjectValue(array(ConditionalAccessRoot::class, 'createFromDiscriminatorValue'))); },
             'continuousAccessEvaluationPolicy' => function (ParseNode $n) use ($o) { $o->setContinuousAccessEvaluationPolicy($n->getObjectValue(array(ContinuousAccessEvaluationPolicy::class, 'createFromDiscriminatorValue'))); },
+            'customAuthenticationExtensions' => function (ParseNode $n) use ($o) { $o->setCustomAuthenticationExtensions($n->getCollectionOfObjectValues(array(CustomAuthenticationExtension::class, 'createFromDiscriminatorValue'))); },
             'identityProviders' => function (ParseNode $n) use ($o) { $o->setIdentityProviders($n->getCollectionOfObjectValues(array(IdentityProviderBase::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'userFlowAttributes' => function (ParseNode $n) use ($o) { $o->setUserFlowAttributes($n->getCollectionOfObjectValues(array(IdentityUserFlowAttribute::class, 'createFromDiscriminatorValue'))); },
             'userFlows' => function (ParseNode $n) use ($o) { $o->setUserFlows($n->getCollectionOfObjectValues(array(IdentityUserFlow::class, 'createFromDiscriminatorValue'))); },
         ];
@@ -142,6 +177,14 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     */
     public function getIdentityProviders(): ?array {
         return $this->identityProviders;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -166,11 +209,14 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('apiConnectors', $this->apiConnectors);
+        $writer->writeCollectionOfObjectValues('authenticationEventListeners', $this->authenticationEventListeners);
         $writer->writeCollectionOfObjectValues('b2cUserFlows', $this->b2cUserFlows);
         $writer->writeCollectionOfObjectValues('b2xUserFlows', $this->b2xUserFlows);
         $writer->writeObjectValue('conditionalAccess', $this->conditionalAccess);
         $writer->writeObjectValue('continuousAccessEvaluationPolicy', $this->continuousAccessEvaluationPolicy);
+        $writer->writeCollectionOfObjectValues('customAuthenticationExtensions', $this->customAuthenticationExtensions);
         $writer->writeCollectionOfObjectValues('identityProviders', $this->identityProviders);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('userFlowAttributes', $this->userFlowAttributes);
         $writer->writeCollectionOfObjectValues('userFlows', $this->userFlows);
         $writer->writeAdditionalData($this->additionalData);
@@ -190,6 +236,14 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     */
     public function setApiConnectors(?array $value ): void {
         $this->apiConnectors = $value;
+    }
+
+    /**
+     * Sets the authenticationEventListeners property value. The authenticationEventListeners property
+     *  @param array<AuthenticationEventListener>|null $value Value to set for the authenticationEventListeners property.
+    */
+    public function setAuthenticationEventListeners(?array $value ): void {
+        $this->authenticationEventListeners = $value;
     }
 
     /**
@@ -225,11 +279,27 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the customAuthenticationExtensions property value. The customAuthenticationExtensions property
+     *  @param array<CustomAuthenticationExtension>|null $value Value to set for the customAuthenticationExtensions property.
+    */
+    public function setCustomAuthenticationExtensions(?array $value ): void {
+        $this->customAuthenticationExtensions = $value;
+    }
+
+    /**
      * Sets the identityProviders property value. Represents entry point for identity provider base.
      *  @param array<IdentityProviderBase>|null $value Value to set for the identityProviders property.
     */
     public function setIdentityProviders(?array $value ): void {
         $this->identityProviders = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

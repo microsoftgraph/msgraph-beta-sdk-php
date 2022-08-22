@@ -109,6 +109,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.office365GroupsActivityDetail');
     }
 
     /**

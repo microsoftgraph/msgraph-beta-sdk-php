@@ -10,22 +10,27 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ClassificationResult implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var int|null $confidenceLevel The confidenceLevel property
+     * @var int|null $confidenceLevel The confidence level, 0 to 100, of the result.
     */
     private ?int $confidenceLevel = null;
     
     /**
-     * @var int|null $count The count property
+     * @var int|null $count The number of instances of the specific information type in the input.
     */
     private ?int $count = null;
     
     /**
-     * @var string|null $sensitiveTypeId The sensitiveTypeId property
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var string|null $sensitiveTypeId The GUID of the discovered sensitive information type.
     */
     private ?string $sensitiveTypeId = null;
     
@@ -33,7 +38,8 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
      * Instantiates a new classificationResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.security.classificationResult');
     }
 
     /**
@@ -54,7 +60,7 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the confidenceLevel property value. The confidenceLevel property
+     * Gets the confidenceLevel property value. The confidence level, 0 to 100, of the result.
      * @return int|null
     */
     public function getConfidenceLevel(): ?int {
@@ -62,7 +68,7 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the count property value. The count property
+     * Gets the count property value. The number of instances of the specific information type in the input.
      * @return int|null
     */
     public function getCount(): ?int {
@@ -78,12 +84,21 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
         return  [
             'confidenceLevel' => function (ParseNode $n) use ($o) { $o->setConfidenceLevel($n->getIntegerValue()); },
             'count' => function (ParseNode $n) use ($o) { $o->setCount($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'sensitiveTypeId' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeId($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the sensitiveTypeId property value. The sensitiveTypeId property
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the sensitiveTypeId property value. The GUID of the discovered sensitive information type.
      * @return string|null
     */
     public function getSensitiveTypeId(): ?string {
@@ -97,6 +112,7 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('confidenceLevel', $this->confidenceLevel);
         $writer->writeIntegerValue('count', $this->count);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('sensitiveTypeId', $this->sensitiveTypeId);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -110,7 +126,7 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the confidenceLevel property value. The confidenceLevel property
+     * Sets the confidenceLevel property value. The confidence level, 0 to 100, of the result.
      *  @param int|null $value Value to set for the confidenceLevel property.
     */
     public function setConfidenceLevel(?int $value ): void {
@@ -118,7 +134,7 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the count property value. The count property
+     * Sets the count property value. The number of instances of the specific information type in the input.
      *  @param int|null $value Value to set for the count property.
     */
     public function setCount(?int $value ): void {
@@ -126,7 +142,15 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sensitiveTypeId property value. The sensitiveTypeId property
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the sensitiveTypeId property value. The GUID of the discovered sensitive information type.
      *  @param string|null $value Value to set for the sensitiveTypeId property.
     */
     public function setSensitiveTypeId(?string $value ): void {

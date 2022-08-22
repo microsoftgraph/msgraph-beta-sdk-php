@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,7 +30,12 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
     private ?int $managementTemplateVersion = null;
     
     /**
-     * @var ManagementActionStatus|null $status The status of the management action. Possible values are: toAddress, completed, error, timeOut, inProgress, planned, resolvedBy3rdParty, resolvedThroughAlternateMitigation, riskAccepted, unknownFutureValue. Required.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var ManagementActionStatus|null $status The status property
     */
     private ?ManagementActionStatus $status = null;
     
@@ -43,7 +48,8 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new managementActionDeploymentStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedTenants.managementActionDeploymentStatus');
     }
 
     /**
@@ -73,6 +79,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
             'managementActionId' => function (ParseNode $n) use ($o) { $o->setManagementActionId($n->getStringValue()); },
             'managementTemplateId' => function (ParseNode $n) use ($o) { $o->setManagementTemplateId($n->getStringValue()); },
             'managementTemplateVersion' => function (ParseNode $n) use ($o) { $o->setManagementTemplateVersion($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ManagementActionStatus::class)); },
             'workloadActionDeploymentStatuses' => function (ParseNode $n) use ($o) { $o->setWorkloadActionDeploymentStatuses($n->getCollectionOfObjectValues(array(WorkloadActionDeploymentStatus::class, 'createFromDiscriminatorValue'))); },
         ];
@@ -103,7 +110,15 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the status property value. The status of the management action. Possible values are: toAddress, completed, error, timeOut, inProgress, planned, resolvedBy3rdParty, resolvedThroughAlternateMitigation, riskAccepted, unknownFutureValue. Required.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the status property value. The status property
      * @return ManagementActionStatus|null
     */
     public function getStatus(): ?ManagementActionStatus {
@@ -126,6 +141,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('managementActionId', $this->managementActionId);
         $writer->writeStringValue('managementTemplateId', $this->managementTemplateId);
         $writer->writeIntegerValue('managementTemplateVersion', $this->managementTemplateVersion);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeCollectionOfObjectValues('workloadActionDeploymentStatuses', $this->workloadActionDeploymentStatuses);
         $writer->writeAdditionalData($this->additionalData);
@@ -164,7 +180,15 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the status property value. The status of the management action. Possible values are: toAddress, completed, error, timeOut, inProgress, planned, resolvedBy3rdParty, resolvedThroughAlternateMitigation, riskAccepted, unknownFutureValue. Required.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the status property value. The status property
      *  @param ManagementActionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?ManagementActionStatus $value ): void {

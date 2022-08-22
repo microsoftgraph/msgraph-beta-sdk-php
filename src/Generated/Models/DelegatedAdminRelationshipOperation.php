@@ -25,12 +25,12 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var DelegatedAdminRelationshipOperationType|null $operationType The type of long-running operation. The possible values are: delegatedAdminAccessAssignmentUpdate, unknownFutureValue. Read-only.
+     * @var DelegatedAdminRelationshipOperationType|null $operationType The operationType property
     */
     private ?DelegatedAdminRelationshipOperationType $operationType = null;
     
     /**
-     * @var LongRunningOperationStatus|null $status The status of the operation. Read-only. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only. Supports $orderBy.
+     * @var LongRunningOperationStatus|null $status The status property
     */
     private ?LongRunningOperationStatus $status = null;
     
@@ -39,6 +39,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.delegatedAdminRelationshipOperation');
     }
 
     /**
@@ -90,7 +91,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the operationType property value. The type of long-running operation. The possible values are: delegatedAdminAccessAssignmentUpdate, unknownFutureValue. Read-only.
+     * Gets the operationType property value. The operationType property
      * @return DelegatedAdminRelationshipOperationType|null
     */
     public function getOperationType(): ?DelegatedAdminRelationshipOperationType {
@@ -98,7 +99,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status of the operation. Read-only. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only. Supports $orderBy.
+     * Gets the status property value. The status property
      * @return LongRunningOperationStatus|null
     */
     public function getStatus(): ?LongRunningOperationStatus {
@@ -143,7 +144,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the operationType property value. The type of long-running operation. The possible values are: delegatedAdminAccessAssignmentUpdate, unknownFutureValue. Read-only.
+     * Sets the operationType property value. The operationType property
      *  @param DelegatedAdminRelationshipOperationType|null $value Value to set for the operationType property.
     */
     public function setOperationType(?DelegatedAdminRelationshipOperationType $value ): void {
@@ -151,7 +152,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status of the operation. Read-only. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only. Supports $orderBy.
+     * Sets the status property value. The status property
      *  @param LongRunningOperationStatus|null $value Value to set for the status property.
     */
     public function setStatus(?LongRunningOperationStatus $value ): void {

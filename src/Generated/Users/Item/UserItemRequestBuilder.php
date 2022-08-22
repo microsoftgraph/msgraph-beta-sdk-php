@@ -15,6 +15,8 @@ use Microsoft\Graph\Beta\Generated\Users\Item\AgreementAcceptances\Item\Agreemen
 use Microsoft\Graph\Beta\Generated\Users\Item\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\AppConsentRequestsForApprovalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\AppConsentRequestItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignedResources\AppRoleAssignedResourcesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignedResources\Item\ServicePrincipalItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignments\AppRoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignments\Item\AppRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Approvals\ApprovalsRequestBuilder;
@@ -193,6 +195,13 @@ class UserItemRequestBuilder
     */
     public function appConsentRequestsForApproval(): AppConsentRequestsForApprovalRequestBuilder {
         return new AppConsentRequestsForApprovalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The appRoleAssignedResources property
+    */
+    public function appRoleAssignedResources(): AppRoleAssignedResourcesRequestBuilder {
+        return new AppRoleAssignedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -811,6 +820,17 @@ class UserItemRequestBuilder
     }
 
     /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.appRoleAssignedResources.item collection
+     * @param string $id Unique identifier of the item
+     * @return ServicePrincipalItemRequestBuilder
+    */
+    public function appRoleAssignedResourcesById(string $id): ServicePrincipalItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['servicePrincipal%2Did'] = $id;
+        return new ServicePrincipalItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.appRoleAssignments.item collection
      * @param string $id Unique identifier of the item
      * @return AppRoleAssignmentItemRequestBuilder
@@ -921,7 +941,7 @@ class UserItemRequestBuilder
     }
 
     /**
-     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.
+     * Delete entity from users
      * @param UserItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -1001,7 +1021,7 @@ class UserItemRequestBuilder
     }
 
     /**
-     * Delete user.   When deleted, user resources are moved to a temporary container and can be restored within 30 days.  After that time, they are permanently deleted.  To learn more, see deletedItems.
+     * Delete entity from users
      * @param UserItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

@@ -44,10 +44,11 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     private ?int $modelBatteryHealthScore = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthModelPerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthModelPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsBatteryHealthModelPerformance');
     }
 
     /**

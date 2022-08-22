@@ -100,10 +100,11 @@ class HostSecurityProfile extends Entity implements Parsable
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
-     * Instantiates a new hostSecurityProfile and sets the default values.
+     * Instantiates a new HostSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.hostSecurityProfile');
     }
 
     /**

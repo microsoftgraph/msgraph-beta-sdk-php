@@ -201,10 +201,11 @@ class SalesInvoice extends Entity implements Parsable
     private ?string $totalTaxAmount = null;
     
     /**
-     * Instantiates a new SalesInvoice and sets the default values.
+     * Instantiates a new salesInvoice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.salesInvoice');
     }
 
     /**

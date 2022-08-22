@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyPresentationComboBox extends GroupPolicyPresentation implements Parsable 
+class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
      * @var string|null $defaultValue Localized default string displayed in the combo box. The default value is empty.
@@ -33,6 +33,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyPresentation implements
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyPresentationComboBox');
     }
 
     /**

@@ -20,7 +20,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
     private ?DateTime $lastConnectionDateTime = null;
     
     /**
-     * @var DeviceManagementDomainJoinConnectorState|null $state The connector state. Possible values are: active, error, inactive.
+     * @var DeviceManagementDomainJoinConnectorState|null $state The ODJ request states.
     */
     private ?DeviceManagementDomainJoinConnectorState $state = null;
     
@@ -34,6 +34,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementDomainJoinConnector');
     }
 
     /**
@@ -76,7 +77,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
     }
 
     /**
-     * Gets the state property value. The connector state. Possible values are: active, error, inactive.
+     * Gets the state property value. The ODJ request states.
      * @return DeviceManagementDomainJoinConnectorState|null
     */
     public function getState(): ?DeviceManagementDomainJoinConnectorState {
@@ -120,7 +121,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
     }
 
     /**
-     * Sets the state property value. The connector state. Possible values are: active, error, inactive.
+     * Sets the state property value. The ODJ request states.
      *  @param DeviceManagementDomainJoinConnectorState|null $value Value to set for the state property.
     */
     public function setState(?DeviceManagementDomainJoinConnectorState $value ): void {

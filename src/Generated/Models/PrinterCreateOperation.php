@@ -14,7 +14,7 @@ class PrinterCreateOperation extends PrintOperation implements Parsable
     private ?string $certificate = null;
     
     /**
-     * @var Printer|null $printer The created printer entity. Read-only.
+     * @var Printer|null $printer The printer property
     */
     private ?Printer $printer = null;
     
@@ -23,6 +23,7 @@ class PrinterCreateOperation extends PrintOperation implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.printerCreateOperation');
     }
 
     /**
@@ -55,7 +56,7 @@ class PrinterCreateOperation extends PrintOperation implements Parsable
     }
 
     /**
-     * Gets the printer property value. The created printer entity. Read-only.
+     * Gets the printer property value. The printer property
      * @return Printer|null
     */
     public function getPrinter(): ?Printer {
@@ -81,7 +82,7 @@ class PrinterCreateOperation extends PrintOperation implements Parsable
     }
 
     /**
-     * Sets the printer property value. The created printer entity. Read-only.
+     * Sets the printer property value. The printer property
      *  @param Printer|null $value Value to set for the printer property.
     */
     public function setPrinter(?Printer $value ): void {

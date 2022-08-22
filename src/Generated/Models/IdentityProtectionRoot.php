@@ -10,9 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IdentityProtectionRoot implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<RiskDetection>|null $riskDetections Risk detection in Azure AD Identity Protection and the associated information about the detection.
@@ -38,7 +43,8 @@ class IdentityProtectionRoot implements AdditionalDataHolder, Parsable
      * Instantiates a new IdentityProtectionRoot and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.identityProtectionRoot');
     }
 
     /**
@@ -65,11 +71,20 @@ class IdentityProtectionRoot implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'riskDetections' => function (ParseNode $n) use ($o) { $o->setRiskDetections($n->getCollectionOfObjectValues(array(RiskDetection::class, 'createFromDiscriminatorValue'))); },
             'riskyServicePrincipals' => function (ParseNode $n) use ($o) { $o->setRiskyServicePrincipals($n->getCollectionOfObjectValues(array(RiskyServicePrincipal::class, 'createFromDiscriminatorValue'))); },
             'riskyUsers' => function (ParseNode $n) use ($o) { $o->setRiskyUsers($n->getCollectionOfObjectValues(array(RiskyUser::class, 'createFromDiscriminatorValue'))); },
             'servicePrincipalRiskDetections' => function (ParseNode $n) use ($o) { $o->setServicePrincipalRiskDetections($n->getCollectionOfObjectValues(array(ServicePrincipalRiskDetection::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -109,6 +124,7 @@ class IdentityProtectionRoot implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('riskDetections', $this->riskDetections);
         $writer->writeCollectionOfObjectValues('riskyServicePrincipals', $this->riskyServicePrincipals);
         $writer->writeCollectionOfObjectValues('riskyUsers', $this->riskyUsers);
@@ -122,6 +138,14 @@ class IdentityProtectionRoot implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

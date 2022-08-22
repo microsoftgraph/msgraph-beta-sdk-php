@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserTrainingEventInfo implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class UserTrainingEventInfo implements AdditionalDataHolder, Parsable
      * @var TrainingStatus|null $latestTrainingStatus Latest status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
     */
     private ?TrainingStatus $latestTrainingStatus = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var UserTrainingContentEventInfo|null $trainingAssignedProperties Event details of the training when it was assigned to the user.
@@ -43,7 +48,8 @@ class UserTrainingEventInfo implements AdditionalDataHolder, Parsable
      * Instantiates a new userTrainingEventInfo and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.userTrainingEventInfo');
     }
 
     /**
@@ -80,6 +86,7 @@ class UserTrainingEventInfo implements AdditionalDataHolder, Parsable
         return  [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'latestTrainingStatus' => function (ParseNode $n) use ($o) { $o->setLatestTrainingStatus($n->getEnumValue(TrainingStatus::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'trainingAssignedProperties' => function (ParseNode $n) use ($o) { $o->setTrainingAssignedProperties($n->getObjectValue(array(UserTrainingContentEventInfo::class, 'createFromDiscriminatorValue'))); },
             'trainingCompletedProperties' => function (ParseNode $n) use ($o) { $o->setTrainingCompletedProperties($n->getObjectValue(array(UserTrainingContentEventInfo::class, 'createFromDiscriminatorValue'))); },
             'trainingUpdatedProperties' => function (ParseNode $n) use ($o) { $o->setTrainingUpdatedProperties($n->getObjectValue(array(UserTrainingContentEventInfo::class, 'createFromDiscriminatorValue'))); },
@@ -92,6 +99,14 @@ class UserTrainingEventInfo implements AdditionalDataHolder, Parsable
     */
     public function getLatestTrainingStatus(): ?TrainingStatus {
         return $this->latestTrainingStatus;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -125,6 +140,7 @@ class UserTrainingEventInfo implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeEnumValue('latestTrainingStatus', $this->latestTrainingStatus);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('trainingAssignedProperties', $this->trainingAssignedProperties);
         $writer->writeObjectValue('trainingCompletedProperties', $this->trainingCompletedProperties);
         $writer->writeObjectValue('trainingUpdatedProperties', $this->trainingUpdatedProperties);
@@ -153,6 +169,14 @@ class UserTrainingEventInfo implements AdditionalDataHolder, Parsable
     */
     public function setLatestTrainingStatus(?TrainingStatus $value ): void {
         $this->latestTrainingStatus = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

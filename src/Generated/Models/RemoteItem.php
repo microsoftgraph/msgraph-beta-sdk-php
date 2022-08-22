@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RemoteItem implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -66,6 +66,11 @@ class RemoteItem implements AdditionalDataHolder, Parsable
     private ?string $name = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var Package|null $package If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
     */
     private ?Package $package = null;
@@ -91,7 +96,7 @@ class RemoteItem implements AdditionalDataHolder, Parsable
     private ?int $size = null;
     
     /**
-     * @var SpecialFolder|null $specialFolder If the current item is also available as a special folder, this facet is returned. Read-only.
+     * @var SpecialFolder|null $specialFolder The specialFolder property
     */
     private ?SpecialFolder $specialFolder = null;
     
@@ -114,7 +119,8 @@ class RemoteItem implements AdditionalDataHolder, Parsable
      * Instantiates a new remoteItem and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.remoteItem');
     }
 
     /**
@@ -167,6 +173,7 @@ class RemoteItem implements AdditionalDataHolder, Parsable
             'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'package' => function (ParseNode $n) use ($o) { $o->setPackage($n->getObjectValue(array(Package::class, 'createFromDiscriminatorValue'))); },
             'parentReference' => function (ParseNode $n) use ($o) { $o->setParentReference($n->getObjectValue(array(ItemReference::class, 'createFromDiscriminatorValue'))); },
             'shared' => function (ParseNode $n) use ($o) { $o->setShared($n->getObjectValue(array(Shared::class, 'createFromDiscriminatorValue'))); },
@@ -244,6 +251,14 @@ class RemoteItem implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
      * @return Package|null
     */
@@ -284,7 +299,7 @@ class RemoteItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the specialFolder property value. If the current item is also available as a special folder, this facet is returned. Read-only.
+     * Gets the specialFolder property value. The specialFolder property
      * @return SpecialFolder|null
     */
     public function getSpecialFolder(): ?SpecialFolder {
@@ -330,6 +345,7 @@ class RemoteItem implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('package', $this->package);
         $writer->writeObjectValue('parentReference', $this->parentReference);
         $writer->writeObjectValue('shared', $this->shared);
@@ -431,6 +447,14 @@ class RemoteItem implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
      *  @param Package|null $value Value to set for the package property.
     */
@@ -471,7 +495,7 @@ class RemoteItem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the specialFolder property value. If the current item is also available as a special folder, this facet is returned. Read-only.
+     * Sets the specialFolder property value. The specialFolder property
      *  @param SpecialFolder|null $value Value to set for the specialFolder property.
     */
     public function setSpecialFolder(?SpecialFolder $value ): void {

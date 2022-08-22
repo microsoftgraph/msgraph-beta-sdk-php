@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EscapedPrint implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,7 +20,12 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
     private ?array $connectors = null;
     
     /**
-     * @var array<PrintOperation>|null $operations The list of print long running operations.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var array<PrintOperation>|null $operations The operations property
     */
     private ?array $operations = null;
     
@@ -55,7 +60,7 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
     private ?array $shares = null;
     
     /**
-     * @var array<PrintTaskDefinition>|null $taskDefinitions List of abstract definition for a task that can be triggered when various events occur within Universal Print.
+     * @var array<PrintTaskDefinition>|null $taskDefinitions The taskDefinitions property
     */
     private ?array $taskDefinitions = null;
     
@@ -63,7 +68,8 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
      * Instantiates a new EscapedPrint and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.print');
     }
 
     /**
@@ -99,6 +105,7 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'connectors' => function (ParseNode $n) use ($o) { $o->setConnectors($n->getCollectionOfObjectValues(array(PrintConnector::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(PrintOperation::class, 'createFromDiscriminatorValue'))); },
             'printers' => function (ParseNode $n) use ($o) { $o->setPrinters($n->getCollectionOfObjectValues(array(Printer::class, 'createFromDiscriminatorValue'))); },
             'printerShares' => function (ParseNode $n) use ($o) { $o->setPrinterShares($n->getCollectionOfObjectValues(array(PrinterShare::class, 'createFromDiscriminatorValue'))); },
@@ -111,7 +118,15 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the operations property value. The list of print long running operations.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the operations property value. The operations property
      * @return array<PrintOperation>|null
     */
     public function getOperations(): ?array {
@@ -167,7 +182,7 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the taskDefinitions property value. List of abstract definition for a task that can be triggered when various events occur within Universal Print.
+     * Gets the taskDefinitions property value. The taskDefinitions property
      * @return array<PrintTaskDefinition>|null
     */
     public function getTaskDefinitions(): ?array {
@@ -180,6 +195,7 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('connectors', $this->connectors);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('operations', $this->operations);
         $writer->writeCollectionOfObjectValues('printers', $this->printers);
         $writer->writeCollectionOfObjectValues('printerShares', $this->printerShares);
@@ -208,7 +224,15 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the operations property value. The list of print long running operations.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the operations property value. The operations property
      *  @param array<PrintOperation>|null $value Value to set for the operations property.
     */
     public function setOperations(?array $value ): void {
@@ -264,7 +288,7 @@ class EscapedPrint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the taskDefinitions property value. List of abstract definition for a task that can be triggered when various events occur within Universal Print.
+     * Sets the taskDefinitions property value. The taskDefinitions property
      *  @param array<PrintTaskDefinition>|null $value Value to set for the taskDefinitions property.
     */
     public function setTaskDefinitions(?array $value ): void {

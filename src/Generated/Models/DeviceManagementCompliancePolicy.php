@@ -45,7 +45,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     private ?string $name = null;
     
     /**
-     * @var DeviceManagementConfigurationPlatforms|null $platforms Platforms for this policy. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * @var DeviceManagementConfigurationPlatforms|null $platforms Supported platform types.
     */
     private ?DeviceManagementConfigurationPlatforms $platforms = null;
     
@@ -70,7 +70,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     private ?array $settings = null;
     
     /**
-     * @var DeviceManagementConfigurationTechnologies|null $technologies Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * @var DeviceManagementConfigurationTechnologies|null $technologies Describes which technology this setting can be deployed with
     */
     private ?DeviceManagementConfigurationTechnologies $technologies = null;
     
@@ -79,6 +79,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementCompliancePolicy');
     }
 
     /**
@@ -170,7 +171,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the platforms property value. Platforms for this policy. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * Gets the platforms property value. Supported platform types.
      * @return DeviceManagementConfigurationPlatforms|null
     */
     public function getPlatforms(): ?DeviceManagementConfigurationPlatforms {
@@ -210,7 +211,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     }
 
     /**
-     * Gets the technologies property value. Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Gets the technologies property value. Describes which technology this setting can be deployed with
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
@@ -295,7 +296,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the platforms property value. Platforms for this policy. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * Sets the platforms property value. Supported platform types.
      *  @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platforms property.
     */
     public function setPlatforms(?DeviceManagementConfigurationPlatforms $value ): void {
@@ -335,7 +336,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     }
 
     /**
-     * Sets the technologies property value. Technologies for this policy. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Sets the technologies property value. Describes which technology this setting can be deployed with
      *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value ): void {

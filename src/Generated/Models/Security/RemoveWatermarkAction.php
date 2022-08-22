@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RemoveWatermarkAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var array<string>|null $uiElementNames The uiElementNames property
+     * @var array<string>|null $uiElementNames The name of the UI element of watermark to be removed.
     */
     private ?array $uiElementNames = null;
     
@@ -18,6 +18,7 @@ class RemoveWatermarkAction extends InformationProtectionAction implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.removeWatermarkAction');
     }
 
     /**
@@ -41,7 +42,7 @@ class RemoveWatermarkAction extends InformationProtectionAction implements Parsa
     }
 
     /**
-     * Gets the uiElementNames property value. The uiElementNames property
+     * Gets the uiElementNames property value. The name of the UI element of watermark to be removed.
      * @return array<string>|null
     */
     public function getUiElementNames(): ?array {
@@ -58,7 +59,7 @@ class RemoveWatermarkAction extends InformationProtectionAction implements Parsa
     }
 
     /**
-     * Sets the uiElementNames property value. The uiElementNames property
+     * Sets the uiElementNames property value. The name of the UI element of watermark to be removed.
      *  @param array<string>|null $value Value to set for the uiElementNames property.
     */
     public function setUiElementNames(?array $value ): void {

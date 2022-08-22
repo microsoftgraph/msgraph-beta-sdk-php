@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationGroupSettingValueTemplate implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
      * @var array<DeviceManagementConfigurationSettingInstanceTemplate>|null $children Group setting value children
     */
     private ?array $children = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $settingValueTemplateId Setting Value Template Id
@@ -28,7 +33,8 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
      * Instantiates a new deviceManagementConfigurationGroupSettingValueTemplate and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationGroupSettingValueTemplate');
     }
 
     /**
@@ -64,8 +70,17 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
         $o = $this;
         return  [
             'children' => function (ParseNode $n) use ($o) { $o->setChildren($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingInstanceTemplate::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'settingValueTemplateId' => function (ParseNode $n) use ($o) { $o->setSettingValueTemplateId($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('children', $this->children);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('settingValueTemplateId', $this->settingValueTemplateId);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
     */
     public function setChildren(?array $value ): void {
         $this->children = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

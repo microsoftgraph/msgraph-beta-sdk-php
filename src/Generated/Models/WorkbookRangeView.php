@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkbookRangeView extends Entity implements Parsable 
 {
     /**
-     * @var Json|null $cellAddresses Represents the cell addresses
+     * @var Json|null $cellAddresses The cellAddresses property
     */
     private ?Json $cellAddresses = null;
     
@@ -73,6 +73,7 @@ class WorkbookRangeView extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.workbookRangeView');
     }
 
     /**
@@ -85,7 +86,7 @@ class WorkbookRangeView extends Entity implements Parsable
     }
 
     /**
-     * Gets the cellAddresses property value. Represents the cell addresses
+     * Gets the cellAddresses property value. The cellAddresses property
      * @return Json|null
     */
     public function getCellAddresses(): ?Json {
@@ -223,7 +224,7 @@ class WorkbookRangeView extends Entity implements Parsable
     }
 
     /**
-     * Sets the cellAddresses property value. Represents the cell addresses
+     * Sets the cellAddresses property value. The cellAddresses property
      *  @param Json|null $value Value to set for the cellAddresses property.
     */
     public function setCellAddresses(?Json $value ): void {

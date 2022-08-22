@@ -144,7 +144,7 @@ class BookingBusinessItemRequestBuilder
     }
 
     /**
-     * Delete entity from bookingBusinesses
+     * Delete a bookingBusiness object.
      * @param BookingBusinessItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -165,7 +165,7 @@ class BookingBusinessItemRequestBuilder
     }
 
     /**
-     * Represents a Microsot Bookings Business.
+     * Get the properties and relationships of a bookingBusiness object.
      * @param BookingBusinessItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -190,7 +190,7 @@ class BookingBusinessItemRequestBuilder
     }
 
     /**
-     * Update entity in bookingBusinesses
+     * Update the properties of a bookingBusiness object.
      * @param BookingBusiness $body 
      * @param BookingBusinessItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -235,7 +235,7 @@ class BookingBusinessItemRequestBuilder
     }
 
     /**
-     * Delete entity from bookingBusinesses
+     * Delete a bookingBusiness object.
      * @param BookingBusinessItemRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -254,7 +254,7 @@ class BookingBusinessItemRequestBuilder
     }
 
     /**
-     * Represents a Microsot Bookings Business.
+     * Get the properties and relationships of a bookingBusiness object.
      * @param BookingBusinessItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -273,7 +273,7 @@ class BookingBusinessItemRequestBuilder
     }
 
     /**
-     * Update entity in bookingBusinesses
+     * Update the properties of a bookingBusiness object.
      * @param BookingBusiness $body 
      * @param BookingBusinessItemRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

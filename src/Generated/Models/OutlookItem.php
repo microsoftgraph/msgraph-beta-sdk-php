@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OutlookItem extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $categories The categories associated with the item
+     * @var array<string>|null $categories The categories property
     */
     private ?array $categories = null;
     
     /**
-     * @var string|null $changeKey Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
+     * @var string|null $changeKey The changeKey property
     */
     private ?string $changeKey = null;
     
@@ -34,6 +34,7 @@ class OutlookItem extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.outlookItem');
     }
 
     /**
@@ -46,8 +47,12 @@ class OutlookItem extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.calendarSharingMessage': return new CalendarSharingMessage();
                 case '#microsoft.graph.contact': return new Contact();
                 case '#microsoft.graph.event': return new Event();
+                case '#microsoft.graph.eventMessage': return new EventMessage();
+                case '#microsoft.graph.eventMessageRequest': return new EventMessageRequest();
+                case '#microsoft.graph.eventMessageResponse': return new EventMessageResponse();
                 case '#microsoft.graph.message': return new Message();
                 case '#microsoft.graph.note': return new Note();
                 case '#microsoft.graph.outlookTask': return new OutlookTask();
@@ -58,7 +63,7 @@ class OutlookItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the categories property value. The categories associated with the item
+     * Gets the categories property value. The categories property
      * @return array<string>|null
     */
     public function getCategories(): ?array {
@@ -66,7 +71,7 @@ class OutlookItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the changeKey property value. Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
+     * Gets the changeKey property value. The changeKey property
      * @return string|null
     */
     public function getChangeKey(): ?string {
@@ -116,7 +121,7 @@ class OutlookItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the categories property value. The categories associated with the item
+     * Sets the categories property value. The categories property
      *  @param array<string>|null $value Value to set for the categories property.
     */
     public function setCategories(?array $value ): void {
@@ -124,7 +129,7 @@ class OutlookItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the changeKey property value. Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
+     * Sets the changeKey property value. The changeKey property
      *  @param string|null $value Value to set for the changeKey property.
     */
     public function setChangeKey(?string $value ): void {

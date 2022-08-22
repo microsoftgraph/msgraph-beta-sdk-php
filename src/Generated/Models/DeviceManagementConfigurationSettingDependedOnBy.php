@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
      * @var string|null $dependedOnBy Identifier of child setting that is dependent on the current setting
     */
     private ?string $dependedOnBy = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var bool|null $required Value that determines if the child setting is required based on the parent setting's selection
@@ -28,7 +33,8 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
      * Instantiates a new deviceManagementConfigurationSettingDependedOnBy and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationSettingDependedOnBy');
     }
 
     /**
@@ -64,8 +70,17 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
         $o = $this;
         return  [
             'dependedOnBy' => function (ParseNode $n) use ($o) { $o->setDependedOnBy($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('dependedOnBy', $this->dependedOnBy);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('required', $this->required);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
     */
     public function setDependedOnBy(?string $value ): void {
         $this->dependedOnBy = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

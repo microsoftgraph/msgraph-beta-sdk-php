@@ -35,7 +35,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     private ?IdentitySet $createdBy = null;
     
     /**
-     * @var string|null $description Verbose description of the application.
+     * @var string|null $description The description property
     */
     private ?string $description = null;
     
@@ -79,6 +79,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.teamsAppDefinition');
     }
 
     /**
@@ -131,7 +132,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. Verbose description of the application.
+     * Gets the description property value. The description property
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -279,7 +280,7 @@ class TeamsAppDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. Verbose description of the application.
+     * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {

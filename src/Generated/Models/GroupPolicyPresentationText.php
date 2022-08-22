@@ -6,13 +6,14 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyPresentationText extends GroupPolicyPresentation implements Parsable 
+class GroupPolicyPresentationText extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
      * Instantiates a new GroupPolicyPresentationText and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyPresentationText');
     }
 
     /**

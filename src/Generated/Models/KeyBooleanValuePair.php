@@ -18,6 +18,7 @@ class KeyBooleanValuePair extends KeyTypedValuePair implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.keyBooleanValuePair');
     }
 
     /**

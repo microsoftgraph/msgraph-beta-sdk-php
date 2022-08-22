@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttributeMapping implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -25,12 +25,12 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
     private ?bool $exportMissingReferences = null;
     
     /**
-     * @var AttributeFlowBehavior|null $flowBehavior Defines when this attribute should be exported to the target directory. Possible values are: FlowWhenChanged and FlowAlways. Default is FlowWhenChanged.
+     * @var AttributeFlowBehavior|null $flowBehavior The flowBehavior property
     */
     private ?AttributeFlowBehavior $flowBehavior = null;
     
     /**
-     * @var AttributeFlowType|null $flowType Defines when this attribute should be updated in the target directory. Possible values are: Always (default), ObjectAddOnly (only when new object is created), MultiValueAddOnly (only when the change is adding new values to a multi-valued attribute).
+     * @var AttributeFlowType|null $flowType The flowType property
     */
     private ?AttributeFlowType $flowType = null;
     
@@ -38,6 +38,11 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
      * @var int|null $matchingPriority If higher than 0, this attribute will be used to perform an initial match of the objects between source and target directories. The synchronization engine will try to find the matching object using attribute with lowest value of matching priority first. If not found, the attribute with the next matching priority will be used, and so on a until match is found or no more matching attributes are left. Only attributes that are expected to have unique values, such as email, should be used as matching attributes.
     */
     private ?int $matchingPriority = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var AttributeMappingSource|null $source Defines how a value should be extracted (or transformed) from the source object.
@@ -53,7 +58,8 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
      * Instantiates a new attributeMapping and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.attributeMapping');
     }
 
     /**
@@ -101,13 +107,14 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
             'flowBehavior' => function (ParseNode $n) use ($o) { $o->setFlowBehavior($n->getEnumValue(AttributeFlowBehavior::class)); },
             'flowType' => function (ParseNode $n) use ($o) { $o->setFlowType($n->getEnumValue(AttributeFlowType::class)); },
             'matchingPriority' => function (ParseNode $n) use ($o) { $o->setMatchingPriority($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getObjectValue(array(AttributeMappingSource::class, 'createFromDiscriminatorValue'))); },
             'targetAttributeName' => function (ParseNode $n) use ($o) { $o->setTargetAttributeName($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the flowBehavior property value. Defines when this attribute should be exported to the target directory. Possible values are: FlowWhenChanged and FlowAlways. Default is FlowWhenChanged.
+     * Gets the flowBehavior property value. The flowBehavior property
      * @return AttributeFlowBehavior|null
     */
     public function getFlowBehavior(): ?AttributeFlowBehavior {
@@ -115,7 +122,7 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the flowType property value. Defines when this attribute should be updated in the target directory. Possible values are: Always (default), ObjectAddOnly (only when new object is created), MultiValueAddOnly (only when the change is adding new values to a multi-valued attribute).
+     * Gets the flowType property value. The flowType property
      * @return AttributeFlowType|null
     */
     public function getFlowType(): ?AttributeFlowType {
@@ -128,6 +135,14 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
     */
     public function getMatchingPriority(): ?int {
         return $this->matchingPriority;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -156,6 +171,7 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('flowBehavior', $this->flowBehavior);
         $writer->writeEnumValue('flowType', $this->flowType);
         $writer->writeIntegerValue('matchingPriority', $this->matchingPriority);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('source', $this->source);
         $writer->writeStringValue('targetAttributeName', $this->targetAttributeName);
         $writer->writeAdditionalData($this->additionalData);
@@ -186,7 +202,7 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the flowBehavior property value. Defines when this attribute should be exported to the target directory. Possible values are: FlowWhenChanged and FlowAlways. Default is FlowWhenChanged.
+     * Sets the flowBehavior property value. The flowBehavior property
      *  @param AttributeFlowBehavior|null $value Value to set for the flowBehavior property.
     */
     public function setFlowBehavior(?AttributeFlowBehavior $value ): void {
@@ -194,7 +210,7 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the flowType property value. Defines when this attribute should be updated in the target directory. Possible values are: Always (default), ObjectAddOnly (only when new object is created), MultiValueAddOnly (only when the change is adding new values to a multi-valued attribute).
+     * Sets the flowType property value. The flowType property
      *  @param AttributeFlowType|null $value Value to set for the flowType property.
     */
     public function setFlowType(?AttributeFlowType $value ): void {
@@ -207,6 +223,14 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
     */
     public function setMatchingPriority(?int $value ): void {
         $this->matchingPriority = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

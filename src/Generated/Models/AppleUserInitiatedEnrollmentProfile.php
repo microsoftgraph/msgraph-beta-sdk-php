@@ -25,7 +25,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var AppleUserInitiatedEnrollmentType|null $defaultEnrollmentType The default profile enrollment type. Possible values are: unknown, device, user.
+     * @var AppleUserInitiatedEnrollmentType|null $defaultEnrollmentType The defaultEnrollmentType property
     */
     private ?AppleUserInitiatedEnrollmentType $defaultEnrollmentType = null;
     
@@ -45,7 +45,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var DevicePlatformType|null $platform The platform of the Device. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
+     * @var DevicePlatformType|null $platform Supported platform types.
     */
     private ?DevicePlatformType $platform = null;
     
@@ -59,6 +59,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.appleUserInitiatedEnrollmentProfile');
     }
 
     /**
@@ -95,7 +96,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the defaultEnrollmentType property value. The default profile enrollment type. Possible values are: unknown, device, user.
+     * Gets the defaultEnrollmentType property value. The defaultEnrollmentType property
      * @return AppleUserInitiatedEnrollmentType|null
     */
     public function getDefaultEnrollmentType(): ?AppleUserInitiatedEnrollmentType {
@@ -146,7 +147,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the platform property value. The platform of the Device. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
+     * Gets the platform property value. Supported platform types.
      * @return DevicePlatformType|null
     */
     public function getPlatform(): ?DevicePlatformType {
@@ -203,7 +204,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the defaultEnrollmentType property value. The default profile enrollment type. Possible values are: unknown, device, user.
+     * Sets the defaultEnrollmentType property value. The defaultEnrollmentType property
      *  @param AppleUserInitiatedEnrollmentType|null $value Value to set for the defaultEnrollmentType property.
     */
     public function setDefaultEnrollmentType(?AppleUserInitiatedEnrollmentType $value ): void {
@@ -235,7 +236,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the platform property value. The platform of the Device. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
+     * Sets the platform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the platform property.
     */
     public function setPlatform(?DevicePlatformType $value ): void {

@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TopicModelingSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
     private ?bool $isEnabled = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $topicCount To learn more, see Maximum number of themes.
     */
     private ?int $topicCount = null;
@@ -38,7 +43,8 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new topicModelingSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.ediscovery.topicModelingSettings');
     }
 
     /**
@@ -76,6 +82,7 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
             'dynamicallyAdjustTopicCount' => function (ParseNode $n) use ($o) { $o->setDynamicallyAdjustTopicCount($n->getBooleanValue()); },
             'ignoreNumbers' => function (ParseNode $n) use ($o) { $o->setIgnoreNumbers($n->getBooleanValue()); },
             'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'topicCount' => function (ParseNode $n) use ($o) { $o->setTopicCount($n->getIntegerValue()); },
         ];
     }
@@ -97,6 +104,14 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the topicCount property value. To learn more, see Maximum number of themes.
      * @return int|null
     */
@@ -112,6 +127,7 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('dynamicallyAdjustTopicCount', $this->dynamicallyAdjustTopicCount);
         $writer->writeBooleanValue('ignoreNumbers', $this->ignoreNumbers);
         $writer->writeBooleanValue('isEnabled', $this->isEnabled);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('topicCount', $this->topicCount);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -146,6 +162,14 @@ class TopicModelingSettings implements AdditionalDataHolder, Parsable
     */
     public function setIsEnabled(?bool $value ): void {
         $this->isEnabled = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

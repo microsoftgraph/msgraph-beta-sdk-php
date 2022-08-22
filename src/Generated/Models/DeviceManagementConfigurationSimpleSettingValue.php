@@ -13,6 +13,7 @@ class DeviceManagementConfigurationSimpleSettingValue extends DeviceManagementCo
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationSimpleSettingValue');
     }
 
     /**
@@ -26,6 +27,7 @@ class DeviceManagementConfigurationSimpleSettingValue extends DeviceManagementCo
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.deviceManagementConfigurationIntegerSettingValue': return new DeviceManagementConfigurationIntegerSettingValue();
+                case '#microsoft.graph.deviceManagementConfigurationReferenceSettingValue': return new DeviceManagementConfigurationReferenceSettingValue();
                 case '#microsoft.graph.deviceManagementConfigurationSecretSettingValue': return new DeviceManagementConfigurationSecretSettingValue();
                 case '#microsoft.graph.deviceManagementConfigurationStringSettingValue': return new DeviceManagementConfigurationStringSettingValue();
             }
