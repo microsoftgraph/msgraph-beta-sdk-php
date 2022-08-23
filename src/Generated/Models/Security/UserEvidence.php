@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var UserAccount|null $userAccount The userAccount property
+     * @var UserAccount|null $userAccount The user account details.
     */
     private ?UserAccount $userAccount = null;
     
@@ -42,7 +42,7 @@ class UserEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the userAccount property value. The userAccount property
+     * Gets the userAccount property value. The user account details.
      * @return UserAccount|null
     */
     public function getUserAccount(): ?UserAccount {
@@ -59,7 +59,7 @@ class UserEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the userAccount property value. The userAccount property
+     * Sets the userAccount property value. The user account details.
      *  @param UserAccount|null $value Value to set for the userAccount property.
     */
     public function setUserAccount(?UserAccount $value ): void {

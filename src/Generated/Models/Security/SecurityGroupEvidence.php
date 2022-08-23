@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityGroupEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName The name of the security group.
     */
     private ?string $displayName = null;
     
     /**
-     * @var string|null $securityGroupId The securityGroupId property
+     * @var string|null $securityGroupId Unique identifier of the security group.
     */
     private ?string $securityGroupId = null;
     
@@ -36,7 +36,7 @@ class SecurityGroupEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the security group.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -56,7 +56,7 @@ class SecurityGroupEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the securityGroupId property value. The securityGroupId property
+     * Gets the securityGroupId property value. Unique identifier of the security group.
      * @return string|null
     */
     public function getSecurityGroupId(): ?string {
@@ -74,7 +74,7 @@ class SecurityGroupEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the security group.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -82,7 +82,7 @@ class SecurityGroupEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the securityGroupId property value. The securityGroupId property
+     * Sets the securityGroupId property value. Unique identifier of the security group.
      *  @param string|null $value Value to set for the securityGroupId property.
     */
     public function setSecurityGroupId(?string $value ): void {

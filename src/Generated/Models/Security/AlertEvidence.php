@@ -16,7 +16,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
+     * @var DateTime|null $createdDateTime The time the evidence was created and added to the alert.
     */
     private ?DateTime $createdDateTime = null;
     
@@ -31,17 +31,17 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     private ?EvidenceRemediationStatus $remediationStatus = null;
     
     /**
-     * @var string|null $remediationStatusDetails The remediationStatusDetails property
+     * @var string|null $remediationStatusDetails Details about the remediation status.
     */
     private ?string $remediationStatusDetails = null;
     
     /**
-     * @var array<string>|null $roles The roles property
+     * @var array<string>|null $roles The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'.
     */
     private ?array $roles = null;
     
     /**
-     * @var array<string>|null $tags The tags property
+     * @var array<string>|null $tags Array of custom tags associated with an evidence instance, for example to denote a group of devices, high value assets, etc.
     */
     private ?array $tags = null;
     
@@ -96,7 +96,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The time the evidence was created and added to the alert.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -137,7 +137,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the remediationStatusDetails property value. The remediationStatusDetails property
+     * Gets the remediationStatusDetails property value. Details about the remediation status.
      * @return string|null
     */
     public function getRemediationStatusDetails(): ?string {
@@ -145,7 +145,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the roles property value. The roles property
+     * Gets the roles property value. The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'.
      * @return array<string>|null
     */
     public function getRoles(): ?array {
@@ -153,7 +153,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tags property value. The tags property
+     * Gets the tags property value. Array of custom tags associated with an evidence instance, for example to denote a group of devices, high value assets, etc.
      * @return array<string>|null
     */
     public function getTags(): ?array {
@@ -192,7 +192,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The time the evidence was created and added to the alert.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
@@ -216,7 +216,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the remediationStatusDetails property value. The remediationStatusDetails property
+     * Sets the remediationStatusDetails property value. Details about the remediation status.
      *  @param string|null $value Value to set for the remediationStatusDetails property.
     */
     public function setRemediationStatusDetails(?string $value ): void {
@@ -224,7 +224,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the roles property value. The roles property
+     * Sets the roles property value. The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'.
      *  @param array<string>|null $value Value to set for the roles property.
     */
     public function setRoles(?array $value ): void {
@@ -232,7 +232,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tags property value. The tags property
+     * Sets the tags property value. Array of custom tags associated with an evidence instance, for example to denote a group of devices, high value assets, etc.
      *  @param array<string>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value ): void {

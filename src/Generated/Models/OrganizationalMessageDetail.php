@@ -75,7 +75,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     private ?string $variant = null;
     
     /**
-     * Instantiates a new OrganizationalMessageDetail and sets the default values.
+     * Instantiates a new organizationalMessageDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();

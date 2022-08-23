@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RegistryKeyEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $registryHive The registryHive property
+     * @var string|null $registryHive Registry hive of the key that the recorded action was applied to.
     */
     private ?string $registryHive = null;
     
     /**
-     * @var string|null $registryKey The registryKey property
+     * @var string|null $registryKey Registry key that the recorded action was applied to.
     */
     private ?string $registryKey = null;
     
@@ -48,7 +48,7 @@ class RegistryKeyEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the registryHive property value. The registryHive property
+     * Gets the registryHive property value. Registry hive of the key that the recorded action was applied to.
      * @return string|null
     */
     public function getRegistryHive(): ?string {
@@ -56,7 +56,7 @@ class RegistryKeyEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the registryKey property value. The registryKey property
+     * Gets the registryKey property value. Registry key that the recorded action was applied to.
      * @return string|null
     */
     public function getRegistryKey(): ?string {
@@ -74,7 +74,7 @@ class RegistryKeyEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the registryHive property value. The registryHive property
+     * Sets the registryHive property value. Registry hive of the key that the recorded action was applied to.
      *  @param string|null $value Value to set for the registryHive property.
     */
     public function setRegistryHive(?string $value ): void {
@@ -82,7 +82,7 @@ class RegistryKeyEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the registryKey property value. The registryKey property
+     * Sets the registryKey property value. Registry key that the recorded action was applied to.
      *  @param string|null $value Value to set for the registryKey property.
     */
     public function setRegistryKey(?string $value ): void {

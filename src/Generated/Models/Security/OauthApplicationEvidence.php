@@ -9,22 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OauthApplicationEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $appId The appId property
+     * @var string|null $appId Unique identifier of the application.
     */
     private ?string $appId = null;
     
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName Name of the application.
     */
     private ?string $displayName = null;
     
     /**
-     * @var string|null $objectId The objectId property
+     * @var string|null $objectId The unique identifier of the application object in Azure AD.
     */
     private ?string $objectId = null;
     
     /**
-     * @var string|null $publisher The publisher property
+     * @var string|null $publisher The name of the application publisher.
     */
     private ?string $publisher = null;
     
@@ -46,7 +46,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the appId property value. The appId property
+     * Gets the appId property value. Unique identifier of the application.
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -54,7 +54,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Name of the application.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -76,7 +76,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the objectId property value. The objectId property
+     * Gets the objectId property value. The unique identifier of the application object in Azure AD.
      * @return string|null
     */
     public function getObjectId(): ?string {
@@ -84,7 +84,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the publisher property value. The publisher property
+     * Gets the publisher property value. The name of the application publisher.
      * @return string|null
     */
     public function getPublisher(): ?string {
@@ -104,7 +104,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the appId property value. The appId property
+     * Sets the appId property value. Unique identifier of the application.
      *  @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value ): void {
@@ -112,7 +112,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Name of the application.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -120,7 +120,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the objectId property value. The objectId property
+     * Sets the objectId property value. The unique identifier of the application object in Azure AD.
      *  @param string|null $value Value to set for the objectId property.
     */
     public function setObjectId(?string $value ): void {
@@ -128,7 +128,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the publisher property value. The publisher property
+     * Sets the publisher property value. The name of the application publisher.
      *  @param string|null $value Value to set for the publisher property.
     */
     public function setPublisher(?string $value ): void {

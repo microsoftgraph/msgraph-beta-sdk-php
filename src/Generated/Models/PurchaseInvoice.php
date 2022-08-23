@@ -156,7 +156,7 @@ class PurchaseInvoice extends Entity implements Parsable
     private ?string $vendorNumber = null;
     
     /**
-     * Instantiates a new purchaseInvoice and sets the default values.
+     * Instantiates a new PurchaseInvoice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
