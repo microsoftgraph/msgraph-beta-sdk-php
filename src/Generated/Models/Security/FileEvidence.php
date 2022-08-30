@@ -9,17 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FileEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var DetectionStatus|null $detectionStatus The detectionStatus property
+     * @var DetectionStatus|null $detectionStatus The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
     */
     private ?DetectionStatus $detectionStatus = null;
     
     /**
-     * @var FileDetails|null $fileDetails The fileDetails property
+     * @var FileDetails|null $fileDetails The file details.
     */
     private ?FileDetails $fileDetails = null;
     
     /**
-     * @var string|null $mdeDeviceId The mdeDeviceId property
+     * @var string|null $mdeDeviceId A unique identifier assigned to a device by Microsoft Defender for Endpoint.
     */
     private ?string $mdeDeviceId = null;
     
@@ -41,7 +41,7 @@ class FileEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the detectionStatus property value. The detectionStatus property
+     * Gets the detectionStatus property value. The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      * @return DetectionStatus|null
     */
     public function getDetectionStatus(): ?DetectionStatus {
@@ -62,7 +62,7 @@ class FileEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the fileDetails property value. The fileDetails property
+     * Gets the fileDetails property value. The file details.
      * @return FileDetails|null
     */
     public function getFileDetails(): ?FileDetails {
@@ -70,7 +70,7 @@ class FileEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the mdeDeviceId property value. The mdeDeviceId property
+     * Gets the mdeDeviceId property value. A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      * @return string|null
     */
     public function getMdeDeviceId(): ?string {
@@ -89,7 +89,7 @@ class FileEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the detectionStatus property value. The detectionStatus property
+     * Sets the detectionStatus property value. The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      *  @param DetectionStatus|null $value Value to set for the detectionStatus property.
     */
     public function setDetectionStatus(?DetectionStatus $value ): void {
@@ -97,7 +97,7 @@ class FileEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the fileDetails property value. The fileDetails property
+     * Sets the fileDetails property value. The file details.
      *  @param FileDetails|null $value Value to set for the fileDetails property.
     */
     public function setFileDetails(?FileDetails $value ): void {
@@ -105,7 +105,7 @@ class FileEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the mdeDeviceId property value. The mdeDeviceId property
+     * Sets the mdeDeviceId property value. A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      *  @param string|null $value Value to set for the mdeDeviceId property.
     */
     public function setMdeDeviceId(?string $value ): void {

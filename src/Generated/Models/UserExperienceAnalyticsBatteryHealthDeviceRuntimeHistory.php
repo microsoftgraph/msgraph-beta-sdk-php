@@ -24,7 +24,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
     private ?string $runtimeDateTime = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

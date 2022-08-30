@@ -9,27 +9,27 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudApplicationEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var int|null $appId The appId property
+     * @var int|null $appId Unique identifier of the application.
     */
     private ?int $appId = null;
     
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName Name of the application.
     */
     private ?string $displayName = null;
     
     /**
-     * @var int|null $instanceId The instanceId property
+     * @var int|null $instanceId Identifier of the instance of the Software as a Service (SaaS) application.
     */
     private ?int $instanceId = null;
     
     /**
-     * @var string|null $instanceName The instanceName property
+     * @var string|null $instanceName Name of the instance of the SaaS application.
     */
     private ?string $instanceName = null;
     
     /**
-     * @var int|null $saasAppId The saasAppId property
+     * @var int|null $saasAppId The identifier of the SaaS application.
     */
     private ?int $saasAppId = null;
     
@@ -51,7 +51,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the appId property value. The appId property
+     * Gets the appId property value. Unique identifier of the application.
      * @return int|null
     */
     public function getAppId(): ?int {
@@ -59,7 +59,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. Name of the application.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -82,7 +82,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the instanceId property value. The instanceId property
+     * Gets the instanceId property value. Identifier of the instance of the Software as a Service (SaaS) application.
      * @return int|null
     */
     public function getInstanceId(): ?int {
@@ -90,7 +90,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the instanceName property value. The instanceName property
+     * Gets the instanceName property value. Name of the instance of the SaaS application.
      * @return string|null
     */
     public function getInstanceName(): ?string {
@@ -98,7 +98,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the saasAppId property value. The saasAppId property
+     * Gets the saasAppId property value. The identifier of the SaaS application.
      * @return int|null
     */
     public function getSaasAppId(): ?int {
@@ -119,7 +119,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the appId property value. The appId property
+     * Sets the appId property value. Unique identifier of the application.
      *  @param int|null $value Value to set for the appId property.
     */
     public function setAppId(?int $value ): void {
@@ -127,7 +127,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. Name of the application.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -135,7 +135,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the instanceId property value. The instanceId property
+     * Sets the instanceId property value. Identifier of the instance of the Software as a Service (SaaS) application.
      *  @param int|null $value Value to set for the instanceId property.
     */
     public function setInstanceId(?int $value ): void {
@@ -143,7 +143,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the instanceName property value. The instanceName property
+     * Sets the instanceName property value. Name of the instance of the SaaS application.
      *  @param string|null $value Value to set for the instanceName property.
     */
     public function setInstanceName(?string $value ): void {
@@ -151,7 +151,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the saasAppId property value. The saasAppId property
+     * Sets the saasAppId property value. The identifier of the SaaS application.
      *  @param int|null $value Value to set for the saasAppId property.
     */
     public function setSaasAppId(?int $value ): void {

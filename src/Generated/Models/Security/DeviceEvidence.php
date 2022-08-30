@@ -10,77 +10,77 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $azureAdDeviceId The azureAdDeviceId property
+     * @var string|null $azureAdDeviceId A unique identifier assigned to a device by Azure Active Directory (Azure AD) when device is Azure AD-joined.
     */
     private ?string $azureAdDeviceId = null;
     
     /**
-     * @var DefenderAvStatus|null $defenderAvStatus The defenderAvStatus property
+     * @var DefenderAvStatus|null $defenderAvStatus State of the Defender AntiMalware engine. The possible values are: notReporting, disabled, notUpdated, updated, unknown, notSupported, unknownFutureValue.
     */
     private ?DefenderAvStatus $defenderAvStatus = null;
     
     /**
-     * @var string|null $deviceDnsName The deviceDnsName property
+     * @var string|null $deviceDnsName The fully qualified domain name (FQDN) for the device.
     */
     private ?string $deviceDnsName = null;
     
     /**
-     * @var DateTime|null $firstSeenDateTime The firstSeenDateTime property
+     * @var DateTime|null $firstSeenDateTime The date and time when the device was first seen.
     */
     private ?DateTime $firstSeenDateTime = null;
     
     /**
-     * @var DeviceHealthStatus|null $healthStatus The healthStatus property
+     * @var DeviceHealthStatus|null $healthStatus The health state of the device.The possible values are: active, inactive, impairedCommunication, noSensorData, noSensorDataImpairedCommunication, unknown, unknownFutureValue.
     */
     private ?DeviceHealthStatus $healthStatus = null;
     
     /**
-     * @var array<LoggedOnUser>|null $loggedOnUsers The loggedOnUsers property
+     * @var array<LoggedOnUser>|null $loggedOnUsers Users that were logged on the machine during the time of the alert.
     */
     private ?array $loggedOnUsers = null;
     
     /**
-     * @var string|null $mdeDeviceId The mdeDeviceId property
+     * @var string|null $mdeDeviceId A unique identifier assigned to a device by Microsoft Defender for Endpoint.
     */
     private ?string $mdeDeviceId = null;
     
     /**
-     * @var OnboardingStatus|null $onboardingStatus The onboardingStatus property
+     * @var OnboardingStatus|null $onboardingStatus The status of the machine onboarding to Microsoft Defender for Endpoint.The possible values are: insufficientInfo, onboarded, canBeOnboarded, unsupported, unknownFutureValue.
     */
     private ?OnboardingStatus $onboardingStatus = null;
     
     /**
-     * @var int|null $osBuild The osBuild property
+     * @var int|null $osBuild The build version for the operating system the device is running.
     */
     private ?int $osBuild = null;
     
     /**
-     * @var string|null $osPlatform The osPlatform property
+     * @var string|null $osPlatform The operating system platform the device is running.
     */
     private ?string $osPlatform = null;
     
     /**
-     * @var int|null $rbacGroupId The rbacGroupId property
+     * @var int|null $rbacGroupId The ID of the role-based access control (RBAC) device group.
     */
     private ?int $rbacGroupId = null;
     
     /**
-     * @var string|null $rbacGroupName The rbacGroupName property
+     * @var string|null $rbacGroupName The name of the RBAC device group.
     */
     private ?string $rbacGroupName = null;
     
     /**
-     * @var DeviceRiskScore|null $riskScore The riskScore property
+     * @var DeviceRiskScore|null $riskScore Risk score as evaluated by Microsoft Defender for Endpoint. The possible values are: none, informational, low, medium, high, unknownFutureValue.
     */
     private ?DeviceRiskScore $riskScore = null;
     
     /**
-     * @var string|null $version The version property
+     * @var string|null $version The version of the operating system platform.
     */
     private ?string $version = null;
     
     /**
-     * @var VmMetadata|null $vmMetadata The vmMetadata property
+     * @var VmMetadata|null $vmMetadata Metadata of the virtual machine (VM) on which Microsoft Defender for Endpoint is running.
     */
     private ?VmMetadata $vmMetadata = null;
     
@@ -102,7 +102,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the azureAdDeviceId property value. The azureAdDeviceId property
+     * Gets the azureAdDeviceId property value. A unique identifier assigned to a device by Azure Active Directory (Azure AD) when device is Azure AD-joined.
      * @return string|null
     */
     public function getAzureAdDeviceId(): ?string {
@@ -110,7 +110,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the defenderAvStatus property value. The defenderAvStatus property
+     * Gets the defenderAvStatus property value. State of the Defender AntiMalware engine. The possible values are: notReporting, disabled, notUpdated, updated, unknown, notSupported, unknownFutureValue.
      * @return DefenderAvStatus|null
     */
     public function getDefenderAvStatus(): ?DefenderAvStatus {
@@ -118,7 +118,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the deviceDnsName property value. The deviceDnsName property
+     * Gets the deviceDnsName property value. The fully qualified domain name (FQDN) for the device.
      * @return string|null
     */
     public function getDeviceDnsName(): ?string {
@@ -151,7 +151,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Gets the firstSeenDateTime property value. The date and time when the device was first seen.
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
@@ -159,7 +159,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the healthStatus property value. The healthStatus property
+     * Gets the healthStatus property value. The health state of the device.The possible values are: active, inactive, impairedCommunication, noSensorData, noSensorDataImpairedCommunication, unknown, unknownFutureValue.
      * @return DeviceHealthStatus|null
     */
     public function getHealthStatus(): ?DeviceHealthStatus {
@@ -167,7 +167,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the loggedOnUsers property value. The loggedOnUsers property
+     * Gets the loggedOnUsers property value. Users that were logged on the machine during the time of the alert.
      * @return array<LoggedOnUser>|null
     */
     public function getLoggedOnUsers(): ?array {
@@ -175,7 +175,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the mdeDeviceId property value. The mdeDeviceId property
+     * Gets the mdeDeviceId property value. A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      * @return string|null
     */
     public function getMdeDeviceId(): ?string {
@@ -183,7 +183,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the onboardingStatus property value. The onboardingStatus property
+     * Gets the onboardingStatus property value. The status of the machine onboarding to Microsoft Defender for Endpoint.The possible values are: insufficientInfo, onboarded, canBeOnboarded, unsupported, unknownFutureValue.
      * @return OnboardingStatus|null
     */
     public function getOnboardingStatus(): ?OnboardingStatus {
@@ -191,7 +191,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the osBuild property value. The osBuild property
+     * Gets the osBuild property value. The build version for the operating system the device is running.
      * @return int|null
     */
     public function getOsBuild(): ?int {
@@ -199,7 +199,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the osPlatform property value. The osPlatform property
+     * Gets the osPlatform property value. The operating system platform the device is running.
      * @return string|null
     */
     public function getOsPlatform(): ?string {
@@ -207,7 +207,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the rbacGroupId property value. The rbacGroupId property
+     * Gets the rbacGroupId property value. The ID of the role-based access control (RBAC) device group.
      * @return int|null
     */
     public function getRbacGroupId(): ?int {
@@ -215,7 +215,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the rbacGroupName property value. The rbacGroupName property
+     * Gets the rbacGroupName property value. The name of the RBAC device group.
      * @return string|null
     */
     public function getRbacGroupName(): ?string {
@@ -223,7 +223,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the riskScore property value. The riskScore property
+     * Gets the riskScore property value. Risk score as evaluated by Microsoft Defender for Endpoint. The possible values are: none, informational, low, medium, high, unknownFutureValue.
      * @return DeviceRiskScore|null
     */
     public function getRiskScore(): ?DeviceRiskScore {
@@ -231,7 +231,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. The version of the operating system platform.
      * @return string|null
     */
     public function getVersion(): ?string {
@@ -239,7 +239,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the vmMetadata property value. The vmMetadata property
+     * Gets the vmMetadata property value. Metadata of the virtual machine (VM) on which Microsoft Defender for Endpoint is running.
      * @return VmMetadata|null
     */
     public function getVmMetadata(): ?VmMetadata {
@@ -270,7 +270,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the azureAdDeviceId property value. The azureAdDeviceId property
+     * Sets the azureAdDeviceId property value. A unique identifier assigned to a device by Azure Active Directory (Azure AD) when device is Azure AD-joined.
      *  @param string|null $value Value to set for the azureAdDeviceId property.
     */
     public function setAzureAdDeviceId(?string $value ): void {
@@ -278,7 +278,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the defenderAvStatus property value. The defenderAvStatus property
+     * Sets the defenderAvStatus property value. State of the Defender AntiMalware engine. The possible values are: notReporting, disabled, notUpdated, updated, unknown, notSupported, unknownFutureValue.
      *  @param DefenderAvStatus|null $value Value to set for the defenderAvStatus property.
     */
     public function setDefenderAvStatus(?DefenderAvStatus $value ): void {
@@ -286,7 +286,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the deviceDnsName property value. The deviceDnsName property
+     * Sets the deviceDnsName property value. The fully qualified domain name (FQDN) for the device.
      *  @param string|null $value Value to set for the deviceDnsName property.
     */
     public function setDeviceDnsName(?string $value ): void {
@@ -294,7 +294,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the firstSeenDateTime property value. The firstSeenDateTime property
+     * Sets the firstSeenDateTime property value. The date and time when the device was first seen.
      *  @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
     public function setFirstSeenDateTime(?DateTime $value ): void {
@@ -302,7 +302,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the healthStatus property value. The healthStatus property
+     * Sets the healthStatus property value. The health state of the device.The possible values are: active, inactive, impairedCommunication, noSensorData, noSensorDataImpairedCommunication, unknown, unknownFutureValue.
      *  @param DeviceHealthStatus|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?DeviceHealthStatus $value ): void {
@@ -310,7 +310,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the loggedOnUsers property value. The loggedOnUsers property
+     * Sets the loggedOnUsers property value. Users that were logged on the machine during the time of the alert.
      *  @param array<LoggedOnUser>|null $value Value to set for the loggedOnUsers property.
     */
     public function setLoggedOnUsers(?array $value ): void {
@@ -318,7 +318,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the mdeDeviceId property value. The mdeDeviceId property
+     * Sets the mdeDeviceId property value. A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      *  @param string|null $value Value to set for the mdeDeviceId property.
     */
     public function setMdeDeviceId(?string $value ): void {
@@ -326,7 +326,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the onboardingStatus property value. The onboardingStatus property
+     * Sets the onboardingStatus property value. The status of the machine onboarding to Microsoft Defender for Endpoint.The possible values are: insufficientInfo, onboarded, canBeOnboarded, unsupported, unknownFutureValue.
      *  @param OnboardingStatus|null $value Value to set for the onboardingStatus property.
     */
     public function setOnboardingStatus(?OnboardingStatus $value ): void {
@@ -334,7 +334,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the osBuild property value. The osBuild property
+     * Sets the osBuild property value. The build version for the operating system the device is running.
      *  @param int|null $value Value to set for the osBuild property.
     */
     public function setOsBuild(?int $value ): void {
@@ -342,7 +342,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the osPlatform property value. The osPlatform property
+     * Sets the osPlatform property value. The operating system platform the device is running.
      *  @param string|null $value Value to set for the osPlatform property.
     */
     public function setOsPlatform(?string $value ): void {
@@ -350,7 +350,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the rbacGroupId property value. The rbacGroupId property
+     * Sets the rbacGroupId property value. The ID of the role-based access control (RBAC) device group.
      *  @param int|null $value Value to set for the rbacGroupId property.
     */
     public function setRbacGroupId(?int $value ): void {
@@ -358,7 +358,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the rbacGroupName property value. The rbacGroupName property
+     * Sets the rbacGroupName property value. The name of the RBAC device group.
      *  @param string|null $value Value to set for the rbacGroupName property.
     */
     public function setRbacGroupName(?string $value ): void {
@@ -366,7 +366,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the riskScore property value. The riskScore property
+     * Sets the riskScore property value. Risk score as evaluated by Microsoft Defender for Endpoint. The possible values are: none, informational, low, medium, high, unknownFutureValue.
      *  @param DeviceRiskScore|null $value Value to set for the riskScore property.
     */
     public function setRiskScore(?DeviceRiskScore $value ): void {
@@ -374,7 +374,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. The version of the operating system platform.
      *  @param string|null $value Value to set for the version property.
     */
     public function setVersion(?string $value ): void {
@@ -382,7 +382,7 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the vmMetadata property value. The vmMetadata property
+     * Sets the vmMetadata property value. Metadata of the virtual machine (VM) on which Microsoft Defender for Endpoint is running.
      *  @param VmMetadata|null $value Value to set for the vmMetadata property.
     */
     public function setVmMetadata(?VmMetadata $value ): void {

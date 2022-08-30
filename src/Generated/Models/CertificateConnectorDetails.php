@@ -15,6 +15,11 @@ class CertificateConnectorDetails extends Entity implements Parsable
     private ?string $connectorName = null;
     
     /**
+     * @var string|null $connectorVersion Version of the connector installed.
+    */
+    private ?string $connectorVersion = null;
+    
+    /**
      * @var DateTime|null $enrollmentDateTime Date/time when this connector was enrolled.
     */
     private ?DateTime $enrollmentDateTime = null;
@@ -30,7 +35,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
     private ?string $machineName = null;
     
     /**
-     * Instantiates a new CertificateConnectorDetails and sets the default values.
+     * Instantiates a new certificateConnectorDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,6 +60,14 @@ class CertificateConnectorDetails extends Entity implements Parsable
     }
 
     /**
+     * Gets the connectorVersion property value. Version of the connector installed.
+     * @return string|null
+    */
+    public function getConnectorVersion(): ?string {
+        return $this->connectorVersion;
+    }
+
+    /**
      * Gets the enrollmentDateTime property value. Date/time when this connector was enrolled.
      * @return DateTime|null
     */
@@ -70,6 +83,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'connectorName' => function (ParseNode $n) use ($o) { $o->setConnectorName($n->getStringValue()); },
+            'connectorVersion' => function (ParseNode $n) use ($o) { $o->setConnectorVersion($n->getStringValue()); },
             'enrollmentDateTime' => function (ParseNode $n) use ($o) { $o->setEnrollmentDateTime($n->getDateTimeValue()); },
             'lastCheckinDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckinDateTime($n->getDateTimeValue()); },
             'machineName' => function (ParseNode $n) use ($o) { $o->setMachineName($n->getStringValue()); },
@@ -99,6 +113,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('connectorName', $this->connectorName);
+        $writer->writeStringValue('connectorVersion', $this->connectorVersion);
         $writer->writeDateTimeValue('enrollmentDateTime', $this->enrollmentDateTime);
         $writer->writeDateTimeValue('lastCheckinDateTime', $this->lastCheckinDateTime);
         $writer->writeStringValue('machineName', $this->machineName);
@@ -110,6 +125,14 @@ class CertificateConnectorDetails extends Entity implements Parsable
     */
     public function setConnectorName(?string $value ): void {
         $this->connectorName = $value;
+    }
+
+    /**
+     * Sets the connectorVersion property value. Version of the connector installed.
+     *  @param string|null $value Value to set for the connectorVersion property.
+    */
+    public function setConnectorVersion(?string $value ): void {
+        $this->connectorVersion = $value;
     }
 
     /**

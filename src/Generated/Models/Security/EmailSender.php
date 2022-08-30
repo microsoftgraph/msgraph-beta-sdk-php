@@ -15,17 +15,17 @@ class EmailSender implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName The name of the sender.
     */
     private ?string $displayName = null;
     
     /**
-     * @var string|null $domainName The domainName property
+     * @var string|null $domainName Sender domain.
     */
     private ?string $domainName = null;
     
     /**
-     * @var string|null $emailAddress The emailAddress property
+     * @var string|null $emailAddress Sender email address.
     */
     private ?string $emailAddress = null;
     
@@ -60,7 +60,7 @@ class EmailSender implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name of the sender.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -68,7 +68,7 @@ class EmailSender implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the domainName property value. The domainName property
+     * Gets the domainName property value. Sender domain.
      * @return string|null
     */
     public function getDomainName(): ?string {
@@ -76,7 +76,7 @@ class EmailSender implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the emailAddress property value. The emailAddress property
+     * Gets the emailAddress property value. Sender email address.
      * @return string|null
     */
     public function getEmailAddress(): ?string {
@@ -126,7 +126,7 @@ class EmailSender implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name of the sender.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -134,7 +134,7 @@ class EmailSender implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the domainName property value. The domainName property
+     * Sets the domainName property value. Sender domain.
      *  @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value ): void {
@@ -142,7 +142,7 @@ class EmailSender implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the emailAddress property value. The emailAddress property
+     * Sets the emailAddress property value. Sender email address.
      *  @param string|null $value Value to set for the emailAddress property.
     */
     public function setEmailAddress(?string $value ): void {

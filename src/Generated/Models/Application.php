@@ -161,7 +161,7 @@ class Application extends DirectoryObject implements Parsable
     private ?string $publisherDomain = null;
     
     /**
-     * @var RequestSignatureVerification|null $requestSignatureVerification The requestSignatureVerification property
+     * @var RequestSignatureVerification|null $requestSignatureVerification Specifies whether this application requires Azure AD to verify the signed authentication requests.
     */
     private ?RequestSignatureVerification $requestSignatureVerification = null;
     
@@ -548,7 +548,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the requestSignatureVerification property value. The requestSignatureVerification property
+     * Gets the requestSignatureVerification property value. Specifies whether this application requires Azure AD to verify the signed authentication requests.
      * @return RequestSignatureVerification|null
     */
     public function getRequestSignatureVerification(): ?RequestSignatureVerification {
@@ -961,7 +961,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the requestSignatureVerification property value. The requestSignatureVerification property
+     * Sets the requestSignatureVerification property value. Specifies whether this application requires Azure AD to verify the signed authentication requests.
      *  @param RequestSignatureVerification|null $value Value to set for the requestSignatureVerification property.
     */
     public function setRequestSignatureVerification(?RequestSignatureVerification $value ): void {

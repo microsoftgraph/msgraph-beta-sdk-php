@@ -10,52 +10,52 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProcessEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var DetectionStatus|null $detectionStatus The detectionStatus property
+     * @var DetectionStatus|null $detectionStatus The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
     */
     private ?DetectionStatus $detectionStatus = null;
     
     /**
-     * @var FileDetails|null $imageFile The imageFile property
+     * @var FileDetails|null $imageFile Image file details.
     */
     private ?FileDetails $imageFile = null;
     
     /**
-     * @var string|null $mdeDeviceId The mdeDeviceId property
+     * @var string|null $mdeDeviceId A unique identifier assigned to a device by Microsoft Defender for Endpoint.
     */
     private ?string $mdeDeviceId = null;
     
     /**
-     * @var DateTime|null $parentProcessCreationDateTime The parentProcessCreationDateTime property
+     * @var DateTime|null $parentProcessCreationDateTime Date and time when the parent of the process was created.
     */
     private ?DateTime $parentProcessCreationDateTime = null;
     
     /**
-     * @var int|null $parentProcessId The parentProcessId property
+     * @var int|null $parentProcessId Process ID (PID) of the parent process that spawned the process.
     */
     private ?int $parentProcessId = null;
     
     /**
-     * @var FileDetails|null $parentProcessImageFile The parentProcessImageFile property
+     * @var FileDetails|null $parentProcessImageFile Parent process image file details.
     */
     private ?FileDetails $parentProcessImageFile = null;
     
     /**
-     * @var string|null $processCommandLine The processCommandLine property
+     * @var string|null $processCommandLine Command line used to create the new process.
     */
     private ?string $processCommandLine = null;
     
     /**
-     * @var DateTime|null $processCreationDateTime The processCreationDateTime property
+     * @var DateTime|null $processCreationDateTime Date and time the process was created.
     */
     private ?DateTime $processCreationDateTime = null;
     
     /**
-     * @var int|null $processId The processId property
+     * @var int|null $processId Process ID (PID) of the newly created process.
     */
     private ?int $processId = null;
     
     /**
-     * @var UserAccount|null $userAccount The userAccount property
+     * @var UserAccount|null $userAccount User details of the user that ran the process.
     */
     private ?UserAccount $userAccount = null;
     
@@ -77,7 +77,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the detectionStatus property value. The detectionStatus property
+     * Gets the detectionStatus property value. The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      * @return DetectionStatus|null
     */
     public function getDetectionStatus(): ?DetectionStatus {
@@ -105,7 +105,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the imageFile property value. The imageFile property
+     * Gets the imageFile property value. Image file details.
      * @return FileDetails|null
     */
     public function getImageFile(): ?FileDetails {
@@ -113,7 +113,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the mdeDeviceId property value. The mdeDeviceId property
+     * Gets the mdeDeviceId property value. A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      * @return string|null
     */
     public function getMdeDeviceId(): ?string {
@@ -121,7 +121,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the parentProcessCreationDateTime property value. The parentProcessCreationDateTime property
+     * Gets the parentProcessCreationDateTime property value. Date and time when the parent of the process was created.
      * @return DateTime|null
     */
     public function getParentProcessCreationDateTime(): ?DateTime {
@@ -129,7 +129,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the parentProcessId property value. The parentProcessId property
+     * Gets the parentProcessId property value. Process ID (PID) of the parent process that spawned the process.
      * @return int|null
     */
     public function getParentProcessId(): ?int {
@@ -137,7 +137,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the parentProcessImageFile property value. The parentProcessImageFile property
+     * Gets the parentProcessImageFile property value. Parent process image file details.
      * @return FileDetails|null
     */
     public function getParentProcessImageFile(): ?FileDetails {
@@ -145,7 +145,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the processCommandLine property value. The processCommandLine property
+     * Gets the processCommandLine property value. Command line used to create the new process.
      * @return string|null
     */
     public function getProcessCommandLine(): ?string {
@@ -153,7 +153,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the processCreationDateTime property value. The processCreationDateTime property
+     * Gets the processCreationDateTime property value. Date and time the process was created.
      * @return DateTime|null
     */
     public function getProcessCreationDateTime(): ?DateTime {
@@ -161,7 +161,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the processId property value. The processId property
+     * Gets the processId property value. Process ID (PID) of the newly created process.
      * @return int|null
     */
     public function getProcessId(): ?int {
@@ -169,7 +169,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the userAccount property value. The userAccount property
+     * Gets the userAccount property value. User details of the user that ran the process.
      * @return UserAccount|null
     */
     public function getUserAccount(): ?UserAccount {
@@ -195,7 +195,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the detectionStatus property value. The detectionStatus property
+     * Sets the detectionStatus property value. The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      *  @param DetectionStatus|null $value Value to set for the detectionStatus property.
     */
     public function setDetectionStatus(?DetectionStatus $value ): void {
@@ -203,7 +203,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the imageFile property value. The imageFile property
+     * Sets the imageFile property value. Image file details.
      *  @param FileDetails|null $value Value to set for the imageFile property.
     */
     public function setImageFile(?FileDetails $value ): void {
@@ -211,7 +211,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the mdeDeviceId property value. The mdeDeviceId property
+     * Sets the mdeDeviceId property value. A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      *  @param string|null $value Value to set for the mdeDeviceId property.
     */
     public function setMdeDeviceId(?string $value ): void {
@@ -219,7 +219,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the parentProcessCreationDateTime property value. The parentProcessCreationDateTime property
+     * Sets the parentProcessCreationDateTime property value. Date and time when the parent of the process was created.
      *  @param DateTime|null $value Value to set for the parentProcessCreationDateTime property.
     */
     public function setParentProcessCreationDateTime(?DateTime $value ): void {
@@ -227,7 +227,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the parentProcessId property value. The parentProcessId property
+     * Sets the parentProcessId property value. Process ID (PID) of the parent process that spawned the process.
      *  @param int|null $value Value to set for the parentProcessId property.
     */
     public function setParentProcessId(?int $value ): void {
@@ -235,7 +235,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the parentProcessImageFile property value. The parentProcessImageFile property
+     * Sets the parentProcessImageFile property value. Parent process image file details.
      *  @param FileDetails|null $value Value to set for the parentProcessImageFile property.
     */
     public function setParentProcessImageFile(?FileDetails $value ): void {
@@ -243,7 +243,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the processCommandLine property value. The processCommandLine property
+     * Sets the processCommandLine property value. Command line used to create the new process.
      *  @param string|null $value Value to set for the processCommandLine property.
     */
     public function setProcessCommandLine(?string $value ): void {
@@ -251,7 +251,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the processCreationDateTime property value. The processCreationDateTime property
+     * Sets the processCreationDateTime property value. Date and time the process was created.
      *  @param DateTime|null $value Value to set for the processCreationDateTime property.
     */
     public function setProcessCreationDateTime(?DateTime $value ): void {
@@ -259,7 +259,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the processId property value. The processId property
+     * Sets the processId property value. Process ID (PID) of the newly created process.
      *  @param int|null $value Value to set for the processId property.
     */
     public function setProcessId(?int $value ): void {
@@ -267,7 +267,7 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the userAccount property value. The userAccount property
+     * Sets the userAccount property value. User details of the user that ran the process.
      *  @param UserAccount|null $value Value to set for the userAccount property.
     */
     public function setUserAccount(?UserAccount $value ): void {

@@ -9,27 +9,27 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RegistryValueEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $registryHive The registryHive property
+     * @var string|null $registryHive Registry hive of the key that the recorded action was applied to.
     */
     private ?string $registryHive = null;
     
     /**
-     * @var string|null $registryKey The registryKey property
+     * @var string|null $registryKey Registry key that the recorded action was applied to.
     */
     private ?string $registryKey = null;
     
     /**
-     * @var string|null $registryValue The registryValue property
+     * @var string|null $registryValue Data of the registry value that the recorded action was applied to.
     */
     private ?string $registryValue = null;
     
     /**
-     * @var string|null $registryValueName The registryValueName property
+     * @var string|null $registryValueName Name of the registry value that the recorded action was applied to.
     */
     private ?string $registryValueName = null;
     
     /**
-     * @var string|null $registryValueType The registryValueType property
+     * @var string|null $registryValueType Data type, such as binary or string, of the registry value that the recorded action was applied to.
     */
     private ?string $registryValueType = null;
     
@@ -66,7 +66,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the registryHive property value. The registryHive property
+     * Gets the registryHive property value. Registry hive of the key that the recorded action was applied to.
      * @return string|null
     */
     public function getRegistryHive(): ?string {
@@ -74,7 +74,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the registryKey property value. The registryKey property
+     * Gets the registryKey property value. Registry key that the recorded action was applied to.
      * @return string|null
     */
     public function getRegistryKey(): ?string {
@@ -82,7 +82,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the registryValue property value. The registryValue property
+     * Gets the registryValue property value. Data of the registry value that the recorded action was applied to.
      * @return string|null
     */
     public function getRegistryValue(): ?string {
@@ -90,7 +90,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the registryValueName property value. The registryValueName property
+     * Gets the registryValueName property value. Name of the registry value that the recorded action was applied to.
      * @return string|null
     */
     public function getRegistryValueName(): ?string {
@@ -98,7 +98,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the registryValueType property value. The registryValueType property
+     * Gets the registryValueType property value. Data type, such as binary or string, of the registry value that the recorded action was applied to.
      * @return string|null
     */
     public function getRegistryValueType(): ?string {
@@ -119,7 +119,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the registryHive property value. The registryHive property
+     * Sets the registryHive property value. Registry hive of the key that the recorded action was applied to.
      *  @param string|null $value Value to set for the registryHive property.
     */
     public function setRegistryHive(?string $value ): void {
@@ -127,7 +127,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the registryKey property value. The registryKey property
+     * Sets the registryKey property value. Registry key that the recorded action was applied to.
      *  @param string|null $value Value to set for the registryKey property.
     */
     public function setRegistryKey(?string $value ): void {
@@ -135,7 +135,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the registryValue property value. The registryValue property
+     * Sets the registryValue property value. Data of the registry value that the recorded action was applied to.
      *  @param string|null $value Value to set for the registryValue property.
     */
     public function setRegistryValue(?string $value ): void {
@@ -143,7 +143,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the registryValueName property value. The registryValueName property
+     * Sets the registryValueName property value. Name of the registry value that the recorded action was applied to.
      *  @param string|null $value Value to set for the registryValueName property.
     */
     public function setRegistryValueName(?string $value ): void {
@@ -151,7 +151,7 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the registryValueType property value. The registryValueType property
+     * Sets the registryValueType property value. Data type, such as binary or string, of the registry value that the recorded action was applied to.
      *  @param string|null $value Value to set for the registryValueType property.
     */
     public function setRegistryValueType(?string $value ): void {

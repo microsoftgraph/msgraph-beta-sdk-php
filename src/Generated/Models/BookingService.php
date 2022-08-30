@@ -110,7 +110,7 @@ class BookingService extends BookingNamedEntity implements Parsable
     private ?string $webUrl = null;
     
     /**
-     * Instantiates a new BookingService and sets the default values.
+     * Instantiates a new bookingService and sets the default values.
     */
     public function __construct() {
         parent::__construct();

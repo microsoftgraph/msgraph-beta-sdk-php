@@ -8,4 +8,5 @@ class OrganizationalMessageFrequency extends Enum {
     public const WEEKLY_ONCE = 'weeklyOnce';
     public const MONTHLY_ONCE = 'monthlyOnce';
     public const MONTHLY_TWICE = 'monthlyTwice';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

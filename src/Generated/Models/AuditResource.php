@@ -15,6 +15,11 @@ class AuditResource implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
+     * @var string|null $auditResourceType Audit resource's type.
+    */
+    private ?string $auditResourceType = null;
+    
+    /**
      * @var string|null $displayName Display name.
     */
     private ?string $displayName = null;
@@ -65,6 +70,14 @@ class AuditResource implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the auditResourceType property value. Audit resource's type.
+     * @return string|null
+    */
+    public function getAuditResourceType(): ?string {
+        return $this->auditResourceType;
+    }
+
+    /**
      * Gets the displayName property value. Display name.
      * @return string|null
     */
@@ -79,6 +92,7 @@ class AuditResource implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'auditResourceType' => function (ParseNode $n) use ($o) { $o->setAuditResourceType($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'modifiedProperties' => function (ParseNode $n) use ($o) { $o->setModifiedProperties($n->getCollectionOfObjectValues(array(AuditProperty::class, 'createFromDiscriminatorValue'))); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
@@ -124,6 +138,7 @@ class AuditResource implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('auditResourceType', $this->auditResourceType);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeCollectionOfObjectValues('modifiedProperties', $this->modifiedProperties);
         $writer->writeStringValue('@odata.type', $this->odataType);
@@ -138,6 +153,14 @@ class AuditResource implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the auditResourceType property value. Audit resource's type.
+     *  @param string|null $value Value to set for the auditResourceType property.
+    */
+    public function setAuditResourceType(?string $value ): void {
+        $this->auditResourceType = $value;
     }
 
     /**

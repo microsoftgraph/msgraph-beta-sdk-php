@@ -55,7 +55,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
     private ?TeamworkSoftwareUpdateHealth $softwareUpdateHealth = null;
     
     /**
-     * Instantiates a new teamworkDeviceHealth and sets the default values.
+     * Instantiates a new TeamworkDeviceHealth and sets the default values.
     */
     public function __construct() {
         parent::__construct();

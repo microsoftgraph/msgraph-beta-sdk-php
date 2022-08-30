@@ -90,7 +90,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var array<OnPremisesApplicationSegment>|null $onPremisesApplicationSegments The onPremisesApplicationSegments property
+     * @var array<OnPremisesApplicationSegment>|null $onPremisesApplicationSegments Represents the application segment collection for an on-premises wildcard application.
     */
     private ?array $onPremisesApplicationSegments = null;
     
@@ -296,7 +296,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the onPremisesApplicationSegments property value. The onPremisesApplicationSegments property
+     * Gets the onPremisesApplicationSegments property value. Represents the application segment collection for an on-premises wildcard application.
      * @return array<OnPremisesApplicationSegment>|null
     */
     public function getOnPremisesApplicationSegments(): ?array {
@@ -501,7 +501,7 @@ class OnPremisesPublishing implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the onPremisesApplicationSegments property value. The onPremisesApplicationSegments property
+     * Sets the onPremisesApplicationSegments property value. Represents the application segment collection for an on-premises wildcard application.
      *  @param array<OnPremisesApplicationSegment>|null $value Value to set for the onPremisesApplicationSegments property.
     */
     public function setOnPremisesApplicationSegments(?array $value ): void {
