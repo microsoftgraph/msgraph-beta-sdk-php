@@ -50,7 +50,7 @@ class SecureScoreControlProfile extends Entity implements Parsable
     private ?string $implementationCost = null;
     
     /**
-     * @var DateTime|null $lastModifiedDateTime Time at which the control profile entity was last modified. The Timestamp type represents date and time
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
     */
     private ?DateTime $lastModifiedDateTime = null;
     
@@ -105,10 +105,11 @@ class SecureScoreControlProfile extends Entity implements Parsable
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
-     * Instantiates a new secureScoreControlProfile and sets the default values.
+     * Instantiates a new SecureScoreControlProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.secureScoreControlProfile');
     }
 
     /**
@@ -214,7 +215,7 @@ class SecureScoreControlProfile extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Time at which the control profile entity was last modified. The Timestamp type represents date and time
+     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -393,7 +394,7 @@ class SecureScoreControlProfile extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Time at which the control profile entity was last modified. The Timestamp type represents date and time
+     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {

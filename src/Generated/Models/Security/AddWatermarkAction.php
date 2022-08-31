@@ -9,17 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddWatermarkAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var string|null $fontColor The fontColor property
+     * @var string|null $fontColor Color of the font to use for the watermark.
     */
     private ?string $fontColor = null;
     
     /**
-     * @var string|null $fontName The fontName property
+     * @var string|null $fontName Name of the font to use for the watermark.
     */
     private ?string $fontName = null;
     
     /**
-     * @var int|null $fontSize The fontSize property
+     * @var int|null $fontSize Font size to use for the watermark.
     */
     private ?int $fontSize = null;
     
@@ -29,12 +29,12 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     private ?WatermarkLayout $layout = null;
     
     /**
-     * @var string|null $text The text property
+     * @var string|null $text The contents of the watermark itself.
     */
     private ?string $text = null;
     
     /**
-     * @var string|null $uiElementName The uiElementName property
+     * @var string|null $uiElementName The name of the UI element where the watermark should be placed.
     */
     private ?string $uiElementName = null;
     
@@ -43,6 +43,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.addWatermarkAction');
     }
 
     /**
@@ -71,7 +72,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the fontColor property value. The fontColor property
+     * Gets the fontColor property value. Color of the font to use for the watermark.
      * @return string|null
     */
     public function getFontColor(): ?string {
@@ -79,7 +80,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the fontName property value. The fontName property
+     * Gets the fontName property value. Name of the font to use for the watermark.
      * @return string|null
     */
     public function getFontName(): ?string {
@@ -87,7 +88,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the fontSize property value. The fontSize property
+     * Gets the fontSize property value. Font size to use for the watermark.
      * @return int|null
     */
     public function getFontSize(): ?int {
@@ -103,7 +104,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the text property value. The text property
+     * Gets the text property value. The contents of the watermark itself.
      * @return string|null
     */
     public function getText(): ?string {
@@ -111,7 +112,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the uiElementName property value. The uiElementName property
+     * Gets the uiElementName property value. The name of the UI element where the watermark should be placed.
      * @return string|null
     */
     public function getUiElementName(): ?string {
@@ -133,7 +134,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the fontColor property value. The fontColor property
+     * Sets the fontColor property value. Color of the font to use for the watermark.
      *  @param string|null $value Value to set for the fontColor property.
     */
     public function setFontColor(?string $value ): void {
@@ -141,7 +142,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the fontName property value. The fontName property
+     * Sets the fontName property value. Name of the font to use for the watermark.
      *  @param string|null $value Value to set for the fontName property.
     */
     public function setFontName(?string $value ): void {
@@ -149,7 +150,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the fontSize property value. The fontSize property
+     * Sets the fontSize property value. Font size to use for the watermark.
      *  @param int|null $value Value to set for the fontSize property.
     */
     public function setFontSize(?int $value ): void {
@@ -165,7 +166,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the text property value. The text property
+     * Sets the text property value. The contents of the watermark itself.
      *  @param string|null $value Value to set for the text property.
     */
     public function setText(?string $value ): void {
@@ -173,7 +174,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the uiElementName property value. The uiElementName property
+     * Sets the uiElementName property value. The name of the UI element where the watermark should be placed.
      *  @param string|null $value Value to set for the uiElementName property.
     */
     public function setUiElementName(?string $value ): void {

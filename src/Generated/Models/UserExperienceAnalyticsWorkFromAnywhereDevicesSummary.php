@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -55,6 +55,11 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     private ?int $intuneDevices = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $tenantAttachDevices Total count of tenant attach devices. Valid values -2147483648 to 2147483647
     */
     private ?int $tenantAttachDevices = null;
@@ -85,10 +90,11 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     private ?int $windows10DevicesWithoutTenantAttach = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereDevicesSummary and sets the default values.
+     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereDevicesSummary and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsWorkFromAnywhereDevicesSummary');
     }
 
     /**
@@ -179,6 +185,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
             'devicesWithoutAutopilotProfileAssigned' => function (ParseNode $n) use ($o) { $o->setDevicesWithoutAutopilotProfileAssigned($n->getIntegerValue()); },
             'devicesWithoutCloudIdentity' => function (ParseNode $n) use ($o) { $o->setDevicesWithoutCloudIdentity($n->getIntegerValue()); },
             'intuneDevices' => function (ParseNode $n) use ($o) { $o->setIntuneDevices($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'tenantAttachDevices' => function (ParseNode $n) use ($o) { $o->setTenantAttachDevices($n->getIntegerValue()); },
             'totalDevices' => function (ParseNode $n) use ($o) { $o->setTotalDevices($n->getIntegerValue()); },
             'unsupportedOSversionDevices' => function (ParseNode $n) use ($o) { $o->setUnsupportedOSversionDevices($n->getIntegerValue()); },
@@ -194,6 +201,14 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     */
     public function getIntuneDevices(): ?int {
         return $this->intuneDevices;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -257,6 +272,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
         $writer->writeIntegerValue('devicesWithoutAutopilotProfileAssigned', $this->devicesWithoutAutopilotProfileAssigned);
         $writer->writeIntegerValue('devicesWithoutCloudIdentity', $this->devicesWithoutCloudIdentity);
         $writer->writeIntegerValue('intuneDevices', $this->intuneDevices);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('tenantAttachDevices', $this->tenantAttachDevices);
         $writer->writeIntegerValue('totalDevices', $this->totalDevices);
         $writer->writeIntegerValue('unsupportedOSversionDevices', $this->unsupportedOSversionDevices);
@@ -336,6 +352,14 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     */
     public function setIntuneDevices(?int $value ): void {
         $this->intuneDevices = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

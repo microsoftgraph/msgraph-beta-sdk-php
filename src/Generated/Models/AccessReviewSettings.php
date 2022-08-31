@@ -20,7 +20,7 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
     private ?int $activityDurationInDays = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -50,6 +50,11 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
     private ?bool $mailNotificationsEnabled = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var AccessReviewRecurrenceSettings|null $recurrenceSettings Detailed settings for recurrence.
     */
     private ?AccessReviewRecurrenceSettings $recurrenceSettings = null;
@@ -63,7 +68,8 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new accessReviewSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.accessReviewSettings');
     }
 
     /**
@@ -144,6 +150,7 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
             'autoReviewSettings' => function (ParseNode $n) use ($o) { $o->setAutoReviewSettings($n->getObjectValue(array(AutoReviewSettings::class, 'createFromDiscriminatorValue'))); },
             'justificationRequiredOnApproval' => function (ParseNode $n) use ($o) { $o->setJustificationRequiredOnApproval($n->getBooleanValue()); },
             'mailNotificationsEnabled' => function (ParseNode $n) use ($o) { $o->setMailNotificationsEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recurrenceSettings' => function (ParseNode $n) use ($o) { $o->setRecurrenceSettings($n->getObjectValue(array(AccessReviewRecurrenceSettings::class, 'createFromDiscriminatorValue'))); },
             'remindersEnabled' => function (ParseNode $n) use ($o) { $o->setRemindersEnabled($n->getBooleanValue()); },
         ];
@@ -163,6 +170,14 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
     */
     public function getMailNotificationsEnabled(): ?bool {
         return $this->mailNotificationsEnabled;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -193,6 +208,7 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('autoReviewSettings', $this->autoReviewSettings);
         $writer->writeBooleanValue('justificationRequiredOnApproval', $this->justificationRequiredOnApproval);
         $writer->writeBooleanValue('mailNotificationsEnabled', $this->mailNotificationsEnabled);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('recurrenceSettings', $this->recurrenceSettings);
         $writer->writeBooleanValue('remindersEnabled', $this->remindersEnabled);
         $writer->writeAdditionalData($this->additionalData);
@@ -260,6 +276,14 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
     */
     public function setMailNotificationsEnabled(?bool $value ): void {
         $this->mailNotificationsEnabled = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

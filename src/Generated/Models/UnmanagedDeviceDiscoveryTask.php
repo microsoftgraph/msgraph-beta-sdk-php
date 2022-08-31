@@ -18,6 +18,7 @@ class UnmanagedDeviceDiscoveryTask extends DeviceAppManagementTask implements Pa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.unmanagedDeviceDiscoveryTask');
     }
 
     /**

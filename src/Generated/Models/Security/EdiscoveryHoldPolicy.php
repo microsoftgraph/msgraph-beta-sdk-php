@@ -24,12 +24,12 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
     private ?bool $isEnabled = null;
     
     /**
-     * @var array<SiteSource>|null $siteSources The siteSources property
+     * @var array<SiteSource>|null $siteSources Data sources that represent SharePoint sites.
     */
     private ?array $siteSources = null;
     
     /**
-     * @var array<UserSource>|null $userSources The userSources property
+     * @var array<UserSource>|null $userSources Data sources that represent Exchange mailboxes.
     */
     private ?array $userSources = null;
     
@@ -38,6 +38,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.ediscoveryHoldPolicy');
     }
 
     /**
@@ -89,7 +90,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the siteSources property value. The siteSources property
+     * Gets the siteSources property value. Data sources that represent SharePoint sites.
      * @return array<SiteSource>|null
     */
     public function getSiteSources(): ?array {
@@ -97,7 +98,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the userSources property value. The userSources property
+     * Gets the userSources property value. Data sources that represent Exchange mailboxes.
      * @return array<UserSource>|null
     */
     public function getUserSources(): ?array {
@@ -142,7 +143,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the siteSources property value. The siteSources property
+     * Sets the siteSources property value. Data sources that represent SharePoint sites.
      *  @param array<SiteSource>|null $value Value to set for the siteSources property.
     */
     public function setSiteSources(?array $value ): void {
@@ -150,7 +151,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the userSources property value. The userSources property
+     * Sets the userSources property value. Data sources that represent Exchange mailboxes.
      *  @param array<UserSource>|null $value Value to set for the userSources property.
     */
     public function setUserSources(?array $value ): void {

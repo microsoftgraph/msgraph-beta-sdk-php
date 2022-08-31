@@ -51,12 +51,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $applicationGuardAllowVirtualGPU = null;
     
     /**
-     * @var ApplicationGuardBlockClipboardSharingType|null $applicationGuardBlockClipboardSharing Block clipboard to share data from Host to Container, or from Container to Host, or both ways, or neither ways. Possible values are: notConfigured, blockBoth, blockHostToContainer, blockContainerToHost, blockNone.
+     * @var ApplicationGuardBlockClipboardSharingType|null $applicationGuardBlockClipboardSharing Possible values for applicationGuardBlockClipboardSharingType
     */
     private ?ApplicationGuardBlockClipboardSharingType $applicationGuardBlockClipboardSharing = null;
     
     /**
-     * @var ApplicationGuardBlockFileTransferType|null $applicationGuardBlockFileTransfer Block clipboard to transfer image file, text file or neither of them. Possible values are: notConfigured, blockImageAndTextFile, blockImageFile, blockNone, blockTextFile.
+     * @var ApplicationGuardBlockFileTransferType|null $applicationGuardBlockFileTransfer Possible values for applicationGuardBlockFileTransfer
     */
     private ?ApplicationGuardBlockFileTransferType $applicationGuardBlockFileTransfer = null;
     
@@ -76,7 +76,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $applicationGuardEnabled = null;
     
     /**
-     * @var ApplicationGuardEnabledOptions|null $applicationGuardEnabledOptions Enable Windows Defender Application Guard for newer Windows builds. Possible values are: notConfigured, enabledForEdge, enabledForOffice, enabledForEdgeAndOffice.
+     * @var ApplicationGuardEnabledOptions|null $applicationGuardEnabledOptions Possible values for ApplicationGuardEnabledOptions
     */
     private ?ApplicationGuardEnabledOptions $applicationGuardEnabledOptions = null;
     
@@ -86,7 +86,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $applicationGuardForceAuditing = null;
     
     /**
-     * @var AppLockerApplicationControlType|null $appLockerApplicationControl Enables the Admin to choose what types of app to allow on devices. Possible values are: notConfigured, enforceComponentsAndStoreApps, auditComponentsAndStoreApps, enforceComponentsStoreAppsAndSmartlocker, auditComponentsStoreAppsAndSmartlocker.
+     * @var AppLockerApplicationControlType|null $appLockerApplicationControl Possible values of AppLocker Application Control Types
     */
     private ?AppLockerApplicationControlType $appLockerApplicationControl = null;
     
@@ -116,7 +116,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?BitLockerFixedDrivePolicy $bitLockerFixedDrivePolicy = null;
     
     /**
-     * @var BitLockerRecoveryPasswordRotationType|null $bitLockerRecoveryPasswordRotation This setting initiates a client-driven recovery password rotation after an OS drive recovery (either by using bootmgr or WinRE). Possible values are: notConfigured, disabled, enabledForAzureAd, enabledForAzureAdAndHybrid.
+     * @var BitLockerRecoveryPasswordRotationType|null $bitLockerRecoveryPasswordRotation BitLocker recovery password rotation type
     */
     private ?BitLockerRecoveryPasswordRotationType $bitLockerRecoveryPasswordRotation = null;
     
@@ -136,12 +136,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?array $defenderAdditionalGuardedFolders = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderAdobeReaderLaunchChildProcess Value indicating the behavior of Adobe Reader from creating child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderAdobeReaderLaunchChildProcess Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderAdobeReaderLaunchChildProcess = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderAdvancedRansomewareProtectionType Value indicating use of advanced protection against ransomeware. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderAdvancedRansomewareProtectionType Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderAdvancedRansomewareProtectionType = null;
     
@@ -211,7 +211,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $defenderBlockEndUserAccess = null;
     
     /**
-     * @var DefenderAttackSurfaceType|null $defenderBlockPersistenceThroughWmiType Value indicating the behavior of Block persistence through WMI event subscription. Possible values are: userDefined, block, auditMode, warn, disable.
+     * @var DefenderAttackSurfaceType|null $defenderBlockPersistenceThroughWmiType Possible values of Defender Attack Surface Reduction Rules
     */
     private ?DefenderAttackSurfaceType $defenderBlockPersistenceThroughWmiType = null;
     
@@ -301,12 +301,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $defenderDisableScanScriptsLoadedInInternetExplorer = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderEmailContentExecution Value indicating if execution of executable content (exe, dll, ps, js, vbs, etc) should be dropped from email (webmail/mail-client). Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderEmailContentExecution Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderEmailContentExecution = null;
     
     /**
-     * @var DefenderAttackSurfaceType|null $defenderEmailContentExecutionType Value indicating if execution of executable content (exe, dll, ps, js, vbs, etc) should be dropped from email (webmail/mail-client). Possible values are: userDefined, block, auditMode, warn, disable.
+     * @var DefenderAttackSurfaceType|null $defenderEmailContentExecutionType Possible values of Defender Attack Surface Reduction Rules
     */
     private ?DefenderAttackSurfaceType $defenderEmailContentExecutionType = null;
     
@@ -351,57 +351,57 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?array $defenderGuardedFoldersAllowedAppPaths = null;
     
     /**
-     * @var FolderProtectionType|null $defenderGuardMyFoldersType Value indicating the behavior of protected folders. Possible values are: userDefined, enable, auditMode, blockDiskModification, auditDiskModification.
+     * @var FolderProtectionType|null $defenderGuardMyFoldersType Possible values of Folder Protection
     */
     private ?FolderProtectionType $defenderGuardMyFoldersType = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderNetworkProtectionType Value indicating the behavior of NetworkProtection. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderNetworkProtectionType Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderNetworkProtectionType = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderOfficeAppsExecutableContentCreationOrLaunch Value indicating the behavior of Office applications/macros creating or launching executable content. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderOfficeAppsExecutableContentCreationOrLaunch Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderOfficeAppsExecutableContentCreationOrLaunch = null;
     
     /**
-     * @var DefenderAttackSurfaceType|null $defenderOfficeAppsExecutableContentCreationOrLaunchType Value indicating the behavior of Office applications/macros creating or launching executable content. Possible values are: userDefined, block, auditMode, warn, disable.
+     * @var DefenderAttackSurfaceType|null $defenderOfficeAppsExecutableContentCreationOrLaunchType Possible values of Defender Attack Surface Reduction Rules
     */
     private ?DefenderAttackSurfaceType $defenderOfficeAppsExecutableContentCreationOrLaunchType = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderOfficeAppsLaunchChildProcess Value indicating the behavior of Office application launching child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderOfficeAppsLaunchChildProcess Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderOfficeAppsLaunchChildProcess = null;
     
     /**
-     * @var DefenderAttackSurfaceType|null $defenderOfficeAppsLaunchChildProcessType Value indicating the behavior of Office application launching child processes. Possible values are: userDefined, block, auditMode, warn, disable.
+     * @var DefenderAttackSurfaceType|null $defenderOfficeAppsLaunchChildProcessType Possible values of Defender Attack Surface Reduction Rules
     */
     private ?DefenderAttackSurfaceType $defenderOfficeAppsLaunchChildProcessType = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderOfficeAppsOtherProcessInjection Value indicating the behavior of  Office applications injecting into other processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderOfficeAppsOtherProcessInjection Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderOfficeAppsOtherProcessInjection = null;
     
     /**
-     * @var DefenderAttackSurfaceType|null $defenderOfficeAppsOtherProcessInjectionType Value indicating the behavior of Office applications injecting into other processes. Possible values are: userDefined, block, auditMode, warn, disable.
+     * @var DefenderAttackSurfaceType|null $defenderOfficeAppsOtherProcessInjectionType Possible values of Defender Attack Surface Reduction Rules
     */
     private ?DefenderAttackSurfaceType $defenderOfficeAppsOtherProcessInjectionType = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderOfficeCommunicationAppsLaunchChildProcess Value indicating the behavior of Office communication applications, including Microsoft Outlook, from creating child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderOfficeCommunicationAppsLaunchChildProcess Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderOfficeCommunicationAppsLaunchChildProcess = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderOfficeMacroCodeAllowWin32Imports Value indicating the behavior of Win32 imports from Macro code in Office. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderOfficeMacroCodeAllowWin32Imports Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderOfficeMacroCodeAllowWin32Imports = null;
     
     /**
-     * @var DefenderAttackSurfaceType|null $defenderOfficeMacroCodeAllowWin32ImportsType Value indicating the behavior of Win32 imports from Macro code in Office. Possible values are: userDefined, block, auditMode, warn, disable.
+     * @var DefenderAttackSurfaceType|null $defenderOfficeMacroCodeAllowWin32ImportsType Possible values of Defender Attack Surface Reduction Rules
     */
     private ?DefenderAttackSurfaceType $defenderOfficeMacroCodeAllowWin32ImportsType = null;
     
@@ -411,17 +411,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?DefenderProtectionType $defenderPotentiallyUnwantedAppAction = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderPreventCredentialStealingType Value indicating if credential stealing from the Windows local security authority subsystem is permitted. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderPreventCredentialStealingType Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderPreventCredentialStealingType = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderProcessCreation Value indicating response to process creations originating from PSExec and WMI commands. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderProcessCreation Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderProcessCreation = null;
     
     /**
-     * @var DefenderAttackSurfaceType|null $defenderProcessCreationType Value indicating response to process creations originating from PSExec and WMI commands. Possible values are: userDefined, block, auditMode, warn, disable.
+     * @var DefenderAttackSurfaceType|null $defenderProcessCreationType Possible values of Defender Attack Surface Reduction Rules
     */
     private ?DefenderAttackSurfaceType $defenderProcessCreationType = null;
     
@@ -461,22 +461,22 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?Time $defenderScheduledScanTime = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderScriptDownloadedPayloadExecution Value indicating the behavior of js/vbs executing payload downloaded from Internet. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderScriptDownloadedPayloadExecution Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderScriptDownloadedPayloadExecution = null;
     
     /**
-     * @var DefenderAttackSurfaceType|null $defenderScriptDownloadedPayloadExecutionType Value indicating the behavior of js/vbs executing payload downloaded from Internet. Possible values are: userDefined, block, auditMode, warn, disable.
+     * @var DefenderAttackSurfaceType|null $defenderScriptDownloadedPayloadExecutionType Possible values of Defender Attack Surface Reduction Rules
     */
     private ?DefenderAttackSurfaceType $defenderScriptDownloadedPayloadExecutionType = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderScriptObfuscatedMacroCode Value indicating the behavior of obfuscated js/vbs/ps/macro code. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderScriptObfuscatedMacroCode Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderScriptObfuscatedMacroCode = null;
     
     /**
-     * @var DefenderAttackSurfaceType|null $defenderScriptObfuscatedMacroCodeType Value indicating the behavior of obfuscated js/vbs/ps/macro code. Possible values are: userDefined, block, auditMode, warn, disable.
+     * @var DefenderAttackSurfaceType|null $defenderScriptObfuscatedMacroCodeType Possible values of Defender Attack Surface Reduction Rules
     */
     private ?DefenderAttackSurfaceType $defenderScriptObfuscatedMacroCodeType = null;
     
@@ -566,12 +566,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?string $defenderSecurityCenterHelpURL = null;
     
     /**
-     * @var DefenderSecurityCenterITContactDisplayType|null $defenderSecurityCenterITContactDisplay Configure where to display IT contact information to end users. Possible values are: notConfigured, displayInAppAndInNotifications, displayOnlyInApp, displayOnlyInNotifications.
+     * @var DefenderSecurityCenterITContactDisplayType|null $defenderSecurityCenterITContactDisplay Possible values for defenderSecurityCenterITContactDisplay
     */
     private ?DefenderSecurityCenterITContactDisplayType $defenderSecurityCenterITContactDisplay = null;
     
     /**
-     * @var DefenderSecurityCenterNotificationsFromAppType|null $defenderSecurityCenterNotificationsFromApp Notifications to show from the displayed areas of app. Possible values are: notConfigured, blockNoncriticalNotifications, blockAllNotifications.
+     * @var DefenderSecurityCenterNotificationsFromAppType|null $defenderSecurityCenterNotificationsFromApp Possible values for defenderSecurityCenterNotificationsFromApp
     */
     private ?DefenderSecurityCenterNotificationsFromAppType $defenderSecurityCenterNotificationsFromApp = null;
     
@@ -591,22 +591,22 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?DefenderSubmitSamplesConsentType $defenderSubmitSamplesConsentType = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderUntrustedExecutable Value indicating response to executables that don't meet a prevalence, age, or trusted list criteria. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderUntrustedExecutable Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderUntrustedExecutable = null;
     
     /**
-     * @var DefenderAttackSurfaceType|null $defenderUntrustedExecutableType Value indicating response to executables that don't meet a prevalence, age, or trusted list criteria. Possible values are: userDefined, block, auditMode, warn, disable.
+     * @var DefenderAttackSurfaceType|null $defenderUntrustedExecutableType Possible values of Defender Attack Surface Reduction Rules
     */
     private ?DefenderAttackSurfaceType $defenderUntrustedExecutableType = null;
     
     /**
-     * @var DefenderProtectionType|null $defenderUntrustedUSBProcess Value indicating response to untrusted and unsigned processes that run from USB. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * @var DefenderProtectionType|null $defenderUntrustedUSBProcess Possible values of Defender PUA Protection
     */
     private ?DefenderProtectionType $defenderUntrustedUSBProcess = null;
     
     /**
-     * @var DefenderAttackSurfaceType|null $defenderUntrustedUSBProcessType Value indicating response to untrusted and unsigned processes that run from USB. Possible values are: userDefined, block, auditMode, warn, disable.
+     * @var DefenderAttackSurfaceType|null $defenderUntrustedUSBProcessType Possible values of Defender Attack Surface Reduction Rules
     */
     private ?DefenderAttackSurfaceType $defenderUntrustedUSBProcessType = null;
     
@@ -621,22 +621,22 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $deviceGuardEnableVirtualizationBasedSecurity = null;
     
     /**
-     * @var Enablement|null $deviceGuardLaunchSystemGuard Allows the IT admin to configure the launch of System Guard. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $deviceGuardLaunchSystemGuard Possible values of a property
     */
     private ?Enablement $deviceGuardLaunchSystemGuard = null;
     
     /**
-     * @var DeviceGuardLocalSystemAuthorityCredentialGuardType|null $deviceGuardLocalSystemAuthorityCredentialGuardSettings Turn on Credential Guard when Platform Security Level with Secure Boot and Virtualization Based Security are both enabled. Possible values are: notConfigured, enableWithUEFILock, enableWithoutUEFILock, disable.
+     * @var DeviceGuardLocalSystemAuthorityCredentialGuardType|null $deviceGuardLocalSystemAuthorityCredentialGuardSettings Possible values of Credential Guard settings.
     */
     private ?DeviceGuardLocalSystemAuthorityCredentialGuardType $deviceGuardLocalSystemAuthorityCredentialGuardSettings = null;
     
     /**
-     * @var SecureBootWithDMAType|null $deviceGuardSecureBootWithDMA Specifies whether Platform Security Level is enabled at next reboot. Possible values are: notConfigured, withoutDMA, withDMA.
+     * @var SecureBootWithDMAType|null $deviceGuardSecureBootWithDMA Possible values of Secure Boot with DMA
     */
     private ?SecureBootWithDMAType $deviceGuardSecureBootWithDMA = null;
     
     /**
-     * @var DmaGuardDeviceEnumerationPolicyType|null $dmaGuardDeviceEnumerationPolicy This policy is intended to provide additional security against external DMA capable devices. It allows for more control over the enumeration of external DMA capable devices incompatible with DMA Remapping/device memory isolation and sandboxing. This policy only takes effect when Kernel DMA Protection is supported and enabled by the system firmware. Kernel DMA Protection is a platform feature that cannot be controlled via policy or by end user. It has to be supported by the system at the time of manufacturing. To check if the system supports Kernel DMA Protection, please check the Kernel DMA Protection field in the Summary page of MSINFO32.exe. Possible values are: deviceDefault, blockAll, allowAll.
+     * @var DmaGuardDeviceEnumerationPolicyType|null $dmaGuardDeviceEnumerationPolicy Possible values of the DmaGuardDeviceEnumerationPolicy.
     */
     private ?DmaGuardDeviceEnumerationPolicyType $dmaGuardDeviceEnumerationPolicy = null;
     
@@ -646,7 +646,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $firewallBlockStatefulFTP = null;
     
     /**
-     * @var FirewallCertificateRevocationListCheckMethodType|null $firewallCertificateRevocationListCheckMethod Specify how the certificate revocation list is to be enforced. Possible values are: deviceDefault, none, attempt, require.
+     * @var FirewallCertificateRevocationListCheckMethodType|null $firewallCertificateRevocationListCheckMethod Possible values for firewallCertificateRevocationListCheckMethod
     */
     private ?FirewallCertificateRevocationListCheckMethodType $firewallCertificateRevocationListCheckMethod = null;
     
@@ -686,12 +686,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $firewallMergeKeyingModuleSettings = null;
     
     /**
-     * @var FirewallPacketQueueingMethodType|null $firewallPacketQueueingMethod Configures how packet queueing should be applied in the tunnel gateway scenario. Possible values are: deviceDefault, disabled, queueInbound, queueOutbound, queueBoth.
+     * @var FirewallPacketQueueingMethodType|null $firewallPacketQueueingMethod Possible values for firewallPacketQueueingMethod
     */
     private ?FirewallPacketQueueingMethodType $firewallPacketQueueingMethod = null;
     
     /**
-     * @var FirewallPreSharedKeyEncodingMethodType|null $firewallPreSharedKeyEncodingMethod Select the preshared key encoding to be used. Possible values are: deviceDefault, none, utF8.
+     * @var FirewallPreSharedKeyEncodingMethodType|null $firewallPreSharedKeyEncodingMethod Possible values for firewallPreSharedKeyEncodingMethod
     */
     private ?FirewallPreSharedKeyEncodingMethodType $firewallPreSharedKeyEncodingMethod = null;
     
@@ -716,7 +716,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?array $firewallRules = null;
     
     /**
-     * @var LanManagerAuthenticationLevel|null $lanManagerAuthenticationLevel This security setting determines which challenge/response authentication protocol is used for network logons. Possible values are: lmAndNltm, lmNtlmAndNtlmV2, lmAndNtlmOnly, lmAndNtlmV2, lmNtlmV2AndNotLm, lmNtlmV2AndNotLmOrNtm.
+     * @var LanManagerAuthenticationLevel|null $lanManagerAuthenticationLevel Possible values for LanManagerAuthenticationLevel
     */
     private ?LanManagerAuthenticationLevel $lanManagerAuthenticationLevel = null;
     
@@ -731,7 +731,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?string $localSecurityOptionsAdministratorAccountName = null;
     
     /**
-     * @var LocalSecurityOptionsAdministratorElevationPromptBehaviorType|null $localSecurityOptionsAdministratorElevationPromptBehavior Define the behavior of the elevation prompt for admins in Admin Approval Mode. Possible values are: notConfigured, elevateWithoutPrompting, promptForCredentialsOnTheSecureDesktop, promptForConsentOnTheSecureDesktop, promptForCredentials, promptForConsent, promptForConsentForNonWindowsBinaries.
+     * @var LocalSecurityOptionsAdministratorElevationPromptBehaviorType|null $localSecurityOptionsAdministratorElevationPromptBehavior Possible values for LocalSecurityOptionsAdministratorElevationPromptBehavior
     */
     private ?LocalSecurityOptionsAdministratorElevationPromptBehaviorType $localSecurityOptionsAdministratorElevationPromptBehavior = null;
     
@@ -856,7 +856,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange = null;
     
     /**
-     * @var LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType|null $localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser Define who is allowed to format and eject removable NTFS media. Possible values are: notConfigured, administrators, administratorsAndPowerUsers, administratorsAndInteractiveUsers.
+     * @var LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType|null $localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser Possible values for LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser
     */
     private ?LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType $localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser = null;
     
@@ -876,12 +876,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $localSecurityOptionsHideUsernameAtSignIn = null;
     
     /**
-     * @var LocalSecurityOptionsInformationDisplayedOnLockScreenType|null $localSecurityOptionsInformationDisplayedOnLockScreen Configure the user information that is displayed when the session is locked. If not configured, user display name, domain and username are shown. Possible values are: notConfigured, administrators, administratorsAndPowerUsers, administratorsAndInteractiveUsers.
+     * @var LocalSecurityOptionsInformationDisplayedOnLockScreenType|null $localSecurityOptionsInformationDisplayedOnLockScreen Possible values for LocalSecurityOptionsInformationDisplayedOnLockScreen
     */
     private ?LocalSecurityOptionsInformationDisplayedOnLockScreenType $localSecurityOptionsInformationDisplayedOnLockScreen = null;
     
     /**
-     * @var LocalSecurityOptionsInformationShownOnLockScreenType|null $localSecurityOptionsInformationShownOnLockScreen Configure the user information that is displayed when the session is locked. If not configured, user display name, domain and username are shown. Possible values are: notConfigured, userDisplayNameDomainUser, userDisplayNameOnly, doNotDisplayUser.
+     * @var LocalSecurityOptionsInformationShownOnLockScreenType|null $localSecurityOptionsInformationShownOnLockScreen Possible values for LocalSecurityOptionsInformationShownOnLockScreenType
     */
     private ?LocalSecurityOptionsInformationShownOnLockScreenType $localSecurityOptionsInformationShownOnLockScreen = null;
     
@@ -906,12 +906,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?int $localSecurityOptionsMachineInactivityLimitInMinutes = null;
     
     /**
-     * @var LocalSecurityOptionsMinimumSessionSecurity|null $localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients This security setting allows a client to require the negotiation of 128-bit encryption and/or NTLMv2 session security. Possible values are: none, requireNtmlV2SessionSecurity, require128BitEncryption, ntlmV2And128BitEncryption.
+     * @var LocalSecurityOptionsMinimumSessionSecurity|null $localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients Possible values for LocalSecurityOptionsMinimumSessionSecurity
     */
     private ?LocalSecurityOptionsMinimumSessionSecurity $localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients = null;
     
     /**
-     * @var LocalSecurityOptionsMinimumSessionSecurity|null $localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers This security setting allows a server to require the negotiation of 128-bit encryption and/or NTLMv2 session security. Possible values are: none, requireNtmlV2SessionSecurity, require128BitEncryption, ntlmV2And128BitEncryption.
+     * @var LocalSecurityOptionsMinimumSessionSecurity|null $localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers Possible values for LocalSecurityOptionsMinimumSessionSecurity
     */
     private ?LocalSecurityOptionsMinimumSessionSecurity $localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers = null;
     
@@ -926,12 +926,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares = null;
     
     /**
-     * @var LocalSecurityOptionsSmartCardRemovalBehaviorType|null $localSecurityOptionsSmartCardRemovalBehavior This security setting determines what happens when the smart card for a logged-on user is removed from the smart card reader. Possible values are: noAction, lockWorkstation, forceLogoff, disconnectRemoteDesktopSession.
+     * @var LocalSecurityOptionsSmartCardRemovalBehaviorType|null $localSecurityOptionsSmartCardRemovalBehavior Possible values for LocalSecurityOptionsSmartCardRemovalBehaviorType
     */
     private ?LocalSecurityOptionsSmartCardRemovalBehaviorType $localSecurityOptionsSmartCardRemovalBehavior = null;
     
     /**
-     * @var LocalSecurityOptionsStandardUserElevationPromptBehaviorType|null $localSecurityOptionsStandardUserElevationPromptBehavior Define the behavior of the elevation prompt for standard users. Possible values are: notConfigured, automaticallyDenyElevationRequests, promptForCredentialsOnTheSecureDesktop, promptForCredentials.
+     * @var LocalSecurityOptionsStandardUserElevationPromptBehaviorType|null $localSecurityOptionsStandardUserElevationPromptBehavior Possible values for LocalSecurityOptionsStandardUserElevationPromptBehavior
     */
     private ?LocalSecurityOptionsStandardUserElevationPromptBehaviorType $localSecurityOptionsStandardUserElevationPromptBehavior = null;
     
@@ -1111,12 +1111,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?DeviceManagementUserRightsSetting $userRightsTakeOwnership = null;
     
     /**
-     * @var WindowsDefenderTamperProtectionOptions|null $windowsDefenderTamperProtection Configure windows defender TamperProtection settings. Possible values are: notConfigured, enable, disable.
+     * @var WindowsDefenderTamperProtectionOptions|null $windowsDefenderTamperProtection Defender TamperProtection setting options
     */
     private ?WindowsDefenderTamperProtectionOptions $windowsDefenderTamperProtection = null;
     
     /**
-     * @var ServiceStartType|null $xboxServicesAccessoryManagementServiceStartupMode This setting determines whether the Accessory management service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * @var ServiceStartType|null $xboxServicesAccessoryManagementServiceStartupMode Possible values of xbox service start type
     */
     private ?ServiceStartType $xboxServicesAccessoryManagementServiceStartupMode = null;
     
@@ -1126,17 +1126,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     private ?bool $xboxServicesEnableXboxGameSaveTask = null;
     
     /**
-     * @var ServiceStartType|null $xboxServicesLiveAuthManagerServiceStartupMode This setting determines whether Live Auth Manager service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * @var ServiceStartType|null $xboxServicesLiveAuthManagerServiceStartupMode Possible values of xbox service start type
     */
     private ?ServiceStartType $xboxServicesLiveAuthManagerServiceStartupMode = null;
     
     /**
-     * @var ServiceStartType|null $xboxServicesLiveGameSaveServiceStartupMode This setting determines whether Live Game save service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * @var ServiceStartType|null $xboxServicesLiveGameSaveServiceStartupMode Possible values of xbox service start type
     */
     private ?ServiceStartType $xboxServicesLiveGameSaveServiceStartupMode = null;
     
     /**
-     * @var ServiceStartType|null $xboxServicesLiveNetworkingServiceStartupMode This setting determines whether Networking service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * @var ServiceStartType|null $xboxServicesLiveNetworkingServiceStartupMode Possible values of xbox service start type
     */
     private ?ServiceStartType $xboxServicesLiveNetworkingServiceStartupMode = null;
     
@@ -1145,6 +1145,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windows10EndpointProtectionConfiguration');
     }
 
     /**
@@ -1221,7 +1222,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the applicationGuardBlockClipboardSharing property value. Block clipboard to share data from Host to Container, or from Container to Host, or both ways, or neither ways. Possible values are: notConfigured, blockBoth, blockHostToContainer, blockContainerToHost, blockNone.
+     * Gets the applicationGuardBlockClipboardSharing property value. Possible values for applicationGuardBlockClipboardSharingType
      * @return ApplicationGuardBlockClipboardSharingType|null
     */
     public function getApplicationGuardBlockClipboardSharing(): ?ApplicationGuardBlockClipboardSharingType {
@@ -1229,7 +1230,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the applicationGuardBlockFileTransfer property value. Block clipboard to transfer image file, text file or neither of them. Possible values are: notConfigured, blockImageAndTextFile, blockImageFile, blockNone, blockTextFile.
+     * Gets the applicationGuardBlockFileTransfer property value. Possible values for applicationGuardBlockFileTransfer
      * @return ApplicationGuardBlockFileTransferType|null
     */
     public function getApplicationGuardBlockFileTransfer(): ?ApplicationGuardBlockFileTransferType {
@@ -1261,7 +1262,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the applicationGuardEnabledOptions property value. Enable Windows Defender Application Guard for newer Windows builds. Possible values are: notConfigured, enabledForEdge, enabledForOffice, enabledForEdgeAndOffice.
+     * Gets the applicationGuardEnabledOptions property value. Possible values for ApplicationGuardEnabledOptions
      * @return ApplicationGuardEnabledOptions|null
     */
     public function getApplicationGuardEnabledOptions(): ?ApplicationGuardEnabledOptions {
@@ -1277,7 +1278,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the appLockerApplicationControl property value. Enables the Admin to choose what types of app to allow on devices. Possible values are: notConfigured, enforceComponentsAndStoreApps, auditComponentsAndStoreApps, enforceComponentsStoreAppsAndSmartlocker, auditComponentsStoreAppsAndSmartlocker.
+     * Gets the appLockerApplicationControl property value. Possible values of AppLocker Application Control Types
      * @return AppLockerApplicationControlType|null
     */
     public function getAppLockerApplicationControl(): ?AppLockerApplicationControlType {
@@ -1325,7 +1326,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the bitLockerRecoveryPasswordRotation property value. This setting initiates a client-driven recovery password rotation after an OS drive recovery (either by using bootmgr or WinRE). Possible values are: notConfigured, disabled, enabledForAzureAd, enabledForAzureAdAndHybrid.
+     * Gets the bitLockerRecoveryPasswordRotation property value. BitLocker recovery password rotation type
      * @return BitLockerRecoveryPasswordRotationType|null
     */
     public function getBitLockerRecoveryPasswordRotation(): ?BitLockerRecoveryPasswordRotationType {
@@ -1357,7 +1358,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderAdobeReaderLaunchChildProcess property value. Value indicating the behavior of Adobe Reader from creating child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderAdobeReaderLaunchChildProcess property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderAdobeReaderLaunchChildProcess(): ?DefenderProtectionType {
@@ -1365,7 +1366,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderAdvancedRansomewareProtectionType property value. Value indicating use of advanced protection against ransomeware. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderAdvancedRansomewareProtectionType property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderAdvancedRansomewareProtectionType(): ?DefenderProtectionType {
@@ -1477,7 +1478,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderBlockPersistenceThroughWmiType property value. Value indicating the behavior of Block persistence through WMI event subscription. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Gets the defenderBlockPersistenceThroughWmiType property value. Possible values of Defender Attack Surface Reduction Rules
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderBlockPersistenceThroughWmiType(): ?DefenderAttackSurfaceType {
@@ -1621,7 +1622,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderEmailContentExecution property value. Value indicating if execution of executable content (exe, dll, ps, js, vbs, etc) should be dropped from email (webmail/mail-client). Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderEmailContentExecution property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderEmailContentExecution(): ?DefenderProtectionType {
@@ -1629,7 +1630,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderEmailContentExecutionType property value. Value indicating if execution of executable content (exe, dll, ps, js, vbs, etc) should be dropped from email (webmail/mail-client). Possible values are: userDefined, block, auditMode, warn, disable.
+     * Gets the defenderEmailContentExecutionType property value. Possible values of Defender Attack Surface Reduction Rules
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderEmailContentExecutionType(): ?DefenderAttackSurfaceType {
@@ -1701,7 +1702,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderGuardMyFoldersType property value. Value indicating the behavior of protected folders. Possible values are: userDefined, enable, auditMode, blockDiskModification, auditDiskModification.
+     * Gets the defenderGuardMyFoldersType property value. Possible values of Folder Protection
      * @return FolderProtectionType|null
     */
     public function getDefenderGuardMyFoldersType(): ?FolderProtectionType {
@@ -1709,7 +1710,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderNetworkProtectionType property value. Value indicating the behavior of NetworkProtection. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderNetworkProtectionType property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderNetworkProtectionType(): ?DefenderProtectionType {
@@ -1717,7 +1718,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderOfficeAppsExecutableContentCreationOrLaunch property value. Value indicating the behavior of Office applications/macros creating or launching executable content. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderOfficeAppsExecutableContentCreationOrLaunch property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderOfficeAppsExecutableContentCreationOrLaunch(): ?DefenderProtectionType {
@@ -1725,7 +1726,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderOfficeAppsExecutableContentCreationOrLaunchType property value. Value indicating the behavior of Office applications/macros creating or launching executable content. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Gets the defenderOfficeAppsExecutableContentCreationOrLaunchType property value. Possible values of Defender Attack Surface Reduction Rules
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderOfficeAppsExecutableContentCreationOrLaunchType(): ?DefenderAttackSurfaceType {
@@ -1733,7 +1734,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderOfficeAppsLaunchChildProcess property value. Value indicating the behavior of Office application launching child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderOfficeAppsLaunchChildProcess property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderOfficeAppsLaunchChildProcess(): ?DefenderProtectionType {
@@ -1741,7 +1742,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderOfficeAppsLaunchChildProcessType property value. Value indicating the behavior of Office application launching child processes. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Gets the defenderOfficeAppsLaunchChildProcessType property value. Possible values of Defender Attack Surface Reduction Rules
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderOfficeAppsLaunchChildProcessType(): ?DefenderAttackSurfaceType {
@@ -1749,7 +1750,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderOfficeAppsOtherProcessInjection property value. Value indicating the behavior of  Office applications injecting into other processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderOfficeAppsOtherProcessInjection property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderOfficeAppsOtherProcessInjection(): ?DefenderProtectionType {
@@ -1757,7 +1758,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderOfficeAppsOtherProcessInjectionType property value. Value indicating the behavior of Office applications injecting into other processes. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Gets the defenderOfficeAppsOtherProcessInjectionType property value. Possible values of Defender Attack Surface Reduction Rules
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderOfficeAppsOtherProcessInjectionType(): ?DefenderAttackSurfaceType {
@@ -1765,7 +1766,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderOfficeCommunicationAppsLaunchChildProcess property value. Value indicating the behavior of Office communication applications, including Microsoft Outlook, from creating child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderOfficeCommunicationAppsLaunchChildProcess property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderOfficeCommunicationAppsLaunchChildProcess(): ?DefenderProtectionType {
@@ -1773,7 +1774,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderOfficeMacroCodeAllowWin32Imports property value. Value indicating the behavior of Win32 imports from Macro code in Office. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderOfficeMacroCodeAllowWin32Imports property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderOfficeMacroCodeAllowWin32Imports(): ?DefenderProtectionType {
@@ -1781,7 +1782,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderOfficeMacroCodeAllowWin32ImportsType property value. Value indicating the behavior of Win32 imports from Macro code in Office. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Gets the defenderOfficeMacroCodeAllowWin32ImportsType property value. Possible values of Defender Attack Surface Reduction Rules
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderOfficeMacroCodeAllowWin32ImportsType(): ?DefenderAttackSurfaceType {
@@ -1797,7 +1798,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderPreventCredentialStealingType property value. Value indicating if credential stealing from the Windows local security authority subsystem is permitted. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderPreventCredentialStealingType property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderPreventCredentialStealingType(): ?DefenderProtectionType {
@@ -1805,7 +1806,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderProcessCreation property value. Value indicating response to process creations originating from PSExec and WMI commands. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderProcessCreation property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderProcessCreation(): ?DefenderProtectionType {
@@ -1813,7 +1814,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderProcessCreationType property value. Value indicating response to process creations originating from PSExec and WMI commands. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Gets the defenderProcessCreationType property value. Possible values of Defender Attack Surface Reduction Rules
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderProcessCreationType(): ?DefenderAttackSurfaceType {
@@ -1877,7 +1878,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderScriptDownloadedPayloadExecution property value. Value indicating the behavior of js/vbs executing payload downloaded from Internet. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderScriptDownloadedPayloadExecution property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderScriptDownloadedPayloadExecution(): ?DefenderProtectionType {
@@ -1885,7 +1886,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderScriptDownloadedPayloadExecutionType property value. Value indicating the behavior of js/vbs executing payload downloaded from Internet. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Gets the defenderScriptDownloadedPayloadExecutionType property value. Possible values of Defender Attack Surface Reduction Rules
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderScriptDownloadedPayloadExecutionType(): ?DefenderAttackSurfaceType {
@@ -1893,7 +1894,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderScriptObfuscatedMacroCode property value. Value indicating the behavior of obfuscated js/vbs/ps/macro code. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderScriptObfuscatedMacroCode property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderScriptObfuscatedMacroCode(): ?DefenderProtectionType {
@@ -1901,7 +1902,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderScriptObfuscatedMacroCodeType property value. Value indicating the behavior of obfuscated js/vbs/ps/macro code. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Gets the defenderScriptObfuscatedMacroCodeType property value. Possible values of Defender Attack Surface Reduction Rules
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderScriptObfuscatedMacroCodeType(): ?DefenderAttackSurfaceType {
@@ -2045,7 +2046,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderSecurityCenterITContactDisplay property value. Configure where to display IT contact information to end users. Possible values are: notConfigured, displayInAppAndInNotifications, displayOnlyInApp, displayOnlyInNotifications.
+     * Gets the defenderSecurityCenterITContactDisplay property value. Possible values for defenderSecurityCenterITContactDisplay
      * @return DefenderSecurityCenterITContactDisplayType|null
     */
     public function getDefenderSecurityCenterITContactDisplay(): ?DefenderSecurityCenterITContactDisplayType {
@@ -2053,7 +2054,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderSecurityCenterNotificationsFromApp property value. Notifications to show from the displayed areas of app. Possible values are: notConfigured, blockNoncriticalNotifications, blockAllNotifications.
+     * Gets the defenderSecurityCenterNotificationsFromApp property value. Possible values for defenderSecurityCenterNotificationsFromApp
      * @return DefenderSecurityCenterNotificationsFromAppType|null
     */
     public function getDefenderSecurityCenterNotificationsFromApp(): ?DefenderSecurityCenterNotificationsFromAppType {
@@ -2085,7 +2086,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderUntrustedExecutable property value. Value indicating response to executables that don't meet a prevalence, age, or trusted list criteria. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderUntrustedExecutable property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderUntrustedExecutable(): ?DefenderProtectionType {
@@ -2093,7 +2094,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderUntrustedExecutableType property value. Value indicating response to executables that don't meet a prevalence, age, or trusted list criteria. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Gets the defenderUntrustedExecutableType property value. Possible values of Defender Attack Surface Reduction Rules
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderUntrustedExecutableType(): ?DefenderAttackSurfaceType {
@@ -2101,7 +2102,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderUntrustedUSBProcess property value. Value indicating response to untrusted and unsigned processes that run from USB. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Gets the defenderUntrustedUSBProcess property value. Possible values of Defender PUA Protection
      * @return DefenderProtectionType|null
     */
     public function getDefenderUntrustedUSBProcess(): ?DefenderProtectionType {
@@ -2109,7 +2110,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the defenderUntrustedUSBProcessType property value. Value indicating response to untrusted and unsigned processes that run from USB. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Gets the defenderUntrustedUSBProcessType property value. Possible values of Defender Attack Surface Reduction Rules
      * @return DefenderAttackSurfaceType|null
     */
     public function getDefenderUntrustedUSBProcessType(): ?DefenderAttackSurfaceType {
@@ -2133,7 +2134,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the deviceGuardLaunchSystemGuard property value. Allows the IT admin to configure the launch of System Guard. Possible values are: notConfigured, enabled, disabled.
+     * Gets the deviceGuardLaunchSystemGuard property value. Possible values of a property
      * @return Enablement|null
     */
     public function getDeviceGuardLaunchSystemGuard(): ?Enablement {
@@ -2141,7 +2142,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the deviceGuardLocalSystemAuthorityCredentialGuardSettings property value. Turn on Credential Guard when Platform Security Level with Secure Boot and Virtualization Based Security are both enabled. Possible values are: notConfigured, enableWithUEFILock, enableWithoutUEFILock, disable.
+     * Gets the deviceGuardLocalSystemAuthorityCredentialGuardSettings property value. Possible values of Credential Guard settings.
      * @return DeviceGuardLocalSystemAuthorityCredentialGuardType|null
     */
     public function getDeviceGuardLocalSystemAuthorityCredentialGuardSettings(): ?DeviceGuardLocalSystemAuthorityCredentialGuardType {
@@ -2149,7 +2150,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the deviceGuardSecureBootWithDMA property value. Specifies whether Platform Security Level is enabled at next reboot. Possible values are: notConfigured, withoutDMA, withDMA.
+     * Gets the deviceGuardSecureBootWithDMA property value. Possible values of Secure Boot with DMA
      * @return SecureBootWithDMAType|null
     */
     public function getDeviceGuardSecureBootWithDMA(): ?SecureBootWithDMAType {
@@ -2157,7 +2158,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the dmaGuardDeviceEnumerationPolicy property value. This policy is intended to provide additional security against external DMA capable devices. It allows for more control over the enumeration of external DMA capable devices incompatible with DMA Remapping/device memory isolation and sandboxing. This policy only takes effect when Kernel DMA Protection is supported and enabled by the system firmware. Kernel DMA Protection is a platform feature that cannot be controlled via policy or by end user. It has to be supported by the system at the time of manufacturing. To check if the system supports Kernel DMA Protection, please check the Kernel DMA Protection field in the Summary page of MSINFO32.exe. Possible values are: deviceDefault, blockAll, allowAll.
+     * Gets the dmaGuardDeviceEnumerationPolicy property value. Possible values of the DmaGuardDeviceEnumerationPolicy.
      * @return DmaGuardDeviceEnumerationPolicyType|null
     */
     public function getDmaGuardDeviceEnumerationPolicy(): ?DmaGuardDeviceEnumerationPolicyType {
@@ -2409,7 +2410,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the firewallCertificateRevocationListCheckMethod property value. Specify how the certificate revocation list is to be enforced. Possible values are: deviceDefault, none, attempt, require.
+     * Gets the firewallCertificateRevocationListCheckMethod property value. Possible values for firewallCertificateRevocationListCheckMethod
      * @return FirewallCertificateRevocationListCheckMethodType|null
     */
     public function getFirewallCertificateRevocationListCheckMethod(): ?FirewallCertificateRevocationListCheckMethodType {
@@ -2473,7 +2474,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the firewallPacketQueueingMethod property value. Configures how packet queueing should be applied in the tunnel gateway scenario. Possible values are: deviceDefault, disabled, queueInbound, queueOutbound, queueBoth.
+     * Gets the firewallPacketQueueingMethod property value. Possible values for firewallPacketQueueingMethod
      * @return FirewallPacketQueueingMethodType|null
     */
     public function getFirewallPacketQueueingMethod(): ?FirewallPacketQueueingMethodType {
@@ -2481,7 +2482,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the firewallPreSharedKeyEncodingMethod property value. Select the preshared key encoding to be used. Possible values are: deviceDefault, none, utF8.
+     * Gets the firewallPreSharedKeyEncodingMethod property value. Possible values for firewallPreSharedKeyEncodingMethod
      * @return FirewallPreSharedKeyEncodingMethodType|null
     */
     public function getFirewallPreSharedKeyEncodingMethod(): ?FirewallPreSharedKeyEncodingMethodType {
@@ -2521,7 +2522,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the lanManagerAuthenticationLevel property value. This security setting determines which challenge/response authentication protocol is used for network logons. Possible values are: lmAndNltm, lmNtlmAndNtlmV2, lmAndNtlmOnly, lmAndNtlmV2, lmNtlmV2AndNotLm, lmNtlmV2AndNotLmOrNtm.
+     * Gets the lanManagerAuthenticationLevel property value. Possible values for LanManagerAuthenticationLevel
      * @return LanManagerAuthenticationLevel|null
     */
     public function getLanManagerAuthenticationLevel(): ?LanManagerAuthenticationLevel {
@@ -2545,7 +2546,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the localSecurityOptionsAdministratorElevationPromptBehavior property value. Define the behavior of the elevation prompt for admins in Admin Approval Mode. Possible values are: notConfigured, elevateWithoutPrompting, promptForCredentialsOnTheSecureDesktop, promptForConsentOnTheSecureDesktop, promptForCredentials, promptForConsent, promptForConsentForNonWindowsBinaries.
+     * Gets the localSecurityOptionsAdministratorElevationPromptBehavior property value. Possible values for LocalSecurityOptionsAdministratorElevationPromptBehavior
      * @return LocalSecurityOptionsAdministratorElevationPromptBehaviorType|null
     */
     public function getLocalSecurityOptionsAdministratorElevationPromptBehavior(): ?LocalSecurityOptionsAdministratorElevationPromptBehaviorType {
@@ -2745,7 +2746,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property value. Define who is allowed to format and eject removable NTFS media. Possible values are: notConfigured, administrators, administratorsAndPowerUsers, administratorsAndInteractiveUsers.
+     * Gets the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property value. Possible values for LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser
      * @return LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType|null
     */
     public function getLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser(): ?LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType {
@@ -2777,7 +2778,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the localSecurityOptionsInformationDisplayedOnLockScreen property value. Configure the user information that is displayed when the session is locked. If not configured, user display name, domain and username are shown. Possible values are: notConfigured, administrators, administratorsAndPowerUsers, administratorsAndInteractiveUsers.
+     * Gets the localSecurityOptionsInformationDisplayedOnLockScreen property value. Possible values for LocalSecurityOptionsInformationDisplayedOnLockScreen
      * @return LocalSecurityOptionsInformationDisplayedOnLockScreenType|null
     */
     public function getLocalSecurityOptionsInformationDisplayedOnLockScreen(): ?LocalSecurityOptionsInformationDisplayedOnLockScreenType {
@@ -2785,7 +2786,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the localSecurityOptionsInformationShownOnLockScreen property value. Configure the user information that is displayed when the session is locked. If not configured, user display name, domain and username are shown. Possible values are: notConfigured, userDisplayNameDomainUser, userDisplayNameOnly, doNotDisplayUser.
+     * Gets the localSecurityOptionsInformationShownOnLockScreen property value. Possible values for LocalSecurityOptionsInformationShownOnLockScreenType
      * @return LocalSecurityOptionsInformationShownOnLockScreenType|null
     */
     public function getLocalSecurityOptionsInformationShownOnLockScreen(): ?LocalSecurityOptionsInformationShownOnLockScreenType {
@@ -2825,7 +2826,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients property value. This security setting allows a client to require the negotiation of 128-bit encryption and/or NTLMv2 session security. Possible values are: none, requireNtmlV2SessionSecurity, require128BitEncryption, ntlmV2And128BitEncryption.
+     * Gets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients property value. Possible values for LocalSecurityOptionsMinimumSessionSecurity
      * @return LocalSecurityOptionsMinimumSessionSecurity|null
     */
     public function getLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients(): ?LocalSecurityOptionsMinimumSessionSecurity {
@@ -2833,7 +2834,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers property value. This security setting allows a server to require the negotiation of 128-bit encryption and/or NTLMv2 session security. Possible values are: none, requireNtmlV2SessionSecurity, require128BitEncryption, ntlmV2And128BitEncryption.
+     * Gets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers property value. Possible values for LocalSecurityOptionsMinimumSessionSecurity
      * @return LocalSecurityOptionsMinimumSessionSecurity|null
     */
     public function getLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers(): ?LocalSecurityOptionsMinimumSessionSecurity {
@@ -2857,7 +2858,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the localSecurityOptionsSmartCardRemovalBehavior property value. This security setting determines what happens when the smart card for a logged-on user is removed from the smart card reader. Possible values are: noAction, lockWorkstation, forceLogoff, disconnectRemoteDesktopSession.
+     * Gets the localSecurityOptionsSmartCardRemovalBehavior property value. Possible values for LocalSecurityOptionsSmartCardRemovalBehaviorType
      * @return LocalSecurityOptionsSmartCardRemovalBehaviorType|null
     */
     public function getLocalSecurityOptionsSmartCardRemovalBehavior(): ?LocalSecurityOptionsSmartCardRemovalBehaviorType {
@@ -2865,7 +2866,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the localSecurityOptionsStandardUserElevationPromptBehavior property value. Define the behavior of the elevation prompt for standard users. Possible values are: notConfigured, automaticallyDenyElevationRequests, promptForCredentialsOnTheSecureDesktop, promptForCredentials.
+     * Gets the localSecurityOptionsStandardUserElevationPromptBehavior property value. Possible values for LocalSecurityOptionsStandardUserElevationPromptBehavior
      * @return LocalSecurityOptionsStandardUserElevationPromptBehaviorType|null
     */
     public function getLocalSecurityOptionsStandardUserElevationPromptBehavior(): ?LocalSecurityOptionsStandardUserElevationPromptBehaviorType {
@@ -3153,7 +3154,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the windowsDefenderTamperProtection property value. Configure windows defender TamperProtection settings. Possible values are: notConfigured, enable, disable.
+     * Gets the windowsDefenderTamperProtection property value. Defender TamperProtection setting options
      * @return WindowsDefenderTamperProtectionOptions|null
     */
     public function getWindowsDefenderTamperProtection(): ?WindowsDefenderTamperProtectionOptions {
@@ -3161,7 +3162,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the xboxServicesAccessoryManagementServiceStartupMode property value. This setting determines whether the Accessory management service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * Gets the xboxServicesAccessoryManagementServiceStartupMode property value. Possible values of xbox service start type
      * @return ServiceStartType|null
     */
     public function getXboxServicesAccessoryManagementServiceStartupMode(): ?ServiceStartType {
@@ -3177,7 +3178,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the xboxServicesLiveAuthManagerServiceStartupMode property value. This setting determines whether Live Auth Manager service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * Gets the xboxServicesLiveAuthManagerServiceStartupMode property value. Possible values of xbox service start type
      * @return ServiceStartType|null
     */
     public function getXboxServicesLiveAuthManagerServiceStartupMode(): ?ServiceStartType {
@@ -3185,7 +3186,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the xboxServicesLiveGameSaveServiceStartupMode property value. This setting determines whether Live Game save service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * Gets the xboxServicesLiveGameSaveServiceStartupMode property value. Possible values of xbox service start type
      * @return ServiceStartType|null
     */
     public function getXboxServicesLiveGameSaveServiceStartupMode(): ?ServiceStartType {
@@ -3193,7 +3194,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Gets the xboxServicesLiveNetworkingServiceStartupMode property value. This setting determines whether Networking service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * Gets the xboxServicesLiveNetworkingServiceStartupMode property value. Possible values of xbox service start type
      * @return ServiceStartType|null
     */
     public function getXboxServicesLiveNetworkingServiceStartupMode(): ?ServiceStartType {
@@ -3499,7 +3500,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the applicationGuardBlockClipboardSharing property value. Block clipboard to share data from Host to Container, or from Container to Host, or both ways, or neither ways. Possible values are: notConfigured, blockBoth, blockHostToContainer, blockContainerToHost, blockNone.
+     * Sets the applicationGuardBlockClipboardSharing property value. Possible values for applicationGuardBlockClipboardSharingType
      *  @param ApplicationGuardBlockClipboardSharingType|null $value Value to set for the applicationGuardBlockClipboardSharing property.
     */
     public function setApplicationGuardBlockClipboardSharing(?ApplicationGuardBlockClipboardSharingType $value ): void {
@@ -3507,7 +3508,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the applicationGuardBlockFileTransfer property value. Block clipboard to transfer image file, text file or neither of them. Possible values are: notConfigured, blockImageAndTextFile, blockImageFile, blockNone, blockTextFile.
+     * Sets the applicationGuardBlockFileTransfer property value. Possible values for applicationGuardBlockFileTransfer
      *  @param ApplicationGuardBlockFileTransferType|null $value Value to set for the applicationGuardBlockFileTransfer property.
     */
     public function setApplicationGuardBlockFileTransfer(?ApplicationGuardBlockFileTransferType $value ): void {
@@ -3539,7 +3540,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the applicationGuardEnabledOptions property value. Enable Windows Defender Application Guard for newer Windows builds. Possible values are: notConfigured, enabledForEdge, enabledForOffice, enabledForEdgeAndOffice.
+     * Sets the applicationGuardEnabledOptions property value. Possible values for ApplicationGuardEnabledOptions
      *  @param ApplicationGuardEnabledOptions|null $value Value to set for the applicationGuardEnabledOptions property.
     */
     public function setApplicationGuardEnabledOptions(?ApplicationGuardEnabledOptions $value ): void {
@@ -3555,7 +3556,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the appLockerApplicationControl property value. Enables the Admin to choose what types of app to allow on devices. Possible values are: notConfigured, enforceComponentsAndStoreApps, auditComponentsAndStoreApps, enforceComponentsStoreAppsAndSmartlocker, auditComponentsStoreAppsAndSmartlocker.
+     * Sets the appLockerApplicationControl property value. Possible values of AppLocker Application Control Types
      *  @param AppLockerApplicationControlType|null $value Value to set for the appLockerApplicationControl property.
     */
     public function setAppLockerApplicationControl(?AppLockerApplicationControlType $value ): void {
@@ -3603,7 +3604,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the bitLockerRecoveryPasswordRotation property value. This setting initiates a client-driven recovery password rotation after an OS drive recovery (either by using bootmgr or WinRE). Possible values are: notConfigured, disabled, enabledForAzureAd, enabledForAzureAdAndHybrid.
+     * Sets the bitLockerRecoveryPasswordRotation property value. BitLocker recovery password rotation type
      *  @param BitLockerRecoveryPasswordRotationType|null $value Value to set for the bitLockerRecoveryPasswordRotation property.
     */
     public function setBitLockerRecoveryPasswordRotation(?BitLockerRecoveryPasswordRotationType $value ): void {
@@ -3635,7 +3636,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderAdobeReaderLaunchChildProcess property value. Value indicating the behavior of Adobe Reader from creating child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderAdobeReaderLaunchChildProcess property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderAdobeReaderLaunchChildProcess property.
     */
     public function setDefenderAdobeReaderLaunchChildProcess(?DefenderProtectionType $value ): void {
@@ -3643,7 +3644,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderAdvancedRansomewareProtectionType property value. Value indicating use of advanced protection against ransomeware. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderAdvancedRansomewareProtectionType property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderAdvancedRansomewareProtectionType property.
     */
     public function setDefenderAdvancedRansomewareProtectionType(?DefenderProtectionType $value ): void {
@@ -3755,7 +3756,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderBlockPersistenceThroughWmiType property value. Value indicating the behavior of Block persistence through WMI event subscription. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Sets the defenderBlockPersistenceThroughWmiType property value. Possible values of Defender Attack Surface Reduction Rules
      *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderBlockPersistenceThroughWmiType property.
     */
     public function setDefenderBlockPersistenceThroughWmiType(?DefenderAttackSurfaceType $value ): void {
@@ -3899,7 +3900,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderEmailContentExecution property value. Value indicating if execution of executable content (exe, dll, ps, js, vbs, etc) should be dropped from email (webmail/mail-client). Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderEmailContentExecution property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderEmailContentExecution property.
     */
     public function setDefenderEmailContentExecution(?DefenderProtectionType $value ): void {
@@ -3907,7 +3908,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderEmailContentExecutionType property value. Value indicating if execution of executable content (exe, dll, ps, js, vbs, etc) should be dropped from email (webmail/mail-client). Possible values are: userDefined, block, auditMode, warn, disable.
+     * Sets the defenderEmailContentExecutionType property value. Possible values of Defender Attack Surface Reduction Rules
      *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderEmailContentExecutionType property.
     */
     public function setDefenderEmailContentExecutionType(?DefenderAttackSurfaceType $value ): void {
@@ -3979,7 +3980,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderGuardMyFoldersType property value. Value indicating the behavior of protected folders. Possible values are: userDefined, enable, auditMode, blockDiskModification, auditDiskModification.
+     * Sets the defenderGuardMyFoldersType property value. Possible values of Folder Protection
      *  @param FolderProtectionType|null $value Value to set for the defenderGuardMyFoldersType property.
     */
     public function setDefenderGuardMyFoldersType(?FolderProtectionType $value ): void {
@@ -3987,7 +3988,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderNetworkProtectionType property value. Value indicating the behavior of NetworkProtection. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderNetworkProtectionType property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderNetworkProtectionType property.
     */
     public function setDefenderNetworkProtectionType(?DefenderProtectionType $value ): void {
@@ -3995,7 +3996,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderOfficeAppsExecutableContentCreationOrLaunch property value. Value indicating the behavior of Office applications/macros creating or launching executable content. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderOfficeAppsExecutableContentCreationOrLaunch property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderOfficeAppsExecutableContentCreationOrLaunch property.
     */
     public function setDefenderOfficeAppsExecutableContentCreationOrLaunch(?DefenderProtectionType $value ): void {
@@ -4003,7 +4004,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderOfficeAppsExecutableContentCreationOrLaunchType property value. Value indicating the behavior of Office applications/macros creating or launching executable content. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Sets the defenderOfficeAppsExecutableContentCreationOrLaunchType property value. Possible values of Defender Attack Surface Reduction Rules
      *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeAppsExecutableContentCreationOrLaunchType property.
     */
     public function setDefenderOfficeAppsExecutableContentCreationOrLaunchType(?DefenderAttackSurfaceType $value ): void {
@@ -4011,7 +4012,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderOfficeAppsLaunchChildProcess property value. Value indicating the behavior of Office application launching child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderOfficeAppsLaunchChildProcess property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderOfficeAppsLaunchChildProcess property.
     */
     public function setDefenderOfficeAppsLaunchChildProcess(?DefenderProtectionType $value ): void {
@@ -4019,7 +4020,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderOfficeAppsLaunchChildProcessType property value. Value indicating the behavior of Office application launching child processes. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Sets the defenderOfficeAppsLaunchChildProcessType property value. Possible values of Defender Attack Surface Reduction Rules
      *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeAppsLaunchChildProcessType property.
     */
     public function setDefenderOfficeAppsLaunchChildProcessType(?DefenderAttackSurfaceType $value ): void {
@@ -4027,7 +4028,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderOfficeAppsOtherProcessInjection property value. Value indicating the behavior of  Office applications injecting into other processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderOfficeAppsOtherProcessInjection property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderOfficeAppsOtherProcessInjection property.
     */
     public function setDefenderOfficeAppsOtherProcessInjection(?DefenderProtectionType $value ): void {
@@ -4035,7 +4036,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderOfficeAppsOtherProcessInjectionType property value. Value indicating the behavior of Office applications injecting into other processes. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Sets the defenderOfficeAppsOtherProcessInjectionType property value. Possible values of Defender Attack Surface Reduction Rules
      *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeAppsOtherProcessInjectionType property.
     */
     public function setDefenderOfficeAppsOtherProcessInjectionType(?DefenderAttackSurfaceType $value ): void {
@@ -4043,7 +4044,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderOfficeCommunicationAppsLaunchChildProcess property value. Value indicating the behavior of Office communication applications, including Microsoft Outlook, from creating child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderOfficeCommunicationAppsLaunchChildProcess property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderOfficeCommunicationAppsLaunchChildProcess property.
     */
     public function setDefenderOfficeCommunicationAppsLaunchChildProcess(?DefenderProtectionType $value ): void {
@@ -4051,7 +4052,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderOfficeMacroCodeAllowWin32Imports property value. Value indicating the behavior of Win32 imports from Macro code in Office. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderOfficeMacroCodeAllowWin32Imports property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderOfficeMacroCodeAllowWin32Imports property.
     */
     public function setDefenderOfficeMacroCodeAllowWin32Imports(?DefenderProtectionType $value ): void {
@@ -4059,7 +4060,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderOfficeMacroCodeAllowWin32ImportsType property value. Value indicating the behavior of Win32 imports from Macro code in Office. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Sets the defenderOfficeMacroCodeAllowWin32ImportsType property value. Possible values of Defender Attack Surface Reduction Rules
      *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderOfficeMacroCodeAllowWin32ImportsType property.
     */
     public function setDefenderOfficeMacroCodeAllowWin32ImportsType(?DefenderAttackSurfaceType $value ): void {
@@ -4075,7 +4076,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderPreventCredentialStealingType property value. Value indicating if credential stealing from the Windows local security authority subsystem is permitted. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderPreventCredentialStealingType property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderPreventCredentialStealingType property.
     */
     public function setDefenderPreventCredentialStealingType(?DefenderProtectionType $value ): void {
@@ -4083,7 +4084,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderProcessCreation property value. Value indicating response to process creations originating from PSExec and WMI commands. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderProcessCreation property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderProcessCreation property.
     */
     public function setDefenderProcessCreation(?DefenderProtectionType $value ): void {
@@ -4091,7 +4092,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderProcessCreationType property value. Value indicating response to process creations originating from PSExec and WMI commands. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Sets the defenderProcessCreationType property value. Possible values of Defender Attack Surface Reduction Rules
      *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderProcessCreationType property.
     */
     public function setDefenderProcessCreationType(?DefenderAttackSurfaceType $value ): void {
@@ -4155,7 +4156,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderScriptDownloadedPayloadExecution property value. Value indicating the behavior of js/vbs executing payload downloaded from Internet. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderScriptDownloadedPayloadExecution property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderScriptDownloadedPayloadExecution property.
     */
     public function setDefenderScriptDownloadedPayloadExecution(?DefenderProtectionType $value ): void {
@@ -4163,7 +4164,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderScriptDownloadedPayloadExecutionType property value. Value indicating the behavior of js/vbs executing payload downloaded from Internet. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Sets the defenderScriptDownloadedPayloadExecutionType property value. Possible values of Defender Attack Surface Reduction Rules
      *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderScriptDownloadedPayloadExecutionType property.
     */
     public function setDefenderScriptDownloadedPayloadExecutionType(?DefenderAttackSurfaceType $value ): void {
@@ -4171,7 +4172,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderScriptObfuscatedMacroCode property value. Value indicating the behavior of obfuscated js/vbs/ps/macro code. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderScriptObfuscatedMacroCode property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderScriptObfuscatedMacroCode property.
     */
     public function setDefenderScriptObfuscatedMacroCode(?DefenderProtectionType $value ): void {
@@ -4179,7 +4180,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderScriptObfuscatedMacroCodeType property value. Value indicating the behavior of obfuscated js/vbs/ps/macro code. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Sets the defenderScriptObfuscatedMacroCodeType property value. Possible values of Defender Attack Surface Reduction Rules
      *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderScriptObfuscatedMacroCodeType property.
     */
     public function setDefenderScriptObfuscatedMacroCodeType(?DefenderAttackSurfaceType $value ): void {
@@ -4323,7 +4324,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderSecurityCenterITContactDisplay property value. Configure where to display IT contact information to end users. Possible values are: notConfigured, displayInAppAndInNotifications, displayOnlyInApp, displayOnlyInNotifications.
+     * Sets the defenderSecurityCenterITContactDisplay property value. Possible values for defenderSecurityCenterITContactDisplay
      *  @param DefenderSecurityCenterITContactDisplayType|null $value Value to set for the defenderSecurityCenterITContactDisplay property.
     */
     public function setDefenderSecurityCenterITContactDisplay(?DefenderSecurityCenterITContactDisplayType $value ): void {
@@ -4331,7 +4332,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderSecurityCenterNotificationsFromApp property value. Notifications to show from the displayed areas of app. Possible values are: notConfigured, blockNoncriticalNotifications, blockAllNotifications.
+     * Sets the defenderSecurityCenterNotificationsFromApp property value. Possible values for defenderSecurityCenterNotificationsFromApp
      *  @param DefenderSecurityCenterNotificationsFromAppType|null $value Value to set for the defenderSecurityCenterNotificationsFromApp property.
     */
     public function setDefenderSecurityCenterNotificationsFromApp(?DefenderSecurityCenterNotificationsFromAppType $value ): void {
@@ -4363,7 +4364,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderUntrustedExecutable property value. Value indicating response to executables that don't meet a prevalence, age, or trusted list criteria. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderUntrustedExecutable property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderUntrustedExecutable property.
     */
     public function setDefenderUntrustedExecutable(?DefenderProtectionType $value ): void {
@@ -4371,7 +4372,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderUntrustedExecutableType property value. Value indicating response to executables that don't meet a prevalence, age, or trusted list criteria. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Sets the defenderUntrustedExecutableType property value. Possible values of Defender Attack Surface Reduction Rules
      *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderUntrustedExecutableType property.
     */
     public function setDefenderUntrustedExecutableType(?DefenderAttackSurfaceType $value ): void {
@@ -4379,7 +4380,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderUntrustedUSBProcess property value. Value indicating response to untrusted and unsigned processes that run from USB. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
+     * Sets the defenderUntrustedUSBProcess property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderUntrustedUSBProcess property.
     */
     public function setDefenderUntrustedUSBProcess(?DefenderProtectionType $value ): void {
@@ -4387,7 +4388,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the defenderUntrustedUSBProcessType property value. Value indicating response to untrusted and unsigned processes that run from USB. Possible values are: userDefined, block, auditMode, warn, disable.
+     * Sets the defenderUntrustedUSBProcessType property value. Possible values of Defender Attack Surface Reduction Rules
      *  @param DefenderAttackSurfaceType|null $value Value to set for the defenderUntrustedUSBProcessType property.
     */
     public function setDefenderUntrustedUSBProcessType(?DefenderAttackSurfaceType $value ): void {
@@ -4411,7 +4412,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the deviceGuardLaunchSystemGuard property value. Allows the IT admin to configure the launch of System Guard. Possible values are: notConfigured, enabled, disabled.
+     * Sets the deviceGuardLaunchSystemGuard property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the deviceGuardLaunchSystemGuard property.
     */
     public function setDeviceGuardLaunchSystemGuard(?Enablement $value ): void {
@@ -4419,7 +4420,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the deviceGuardLocalSystemAuthorityCredentialGuardSettings property value. Turn on Credential Guard when Platform Security Level with Secure Boot and Virtualization Based Security are both enabled. Possible values are: notConfigured, enableWithUEFILock, enableWithoutUEFILock, disable.
+     * Sets the deviceGuardLocalSystemAuthorityCredentialGuardSettings property value. Possible values of Credential Guard settings.
      *  @param DeviceGuardLocalSystemAuthorityCredentialGuardType|null $value Value to set for the deviceGuardLocalSystemAuthorityCredentialGuardSettings property.
     */
     public function setDeviceGuardLocalSystemAuthorityCredentialGuardSettings(?DeviceGuardLocalSystemAuthorityCredentialGuardType $value ): void {
@@ -4427,7 +4428,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the deviceGuardSecureBootWithDMA property value. Specifies whether Platform Security Level is enabled at next reboot. Possible values are: notConfigured, withoutDMA, withDMA.
+     * Sets the deviceGuardSecureBootWithDMA property value. Possible values of Secure Boot with DMA
      *  @param SecureBootWithDMAType|null $value Value to set for the deviceGuardSecureBootWithDMA property.
     */
     public function setDeviceGuardSecureBootWithDMA(?SecureBootWithDMAType $value ): void {
@@ -4435,7 +4436,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the dmaGuardDeviceEnumerationPolicy property value. This policy is intended to provide additional security against external DMA capable devices. It allows for more control over the enumeration of external DMA capable devices incompatible with DMA Remapping/device memory isolation and sandboxing. This policy only takes effect when Kernel DMA Protection is supported and enabled by the system firmware. Kernel DMA Protection is a platform feature that cannot be controlled via policy or by end user. It has to be supported by the system at the time of manufacturing. To check if the system supports Kernel DMA Protection, please check the Kernel DMA Protection field in the Summary page of MSINFO32.exe. Possible values are: deviceDefault, blockAll, allowAll.
+     * Sets the dmaGuardDeviceEnumerationPolicy property value. Possible values of the DmaGuardDeviceEnumerationPolicy.
      *  @param DmaGuardDeviceEnumerationPolicyType|null $value Value to set for the dmaGuardDeviceEnumerationPolicy property.
     */
     public function setDmaGuardDeviceEnumerationPolicy(?DmaGuardDeviceEnumerationPolicyType $value ): void {
@@ -4451,7 +4452,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the firewallCertificateRevocationListCheckMethod property value. Specify how the certificate revocation list is to be enforced. Possible values are: deviceDefault, none, attempt, require.
+     * Sets the firewallCertificateRevocationListCheckMethod property value. Possible values for firewallCertificateRevocationListCheckMethod
      *  @param FirewallCertificateRevocationListCheckMethodType|null $value Value to set for the firewallCertificateRevocationListCheckMethod property.
     */
     public function setFirewallCertificateRevocationListCheckMethod(?FirewallCertificateRevocationListCheckMethodType $value ): void {
@@ -4515,7 +4516,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the firewallPacketQueueingMethod property value. Configures how packet queueing should be applied in the tunnel gateway scenario. Possible values are: deviceDefault, disabled, queueInbound, queueOutbound, queueBoth.
+     * Sets the firewallPacketQueueingMethod property value. Possible values for firewallPacketQueueingMethod
      *  @param FirewallPacketQueueingMethodType|null $value Value to set for the firewallPacketQueueingMethod property.
     */
     public function setFirewallPacketQueueingMethod(?FirewallPacketQueueingMethodType $value ): void {
@@ -4523,7 +4524,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the firewallPreSharedKeyEncodingMethod property value. Select the preshared key encoding to be used. Possible values are: deviceDefault, none, utF8.
+     * Sets the firewallPreSharedKeyEncodingMethod property value. Possible values for firewallPreSharedKeyEncodingMethod
      *  @param FirewallPreSharedKeyEncodingMethodType|null $value Value to set for the firewallPreSharedKeyEncodingMethod property.
     */
     public function setFirewallPreSharedKeyEncodingMethod(?FirewallPreSharedKeyEncodingMethodType $value ): void {
@@ -4563,7 +4564,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the lanManagerAuthenticationLevel property value. This security setting determines which challenge/response authentication protocol is used for network logons. Possible values are: lmAndNltm, lmNtlmAndNtlmV2, lmAndNtlmOnly, lmAndNtlmV2, lmNtlmV2AndNotLm, lmNtlmV2AndNotLmOrNtm.
+     * Sets the lanManagerAuthenticationLevel property value. Possible values for LanManagerAuthenticationLevel
      *  @param LanManagerAuthenticationLevel|null $value Value to set for the lanManagerAuthenticationLevel property.
     */
     public function setLanManagerAuthenticationLevel(?LanManagerAuthenticationLevel $value ): void {
@@ -4587,7 +4588,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the localSecurityOptionsAdministratorElevationPromptBehavior property value. Define the behavior of the elevation prompt for admins in Admin Approval Mode. Possible values are: notConfigured, elevateWithoutPrompting, promptForCredentialsOnTheSecureDesktop, promptForConsentOnTheSecureDesktop, promptForCredentials, promptForConsent, promptForConsentForNonWindowsBinaries.
+     * Sets the localSecurityOptionsAdministratorElevationPromptBehavior property value. Possible values for LocalSecurityOptionsAdministratorElevationPromptBehavior
      *  @param LocalSecurityOptionsAdministratorElevationPromptBehaviorType|null $value Value to set for the localSecurityOptionsAdministratorElevationPromptBehavior property.
     */
     public function setLocalSecurityOptionsAdministratorElevationPromptBehavior(?LocalSecurityOptionsAdministratorElevationPromptBehaviorType $value ): void {
@@ -4787,7 +4788,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property value. Define who is allowed to format and eject removable NTFS media. Possible values are: notConfigured, administrators, administratorsAndPowerUsers, administratorsAndInteractiveUsers.
+     * Sets the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property value. Possible values for LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser
      *  @param LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType|null $value Value to set for the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser property.
     */
     public function setLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser(?LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType $value ): void {
@@ -4819,7 +4820,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the localSecurityOptionsInformationDisplayedOnLockScreen property value. Configure the user information that is displayed when the session is locked. If not configured, user display name, domain and username are shown. Possible values are: notConfigured, administrators, administratorsAndPowerUsers, administratorsAndInteractiveUsers.
+     * Sets the localSecurityOptionsInformationDisplayedOnLockScreen property value. Possible values for LocalSecurityOptionsInformationDisplayedOnLockScreen
      *  @param LocalSecurityOptionsInformationDisplayedOnLockScreenType|null $value Value to set for the localSecurityOptionsInformationDisplayedOnLockScreen property.
     */
     public function setLocalSecurityOptionsInformationDisplayedOnLockScreen(?LocalSecurityOptionsInformationDisplayedOnLockScreenType $value ): void {
@@ -4827,7 +4828,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the localSecurityOptionsInformationShownOnLockScreen property value. Configure the user information that is displayed when the session is locked. If not configured, user display name, domain and username are shown. Possible values are: notConfigured, userDisplayNameDomainUser, userDisplayNameOnly, doNotDisplayUser.
+     * Sets the localSecurityOptionsInformationShownOnLockScreen property value. Possible values for LocalSecurityOptionsInformationShownOnLockScreenType
      *  @param LocalSecurityOptionsInformationShownOnLockScreenType|null $value Value to set for the localSecurityOptionsInformationShownOnLockScreen property.
     */
     public function setLocalSecurityOptionsInformationShownOnLockScreen(?LocalSecurityOptionsInformationShownOnLockScreenType $value ): void {
@@ -4867,7 +4868,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients property value. This security setting allows a client to require the negotiation of 128-bit encryption and/or NTLMv2 session security. Possible values are: none, requireNtmlV2SessionSecurity, require128BitEncryption, ntlmV2And128BitEncryption.
+     * Sets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients property value. Possible values for LocalSecurityOptionsMinimumSessionSecurity
      *  @param LocalSecurityOptionsMinimumSessionSecurity|null $value Value to set for the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients property.
     */
     public function setLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients(?LocalSecurityOptionsMinimumSessionSecurity $value ): void {
@@ -4875,7 +4876,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers property value. This security setting allows a server to require the negotiation of 128-bit encryption and/or NTLMv2 session security. Possible values are: none, requireNtmlV2SessionSecurity, require128BitEncryption, ntlmV2And128BitEncryption.
+     * Sets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers property value. Possible values for LocalSecurityOptionsMinimumSessionSecurity
      *  @param LocalSecurityOptionsMinimumSessionSecurity|null $value Value to set for the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers property.
     */
     public function setLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers(?LocalSecurityOptionsMinimumSessionSecurity $value ): void {
@@ -4899,7 +4900,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the localSecurityOptionsSmartCardRemovalBehavior property value. This security setting determines what happens when the smart card for a logged-on user is removed from the smart card reader. Possible values are: noAction, lockWorkstation, forceLogoff, disconnectRemoteDesktopSession.
+     * Sets the localSecurityOptionsSmartCardRemovalBehavior property value. Possible values for LocalSecurityOptionsSmartCardRemovalBehaviorType
      *  @param LocalSecurityOptionsSmartCardRemovalBehaviorType|null $value Value to set for the localSecurityOptionsSmartCardRemovalBehavior property.
     */
     public function setLocalSecurityOptionsSmartCardRemovalBehavior(?LocalSecurityOptionsSmartCardRemovalBehaviorType $value ): void {
@@ -4907,7 +4908,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the localSecurityOptionsStandardUserElevationPromptBehavior property value. Define the behavior of the elevation prompt for standard users. Possible values are: notConfigured, automaticallyDenyElevationRequests, promptForCredentialsOnTheSecureDesktop, promptForCredentials.
+     * Sets the localSecurityOptionsStandardUserElevationPromptBehavior property value. Possible values for LocalSecurityOptionsStandardUserElevationPromptBehavior
      *  @param LocalSecurityOptionsStandardUserElevationPromptBehaviorType|null $value Value to set for the localSecurityOptionsStandardUserElevationPromptBehavior property.
     */
     public function setLocalSecurityOptionsStandardUserElevationPromptBehavior(?LocalSecurityOptionsStandardUserElevationPromptBehaviorType $value ): void {
@@ -5195,7 +5196,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the windowsDefenderTamperProtection property value. Configure windows defender TamperProtection settings. Possible values are: notConfigured, enable, disable.
+     * Sets the windowsDefenderTamperProtection property value. Defender TamperProtection setting options
      *  @param WindowsDefenderTamperProtectionOptions|null $value Value to set for the windowsDefenderTamperProtection property.
     */
     public function setWindowsDefenderTamperProtection(?WindowsDefenderTamperProtectionOptions $value ): void {
@@ -5203,7 +5204,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the xboxServicesAccessoryManagementServiceStartupMode property value. This setting determines whether the Accessory management service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * Sets the xboxServicesAccessoryManagementServiceStartupMode property value. Possible values of xbox service start type
      *  @param ServiceStartType|null $value Value to set for the xboxServicesAccessoryManagementServiceStartupMode property.
     */
     public function setXboxServicesAccessoryManagementServiceStartupMode(?ServiceStartType $value ): void {
@@ -5219,7 +5220,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the xboxServicesLiveAuthManagerServiceStartupMode property value. This setting determines whether Live Auth Manager service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * Sets the xboxServicesLiveAuthManagerServiceStartupMode property value. Possible values of xbox service start type
      *  @param ServiceStartType|null $value Value to set for the xboxServicesLiveAuthManagerServiceStartupMode property.
     */
     public function setXboxServicesLiveAuthManagerServiceStartupMode(?ServiceStartType $value ): void {
@@ -5227,7 +5228,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the xboxServicesLiveGameSaveServiceStartupMode property value. This setting determines whether Live Game save service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * Sets the xboxServicesLiveGameSaveServiceStartupMode property value. Possible values of xbox service start type
      *  @param ServiceStartType|null $value Value to set for the xboxServicesLiveGameSaveServiceStartupMode property.
     */
     public function setXboxServicesLiveGameSaveServiceStartupMode(?ServiceStartType $value ): void {
@@ -5235,7 +5236,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration imple
     }
 
     /**
-     * Sets the xboxServicesLiveNetworkingServiceStartupMode property value. This setting determines whether Networking service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
+     * Sets the xboxServicesLiveNetworkingServiceStartupMode property value. Possible values of xbox service start type
      *  @param ServiceStartType|null $value Value to set for the xboxServicesLiveNetworkingServiceStartupMode property.
     */
     public function setXboxServicesLiveNetworkingServiceStartupMode(?ServiceStartType $value ): void {

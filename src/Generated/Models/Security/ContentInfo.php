@@ -10,24 +10,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ContentInfo implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var string|null $contentFormat The contentFormat property
+     * @var string|null $contentFormat The format of the content to be labeled. Possible values are: file, email.
     */
     private ?string $contentFormat = null;
     
     /**
-     * @var string|null $identifier The identifier property
+     * @var string|null $identifier Identifier used for Azure Information Protection Analytics.
     */
     private ?string $identifier = null;
     
     /**
-     * @var array<KeyValuePair>|null $metadata The metadata property
+     * @var array<KeyValuePair>|null $metadata Existing Microsoft Purview Information Protection metadata is passed as key-value pairs, where the key is the MSIP_Label_GUID_PropName.
     */
     private ?array $metadata = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var ContentState|null $state The state property
@@ -38,7 +43,8 @@ class ContentInfo implements AdditionalDataHolder, Parsable
      * Instantiates a new contentInfo and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.security.contentInfo');
     }
 
     /**
@@ -59,7 +65,7 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the contentFormat property value. The contentFormat property
+     * Gets the contentFormat property value. The format of the content to be labeled. Possible values are: file, email.
      * @return string|null
     */
     public function getContentFormat(): ?string {
@@ -76,12 +82,13 @@ class ContentInfo implements AdditionalDataHolder, Parsable
             'contentFormat' => function (ParseNode $n) use ($o) { $o->setContentFormat($n->getStringValue()); },
             'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
             'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ContentState::class)); },
         ];
     }
 
     /**
-     * Gets the identifier property value. The identifier property
+     * Gets the identifier property value. Identifier used for Azure Information Protection Analytics.
      * @return string|null
     */
     public function getIdentifier(): ?string {
@@ -89,11 +96,19 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the metadata property value. The metadata property
+     * Gets the metadata property value. Existing Microsoft Purview Information Protection metadata is passed as key-value pairs, where the key is the MSIP_Label_GUID_PropName.
      * @return array<KeyValuePair>|null
     */
     public function getMetadata(): ?array {
         return $this->metadata;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -112,6 +127,7 @@ class ContentInfo implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('contentFormat', $this->contentFormat);
         $writer->writeStringValue('identifier', $this->identifier);
         $writer->writeCollectionOfObjectValues('metadata', $this->metadata);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -125,7 +141,7 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the contentFormat property value. The contentFormat property
+     * Sets the contentFormat property value. The format of the content to be labeled. Possible values are: file, email.
      *  @param string|null $value Value to set for the contentFormat property.
     */
     public function setContentFormat(?string $value ): void {
@@ -133,7 +149,7 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the identifier property value. The identifier property
+     * Sets the identifier property value. Identifier used for Azure Information Protection Analytics.
      *  @param string|null $value Value to set for the identifier property.
     */
     public function setIdentifier(?string $value ): void {
@@ -141,11 +157,19 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the metadata property value. The metadata property
+     * Sets the metadata property value. Existing Microsoft Purview Information Protection metadata is passed as key-value pairs, where the key is the MSIP_Label_GUID_PropName.
      *  @param array<KeyValuePair>|null $value Value to set for the metadata property.
     */
     public function setMetadata(?array $value ): void {
         $this->metadata = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

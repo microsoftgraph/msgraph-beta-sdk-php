@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppManagementConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class AppManagementConfiguration implements AdditionalDataHolder, Parsable
      * @var array<KeyCredentialConfiguration>|null $keyCredentials Collection of keyCredential restrictions settings to be applied to an application or service principal.
     */
     private ?array $keyCredentials = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<PasswordCredentialConfiguration>|null $passwordCredentials Collection of password restrictions settings to be applied to an application or service principal.
@@ -28,7 +33,8 @@ class AppManagementConfiguration implements AdditionalDataHolder, Parsable
      * Instantiates a new appManagementConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.appManagementConfiguration');
     }
 
     /**
@@ -56,6 +62,7 @@ class AppManagementConfiguration implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'keyCredentials' => function (ParseNode $n) use ($o) { $o->setKeyCredentials($n->getCollectionOfObjectValues(array(KeyCredentialConfiguration::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'passwordCredentials' => function (ParseNode $n) use ($o) { $o->setPasswordCredentials($n->getCollectionOfObjectValues(array(PasswordCredentialConfiguration::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -66,6 +73,14 @@ class AppManagementConfiguration implements AdditionalDataHolder, Parsable
     */
     public function getKeyCredentials(): ?array {
         return $this->keyCredentials;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class AppManagementConfiguration implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('keyCredentials', $this->keyCredentials);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('passwordCredentials', $this->passwordCredentials);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class AppManagementConfiguration implements AdditionalDataHolder, Parsable
     */
     public function setKeyCredentials(?array $value ): void {
         $this->keyCredentials = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

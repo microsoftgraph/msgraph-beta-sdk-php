@@ -10,14 +10,24 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var string|null $id Key for the Android FOTA Assignment entity
+     * @var string|null $displayName The display name of the Azure AD security group used for the assignment.
+    */
+    private ?string $displayName = null;
+    
+    /**
+     * @var string|null $id A unique identifier assigned to each Android FOTA Assignment entity
     */
     private ?string $id = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var AndroidFotaDeploymentAssignmentTarget|null $target The AAD Group we are deploying firmware updates to
@@ -28,7 +38,8 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable
      * Instantiates a new androidFotaDeploymentAssignment and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.androidFotaDeploymentAssignment');
     }
 
     /**
@@ -49,23 +60,41 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the displayName property value. The display name of the Azure AD security group used for the assignment.
+     * @return string|null
+    */
+    public function getDisplayName(): ?string {
+        return $this->displayName;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(AndroidFotaDeploymentAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
     /**
-     * Gets the id property value. Key for the Android FOTA Assignment entity
+     * Gets the id property value. A unique identifier assigned to each Android FOTA Assignment entity
      * @return string|null
     */
     public function getId(): ?string {
         return $this->id;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -81,7 +110,9 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('id', $this->id);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('target', $this->target);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -95,11 +126,27 @@ class AndroidFotaDeploymentAssignment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the id property value. Key for the Android FOTA Assignment entity
+     * Sets the displayName property value. The display name of the Azure AD security group used for the assignment.
+     *  @param string|null $value Value to set for the displayName property.
+    */
+    public function setDisplayName(?string $value ): void {
+        $this->displayName = $value;
+    }
+
+    /**
+     * Sets the id property value. A unique identifier assigned to each Android FOTA Assignment entity
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {
         $this->id = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

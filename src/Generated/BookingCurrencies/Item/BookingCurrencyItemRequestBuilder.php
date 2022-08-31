@@ -65,7 +65,7 @@ class BookingCurrencyItemRequestBuilder
     }
 
     /**
-     * Get entity from bookingCurrencies by key
+     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the **id** property, which is the currency code, to specify the currency.
      * @param BookingCurrencyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -132,7 +132,7 @@ class BookingCurrencyItemRequestBuilder
     }
 
     /**
-     * Get entity from bookingCurrencies by key
+     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the **id** property, which is the currency code, to specify the currency.
      * @param BookingCurrencyItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

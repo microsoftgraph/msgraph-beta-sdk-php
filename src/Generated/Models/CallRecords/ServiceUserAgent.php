@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ServiceUserAgent extends UserAgent implements Parsable 
 {
     /**
-     * @var ServiceRole|null $role Identifies the role of the service used by this endpoint. Possible values are: unknown, customBot, skypeForBusinessMicrosoftTeamsGateway, skypeForBusinessAudioVideoMcu, skypeForBusinessApplicationSharingMcu, skypeForBusinessCallQueues, skypeForBusinessAutoAttendant, mediationServer, mediationServerCloudConnectorEdition, exchangeUnifiedMessagingService, mediaController, conferencingAnnouncementService, conferencingAttendant, audioTeleconferencerController, skypeForBusinessUnifiedCommunicationApplicationPlatform, responseGroupServiceAnnouncementService, gateway, skypeTranslator, skypeForBusinessAttendant, responseGroupService, voicemail, unknownFutureValue.
+     * @var ServiceRole|null $role The role property
     */
     private ?ServiceRole $role = null;
     
@@ -18,6 +18,7 @@ class ServiceUserAgent extends UserAgent implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.callRecords.serviceUserAgent');
     }
 
     /**
@@ -41,7 +42,7 @@ class ServiceUserAgent extends UserAgent implements Parsable
     }
 
     /**
-     * Gets the role property value. Identifies the role of the service used by this endpoint. Possible values are: unknown, customBot, skypeForBusinessMicrosoftTeamsGateway, skypeForBusinessAudioVideoMcu, skypeForBusinessApplicationSharingMcu, skypeForBusinessCallQueues, skypeForBusinessAutoAttendant, mediationServer, mediationServerCloudConnectorEdition, exchangeUnifiedMessagingService, mediaController, conferencingAnnouncementService, conferencingAttendant, audioTeleconferencerController, skypeForBusinessUnifiedCommunicationApplicationPlatform, responseGroupServiceAnnouncementService, gateway, skypeTranslator, skypeForBusinessAttendant, responseGroupService, voicemail, unknownFutureValue.
+     * Gets the role property value. The role property
      * @return ServiceRole|null
     */
     public function getRole(): ?ServiceRole {
@@ -58,7 +59,7 @@ class ServiceUserAgent extends UserAgent implements Parsable
     }
 
     /**
-     * Sets the role property value. Identifies the role of the service used by this endpoint. Possible values are: unknown, customBot, skypeForBusinessMicrosoftTeamsGateway, skypeForBusinessAudioVideoMcu, skypeForBusinessApplicationSharingMcu, skypeForBusinessCallQueues, skypeForBusinessAutoAttendant, mediationServer, mediationServerCloudConnectorEdition, exchangeUnifiedMessagingService, mediaController, conferencingAnnouncementService, conferencingAttendant, audioTeleconferencerController, skypeForBusinessUnifiedCommunicationApplicationPlatform, responseGroupServiceAnnouncementService, gateway, skypeTranslator, skypeForBusinessAttendant, responseGroupService, voicemail, unknownFutureValue.
+     * Sets the role property value. The role property
      *  @param ServiceRole|null $value Value to set for the role property.
     */
     public function setRole(?ServiceRole $value ): void {

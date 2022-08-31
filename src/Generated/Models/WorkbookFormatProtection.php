@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkbookFormatProtection extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $formulaHidden Indicates if Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting.
+     * @var bool|null $formulaHidden The formulaHidden property
     */
     private ?bool $formulaHidden = null;
     
     /**
-     * @var bool|null $locked Indicates if Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting.
+     * @var bool|null $locked The locked property
     */
     private ?bool $locked = null;
     
@@ -23,6 +23,7 @@ class WorkbookFormatProtection extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.workbookFormatProtection');
     }
 
     /**
@@ -47,7 +48,7 @@ class WorkbookFormatProtection extends Entity implements Parsable
     }
 
     /**
-     * Gets the formulaHidden property value. Indicates if Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting.
+     * Gets the formulaHidden property value. The formulaHidden property
      * @return bool|null
     */
     public function getFormulaHidden(): ?bool {
@@ -55,7 +56,7 @@ class WorkbookFormatProtection extends Entity implements Parsable
     }
 
     /**
-     * Gets the locked property value. Indicates if Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting.
+     * Gets the locked property value. The locked property
      * @return bool|null
     */
     public function getLocked(): ?bool {
@@ -73,7 +74,7 @@ class WorkbookFormatProtection extends Entity implements Parsable
     }
 
     /**
-     * Sets the formulaHidden property value. Indicates if Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting.
+     * Sets the formulaHidden property value. The formulaHidden property
      *  @param bool|null $value Value to set for the formulaHidden property.
     */
     public function setFormulaHidden(?bool $value ): void {
@@ -81,7 +82,7 @@ class WorkbookFormatProtection extends Entity implements Parsable
     }
 
     /**
-     * Sets the locked property value. Indicates if Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting.
+     * Sets the locked property value. The locked property
      *  @param bool|null $value Value to set for the locked property.
     */
     public function setLocked(?bool $value ): void {

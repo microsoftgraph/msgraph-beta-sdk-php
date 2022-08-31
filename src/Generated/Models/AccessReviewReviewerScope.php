@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewReviewerScope extends AccessReviewScope implements Parsable 
 {
     /**
-     * @var string|null $query The query specifying who will be the reviewer. See table for examples.
+     * @var string|null $query The query specifying who will be the reviewer.
     */
     private ?string $query = null;
     
@@ -28,6 +28,7 @@ class AccessReviewReviewerScope extends AccessReviewScope implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.accessReviewReviewerScope');
     }
 
     /**
@@ -53,7 +54,7 @@ class AccessReviewReviewerScope extends AccessReviewScope implements Parsable
     }
 
     /**
-     * Gets the query property value. The query specifying who will be the reviewer. See table for examples.
+     * Gets the query property value. The query specifying who will be the reviewer.
      * @return string|null
     */
     public function getQuery(): ?string {
@@ -88,7 +89,7 @@ class AccessReviewReviewerScope extends AccessReviewScope implements Parsable
     }
 
     /**
-     * Sets the query property value. The query specifying who will be the reviewer. See table for examples.
+     * Sets the query property value. The query specifying who will be the reviewer.
      *  @param string|null $value Value to set for the query property.
     */
     public function setQuery(?string $value ): void {

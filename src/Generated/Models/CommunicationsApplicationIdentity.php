@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CommunicationsApplicationIdentity extends Identity implements Parsable 
 {
     /**
-     * @var string|null $applicationType The applicationType property
+     * @var string|null $applicationType First party Microsoft application presenting this identity.
     */
     private ?string $applicationType = null;
     
     /**
-     * @var bool|null $hidden The hidden property
+     * @var bool|null $hidden True if the participant would not like to be shown in other participants' rosters.
     */
     private ?bool $hidden = null;
     
@@ -23,6 +23,7 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.communicationsApplicationIdentity');
     }
 
     /**
@@ -35,7 +36,7 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
     }
 
     /**
-     * Gets the applicationType property value. The applicationType property
+     * Gets the applicationType property value. First party Microsoft application presenting this identity.
      * @return string|null
     */
     public function getApplicationType(): ?string {
@@ -55,7 +56,7 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
     }
 
     /**
-     * Gets the hidden property value. The hidden property
+     * Gets the hidden property value. True if the participant would not like to be shown in other participants' rosters.
      * @return bool|null
     */
     public function getHidden(): ?bool {
@@ -73,7 +74,7 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
     }
 
     /**
-     * Sets the applicationType property value. The applicationType property
+     * Sets the applicationType property value. First party Microsoft application presenting this identity.
      *  @param string|null $value Value to set for the applicationType property.
     */
     public function setApplicationType(?string $value ): void {
@@ -81,7 +82,7 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
     }
 
     /**
-     * Sets the hidden property value. The hidden property
+     * Sets the hidden property value. True if the participant would not like to be shown in other participants' rosters.
      *  @param bool|null $value Value to set for the hidden property.
     */
     public function setHidden(?bool $value ): void {

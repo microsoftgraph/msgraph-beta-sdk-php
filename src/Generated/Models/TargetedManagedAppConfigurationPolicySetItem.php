@@ -13,6 +13,7 @@ class TargetedManagedAppConfigurationPolicySetItem extends PolicySetItem impleme
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.targetedManagedAppConfigurationPolicySetItem');
     }
 
     /**

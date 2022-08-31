@@ -13,6 +13,8 @@ use Microsoft\Graph\Beta\Generated\Teamwork\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\Devices\Item\TeamworkDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\SendActivityNotificationToRecipients\SendActivityNotificationToRecipientsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamsAppSettings\TeamsAppSettingsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\TeamTemplateItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\TeamTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations\Item\WorkforceIntegrationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\WorkforceIntegrations\WorkforceIntegrationsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -61,6 +63,13 @@ class TeamworkRequestBuilder
     */
     public function teamsAppSettings(): TeamsAppSettingsRequestBuilder {
         return new TeamsAppSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The teamTemplates property
+    */
+    public function teamTemplates(): TeamTemplatesRequestBuilder {
+        return new TeamTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -193,6 +202,17 @@ class TeamworkRequestBuilder
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.teamwork.teamTemplates.item collection
+     * @param string $id Unique identifier of the item
+     * @return TeamTemplateItemRequestBuilder
+    */
+    public function teamTemplatesById(string $id): TeamTemplateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['teamTemplate%2Did'] = $id;
+        return new TeamTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

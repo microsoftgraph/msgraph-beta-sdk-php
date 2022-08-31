@@ -40,7 +40,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
     private ?int $totalUpdateCount = null;
     
     /**
-     * @var MacOSSoftwareUpdateCategory|null $updateCategory Software update type. Possible values are: critical, configurationDataFile, firmware, other.
+     * @var MacOSSoftwareUpdateCategory|null $updateCategory MacOS Software Update Category
     */
     private ?MacOSSoftwareUpdateCategory $updateCategory = null;
     
@@ -59,6 +59,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.macOSSoftwareUpdateCategorySummary');
     }
 
     /**
@@ -138,7 +139,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
     }
 
     /**
-     * Gets the updateCategory property value. Software update type. Possible values are: critical, configurationDataFile, firmware, other.
+     * Gets the updateCategory property value. MacOS Software Update Category
      * @return MacOSSoftwareUpdateCategory|null
     */
     public function getUpdateCategory(): ?MacOSSoftwareUpdateCategory {
@@ -227,7 +228,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
     }
 
     /**
-     * Sets the updateCategory property value. Software update type. Possible values are: critical, configurationDataFile, firmware, other.
+     * Sets the updateCategory property value. MacOS Software Update Category
      *  @param MacOSSoftwareUpdateCategory|null $value Value to set for the updateCategory property.
     */
     public function setUpdateCategory(?MacOSSoftwareUpdateCategory $value ): void {

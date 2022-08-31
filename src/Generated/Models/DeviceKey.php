@@ -11,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
 class DeviceKey implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -31,10 +31,16 @@ class DeviceKey implements AdditionalDataHolder, Parsable
     private ?string $keyType = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new deviceKey and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceKey');
     }
 
     /**
@@ -72,6 +78,7 @@ class DeviceKey implements AdditionalDataHolder, Parsable
             'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
             'keyMaterial' => function (ParseNode $n) use ($o) { $o->setKeyMaterial($n->getBinaryContent()); },
             'keyType' => function (ParseNode $n) use ($o) { $o->setKeyType($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -92,6 +99,14 @@ class DeviceKey implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -99,6 +114,7 @@ class DeviceKey implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('deviceId', $this->deviceId);
         $writer->writeBinaryContent('keyMaterial', $this->keyMaterial);
         $writer->writeStringValue('keyType', $this->keyType);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -132,6 +148,14 @@ class DeviceKey implements AdditionalDataHolder, Parsable
     */
     public function setKeyType(?string $value ): void {
         $this->keyType = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

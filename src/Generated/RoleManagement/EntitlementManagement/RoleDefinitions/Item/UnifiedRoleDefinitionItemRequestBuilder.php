@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\UnifiedRoleDefinition;
+use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleDefinitions\Item\AssignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeId\AssignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\EntitlementManagement\RoleDefinitions\Item\InheritsPermissionsFrom\InheritsPermissionsFromRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -41,6 +42,14 @@ class UnifiedRoleDefinitionItemRequestBuilder
     private string $urlTemplate;
     
     /**
+     * Provides operations to call the assignedPrincipals method.
+     * @return AssignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeIdRequestBuilder
+    */
+    public function assignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeId(): AssignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeIdRequestBuilder {
+        return new AssignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+
+    /**
      * Instantiates a new UnifiedRoleDefinitionItemRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
@@ -73,7 +82,7 @@ class UnifiedRoleDefinitionItemRequestBuilder
     }
 
     /**
-     * Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+     * Get roleDefinitions from roleManagement
      * @param UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -140,7 +149,7 @@ class UnifiedRoleDefinitionItemRequestBuilder
     }
 
     /**
-     * Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+     * Get roleDefinitions from roleManagement
      * @param UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

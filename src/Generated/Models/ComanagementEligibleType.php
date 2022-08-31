@@ -10,4 +10,5 @@ class ComanagementEligibleType extends Enum {
     public const ELIGIBLE_BUT_NOT_AZURE_AD_JOINED = 'eligibleButNotAzureAdJoined';
     public const NEEDS_OS_UPDATE = 'needsOsUpdate';
     public const INELIGIBLE = 'ineligible';
+    public const SCHEDULED_FOR_ENROLLMENT = 'scheduledForEnrollment';
 }

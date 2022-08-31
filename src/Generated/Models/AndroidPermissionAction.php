@@ -10,14 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidPermissionAction implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var AndroidPermissionActionType|null $action Type of Android permission action. Possible values are: prompt, autoGrant, autoDeny.
+     * @var AndroidPermissionActionType|null $action Android action taken when an app requests a dangerous permission.
     */
     private ?AndroidPermissionActionType $action = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $permission Android permission string, defined in the official Android documentation.  Example 'android.permission.READ_CONTACTS'.
@@ -28,7 +33,8 @@ class AndroidPermissionAction implements AdditionalDataHolder, Parsable
      * Instantiates a new androidPermissionAction and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.androidPermissionAction');
     }
 
     /**
@@ -41,7 +47,7 @@ class AndroidPermissionAction implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the action property value. Type of Android permission action. Possible values are: prompt, autoGrant, autoDeny.
+     * Gets the action property value. Android action taken when an app requests a dangerous permission.
      * @return AndroidPermissionActionType|null
     */
     public function getAction(): ?AndroidPermissionActionType {
@@ -64,8 +70,17 @@ class AndroidPermissionAction implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(AndroidPermissionActionType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'permission' => function (ParseNode $n) use ($o) { $o->setPermission($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,12 +97,13 @@ class AndroidPermissionAction implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('action', $this->action);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('permission', $this->permission);
         $writer->writeAdditionalData($this->additionalData);
     }
 
     /**
-     * Sets the action property value. Type of Android permission action. Possible values are: prompt, autoGrant, autoDeny.
+     * Sets the action property value. Android action taken when an app requests a dangerous permission.
      *  @param AndroidPermissionActionType|null $value Value to set for the action property.
     */
     public function setAction(?AndroidPermissionActionType $value ): void {
@@ -100,6 +116,14 @@ class AndroidPermissionAction implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

@@ -18,6 +18,7 @@ class MicrosoftStoreForBusinessAppAssignmentSettings extends MobileAppAssignment
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.microsoftStoreForBusinessAppAssignmentSettings');
     }
 
     /**

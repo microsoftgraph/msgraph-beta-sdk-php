@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignmentFilter implements Parsable 
 {
     /**
-     * @var AssignmentFilterPayloadType|null $payloadType PayloadType of the Assignment Filter. Possible values are: notSet, enrollmentRestrictions.
+     * @var AssignmentFilterPayloadType|null $payloadType Represents the payload type AssignmentFilter is being assigned to.
     */
     private ?AssignmentFilterPayloadType $payloadType = null;
     
@@ -18,6 +18,7 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.payloadCompatibleAssignmentFilter');
     }
 
     /**
@@ -41,7 +42,7 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
     }
 
     /**
-     * Gets the payloadType property value. PayloadType of the Assignment Filter. Possible values are: notSet, enrollmentRestrictions.
+     * Gets the payloadType property value. Represents the payload type AssignmentFilter is being assigned to.
      * @return AssignmentFilterPayloadType|null
     */
     public function getPayloadType(): ?AssignmentFilterPayloadType {
@@ -58,7 +59,7 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
     }
 
     /**
-     * Sets the payloadType property value. PayloadType of the Assignment Filter. Possible values are: notSet, enrollmentRestrictions.
+     * Sets the payloadType property value. Represents the payload type AssignmentFilter is being assigned to.
      *  @param AssignmentFilterPayloadType|null $value Value to set for the payloadType property.
     */
     public function setPayloadType(?AssignmentFilterPayloadType $value ): void {

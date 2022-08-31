@@ -10,67 +10,67 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserActivity extends Entity implements Parsable 
 {
     /**
-     * @var string|null $activationUrl Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
+     * @var string|null $activationUrl The activationUrl property
     */
     private ?string $activationUrl = null;
     
     /**
-     * @var string|null $activitySourceHost Required. URL for the domain representing the cross-platform identity mapping for the app. Mapping is stored either as a JSON file hosted on the domain or configurable via Windows Dev Center. The JSON file is named cross-platform-app-identifiers and is hosted at root of your HTTPS domain, either at the top level domain or include a sub domain. For example: https://contoso.com or https://myapp.contoso.com but NOT https://myapp.contoso.com/somepath. You must have a unique file and domain (or sub domain) per cross-platform app identity. For example, a separate file and domain is needed for Word vs. PowerPoint.
+     * @var string|null $activitySourceHost The activitySourceHost property
     */
     private ?string $activitySourceHost = null;
     
     /**
-     * @var string|null $appActivityId Required. The unique activity ID in the context of the app - supplied by caller and immutable thereafter.
+     * @var string|null $appActivityId The appActivityId property
     */
     private ?string $appActivityId = null;
     
     /**
-     * @var string|null $appDisplayName Optional. Short text description of the app used to generate the activity for use in cases when the app is not installed on the user’s local device.
+     * @var string|null $appDisplayName The appDisplayName property
     */
     private ?string $appDisplayName = null;
     
     /**
-     * @var Json|null $contentInfo Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.
+     * @var Json|null $contentInfo The contentInfo property
     */
     private ?Json $contentInfo = null;
     
     /**
-     * @var string|null $contentUrl Optional. Used in the event the content can be rendered outside of a native or web-based app experience (for example, a pointer to an item in an RSS feed).
+     * @var string|null $contentUrl The contentUrl property
     */
     private ?string $contentUrl = null;
     
     /**
-     * @var DateTime|null $createdDateTime Set by the server. DateTime in UTC when the object was created on the server.
+     * @var DateTime|null $createdDateTime The createdDateTime property
     */
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var DateTime|null $expirationDateTime Set by the server. DateTime in UTC when the object expired on the server.
+     * @var DateTime|null $expirationDateTime The expirationDateTime property
     */
     private ?DateTime $expirationDateTime = null;
     
     /**
-     * @var string|null $fallbackUrl Optional. URL used to launch the activity in a web-based app, if available.
+     * @var string|null $fallbackUrl The fallbackUrl property
     */
     private ?string $fallbackUrl = null;
     
     /**
-     * @var array<ActivityHistoryItem>|null $historyItems Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
+     * @var array<ActivityHistoryItem>|null $historyItems The historyItems property
     */
     private ?array $historyItems = null;
     
     /**
-     * @var DateTime|null $lastModifiedDateTime Set by the server. DateTime in UTC when the object was modified on the server.
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
     */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var Status|null $status Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
+     * @var Status|null $status The status property
     */
     private ?Status $status = null;
     
     /**
-     * @var string|null $userTimezone Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation.
+     * @var string|null $userTimezone The userTimezone property
     */
     private ?string $userTimezone = null;
     
@@ -80,10 +80,11 @@ class UserActivity extends Entity implements Parsable
     private ?VisualInfo $visualElements = null;
     
     /**
-     * Instantiates a new UserActivity and sets the default values.
+     * Instantiates a new userActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userActivity');
     }
 
     /**
@@ -96,7 +97,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the activationUrl property value. Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
+     * Gets the activationUrl property value. The activationUrl property
      * @return string|null
     */
     public function getActivationUrl(): ?string {
@@ -104,7 +105,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the activitySourceHost property value. Required. URL for the domain representing the cross-platform identity mapping for the app. Mapping is stored either as a JSON file hosted on the domain or configurable via Windows Dev Center. The JSON file is named cross-platform-app-identifiers and is hosted at root of your HTTPS domain, either at the top level domain or include a sub domain. For example: https://contoso.com or https://myapp.contoso.com but NOT https://myapp.contoso.com/somepath. You must have a unique file and domain (or sub domain) per cross-platform app identity. For example, a separate file and domain is needed for Word vs. PowerPoint.
+     * Gets the activitySourceHost property value. The activitySourceHost property
      * @return string|null
     */
     public function getActivitySourceHost(): ?string {
@@ -112,7 +113,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the appActivityId property value. Required. The unique activity ID in the context of the app - supplied by caller and immutable thereafter.
+     * Gets the appActivityId property value. The appActivityId property
      * @return string|null
     */
     public function getAppActivityId(): ?string {
@@ -120,7 +121,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the appDisplayName property value. Optional. Short text description of the app used to generate the activity for use in cases when the app is not installed on the user’s local device.
+     * Gets the appDisplayName property value. The appDisplayName property
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
@@ -128,7 +129,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentInfo property value. Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.
+     * Gets the contentInfo property value. The contentInfo property
      * @return Json|null
     */
     public function getContentInfo(): ?Json {
@@ -136,7 +137,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentUrl property value. Optional. Used in the event the content can be rendered outside of a native or web-based app experience (for example, a pointer to an item in an RSS feed).
+     * Gets the contentUrl property value. The contentUrl property
      * @return string|null
     */
     public function getContentUrl(): ?string {
@@ -144,7 +145,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Set by the server. DateTime in UTC when the object was created on the server.
+     * Gets the createdDateTime property value. The createdDateTime property
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -152,7 +153,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. Set by the server. DateTime in UTC when the object expired on the server.
+     * Gets the expirationDateTime property value. The expirationDateTime property
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -160,7 +161,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the fallbackUrl property value. Optional. URL used to launch the activity in a web-based app, if available.
+     * Gets the fallbackUrl property value. The fallbackUrl property
      * @return string|null
     */
     public function getFallbackUrl(): ?string {
@@ -192,7 +193,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the historyItems property value. Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
+     * Gets the historyItems property value. The historyItems property
      * @return array<ActivityHistoryItem>|null
     */
     public function getHistoryItems(): ?array {
@@ -200,7 +201,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Set by the server. DateTime in UTC when the object was modified on the server.
+     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -208,7 +209,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
+     * Gets the status property value. The status property
      * @return Status|null
     */
     public function getStatus(): ?Status {
@@ -216,7 +217,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Gets the userTimezone property value. Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation.
+     * Gets the userTimezone property value. The userTimezone property
      * @return string|null
     */
     public function getUserTimezone(): ?string {
@@ -254,7 +255,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the activationUrl property value. Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
+     * Sets the activationUrl property value. The activationUrl property
      *  @param string|null $value Value to set for the activationUrl property.
     */
     public function setActivationUrl(?string $value ): void {
@@ -262,7 +263,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the activitySourceHost property value. Required. URL for the domain representing the cross-platform identity mapping for the app. Mapping is stored either as a JSON file hosted on the domain or configurable via Windows Dev Center. The JSON file is named cross-platform-app-identifiers and is hosted at root of your HTTPS domain, either at the top level domain or include a sub domain. For example: https://contoso.com or https://myapp.contoso.com but NOT https://myapp.contoso.com/somepath. You must have a unique file and domain (or sub domain) per cross-platform app identity. For example, a separate file and domain is needed for Word vs. PowerPoint.
+     * Sets the activitySourceHost property value. The activitySourceHost property
      *  @param string|null $value Value to set for the activitySourceHost property.
     */
     public function setActivitySourceHost(?string $value ): void {
@@ -270,7 +271,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the appActivityId property value. Required. The unique activity ID in the context of the app - supplied by caller and immutable thereafter.
+     * Sets the appActivityId property value. The appActivityId property
      *  @param string|null $value Value to set for the appActivityId property.
     */
     public function setAppActivityId(?string $value ): void {
@@ -278,7 +279,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the appDisplayName property value. Optional. Short text description of the app used to generate the activity for use in cases when the app is not installed on the user’s local device.
+     * Sets the appDisplayName property value. The appDisplayName property
      *  @param string|null $value Value to set for the appDisplayName property.
     */
     public function setAppDisplayName(?string $value ): void {
@@ -286,7 +287,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentInfo property value. Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.
+     * Sets the contentInfo property value. The contentInfo property
      *  @param Json|null $value Value to set for the contentInfo property.
     */
     public function setContentInfo(?Json $value ): void {
@@ -294,7 +295,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentUrl property value. Optional. Used in the event the content can be rendered outside of a native or web-based app experience (for example, a pointer to an item in an RSS feed).
+     * Sets the contentUrl property value. The contentUrl property
      *  @param string|null $value Value to set for the contentUrl property.
     */
     public function setContentUrl(?string $value ): void {
@@ -302,7 +303,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Set by the server. DateTime in UTC when the object was created on the server.
+     * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
@@ -310,7 +311,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. Set by the server. DateTime in UTC when the object expired on the server.
+     * Sets the expirationDateTime property value. The expirationDateTime property
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value ): void {
@@ -318,7 +319,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the fallbackUrl property value. Optional. URL used to launch the activity in a web-based app, if available.
+     * Sets the fallbackUrl property value. The fallbackUrl property
      *  @param string|null $value Value to set for the fallbackUrl property.
     */
     public function setFallbackUrl(?string $value ): void {
@@ -326,7 +327,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the historyItems property value. Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
+     * Sets the historyItems property value. The historyItems property
      *  @param array<ActivityHistoryItem>|null $value Value to set for the historyItems property.
     */
     public function setHistoryItems(?array $value ): void {
@@ -334,7 +335,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Set by the server. DateTime in UTC when the object was modified on the server.
+     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
@@ -342,7 +343,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
+     * Sets the status property value. The status property
      *  @param Status|null $value Value to set for the status property.
     */
     public function setStatus(?Status $value ): void {
@@ -350,7 +351,7 @@ class UserActivity extends Entity implements Parsable
     }
 
     /**
-     * Sets the userTimezone property value. Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation.
+     * Sets the userTimezone property value. The userTimezone property
      *  @param string|null $value Value to set for the userTimezone property.
     */
     public function setUserTimezone(?string $value ): void {

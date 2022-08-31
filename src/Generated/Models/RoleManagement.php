@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RoleManagement implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,15 +30,21 @@ class RoleManagement implements AdditionalDataHolder, Parsable
     private ?RbacApplication $directory = null;
     
     /**
-     * @var RbacApplication|null $entitlementManagement Container for roles and assignments for entitlement management resources.
+     * @var RbacApplication|null $entitlementManagement The RbacApplication for Entitlement Management
     */
     private ?RbacApplication $entitlementManagement = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new RoleManagement and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.roleManagement');
     }
 
     /**
@@ -83,7 +89,7 @@ class RoleManagement implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the entitlementManagement property value. Container for roles and assignments for entitlement management resources.
+     * Gets the entitlementManagement property value. The RbacApplication for Entitlement Management
      * @return RbacApplication|null
     */
     public function getEntitlementManagement(): ?RbacApplication {
@@ -101,7 +107,16 @@ class RoleManagement implements AdditionalDataHolder, Parsable
             'deviceManagement' => function (ParseNode $n) use ($o) { $o->setDeviceManagement($n->getObjectValue(array(RbacApplicationMultiple::class, 'createFromDiscriminatorValue'))); },
             'directory' => function (ParseNode $n) use ($o) { $o->setDirectory($n->getObjectValue(array(RbacApplication::class, 'createFromDiscriminatorValue'))); },
             'entitlementManagement' => function (ParseNode $n) use ($o) { $o->setEntitlementManagement($n->getObjectValue(array(RbacApplication::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -113,6 +128,7 @@ class RoleManagement implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('deviceManagement', $this->deviceManagement);
         $writer->writeObjectValue('directory', $this->directory);
         $writer->writeObjectValue('entitlementManagement', $this->entitlementManagement);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -149,11 +165,19 @@ class RoleManagement implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the entitlementManagement property value. Container for roles and assignments for entitlement management resources.
+     * Sets the entitlementManagement property value. The RbacApplication for Entitlement Management
      *  @param RbacApplication|null $value Value to set for the entitlementManagement property.
     */
     public function setEntitlementManagement(?RbacApplication $value ): void {
         $this->entitlementManagement = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

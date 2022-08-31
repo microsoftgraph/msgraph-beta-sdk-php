@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityActionState implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -19,6 +19,11 @@ class SecurityActionState implements AdditionalDataHolder, Parsable
      * @var string|null $appId The Application ID of the calling application that submitted an update (PATCH) to the action. The appId should be extracted from the auth token and not entered manually by the calling application.
     */
     private ?string $appId = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var OperationStatus|null $status Status of the securityAction in this update. Possible values are: NotStarted, Running, Completed, Failed.
@@ -39,7 +44,8 @@ class SecurityActionState implements AdditionalDataHolder, Parsable
      * Instantiates a new securityActionState and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.securityActionState');
     }
 
     /**
@@ -75,10 +81,19 @@ class SecurityActionState implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(OperationStatus::class)); },
             'updatedDateTime' => function (ParseNode $n) use ($o) { $o->setUpdatedDateTime($n->getDateTimeValue()); },
             'user' => function (ParseNode $n) use ($o) { $o->setUser($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -111,6 +126,7 @@ class SecurityActionState implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('appId', $this->appId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeDateTimeValue('updatedDateTime', $this->updatedDateTime);
         $writer->writeStringValue('user', $this->user);
@@ -131,6 +147,14 @@ class SecurityActionState implements AdditionalDataHolder, Parsable
     */
     public function setAppId(?string $value ): void {
         $this->appId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

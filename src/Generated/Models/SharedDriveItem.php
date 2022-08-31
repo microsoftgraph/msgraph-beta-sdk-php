@@ -14,7 +14,7 @@ class SharedDriveItem extends BaseItem implements Parsable
     private ?DriveItem $driveItem = null;
     
     /**
-     * @var EscapedList|null $EscapedList Used to access the underlying list
+     * @var EscapedList|null $escapedList Used to access the underlying list
     */
     private ?EscapedList $escapedList = null;
     
@@ -39,7 +39,7 @@ class SharedDriveItem extends BaseItem implements Parsable
     private ?Permission $permission = null;
     
     /**
-     * @var DriveItem|null $root Used to access the underlying driveItem. Deprecated -- use driveItem instead.
+     * @var DriveItem|null $root The root property
     */
     private ?DriveItem $root = null;
     
@@ -53,6 +53,7 @@ class SharedDriveItem extends BaseItem implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.sharedDriveItem');
     }
 
     /**
@@ -131,7 +132,7 @@ class SharedDriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Gets the root property value. Used to access the underlying driveItem. Deprecated -- use driveItem instead.
+     * Gets the root property value. The root property
      * @return DriveItem|null
     */
     public function getRoot(): ?DriveItem {
@@ -211,7 +212,7 @@ class SharedDriveItem extends BaseItem implements Parsable
     }
 
     /**
-     * Sets the root property value. Used to access the underlying driveItem. Deprecated -- use driveItem instead.
+     * Sets the root property value. The root property
      *  @param DriveItem|null $value Value to set for the root property.
     */
     public function setRoot(?DriveItem $value ): void {

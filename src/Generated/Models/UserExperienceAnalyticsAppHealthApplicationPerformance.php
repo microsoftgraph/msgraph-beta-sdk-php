@@ -63,6 +63,7 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsAppHealthApplicationPerformance');
     }
 
     /**

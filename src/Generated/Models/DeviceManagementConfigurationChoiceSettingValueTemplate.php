@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationChoiceSettingValueTemplate implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
      * @var DeviceManagementConfigurationChoiceSettingValueDefaultTemplate|null $defaultValue Choice Setting Value Default Template.
     */
     private ?DeviceManagementConfigurationChoiceSettingValueDefaultTemplate $defaultValue = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate|null $recommendedValueDefinition Recommended definition override.
@@ -38,7 +43,8 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
      * Instantiates a new deviceManagementConfigurationChoiceSettingValueTemplate and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationChoiceSettingValueTemplate');
     }
 
     /**
@@ -74,10 +80,19 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
         $o = $this;
         return  [
             'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getObjectValue(array(DeviceManagementConfigurationChoiceSettingValueDefaultTemplate::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'recommendedValueDefinition' => function (ParseNode $n) use ($o) { $o->setRecommendedValueDefinition($n->getObjectValue(array(DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'))); },
             'requiredValueDefinition' => function (ParseNode $n) use ($o) { $o->setRequiredValueDefinition($n->getObjectValue(array(DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'))); },
             'settingValueTemplateId' => function (ParseNode $n) use ($o) { $o->setSettingValueTemplateId($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -110,6 +125,7 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('defaultValue', $this->defaultValue);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('recommendedValueDefinition', $this->recommendedValueDefinition);
         $writer->writeObjectValue('requiredValueDefinition', $this->requiredValueDefinition);
         $writer->writeStringValue('settingValueTemplateId', $this->settingValueTemplateId);
@@ -130,6 +146,14 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
     */
     public function setDefaultValue(?DeviceManagementConfigurationChoiceSettingValueDefaultTemplate $value ): void {
         $this->defaultValue = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

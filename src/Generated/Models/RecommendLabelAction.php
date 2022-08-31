@@ -14,7 +14,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     private ?array $actions = null;
     
     /**
-     * @var ActionSource|null $actionSource Possible values are: manual, automatic, recommended, default.
+     * @var ActionSource|null $actionSource The actionSource property
     */
     private ?ActionSource $actionSource = null;
     
@@ -33,6 +33,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.recommendLabelAction');
     }
 
     /**
@@ -53,7 +54,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     }
 
     /**
-     * Gets the actionSource property value. Possible values are: manual, automatic, recommended, default.
+     * Gets the actionSource property value. The actionSource property
      * @return ActionSource|null
     */
     public function getActionSource(): ?ActionSource {
@@ -111,7 +112,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     }
 
     /**
-     * Sets the actionSource property value. Possible values are: manual, automatic, recommended, default.
+     * Sets the actionSource property value. The actionSource property
      *  @param ActionSource|null $value Value to set for the actionSource property.
     */
     public function setActionSource(?ActionSource $value ): void {

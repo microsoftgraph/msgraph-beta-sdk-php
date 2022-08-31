@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\Models\Device;
 use Microsoft\Graph\Beta\Generated\Models\DeviceCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Count\CountRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Devices\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Devices\ValidateProperties\ValidatePropertiesRequestBuilder;
@@ -23,7 +24,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DevicesRequestBuilder 
 {
     /**
-     * The count property
+     * The Count property
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -123,6 +124,14 @@ class DevicesRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
+    }
+
+    /**
+     * Provides operations to call the delta method.
+     * @return DeltaRequestBuilder
+    */
+    public function delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**

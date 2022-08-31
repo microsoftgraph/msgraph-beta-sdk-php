@@ -28,6 +28,7 @@ class PlannerPlanDetails extends PlannerDelta implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.plannerPlanDetails');
     }
 
     /**

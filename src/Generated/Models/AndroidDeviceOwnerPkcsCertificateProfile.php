@@ -9,7 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertificateProfileBase implements Parsable 
 {
     /**
-     * @var CertificateStore|null $certificateStore Target store certificate. Possible values are: user, machine.
+     * @var AndroidDeviceOwnerCertificateAccessType|null $certificateAccessType Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+    */
+    private ?AndroidDeviceOwnerCertificateAccessType $certificateAccessType = null;
+    
+    /**
+     * @var CertificateStore|null $certificateStore CertificateStore types
     */
     private ?CertificateStore $certificateStore = null;
     
@@ -29,7 +34,7 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
     private ?string $certificationAuthorityName = null;
     
     /**
-     * @var DeviceManagementCertificationAuthority|null $certificationAuthorityType Certification authority type. Possible values are: notConfigured, microsoft, digiCert.
+     * @var DeviceManagementCertificationAuthority|null $certificationAuthorityType Device Management Certification Authority Types.
     */
     private ?DeviceManagementCertificationAuthority $certificationAuthorityType = null;
     
@@ -42,6 +47,11 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
      * @var array<ManagedDeviceCertificateState>|null $managedDeviceCertificateStates Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
     */
     private ?array $managedDeviceCertificateStates = null;
+    
+    /**
+     * @var array<AndroidDeviceOwnerSilentCertificateAccess>|null $silentCertificateAccessDetails Certificate access information. This collection can contain a maximum of 50 elements.
+    */
+    private ?array $silentCertificateAccessDetails = null;
     
     /**
      * @var string|null $subjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
@@ -58,6 +68,7 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerPkcsCertificateProfile');
     }
 
     /**
@@ -70,7 +81,15 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Gets the certificateStore property value. Target store certificate. Possible values are: user, machine.
+     * Gets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+     * @return AndroidDeviceOwnerCertificateAccessType|null
+    */
+    public function getCertificateAccessType(): ?AndroidDeviceOwnerCertificateAccessType {
+        return $this->certificateAccessType;
+    }
+
+    /**
+     * Gets the certificateStore property value. CertificateStore types
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
@@ -102,7 +121,7 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Gets the certificationAuthorityType property value. Certification authority type. Possible values are: notConfigured, microsoft, digiCert.
+     * Gets the certificationAuthorityType property value. Device Management Certification Authority Types.
      * @return DeviceManagementCertificationAuthority|null
     */
     public function getCertificationAuthorityType(): ?DeviceManagementCertificationAuthority {
@@ -124,6 +143,7 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'certificateAccessType' => function (ParseNode $n) use ($o) { $o->setCertificateAccessType($n->getEnumValue(AndroidDeviceOwnerCertificateAccessType::class)); },
             'certificateStore' => function (ParseNode $n) use ($o) { $o->setCertificateStore($n->getEnumValue(CertificateStore::class)); },
             'certificateTemplateName' => function (ParseNode $n) use ($o) { $o->setCertificateTemplateName($n->getStringValue()); },
             'certificationAuthority' => function (ParseNode $n) use ($o) { $o->setCertificationAuthority($n->getStringValue()); },
@@ -131,6 +151,7 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
             'certificationAuthorityType' => function (ParseNode $n) use ($o) { $o->setCertificationAuthorityType($n->getEnumValue(DeviceManagementCertificationAuthority::class)); },
             'customSubjectAlternativeNames' => function (ParseNode $n) use ($o) { $o->setCustomSubjectAlternativeNames($n->getCollectionOfObjectValues(array(CustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'))); },
             'managedDeviceCertificateStates' => function (ParseNode $n) use ($o) { $o->setManagedDeviceCertificateStates($n->getCollectionOfObjectValues(array(ManagedDeviceCertificateState::class, 'createFromDiscriminatorValue'))); },
+            'silentCertificateAccessDetails' => function (ParseNode $n) use ($o) { $o->setSilentCertificateAccessDetails($n->getCollectionOfObjectValues(array(AndroidDeviceOwnerSilentCertificateAccess::class, 'createFromDiscriminatorValue'))); },
             'subjectAlternativeNameFormatString' => function (ParseNode $n) use ($o) { $o->setSubjectAlternativeNameFormatString($n->getStringValue()); },
             'subjectNameFormatString' => function (ParseNode $n) use ($o) { $o->setSubjectNameFormatString($n->getStringValue()); },
         ]);
@@ -142,6 +163,14 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
     */
     public function getManagedDeviceCertificateStates(): ?array {
         return $this->managedDeviceCertificateStates;
+    }
+
+    /**
+     * Gets the silentCertificateAccessDetails property value. Certificate access information. This collection can contain a maximum of 50 elements.
+     * @return array<AndroidDeviceOwnerSilentCertificateAccess>|null
+    */
+    public function getSilentCertificateAccessDetails(): ?array {
+        return $this->silentCertificateAccessDetails;
     }
 
     /**
@@ -166,6 +195,7 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('certificateAccessType', $this->certificateAccessType);
         $writer->writeEnumValue('certificateStore', $this->certificateStore);
         $writer->writeStringValue('certificateTemplateName', $this->certificateTemplateName);
         $writer->writeStringValue('certificationAuthority', $this->certificationAuthority);
@@ -173,12 +203,21 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
         $writer->writeEnumValue('certificationAuthorityType', $this->certificationAuthorityType);
         $writer->writeCollectionOfObjectValues('customSubjectAlternativeNames', $this->customSubjectAlternativeNames);
         $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->managedDeviceCertificateStates);
+        $writer->writeCollectionOfObjectValues('silentCertificateAccessDetails', $this->silentCertificateAccessDetails);
         $writer->writeStringValue('subjectAlternativeNameFormatString', $this->subjectAlternativeNameFormatString);
         $writer->writeStringValue('subjectNameFormatString', $this->subjectNameFormatString);
     }
 
     /**
-     * Sets the certificateStore property value. Target store certificate. Possible values are: user, machine.
+     * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+     *  @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
+    */
+    public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value ): void {
+        $this->certificateAccessType = $value;
+    }
+
+    /**
+     * Sets the certificateStore property value. CertificateStore types
      *  @param CertificateStore|null $value Value to set for the certificateStore property.
     */
     public function setCertificateStore(?CertificateStore $value ): void {
@@ -210,7 +249,7 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Sets the certificationAuthorityType property value. Certification authority type. Possible values are: notConfigured, microsoft, digiCert.
+     * Sets the certificationAuthorityType property value. Device Management Certification Authority Types.
      *  @param DeviceManagementCertificationAuthority|null $value Value to set for the certificationAuthorityType property.
     */
     public function setCertificationAuthorityType(?DeviceManagementCertificationAuthority $value ): void {
@@ -231,6 +270,14 @@ class AndroidDeviceOwnerPkcsCertificateProfile extends AndroidDeviceOwnerCertifi
     */
     public function setManagedDeviceCertificateStates(?array $value ): void {
         $this->managedDeviceCertificateStates = $value;
+    }
+
+    /**
+     * Sets the silentCertificateAccessDetails property value. Certificate access information. This collection can contain a maximum of 50 elements.
+     *  @param array<AndroidDeviceOwnerSilentCertificateAccess>|null $value Value to set for the silentCertificateAccessDetails property.
+    */
+    public function setSilentCertificateAccessDetails(?array $value ): void {
+        $this->silentCertificateAccessDetails = $value;
     }
 
     /**

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * @var Win32LobAppDeliveryOptimizationPriority|null $deliveryOptimizationPriority The delivery optimization priority for this app assignment. This setting is not supported in National Cloud environments. Possible values are: notConfigured, foreground.
+     * @var Win32LobAppDeliveryOptimizationPriority|null $deliveryOptimizationPriority Contains value for delivery optimization priority.
     */
     private ?Win32LobAppDeliveryOptimizationPriority $deliveryOptimizationPriority = null;
     
@@ -19,7 +19,7 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     private ?MobileAppInstallTimeSettings $installTimeSettings = null;
     
     /**
-     * @var Win32LobAppNotification|null $notifications The notification status for this app assignment. Possible values are: showAll, showReboot, hideAll.
+     * @var Win32LobAppNotification|null $notifications Contains value for notification status.
     */
     private ?Win32LobAppNotification $notifications = null;
     
@@ -33,6 +33,7 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.win32LobAppAssignmentSettings');
     }
 
     /**
@@ -45,7 +46,7 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     }
 
     /**
-     * Gets the deliveryOptimizationPriority property value. The delivery optimization priority for this app assignment. This setting is not supported in National Cloud environments. Possible values are: notConfigured, foreground.
+     * Gets the deliveryOptimizationPriority property value. Contains value for delivery optimization priority.
      * @return Win32LobAppDeliveryOptimizationPriority|null
     */
     public function getDeliveryOptimizationPriority(): ?Win32LobAppDeliveryOptimizationPriority {
@@ -75,7 +76,7 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     }
 
     /**
-     * Gets the notifications property value. The notification status for this app assignment. Possible values are: showAll, showReboot, hideAll.
+     * Gets the notifications property value. Contains value for notification status.
      * @return Win32LobAppNotification|null
     */
     public function getNotifications(): ?Win32LobAppNotification {
@@ -103,7 +104,7 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     }
 
     /**
-     * Sets the deliveryOptimizationPriority property value. The delivery optimization priority for this app assignment. This setting is not supported in National Cloud environments. Possible values are: notConfigured, foreground.
+     * Sets the deliveryOptimizationPriority property value. Contains value for delivery optimization priority.
      *  @param Win32LobAppDeliveryOptimizationPriority|null $value Value to set for the deliveryOptimizationPriority property.
     */
     public function setDeliveryOptimizationPriority(?Win32LobAppDeliveryOptimizationPriority $value ): void {
@@ -119,7 +120,7 @@ class Win32LobAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     }
 
     /**
-     * Sets the notifications property value. The notification status for this app assignment. Possible values are: showAll, showReboot, hideAll.
+     * Sets the notifications property value. Contains value for notification status.
      *  @param Win32LobAppNotification|null $value Value to set for the notifications property.
     */
     public function setNotifications(?Win32LobAppNotification $value ): void {

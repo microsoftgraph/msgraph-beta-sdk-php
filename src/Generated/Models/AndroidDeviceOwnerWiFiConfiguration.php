@@ -54,7 +54,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     private ?int $proxyManualPort = null;
     
     /**
-     * @var WiFiProxySetting|null $proxySettings Specify the proxy setting for Wi-Fi configuration. Possible values include none, manual, and automatic. Possible values are: none, manual, automatic.
+     * @var WiFiProxySetting|null $proxySettings Wi-Fi Proxy Settings.
     */
     private ?WiFiProxySetting $proxySettings = null;
     
@@ -64,7 +64,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     private ?string $ssid = null;
     
     /**
-     * @var AndroidDeviceOwnerWiFiSecurityType|null $wiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wep, wpaPersonal, wpaEnterprise.
+     * @var AndroidDeviceOwnerWiFiSecurityType|null $wiFiSecurityType Wi-Fi Security Types for Android Device Owner.
     */
     private ?AndroidDeviceOwnerWiFiSecurityType $wiFiSecurityType = null;
     
@@ -73,6 +73,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerWiFiConfiguration');
     }
 
     /**
@@ -186,7 +187,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     }
 
     /**
-     * Gets the proxySettings property value. Specify the proxy setting for Wi-Fi configuration. Possible values include none, manual, and automatic. Possible values are: none, manual, automatic.
+     * Gets the proxySettings property value. Wi-Fi Proxy Settings.
      * @return WiFiProxySetting|null
     */
     public function getProxySettings(): ?WiFiProxySetting {
@@ -202,7 +203,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     }
 
     /**
-     * Gets the wiFiSecurityType property value. Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wep, wpaPersonal, wpaEnterprise.
+     * Gets the wiFiSecurityType property value. Wi-Fi Security Types for Android Device Owner.
      * @return AndroidDeviceOwnerWiFiSecurityType|null
     */
     public function getWiFiSecurityType(): ?AndroidDeviceOwnerWiFiSecurityType {
@@ -302,7 +303,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     }
 
     /**
-     * Sets the proxySettings property value. Specify the proxy setting for Wi-Fi configuration. Possible values include none, manual, and automatic. Possible values are: none, manual, automatic.
+     * Sets the proxySettings property value. Wi-Fi Proxy Settings.
      *  @param WiFiProxySetting|null $value Value to set for the proxySettings property.
     */
     public function setProxySettings(?WiFiProxySetting $value ): void {
@@ -318,7 +319,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     }
 
     /**
-     * Sets the wiFiSecurityType property value. Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wep, wpaPersonal, wpaEnterprise.
+     * Sets the wiFiSecurityType property value. Wi-Fi Security Types for Android Device Owner.
      *  @param AndroidDeviceOwnerWiFiSecurityType|null $value Value to set for the wiFiSecurityType property.
     */
     public function setWiFiSecurityType(?AndroidDeviceOwnerWiFiSecurityType $value ): void {

@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MetadataAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var array<KeyValuePair>|null $metadataToAdd The metadataToAdd property
+     * @var array<KeyValuePair>|null $metadataToAdd A collection of key-value pairs that should be added to the file.
     */
     private ?array $metadataToAdd = null;
     
     /**
-     * @var array<string>|null $metadataToRemove The metadataToRemove property
+     * @var array<string>|null $metadataToRemove A collection of strings that indicate which keys to remove from the file metadata.
     */
     private ?array $metadataToRemove = null;
     
@@ -23,6 +23,7 @@ class MetadataAction extends InformationProtectionAction implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.metadataAction');
     }
 
     /**
@@ -47,7 +48,7 @@ class MetadataAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the metadataToAdd property value. The metadataToAdd property
+     * Gets the metadataToAdd property value. A collection of key-value pairs that should be added to the file.
      * @return array<KeyValuePair>|null
     */
     public function getMetadataToAdd(): ?array {
@@ -55,7 +56,7 @@ class MetadataAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the metadataToRemove property value. The metadataToRemove property
+     * Gets the metadataToRemove property value. A collection of strings that indicate which keys to remove from the file metadata.
      * @return array<string>|null
     */
     public function getMetadataToRemove(): ?array {
@@ -73,7 +74,7 @@ class MetadataAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the metadataToAdd property value. The metadataToAdd property
+     * Sets the metadataToAdd property value. A collection of key-value pairs that should be added to the file.
      *  @param array<KeyValuePair>|null $value Value to set for the metadataToAdd property.
     */
     public function setMetadataToAdd(?array $value ): void {
@@ -81,7 +82,7 @@ class MetadataAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the metadataToRemove property value. The metadataToRemove property
+     * Sets the metadataToRemove property value. A collection of strings that indicate which keys to remove from the file metadata.
      *  @param array<string>|null $value Value to set for the metadataToRemove property.
     */
     public function setMetadataToRemove(?array $value ): void {

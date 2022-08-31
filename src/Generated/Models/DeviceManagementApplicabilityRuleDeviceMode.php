@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var Windows10DeviceModeType|null $deviceMode Applicability rule for device mode. Possible values are: standardConfiguration, sModeConfiguration.
+     * @var Windows10DeviceModeType|null $deviceMode Windows 10 Device Mode type.
     */
     private ?Windows10DeviceModeType $deviceMode = null;
     
@@ -25,7 +25,12 @@ class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolde
     private ?string $name = null;
     
     /**
-     * @var DeviceManagementApplicabilityRuleType|null $ruleType Applicability Rule type. Possible values are: include, exclude.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var DeviceManagementApplicabilityRuleType|null $ruleType Supported Applicability rule types for Device Configuration
     */
     private ?DeviceManagementApplicabilityRuleType $ruleType = null;
     
@@ -33,7 +38,8 @@ class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolde
      * Instantiates a new deviceManagementApplicabilityRuleDeviceMode and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementApplicabilityRuleDeviceMode');
     }
 
     /**
@@ -54,7 +60,7 @@ class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolde
     }
 
     /**
-     * Gets the deviceMode property value. Applicability rule for device mode. Possible values are: standardConfiguration, sModeConfiguration.
+     * Gets the deviceMode property value. Windows 10 Device Mode type.
      * @return Windows10DeviceModeType|null
     */
     public function getDeviceMode(): ?Windows10DeviceModeType {
@@ -70,6 +76,7 @@ class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolde
         return  [
             'deviceMode' => function (ParseNode $n) use ($o) { $o->setDeviceMode($n->getEnumValue(Windows10DeviceModeType::class)); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'ruleType' => function (ParseNode $n) use ($o) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
         ];
     }
@@ -83,7 +90,15 @@ class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolde
     }
 
     /**
-     * Gets the ruleType property value. Applicability Rule type. Possible values are: include, exclude.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the ruleType property value. Supported Applicability rule types for Device Configuration
      * @return DeviceManagementApplicabilityRuleType|null
     */
     public function getRuleType(): ?DeviceManagementApplicabilityRuleType {
@@ -97,6 +112,7 @@ class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolde
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('deviceMode', $this->deviceMode);
         $writer->writeStringValue('name', $this->name);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('ruleType', $this->ruleType);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -110,7 +126,7 @@ class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolde
     }
 
     /**
-     * Sets the deviceMode property value. Applicability rule for device mode. Possible values are: standardConfiguration, sModeConfiguration.
+     * Sets the deviceMode property value. Windows 10 Device Mode type.
      *  @param Windows10DeviceModeType|null $value Value to set for the deviceMode property.
     */
     public function setDeviceMode(?Windows10DeviceModeType $value ): void {
@@ -126,7 +142,15 @@ class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolde
     }
 
     /**
-     * Sets the ruleType property value. Applicability Rule type. Possible values are: include, exclude.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the ruleType property value. Supported Applicability rule types for Device Configuration
      *  @param DeviceManagementApplicabilityRuleType|null $value Value to set for the ruleType property.
     */
     public function setRuleType(?DeviceManagementApplicabilityRuleType $value ): void {

@@ -10,12 +10,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserFeedback implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var UserFeedbackRating|null $rating The rating provided by the user of this endpoint about the quality of this Session. Possible values are: notRated, bad, poor, fair, good, excellent, unknownFutureValue.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var UserFeedbackRating|null $rating The rating property
     */
     private ?UserFeedbackRating $rating = null;
     
@@ -33,7 +38,8 @@ class UserFeedback implements AdditionalDataHolder, Parsable
      * Instantiates a new userFeedback and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.callRecords.userFeedback');
     }
 
     /**
@@ -60,6 +66,7 @@ class UserFeedback implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'rating' => function (ParseNode $n) use ($o) { $o->setRating($n->getEnumValue(UserFeedbackRating::class)); },
             'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
             'tokens' => function (ParseNode $n) use ($o) { $o->setTokens($n->getObjectValue(array(FeedbackTokenSet::class, 'createFromDiscriminatorValue'))); },
@@ -67,7 +74,15 @@ class UserFeedback implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the rating property value. The rating provided by the user of this endpoint about the quality of this Session. Possible values are: notRated, bad, poor, fair, good, excellent, unknownFutureValue.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the rating property value. The rating property
      * @return UserFeedbackRating|null
     */
     public function getRating(): ?UserFeedbackRating {
@@ -95,6 +110,7 @@ class UserFeedback implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('rating', $this->rating);
         $writer->writeStringValue('text', $this->text);
         $writer->writeObjectValue('tokens', $this->tokens);
@@ -110,7 +126,15 @@ class UserFeedback implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the rating property value. The rating provided by the user of this endpoint about the quality of this Session. Possible values are: notRated, bad, poor, fair, good, excellent, unknownFutureValue.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the rating property value. The rating property
      *  @param UserFeedbackRating|null $value Value to set for the rating property.
     */
     public function setRating(?UserFeedbackRating $value ): void {

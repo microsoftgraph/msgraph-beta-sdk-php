@@ -10,52 +10,52 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SensitivityLabel extends Entity implements Parsable 
 {
     /**
-     * @var string|null $color The color property
+     * @var string|null $color The color that the UI should display for the label, if configured.
     */
     private ?string $color = null;
     
     /**
-     * @var array<string>|null $contentFormats The contentFormats property
+     * @var array<string>|null $contentFormats Returns the supported content formats for the label.
     */
     private ?array $contentFormats = null;
     
     /**
-     * @var string|null $description The description property
+     * @var string|null $description The admin-defined description for the label.
     */
     private ?string $description = null;
     
     /**
-     * @var bool|null $hasProtection The hasProtection property
+     * @var bool|null $hasProtection Indicates whether the label has protection actions configured.
     */
     private ?bool $hasProtection = null;
     
     /**
-     * @var bool|null $isActive The isActive property
+     * @var bool|null $isActive Indicates whether the label is active or not. Active labels should be hidden or disabled in the UI.
     */
     private ?bool $isActive = null;
     
     /**
-     * @var bool|null $isAppliable The isAppliable property
+     * @var bool|null $isAppliable Indicates whether the label can be applied to content. False if the label is a parent with child labels.
     */
     private ?bool $isAppliable = null;
     
     /**
-     * @var string|null $name The name property
+     * @var string|null $name The plaintext name of the label.
     */
     private ?string $name = null;
     
     /**
-     * @var SensitivityLabel|null $parent The parent property
+     * @var SensitivityLabel|null $parent The parent label associated with a child label. Null if the label has no parent.
     */
     private ?SensitivityLabel $parent = null;
     
     /**
-     * @var int|null $sensitivity The sensitivity property
+     * @var int|null $sensitivity The sensitivity value of the label, where lower is less sensitive.
     */
     private ?int $sensitivity = null;
     
     /**
-     * @var string|null $tooltip The tooltip property
+     * @var string|null $tooltip The tooltip that should be displayed for the label in a UI.
     */
     private ?string $tooltip = null;
     
@@ -64,6 +64,7 @@ class SensitivityLabel extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.sensitivityLabel');
     }
 
     /**
@@ -76,7 +77,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the color property value. The color property
+     * Gets the color property value. The color that the UI should display for the label, if configured.
      * @return string|null
     */
     public function getColor(): ?string {
@@ -84,7 +85,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the contentFormats property value. The contentFormats property
+     * Gets the contentFormats property value. Returns the supported content formats for the label.
      * @return array<string>|null
     */
     public function getContentFormats(): ?array {
@@ -92,7 +93,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The admin-defined description for the label.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -120,7 +121,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the hasProtection property value. The hasProtection property
+     * Gets the hasProtection property value. Indicates whether the label has protection actions configured.
      * @return bool|null
     */
     public function getHasProtection(): ?bool {
@@ -128,7 +129,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the isActive property value. The isActive property
+     * Gets the isActive property value. Indicates whether the label is active or not. Active labels should be hidden or disabled in the UI.
      * @return bool|null
     */
     public function getIsActive(): ?bool {
@@ -136,7 +137,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the isAppliable property value. The isAppliable property
+     * Gets the isAppliable property value. Indicates whether the label can be applied to content. False if the label is a parent with child labels.
      * @return bool|null
     */
     public function getIsAppliable(): ?bool {
@@ -144,7 +145,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The plaintext name of the label.
      * @return string|null
     */
     public function getName(): ?string {
@@ -152,7 +153,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the parent property value. The parent property
+     * Gets the parent property value. The parent label associated with a child label. Null if the label has no parent.
      * @return SensitivityLabel|null
     */
     public function getParent(): ?SensitivityLabel {
@@ -160,7 +161,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the sensitivity property value. The sensitivity property
+     * Gets the sensitivity property value. The sensitivity value of the label, where lower is less sensitive.
      * @return int|null
     */
     public function getSensitivity(): ?int {
@@ -168,7 +169,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Gets the tooltip property value. The tooltip property
+     * Gets the tooltip property value. The tooltip that should be displayed for the label in a UI.
      * @return string|null
     */
     public function getTooltip(): ?string {
@@ -194,7 +195,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the color property value. The color property
+     * Sets the color property value. The color that the UI should display for the label, if configured.
      *  @param string|null $value Value to set for the color property.
     */
     public function setColor(?string $value ): void {
@@ -202,7 +203,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the contentFormats property value. The contentFormats property
+     * Sets the contentFormats property value. Returns the supported content formats for the label.
      *  @param array<string>|null $value Value to set for the contentFormats property.
     */
     public function setContentFormats(?array $value ): void {
@@ -210,7 +211,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The admin-defined description for the label.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -218,7 +219,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the hasProtection property value. The hasProtection property
+     * Sets the hasProtection property value. Indicates whether the label has protection actions configured.
      *  @param bool|null $value Value to set for the hasProtection property.
     */
     public function setHasProtection(?bool $value ): void {
@@ -226,7 +227,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the isActive property value. The isActive property
+     * Sets the isActive property value. Indicates whether the label is active or not. Active labels should be hidden or disabled in the UI.
      *  @param bool|null $value Value to set for the isActive property.
     */
     public function setIsActive(?bool $value ): void {
@@ -234,7 +235,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the isAppliable property value. The isAppliable property
+     * Sets the isAppliable property value. Indicates whether the label can be applied to content. False if the label is a parent with child labels.
      *  @param bool|null $value Value to set for the isAppliable property.
     */
     public function setIsAppliable(?bool $value ): void {
@@ -242,7 +243,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The plaintext name of the label.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {
@@ -250,7 +251,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the parent property value. The parent property
+     * Sets the parent property value. The parent label associated with a child label. Null if the label has no parent.
      *  @param SensitivityLabel|null $value Value to set for the parent property.
     */
     public function setParent(?SensitivityLabel $value ): void {
@@ -258,7 +259,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the sensitivity property value. The sensitivity property
+     * Sets the sensitivity property value. The sensitivity value of the label, where lower is less sensitive.
      *  @param int|null $value Value to set for the sensitivity property.
     */
     public function setSensitivity(?int $value ): void {
@@ -266,7 +267,7 @@ class SensitivityLabel extends Entity implements Parsable
     }
 
     /**
-     * Sets the tooltip property value. The tooltip property
+     * Sets the tooltip property value. The tooltip that should be displayed for the label in a UI.
      *  @param string|null $value Value to set for the tooltip property.
     */
     public function setTooltip(?string $value ): void {

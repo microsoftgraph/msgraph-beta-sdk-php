@@ -79,7 +79,7 @@ class EducationClass extends Entity implements Parsable
     private ?string $grade = null;
     
     /**
-     * @var Group|null $group The underlying Microsoft 365 group object.
+     * @var Group|null $group The group property
     */
     private ?Group $group = null;
     
@@ -113,6 +113,7 @@ class EducationClass extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.educationClass');
     }
 
     /**
@@ -267,7 +268,7 @@ class EducationClass extends Entity implements Parsable
     }
 
     /**
-     * Gets the group property value. The underlying Microsoft 365 group object.
+     * Gets the group property value. The group property
      * @return Group|null
     */
     public function getGroup(): ?Group {
@@ -455,7 +456,7 @@ class EducationClass extends Entity implements Parsable
     }
 
     /**
-     * Sets the group property value. The underlying Microsoft 365 group object.
+     * Sets the group property value. The group property
      *  @param Group|null $value Value to set for the group property.
     */
     public function setGroup(?Group $value ): void {

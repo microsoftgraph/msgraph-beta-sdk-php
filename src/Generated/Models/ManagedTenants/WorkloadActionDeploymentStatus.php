@@ -17,7 +17,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
     private ?string $actionId = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -52,7 +52,12 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
     private ?DateTime $lastDeploymentDateTime = null;
     
     /**
-     * @var WorkloadActionStatus|null $status The status of the workload action deployment. Possible values are: toAddress, completed, error, timeOut, inProgress, unknownFutureValue. Required. Read-only.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var WorkloadActionStatus|null $status The status property
     */
     private ?WorkloadActionStatus $status = null;
     
@@ -60,7 +65,8 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * Instantiates a new workloadActionDeploymentStatus and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.managedTenants.workloadActionDeploymentStatus');
     }
 
     /**
@@ -126,6 +132,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
             'includeAllUsers' => function (ParseNode $n) use ($o) { $o->setIncludeAllUsers($n->getBooleanValue()); },
             'includeGroups' => function (ParseNode $n) use ($o) { $o->setIncludeGroups($n->getCollectionOfPrimitiveValues()); },
             'lastDeploymentDateTime' => function (ParseNode $n) use ($o) { $o->setLastDeploymentDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(WorkloadActionStatus::class)); },
         ];
     }
@@ -155,7 +162,15 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the status property value. The status of the workload action deployment. Possible values are: toAddress, completed, error, timeOut, inProgress, unknownFutureValue. Required. Read-only.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the status property value. The status property
      * @return WorkloadActionStatus|null
     */
     public function getStatus(): ?WorkloadActionStatus {
@@ -174,6 +189,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('includeAllUsers', $this->includeAllUsers);
         $writer->writeCollectionOfPrimitiveValues('includeGroups', $this->includeGroups);
         $writer->writeDateTimeValue('lastDeploymentDateTime', $this->lastDeploymentDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -243,7 +259,15 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the status property value. The status of the workload action deployment. Possible values are: toAddress, completed, error, timeOut, inProgress, unknownFutureValue. Required. Read-only.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the status property value. The status property
      *  @param WorkloadActionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?WorkloadActionStatus $value ): void {

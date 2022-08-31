@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageQuestion implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,6 +30,11 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
     private ?bool $isRequired = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var int|null $sequence Relative position of this question when displaying a list of questions to the requestor.
     */
     private ?int $sequence = null;
@@ -43,7 +48,8 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
      * Instantiates a new accessPackageQuestion and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.accessPackageQuestion');
     }
 
     /**
@@ -81,6 +87,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
             'isAnswerEditable' => function (ParseNode $n) use ($o) { $o->setIsAnswerEditable($n->getBooleanValue()); },
             'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'sequence' => function (ParseNode $n) use ($o) { $o->setSequence($n->getIntegerValue()); },
             'text' => function (ParseNode $n) use ($o) { $o->setText($n->getObjectValue(array(AccessPackageLocalizedContent::class, 'createFromDiscriminatorValue'))); },
         ];
@@ -111,6 +118,14 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the sequence property value. Relative position of this question when displaying a list of questions to the requestor.
      * @return int|null
     */
@@ -134,6 +149,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('id', $this->id);
         $writer->writeBooleanValue('isAnswerEditable', $this->isAnswerEditable);
         $writer->writeBooleanValue('isRequired', $this->isRequired);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('sequence', $this->sequence);
         $writer->writeObjectValue('text', $this->text);
         $writer->writeAdditionalData($this->additionalData);
@@ -169,6 +185,14 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
     */
     public function setIsRequired(?bool $value ): void {
         $this->isRequired = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

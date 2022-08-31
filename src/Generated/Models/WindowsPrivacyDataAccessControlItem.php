@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable 
 {
     /**
-     * @var WindowsPrivacyDataAccessLevel|null $accessLevel This indicates an access level for the privacy data category to which the specified application will be given to. Possible values are: notConfigured, forceAllow, forceDeny, userInControl.
+     * @var WindowsPrivacyDataAccessLevel|null $accessLevel Determine the access level to specific Windows privacy data category.
     */
     private ?WindowsPrivacyDataAccessLevel $accessLevel = null;
     
@@ -24,7 +24,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
     private ?string $appPackageFamilyName = null;
     
     /**
-     * @var WindowsPrivacyDataCategory|null $dataCategory This indicates a privacy data category to which the specific access control will apply. Possible values are: notConfigured, accountInfo, appsRunInBackground, calendar, callHistory, camera, contacts, diagnosticsInfo, email, location, messaging, microphone, motion, notifications, phone, radios, tasks, syncWithDevices, trustedDevices.
+     * @var WindowsPrivacyDataCategory|null $dataCategory Windows privacy data category specifier for privacy data access.
     */
     private ?WindowsPrivacyDataCategory $dataCategory = null;
     
@@ -33,6 +33,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsPrivacyDataAccessControlItem');
     }
 
     /**
@@ -45,7 +46,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the accessLevel property value. This indicates an access level for the privacy data category to which the specified application will be given to. Possible values are: notConfigured, forceAllow, forceDeny, userInControl.
+     * Gets the accessLevel property value. Determine the access level to specific Windows privacy data category.
      * @return WindowsPrivacyDataAccessLevel|null
     */
     public function getAccessLevel(): ?WindowsPrivacyDataAccessLevel {
@@ -69,7 +70,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the dataCategory property value. This indicates a privacy data category to which the specific access control will apply. Possible values are: notConfigured, accountInfo, appsRunInBackground, calendar, callHistory, camera, contacts, diagnosticsInfo, email, location, messaging, microphone, motion, notifications, phone, radios, tasks, syncWithDevices, trustedDevices.
+     * Gets the dataCategory property value. Windows privacy data category specifier for privacy data access.
      * @return WindowsPrivacyDataCategory|null
     */
     public function getDataCategory(): ?WindowsPrivacyDataCategory {
@@ -103,7 +104,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the accessLevel property value. This indicates an access level for the privacy data category to which the specified application will be given to. Possible values are: notConfigured, forceAllow, forceDeny, userInControl.
+     * Sets the accessLevel property value. Determine the access level to specific Windows privacy data category.
      *  @param WindowsPrivacyDataAccessLevel|null $value Value to set for the accessLevel property.
     */
     public function setAccessLevel(?WindowsPrivacyDataAccessLevel $value ): void {
@@ -127,7 +128,7 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the dataCategory property value. This indicates a privacy data category to which the specific access control will apply. Possible values are: notConfigured, accountInfo, appsRunInBackground, calendar, callHistory, camera, contacts, diagnosticsInfo, email, location, messaging, microphone, motion, notifications, phone, radios, tasks, syncWithDevices, trustedDevices.
+     * Sets the dataCategory property value. Windows privacy data category specifier for privacy data access.
      *  @param WindowsPrivacyDataCategory|null $value Value to set for the dataCategory property.
     */
     public function setDataCategory(?WindowsPrivacyDataCategory $value ): void {

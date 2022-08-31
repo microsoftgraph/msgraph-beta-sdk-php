@@ -23,6 +23,7 @@ class BasicAuthentication extends ApiAuthenticationConfigurationBase implements 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.basicAuthentication');
     }
 
     /**

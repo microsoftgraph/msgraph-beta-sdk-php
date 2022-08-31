@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcOrganizationSettings extends Entity implements Parsable 
 {
     /**
+     * @var bool|null $enableMEMAutoEnroll Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager(MEM). The default value is false.
+    */
+    private ?bool $enableMEMAutoEnroll = null;
+    
+    /**
      * @var CloudPcOperatingSystem|null $osVersion The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.
     */
     private ?CloudPcOperatingSystem $osVersion = null;
@@ -28,6 +33,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.cloudPcOrganizationSettings');
     }
 
     /**
@@ -40,12 +46,21 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the enableMEMAutoEnroll property value. Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager(MEM). The default value is false.
+     * @return bool|null
+    */
+    public function getEnableMEMAutoEnroll(): ?bool {
+        return $this->enableMEMAutoEnroll;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'enableMEMAutoEnroll' => function (ParseNode $n) use ($o) { $o->setEnableMEMAutoEnroll($n->getBooleanValue()); },
             'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getEnumValue(CloudPcOperatingSystem::class)); },
             'userAccountType' => function (ParseNode $n) use ($o) { $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)); },
             'windowsSettings' => function (ParseNode $n) use ($o) { $o->setWindowsSettings($n->getObjectValue(array(CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'))); },
@@ -82,9 +97,18 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeBooleanValue('enableMEMAutoEnroll', $this->enableMEMAutoEnroll);
         $writer->writeEnumValue('osVersion', $this->osVersion);
         $writer->writeEnumValue('userAccountType', $this->userAccountType);
         $writer->writeObjectValue('windowsSettings', $this->windowsSettings);
+    }
+
+    /**
+     * Sets the enableMEMAutoEnroll property value. Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager(MEM). The default value is false.
+     *  @param bool|null $value Value to set for the enableMEMAutoEnroll property.
+    */
+    public function setEnableMEMAutoEnroll(?bool $value ): void {
+        $this->enableMEMAutoEnroll = $value;
     }
 
     /**

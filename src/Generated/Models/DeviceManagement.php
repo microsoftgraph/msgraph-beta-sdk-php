@@ -165,6 +165,11 @@ class DeviceManagement extends Entity implements Parsable
     private ?array $configurationSettings = null;
     
     /**
+     * @var DataProcessorServiceForWindowsFeaturesOnboarding|null $dataProcessorServiceForWindowsFeaturesOnboarding A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
+    */
+    private ?DataProcessorServiceForWindowsFeaturesOnboarding $dataProcessorServiceForWindowsFeaturesOnboarding = null;
+    
+    /**
      * @var array<DataSharingConsent>|null $dataSharingConsents Data sharing consents.
     */
     private ?array $dataSharingConsents = null;
@@ -460,6 +465,16 @@ class DeviceManagement extends Entity implements Parsable
     private ?array $oemWarrantyInformationOnboarding = null;
     
     /**
+     * @var array<OrganizationalMessageDetail>|null $organizationalMessageDetails A list of OrganizationalMessageDetails
+    */
+    private ?array $organizationalMessageDetails = null;
+    
+    /**
+     * @var array<OrganizationalMessageGuidedContent>|null $organizationalMessageGuidedContents A list of OrganizationalMessageGuidedContents
+    */
+    private ?array $organizationalMessageGuidedContents = null;
+    
+    /**
      * @var array<RemoteActionAudit>|null $remoteActionAudits The list of device remote action audits with the tenant.
     */
     private ?array $remoteActionAudits = null;
@@ -530,12 +545,12 @@ class DeviceManagement extends Entity implements Parsable
     private ?SoftwareUpdateStatusSummary $softwareUpdateStatusSummary = null;
     
     /**
-     * @var DeviceManagementSubscriptions|null $subscriptions Tenant's Subscription. Possible values are: none, intune, office365, intunePremium, intune_EDU, intune_SMB.
+     * @var DeviceManagementSubscriptions|null $subscriptions Tenant mobile device management subscriptions.
     */
     private ?DeviceManagementSubscriptions $subscriptions = null;
     
     /**
-     * @var DeviceManagementSubscriptionState|null $subscriptionState Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * @var DeviceManagementSubscriptionState|null $subscriptionState Tenant mobile device management subscription state.
     */
     private ?DeviceManagementSubscriptionState $subscriptionState = null;
     
@@ -869,6 +884,7 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagement');
     }
 
     /**
@@ -1126,6 +1142,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function getConfigurationSettings(): ?array {
         return $this->configurationSettings;
+    }
+
+    /**
+     * Gets the dataProcessorServiceForWindowsFeaturesOnboarding property value. A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
+     * @return DataProcessorServiceForWindowsFeaturesOnboarding|null
+    */
+    public function getDataProcessorServiceForWindowsFeaturesOnboarding(): ?DataProcessorServiceForWindowsFeaturesOnboarding {
+        return $this->dataProcessorServiceForWindowsFeaturesOnboarding;
     }
 
     /**
@@ -1390,6 +1414,7 @@ class DeviceManagement extends Entity implements Parsable
             'configurationPolicies' => function (ParseNode $n) use ($o) { $o->setConfigurationPolicies($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationPolicy::class, 'createFromDiscriminatorValue'))); },
             'configurationPolicyTemplates' => function (ParseNode $n) use ($o) { $o->setConfigurationPolicyTemplates($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationPolicyTemplate::class, 'createFromDiscriminatorValue'))); },
             'configurationSettings' => function (ParseNode $n) use ($o) { $o->setConfigurationSettings($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingDefinition::class, 'createFromDiscriminatorValue'))); },
+            'dataProcessorServiceForWindowsFeaturesOnboarding' => function (ParseNode $n) use ($o) { $o->setDataProcessorServiceForWindowsFeaturesOnboarding($n->getObjectValue(array(DataProcessorServiceForWindowsFeaturesOnboarding::class, 'createFromDiscriminatorValue'))); },
             'dataSharingConsents' => function (ParseNode $n) use ($o) { $o->setDataSharingConsents($n->getCollectionOfObjectValues(array(DataSharingConsent::class, 'createFromDiscriminatorValue'))); },
             'depOnboardingSettings' => function (ParseNode $n) use ($o) { $o->setDepOnboardingSettings($n->getCollectionOfObjectValues(array(DepOnboardingSetting::class, 'createFromDiscriminatorValue'))); },
             'derivedCredentials' => function (ParseNode $n) use ($o) { $o->setDerivedCredentials($n->getCollectionOfObjectValues(array(DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'))); },
@@ -1449,6 +1474,8 @@ class DeviceManagement extends Entity implements Parsable
             'ndesConnectors' => function (ParseNode $n) use ($o) { $o->setNdesConnectors($n->getCollectionOfObjectValues(array(NdesConnector::class, 'createFromDiscriminatorValue'))); },
             'notificationMessageTemplates' => function (ParseNode $n) use ($o) { $o->setNotificationMessageTemplates($n->getCollectionOfObjectValues(array(NotificationMessageTemplate::class, 'createFromDiscriminatorValue'))); },
             'oemWarrantyInformationOnboarding' => function (ParseNode $n) use ($o) { $o->setOemWarrantyInformationOnboarding($n->getCollectionOfObjectValues(array(OemWarrantyInformationOnboarding::class, 'createFromDiscriminatorValue'))); },
+            'organizationalMessageDetails' => function (ParseNode $n) use ($o) { $o->setOrganizationalMessageDetails($n->getCollectionOfObjectValues(array(OrganizationalMessageDetail::class, 'createFromDiscriminatorValue'))); },
+            'organizationalMessageGuidedContents' => function (ParseNode $n) use ($o) { $o->setOrganizationalMessageGuidedContents($n->getCollectionOfObjectValues(array(OrganizationalMessageGuidedContent::class, 'createFromDiscriminatorValue'))); },
             'remoteActionAudits' => function (ParseNode $n) use ($o) { $o->setRemoteActionAudits($n->getCollectionOfObjectValues(array(RemoteActionAudit::class, 'createFromDiscriminatorValue'))); },
             'remoteAssistancePartners' => function (ParseNode $n) use ($o) { $o->setRemoteAssistancePartners($n->getCollectionOfObjectValues(array(RemoteAssistancePartner::class, 'createFromDiscriminatorValue'))); },
             'remoteAssistanceSettings' => function (ParseNode $n) use ($o) { $o->setRemoteAssistanceSettings($n->getObjectValue(array(RemoteAssistanceSettings::class, 'createFromDiscriminatorValue'))); },
@@ -1782,6 +1809,22 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the organizationalMessageDetails property value. A list of OrganizationalMessageDetails
+     * @return array<OrganizationalMessageDetail>|null
+    */
+    public function getOrganizationalMessageDetails(): ?array {
+        return $this->organizationalMessageDetails;
+    }
+
+    /**
+     * Gets the organizationalMessageGuidedContents property value. A list of OrganizationalMessageGuidedContents
+     * @return array<OrganizationalMessageGuidedContent>|null
+    */
+    public function getOrganizationalMessageGuidedContents(): ?array {
+        return $this->organizationalMessageGuidedContents;
+    }
+
+    /**
      * Gets the remoteActionAudits property value. The list of device remote action audits with the tenant.
      * @return array<RemoteActionAudit>|null
     */
@@ -1894,7 +1937,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the subscriptions property value. Tenant's Subscription. Possible values are: none, intune, office365, intunePremium, intune_EDU, intune_SMB.
+     * Gets the subscriptions property value. Tenant mobile device management subscriptions.
      * @return DeviceManagementSubscriptions|null
     */
     public function getSubscriptions(): ?DeviceManagementSubscriptions {
@@ -1902,7 +1945,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * Gets the subscriptionState property value. Tenant mobile device management subscription state.
      * @return DeviceManagementSubscriptionState|null
     */
     public function getSubscriptionState(): ?DeviceManagementSubscriptionState {
@@ -2466,6 +2509,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('configurationPolicies', $this->configurationPolicies);
         $writer->writeCollectionOfObjectValues('configurationPolicyTemplates', $this->configurationPolicyTemplates);
         $writer->writeCollectionOfObjectValues('configurationSettings', $this->configurationSettings);
+        $writer->writeObjectValue('dataProcessorServiceForWindowsFeaturesOnboarding', $this->dataProcessorServiceForWindowsFeaturesOnboarding);
         $writer->writeCollectionOfObjectValues('dataSharingConsents', $this->dataSharingConsents);
         $writer->writeCollectionOfObjectValues('depOnboardingSettings', $this->depOnboardingSettings);
         $writer->writeCollectionOfObjectValues('derivedCredentials', $this->derivedCredentials);
@@ -2525,6 +2569,8 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('ndesConnectors', $this->ndesConnectors);
         $writer->writeCollectionOfObjectValues('notificationMessageTemplates', $this->notificationMessageTemplates);
         $writer->writeCollectionOfObjectValues('oemWarrantyInformationOnboarding', $this->oemWarrantyInformationOnboarding);
+        $writer->writeCollectionOfObjectValues('organizationalMessageDetails', $this->organizationalMessageDetails);
+        $writer->writeCollectionOfObjectValues('organizationalMessageGuidedContents', $this->organizationalMessageGuidedContents);
         $writer->writeCollectionOfObjectValues('remoteActionAudits', $this->remoteActionAudits);
         $writer->writeCollectionOfObjectValues('remoteAssistancePartners', $this->remoteAssistancePartners);
         $writer->writeObjectValue('remoteAssistanceSettings', $this->remoteAssistanceSettings);
@@ -2854,6 +2900,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setConfigurationSettings(?array $value ): void {
         $this->configurationSettings = $value;
+    }
+
+    /**
+     * Sets the dataProcessorServiceForWindowsFeaturesOnboarding property value. A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
+     *  @param DataProcessorServiceForWindowsFeaturesOnboarding|null $value Value to set for the dataProcessorServiceForWindowsFeaturesOnboarding property.
+    */
+    public function setDataProcessorServiceForWindowsFeaturesOnboarding(?DataProcessorServiceForWindowsFeaturesOnboarding $value ): void {
+        $this->dataProcessorServiceForWindowsFeaturesOnboarding = $value;
     }
 
     /**
@@ -3329,6 +3383,22 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Sets the organizationalMessageDetails property value. A list of OrganizationalMessageDetails
+     *  @param array<OrganizationalMessageDetail>|null $value Value to set for the organizationalMessageDetails property.
+    */
+    public function setOrganizationalMessageDetails(?array $value ): void {
+        $this->organizationalMessageDetails = $value;
+    }
+
+    /**
+     * Sets the organizationalMessageGuidedContents property value. A list of OrganizationalMessageGuidedContents
+     *  @param array<OrganizationalMessageGuidedContent>|null $value Value to set for the organizationalMessageGuidedContents property.
+    */
+    public function setOrganizationalMessageGuidedContents(?array $value ): void {
+        $this->organizationalMessageGuidedContents = $value;
+    }
+
+    /**
      * Sets the remoteActionAudits property value. The list of device remote action audits with the tenant.
      *  @param array<RemoteActionAudit>|null $value Value to set for the remoteActionAudits property.
     */
@@ -3441,7 +3511,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the subscriptions property value. Tenant's Subscription. Possible values are: none, intune, office365, intunePremium, intune_EDU, intune_SMB.
+     * Sets the subscriptions property value. Tenant mobile device management subscriptions.
      *  @param DeviceManagementSubscriptions|null $value Value to set for the subscriptions property.
     */
     public function setSubscriptions(?DeviceManagementSubscriptions $value ): void {
@@ -3449,7 +3519,7 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the subscriptionState property value. Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.
+     * Sets the subscriptionState property value. Tenant mobile device management subscription state.
      *  @param DeviceManagementSubscriptionState|null $value Value to set for the subscriptionState property.
     */
     public function setSubscriptionState(?DeviceManagementSubscriptionState $value ): void {

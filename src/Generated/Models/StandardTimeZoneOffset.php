@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -31,6 +31,11 @@ class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable
     private ?int $month = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var Time|null $time Represents the time of day when the transition from daylight saving time to standard time occurs.
     */
     private ?Time $time = null;
@@ -44,7 +49,8 @@ class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable
      * Instantiates a new standardTimeZoneOffset and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.standardTimeZoneOffset');
     }
 
     /**
@@ -97,6 +103,7 @@ class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable
             'dayOccurrence' => function (ParseNode $n) use ($o) { $o->setDayOccurrence($n->getIntegerValue()); },
             'dayOfWeek' => function (ParseNode $n) use ($o) { $o->setDayOfWeek($n->getEnumValue(DayOfWeek::class)); },
             'month' => function (ParseNode $n) use ($o) { $o->setMonth($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'time' => function (ParseNode $n) use ($o) { $o->setTime($n->getTimeValue()); },
             'year' => function (ParseNode $n) use ($o) { $o->setYear($n->getIntegerValue()); },
         ];
@@ -108,6 +115,14 @@ class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable
     */
     public function getMonth(): ?int {
         return $this->month;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -134,6 +149,7 @@ class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('dayOccurrence', $this->dayOccurrence);
         $writer->writeEnumValue('dayOfWeek', $this->dayOfWeek);
         $writer->writeIntegerValue('month', $this->month);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeTimeValue('time', $this->time);
         $writer->writeIntegerValue('year', $this->year);
         $writer->writeAdditionalData($this->additionalData);
@@ -169,6 +185,14 @@ class StandardTimeZoneOffset implements AdditionalDataHolder, Parsable
     */
     public function setMonth(?int $value ): void {
         $this->month = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

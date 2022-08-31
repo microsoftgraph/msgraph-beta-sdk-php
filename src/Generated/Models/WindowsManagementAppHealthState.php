@@ -20,7 +20,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
     private ?string $deviceOSVersion = null;
     
     /**
-     * @var HealthState|null $healthState Windows management app health state. Possible values are: unknown, healthy, unhealthy.
+     * @var HealthState|null $healthState Indicates health state of the Windows management app.
     */
     private ?HealthState $healthState = null;
     
@@ -39,6 +39,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsManagementAppHealthState');
     }
 
     /**
@@ -82,7 +83,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
     }
 
     /**
-     * Gets the healthState property value. Windows management app health state. Possible values are: unknown, healthy, unhealthy.
+     * Gets the healthState property value. Indicates health state of the Windows management app.
      * @return HealthState|null
     */
     public function getHealthState(): ?HealthState {
@@ -135,7 +136,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
     }
 
     /**
-     * Sets the healthState property value. Windows management app health state. Possible values are: unknown, healthy, unhealthy.
+     * Sets the healthState property value. Indicates health state of the Windows management app.
      *  @param HealthState|null $value Value to set for the healthState property.
     */
     public function setHealthState(?HealthState $value ): void {

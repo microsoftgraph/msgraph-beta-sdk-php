@@ -2,12 +2,18 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class AuditLogRoot extends Entity implements Parsable 
+class AuditLogRoot implements AdditionalDataHolder, Parsable 
 {
+    /**
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private array $additionalData;
+    
     /**
      * @var array<DirectoryAudit>|null $directoryAudits The directoryAudits property
     */
@@ -17,6 +23,11 @@ class AuditLogRoot extends Entity implements Parsable
      * @var array<ProvisioningObjectSummary>|null $directoryProvisioning The directoryProvisioning property
     */
     private ?array $directoryProvisioning = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<ProvisioningObjectSummary>|null $provisioning The provisioning property
@@ -37,7 +48,8 @@ class AuditLogRoot extends Entity implements Parsable
      * Instantiates a new AuditLogRoot and sets the default values.
     */
     public function __construct() {
-        parent::__construct();
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.auditLogRoot');
     }
 
     /**
@@ -47,6 +59,14 @@ class AuditLogRoot extends Entity implements Parsable
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AuditLogRoot {
         return new AuditLogRoot();
+    }
+
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>
+    */
+    public function getAdditionalData(): array {
+        return $this->additionalData;
     }
 
     /**
@@ -71,13 +91,22 @@ class AuditLogRoot extends Entity implements Parsable
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return array_merge(parent::getFieldDeserializers(), [
+        return  [
             'directoryAudits' => function (ParseNode $n) use ($o) { $o->setDirectoryAudits($n->getCollectionOfObjectValues(array(DirectoryAudit::class, 'createFromDiscriminatorValue'))); },
             'directoryProvisioning' => function (ParseNode $n) use ($o) { $o->setDirectoryProvisioning($n->getCollectionOfObjectValues(array(ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'provisioning' => function (ParseNode $n) use ($o) { $o->setProvisioning($n->getCollectionOfObjectValues(array(ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'))); },
             'restrictedSignIns' => function (ParseNode $n) use ($o) { $o->setRestrictedSignIns($n->getCollectionOfObjectValues(array(RestrictedSignIn::class, 'createFromDiscriminatorValue'))); },
             'signIns' => function (ParseNode $n) use ($o) { $o->setSignIns($n->getCollectionOfObjectValues(array(SignIn::class, 'createFromDiscriminatorValue'))); },
-        ]);
+        ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -109,12 +138,21 @@ class AuditLogRoot extends Entity implements Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('directoryAudits', $this->directoryAudits);
         $writer->writeCollectionOfObjectValues('directoryProvisioning', $this->directoryProvisioning);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('provisioning', $this->provisioning);
         $writer->writeCollectionOfObjectValues('restrictedSignIns', $this->restrictedSignIns);
         $writer->writeCollectionOfObjectValues('signIns', $this->signIns);
+        $writer->writeAdditionalData($this->additionalData);
+    }
+
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value ): void {
+        $this->additionalData = $value;
     }
 
     /**
@@ -131,6 +169,14 @@ class AuditLogRoot extends Entity implements Parsable
     */
     public function setDirectoryProvisioning(?array $value ): void {
         $this->directoryProvisioning = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

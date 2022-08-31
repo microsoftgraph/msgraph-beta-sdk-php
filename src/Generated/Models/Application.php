@@ -16,7 +16,7 @@ class Application extends DirectoryObject implements Parsable
     private ?ApiApplication $api = null;
     
     /**
-     * @var string|null $appId The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
+     * @var string|null $appId The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).
     */
     private ?string $appId = null;
     
@@ -46,7 +46,7 @@ class Application extends DirectoryObject implements Parsable
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var DirectoryObject|null $createdOnBehalfOf The createdOnBehalfOf property
+     * @var DirectoryObject|null $createdOnBehalfOf Supports $filter (eq when counting empty collections). Read-only.
     */
     private ?DirectoryObject $createdOnBehalfOf = null;
     
@@ -71,7 +71,7 @@ class Application extends DirectoryObject implements Parsable
     private ?string $displayName = null;
     
     /**
-     * @var array<ExtensionProperty>|null $extensionProperties Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * @var array<ExtensionProperty>|null $extensionProperties Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
     */
     private ?array $extensionProperties = null;
     
@@ -136,7 +136,7 @@ class Application extends DirectoryObject implements Parsable
     private ?OptionalClaims $optionalClaims = null;
     
     /**
-     * @var array<DirectoryObject>|null $owners Directory objects that are owners of the application. Read-only. Nullable. Supports $expand.
+     * @var array<DirectoryObject>|null $owners Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
     */
     private ?array $owners = null;
     
@@ -159,6 +159,11 @@ class Application extends DirectoryObject implements Parsable
      * @var string|null $publisherDomain The verified publisher domain for the application. Read-only. Supports $filter (eq, ne, ge, le, startsWith).
     */
     private ?string $publisherDomain = null;
+    
+    /**
+     * @var RequestSignatureVerification|null $requestSignatureVerification Specifies whether this application requires Azure AD to verify the signed authentication requests.
+    */
+    private ?RequestSignatureVerification $requestSignatureVerification = null;
     
     /**
      * @var array<RequiredResourceAccess>|null $requiredResourceAccess Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).
@@ -235,6 +240,7 @@ class Application extends DirectoryObject implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.application');
     }
 
     /**
@@ -255,7 +261,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
+     * Gets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).
      * @return string|null
     */
     public function getAppId(): ?string {
@@ -303,7 +309,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the createdOnBehalfOf property value. The createdOnBehalfOf property
+     * Gets the createdOnBehalfOf property value. Supports $filter (eq when counting empty collections). Read-only.
      * @return DirectoryObject|null
     */
     public function getCreatedOnBehalfOf(): ?DirectoryObject {
@@ -343,7 +349,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Gets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
      * @return array<ExtensionProperty>|null
     */
     public function getExtensionProperties(): ?array {
@@ -395,6 +401,7 @@ class Application extends DirectoryObject implements Parsable
             'passwordCredentials' => function (ParseNode $n) use ($o) { $o->setPasswordCredentials($n->getCollectionOfObjectValues(array(PasswordCredential::class, 'createFromDiscriminatorValue'))); },
             'publicClient' => function (ParseNode $n) use ($o) { $o->setPublicClient($n->getObjectValue(array(PublicClientApplication::class, 'createFromDiscriminatorValue'))); },
             'publisherDomain' => function (ParseNode $n) use ($o) { $o->setPublisherDomain($n->getStringValue()); },
+            'requestSignatureVerification' => function (ParseNode $n) use ($o) { $o->setRequestSignatureVerification($n->getObjectValue(array(RequestSignatureVerification::class, 'createFromDiscriminatorValue'))); },
             'requiredResourceAccess' => function (ParseNode $n) use ($o) { $o->setRequiredResourceAccess($n->getCollectionOfObjectValues(array(RequiredResourceAccess::class, 'createFromDiscriminatorValue'))); },
             'samlMetadataUrl' => function (ParseNode $n) use ($o) { $o->setSamlMetadataUrl($n->getStringValue()); },
             'serviceManagementReference' => function (ParseNode $n) use ($o) { $o->setServiceManagementReference($n->getStringValue()); },
@@ -501,7 +508,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand.
+     * Gets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
      * @return array<DirectoryObject>|null
     */
     public function getOwners(): ?array {
@@ -538,6 +545,14 @@ class Application extends DirectoryObject implements Parsable
     */
     public function getPublisherDomain(): ?string {
         return $this->publisherDomain;
+    }
+
+    /**
+     * Gets the requestSignatureVerification property value. Specifies whether this application requires Azure AD to verify the signed authentication requests.
+     * @return RequestSignatureVerification|null
+    */
+    public function getRequestSignatureVerification(): ?RequestSignatureVerification {
+        return $this->requestSignatureVerification;
     }
 
     /**
@@ -688,6 +703,7 @@ class Application extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('passwordCredentials', $this->passwordCredentials);
         $writer->writeObjectValue('publicClient', $this->publicClient);
         $writer->writeStringValue('publisherDomain', $this->publisherDomain);
+        $writer->writeObjectValue('requestSignatureVerification', $this->requestSignatureVerification);
         $writer->writeCollectionOfObjectValues('requiredResourceAccess', $this->requiredResourceAccess);
         $writer->writeStringValue('samlMetadataUrl', $this->samlMetadataUrl);
         $writer->writeStringValue('serviceManagementReference', $this->serviceManagementReference);
@@ -713,7 +729,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
+     * Sets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).
      *  @param string|null $value Value to set for the appId property.
     */
     public function setAppId(?string $value ): void {
@@ -761,7 +777,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the createdOnBehalfOf property value. The createdOnBehalfOf property
+     * Sets the createdOnBehalfOf property value. Supports $filter (eq when counting empty collections). Read-only.
      *  @param DirectoryObject|null $value Value to set for the createdOnBehalfOf property.
     */
     public function setCreatedOnBehalfOf(?DirectoryObject $value ): void {
@@ -801,7 +817,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Sets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
      *  @param array<ExtensionProperty>|null $value Value to set for the extensionProperties property.
     */
     public function setExtensionProperties(?array $value ): void {
@@ -905,7 +921,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand.
+     * Sets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
      *  @param array<DirectoryObject>|null $value Value to set for the owners property.
     */
     public function setOwners(?array $value ): void {
@@ -942,6 +958,14 @@ class Application extends DirectoryObject implements Parsable
     */
     public function setPublisherDomain(?string $value ): void {
         $this->publisherDomain = $value;
+    }
+
+    /**
+     * Sets the requestSignatureVerification property value. Specifies whether this application requires Azure AD to verify the signed authentication requests.
+     *  @param RequestSignatureVerification|null $value Value to set for the requestSignatureVerification property.
+    */
+    public function setRequestSignatureVerification(?RequestSignatureVerification $value ): void {
+        $this->requestSignatureVerification = $value;
     }
 
     /**

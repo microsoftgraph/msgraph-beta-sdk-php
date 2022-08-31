@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EventPropagationResult implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class EventPropagationResult implements AdditionalDataHolder, Parsable
      * @var string|null $location The name of the specific location in the workload associated with the event.
     */
     private ?string $location = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $serviceName The name of the workload associated with the event.
@@ -38,7 +43,8 @@ class EventPropagationResult implements AdditionalDataHolder, Parsable
      * Instantiates a new eventPropagationResult and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.security.eventPropagationResult');
     }
 
     /**
@@ -66,6 +72,7 @@ class EventPropagationResult implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'serviceName' => function (ParseNode $n) use ($o) { $o->setServiceName($n->getStringValue()); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(EventPropagationStatus::class)); },
             'statusInformation' => function (ParseNode $n) use ($o) { $o->setStatusInformation($n->getStringValue()); },
@@ -78,6 +85,14 @@ class EventPropagationResult implements AdditionalDataHolder, Parsable
     */
     public function getLocation(): ?string {
         return $this->location;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -110,6 +125,7 @@ class EventPropagationResult implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('location', $this->location);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('serviceName', $this->serviceName);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeStringValue('statusInformation', $this->statusInformation);
@@ -130,6 +146,14 @@ class EventPropagationResult implements AdditionalDataHolder, Parsable
     */
     public function setLocation(?string $value ): void {
         $this->location = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

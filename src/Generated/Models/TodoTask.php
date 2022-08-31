@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TodoTask extends Entity implements Parsable 
 {
     /**
-     * @var array<AttachmentBase>|null $attachments The attachments property
+     * @var array<AttachmentBase>|null $attachments A collection of file attachments for the task.
     */
     private ?array $attachments = null;
     
@@ -25,7 +25,7 @@ class TodoTask extends Entity implements Parsable
     private ?ItemBody $body = null;
     
     /**
-     * @var DateTime|null $bodyLastModifiedDateTime The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+     * @var DateTime|null $bodyLastModifiedDateTime The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
     */
     private ?DateTime $bodyLastModifiedDateTime = null;
     
@@ -40,7 +40,7 @@ class TodoTask extends Entity implements Parsable
     private ?array $checklistItems = null;
     
     /**
-     * @var DateTimeTimeZone|null $completedDateTime The date in the specified time zone that the task was finished.
+     * @var DateTimeTimeZone|null $completedDateTime The date and time in the specified time zone that the task was finished.
     */
     private ?DateTimeTimeZone $completedDateTime = null;
     
@@ -50,7 +50,7 @@ class TodoTask extends Entity implements Parsable
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var DateTimeTimeZone|null $dueDateTime The date in the specified time zone that the task is to be finished.
+     * @var DateTimeTimeZone|null $dueDateTime The date and time in the specified time zone that the task is to be finished.
     */
     private ?DateTimeTimeZone $dueDateTime = null;
     
@@ -60,12 +60,12 @@ class TodoTask extends Entity implements Parsable
     private ?array $extensions = null;
     
     /**
-     * @var bool|null $hasAttachments The hasAttachments property
+     * @var bool|null $hasAttachments Indicates whether the task has attachments.
     */
     private ?bool $hasAttachments = null;
     
     /**
-     * @var Importance|null $importance The importance of the task. Possible values are: low, normal, high.
+     * @var Importance|null $importance The importance property
     */
     private ?Importance $importance = null;
     
@@ -90,12 +90,17 @@ class TodoTask extends Entity implements Parsable
     private ?PatternedRecurrence $recurrence = null;
     
     /**
-     * @var DateTimeTimeZone|null $reminderDateTime The date and time for a reminder alert of the task to occur.
+     * @var DateTimeTimeZone|null $reminderDateTime The date and time in the specified time zone for a reminder alert of the task to occur.
     */
     private ?DateTimeTimeZone $reminderDateTime = null;
     
     /**
-     * @var TaskStatus|null $status Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
+     * @var DateTimeTimeZone|null $startDateTime The date and time in the specified time zone at which the task is scheduled to start.
+    */
+    private ?DateTimeTimeZone $startDateTime = null;
+    
+    /**
+     * @var TaskStatus|null $status The status property
     */
     private ?TaskStatus $status = null;
     
@@ -109,6 +114,7 @@ class TodoTask extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.todoTask');
     }
 
     /**
@@ -121,7 +127,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the attachments property value. The attachments property
+     * Gets the attachments property value. A collection of file attachments for the task.
      * @return array<AttachmentBase>|null
     */
     public function getAttachments(): ?array {
@@ -145,7 +151,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the bodyLastModifiedDateTime property value. The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+     * Gets the bodyLastModifiedDateTime property value. The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
      * @return DateTime|null
     */
     public function getBodyLastModifiedDateTime(): ?DateTime {
@@ -169,7 +175,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. The date in the specified time zone that the task was finished.
+     * Gets the completedDateTime property value. The date and time in the specified time zone that the task was finished.
      * @return DateTimeTimeZone|null
     */
     public function getCompletedDateTime(): ?DateTimeTimeZone {
@@ -185,7 +191,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the dueDateTime property value. The date in the specified time zone that the task is to be finished.
+     * Gets the dueDateTime property value. The date and time in the specified time zone that the task is to be finished.
      * @return DateTimeTimeZone|null
     */
     public function getDueDateTime(): ?DateTimeTimeZone {
@@ -224,13 +230,14 @@ class TodoTask extends Entity implements Parsable
             'linkedResources' => function (ParseNode $n) use ($o) { $o->setLinkedResources($n->getCollectionOfObjectValues(array(LinkedResource::class, 'createFromDiscriminatorValue'))); },
             'recurrence' => function (ParseNode $n) use ($o) { $o->setRecurrence($n->getObjectValue(array(PatternedRecurrence::class, 'createFromDiscriminatorValue'))); },
             'reminderDateTime' => function (ParseNode $n) use ($o) { $o->setReminderDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
+            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(TaskStatus::class)); },
             'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
         ]);
     }
 
     /**
-     * Gets the hasAttachments property value. The hasAttachments property
+     * Gets the hasAttachments property value. Indicates whether the task has attachments.
      * @return bool|null
     */
     public function getHasAttachments(): ?bool {
@@ -238,7 +245,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the importance property value. The importance of the task. Possible values are: low, normal, high.
+     * Gets the importance property value. The importance property
      * @return Importance|null
     */
     public function getImportance(): ?Importance {
@@ -278,7 +285,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the reminderDateTime property value. The date and time for a reminder alert of the task to occur.
+     * Gets the reminderDateTime property value. The date and time in the specified time zone for a reminder alert of the task to occur.
      * @return DateTimeTimeZone|null
     */
     public function getReminderDateTime(): ?DateTimeTimeZone {
@@ -286,7 +293,15 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
+     * Gets the startDateTime property value. The date and time in the specified time zone at which the task is scheduled to start.
+     * @return DateTimeTimeZone|null
+    */
+    public function getStartDateTime(): ?DateTimeTimeZone {
+        return $this->startDateTime;
+    }
+
+    /**
+     * Gets the status property value. The status property
      * @return TaskStatus|null
     */
     public function getStatus(): ?TaskStatus {
@@ -324,12 +339,13 @@ class TodoTask extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('linkedResources', $this->linkedResources);
         $writer->writeObjectValue('recurrence', $this->recurrence);
         $writer->writeObjectValue('reminderDateTime', $this->reminderDateTime);
+        $writer->writeObjectValue('startDateTime', $this->startDateTime);
         $writer->writeEnumValue('status', $this->status);
         $writer->writeStringValue('title', $this->title);
     }
 
     /**
-     * Sets the attachments property value. The attachments property
+     * Sets the attachments property value. A collection of file attachments for the task.
      *  @param array<AttachmentBase>|null $value Value to set for the attachments property.
     */
     public function setAttachments(?array $value ): void {
@@ -353,7 +369,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the bodyLastModifiedDateTime property value. The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+     * Sets the bodyLastModifiedDateTime property value. The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
      *  @param DateTime|null $value Value to set for the bodyLastModifiedDateTime property.
     */
     public function setBodyLastModifiedDateTime(?DateTime $value ): void {
@@ -377,7 +393,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. The date in the specified time zone that the task was finished.
+     * Sets the completedDateTime property value. The date and time in the specified time zone that the task was finished.
      *  @param DateTimeTimeZone|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTimeTimeZone $value ): void {
@@ -393,7 +409,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the dueDateTime property value. The date in the specified time zone that the task is to be finished.
+     * Sets the dueDateTime property value. The date and time in the specified time zone that the task is to be finished.
      *  @param DateTimeTimeZone|null $value Value to set for the dueDateTime property.
     */
     public function setDueDateTime(?DateTimeTimeZone $value ): void {
@@ -409,7 +425,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the hasAttachments property value. The hasAttachments property
+     * Sets the hasAttachments property value. Indicates whether the task has attachments.
      *  @param bool|null $value Value to set for the hasAttachments property.
     */
     public function setHasAttachments(?bool $value ): void {
@@ -417,7 +433,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the importance property value. The importance of the task. Possible values are: low, normal, high.
+     * Sets the importance property value. The importance property
      *  @param Importance|null $value Value to set for the importance property.
     */
     public function setImportance(?Importance $value ): void {
@@ -457,7 +473,7 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the reminderDateTime property value. The date and time for a reminder alert of the task to occur.
+     * Sets the reminderDateTime property value. The date and time in the specified time zone for a reminder alert of the task to occur.
      *  @param DateTimeTimeZone|null $value Value to set for the reminderDateTime property.
     */
     public function setReminderDateTime(?DateTimeTimeZone $value ): void {
@@ -465,7 +481,15 @@ class TodoTask extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
+     * Sets the startDateTime property value. The date and time in the specified time zone at which the task is scheduled to start.
+     *  @param DateTimeTimeZone|null $value Value to set for the startDateTime property.
+    */
+    public function setStartDateTime(?DateTimeTimeZone $value ): void {
+        $this->startDateTime = $value;
+    }
+
+    /**
+     * Sets the status property value. The status property
      *  @param TaskStatus|null $value Value to set for the status property.
     */
     public function setStatus(?TaskStatus $value ): void {

@@ -54,10 +54,11 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
     private ?int $unknownDeviceCount = null;
     
     /**
-     * Instantiates a new advancedThreatProtectionOnboardingStateSummary and sets the default values.
+     * Instantiates a new AdvancedThreatProtectionOnboardingStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.advancedThreatProtectionOnboardingStateSummary');
     }
 
     /**

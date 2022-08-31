@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsAutopilotDeploymentProfileAssignment extends Entity implements Parsable 
 {
     /**
-     * @var DeviceAndAppManagementAssignmentSource|null $source Type of resource used for deployment to a group, direct or parcel/policySet. Possible values are: direct, policySets.
+     * @var DeviceAndAppManagementAssignmentSource|null $source Represents source of assignment.
     */
     private ?DeviceAndAppManagementAssignmentSource $source = null;
     
@@ -28,6 +28,7 @@ class WindowsAutopilotDeploymentProfileAssignment extends Entity implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsAutopilotDeploymentProfileAssignment');
     }
 
     /**
@@ -53,7 +54,7 @@ class WindowsAutopilotDeploymentProfileAssignment extends Entity implements Pars
     }
 
     /**
-     * Gets the source property value. Type of resource used for deployment to a group, direct or parcel/policySet. Possible values are: direct, policySets.
+     * Gets the source property value. Represents source of assignment.
      * @return DeviceAndAppManagementAssignmentSource|null
     */
     public function getSource(): ?DeviceAndAppManagementAssignmentSource {
@@ -88,7 +89,7 @@ class WindowsAutopilotDeploymentProfileAssignment extends Entity implements Pars
     }
 
     /**
-     * Sets the source property value. Type of resource used for deployment to a group, direct or parcel/policySet. Possible values are: direct, policySets.
+     * Sets the source property value. Represents source of assignment.
      *  @param DeviceAndAppManagementAssignmentSource|null $value Value to set for the source property.
     */
     public function setSource(?DeviceAndAppManagementAssignmentSource $value ): void {

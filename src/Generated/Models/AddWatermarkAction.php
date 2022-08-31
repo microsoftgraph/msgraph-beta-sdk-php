@@ -24,7 +24,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     private ?int $fontSize = null;
     
     /**
-     * @var WatermarkLayout|null $layout Possible values are: horizontal, diagonal.
+     * @var WatermarkLayout|null $layout The layout property
     */
     private ?WatermarkLayout $layout = null;
     
@@ -43,6 +43,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.addWatermarkAction');
     }
 
     /**
@@ -95,7 +96,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Gets the layout property value. Possible values are: horizontal, diagonal.
+     * Gets the layout property value. The layout property
      * @return WatermarkLayout|null
     */
     public function getLayout(): ?WatermarkLayout {
@@ -157,7 +158,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     }
 
     /**
-     * Sets the layout property value. Possible values are: horizontal, diagonal.
+     * Sets the layout property value. The layout property
      *  @param WatermarkLayout|null $value Value to set for the layout property.
     */
     public function setLayout(?WatermarkLayout $value ): void {

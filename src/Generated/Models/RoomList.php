@@ -19,10 +19,16 @@ class RoomList extends Place implements Parsable
     private ?array $rooms = null;
     
     /**
+     * @var array<Workspace>|null $workspaces The workspaces property
+    */
+    private ?array $workspaces = null;
+    
+    /**
      * Instantiates a new RoomList and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.roomList');
     }
 
     /**
@@ -51,6 +57,7 @@ class RoomList extends Place implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'emailAddress' => function (ParseNode $n) use ($o) { $o->setEmailAddress($n->getStringValue()); },
             'rooms' => function (ParseNode $n) use ($o) { $o->setRooms($n->getCollectionOfObjectValues(array(Room::class, 'createFromDiscriminatorValue'))); },
+            'workspaces' => function (ParseNode $n) use ($o) { $o->setWorkspaces($n->getCollectionOfObjectValues(array(Workspace::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -63,6 +70,14 @@ class RoomList extends Place implements Parsable
     }
 
     /**
+     * Gets the workspaces property value. The workspaces property
+     * @return array<Workspace>|null
+    */
+    public function getWorkspaces(): ?array {
+        return $this->workspaces;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -70,6 +85,7 @@ class RoomList extends Place implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('emailAddress', $this->emailAddress);
         $writer->writeCollectionOfObjectValues('rooms', $this->rooms);
+        $writer->writeCollectionOfObjectValues('workspaces', $this->workspaces);
     }
 
     /**
@@ -86,6 +102,14 @@ class RoomList extends Place implements Parsable
     */
     public function setRooms(?array $value ): void {
         $this->rooms = $value;
+    }
+
+    /**
+     * Sets the workspaces property value. The workspaces property
+     *  @param array<Workspace>|null $value Value to set for the workspaces property.
+    */
+    public function setWorkspaces(?array $value ): void {
+        $this->workspaces = $value;
     }
 
 }

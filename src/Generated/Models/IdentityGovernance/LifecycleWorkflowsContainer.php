@@ -1,0 +1,186 @@
+<?php
+
+namespace Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
+
+use Microsoft\Graph\Beta\Generated\Models\DeletedItemContainer;
+use Microsoft\Graph\Beta\Generated\Models\Entity;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+class LifecycleWorkflowsContainer extends Entity implements Parsable 
+{
+    /**
+     * @var array<CustomTaskExtension>|null $customTaskExtensions The customTaskExtensions property
+    */
+    private ?array $customTaskExtensions = null;
+    
+    /**
+     * @var DeletedItemContainer|null $deletedItems The deletedItems property
+    */
+    private ?DeletedItemContainer $deletedItems = null;
+    
+    /**
+     * @var LifecycleManagementSettings|null $settings The settings property
+    */
+    private ?LifecycleManagementSettings $settings = null;
+    
+    /**
+     * @var array<TaskDefinition>|null $taskDefinitions The taskDefinitions property
+    */
+    private ?array $taskDefinitions = null;
+    
+    /**
+     * @var array<Workflow>|null $workflows The workflows property
+    */
+    private ?array $workflows = null;
+    
+    /**
+     * @var array<WorkflowTemplate>|null $workflowTemplates The workflowTemplates property
+    */
+    private ?array $workflowTemplates = null;
+    
+    /**
+     * Instantiates a new LifecycleWorkflowsContainer and sets the default values.
+    */
+    public function __construct() {
+        parent::__construct();
+        $this->setOdataType('#microsoft.graph.identityGovernance.lifecycleWorkflowsContainer');
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return LifecycleWorkflowsContainer
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): LifecycleWorkflowsContainer {
+        return new LifecycleWorkflowsContainer();
+    }
+
+    /**
+     * Gets the customTaskExtensions property value. The customTaskExtensions property
+     * @return array<CustomTaskExtension>|null
+    */
+    public function getCustomTaskExtensions(): ?array {
+        return $this->customTaskExtensions;
+    }
+
+    /**
+     * Gets the deletedItems property value. The deletedItems property
+     * @return DeletedItemContainer|null
+    */
+    public function getDeletedItems(): ?DeletedItemContainer {
+        return $this->deletedItems;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return array_merge(parent::getFieldDeserializers(), [
+            'customTaskExtensions' => function (ParseNode $n) use ($o) { $o->setCustomTaskExtensions($n->getCollectionOfObjectValues(array(CustomTaskExtension::class, 'createFromDiscriminatorValue'))); },
+            'deletedItems' => function (ParseNode $n) use ($o) { $o->setDeletedItems($n->getObjectValue(array(DeletedItemContainer::class, 'createFromDiscriminatorValue'))); },
+            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(LifecycleManagementSettings::class, 'createFromDiscriminatorValue'))); },
+            'taskDefinitions' => function (ParseNode $n) use ($o) { $o->setTaskDefinitions($n->getCollectionOfObjectValues(array(TaskDefinition::class, 'createFromDiscriminatorValue'))); },
+            'workflows' => function (ParseNode $n) use ($o) { $o->setWorkflows($n->getCollectionOfObjectValues(array(Workflow::class, 'createFromDiscriminatorValue'))); },
+            'workflowTemplates' => function (ParseNode $n) use ($o) { $o->setWorkflowTemplates($n->getCollectionOfObjectValues(array(WorkflowTemplate::class, 'createFromDiscriminatorValue'))); },
+        ]);
+    }
+
+    /**
+     * Gets the settings property value. The settings property
+     * @return LifecycleManagementSettings|null
+    */
+    public function getSettings(): ?LifecycleManagementSettings {
+        return $this->settings;
+    }
+
+    /**
+     * Gets the taskDefinitions property value. The taskDefinitions property
+     * @return array<TaskDefinition>|null
+    */
+    public function getTaskDefinitions(): ?array {
+        return $this->taskDefinitions;
+    }
+
+    /**
+     * Gets the workflows property value. The workflows property
+     * @return array<Workflow>|null
+    */
+    public function getWorkflows(): ?array {
+        return $this->workflows;
+    }
+
+    /**
+     * Gets the workflowTemplates property value. The workflowTemplates property
+     * @return array<WorkflowTemplate>|null
+    */
+    public function getWorkflowTemplates(): ?array {
+        return $this->workflowTemplates;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
+        $writer->writeCollectionOfObjectValues('customTaskExtensions', $this->customTaskExtensions);
+        $writer->writeObjectValue('deletedItems', $this->deletedItems);
+        $writer->writeObjectValue('settings', $this->settings);
+        $writer->writeCollectionOfObjectValues('taskDefinitions', $this->taskDefinitions);
+        $writer->writeCollectionOfObjectValues('workflows', $this->workflows);
+        $writer->writeCollectionOfObjectValues('workflowTemplates', $this->workflowTemplates);
+    }
+
+    /**
+     * Sets the customTaskExtensions property value. The customTaskExtensions property
+     *  @param array<CustomTaskExtension>|null $value Value to set for the customTaskExtensions property.
+    */
+    public function setCustomTaskExtensions(?array $value ): void {
+        $this->customTaskExtensions = $value;
+    }
+
+    /**
+     * Sets the deletedItems property value. The deletedItems property
+     *  @param DeletedItemContainer|null $value Value to set for the deletedItems property.
+    */
+    public function setDeletedItems(?DeletedItemContainer $value ): void {
+        $this->deletedItems = $value;
+    }
+
+    /**
+     * Sets the settings property value. The settings property
+     *  @param LifecycleManagementSettings|null $value Value to set for the settings property.
+    */
+    public function setSettings(?LifecycleManagementSettings $value ): void {
+        $this->settings = $value;
+    }
+
+    /**
+     * Sets the taskDefinitions property value. The taskDefinitions property
+     *  @param array<TaskDefinition>|null $value Value to set for the taskDefinitions property.
+    */
+    public function setTaskDefinitions(?array $value ): void {
+        $this->taskDefinitions = $value;
+    }
+
+    /**
+     * Sets the workflows property value. The workflows property
+     *  @param array<Workflow>|null $value Value to set for the workflows property.
+    */
+    public function setWorkflows(?array $value ): void {
+        $this->workflows = $value;
+    }
+
+    /**
+     * Sets the workflowTemplates property value. The workflowTemplates property
+     *  @param array<WorkflowTemplate>|null $value Value to set for the workflowTemplates property.
+    */
+    public function setWorkflowTemplates(?array $value ): void {
+        $this->workflowTemplates = $value;
+    }
+
+}

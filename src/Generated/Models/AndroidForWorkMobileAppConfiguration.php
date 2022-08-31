@@ -29,7 +29,7 @@ class AndroidForWorkMobileAppConfiguration extends ManagedDeviceMobileAppConfigu
     private ?array $permissionActions = null;
     
     /**
-     * @var AndroidProfileApplicability|null $profileApplicability Android Enterprise profile applicability (AndroidWorkProfile, DeviceOwner, or default (applies to both)). Possible values are: default, androidWorkProfile, androidDeviceOwner.
+     * @var AndroidProfileApplicability|null $profileApplicability Android profile applicability
     */
     private ?AndroidProfileApplicability $profileApplicability = null;
     
@@ -38,6 +38,7 @@ class AndroidForWorkMobileAppConfiguration extends ManagedDeviceMobileAppConfigu
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidForWorkMobileAppConfiguration');
     }
 
     /**
@@ -97,7 +98,7 @@ class AndroidForWorkMobileAppConfiguration extends ManagedDeviceMobileAppConfigu
     }
 
     /**
-     * Gets the profileApplicability property value. Android Enterprise profile applicability (AndroidWorkProfile, DeviceOwner, or default (applies to both)). Possible values are: default, androidWorkProfile, androidDeviceOwner.
+     * Gets the profileApplicability property value. Android profile applicability
      * @return AndroidProfileApplicability|null
     */
     public function getProfileApplicability(): ?AndroidProfileApplicability {
@@ -150,7 +151,7 @@ class AndroidForWorkMobileAppConfiguration extends ManagedDeviceMobileAppConfigu
     }
 
     /**
-     * Sets the profileApplicability property value. Android Enterprise profile applicability (AndroidWorkProfile, DeviceOwner, or default (applies to both)). Possible values are: default, androidWorkProfile, androidDeviceOwner.
+     * Sets the profileApplicability property value. Android profile applicability
      *  @param AndroidProfileApplicability|null $value Value to set for the profileApplicability property.
     */
     public function setProfileApplicability(?AndroidProfileApplicability $value ): void {

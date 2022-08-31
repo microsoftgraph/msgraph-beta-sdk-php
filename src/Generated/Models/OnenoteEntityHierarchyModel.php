@@ -10,22 +10,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel implements Parsable 
 {
     /**
-     * @var IdentitySet|null $createdBy Identity of the user, device, and application which created the item. Read-only.
+     * @var IdentitySet|null $createdBy The createdBy property
     */
     private ?IdentitySet $createdBy = null;
     
     /**
-     * @var string|null $displayName The name of the notebook.
+     * @var string|null $displayName The displayName property
     */
     private ?string $displayName = null;
     
     /**
-     * @var IdentitySet|null $lastModifiedBy Identity of the user, device, and application which created the item. Read-only.
+     * @var IdentitySet|null $lastModifiedBy The lastModifiedBy property
     */
     private ?IdentitySet $lastModifiedBy = null;
     
     /**
-     * @var DateTime|null $lastModifiedDateTime The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
     */
     private ?DateTime $lastModifiedDateTime = null;
     
@@ -34,6 +34,7 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel impleme
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.onenoteEntityHierarchyModel');
     }
 
     /**
@@ -55,7 +56,7 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel impleme
     }
 
     /**
-     * Gets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.
+     * Gets the createdBy property value. The createdBy property
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
@@ -63,7 +64,7 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel impleme
     }
 
     /**
-     * Gets the displayName property value. The name of the notebook.
+     * Gets the displayName property value. The displayName property
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -85,7 +86,7 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel impleme
     }
 
     /**
-     * Gets the lastModifiedBy property value. Identity of the user, device, and application which created the item. Read-only.
+     * Gets the lastModifiedBy property value. The lastModifiedBy property
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
@@ -93,7 +94,7 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel impleme
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -113,7 +114,7 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel impleme
     }
 
     /**
-     * Sets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.
+     * Sets the createdBy property value. The createdBy property
      *  @param IdentitySet|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?IdentitySet $value ): void {
@@ -121,7 +122,7 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel impleme
     }
 
     /**
-     * Sets the displayName property value. The name of the notebook.
+     * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -129,7 +130,7 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel impleme
     }
 
     /**
-     * Sets the lastModifiedBy property value. Identity of the user, device, and application which created the item. Read-only.
+     * Sets the lastModifiedBy property value. The lastModifiedBy property
      *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?IdentitySet $value ): void {
@@ -137,7 +138,7 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel impleme
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {

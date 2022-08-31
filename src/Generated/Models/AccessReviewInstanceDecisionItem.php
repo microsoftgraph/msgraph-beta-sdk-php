@@ -15,7 +15,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     private ?string $accessReviewId = null;
     
     /**
-     * @var UserIdentity|null $appliedBy The identifier of the user who applied the decision. Read-only.
+     * @var UserIdentity|null $appliedBy The identifier of the user who applied the decision. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't applied the decision or it was automatically applied. Read-only.
     */
     private ?UserIdentity $appliedBy = null;
     
@@ -80,7 +80,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     private ?string $resourceLink = null;
     
     /**
-     * @var UserIdentity|null $reviewedBy The identifier of the reviewer. Supports $select. Read-only.
+     * @var UserIdentity|null $reviewedBy The identifier of the reviewer. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't reviewed. Supports $select. Read-only.
     */
     private ?UserIdentity $reviewedBy = null;
     
@@ -99,6 +99,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.accessReviewInstanceDecisionItem');
     }
 
     /**
@@ -119,7 +120,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the appliedBy property value. The identifier of the user who applied the decision. Read-only.
+     * Gets the appliedBy property value. The identifier of the user who applied the decision. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't applied the decision or it was automatically applied. Read-only.
      * @return UserIdentity|null
     */
     public function getAppliedBy(): ?UserIdentity {
@@ -250,7 +251,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the reviewedBy property value. The identifier of the reviewer. Supports $select. Read-only.
+     * Gets the reviewedBy property value. The identifier of the reviewer. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't reviewed. Supports $select. Read-only.
      * @return UserIdentity|null
     */
     public function getReviewedBy(): ?UserIdentity {
@@ -307,7 +308,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the appliedBy property value. The identifier of the user who applied the decision. Read-only.
+     * Sets the appliedBy property value. The identifier of the user who applied the decision. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't applied the decision or it was automatically applied. Read-only.
      *  @param UserIdentity|null $value Value to set for the appliedBy property.
     */
     public function setAppliedBy(?UserIdentity $value ): void {
@@ -411,7 +412,7 @@ class AccessReviewInstanceDecisionItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the reviewedBy property value. The identifier of the reviewer. Supports $select. Read-only.
+     * Sets the reviewedBy property value. The identifier of the reviewer. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't reviewed. Supports $select. Read-only.
      *  @param UserIdentity|null $value Value to set for the reviewedBy property.
     */
     public function setReviewedBy(?UserIdentity $value ): void {

@@ -35,7 +35,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
     private ?int $certificateKeyUsages = null;
     
     /**
-     * @var CertificateRevocationStatus|null $certificateRevokeStatus Revoke status. Possible values are: none, pending, issued, failed, revoked.
+     * @var CertificateRevocationStatus|null $certificateRevokeStatus Certificate Revocation Status.
     */
     private ?CertificateRevocationStatus $certificateRevokeStatus = null;
     
@@ -74,6 +74,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.managedAllDeviceCertificateState');
     }
 
     /**
@@ -126,7 +127,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Gets the certificateRevokeStatus property value. Revoke status. Possible values are: none, pending, issued, failed, revoked.
+     * Gets the certificateRevokeStatus property value. Certificate Revocation Status.
      * @return CertificateRevocationStatus|null
     */
     public function getCertificateRevokeStatus(): ?CertificateRevocationStatus {
@@ -264,7 +265,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
     }
 
     /**
-     * Sets the certificateRevokeStatus property value. Revoke status. Possible values are: none, pending, issued, failed, revoked.
+     * Sets the certificateRevokeStatus property value. Certificate Revocation Status.
      *  @param CertificateRevocationStatus|null $value Value to set for the certificateRevokeStatus property.
     */
     public function setCertificateRevokeStatus(?CertificateRevocationStatus $value ): void {

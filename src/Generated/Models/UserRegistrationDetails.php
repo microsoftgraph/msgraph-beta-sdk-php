@@ -14,6 +14,11 @@ class UserRegistrationDetails extends Entity implements Parsable
     private ?DefaultMfaMethodType $defaultMfaMethod = null;
     
     /**
+     * @var bool|null $isAdmin Whether the user has an admin role in the tenant. This value can be used to check the authentication methods that privileged accounts are registered for and capable of.
+    */
+    private ?bool $isAdmin = null;
+    
+    /**
      * @var bool|null $isMfaCapable Whether the user has registered a strong authentication method for multi-factor authentication. The method must be allowed by the authentication methods policy. Supports $filter (eq).
     */
     private ?bool $isMfaCapable = null;
@@ -59,10 +64,16 @@ class UserRegistrationDetails extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
+     * @var SignInUserType|null $userType Identifies whether the user is a member or guest in the tenant. The possible values are: member, guest, unknownFutureValue.
+    */
+    private ?SignInUserType $userType = null;
+    
+    /**
      * Instantiates a new userRegistrationDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userRegistrationDetails');
     }
 
     /**
@@ -90,6 +101,7 @@ class UserRegistrationDetails extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'defaultMfaMethod' => function (ParseNode $n) use ($o) { $o->setDefaultMfaMethod($n->getEnumValue(DefaultMfaMethodType::class)); },
+            'isAdmin' => function (ParseNode $n) use ($o) { $o->setIsAdmin($n->getBooleanValue()); },
             'isMfaCapable' => function (ParseNode $n) use ($o) { $o->setIsMfaCapable($n->getBooleanValue()); },
             'isMfaRegistered' => function (ParseNode $n) use ($o) { $o->setIsMfaRegistered($n->getBooleanValue()); },
             'isPasswordlessCapable' => function (ParseNode $n) use ($o) { $o->setIsPasswordlessCapable($n->getBooleanValue()); },
@@ -99,7 +111,16 @@ class UserRegistrationDetails extends Entity implements Parsable
             'methodsRegistered' => function (ParseNode $n) use ($o) { $o->setMethodsRegistered($n->getCollectionOfPrimitiveValues()); },
             'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
             'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'userType' => function (ParseNode $n) use ($o) { $o->setUserType($n->getEnumValue(SignInUserType::class)); },
         ]);
+    }
+
+    /**
+     * Gets the isAdmin property value. Whether the user has an admin role in the tenant. This value can be used to check the authentication methods that privileged accounts are registered for and capable of.
+     * @return bool|null
+    */
+    public function getIsAdmin(): ?bool {
+        return $this->isAdmin;
     }
 
     /**
@@ -175,12 +196,21 @@ class UserRegistrationDetails extends Entity implements Parsable
     }
 
     /**
+     * Gets the userType property value. Identifies whether the user is a member or guest in the tenant. The possible values are: member, guest, unknownFutureValue.
+     * @return SignInUserType|null
+    */
+    public function getUserType(): ?SignInUserType {
+        return $this->userType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeEnumValue('defaultMfaMethod', $this->defaultMfaMethod);
+        $writer->writeBooleanValue('isAdmin', $this->isAdmin);
         $writer->writeBooleanValue('isMfaCapable', $this->isMfaCapable);
         $writer->writeBooleanValue('isMfaRegistered', $this->isMfaRegistered);
         $writer->writeBooleanValue('isPasswordlessCapable', $this->isPasswordlessCapable);
@@ -190,6 +220,7 @@ class UserRegistrationDetails extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('methodsRegistered', $this->methodsRegistered);
         $writer->writeStringValue('userDisplayName', $this->userDisplayName);
         $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeEnumValue('userType', $this->userType);
     }
 
     /**
@@ -198,6 +229,14 @@ class UserRegistrationDetails extends Entity implements Parsable
     */
     public function setDefaultMfaMethod(?DefaultMfaMethodType $value ): void {
         $this->defaultMfaMethod = $value;
+    }
+
+    /**
+     * Sets the isAdmin property value. Whether the user has an admin role in the tenant. This value can be used to check the authentication methods that privileged accounts are registered for and capable of.
+     *  @param bool|null $value Value to set for the isAdmin property.
+    */
+    public function setIsAdmin(?bool $value ): void {
+        $this->isAdmin = $value;
     }
 
     /**
@@ -270,6 +309,14 @@ class UserRegistrationDetails extends Entity implements Parsable
     */
     public function setUserPrincipalName(?string $value ): void {
         $this->userPrincipalName = $value;
+    }
+
+    /**
+     * Sets the userType property value. Identifies whether the user is a member or guest in the tenant. The possible values are: member, guest, unknownFutureValue.
+     *  @param SignInUserType|null $value Value to set for the userType property.
+    */
+    public function setUserType(?SignInUserType $value ): void {
+        $this->userType = $value;
     }
 
 }

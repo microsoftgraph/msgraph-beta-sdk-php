@@ -10,24 +10,29 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var DataType|null $dataType Data type specified in the rule. Possible values are: none, boolean, int64, double, string, dateTime, version, base64, xml, booleanArray, int64Array, doubleArray, stringArray, dateTimeArray, versionArray.
+     * @var DataType|null $dataType Data types for rules.
     */
     private ?DataType $dataType = null;
     
     /**
-     * @var DeviceComplianceScriptRuleDataType|null $deviceComplianceScriptRuleDataType Data type specified in the rule. Possible values are: none, boolean, int64, double, string, dateTime, version, base64, xml, booleanArray, int64Array, doubleArray, stringArray, dateTimeArray, versionArray.
+     * @var DeviceComplianceScriptRuleDataType|null $deviceComplianceScriptRuleDataType Data types for rules.
     */
     private ?DeviceComplianceScriptRuleDataType $deviceComplianceScriptRuleDataType = null;
     
     /**
-     * @var DeviceComplianceScriptRulOperator|null $deviceComplianceScriptRulOperator Operator specified in the rule. Possible values are: none, and, or, isEquals, notEquals, greaterThan, lessThan, between, notBetween, greaterEquals, lessEquals, dayTimeBetween, beginsWith, notBeginsWith, endsWith, notEndsWith, contains, notContains, allOf, oneOf, noneOf, setEquals, orderedSetEquals, subsetOf, excludesAll.
+     * @var DeviceComplianceScriptRulOperator|null $deviceComplianceScriptRulOperator Operator for rules.
     */
     private ?DeviceComplianceScriptRulOperator $deviceComplianceScriptRulOperator = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $operand Operand specified in the rule.
@@ -35,7 +40,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
     private ?string $operand = null;
     
     /**
-     * @var Operator|null $operator Operator specified in the rule. Possible values are: none, and, or, isEquals, notEquals, greaterThan, lessThan, between, notBetween, greaterEquals, lessEquals, dayTimeBetween, beginsWith, notBeginsWith, endsWith, notEndsWith, contains, notContains, allOf, oneOf, noneOf, setEquals, orderedSetEquals, subsetOf, excludesAll.
+     * @var Operator|null $operator Operator for rules.
     */
     private ?Operator $operator = null;
     
@@ -48,7 +53,8 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
      * Instantiates a new deviceComplianceScriptRule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceComplianceScriptRule');
     }
 
     /**
@@ -69,7 +75,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the dataType property value. Data type specified in the rule. Possible values are: none, boolean, int64, double, string, dateTime, version, base64, xml, booleanArray, int64Array, doubleArray, stringArray, dateTimeArray, versionArray.
+     * Gets the dataType property value. Data types for rules.
      * @return DataType|null
     */
     public function getDataType(): ?DataType {
@@ -77,7 +83,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceComplianceScriptRuleDataType property value. Data type specified in the rule. Possible values are: none, boolean, int64, double, string, dateTime, version, base64, xml, booleanArray, int64Array, doubleArray, stringArray, dateTimeArray, versionArray.
+     * Gets the deviceComplianceScriptRuleDataType property value. Data types for rules.
      * @return DeviceComplianceScriptRuleDataType|null
     */
     public function getDeviceComplianceScriptRuleDataType(): ?DeviceComplianceScriptRuleDataType {
@@ -85,7 +91,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceComplianceScriptRulOperator property value. Operator specified in the rule. Possible values are: none, and, or, isEquals, notEquals, greaterThan, lessThan, between, notBetween, greaterEquals, lessEquals, dayTimeBetween, beginsWith, notBeginsWith, endsWith, notEndsWith, contains, notContains, allOf, oneOf, noneOf, setEquals, orderedSetEquals, subsetOf, excludesAll.
+     * Gets the deviceComplianceScriptRulOperator property value. Operator for rules.
      * @return DeviceComplianceScriptRulOperator|null
     */
     public function getDeviceComplianceScriptRulOperator(): ?DeviceComplianceScriptRulOperator {
@@ -102,10 +108,19 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
             'dataType' => function (ParseNode $n) use ($o) { $o->setDataType($n->getEnumValue(DataType::class)); },
             'deviceComplianceScriptRuleDataType' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceScriptRuleDataType($n->getEnumValue(DeviceComplianceScriptRuleDataType::class)); },
             'deviceComplianceScriptRulOperator' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceScriptRulOperator($n->getEnumValue(DeviceComplianceScriptRulOperator::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'operand' => function (ParseNode $n) use ($o) { $o->setOperand($n->getStringValue()); },
             'operator' => function (ParseNode $n) use ($o) { $o->setOperator($n->getEnumValue(Operator::class)); },
             'settingName' => function (ParseNode $n) use ($o) { $o->setSettingName($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -117,7 +132,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the operator property value. Operator specified in the rule. Possible values are: none, and, or, isEquals, notEquals, greaterThan, lessThan, between, notBetween, greaterEquals, lessEquals, dayTimeBetween, beginsWith, notBeginsWith, endsWith, notEndsWith, contains, notContains, allOf, oneOf, noneOf, setEquals, orderedSetEquals, subsetOf, excludesAll.
+     * Gets the operator property value. Operator for rules.
      * @return Operator|null
     */
     public function getOperator(): ?Operator {
@@ -140,6 +155,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
         $writer->writeEnumValue('dataType', $this->dataType);
         $writer->writeEnumValue('deviceComplianceScriptRuleDataType', $this->deviceComplianceScriptRuleDataType);
         $writer->writeEnumValue('deviceComplianceScriptRulOperator', $this->deviceComplianceScriptRulOperator);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('operand', $this->operand);
         $writer->writeEnumValue('operator', $this->operator);
         $writer->writeStringValue('settingName', $this->settingName);
@@ -155,7 +171,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the dataType property value. Data type specified in the rule. Possible values are: none, boolean, int64, double, string, dateTime, version, base64, xml, booleanArray, int64Array, doubleArray, stringArray, dateTimeArray, versionArray.
+     * Sets the dataType property value. Data types for rules.
      *  @param DataType|null $value Value to set for the dataType property.
     */
     public function setDataType(?DataType $value ): void {
@@ -163,7 +179,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceComplianceScriptRuleDataType property value. Data type specified in the rule. Possible values are: none, boolean, int64, double, string, dateTime, version, base64, xml, booleanArray, int64Array, doubleArray, stringArray, dateTimeArray, versionArray.
+     * Sets the deviceComplianceScriptRuleDataType property value. Data types for rules.
      *  @param DeviceComplianceScriptRuleDataType|null $value Value to set for the deviceComplianceScriptRuleDataType property.
     */
     public function setDeviceComplianceScriptRuleDataType(?DeviceComplianceScriptRuleDataType $value ): void {
@@ -171,11 +187,19 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceComplianceScriptRulOperator property value. Operator specified in the rule. Possible values are: none, and, or, isEquals, notEquals, greaterThan, lessThan, between, notBetween, greaterEquals, lessEquals, dayTimeBetween, beginsWith, notBeginsWith, endsWith, notEndsWith, contains, notContains, allOf, oneOf, noneOf, setEquals, orderedSetEquals, subsetOf, excludesAll.
+     * Sets the deviceComplianceScriptRulOperator property value. Operator for rules.
      *  @param DeviceComplianceScriptRulOperator|null $value Value to set for the deviceComplianceScriptRulOperator property.
     */
     public function setDeviceComplianceScriptRulOperator(?DeviceComplianceScriptRulOperator $value ): void {
         $this->deviceComplianceScriptRulOperator = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**
@@ -187,7 +211,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the operator property value. Operator specified in the rule. Possible values are: none, and, or, isEquals, notEquals, greaterThan, lessThan, between, notBetween, greaterEquals, lessEquals, dayTimeBetween, beginsWith, notBeginsWith, endsWith, notEndsWith, contains, notContains, allOf, oneOf, noneOf, setEquals, orderedSetEquals, subsetOf, excludesAll.
+     * Sets the operator property value. Operator for rules.
      *  @param Operator|null $value Value to set for the operator property.
     */
     public function setOperator(?Operator $value ): void {
