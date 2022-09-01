@@ -34,7 +34,7 @@ class SideLoadingKey extends Entity implements Parsable
     private ?string $value = null;
     
     /**
-     * Instantiates a new SideLoadingKey and sets the default values.
+     * Instantiates a new sideLoadingKey and sets the default values.
     */
     public function __construct() {
         parent::__construct();

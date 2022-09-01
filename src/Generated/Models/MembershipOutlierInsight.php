@@ -9,22 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MembershipOutlierInsight extends GovernanceInsight implements Parsable 
 {
     /**
-     * @var DirectoryObject|null $container The container property
+     * @var DirectoryObject|null $container Navigation link to the container directory object. For example, to a group.
     */
     private ?DirectoryObject $container = null;
     
     /**
-     * @var string|null $containerId The containerId property
+     * @var string|null $containerId Indicates the identifier of the container, for example, a group ID.
     */
     private ?string $containerId = null;
     
     /**
-     * @var DirectoryObject|null $member The member property
+     * @var DirectoryObject|null $member Navigation link to a member object. For example, to a user.
     */
     private ?DirectoryObject $member = null;
     
     /**
-     * @var string|null $memberId The memberId property
+     * @var string|null $memberId Indicates the identifier of the user.
     */
     private ?string $memberId = null;
     
@@ -56,7 +56,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     }
 
     /**
-     * Gets the container property value. The container property
+     * Gets the container property value. Navigation link to the container directory object. For example, to a group.
      * @return DirectoryObject|null
     */
     public function getContainer(): ?DirectoryObject {
@@ -64,7 +64,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     }
 
     /**
-     * Gets the containerId property value. The containerId property
+     * Gets the containerId property value. Indicates the identifier of the container, for example, a group ID.
      * @return string|null
     */
     public function getContainerId(): ?string {
@@ -88,7 +88,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     }
 
     /**
-     * Gets the member property value. The member property
+     * Gets the member property value. Navigation link to a member object. For example, to a user.
      * @return DirectoryObject|null
     */
     public function getMember(): ?DirectoryObject {
@@ -96,7 +96,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     }
 
     /**
-     * Gets the memberId property value. The memberId property
+     * Gets the memberId property value. Indicates the identifier of the user.
      * @return string|null
     */
     public function getMemberId(): ?string {
@@ -134,7 +134,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     }
 
     /**
-     * Sets the container property value. The container property
+     * Sets the container property value. Navigation link to the container directory object. For example, to a group.
      *  @param DirectoryObject|null $value Value to set for the container property.
     */
     public function setContainer(?DirectoryObject $value ): void {
@@ -142,7 +142,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     }
 
     /**
-     * Sets the containerId property value. The containerId property
+     * Sets the containerId property value. Indicates the identifier of the container, for example, a group ID.
      *  @param string|null $value Value to set for the containerId property.
     */
     public function setContainerId(?string $value ): void {
@@ -150,7 +150,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     }
 
     /**
-     * Sets the member property value. The member property
+     * Sets the member property value. Navigation link to a member object. For example, to a user.
      *  @param DirectoryObject|null $value Value to set for the member property.
     */
     public function setMember(?DirectoryObject $value ): void {
@@ -158,7 +158,7 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     }
 
     /**
-     * Sets the memberId property value. The memberId property
+     * Sets the memberId property value. Indicates the identifier of the user.
      *  @param string|null $value Value to set for the memberId property.
     */
     public function setMemberId(?string $value ): void {

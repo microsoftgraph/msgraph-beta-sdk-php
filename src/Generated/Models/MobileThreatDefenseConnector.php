@@ -95,6 +95,11 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     private ?bool $windowsEnabled = null;
     
     /**
+     * @var bool|null $windowsMobileApplicationManagementEnabled When TRUE, app protection policies using the Device Threat Level rule will evaluate devices including data from this connector for Windows. When FALSE, Intune will not use device risk details sent over this connector during app protection policies calculation for policies with a Device Threat Level configured. Existing devices that are not compliant due to risk levels obtained from this connector will also become compliant.
+    */
+    private ?bool $windowsMobileApplicationManagementEnabled = null;
+    
+    /**
      * Instantiates a new mobileThreatDefenseConnector and sets the default values.
     */
     public function __construct() {
@@ -175,6 +180,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
             'partnerUnsupportedOsVersionBlocked' => function (ParseNode $n) use ($o) { $o->setPartnerUnsupportedOsVersionBlocked($n->getBooleanValue()); },
             'windowsDeviceBlockedOnMissingPartnerData' => function (ParseNode $n) use ($o) { $o->setWindowsDeviceBlockedOnMissingPartnerData($n->getBooleanValue()); },
             'windowsEnabled' => function (ParseNode $n) use ($o) { $o->setWindowsEnabled($n->getBooleanValue()); },
+            'windowsMobileApplicationManagementEnabled' => function (ParseNode $n) use ($o) { $o->setWindowsMobileApplicationManagementEnabled($n->getBooleanValue()); },
         ]);
     }
 
@@ -275,6 +281,14 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     }
 
     /**
+     * Gets the windowsMobileApplicationManagementEnabled property value. When TRUE, app protection policies using the Device Threat Level rule will evaluate devices including data from this connector for Windows. When FALSE, Intune will not use device risk details sent over this connector during app protection policies calculation for policies with a Device Threat Level configured. Existing devices that are not compliant due to risk levels obtained from this connector will also become compliant.
+     * @return bool|null
+    */
+    public function getWindowsMobileApplicationManagementEnabled(): ?bool {
+        return $this->windowsMobileApplicationManagementEnabled;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -297,6 +311,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
         $writer->writeBooleanValue('partnerUnsupportedOsVersionBlocked', $this->partnerUnsupportedOsVersionBlocked);
         $writer->writeBooleanValue('windowsDeviceBlockedOnMissingPartnerData', $this->windowsDeviceBlockedOnMissingPartnerData);
         $writer->writeBooleanValue('windowsEnabled', $this->windowsEnabled);
+        $writer->writeBooleanValue('windowsMobileApplicationManagementEnabled', $this->windowsMobileApplicationManagementEnabled);
     }
 
     /**
@@ -433,6 +448,14 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     */
     public function setWindowsEnabled(?bool $value ): void {
         $this->windowsEnabled = $value;
+    }
+
+    /**
+     * Sets the windowsMobileApplicationManagementEnabled property value. When TRUE, app protection policies using the Device Threat Level rule will evaluate devices including data from this connector for Windows. When FALSE, Intune will not use device risk details sent over this connector during app protection policies calculation for policies with a Device Threat Level configured. Existing devices that are not compliant due to risk levels obtained from this connector will also become compliant.
+     *  @param bool|null $value Value to set for the windowsMobileApplicationManagementEnabled property.
+    */
+    public function setWindowsMobileApplicationManagementEnabled(?bool $value ): void {
+        $this->windowsMobileApplicationManagementEnabled = $value;
     }
 
 }

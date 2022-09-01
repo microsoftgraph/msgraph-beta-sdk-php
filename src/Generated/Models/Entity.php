@@ -337,6 +337,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.delegatedAdminRelationshipRequest': return new DelegatedAdminRelationshipRequest();
                 case '#microsoft.graph.delegatedAdminServiceManagementDetail': return new DelegatedAdminServiceManagementDetail();
                 case '#microsoft.graph.delegatedPermissionClassification': return new DelegatedPermissionClassification();
+                case '#microsoft.graph.deletedItemContainer': return new DeletedItemContainer();
                 case '#microsoft.graph.deletedTeam': return new DeletedTeam();
                 case '#microsoft.graph.depEnrollmentBaseProfile': return new DepEnrollmentBaseProfile();
                 case '#microsoft.graph.depEnrollmentProfile': return new DepEnrollmentProfile();
@@ -637,6 +638,16 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.identityApiConnector': return new IdentityApiConnector();
                 case '#microsoft.graph.identityBuiltInUserFlowAttribute': return new IdentityBuiltInUserFlowAttribute();
                 case '#microsoft.graph.identityCustomUserFlowAttribute': return new IdentityCustomUserFlowAttribute();
+                case '#microsoft.graph.identityGovernance.customTaskExtension': return new CustomTaskExtension();
+                case '#microsoft.graph.identityGovernance.lifecycleManagementSettings': return new LifecycleManagementSettings();
+                case '#microsoft.graph.identityGovernance.lifecycleWorkflowsContainer': return new LifecycleWorkflowsContainer();
+                case '#microsoft.graph.identityGovernance.run': return new Run();
+                case '#microsoft.graph.identityGovernance.task': return new Task();
+                case '#microsoft.graph.identityGovernance.taskDefinition': return new TaskDefinition();
+                case '#microsoft.graph.identityGovernance.taskProcessingResult': return new TaskProcessingResult();
+                case '#microsoft.graph.identityGovernance.taskReport': return new TaskReport();
+                case '#microsoft.graph.identityGovernance.userProcessingResult': return new UserProcessingResult();
+                case '#microsoft.graph.identityGovernance.workflowTemplate': return new WorkflowTemplate();
                 case '#microsoft.graph.identityProvider': return new IdentityProvider();
                 case '#microsoft.graph.identityProviderBase': return new IdentityProviderBase();
                 case '#microsoft.graph.identitySecurityDefaultsEnforcementPolicy': return new IdentitySecurityDefaultsEnforcementPolicy();
@@ -1463,6 +1474,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.windowsWifiConfiguration': return new WindowsWifiConfiguration();
                 case '#microsoft.graph.windowsWifiEnterpriseEAPConfiguration': return new WindowsWifiEnterpriseEAPConfiguration();
                 case '#microsoft.graph.windowsWiredNetworkConfiguration': return new WindowsWiredNetworkConfiguration();
+                case '#microsoft.graph.winGetApp': return new WinGetApp();
                 case '#microsoft.graph.workbook': return new Workbook();
                 case '#microsoft.graph.workbookApplication': return new WorkbookApplication();
                 case '#microsoft.graph.workbookChart': return new WorkbookChart();

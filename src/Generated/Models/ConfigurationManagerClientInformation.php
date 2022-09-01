@@ -20,6 +20,11 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
     private ?string $clientIdentifier = null;
     
     /**
+     * @var string|null $clientVersion Configuration Manager Client version from SCCM
+    */
+    private ?string $clientVersion = null;
+    
+    /**
      * @var bool|null $isBlocked Configuration Manager Client blocked status from SCCM
     */
     private ?bool $isBlocked = null;
@@ -63,6 +68,14 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
     }
 
     /**
+     * Gets the clientVersion property value. Configuration Manager Client version from SCCM
+     * @return string|null
+    */
+    public function getClientVersion(): ?string {
+        return $this->clientVersion;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -70,6 +83,7 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
         $o = $this;
         return  [
             'clientIdentifier' => function (ParseNode $n) use ($o) { $o->setClientIdentifier($n->getStringValue()); },
+            'clientVersion' => function (ParseNode $n) use ($o) { $o->setClientVersion($n->getStringValue()); },
             'isBlocked' => function (ParseNode $n) use ($o) { $o->setIsBlocked($n->getBooleanValue()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
@@ -97,6 +111,7 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('clientIdentifier', $this->clientIdentifier);
+        $writer->writeStringValue('clientVersion', $this->clientVersion);
         $writer->writeBooleanValue('isBlocked', $this->isBlocked);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
@@ -116,6 +131,14 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
     */
     public function setClientIdentifier(?string $value ): void {
         $this->clientIdentifier = $value;
+    }
+
+    /**
+     * Sets the clientVersion property value. Configuration Manager Client version from SCCM
+     *  @param string|null $value Value to set for the clientVersion property.
+    */
+    public function setClientVersion(?string $value ): void {
+        $this->clientVersion = $value;
     }
 
     /**

@@ -165,6 +165,11 @@ class DeviceManagement extends Entity implements Parsable
     private ?array $configurationSettings = null;
     
     /**
+     * @var DataProcessorServiceForWindowsFeaturesOnboarding|null $dataProcessorServiceForWindowsFeaturesOnboarding A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
+    */
+    private ?DataProcessorServiceForWindowsFeaturesOnboarding $dataProcessorServiceForWindowsFeaturesOnboarding = null;
+    
+    /**
      * @var array<DataSharingConsent>|null $dataSharingConsents Data sharing consents.
     */
     private ?array $dataSharingConsents = null;
@@ -1140,6 +1145,14 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
+     * Gets the dataProcessorServiceForWindowsFeaturesOnboarding property value. A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
+     * @return DataProcessorServiceForWindowsFeaturesOnboarding|null
+    */
+    public function getDataProcessorServiceForWindowsFeaturesOnboarding(): ?DataProcessorServiceForWindowsFeaturesOnboarding {
+        return $this->dataProcessorServiceForWindowsFeaturesOnboarding;
+    }
+
+    /**
      * Gets the dataSharingConsents property value. Data sharing consents.
      * @return array<DataSharingConsent>|null
     */
@@ -1401,6 +1414,7 @@ class DeviceManagement extends Entity implements Parsable
             'configurationPolicies' => function (ParseNode $n) use ($o) { $o->setConfigurationPolicies($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationPolicy::class, 'createFromDiscriminatorValue'))); },
             'configurationPolicyTemplates' => function (ParseNode $n) use ($o) { $o->setConfigurationPolicyTemplates($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationPolicyTemplate::class, 'createFromDiscriminatorValue'))); },
             'configurationSettings' => function (ParseNode $n) use ($o) { $o->setConfigurationSettings($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingDefinition::class, 'createFromDiscriminatorValue'))); },
+            'dataProcessorServiceForWindowsFeaturesOnboarding' => function (ParseNode $n) use ($o) { $o->setDataProcessorServiceForWindowsFeaturesOnboarding($n->getObjectValue(array(DataProcessorServiceForWindowsFeaturesOnboarding::class, 'createFromDiscriminatorValue'))); },
             'dataSharingConsents' => function (ParseNode $n) use ($o) { $o->setDataSharingConsents($n->getCollectionOfObjectValues(array(DataSharingConsent::class, 'createFromDiscriminatorValue'))); },
             'depOnboardingSettings' => function (ParseNode $n) use ($o) { $o->setDepOnboardingSettings($n->getCollectionOfObjectValues(array(DepOnboardingSetting::class, 'createFromDiscriminatorValue'))); },
             'derivedCredentials' => function (ParseNode $n) use ($o) { $o->setDerivedCredentials($n->getCollectionOfObjectValues(array(DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'))); },
@@ -2495,6 +2509,7 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('configurationPolicies', $this->configurationPolicies);
         $writer->writeCollectionOfObjectValues('configurationPolicyTemplates', $this->configurationPolicyTemplates);
         $writer->writeCollectionOfObjectValues('configurationSettings', $this->configurationSettings);
+        $writer->writeObjectValue('dataProcessorServiceForWindowsFeaturesOnboarding', $this->dataProcessorServiceForWindowsFeaturesOnboarding);
         $writer->writeCollectionOfObjectValues('dataSharingConsents', $this->dataSharingConsents);
         $writer->writeCollectionOfObjectValues('depOnboardingSettings', $this->depOnboardingSettings);
         $writer->writeCollectionOfObjectValues('derivedCredentials', $this->derivedCredentials);
@@ -2885,6 +2900,14 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setConfigurationSettings(?array $value ): void {
         $this->configurationSettings = $value;
+    }
+
+    /**
+     * Sets the dataProcessorServiceForWindowsFeaturesOnboarding property value. A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
+     *  @param DataProcessorServiceForWindowsFeaturesOnboarding|null $value Value to set for the dataProcessorServiceForWindowsFeaturesOnboarding property.
+    */
+    public function setDataProcessorServiceForWindowsFeaturesOnboarding(?DataProcessorServiceForWindowsFeaturesOnboarding $value ): void {
+        $this->dataProcessorServiceForWindowsFeaturesOnboarding = $value;
     }
 
     /**

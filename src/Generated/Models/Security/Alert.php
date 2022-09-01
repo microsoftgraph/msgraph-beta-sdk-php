@@ -11,107 +11,107 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Alert extends Entity implements Parsable 
 {
     /**
-     * @var string|null $actorDisplayName The actorDisplayName property
+     * @var string|null $actorDisplayName The adversary or activity group that is associated with this alert.
     */
     private ?string $actorDisplayName = null;
     
     /**
-     * @var string|null $alertWebUrl The alertWebUrl property
+     * @var string|null $alertWebUrl URL for the alert page in the Microsoft 365 Defender portal.
     */
     private ?string $alertWebUrl = null;
     
     /**
-     * @var string|null $assignedTo The assignedTo property
+     * @var string|null $assignedTo Owner of the alert, or null if no owner is assigned.
     */
     private ?string $assignedTo = null;
     
     /**
-     * @var string|null $category The category property
+     * @var string|null $category The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework.
     */
     private ?string $category = null;
     
     /**
-     * @var AlertClassification|null $classification The classification property
+     * @var AlertClassification|null $classification Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, benignPositive, unknownFutureValue.
     */
     private ?AlertClassification $classification = null;
     
     /**
-     * @var array<AlertComment>|null $comments The comments property
+     * @var array<AlertComment>|null $comments Array of comments created by the Security Operations (SecOps) team during the alert management process.
     */
     private ?array $comments = null;
     
     /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
+     * @var DateTime|null $createdDateTime Time when Microsoft 365 Defender created the alert.
     */
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var string|null $description The description property
+     * @var string|null $description String value describing each alert.
     */
     private ?string $description = null;
     
     /**
-     * @var DetectionSource|null $detectionSource The detectionSource property
+     * @var DetectionSource|null $detectionSource Detection technology or sensor that identified the notable component or activity.
     */
     private ?DetectionSource $detectionSource = null;
     
     /**
-     * @var string|null $detectorId The detectorId property
+     * @var string|null $detectorId The ID of the detector that triggered the alert.
     */
     private ?string $detectorId = null;
     
     /**
-     * @var AlertDetermination|null $determination The determination property
+     * @var AlertDetermination|null $determination Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
     */
     private ?AlertDetermination $determination = null;
     
     /**
-     * @var array<AlertEvidence>|null $evidence The evidence property
+     * @var array<AlertEvidence>|null $evidence Collection of evidence related to the alert.
     */
     private ?array $evidence = null;
     
     /**
-     * @var DateTime|null $firstActivityDateTime The firstActivityDateTime property
+     * @var DateTime|null $firstActivityDateTime The earliest activity associated with the alert.
     */
     private ?DateTime $firstActivityDateTime = null;
     
     /**
-     * @var string|null $incidentId The incidentId property
+     * @var string|null $incidentId Unique identifier to represent the incident this alert resource is associated with.
     */
     private ?string $incidentId = null;
     
     /**
-     * @var string|null $incidentWebUrl The incidentWebUrl property
+     * @var string|null $incidentWebUrl URL for the incident page in the Microsoft 365 Defender portal.
     */
     private ?string $incidentWebUrl = null;
     
     /**
-     * @var DateTime|null $lastActivityDateTime The lastActivityDateTime property
+     * @var DateTime|null $lastActivityDateTime The oldest activity associated with the alert.
     */
     private ?DateTime $lastActivityDateTime = null;
     
     /**
-     * @var DateTime|null $lastUpdateDateTime The lastUpdateDateTime property
+     * @var DateTime|null $lastUpdateDateTime Time when the alert was last updated at Microsoft 365 Defender.
     */
     private ?DateTime $lastUpdateDateTime = null;
     
     /**
-     * @var array<string>|null $mitreTechniques The mitreTechniques property
+     * @var array<string>|null $mitreTechniques The attack techniques, as aligned with the MITRE ATT&CK framework.
     */
     private ?array $mitreTechniques = null;
     
     /**
-     * @var string|null $providerAlertId The providerAlertId property
+     * @var string|null $providerAlertId The ID of the alert as it appears in the security provider product that generated the alert.
     */
     private ?string $providerAlertId = null;
     
     /**
-     * @var string|null $recommendedActions The recommendedActions property
+     * @var string|null $recommendedActions Recommended response and remediation actions to take in the event this alert was generated.
     */
     private ?string $recommendedActions = null;
     
     /**
-     * @var DateTime|null $resolvedDateTime The resolvedDateTime property
+     * @var DateTime|null $resolvedDateTime Time when the alert was resolved.
     */
     private ?DateTime $resolvedDateTime = null;
     
@@ -131,22 +131,22 @@ class Alert extends Entity implements Parsable
     private ?AlertStatus $status = null;
     
     /**
-     * @var string|null $tenantId The tenantId property
+     * @var string|null $tenantId The Azure Active Directory tenant the alert was created in.
     */
     private ?string $tenantId = null;
     
     /**
-     * @var string|null $threatDisplayName The threatDisplayName property
+     * @var string|null $threatDisplayName The threat associated with this alert.
     */
     private ?string $threatDisplayName = null;
     
     /**
-     * @var string|null $threatFamilyName The threatFamilyName property
+     * @var string|null $threatFamilyName Threat family associated with this alert.
     */
     private ?string $threatFamilyName = null;
     
     /**
-     * @var string|null $title The title property
+     * @var string|null $title Brief identifying string value describing the alert.
     */
     private ?string $title = null;
     
@@ -168,7 +168,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the actorDisplayName property value. The actorDisplayName property
+     * Gets the actorDisplayName property value. The adversary or activity group that is associated with this alert.
      * @return string|null
     */
     public function getActorDisplayName(): ?string {
@@ -176,7 +176,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertWebUrl property value. The alertWebUrl property
+     * Gets the alertWebUrl property value. URL for the alert page in the Microsoft 365 Defender portal.
      * @return string|null
     */
     public function getAlertWebUrl(): ?string {
@@ -184,7 +184,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignedTo property value. The assignedTo property
+     * Gets the assignedTo property value. Owner of the alert, or null if no owner is assigned.
      * @return string|null
     */
     public function getAssignedTo(): ?string {
@@ -192,7 +192,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the category property value. The category property
+     * Gets the category property value. The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework.
      * @return string|null
     */
     public function getCategory(): ?string {
@@ -200,7 +200,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the classification property value. The classification property
+     * Gets the classification property value. Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, benignPositive, unknownFutureValue.
      * @return AlertClassification|null
     */
     public function getClassification(): ?AlertClassification {
@@ -208,7 +208,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the comments property value. The comments property
+     * Gets the comments property value. Array of comments created by the Security Operations (SecOps) team during the alert management process.
      * @return array<AlertComment>|null
     */
     public function getComments(): ?array {
@@ -216,7 +216,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Time when Microsoft 365 Defender created the alert.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -224,7 +224,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. String value describing each alert.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -232,7 +232,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the detectionSource property value. The detectionSource property
+     * Gets the detectionSource property value. Detection technology or sensor that identified the notable component or activity.
      * @return DetectionSource|null
     */
     public function getDetectionSource(): ?DetectionSource {
@@ -240,7 +240,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the detectorId property value. The detectorId property
+     * Gets the detectorId property value. The ID of the detector that triggered the alert.
      * @return string|null
     */
     public function getDetectorId(): ?string {
@@ -248,7 +248,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the determination property value. The determination property
+     * Gets the determination property value. Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      * @return AlertDetermination|null
     */
     public function getDetermination(): ?AlertDetermination {
@@ -256,7 +256,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the evidence property value. The evidence property
+     * Gets the evidence property value. Collection of evidence related to the alert.
      * @return array<AlertEvidence>|null
     */
     public function getEvidence(): ?array {
@@ -302,7 +302,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the firstActivityDateTime property value. The firstActivityDateTime property
+     * Gets the firstActivityDateTime property value. The earliest activity associated with the alert.
      * @return DateTime|null
     */
     public function getFirstActivityDateTime(): ?DateTime {
@@ -310,7 +310,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the incidentId property value. The incidentId property
+     * Gets the incidentId property value. Unique identifier to represent the incident this alert resource is associated with.
      * @return string|null
     */
     public function getIncidentId(): ?string {
@@ -318,7 +318,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the incidentWebUrl property value. The incidentWebUrl property
+     * Gets the incidentWebUrl property value. URL for the incident page in the Microsoft 365 Defender portal.
      * @return string|null
     */
     public function getIncidentWebUrl(): ?string {
@@ -326,7 +326,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastActivityDateTime property value. The lastActivityDateTime property
+     * Gets the lastActivityDateTime property value. The oldest activity associated with the alert.
      * @return DateTime|null
     */
     public function getLastActivityDateTime(): ?DateTime {
@@ -334,7 +334,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdateDateTime property value. The lastUpdateDateTime property
+     * Gets the lastUpdateDateTime property value. Time when the alert was last updated at Microsoft 365 Defender.
      * @return DateTime|null
     */
     public function getLastUpdateDateTime(): ?DateTime {
@@ -342,7 +342,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the mitreTechniques property value. The mitreTechniques property
+     * Gets the mitreTechniques property value. The attack techniques, as aligned with the MITRE ATT&CK framework.
      * @return array<string>|null
     */
     public function getMitreTechniques(): ?array {
@@ -350,7 +350,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the providerAlertId property value. The providerAlertId property
+     * Gets the providerAlertId property value. The ID of the alert as it appears in the security provider product that generated the alert.
      * @return string|null
     */
     public function getProviderAlertId(): ?string {
@@ -358,7 +358,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the recommendedActions property value. The recommendedActions property
+     * Gets the recommendedActions property value. Recommended response and remediation actions to take in the event this alert was generated.
      * @return string|null
     */
     public function getRecommendedActions(): ?string {
@@ -366,7 +366,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the resolvedDateTime property value. The resolvedDateTime property
+     * Gets the resolvedDateTime property value. Time when the alert was resolved.
      * @return DateTime|null
     */
     public function getResolvedDateTime(): ?DateTime {
@@ -398,7 +398,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. The Azure Active Directory tenant the alert was created in.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -406,7 +406,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the threatDisplayName property value. The threatDisplayName property
+     * Gets the threatDisplayName property value. The threat associated with this alert.
      * @return string|null
     */
     public function getThreatDisplayName(): ?string {
@@ -414,7 +414,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the threatFamilyName property value. The threatFamilyName property
+     * Gets the threatFamilyName property value. Threat family associated with this alert.
      * @return string|null
     */
     public function getThreatFamilyName(): ?string {
@@ -422,7 +422,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Gets the title property value. The title property
+     * Gets the title property value. Brief identifying string value describing the alert.
      * @return string|null
     */
     public function getTitle(): ?string {
@@ -466,7 +466,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the actorDisplayName property value. The actorDisplayName property
+     * Sets the actorDisplayName property value. The adversary or activity group that is associated with this alert.
      *  @param string|null $value Value to set for the actorDisplayName property.
     */
     public function setActorDisplayName(?string $value ): void {
@@ -474,7 +474,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertWebUrl property value. The alertWebUrl property
+     * Sets the alertWebUrl property value. URL for the alert page in the Microsoft 365 Defender portal.
      *  @param string|null $value Value to set for the alertWebUrl property.
     */
     public function setAlertWebUrl(?string $value ): void {
@@ -482,7 +482,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignedTo property value. The assignedTo property
+     * Sets the assignedTo property value. Owner of the alert, or null if no owner is assigned.
      *  @param string|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?string $value ): void {
@@ -490,7 +490,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the category property value. The category property
+     * Sets the category property value. The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework.
      *  @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value ): void {
@@ -498,7 +498,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the classification property value. The classification property
+     * Sets the classification property value. Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, benignPositive, unknownFutureValue.
      *  @param AlertClassification|null $value Value to set for the classification property.
     */
     public function setClassification(?AlertClassification $value ): void {
@@ -506,7 +506,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the comments property value. The comments property
+     * Sets the comments property value. Array of comments created by the Security Operations (SecOps) team during the alert management process.
      *  @param array<AlertComment>|null $value Value to set for the comments property.
     */
     public function setComments(?array $value ): void {
@@ -514,7 +514,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Time when Microsoft 365 Defender created the alert.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
@@ -522,7 +522,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. String value describing each alert.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -530,7 +530,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the detectionSource property value. The detectionSource property
+     * Sets the detectionSource property value. Detection technology or sensor that identified the notable component or activity.
      *  @param DetectionSource|null $value Value to set for the detectionSource property.
     */
     public function setDetectionSource(?DetectionSource $value ): void {
@@ -538,7 +538,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the detectorId property value. The detectorId property
+     * Sets the detectorId property value. The ID of the detector that triggered the alert.
      *  @param string|null $value Value to set for the detectorId property.
     */
     public function setDetectorId(?string $value ): void {
@@ -546,7 +546,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the determination property value. The determination property
+     * Sets the determination property value. Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      *  @param AlertDetermination|null $value Value to set for the determination property.
     */
     public function setDetermination(?AlertDetermination $value ): void {
@@ -554,7 +554,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the evidence property value. The evidence property
+     * Sets the evidence property value. Collection of evidence related to the alert.
      *  @param array<AlertEvidence>|null $value Value to set for the evidence property.
     */
     public function setEvidence(?array $value ): void {
@@ -562,7 +562,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the firstActivityDateTime property value. The firstActivityDateTime property
+     * Sets the firstActivityDateTime property value. The earliest activity associated with the alert.
      *  @param DateTime|null $value Value to set for the firstActivityDateTime property.
     */
     public function setFirstActivityDateTime(?DateTime $value ): void {
@@ -570,7 +570,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the incidentId property value. The incidentId property
+     * Sets the incidentId property value. Unique identifier to represent the incident this alert resource is associated with.
      *  @param string|null $value Value to set for the incidentId property.
     */
     public function setIncidentId(?string $value ): void {
@@ -578,7 +578,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the incidentWebUrl property value. The incidentWebUrl property
+     * Sets the incidentWebUrl property value. URL for the incident page in the Microsoft 365 Defender portal.
      *  @param string|null $value Value to set for the incidentWebUrl property.
     */
     public function setIncidentWebUrl(?string $value ): void {
@@ -586,7 +586,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastActivityDateTime property value. The lastActivityDateTime property
+     * Sets the lastActivityDateTime property value. The oldest activity associated with the alert.
      *  @param DateTime|null $value Value to set for the lastActivityDateTime property.
     */
     public function setLastActivityDateTime(?DateTime $value ): void {
@@ -594,7 +594,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdateDateTime property value. The lastUpdateDateTime property
+     * Sets the lastUpdateDateTime property value. Time when the alert was last updated at Microsoft 365 Defender.
      *  @param DateTime|null $value Value to set for the lastUpdateDateTime property.
     */
     public function setLastUpdateDateTime(?DateTime $value ): void {
@@ -602,7 +602,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the mitreTechniques property value. The mitreTechniques property
+     * Sets the mitreTechniques property value. The attack techniques, as aligned with the MITRE ATT&CK framework.
      *  @param array<string>|null $value Value to set for the mitreTechniques property.
     */
     public function setMitreTechniques(?array $value ): void {
@@ -610,7 +610,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the providerAlertId property value. The providerAlertId property
+     * Sets the providerAlertId property value. The ID of the alert as it appears in the security provider product that generated the alert.
      *  @param string|null $value Value to set for the providerAlertId property.
     */
     public function setProviderAlertId(?string $value ): void {
@@ -618,7 +618,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the recommendedActions property value. The recommendedActions property
+     * Sets the recommendedActions property value. Recommended response and remediation actions to take in the event this alert was generated.
      *  @param string|null $value Value to set for the recommendedActions property.
     */
     public function setRecommendedActions(?string $value ): void {
@@ -626,7 +626,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the resolvedDateTime property value. The resolvedDateTime property
+     * Sets the resolvedDateTime property value. Time when the alert was resolved.
      *  @param DateTime|null $value Value to set for the resolvedDateTime property.
     */
     public function setResolvedDateTime(?DateTime $value ): void {
@@ -658,7 +658,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. The Azure Active Directory tenant the alert was created in.
      *  @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value ): void {
@@ -666,7 +666,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the threatDisplayName property value. The threatDisplayName property
+     * Sets the threatDisplayName property value. The threat associated with this alert.
      *  @param string|null $value Value to set for the threatDisplayName property.
     */
     public function setThreatDisplayName(?string $value ): void {
@@ -674,7 +674,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the threatFamilyName property value. The threatFamilyName property
+     * Sets the threatFamilyName property value. Threat family associated with this alert.
      *  @param string|null $value Value to set for the threatFamilyName property.
     */
     public function setThreatFamilyName(?string $value ): void {
@@ -682,7 +682,7 @@ class Alert extends Entity implements Parsable
     }
 
     /**
-     * Sets the title property value. The title property
+     * Sets the title property value. Brief identifying string value describing the alert.
      *  @param string|null $value Value to set for the title property.
     */
     public function setTitle(?string $value ): void {

@@ -15,6 +15,11 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     private ?string $accountId = null;
     
     /**
+     * @var bool|null $configureWifi Boolean that indicates that the Wi-Fi network should be configured during device provisioning. When set to TRUE, device provisioning will use Wi-Fi related properties to automatically connect to Wi-Fi networks. When set to FALSE or undefined, other Wi-Fi related properties will be ignored. Default value is TRUE. Returned by default.
+    */
+    private ?bool $configureWifi = null;
+    
+    /**
      * @var DateTime|null $createdDateTime Date time the enrollment profile was created.
     */
     private ?DateTime $createdDateTime = null;
@@ -105,7 +110,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     private ?string $wifiSsid = null;
     
     /**
-     * Instantiates a new AndroidDeviceOwnerEnrollmentProfile and sets the default values.
+     * Instantiates a new androidDeviceOwnerEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -127,6 +132,14 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     */
     public function getAccountId(): ?string {
         return $this->accountId;
+    }
+
+    /**
+     * Gets the configureWifi property value. Boolean that indicates that the Wi-Fi network should be configured during device provisioning. When set to TRUE, device provisioning will use Wi-Fi related properties to automatically connect to Wi-Fi networks. When set to FALSE or undefined, other Wi-Fi related properties will be ignored. Default value is TRUE. Returned by default.
+     * @return bool|null
+    */
+    public function getConfigureWifi(): ?bool {
+        return $this->configureWifi;
     }
 
     /**
@@ -193,6 +206,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'accountId' => function (ParseNode $n) use ($o) { $o->setAccountId($n->getStringValue()); },
+            'configureWifi' => function (ParseNode $n) use ($o) { $o->setConfigureWifi($n->getBooleanValue()); },
             'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
@@ -309,6 +323,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('accountId', $this->accountId);
+        $writer->writeBooleanValue('configureWifi', $this->configureWifi);
         $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
@@ -335,6 +350,14 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     */
     public function setAccountId(?string $value ): void {
         $this->accountId = $value;
+    }
+
+    /**
+     * Sets the configureWifi property value. Boolean that indicates that the Wi-Fi network should be configured during device provisioning. When set to TRUE, device provisioning will use Wi-Fi related properties to automatically connect to Wi-Fi networks. When set to FALSE or undefined, other Wi-Fi related properties will be ignored. Default value is TRUE. Returned by default.
+     *  @param bool|null $value Value to set for the configureWifi property.
+    */
+    public function setConfigureWifi(?bool $value ): void {
+        $this->configureWifi = $value;
     }
 
     /**

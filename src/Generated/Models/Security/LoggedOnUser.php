@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LoggedOnUser implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var string|null $accountName The accountName property
+     * @var string|null $accountName User account name of the logged-on user.
     */
     private ?string $accountName = null;
     
@@ -20,7 +20,7 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $domainName The domainName property
+     * @var string|null $domainName User account domain of the logged-on user.
     */
     private ?string $domainName = null;
     
@@ -47,7 +47,7 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the accountName property value. The accountName property
+     * Gets the accountName property value. User account name of the logged-on user.
      * @return string|null
     */
     public function getAccountName(): ?string {
@@ -63,7 +63,7 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the domainName property value. The domainName property
+     * Gets the domainName property value. User account domain of the logged-on user.
      * @return string|null
     */
     public function getDomainName(): ?string {
@@ -103,7 +103,7 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the accountName property value. The accountName property
+     * Sets the accountName property value. User account name of the logged-on user.
      *  @param string|null $value Value to set for the accountName property.
     */
     public function setAccountName(?string $value ): void {
@@ -119,7 +119,7 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the domainName property value. The domainName property
+     * Sets the domainName property value. User account domain of the logged-on user.
      *  @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value ): void {

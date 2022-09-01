@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AccessReviews\AccessReviewsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\AppConsent\AppConsentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\EntitlementManagementRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\LifecycleWorkflows\LifecycleWorkflowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\TermsOfUse\TermsOfUseRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\IdentityGovernance;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
@@ -40,6 +41,13 @@ class IdentityGovernanceRequestBuilder
     */
     public function entitlementManagement(): EntitlementManagementRequestBuilder {
         return new EntitlementManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The lifecycleWorkflows property
+    */
+    public function lifecycleWorkflows(): LifecycleWorkflowsRequestBuilder {
+        return new LifecycleWorkflowsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

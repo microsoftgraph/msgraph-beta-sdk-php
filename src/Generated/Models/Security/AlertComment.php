@@ -16,17 +16,17 @@ class AlertComment implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $comment The comment property
+     * @var string|null $comment The comment text.
     */
     private ?string $comment = null;
     
     /**
-     * @var string|null $createdByDisplayName The createdByDisplayName property
+     * @var string|null $createdByDisplayName The person or app name that submitted the comment.
     */
     private ?string $createdByDisplayName = null;
     
     /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
+     * @var DateTime|null $createdDateTime The time when the comment was submitted.
     */
     private ?DateTime $createdDateTime = null;
     
@@ -61,7 +61,7 @@ class AlertComment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the comment property value. The comment property
+     * Gets the comment property value. The comment text.
      * @return string|null
     */
     public function getComment(): ?string {
@@ -69,7 +69,7 @@ class AlertComment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the createdByDisplayName property value. The createdByDisplayName property
+     * Gets the createdByDisplayName property value. The person or app name that submitted the comment.
      * @return string|null
     */
     public function getCreatedByDisplayName(): ?string {
@@ -77,7 +77,7 @@ class AlertComment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The time when the comment was submitted.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -127,7 +127,7 @@ class AlertComment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the comment property value. The comment property
+     * Sets the comment property value. The comment text.
      *  @param string|null $value Value to set for the comment property.
     */
     public function setComment(?string $value ): void {
@@ -135,7 +135,7 @@ class AlertComment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the createdByDisplayName property value. The createdByDisplayName property
+     * Sets the createdByDisplayName property value. The person or app name that submitted the comment.
      *  @param string|null $value Value to set for the createdByDisplayName property.
     */
     public function setCreatedByDisplayName(?string $value ): void {
@@ -143,7 +143,7 @@ class AlertComment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The time when the comment was submitted.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
