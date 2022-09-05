@@ -69,7 +69,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     private ?bool $cellularBlockWiFiTethering = null;
     
     /**
-     * @var AppListType|null $compliantAppListType Type of list that is in the CompliantAppsList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+     * @var AppListType|null $compliantAppListType Possible values of the compliance app list.
     */
     private ?AppListType $compliantAppListType = null;
     
@@ -169,7 +169,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     private ?bool $passwordRequired = null;
     
     /**
-     * @var AndroidRequiredPasswordType|null $passwordRequiredType Type of password that is required. Possible values are: deviceDefault, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, numeric, numericComplex, any.
+     * @var AndroidRequiredPasswordType|null $passwordRequiredType Android required password type.
     */
     private ?AndroidRequiredPasswordType $passwordRequiredType = null;
     
@@ -184,7 +184,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     private ?bool $powerOffBlocked = null;
     
     /**
-     * @var AndroidRequiredPasswordComplexity|null $requiredPasswordComplexity Indicates the required password complexity on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+. Possible values are: none, low, medium, high.
+     * @var AndroidRequiredPasswordComplexity|null $requiredPasswordComplexity The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
     */
     private ?AndroidRequiredPasswordComplexity $requiredPasswordComplexity = null;
     
@@ -249,7 +249,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     private ?bool $webBrowserBlockPopups = null;
     
     /**
-     * @var WebBrowserCookieSettings|null $webBrowserCookieSettings Cookie settings within the web browser. Possible values are: browserDefault, blockAlways, allowCurrentWebSite, allowFromWebsitesVisited, allowAlways.
+     * @var WebBrowserCookieSettings|null $webBrowserCookieSettings Web Browser Cookie Settings.
     */
     private ?WebBrowserCookieSettings $webBrowserCookieSettings = null;
     
@@ -263,6 +263,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidGeneralDeviceConfiguration');
     }
 
     /**
@@ -371,7 +372,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     }
 
     /**
-     * Gets the compliantAppListType property value. Type of list that is in the CompliantAppsList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+     * Gets the compliantAppListType property value. Possible values of the compliance app list.
      * @return AppListType|null
     */
     public function getCompliantAppListType(): ?AppListType {
@@ -591,7 +592,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     }
 
     /**
-     * Gets the passwordRequiredType property value. Type of password that is required. Possible values are: deviceDefault, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, numeric, numericComplex, any.
+     * Gets the passwordRequiredType property value. Android required password type.
      * @return AndroidRequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?AndroidRequiredPasswordType {
@@ -615,7 +616,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     }
 
     /**
-     * Gets the requiredPasswordComplexity property value. Indicates the required password complexity on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+. Possible values are: none, low, medium, high.
+     * Gets the requiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
      * @return AndroidRequiredPasswordComplexity|null
     */
     public function getRequiredPasswordComplexity(): ?AndroidRequiredPasswordComplexity {
@@ -719,7 +720,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     }
 
     /**
-     * Gets the webBrowserCookieSettings property value. Cookie settings within the web browser. Possible values are: browserDefault, blockAlways, allowCurrentWebSite, allowFromWebsitesVisited, allowAlways.
+     * Gets the webBrowserCookieSettings property value. Web Browser Cookie Settings.
      * @return WebBrowserCookieSettings|null
     */
     public function getWebBrowserCookieSettings(): ?WebBrowserCookieSettings {
@@ -889,7 +890,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     }
 
     /**
-     * Sets the compliantAppListType property value. Type of list that is in the CompliantAppsList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+     * Sets the compliantAppListType property value. Possible values of the compliance app list.
      *  @param AppListType|null $value Value to set for the compliantAppListType property.
     */
     public function setCompliantAppListType(?AppListType $value ): void {
@@ -1049,7 +1050,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     }
 
     /**
-     * Sets the passwordRequiredType property value. Type of password that is required. Possible values are: deviceDefault, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, numeric, numericComplex, any.
+     * Sets the passwordRequiredType property value. Android required password type.
      *  @param AndroidRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
     public function setPasswordRequiredType(?AndroidRequiredPasswordType $value ): void {
@@ -1073,7 +1074,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     }
 
     /**
-     * Sets the requiredPasswordComplexity property value. Indicates the required password complexity on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+. Possible values are: none, low, medium, high.
+     * Sets the requiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
      *  @param AndroidRequiredPasswordComplexity|null $value Value to set for the requiredPasswordComplexity property.
     */
     public function setRequiredPasswordComplexity(?AndroidRequiredPasswordComplexity $value ): void {
@@ -1177,7 +1178,7 @@ class AndroidGeneralDeviceConfiguration extends DeviceConfiguration implements P
     }
 
     /**
-     * Sets the webBrowserCookieSettings property value. Cookie settings within the web browser. Possible values are: browserDefault, blockAlways, allowCurrentWebSite, allowFromWebsitesVisited, allowAlways.
+     * Sets the webBrowserCookieSettings property value. Web Browser Cookie Settings.
      *  @param WebBrowserCookieSettings|null $value Value to set for the webBrowserCookieSettings property.
     */
     public function setWebBrowserCookieSettings(?WebBrowserCookieSettings $value ): void {

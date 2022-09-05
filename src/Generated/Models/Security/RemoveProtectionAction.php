@@ -13,6 +13,7 @@ class RemoveProtectionAction extends InformationProtectionAction implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.removeProtectionAction');
     }
 
     /**

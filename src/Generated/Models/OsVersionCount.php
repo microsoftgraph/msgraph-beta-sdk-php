@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OsVersionCount implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -26,6 +26,11 @@ class OsVersionCount implements AdditionalDataHolder, Parsable
     private ?DateTime $lastUpdateDateTime = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var string|null $osVersion OS version
     */
     private ?string $osVersion = null;
@@ -34,7 +39,8 @@ class OsVersionCount implements AdditionalDataHolder, Parsable
      * Instantiates a new osVersionCount and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.osVersionCount');
     }
 
     /**
@@ -71,6 +77,7 @@ class OsVersionCount implements AdditionalDataHolder, Parsable
         return  [
             'deviceCount' => function (ParseNode $n) use ($o) { $o->setDeviceCount($n->getIntegerValue()); },
             'lastUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdateDateTime($n->getDateTimeValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
         ];
     }
@@ -81,6 +88,14 @@ class OsVersionCount implements AdditionalDataHolder, Parsable
     */
     public function getLastUpdateDateTime(): ?DateTime {
         return $this->lastUpdateDateTime;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class OsVersionCount implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeIntegerValue('deviceCount', $this->deviceCount);
         $writer->writeDateTimeValue('lastUpdateDateTime', $this->lastUpdateDateTime);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('osVersion', $this->osVersion);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -124,6 +140,14 @@ class OsVersionCount implements AdditionalDataHolder, Parsable
     */
     public function setLastUpdateDateTime(?DateTime $value ): void {
         $this->lastUpdateDateTime = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

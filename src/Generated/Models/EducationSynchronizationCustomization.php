@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationSynchronizationCustomization implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -24,6 +24,11 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
      * @var bool|null $isSyncDeferred Indicates whether synchronization of the parent entity is deferred to a later date.
     */
     private ?bool $isSyncDeferred = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<string>|null $optionalPropertiesToSync The collection of property names to sync. If set to null, all properties will be synchronized. Does not apply to Student Enrollments or Teacher Rosters
@@ -39,7 +44,8 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
      * Instantiates a new educationSynchronizationCustomization and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.educationSynchronizationCustomization');
     }
 
     /**
@@ -76,6 +82,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
         return  [
             'allowDisplayNameUpdate' => function (ParseNode $n) use ($o) { $o->setAllowDisplayNameUpdate($n->getBooleanValue()); },
             'isSyncDeferred' => function (ParseNode $n) use ($o) { $o->setIsSyncDeferred($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'optionalPropertiesToSync' => function (ParseNode $n) use ($o) { $o->setOptionalPropertiesToSync($n->getCollectionOfPrimitiveValues()); },
             'synchronizationStartDate' => function (ParseNode $n) use ($o) { $o->setSynchronizationStartDate($n->getDateTimeValue()); },
         ];
@@ -87,6 +94,14 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
     */
     public function getIsSyncDeferred(): ?bool {
         return $this->isSyncDeferred;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -112,6 +127,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('allowDisplayNameUpdate', $this->allowDisplayNameUpdate);
         $writer->writeBooleanValue('isSyncDeferred', $this->isSyncDeferred);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfPrimitiveValues('optionalPropertiesToSync', $this->optionalPropertiesToSync);
         $writer->writeDateTimeValue('synchronizationStartDate', $this->synchronizationStartDate);
         $writer->writeAdditionalData($this->additionalData);
@@ -139,6 +155,14 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
     */
     public function setIsSyncDeferred(?bool $value ): void {
         $this->isSyncDeferred = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

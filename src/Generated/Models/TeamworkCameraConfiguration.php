@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkCameraConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,10 +30,16 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, Parsable
     private ?TeamworkPeripheral $defaultContentCamera = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new teamworkCameraConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.teamworkCameraConfiguration');
     }
 
     /**
@@ -87,7 +93,16 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, Parsable
             'cameras' => function (ParseNode $n) use ($o) { $o->setCameras($n->getCollectionOfObjectValues(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
             'contentCameraConfiguration' => function (ParseNode $n) use ($o) { $o->setContentCameraConfiguration($n->getObjectValue(array(TeamworkContentCameraConfiguration::class, 'createFromDiscriminatorValue'))); },
             'defaultContentCamera' => function (ParseNode $n) use ($o) { $o->setDefaultContentCamera($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -98,6 +113,7 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfObjectValues('cameras', $this->cameras);
         $writer->writeObjectValue('contentCameraConfiguration', $this->contentCameraConfiguration);
         $writer->writeObjectValue('defaultContentCamera', $this->defaultContentCamera);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -131,6 +147,14 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, Parsable
     */
     public function setDefaultContentCamera(?TeamworkPeripheral $value ): void {
         $this->defaultContentCamera = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

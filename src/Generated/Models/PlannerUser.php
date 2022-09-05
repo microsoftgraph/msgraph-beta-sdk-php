@@ -24,7 +24,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     private ?array $favoritePlans = null;
     
     /**
-     * @var array<PlannerPlan>|null $plans Read-only. Nullable. Returns the plannerTasks assigned to the user.
+     * @var array<PlannerPlan>|null $plans The plans property
     */
     private ?array $plans = null;
     
@@ -53,6 +53,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.plannerUser');
     }
 
     /**
@@ -107,7 +108,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the plans property value. Read-only. Nullable. Returns the plannerTasks assigned to the user.
+     * Gets the plans property value. The plans property
      * @return array<PlannerPlan>|null
     */
     public function getPlans(): ?array {
@@ -187,7 +188,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the plans property value. Read-only. Nullable. Returns the plannerTasks assigned to the user.
+     * Sets the plans property value. The plans property
      *  @param array<PlannerPlan>|null $value Value to set for the plans property.
     */
     public function setPlans(?array $value ): void {

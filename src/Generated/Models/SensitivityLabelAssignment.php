@@ -10,14 +10,19 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var SensitivityLabelAssignmentMethod|null $assignmentMethod Indicates whether the label assignment is done automatically, as a standard, or a privileged operation. The possible values are: standard, privileged, auto, unknownFutureValue.
+     * @var SensitivityLabelAssignmentMethod|null $assignmentMethod The assignmentMethod property
     */
     private ?SensitivityLabelAssignmentMethod $assignmentMethod = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $sensitivityLabelId The unique identifier for the sensitivity label assigned to the file.
@@ -33,7 +38,8 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
      * Instantiates a new sensitivityLabelAssignment and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.sensitivityLabelAssignment');
     }
 
     /**
@@ -54,7 +60,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assignmentMethod property value. Indicates whether the label assignment is done automatically, as a standard, or a privileged operation. The possible values are: standard, privileged, auto, unknownFutureValue.
+     * Gets the assignmentMethod property value. The assignmentMethod property
      * @return SensitivityLabelAssignmentMethod|null
     */
     public function getAssignmentMethod(): ?SensitivityLabelAssignmentMethod {
@@ -69,9 +75,18 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'assignmentMethod' => function (ParseNode $n) use ($o) { $o->setAssignmentMethod($n->getEnumValue(SensitivityLabelAssignmentMethod::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'sensitivityLabelId' => function (ParseNode $n) use ($o) { $o->setSensitivityLabelId($n->getStringValue()); },
             'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -96,6 +111,7 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('assignmentMethod', $this->assignmentMethod);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('sensitivityLabelId', $this->sensitivityLabelId);
         $writer->writeStringValue('tenantId', $this->tenantId);
         $writer->writeAdditionalData($this->additionalData);
@@ -110,11 +126,19 @@ class SensitivityLabelAssignment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assignmentMethod property value. Indicates whether the label assignment is done automatically, as a standard, or a privileged operation. The possible values are: standard, privileged, auto, unknownFutureValue.
+     * Sets the assignmentMethod property value. The assignmentMethod property
      *  @param SensitivityLabelAssignmentMethod|null $value Value to set for the assignmentMethod property.
     */
     public function setAssignmentMethod(?SensitivityLabelAssignmentMethod $value ): void {
         $this->assignmentMethod = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

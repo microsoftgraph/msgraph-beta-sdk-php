@@ -64,7 +64,7 @@ class ReportRoot extends Entity implements Parsable
     private ?array $monthlyPrintUsageSummariesByUser = null;
     
     /**
-     * @var SecurityReportsRoot|null $security The security property
+     * @var SecurityReportsRoot|null $security Provides the ability to launch a realistic simulated phishing attack that organizations can learn from.
     */
     private ?SecurityReportsRoot $security = null;
     
@@ -78,6 +78,7 @@ class ReportRoot extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.reportRoot');
     }
 
     /**
@@ -201,7 +202,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the security property value. The security property
+     * Gets the security property value. Provides the ability to launch a realistic simulated phishing attack that organizations can learn from.
      * @return SecurityReportsRoot|null
     */
     public function getSecurity(): ?SecurityReportsRoot {
@@ -326,7 +327,7 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the security property value. The security property
+     * Sets the security property value. Provides the ability to launch a realistic simulated phishing attack that organizations can learn from.
      *  @param SecurityReportsRoot|null $value Value to set for the security property.
     */
     public function setSecurity(?SecurityReportsRoot $value ): void {

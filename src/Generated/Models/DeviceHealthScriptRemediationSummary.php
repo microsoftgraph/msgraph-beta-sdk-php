@@ -10,9 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceHealthScriptRemediationSummary implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var int|null $remediatedDeviceCount The number of devices remediated by device health scripts.
@@ -25,10 +30,11 @@ class DeviceHealthScriptRemediationSummary implements AdditionalDataHolder, Pars
     private ?int $scriptCount = null;
     
     /**
-     * Instantiates a new DeviceHealthScriptRemediationSummary and sets the default values.
+     * Instantiates a new deviceHealthScriptRemediationSummary and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceHealthScriptRemediationSummary');
     }
 
     /**
@@ -55,9 +61,18 @@ class DeviceHealthScriptRemediationSummary implements AdditionalDataHolder, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'remediatedDeviceCount' => function (ParseNode $n) use ($o) { $o->setRemediatedDeviceCount($n->getIntegerValue()); },
             'scriptCount' => function (ParseNode $n) use ($o) { $o->setScriptCount($n->getIntegerValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -81,6 +96,7 @@ class DeviceHealthScriptRemediationSummary implements AdditionalDataHolder, Pars
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeIntegerValue('remediatedDeviceCount', $this->remediatedDeviceCount);
         $writer->writeIntegerValue('scriptCount', $this->scriptCount);
         $writer->writeAdditionalData($this->additionalData);
@@ -92,6 +108,14 @@ class DeviceHealthScriptRemediationSummary implements AdditionalDataHolder, Pars
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

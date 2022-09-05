@@ -33,6 +33,7 @@ class Place extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.place');
     }
 
     /**
@@ -47,6 +48,7 @@ class Place extends Entity implements Parsable
             switch ($mappingValue) {
                 case '#microsoft.graph.room': return new Room();
                 case '#microsoft.graph.roomList': return new RoomList();
+                case '#microsoft.graph.workspace': return new Workspace();
             }
         }
         return new Place();

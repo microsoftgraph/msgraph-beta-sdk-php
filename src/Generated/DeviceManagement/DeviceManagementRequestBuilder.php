@@ -168,6 +168,10 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\NotificationMessageTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OemWarrantyInformationOnboarding\Item\OemWarrantyInformationOnboardingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OemWarrantyInformationOnboarding\OemWarrantyInformationOnboardingRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageDetails\Item\OrganizationalMessageDetailItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageDetails\OrganizationalMessageDetailsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageGuidedContents\Item\OrganizationalMessageGuidedContentItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageGuidedContents\OrganizationalMessageGuidedContentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\Item\RemoteActionAuditItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\RemoteActionAuditsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistancePartners\Item\RemoteAssistancePartnerItemRequestBuilder;
@@ -913,6 +917,20 @@ class DeviceManagementRequestBuilder
     */
     public function oemWarrantyInformationOnboarding(): OemWarrantyInformationOnboardingRequestBuilder {
         return new OemWarrantyInformationOnboardingRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The organizationalMessageDetails property
+    */
+    public function organizationalMessageDetails(): OrganizationalMessageDetailsRequestBuilder {
+        return new OrganizationalMessageDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The organizationalMessageGuidedContents property
+    */
+    public function organizationalMessageGuidedContents(): OrganizationalMessageGuidedContentsRequestBuilder {
+        return new OrganizationalMessageGuidedContentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -2376,6 +2394,28 @@ class DeviceManagementRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['oemWarrantyInformationOnboarding%2Did'] = $id;
         return new OemWarrantyInformationOnboardingItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.organizationalMessageDetails.item collection
+     * @param string $id Unique identifier of the item
+     * @return OrganizationalMessageDetailItemRequestBuilder
+    */
+    public function organizationalMessageDetailsById(string $id): OrganizationalMessageDetailItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['organizationalMessageDetail%2Did'] = $id;
+        return new OrganizationalMessageDetailItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.organizationalMessageGuidedContents.item collection
+     * @param string $id Unique identifier of the item
+     * @return OrganizationalMessageGuidedContentItemRequestBuilder
+    */
+    public function organizationalMessageGuidedContentsById(string $id): OrganizationalMessageGuidedContentItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['organizationalMessageGuidedContent%2Did'] = $id;
+        return new OrganizationalMessageGuidedContentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

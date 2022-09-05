@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppIntentAndStateDetail implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -30,14 +30,19 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, Parsable
     private ?string $displayVersion = null;
     
     /**
-     * @var ResultantAppState|null $installState The install state of the app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
+     * @var ResultantAppState|null $installState A list of possible states for application status on an individual device. When devices contact the Intune service and find targeted application enforcement intent, the status of the enforcement is recorded and becomes accessible in the Graph API. Since the application status is identified during device interaction with the Intune service, status records do not immediately appear upon application group assignment; it is created only after the assignment is evaluated in the service and devices start receiving the policy during check-ins.
     */
     private ?ResultantAppState $installState = null;
     
     /**
-     * @var MobileAppIntent|null $mobileAppIntent Mobile App Intent. Possible values are: available, notAvailable, requiredInstall, requiredUninstall, requiredAndAvailableInstall, availableInstallWithoutEnrollment, exclude.
+     * @var MobileAppIntent|null $mobileAppIntent Indicates the status of the mobile app on the device.
     */
     private ?MobileAppIntent $mobileAppIntent = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<MobileAppSupportedDeviceType>|null $supportedDeviceTypes The supported platforms for the app.
@@ -48,7 +53,8 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, Parsable
      * Instantiates a new mobileAppIntentAndStateDetail and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.mobileAppIntentAndStateDetail');
     }
 
     /**
@@ -104,12 +110,13 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, Parsable
             'displayVersion' => function (ParseNode $n) use ($o) { $o->setDisplayVersion($n->getStringValue()); },
             'installState' => function (ParseNode $n) use ($o) { $o->setInstallState($n->getEnumValue(ResultantAppState::class)); },
             'mobileAppIntent' => function (ParseNode $n) use ($o) { $o->setMobileAppIntent($n->getEnumValue(MobileAppIntent::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'supportedDeviceTypes' => function (ParseNode $n) use ($o) { $o->setSupportedDeviceTypes($n->getCollectionOfObjectValues(array(MobileAppSupportedDeviceType::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
     /**
-     * Gets the installState property value. The install state of the app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
+     * Gets the installState property value. A list of possible states for application status on an individual device. When devices contact the Intune service and find targeted application enforcement intent, the status of the enforcement is recorded and becomes accessible in the Graph API. Since the application status is identified during device interaction with the Intune service, status records do not immediately appear upon application group assignment; it is created only after the assignment is evaluated in the service and devices start receiving the policy during check-ins.
      * @return ResultantAppState|null
     */
     public function getInstallState(): ?ResultantAppState {
@@ -117,11 +124,19 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the mobileAppIntent property value. Mobile App Intent. Possible values are: available, notAvailable, requiredInstall, requiredUninstall, requiredAndAvailableInstall, availableInstallWithoutEnrollment, exclude.
+     * Gets the mobileAppIntent property value. Indicates the status of the mobile app on the device.
      * @return MobileAppIntent|null
     */
     public function getMobileAppIntent(): ?MobileAppIntent {
         return $this->mobileAppIntent;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -142,6 +157,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('displayVersion', $this->displayVersion);
         $writer->writeEnumValue('installState', $this->installState);
         $writer->writeEnumValue('mobileAppIntent', $this->mobileAppIntent);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('supportedDeviceTypes', $this->supportedDeviceTypes);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -179,7 +195,7 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the installState property value. The install state of the app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
+     * Sets the installState property value. A list of possible states for application status on an individual device. When devices contact the Intune service and find targeted application enforcement intent, the status of the enforcement is recorded and becomes accessible in the Graph API. Since the application status is identified during device interaction with the Intune service, status records do not immediately appear upon application group assignment; it is created only after the assignment is evaluated in the service and devices start receiving the policy during check-ins.
      *  @param ResultantAppState|null $value Value to set for the installState property.
     */
     public function setInstallState(?ResultantAppState $value ): void {
@@ -187,11 +203,19 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the mobileAppIntent property value. Mobile App Intent. Possible values are: available, notAvailable, requiredInstall, requiredUninstall, requiredAndAvailableInstall, availableInstallWithoutEnrollment, exclude.
+     * Sets the mobileAppIntent property value. Indicates the status of the mobile app on the device.
      *  @param MobileAppIntent|null $value Value to set for the mobileAppIntent property.
     */
     public function setMobileAppIntent(?MobileAppIntent $value ): void {
         $this->mobileAppIntent = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

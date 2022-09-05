@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TaskViewpoint implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class TaskViewpoint implements AdditionalDataHolder, Parsable
      * @var array<string>|null $categories The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
     */
     private ?array $categories = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var DateTimeTimeZone|null $reminderDateTime The date and time for a reminder alert of the task to occur.
@@ -28,7 +33,8 @@ class TaskViewpoint implements AdditionalDataHolder, Parsable
      * Instantiates a new taskViewpoint and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.taskViewpoint');
     }
 
     /**
@@ -64,8 +70,17 @@ class TaskViewpoint implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'reminderDateTime' => function (ParseNode $n) use ($o) { $o->setReminderDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class TaskViewpoint implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfPrimitiveValues('categories', $this->categories);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('reminderDateTime', $this->reminderDateTime);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class TaskViewpoint implements AdditionalDataHolder, Parsable
     */
     public function setCategories(?array $value ): void {
         $this->categories = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

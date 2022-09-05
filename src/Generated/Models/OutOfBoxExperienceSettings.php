@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var WindowsDeviceUsageType|null $deviceUsageType AAD join authentication type. Possible values are: singleUser, shared.
+     * @var WindowsDeviceUsageType|null $deviceUsageType The deviceUsageType property
     */
     private ?WindowsDeviceUsageType $deviceUsageType = null;
     
@@ -35,12 +35,17 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
     private ?bool $hidePrivacySettings = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var bool|null $skipKeyboardSelectionPage If set, then skip the keyboard selection page if Language and Region are set
     */
     private ?bool $skipKeyboardSelectionPage = null;
     
     /**
-     * @var WindowsUserType|null $userType Type of user. Possible values are: administrator, standard.
+     * @var WindowsUserType|null $userType The userType property
     */
     private ?WindowsUserType $userType = null;
     
@@ -48,7 +53,8 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
      * Instantiates a new outOfBoxExperienceSettings and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.outOfBoxExperienceSettings');
     }
 
     /**
@@ -69,7 +75,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the deviceUsageType property value. AAD join authentication type. Possible values are: singleUser, shared.
+     * Gets the deviceUsageType property value. The deviceUsageType property
      * @return WindowsDeviceUsageType|null
     */
     public function getDeviceUsageType(): ?WindowsDeviceUsageType {
@@ -87,6 +93,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
             'hideEscapeLink' => function (ParseNode $n) use ($o) { $o->setHideEscapeLink($n->getBooleanValue()); },
             'hideEULA' => function (ParseNode $n) use ($o) { $o->setHideEULA($n->getBooleanValue()); },
             'hidePrivacySettings' => function (ParseNode $n) use ($o) { $o->setHidePrivacySettings($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'skipKeyboardSelectionPage' => function (ParseNode $n) use ($o) { $o->setSkipKeyboardSelectionPage($n->getBooleanValue()); },
             'userType' => function (ParseNode $n) use ($o) { $o->setUserType($n->getEnumValue(WindowsUserType::class)); },
         ];
@@ -117,6 +124,14 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the skipKeyboardSelectionPage property value. If set, then skip the keyboard selection page if Language and Region are set
      * @return bool|null
     */
@@ -125,7 +140,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the userType property value. Type of user. Possible values are: administrator, standard.
+     * Gets the userType property value. The userType property
      * @return WindowsUserType|null
     */
     public function getUserType(): ?WindowsUserType {
@@ -141,6 +156,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('hideEscapeLink', $this->hideEscapeLink);
         $writer->writeBooleanValue('hideEULA', $this->hideEULA);
         $writer->writeBooleanValue('hidePrivacySettings', $this->hidePrivacySettings);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeBooleanValue('skipKeyboardSelectionPage', $this->skipKeyboardSelectionPage);
         $writer->writeEnumValue('userType', $this->userType);
         $writer->writeAdditionalData($this->additionalData);
@@ -155,7 +171,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the deviceUsageType property value. AAD join authentication type. Possible values are: singleUser, shared.
+     * Sets the deviceUsageType property value. The deviceUsageType property
      *  @param WindowsDeviceUsageType|null $value Value to set for the deviceUsageType property.
     */
     public function setDeviceUsageType(?WindowsDeviceUsageType $value ): void {
@@ -187,6 +203,14 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
      * Sets the skipKeyboardSelectionPage property value. If set, then skip the keyboard selection page if Language and Region are set
      *  @param bool|null $value Value to set for the skipKeyboardSelectionPage property.
     */
@@ -195,7 +219,7 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the userType property value. Type of user. Possible values are: administrator, standard.
+     * Sets the userType property value. The userType property
      *  @param WindowsUserType|null $value Value to set for the userType property.
     */
     public function setUserType(?WindowsUserType $value ): void {

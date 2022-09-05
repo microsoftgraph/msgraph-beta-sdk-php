@@ -20,12 +20,12 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     private ?string $description = null;
     
     /**
-     * @var DiscoverySource|null $discoverySource Apple device discovery source. Possible values are: unknown, adminImport, deviceEnrollmentProgram.
+     * @var DiscoverySource|null $discoverySource The discoverySource property
     */
     private ?DiscoverySource $discoverySource = null;
     
     /**
-     * @var EnrollmentState|null $enrollmentState The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * @var EnrollmentState|null $enrollmentState The enrollmentState property
     */
     private ?EnrollmentState $enrollmentState = null;
     
@@ -45,7 +45,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     private ?DateTime $lastContactedDateTime = null;
     
     /**
-     * @var Platform|null $platform The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
+     * @var Platform|null $platform The platform property
     */
     private ?Platform $platform = null;
     
@@ -69,6 +69,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.importedAppleDeviceIdentity');
     }
 
     /**
@@ -104,7 +105,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the discoverySource property value. Apple device discovery source. Possible values are: unknown, adminImport, deviceEnrollmentProgram.
+     * Gets the discoverySource property value. The discoverySource property
      * @return DiscoverySource|null
     */
     public function getDiscoverySource(): ?DiscoverySource {
@@ -112,7 +113,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the enrollmentState property value. The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Gets the enrollmentState property value. The enrollmentState property
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
@@ -165,7 +166,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Gets the platform property value. The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
+     * Gets the platform property value. The platform property
      * @return Platform|null
     */
     public function getPlatform(): ?Platform {
@@ -232,7 +233,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the discoverySource property value. Apple device discovery source. Possible values are: unknown, adminImport, deviceEnrollmentProgram.
+     * Sets the discoverySource property value. The discoverySource property
      *  @param DiscoverySource|null $value Value to set for the discoverySource property.
     */
     public function setDiscoverySource(?DiscoverySource $value ): void {
@@ -240,7 +241,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the enrollmentState property value. The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Sets the enrollmentState property value. The enrollmentState property
      *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
     public function setEnrollmentState(?EnrollmentState $value ): void {
@@ -272,7 +273,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     }
 
     /**
-     * Sets the platform property value. The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
+     * Sets the platform property value. The platform property
      *  @param Platform|null $value Value to set for the platform property.
     */
     public function setPlatform(?Platform $value ): void {

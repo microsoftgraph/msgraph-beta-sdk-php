@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * @var EducationUserRole|null $appliesTo The user role type to assign to license. Possible values are: student, teacher, faculty.
     */
     private ?EducationUserRole $appliesTo = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<string>|null $skuIds Represents the SKU identifiers of the licenses to assign.
@@ -28,7 +33,8 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
      * Instantiates a new educationSynchronizationLicenseAssignment and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.educationSynchronizationLicenseAssignment');
     }
 
     /**
@@ -64,8 +70,17 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
         $o = $this;
         return  [
             'appliesTo' => function (ParseNode $n) use ($o) { $o->setAppliesTo($n->getEnumValue(EducationUserRole::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'skuIds' => function (ParseNode $n) use ($o) { $o->setSkuIds($n->getCollectionOfPrimitiveValues()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('appliesTo', $this->appliesTo);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfPrimitiveValues('skuIds', $this->skuIds);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
     */
     public function setAppliesTo(?EducationUserRole $value ): void {
         $this->appliesTo = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

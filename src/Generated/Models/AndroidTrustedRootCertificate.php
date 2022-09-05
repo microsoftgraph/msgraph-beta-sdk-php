@@ -24,6 +24,7 @@ class AndroidTrustedRootCertificate extends DeviceConfiguration implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidTrustedRootCertificate');
     }
 
     /**

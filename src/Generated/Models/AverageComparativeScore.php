@@ -10,25 +10,31 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AverageComparativeScore implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var float|null $averageScore Average score within specified basis.
+     * @var float|null $averageScore The averageScore property
     */
     private ?float $averageScore = null;
     
     /**
-     * @var string|null $basis Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes.
+     * @var string|null $basis The basis property
     */
     private ?string $basis = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new averageComparativeScore and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.averageComparativeScore');
     }
 
     /**
@@ -49,7 +55,7 @@ class AverageComparativeScore implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the averageScore property value. Average score within specified basis.
+     * Gets the averageScore property value. The averageScore property
      * @return float|null
     */
     public function getAverageScore(): ?float {
@@ -57,7 +63,7 @@ class AverageComparativeScore implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the basis property value. Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes.
+     * Gets the basis property value. The basis property
      * @return string|null
     */
     public function getBasis(): ?string {
@@ -73,7 +79,16 @@ class AverageComparativeScore implements AdditionalDataHolder, Parsable
         return  [
             'averageScore' => function (ParseNode $n) use ($o) { $o->setAverageScore($n->getFloatValue()); },
             'basis' => function (ParseNode $n) use ($o) { $o->setBasis($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -83,6 +98,7 @@ class AverageComparativeScore implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeFloatValue('averageScore', $this->averageScore);
         $writer->writeStringValue('basis', $this->basis);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -95,7 +111,7 @@ class AverageComparativeScore implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the averageScore property value. Average score within specified basis.
+     * Sets the averageScore property value. The averageScore property
      *  @param float|null $value Value to set for the averageScore property.
     */
     public function setAverageScore(?float $value ): void {
@@ -103,11 +119,19 @@ class AverageComparativeScore implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the basis property value. Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes.
+     * Sets the basis property value. The basis property
      *  @param string|null $value Value to set for the basis property.
     */
     public function setBasis(?string $value ): void {
         $this->basis = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

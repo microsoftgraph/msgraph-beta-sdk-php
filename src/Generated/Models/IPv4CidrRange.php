@@ -18,6 +18,7 @@ class IPv4CidrRange extends IpRange implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.iPv4CidrRange');
     }
 
     /**

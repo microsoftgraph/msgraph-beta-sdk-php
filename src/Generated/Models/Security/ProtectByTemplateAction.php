@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectByTemplateAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var string|null $templateId The templateId property
+     * @var string|null $templateId The unique identifier for a protection template in Microsoft Purview Information Protection to apply to the content.
     */
     private ?string $templateId = null;
     
@@ -18,6 +18,7 @@ class ProtectByTemplateAction extends InformationProtectionAction implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.protectByTemplateAction');
     }
 
     /**
@@ -41,7 +42,7 @@ class ProtectByTemplateAction extends InformationProtectionAction implements Par
     }
 
     /**
-     * Gets the templateId property value. The templateId property
+     * Gets the templateId property value. The unique identifier for a protection template in Microsoft Purview Information Protection to apply to the content.
      * @return string|null
     */
     public function getTemplateId(): ?string {
@@ -58,7 +59,7 @@ class ProtectByTemplateAction extends InformationProtectionAction implements Par
     }
 
     /**
-     * Sets the templateId property value. The templateId property
+     * Sets the templateId property value. The unique identifier for a protection template in Microsoft Purview Information Protection to apply to the content.
      *  @param string|null $value Value to set for the templateId property.
     */
     public function setTemplateId(?string $value ): void {

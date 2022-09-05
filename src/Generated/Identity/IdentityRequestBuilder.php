@@ -7,12 +7,16 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\ApiConnectors\ApiConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ApiConnectors\Item\IdentityApiConnectorItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\AuthenticationEventListenersRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\AuthenticationEventListeners\Item\AuthenticationEventListenerItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\B2cUserFlowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2cUserFlows\Item\B2cIdentityUserFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\B2xUserFlowsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\B2xUserFlows\Item\B2xIdentityUserFlowItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\ConditionalAccessRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ContinuousAccessEvaluationPolicy\ContinuousAccessEvaluationPolicyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\CustomAuthenticationExtensionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\CustomAuthenticationExtensions\Item\CustomAuthenticationExtensionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\IdentityProviders\IdentityProvidersRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\IdentityProviders\Item\IdentityProviderBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\UserFlowAttributes\Item\IdentityUserFlowAttributeItemRequestBuilder;
@@ -36,6 +40,13 @@ class IdentityRequestBuilder
     */
     public function apiConnectors(): ApiConnectorsRequestBuilder {
         return new ApiConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The authenticationEventListeners property
+    */
+    public function authenticationEventListeners(): AuthenticationEventListenersRequestBuilder {
+        return new AuthenticationEventListenersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -64,6 +75,13 @@ class IdentityRequestBuilder
     */
     public function continuousAccessEvaluationPolicy(): ContinuousAccessEvaluationPolicyRequestBuilder {
         return new ContinuousAccessEvaluationPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The customAuthenticationExtensions property
+    */
+    public function customAuthenticationExtensions(): CustomAuthenticationExtensionsRequestBuilder {
+        return new CustomAuthenticationExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -111,6 +129,17 @@ class IdentityRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['identityApiConnector%2Did'] = $id;
         return new IdentityApiConnectorItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.identity.authenticationEventListeners.item collection
+     * @param string $id Unique identifier of the item
+     * @return AuthenticationEventListenerItemRequestBuilder
+    */
+    public function authenticationEventListenersById(string $id): AuthenticationEventListenerItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['authenticationEventListener%2Did'] = $id;
+        return new AuthenticationEventListenerItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -192,6 +221,17 @@ class IdentityRequestBuilder
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
         return $requestInfo;
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.identity.customAuthenticationExtensions.item collection
+     * @param string $id Unique identifier of the item
+     * @return CustomAuthenticationExtensionItemRequestBuilder
+    */
+    public function customAuthenticationExtensionsById(string $id): CustomAuthenticationExtensionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['customAuthenticationExtension%2Did'] = $id;
+        return new CustomAuthenticationExtensionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

@@ -24,7 +24,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     private ?string $deviceModel = null;
     
     /**
-     * @var UserExperienceAnalyticsHealthState|null $healthStatus The health state of the user experience analytics model. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * @var UserExperienceAnalyticsHealthState|null $healthStatus The healthStatus property
     */
     private ?UserExperienceAnalyticsHealthState $healthStatus = null;
     
@@ -48,6 +48,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsAppHealthDeviceModelPerformance');
     }
 
     /**
@@ -101,7 +102,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Gets the healthStatus property value. The health state of the user experience analytics model. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * Gets the healthStatus property value. The healthStatus property
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
@@ -172,7 +173,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     }
 
     /**
-     * Sets the healthStatus property value. The health state of the user experience analytics model. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+     * Sets the healthStatus property value. The healthStatus property
      *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
     public function setHealthStatus(?UserExperienceAnalyticsHealthState $value ): void {

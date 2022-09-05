@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkbookTableSort extends Entity implements Parsable 
 {
     /**
-     * @var array<WorkbookSortField>|null $fields Represents the current conditions used to last sort the table. Read-only.
+     * @var array<WorkbookSortField>|null $fields The fields property
     */
     private ?array $fields = null;
     
@@ -28,6 +28,7 @@ class WorkbookTableSort extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.workbookTableSort');
     }
 
     /**
@@ -53,7 +54,7 @@ class WorkbookTableSort extends Entity implements Parsable
     }
 
     /**
-     * Gets the fields property value. Represents the current conditions used to last sort the table. Read-only.
+     * Gets the fields property value. The fields property
      * @return array<WorkbookSortField>|null
     */
     public function getFields(): ?array {
@@ -88,7 +89,7 @@ class WorkbookTableSort extends Entity implements Parsable
     }
 
     /**
-     * Sets the fields property value. Represents the current conditions used to last sort the table. Read-only.
+     * Sets the fields property value. The fields property
      *  @param array<WorkbookSortField>|null $value Value to set for the fields property.
     */
     public function setFields(?array $value ): void {

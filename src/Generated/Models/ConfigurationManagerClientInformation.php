@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConfigurationManagerClientInformation implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,15 +20,26 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
     private ?string $clientIdentifier = null;
     
     /**
+     * @var string|null $clientVersion Configuration Manager Client version from SCCM
+    */
+    private ?string $clientVersion = null;
+    
+    /**
      * @var bool|null $isBlocked Configuration Manager Client blocked status from SCCM
     */
     private ?bool $isBlocked = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * Instantiates a new configurationManagerClientInformation and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.configurationManagerClientInformation');
     }
 
     /**
@@ -57,6 +68,14 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
     }
 
     /**
+     * Gets the clientVersion property value. Configuration Manager Client version from SCCM
+     * @return string|null
+    */
+    public function getClientVersion(): ?string {
+        return $this->clientVersion;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -64,7 +83,9 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
         $o = $this;
         return  [
             'clientIdentifier' => function (ParseNode $n) use ($o) { $o->setClientIdentifier($n->getStringValue()); },
+            'clientVersion' => function (ParseNode $n) use ($o) { $o->setClientVersion($n->getStringValue()); },
             'isBlocked' => function (ParseNode $n) use ($o) { $o->setIsBlocked($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
@@ -77,12 +98,22 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('clientIdentifier', $this->clientIdentifier);
+        $writer->writeStringValue('clientVersion', $this->clientVersion);
         $writer->writeBooleanValue('isBlocked', $this->isBlocked);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -103,11 +134,27 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
     }
 
     /**
+     * Sets the clientVersion property value. Configuration Manager Client version from SCCM
+     *  @param string|null $value Value to set for the clientVersion property.
+    */
+    public function setClientVersion(?string $value ): void {
+        $this->clientVersion = $value;
+    }
+
+    /**
      * Sets the isBlocked property value. Configuration Manager Client blocked status from SCCM
      *  @param bool|null $value Value to set for the isBlocked property.
     */
     public function setIsBlocked(?bool $value ): void {
         $this->isBlocked = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

@@ -10,12 +10,12 @@ use Psr\Http\Message\StreamInterface;
 class OnenoteResource extends OnenoteEntityBaseModel implements Parsable 
 {
     /**
-     * @var StreamInterface|null $content The content stream
+     * @var StreamInterface|null $content The content property
     */
     private ?StreamInterface $content = null;
     
     /**
-     * @var string|null $contentUrl The URL for downloading the content
+     * @var string|null $contentUrl The contentUrl property
     */
     private ?string $contentUrl = null;
     
@@ -24,6 +24,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.onenoteResource');
     }
 
     /**
@@ -36,7 +37,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
     }
 
     /**
-     * Gets the content property value. The content stream
+     * Gets the content property value. The content property
      * @return StreamInterface|null
     */
     public function getContent(): ?StreamInterface {
@@ -44,7 +45,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
     }
 
     /**
-     * Gets the contentUrl property value. The URL for downloading the content
+     * Gets the contentUrl property value. The contentUrl property
      * @return string|null
     */
     public function getContentUrl(): ?string {
@@ -74,7 +75,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
     }
 
     /**
-     * Sets the content property value. The content stream
+     * Sets the content property value. The content property
      *  @param StreamInterface|null $value Value to set for the content property.
     */
     public function setContent(?StreamInterface $value ): void {
@@ -82,7 +83,7 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
     }
 
     /**
-     * Sets the contentUrl property value. The URL for downloading the content
+     * Sets the contentUrl property value. The contentUrl property
      *  @param string|null $value Value to set for the contentUrl property.
     */
     public function setContentUrl(?string $value ): void {

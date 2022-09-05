@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ActivityHistoryItem extends Entity implements Parsable 
 {
     /**
-     * @var int|null $activeDurationSeconds Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime.
+     * @var int|null $activeDurationSeconds The activeDurationSeconds property
     */
     private ?int $activeDurationSeconds = null;
     
@@ -20,37 +20,37 @@ class ActivityHistoryItem extends Entity implements Parsable
     private ?UserActivity $activity = null;
     
     /**
-     * @var DateTime|null $createdDateTime Set by the server. DateTime in UTC when the object was created on the server.
+     * @var DateTime|null $createdDateTime The createdDateTime property
     */
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var DateTime|null $expirationDateTime Optional. UTC DateTime when the historyItem will undergo hard-delete. Can be set by the client.
+     * @var DateTime|null $expirationDateTime The expirationDateTime property
     */
     private ?DateTime $expirationDateTime = null;
     
     /**
-     * @var DateTime|null $lastActiveDateTime Optional. UTC DateTime when the historyItem (activity session) was last understood as active or finished - if null, historyItem status should be Ongoing.
+     * @var DateTime|null $lastActiveDateTime The lastActiveDateTime property
     */
     private ?DateTime $lastActiveDateTime = null;
     
     /**
-     * @var DateTime|null $lastModifiedDateTime Set by the server. DateTime in UTC when the object was modified on the server.
+     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
     */
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var DateTime|null $startedDateTime Required. UTC DateTime when the historyItem (activity session) was started. Required for timeline history.
+     * @var DateTime|null $startedDateTime The startedDateTime property
     */
     private ?DateTime $startedDateTime = null;
     
     /**
-     * @var Status|null $status Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
+     * @var Status|null $status The status property
     */
     private ?Status $status = null;
     
     /**
-     * @var string|null $userTimezone Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation.
+     * @var string|null $userTimezone The userTimezone property
     */
     private ?string $userTimezone = null;
     
@@ -59,6 +59,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.activityHistoryItem');
     }
 
     /**
@@ -71,7 +72,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the activeDurationSeconds property value. Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime.
+     * Gets the activeDurationSeconds property value. The activeDurationSeconds property
      * @return int|null
     */
     public function getActiveDurationSeconds(): ?int {
@@ -87,7 +88,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. Set by the server. DateTime in UTC when the object was created on the server.
+     * Gets the createdDateTime property value. The createdDateTime property
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -95,7 +96,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. Optional. UTC DateTime when the historyItem will undergo hard-delete. Can be set by the client.
+     * Gets the expirationDateTime property value. The expirationDateTime property
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -122,7 +123,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastActiveDateTime property value. Optional. UTC DateTime when the historyItem (activity session) was last understood as active or finished - if null, historyItem status should be Ongoing.
+     * Gets the lastActiveDateTime property value. The lastActiveDateTime property
      * @return DateTime|null
     */
     public function getLastActiveDateTime(): ?DateTime {
@@ -130,7 +131,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. Set by the server. DateTime in UTC when the object was modified on the server.
+     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -138,7 +139,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the startedDateTime property value. Required. UTC DateTime when the historyItem (activity session) was started. Required for timeline history.
+     * Gets the startedDateTime property value. The startedDateTime property
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
@@ -146,7 +147,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
+     * Gets the status property value. The status property
      * @return Status|null
     */
     public function getStatus(): ?Status {
@@ -154,7 +155,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the userTimezone property value. Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation.
+     * Gets the userTimezone property value. The userTimezone property
      * @return string|null
     */
     public function getUserTimezone(): ?string {
@@ -179,7 +180,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the activeDurationSeconds property value. Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime.
+     * Sets the activeDurationSeconds property value. The activeDurationSeconds property
      *  @param int|null $value Value to set for the activeDurationSeconds property.
     */
     public function setActiveDurationSeconds(?int $value ): void {
@@ -195,7 +196,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. Set by the server. DateTime in UTC when the object was created on the server.
+     * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
@@ -203,7 +204,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. Optional. UTC DateTime when the historyItem will undergo hard-delete. Can be set by the client.
+     * Sets the expirationDateTime property value. The expirationDateTime property
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value ): void {
@@ -211,7 +212,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastActiveDateTime property value. Optional. UTC DateTime when the historyItem (activity session) was last understood as active or finished - if null, historyItem status should be Ongoing.
+     * Sets the lastActiveDateTime property value. The lastActiveDateTime property
      *  @param DateTime|null $value Value to set for the lastActiveDateTime property.
     */
     public function setLastActiveDateTime(?DateTime $value ): void {
@@ -219,7 +220,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. Set by the server. DateTime in UTC when the object was modified on the server.
+     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
@@ -227,7 +228,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the startedDateTime property value. Required. UTC DateTime when the historyItem (activity session) was started. Required for timeline history.
+     * Sets the startedDateTime property value. The startedDateTime property
      *  @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value ): void {
@@ -235,7 +236,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
+     * Sets the status property value. The status property
      *  @param Status|null $value Value to set for the status property.
     */
     public function setStatus(?Status $value ): void {
@@ -243,7 +244,7 @@ class ActivityHistoryItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the userTimezone property value. Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation.
+     * Sets the userTimezone property value. The userTimezone property
      *  @param string|null $value Value to set for the userTimezone property.
     */
     public function setUserTimezone(?string $value ): void {

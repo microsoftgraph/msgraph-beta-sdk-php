@@ -19,22 +19,22 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     private ?string $deviceName = null;
     
     /**
-     * @var DeviceTypes|null $deviceType Platform of the device. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, blackberry, palm, unknown.
+     * @var DeviceTypes|null $deviceType Device type.
     */
     private ?DeviceTypes $deviceType = null;
     
     /**
-     * @var ComplianceStatus|null $encryptionPolicySettingState Encryption policy setting state. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * @var ComplianceStatus|null $encryptionPolicySettingState The encryptionPolicySettingState property
     */
     private ?ComplianceStatus $encryptionPolicySettingState = null;
     
     /**
-     * @var EncryptionReadinessState|null $encryptionReadinessState Encryption readiness state. Possible values are: notReady, ready.
+     * @var EncryptionReadinessState|null $encryptionReadinessState Encryption readiness state
     */
     private ?EncryptionReadinessState $encryptionReadinessState = null;
     
     /**
-     * @var EncryptionState|null $encryptionState Device encryption state. Possible values are: notEncrypted, encrypted.
+     * @var EncryptionState|null $encryptionState Encryption state
     */
     private ?EncryptionState $encryptionState = null;
     
@@ -68,6 +68,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.managedDeviceEncryptionState');
     }
 
     /**
@@ -96,7 +97,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceType property value. Platform of the device. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, blackberry, palm, unknown.
+     * Gets the deviceType property value. Device type.
      * @return DeviceTypes|null
     */
     public function getDeviceType(): ?DeviceTypes {
@@ -104,7 +105,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the encryptionPolicySettingState property value. Encryption policy setting state. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Gets the encryptionPolicySettingState property value. The encryptionPolicySettingState property
      * @return ComplianceStatus|null
     */
     public function getEncryptionPolicySettingState(): ?ComplianceStatus {
@@ -112,7 +113,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the encryptionReadinessState property value. Encryption readiness state. Possible values are: notReady, ready.
+     * Gets the encryptionReadinessState property value. Encryption readiness state
      * @return EncryptionReadinessState|null
     */
     public function getEncryptionReadinessState(): ?EncryptionReadinessState {
@@ -120,7 +121,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Gets the encryptionState property value. Device encryption state. Possible values are: notEncrypted, encrypted.
+     * Gets the encryptionState property value. Encryption state
      * @return EncryptionState|null
     */
     public function getEncryptionState(): ?EncryptionState {
@@ -224,7 +225,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceType property value. Platform of the device. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, blackberry, palm, unknown.
+     * Sets the deviceType property value. Device type.
      *  @param DeviceTypes|null $value Value to set for the deviceType property.
     */
     public function setDeviceType(?DeviceTypes $value ): void {
@@ -232,7 +233,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the encryptionPolicySettingState property value. Encryption policy setting state. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * Sets the encryptionPolicySettingState property value. The encryptionPolicySettingState property
      *  @param ComplianceStatus|null $value Value to set for the encryptionPolicySettingState property.
     */
     public function setEncryptionPolicySettingState(?ComplianceStatus $value ): void {
@@ -240,7 +241,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the encryptionReadinessState property value. Encryption readiness state. Possible values are: notReady, ready.
+     * Sets the encryptionReadinessState property value. Encryption readiness state
      *  @param EncryptionReadinessState|null $value Value to set for the encryptionReadinessState property.
     */
     public function setEncryptionReadinessState(?EncryptionReadinessState $value ): void {
@@ -248,7 +249,7 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     }
 
     /**
-     * Sets the encryptionState property value. Device encryption state. Possible values are: notEncrypted, encrypted.
+     * Sets the encryptionState property value. Encryption state
      *  @param EncryptionState|null $value Value to set for the encryptionState property.
     */
     public function setEncryptionState(?EncryptionState $value ): void {

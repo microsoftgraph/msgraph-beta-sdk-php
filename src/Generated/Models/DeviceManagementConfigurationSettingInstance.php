@@ -10,9 +10,14 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSettingInstance implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $settingDefinitionId Setting Definition Id
@@ -28,7 +33,8 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
      * Instantiates a new deviceManagementConfigurationSettingInstance and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationSettingInstance');
     }
 
     /**
@@ -69,9 +75,18 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'settingDefinitionId' => function (ParseNode $n) use ($o) { $o->setSettingDefinitionId($n->getStringValue()); },
             'settingInstanceTemplateReference' => function (ParseNode $n) use ($o) { $o->setSettingInstanceTemplateReference($n->getObjectValue(array(DeviceManagementConfigurationSettingInstanceTemplateReference::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -95,6 +110,7 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('settingDefinitionId', $this->settingDefinitionId);
         $writer->writeObjectValue('settingInstanceTemplateReference', $this->settingInstanceTemplateReference);
         $writer->writeAdditionalData($this->additionalData);
@@ -106,6 +122,14 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

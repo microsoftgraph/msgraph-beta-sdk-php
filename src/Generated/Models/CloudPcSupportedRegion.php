@@ -14,10 +14,21 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
+     * @var CloudPcSupportedRegionStatus|null $regionStatus The status of the supported region. Possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
+    */
+    private ?CloudPcSupportedRegionStatus $regionStatus = null;
+    
+    /**
+     * @var CloudPcManagementService|null $supportedSolution The supportedSolution property
+    */
+    private ?CloudPcManagementService $supportedSolution = null;
+    
+    /**
      * Instantiates a new CloudPcSupportedRegion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.cloudPcSupportedRegion');
     }
 
     /**
@@ -45,7 +56,25 @@ class CloudPcSupportedRegion extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'regionStatus' => function (ParseNode $n) use ($o) { $o->setRegionStatus($n->getEnumValue(CloudPcSupportedRegionStatus::class)); },
+            'supportedSolution' => function (ParseNode $n) use ($o) { $o->setSupportedSolution($n->getEnumValue(CloudPcManagementService::class)); },
         ]);
+    }
+
+    /**
+     * Gets the regionStatus property value. The status of the supported region. Possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
+     * @return CloudPcSupportedRegionStatus|null
+    */
+    public function getRegionStatus(): ?CloudPcSupportedRegionStatus {
+        return $this->regionStatus;
+    }
+
+    /**
+     * Gets the supportedSolution property value. The supportedSolution property
+     * @return CloudPcManagementService|null
+    */
+    public function getSupportedSolution(): ?CloudPcManagementService {
+        return $this->supportedSolution;
     }
 
     /**
@@ -55,6 +84,8 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeEnumValue('regionStatus', $this->regionStatus);
+        $writer->writeEnumValue('supportedSolution', $this->supportedSolution);
     }
 
     /**
@@ -63,6 +94,22 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the regionStatus property value. The status of the supported region. Possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
+     *  @param CloudPcSupportedRegionStatus|null $value Value to set for the regionStatus property.
+    */
+    public function setRegionStatus(?CloudPcSupportedRegionStatus $value ): void {
+        $this->regionStatus = $value;
+    }
+
+    /**
+     * Sets the supportedSolution property value. The supportedSolution property
+     *  @param CloudPcManagementService|null $value Value to set for the supportedSolution property.
+    */
+    public function setSupportedSolution(?CloudPcManagementService $value ): void {
+        $this->supportedSolution = $value;
     }
 
 }

@@ -34,10 +34,11 @@ class CustomCalloutExtension extends Entity implements Parsable
     private ?CustomExtensionEndpointConfiguration $endpointConfiguration = null;
     
     /**
-     * Instantiates a new CustomCalloutExtension and sets the default values.
+     * Instantiates a new customCalloutExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.customCalloutExtension');
     }
 
     /**
@@ -51,6 +52,9 @@ class CustomCalloutExtension extends Entity implements Parsable
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
                 case '#microsoft.graph.customAccessPackageWorkflowExtension': return new CustomAccessPackageWorkflowExtension();
+                case '#microsoft.graph.customAuthenticationExtension': return new CustomAuthenticationExtension();
+                case '#microsoft.graph.identityGovernance.customTaskExtension': return new CustomTaskExtension();
+                case '#microsoft.graph.onTokenIssuanceStartCustomExtension': return new OnTokenIssuanceStartCustomExtension();
             }
         }
         return new CustomCalloutExtension();

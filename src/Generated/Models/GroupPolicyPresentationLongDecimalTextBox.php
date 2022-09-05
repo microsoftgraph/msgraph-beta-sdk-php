@@ -6,7 +6,7 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyPresentation implements Parsable 
+class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
      * @var int|null $defaultValue An unsigned integer that specifies the initial value for the decimal text box. The default value is 1.
@@ -43,6 +43,7 @@ class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyPresentation 
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.groupPolicyPresentationLongDecimalTextBox');
     }
 
     /**

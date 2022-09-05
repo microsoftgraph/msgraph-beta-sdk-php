@@ -18,6 +18,7 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsKioskSingleWin32App');
     }
 
     /**

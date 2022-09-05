@@ -9,10 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CaseIndexOperation extends CaseOperation implements Parsable 
 {
     /**
-     * Instantiates a new caseIndexOperation and sets the default values.
+     * Instantiates a new CaseIndexOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.ediscovery.caseIndexOperation');
     }
 
     /**

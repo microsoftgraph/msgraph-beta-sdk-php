@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DocumentSetVersionItem implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -18,6 +18,11 @@ class DocumentSetVersionItem implements AdditionalDataHolder, Parsable
      * @var string|null $itemId The unique identifier for the item.
     */
     private ?string $itemId = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $title The title of the item.
@@ -33,7 +38,8 @@ class DocumentSetVersionItem implements AdditionalDataHolder, Parsable
      * Instantiates a new documentSetVersionItem and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.documentSetVersionItem');
     }
 
     /**
@@ -61,6 +67,7 @@ class DocumentSetVersionItem implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'itemId' => function (ParseNode $n) use ($o) { $o->setItemId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
             'versionId' => function (ParseNode $n) use ($o) { $o->setVersionId($n->getStringValue()); },
         ];
@@ -72,6 +79,14 @@ class DocumentSetVersionItem implements AdditionalDataHolder, Parsable
     */
     public function getItemId(): ?string {
         return $this->itemId;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -96,6 +111,7 @@ class DocumentSetVersionItem implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('itemId', $this->itemId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('title', $this->title);
         $writer->writeStringValue('versionId', $this->versionId);
         $writer->writeAdditionalData($this->additionalData);
@@ -115,6 +131,14 @@ class DocumentSetVersionItem implements AdditionalDataHolder, Parsable
     */
     public function setItemId(?string $value ): void {
         $this->itemId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

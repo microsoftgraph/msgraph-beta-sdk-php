@@ -15,7 +15,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
     private ?array $actions = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -23,6 +23,11 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @var bool|null $isMostRestrictive The isMostRestrictive property
     */
     private ?bool $isMostRestrictive = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var string|null $policyId The policyId property
@@ -58,7 +63,8 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * Instantiates a new matchingDlpRule and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.matchingDlpRule');
     }
 
     /**
@@ -95,6 +101,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
         return  [
             'actions' => function (ParseNode $n) use ($o) { $o->setActions($n->getCollectionOfObjectValues(array(DlpActionInfo::class, 'createFromDiscriminatorValue'))); },
             'isMostRestrictive' => function (ParseNode $n) use ($o) { $o->setIsMostRestrictive($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'policyId' => function (ParseNode $n) use ($o) { $o->setPolicyId($n->getStringValue()); },
             'policyName' => function (ParseNode $n) use ($o) { $o->setPolicyName($n->getStringValue()); },
             'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
@@ -110,6 +117,14 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
     */
     public function getIsMostRestrictive(): ?bool {
         return $this->isMostRestrictive;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -167,6 +182,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfObjectValues('actions', $this->actions);
         $writer->writeBooleanValue('isMostRestrictive', $this->isMostRestrictive);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('policyId', $this->policyId);
         $writer->writeStringValue('policyName', $this->policyName);
         $writer->writeIntegerValue('priority', $this->priority);
@@ -198,6 +214,14 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
     */
     public function setIsMostRestrictive(?bool $value ): void {
         $this->isMostRestrictive = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

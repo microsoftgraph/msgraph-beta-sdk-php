@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnenoteEntitySchemaObjectModel extends OnenoteEntityBaseModel implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @var DateTime|null $createdDateTime The createdDateTime property
     */
     private ?DateTime $createdDateTime = null;
     
@@ -19,6 +19,7 @@ class OnenoteEntitySchemaObjectModel extends OnenoteEntityBaseModel implements P
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.onenoteEntitySchemaObjectModel');
     }
 
     /**
@@ -31,15 +32,18 @@ class OnenoteEntitySchemaObjectModel extends OnenoteEntityBaseModel implements P
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.notebook': return new Notebook();
                 case '#microsoft.graph.onenoteEntityHierarchyModel': return new OnenoteEntityHierarchyModel();
                 case '#microsoft.graph.onenotePage': return new OnenotePage();
+                case '#microsoft.graph.onenoteSection': return new OnenoteSection();
+                case '#microsoft.graph.sectionGroup': return new SectionGroup();
             }
         }
         return new OnenoteEntitySchemaObjectModel();
     }
 
     /**
-     * Gets the createdDateTime property value. The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Gets the createdDateTime property value. The createdDateTime property
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -67,7 +71,7 @@ class OnenoteEntitySchemaObjectModel extends OnenoteEntityBaseModel implements P
     }
 
     /**
-     * Sets the createdDateTime property value. The date and time when the page was created. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {

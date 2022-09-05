@@ -14,10 +14,16 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
     private ?bool $isSingleLineQuestion = null;
     
     /**
+     * @var string|null $regexPattern The regexPattern property
+    */
+    private ?string $regexPattern = null;
+    
+    /**
      * Instantiates a new AccessPackageTextInputQuestion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.accessPackageTextInputQuestion');
     }
 
     /**
@@ -37,6 +43,7 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'isSingleLineQuestion' => function (ParseNode $n) use ($o) { $o->setIsSingleLineQuestion($n->getBooleanValue()); },
+            'regexPattern' => function (ParseNode $n) use ($o) { $o->setRegexPattern($n->getStringValue()); },
         ]);
     }
 
@@ -49,12 +56,21 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
     }
 
     /**
+     * Gets the regexPattern property value. The regexPattern property
+     * @return string|null
+    */
+    public function getRegexPattern(): ?string {
+        return $this->regexPattern;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('isSingleLineQuestion', $this->isSingleLineQuestion);
+        $writer->writeStringValue('regexPattern', $this->regexPattern);
     }
 
     /**
@@ -63,6 +79,14 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
     */
     public function setIsSingleLineQuestion(?bool $value ): void {
         $this->isSingleLineQuestion = $value;
+    }
+
+    /**
+     * Sets the regexPattern property value. The regexPattern property
+     *  @param string|null $value Value to set for the regexPattern property.
+    */
+    public function setRegexPattern(?string $value ): void {
+        $this->regexPattern = $value;
     }
 
 }

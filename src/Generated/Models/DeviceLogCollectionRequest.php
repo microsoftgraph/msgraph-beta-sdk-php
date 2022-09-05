@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceLogCollectionRequest implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,7 +20,12 @@ class DeviceLogCollectionRequest implements AdditionalDataHolder, Parsable
     private ?string $id = null;
     
     /**
-     * @var DeviceLogCollectionTemplateType|null $templateType The template type that is sent with the collection request. Possible values are: predefined.
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var DeviceLogCollectionTemplateType|null $templateType Enum for the template type used for collecting logs
     */
     private ?DeviceLogCollectionTemplateType $templateType = null;
     
@@ -28,7 +33,8 @@ class DeviceLogCollectionRequest implements AdditionalDataHolder, Parsable
      * Instantiates a new deviceLogCollectionRequest and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.deviceLogCollectionRequest');
     }
 
     /**
@@ -56,6 +62,7 @@ class DeviceLogCollectionRequest implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'templateType' => function (ParseNode $n) use ($o) { $o->setTemplateType($n->getEnumValue(DeviceLogCollectionTemplateType::class)); },
         ];
     }
@@ -69,7 +76,15 @@ class DeviceLogCollectionRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the templateType property value. The template type that is sent with the collection request. Possible values are: predefined.
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the templateType property value. Enum for the template type used for collecting logs
      * @return DeviceLogCollectionTemplateType|null
     */
     public function getTemplateType(): ?DeviceLogCollectionTemplateType {
@@ -82,6 +97,7 @@ class DeviceLogCollectionRequest implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('id', $this->id);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('templateType', $this->templateType);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -103,7 +119,15 @@ class DeviceLogCollectionRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the templateType property value. The template type that is sent with the collection request. Possible values are: predefined.
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the templateType property value. Enum for the template type used for collecting logs
      *  @param DeviceLogCollectionTemplateType|null $value Value to set for the templateType property.
     */
     public function setTemplateType(?DeviceLogCollectionTemplateType $value ): void {

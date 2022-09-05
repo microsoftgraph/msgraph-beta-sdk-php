@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
+     * @var DateTime|null $createdDateTime The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     */
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var DateTime|null $creationDateTime The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @var DateTime|null $creationDateTime The creationDateTime property
     */
     private ?DateTime $creationDateTime = null;
     
@@ -29,6 +29,7 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.passwordAuthenticationMethod');
     }
 
     /**
@@ -41,7 +42,7 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -49,7 +50,7 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     }
 
     /**
-     * Gets the creationDateTime property value. The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the creationDateTime property value. The creationDateTime property
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
@@ -89,7 +90,7 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
@@ -97,7 +98,7 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     }
 
     /**
-     * Sets the creationDateTime property value. The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the creationDateTime property value. The creationDateTime property
      *  @param DateTime|null $value Value to set for the creationDateTime property.
     */
     public function setCreationDateTime(?DateTime $value ): void {

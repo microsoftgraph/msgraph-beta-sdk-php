@@ -15,6 +15,8 @@ use Microsoft\Graph\Beta\Generated\Users\Item\AgreementAcceptances\Item\Agreemen
 use Microsoft\Graph\Beta\Generated\Users\Item\Analytics\AnalyticsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\AppConsentRequestsForApprovalRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppConsentRequestsForApproval\Item\AppConsentRequestItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignedResources\AppRoleAssignedResourcesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignedResources\Item\ServicePrincipalItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignments\AppRoleAssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\AppRoleAssignments\Item\AppRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Approvals\ApprovalsRequestBuilder;
@@ -193,6 +195,13 @@ class UserItemRequestBuilder
     */
     public function appConsentRequestsForApproval(): AppConsentRequestsForApprovalRequestBuilder {
         return new AppConsentRequestsForApprovalRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The appRoleAssignedResources property
+    */
+    public function appRoleAssignedResources(): AppRoleAssignedResourcesRequestBuilder {
+        return new AppRoleAssignedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -811,6 +820,17 @@ class UserItemRequestBuilder
     }
 
     /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.appRoleAssignedResources.item collection
+     * @param string $id Unique identifier of the item
+     * @return ServicePrincipalItemRequestBuilder
+    */
+    public function appRoleAssignedResourcesById(string $id): ServicePrincipalItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['servicePrincipal%2Did'] = $id;
+        return new ServicePrincipalItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.appRoleAssignments.item collection
      * @param string $id Unique identifier of the item
      * @return AppRoleAssignmentItemRequestBuilder
@@ -893,7 +913,7 @@ class UserItemRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/users/{user%2Did}{?%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/users/{user%2Did}{?%24select}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }

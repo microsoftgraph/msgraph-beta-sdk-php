@@ -39,7 +39,7 @@ class AccessPackageSubject extends Entity implements Parsable
     private ?string $objectId = null;
     
     /**
-     * @var string|null $onPremisesSecurityIdentifier A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier.
+     * @var string|null $onPremisesSecurityIdentifier The onPremisesSecurityIdentifier property
     */
     private ?string $onPremisesSecurityIdentifier = null;
     
@@ -47,6 +47,11 @@ class AccessPackageSubject extends Entity implements Parsable
      * @var string|null $principalName The principal name, if known, of the subject.
     */
     private ?string $principalName = null;
+    
+    /**
+     * @var AccessPackageSubjectLifecycle|null $subjectLifecycle The subjectLifecycle property
+    */
+    private ?AccessPackageSubjectLifecycle $subjectLifecycle = null;
     
     /**
      * @var string|null $type The resource type of the subject.
@@ -58,6 +63,7 @@ class AccessPackageSubject extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.accessPackageSubject');
     }
 
     /**
@@ -124,6 +130,7 @@ class AccessPackageSubject extends Entity implements Parsable
             'objectId' => function (ParseNode $n) use ($o) { $o->setObjectId($n->getStringValue()); },
             'onPremisesSecurityIdentifier' => function (ParseNode $n) use ($o) { $o->setOnPremisesSecurityIdentifier($n->getStringValue()); },
             'principalName' => function (ParseNode $n) use ($o) { $o->setPrincipalName($n->getStringValue()); },
+            'subjectLifecycle' => function (ParseNode $n) use ($o) { $o->setSubjectLifecycle($n->getEnumValue(AccessPackageSubjectLifecycle::class)); },
             'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
         ]);
     }
@@ -137,7 +144,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Gets the onPremisesSecurityIdentifier property value. A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier.
+     * Gets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
      * @return string|null
     */
     public function getOnPremisesSecurityIdentifier(): ?string {
@@ -150,6 +157,14 @@ class AccessPackageSubject extends Entity implements Parsable
     */
     public function getPrincipalName(): ?string {
         return $this->principalName;
+    }
+
+    /**
+     * Gets the subjectLifecycle property value. The subjectLifecycle property
+     * @return AccessPackageSubjectLifecycle|null
+    */
+    public function getSubjectLifecycle(): ?AccessPackageSubjectLifecycle {
+        return $this->subjectLifecycle;
     }
 
     /**
@@ -174,6 +189,7 @@ class AccessPackageSubject extends Entity implements Parsable
         $writer->writeStringValue('objectId', $this->objectId);
         $writer->writeStringValue('onPremisesSecurityIdentifier', $this->onPremisesSecurityIdentifier);
         $writer->writeStringValue('principalName', $this->principalName);
+        $writer->writeEnumValue('subjectLifecycle', $this->subjectLifecycle);
         $writer->writeStringValue('type', $this->type);
     }
 
@@ -226,7 +242,7 @@ class AccessPackageSubject extends Entity implements Parsable
     }
 
     /**
-     * Sets the onPremisesSecurityIdentifier property value. A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier.
+     * Sets the onPremisesSecurityIdentifier property value. The onPremisesSecurityIdentifier property
      *  @param string|null $value Value to set for the onPremisesSecurityIdentifier property.
     */
     public function setOnPremisesSecurityIdentifier(?string $value ): void {
@@ -239,6 +255,14 @@ class AccessPackageSubject extends Entity implements Parsable
     */
     public function setPrincipalName(?string $value ): void {
         $this->principalName = $value;
+    }
+
+    /**
+     * Sets the subjectLifecycle property value. The subjectLifecycle property
+     *  @param AccessPackageSubjectLifecycle|null $value Value to set for the subjectLifecycle property.
+    */
+    public function setSubjectLifecycle(?AccessPackageSubjectLifecycle $value ): void {
+        $this->subjectLifecycle = $value;
     }
 
     /**

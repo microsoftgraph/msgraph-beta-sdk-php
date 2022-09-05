@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RecommendLabelAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var array<InformationProtectionAction>|null $actions The actions property
+     * @var array<InformationProtectionAction>|null $actions Actions to take if the label is accepted by the user.
     */
     private ?array $actions = null;
     
@@ -19,7 +19,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     private ?ActionSource $actionSource = null;
     
     /**
-     * @var array<string>|null $responsibleSensitiveTypeIds The responsibleSensitiveTypeIds property
+     * @var array<string>|null $responsibleSensitiveTypeIds The sensitive information type GUIDs that caused the recommendation to be given.
     */
     private ?array $responsibleSensitiveTypeIds = null;
     
@@ -33,6 +33,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.security.recommendLabelAction');
     }
 
     /**
@@ -45,7 +46,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     }
 
     /**
-     * Gets the actions property value. The actions property
+     * Gets the actions property value. Actions to take if the label is accepted by the user.
      * @return array<InformationProtectionAction>|null
     */
     public function getActions(): ?array {
@@ -75,7 +76,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     }
 
     /**
-     * Gets the responsibleSensitiveTypeIds property value. The responsibleSensitiveTypeIds property
+     * Gets the responsibleSensitiveTypeIds property value. The sensitive information type GUIDs that caused the recommendation to be given.
      * @return array<string>|null
     */
     public function getResponsibleSensitiveTypeIds(): ?array {
@@ -103,7 +104,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     }
 
     /**
-     * Sets the actions property value. The actions property
+     * Sets the actions property value. Actions to take if the label is accepted by the user.
      *  @param array<InformationProtectionAction>|null $value Value to set for the actions property.
     */
     public function setActions(?array $value ): void {
@@ -119,7 +120,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     }
 
     /**
-     * Sets the responsibleSensitiveTypeIds property value. The responsibleSensitiveTypeIds property
+     * Sets the responsibleSensitiveTypeIds property value. The sensitive information type GUIDs that caused the recommendation to be given.
      *  @param array<string>|null $value Value to set for the responsibleSensitiveTypeIds property.
     */
     public function setResponsibleSensitiveTypeIds(?array $value ): void {

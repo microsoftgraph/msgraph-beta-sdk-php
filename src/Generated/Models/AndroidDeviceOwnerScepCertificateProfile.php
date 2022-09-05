@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertificateProfileBase implements Parsable 
 {
     /**
+     * @var AndroidDeviceOwnerCertificateAccessType|null $certificateAccessType Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+    */
+    private ?AndroidDeviceOwnerCertificateAccessType $certificateAccessType = null;
+    
+    /**
      * @var CertificateStore|null $certificateStore Target store certificate. Possible values are: user, machine.
     */
     private ?CertificateStore $certificateStore = null;
@@ -19,17 +24,17 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     private ?array $customSubjectAlternativeNames = null;
     
     /**
-     * @var HashAlgorithms|null $hashAlgorithm SCEP Hash Algorithm. Possible values are: sha1, sha2.
+     * @var HashAlgorithms|null $hashAlgorithm Hash Algorithm Options.
     */
     private ?HashAlgorithms $hashAlgorithm = null;
     
     /**
-     * @var KeySize|null $keySize SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * @var KeySize|null $keySize Key Size Options.
     */
     private ?KeySize $keySize = null;
     
     /**
-     * @var KeyUsages|null $keyUsage SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * @var KeyUsages|null $keyUsage Key Usage Options.
     */
     private ?KeyUsages $keyUsage = null;
     
@@ -42,6 +47,11 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
      * @var array<string>|null $scepServerUrls SCEP Server Url(s)
     */
     private ?array $scepServerUrls = null;
+    
+    /**
+     * @var array<AndroidDeviceOwnerSilentCertificateAccess>|null $silentCertificateAccessDetails Certificate access information. This collection can contain a maximum of 50 elements.
+    */
+    private ?array $silentCertificateAccessDetails = null;
     
     /**
      * @var string|null $subjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
@@ -58,6 +68,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidDeviceOwnerScepCertificateProfile');
     }
 
     /**
@@ -67,6 +78,14 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): AndroidDeviceOwnerScepCertificateProfile {
         return new AndroidDeviceOwnerScepCertificateProfile();
+    }
+
+    /**
+     * Gets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+     * @return AndroidDeviceOwnerCertificateAccessType|null
+    */
+    public function getCertificateAccessType(): ?AndroidDeviceOwnerCertificateAccessType {
+        return $this->certificateAccessType;
     }
 
     /**
@@ -92,6 +111,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'certificateAccessType' => function (ParseNode $n) use ($o) { $o->setCertificateAccessType($n->getEnumValue(AndroidDeviceOwnerCertificateAccessType::class)); },
             'certificateStore' => function (ParseNode $n) use ($o) { $o->setCertificateStore($n->getEnumValue(CertificateStore::class)); },
             'customSubjectAlternativeNames' => function (ParseNode $n) use ($o) { $o->setCustomSubjectAlternativeNames($n->getCollectionOfObjectValues(array(CustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'))); },
             'hashAlgorithm' => function (ParseNode $n) use ($o) { $o->setHashAlgorithm($n->getEnumValue(HashAlgorithms::class)); },
@@ -99,13 +119,14 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
             'keyUsage' => function (ParseNode $n) use ($o) { $o->setKeyUsage($n->getEnumValue(KeyUsages::class)); },
             'managedDeviceCertificateStates' => function (ParseNode $n) use ($o) { $o->setManagedDeviceCertificateStates($n->getCollectionOfObjectValues(array(ManagedDeviceCertificateState::class, 'createFromDiscriminatorValue'))); },
             'scepServerUrls' => function (ParseNode $n) use ($o) { $o->setScepServerUrls($n->getCollectionOfPrimitiveValues()); },
+            'silentCertificateAccessDetails' => function (ParseNode $n) use ($o) { $o->setSilentCertificateAccessDetails($n->getCollectionOfObjectValues(array(AndroidDeviceOwnerSilentCertificateAccess::class, 'createFromDiscriminatorValue'))); },
             'subjectAlternativeNameFormatString' => function (ParseNode $n) use ($o) { $o->setSubjectAlternativeNameFormatString($n->getStringValue()); },
             'subjectNameFormatString' => function (ParseNode $n) use ($o) { $o->setSubjectNameFormatString($n->getStringValue()); },
         ]);
     }
 
     /**
-     * Gets the hashAlgorithm property value. SCEP Hash Algorithm. Possible values are: sha1, sha2.
+     * Gets the hashAlgorithm property value. Hash Algorithm Options.
      * @return HashAlgorithms|null
     */
     public function getHashAlgorithm(): ?HashAlgorithms {
@@ -113,7 +134,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Gets the keySize property value. SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * Gets the keySize property value. Key Size Options.
      * @return KeySize|null
     */
     public function getKeySize(): ?KeySize {
@@ -121,7 +142,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Gets the keyUsage property value. SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * Gets the keyUsage property value. Key Usage Options.
      * @return KeyUsages|null
     */
     public function getKeyUsage(): ?KeyUsages {
@@ -142,6 +163,14 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     */
     public function getScepServerUrls(): ?array {
         return $this->scepServerUrls;
+    }
+
+    /**
+     * Gets the silentCertificateAccessDetails property value. Certificate access information. This collection can contain a maximum of 50 elements.
+     * @return array<AndroidDeviceOwnerSilentCertificateAccess>|null
+    */
+    public function getSilentCertificateAccessDetails(): ?array {
+        return $this->silentCertificateAccessDetails;
     }
 
     /**
@@ -166,6 +195,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeEnumValue('certificateAccessType', $this->certificateAccessType);
         $writer->writeEnumValue('certificateStore', $this->certificateStore);
         $writer->writeCollectionOfObjectValues('customSubjectAlternativeNames', $this->customSubjectAlternativeNames);
         $writer->writeEnumValue('hashAlgorithm', $this->hashAlgorithm);
@@ -173,8 +203,17 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
         $writer->writeEnumValue('keyUsage', $this->keyUsage);
         $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->managedDeviceCertificateStates);
         $writer->writeCollectionOfPrimitiveValues('scepServerUrls', $this->scepServerUrls);
+        $writer->writeCollectionOfObjectValues('silentCertificateAccessDetails', $this->silentCertificateAccessDetails);
         $writer->writeStringValue('subjectAlternativeNameFormatString', $this->subjectAlternativeNameFormatString);
         $writer->writeStringValue('subjectNameFormatString', $this->subjectNameFormatString);
+    }
+
+    /**
+     * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+     *  @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
+    */
+    public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value ): void {
+        $this->certificateAccessType = $value;
     }
 
     /**
@@ -194,7 +233,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Sets the hashAlgorithm property value. SCEP Hash Algorithm. Possible values are: sha1, sha2.
+     * Sets the hashAlgorithm property value. Hash Algorithm Options.
      *  @param HashAlgorithms|null $value Value to set for the hashAlgorithm property.
     */
     public function setHashAlgorithm(?HashAlgorithms $value ): void {
@@ -202,7 +241,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Sets the keySize property value. SCEP Key Size. Possible values are: size1024, size2048, size4096.
+     * Sets the keySize property value. Key Size Options.
      *  @param KeySize|null $value Value to set for the keySize property.
     */
     public function setKeySize(?KeySize $value ): void {
@@ -210,7 +249,7 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     }
 
     /**
-     * Sets the keyUsage property value. SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
+     * Sets the keyUsage property value. Key Usage Options.
      *  @param KeyUsages|null $value Value to set for the keyUsage property.
     */
     public function setKeyUsage(?KeyUsages $value ): void {
@@ -231,6 +270,14 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     */
     public function setScepServerUrls(?array $value ): void {
         $this->scepServerUrls = $value;
+    }
+
+    /**
+     * Sets the silentCertificateAccessDetails property value. Certificate access information. This collection can contain a maximum of 50 elements.
+     *  @param array<AndroidDeviceOwnerSilentCertificateAccess>|null $value Value to set for the silentCertificateAccessDetails property.
+    */
+    public function setSilentCertificateAccessDetails(?array $value ): void {
+        $this->silentCertificateAccessDetails = $value;
     }
 
     /**

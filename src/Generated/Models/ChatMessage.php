@@ -60,7 +60,7 @@ class ChatMessage extends Entity implements Parsable
     private ?array $hostedContents = null;
     
     /**
-     * @var ChatMessageImportance|null $importance The importance of the chat message. The possible values are: normal, high, urgent.
+     * @var ChatMessageImportance|null $importance The importance property
     */
     private ?ChatMessageImportance $importance = null;
     
@@ -85,7 +85,7 @@ class ChatMessage extends Entity implements Parsable
     private ?array $mentions = null;
     
     /**
-     * @var ChatMessageType|null $messageType The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
+     * @var ChatMessageType|null $messageType The messageType property
     */
     private ?ChatMessageType $messageType = null;
     
@@ -134,6 +134,7 @@ class ChatMessage extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.chatMessage');
     }
 
     /**
@@ -260,7 +261,7 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
-     * Gets the importance property value. The importance of the chat message. The possible values are: normal, high, urgent.
+     * Gets the importance property value. The importance property
      * @return ChatMessageImportance|null
     */
     public function getImportance(): ?ChatMessageImportance {
@@ -300,7 +301,7 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
-     * Gets the messageType property value. The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
+     * Gets the messageType property value. The messageType property
      * @return ChatMessageType|null
     */
     public function getMessageType(): ?ChatMessageType {
@@ -484,7 +485,7 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
-     * Sets the importance property value. The importance of the chat message. The possible values are: normal, high, urgent.
+     * Sets the importance property value. The importance property
      *  @param ChatMessageImportance|null $value Value to set for the importance property.
     */
     public function setImportance(?ChatMessageImportance $value ): void {
@@ -524,7 +525,7 @@ class ChatMessage extends Entity implements Parsable
     }
 
     /**
-     * Sets the messageType property value. The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
+     * Sets the messageType property value. The messageType property
      *  @param ChatMessageType|null $value Value to set for the messageType property.
     */
     public function setMessageType(?ChatMessageType $value ): void {

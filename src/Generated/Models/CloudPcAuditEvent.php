@@ -20,12 +20,12 @@ class CloudPcAuditEvent extends Entity implements Parsable
     private ?DateTime $activityDateTime = null;
     
     /**
-     * @var CloudPcAuditActivityOperationType|null $activityOperationType The HTTP operation type of the activity. Possible values include create, delete, patch and other. Read-only.
+     * @var CloudPcAuditActivityOperationType|null $activityOperationType The activityOperationType property
     */
     private ?CloudPcAuditActivityOperationType $activityOperationType = null;
     
     /**
-     * @var CloudPcAuditActivityResult|null $activityResult The result of the activity. Read-only.
+     * @var CloudPcAuditActivityResult|null $activityResult The activityResult property
     */
     private ?CloudPcAuditActivityResult $activityResult = null;
     
@@ -40,7 +40,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     private ?CloudPcAuditActor $actor = null;
     
     /**
-     * @var CloudPcAuditCategory|null $category Audit category. Read-only.
+     * @var CloudPcAuditCategory|null $category The category property
     */
     private ?CloudPcAuditCategory $category = null;
     
@@ -69,6 +69,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.cloudPcAuditEvent');
     }
 
     /**
@@ -97,7 +98,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityOperationType property value. The HTTP operation type of the activity. Possible values include create, delete, patch and other. Read-only.
+     * Gets the activityOperationType property value. The activityOperationType property
      * @return CloudPcAuditActivityOperationType|null
     */
     public function getActivityOperationType(): ?CloudPcAuditActivityOperationType {
@@ -105,7 +106,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the activityResult property value. The result of the activity. Read-only.
+     * Gets the activityResult property value. The activityResult property
      * @return CloudPcAuditActivityResult|null
     */
     public function getActivityResult(): ?CloudPcAuditActivityResult {
@@ -129,7 +130,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Gets the category property value. Audit category. Read-only.
+     * Gets the category property value. The category property
      * @return CloudPcAuditCategory|null
     */
     public function getCategory(): ?CloudPcAuditCategory {
@@ -225,7 +226,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityOperationType property value. The HTTP operation type of the activity. Possible values include create, delete, patch and other. Read-only.
+     * Sets the activityOperationType property value. The activityOperationType property
      *  @param CloudPcAuditActivityOperationType|null $value Value to set for the activityOperationType property.
     */
     public function setActivityOperationType(?CloudPcAuditActivityOperationType $value ): void {
@@ -233,7 +234,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the activityResult property value. The result of the activity. Read-only.
+     * Sets the activityResult property value. The activityResult property
      *  @param CloudPcAuditActivityResult|null $value Value to set for the activityResult property.
     */
     public function setActivityResult(?CloudPcAuditActivityResult $value ): void {
@@ -257,7 +258,7 @@ class CloudPcAuditEvent extends Entity implements Parsable
     }
 
     /**
-     * Sets the category property value. Audit category. Read-only.
+     * Sets the category property value. The category property
      *  @param CloudPcAuditCategory|null $value Value to set for the category property.
     */
     public function setCategory(?CloudPcAuditCategory $value ): void {

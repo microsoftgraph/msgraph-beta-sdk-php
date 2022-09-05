@@ -15,9 +15,14 @@ class CrossTenantAccessPolicyTargetConfiguration implements AdditionalDataHolder
     private ?CrossTenantAccessPolicyTargetConfigurationAccessType $accessType = null;
     
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * @var array<CrossTenantAccessPolicyTarget>|null $targets Specifies whether to target users, groups, or applications with this rule.
@@ -28,7 +33,8 @@ class CrossTenantAccessPolicyTargetConfiguration implements AdditionalDataHolder
      * Instantiates a new crossTenantAccessPolicyTargetConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.crossTenantAccessPolicyTargetConfiguration');
     }
 
     /**
@@ -64,8 +70,17 @@ class CrossTenantAccessPolicyTargetConfiguration implements AdditionalDataHolder
         $o = $this;
         return  [
             'accessType' => function (ParseNode $n) use ($o) { $o->setAccessType($n->getEnumValue(CrossTenantAccessPolicyTargetConfigurationAccessType::class)); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'targets' => function (ParseNode $n) use ($o) { $o->setTargets($n->getCollectionOfObjectValues(array(CrossTenantAccessPolicyTarget::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -82,6 +97,7 @@ class CrossTenantAccessPolicyTargetConfiguration implements AdditionalDataHolder
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('accessType', $this->accessType);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('targets', $this->targets);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -100,6 +116,14 @@ class CrossTenantAccessPolicyTargetConfiguration implements AdditionalDataHolder
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

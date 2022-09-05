@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CommunicationsApplicationInstanceIdentity extends Identity implements Parsable 
 {
     /**
-     * @var bool|null $hidden The hidden property
+     * @var bool|null $hidden True if the participant would not like to be shown in other participants' rosters.
     */
     private ?bool $hidden = null;
     
     /**
-     * @var string|null $tenantId The tenantId property
+     * @var string|null $tenantId The application's tenant ID.
     */
     private ?string $tenantId = null;
     
@@ -23,6 +23,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.communicationsApplicationInstanceIdentity');
     }
 
     /**
@@ -47,7 +48,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
     }
 
     /**
-     * Gets the hidden property value. The hidden property
+     * Gets the hidden property value. True if the participant would not like to be shown in other participants' rosters.
      * @return bool|null
     */
     public function getHidden(): ?bool {
@@ -55,7 +56,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
     }
 
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. The application's tenant ID.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -73,7 +74,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
     }
 
     /**
-     * Sets the hidden property value. The hidden property
+     * Sets the hidden property value. True if the participant would not like to be shown in other participants' rosters.
      *  @param bool|null $value Value to set for the hidden property.
     */
     public function setHidden(?bool $value ): void {
@@ -81,7 +82,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
     }
 
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. The application's tenant ID.
      *  @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value ): void {

@@ -24,7 +24,7 @@ class Directory extends Entity implements Parsable
     private ?array $customSecurityAttributeDefinitions = null;
     
     /**
-     * @var array<DirectoryObject>|null $deletedItems Recently deleted items. Read-only. Nullable.
+     * @var array<DirectoryObject>|null $deletedItems The deletedItems property
     */
     private ?array $deletedItems = null;
     
@@ -68,6 +68,7 @@ class Directory extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.directory');
     }
 
     /**
@@ -104,7 +105,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Gets the deletedItems property value. Recently deleted items. Read-only. Nullable.
+     * Gets the deletedItems property value. The deletedItems property
      * @return array<DirectoryObject>|null
     */
     public function getDeletedItems(): ?array {
@@ -232,7 +233,7 @@ class Directory extends Entity implements Parsable
     }
 
     /**
-     * Sets the deletedItems property value. Recently deleted items. Read-only. Nullable.
+     * Sets the deletedItems property value. The deletedItems property
      *  @param array<DirectoryObject>|null $value Value to set for the deletedItems property.
     */
     public function setDeletedItems(?array $value ): void {

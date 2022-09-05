@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnenoteEntityBaseModel extends Entity implements Parsable 
 {
     /**
-     * @var string|null $EscapedSelf The endpoint where you can get details about the page. Read-only.
+     * @var string|null $escapedSelf The self property
     */
     private ?string $escapedSelf = null;
     
@@ -18,6 +18,7 @@ class OnenoteEntityBaseModel extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.onenoteEntityBaseModel');
     }
 
     /**
@@ -30,8 +31,13 @@ class OnenoteEntityBaseModel extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.notebook': return new Notebook();
+                case '#microsoft.graph.onenoteEntityHierarchyModel': return new OnenoteEntityHierarchyModel();
                 case '#microsoft.graph.onenoteEntitySchemaObjectModel': return new OnenoteEntitySchemaObjectModel();
+                case '#microsoft.graph.onenotePage': return new OnenotePage();
                 case '#microsoft.graph.onenoteResource': return new OnenoteResource();
+                case '#microsoft.graph.onenoteSection': return new OnenoteSection();
+                case '#microsoft.graph.sectionGroup': return new SectionGroup();
             }
         }
         return new OnenoteEntityBaseModel();
@@ -49,7 +55,7 @@ class OnenoteEntityBaseModel extends Entity implements Parsable
     }
 
     /**
-     * Gets the self property value. The endpoint where you can get details about the page. Read-only.
+     * Gets the self property value. The self property
      * @return string|null
     */
     public function getSelf(): ?string {
@@ -66,7 +72,7 @@ class OnenoteEntityBaseModel extends Entity implements Parsable
     }
 
     /**
-     * Sets the self property value. The endpoint where you can get details about the page. Read-only.
+     * Sets the self property value. The self property
      *  @param string|null $value Value to set for the EscapedSelf property.
     */
     public function setSelf(?string $value ): void {

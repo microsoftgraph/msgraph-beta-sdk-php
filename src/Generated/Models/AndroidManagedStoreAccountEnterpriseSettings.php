@@ -15,7 +15,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     private ?bool $androidDeviceOwnerFullyManagedEnrollmentEnabled = null;
     
     /**
-     * @var AndroidManagedStoreAccountBindStatus|null $bindStatus Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding.
+     * @var AndroidManagedStoreAccountBindStatus|null $bindStatus Bind status of the tenant with the Google EMM API
     */
     private ?AndroidManagedStoreAccountBindStatus $bindStatus = null;
     
@@ -30,7 +30,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     private ?bool $deviceOwnerManagementEnabled = null;
     
     /**
-     * @var AndroidManagedStoreAccountEnrollmentTarget|null $enrollmentTarget Indicates which users can enroll devices in Android Enterprise device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions.
+     * @var AndroidManagedStoreAccountEnrollmentTarget|null $enrollmentTarget Android for Work device management targeting type for the account
     */
     private ?AndroidManagedStoreAccountEnrollmentTarget $enrollmentTarget = null;
     
@@ -40,7 +40,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     private ?DateTime $lastAppSyncDateTime = null;
     
     /**
-     * @var AndroidManagedStoreAccountAppSyncStatus|null $lastAppSyncStatus Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none.
+     * @var AndroidManagedStoreAccountAppSyncStatus|null $lastAppSyncStatus Sync status of the tenant with the Google EMM API
     */
     private ?AndroidManagedStoreAccountAppSyncStatus $lastAppSyncStatus = null;
     
@@ -74,6 +74,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.androidManagedStoreAccountEnterpriseSettings');
     }
 
     /**
@@ -94,7 +95,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     }
 
     /**
-     * Gets the bindStatus property value. Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding.
+     * Gets the bindStatus property value. Bind status of the tenant with the Google EMM API
      * @return AndroidManagedStoreAccountBindStatus|null
     */
     public function getBindStatus(): ?AndroidManagedStoreAccountBindStatus {
@@ -118,7 +119,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     }
 
     /**
-     * Gets the enrollmentTarget property value. Indicates which users can enroll devices in Android Enterprise device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions.
+     * Gets the enrollmentTarget property value. Android for Work device management targeting type for the account
      * @return AndroidManagedStoreAccountEnrollmentTarget|null
     */
     public function getEnrollmentTarget(): ?AndroidManagedStoreAccountEnrollmentTarget {
@@ -156,7 +157,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     }
 
     /**
-     * Gets the lastAppSyncStatus property value. Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none.
+     * Gets the lastAppSyncStatus property value. Sync status of the tenant with the Google EMM API
      * @return AndroidManagedStoreAccountAppSyncStatus|null
     */
     public function getLastAppSyncStatus(): ?AndroidManagedStoreAccountAppSyncStatus {
@@ -232,7 +233,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     }
 
     /**
-     * Sets the bindStatus property value. Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding.
+     * Sets the bindStatus property value. Bind status of the tenant with the Google EMM API
      *  @param AndroidManagedStoreAccountBindStatus|null $value Value to set for the bindStatus property.
     */
     public function setBindStatus(?AndroidManagedStoreAccountBindStatus $value ): void {
@@ -256,7 +257,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     }
 
     /**
-     * Sets the enrollmentTarget property value. Indicates which users can enroll devices in Android Enterprise device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions.
+     * Sets the enrollmentTarget property value. Android for Work device management targeting type for the account
      *  @param AndroidManagedStoreAccountEnrollmentTarget|null $value Value to set for the enrollmentTarget property.
     */
     public function setEnrollmentTarget(?AndroidManagedStoreAccountEnrollmentTarget $value ): void {
@@ -272,7 +273,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     }
 
     /**
-     * Sets the lastAppSyncStatus property value. Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none.
+     * Sets the lastAppSyncStatus property value. Sync status of the tenant with the Google EMM API
      *  @param AndroidManagedStoreAccountAppSyncStatus|null $value Value to set for the lastAppSyncStatus property.
     */
     public function setLastAppSyncStatus(?AndroidManagedStoreAccountAppSyncStatus $value ): void {

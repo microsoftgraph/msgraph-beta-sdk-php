@@ -11,42 +11,42 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $allowWindows11Upgrade Allow eligible Windows 10 devices to upgrade to the latest version of Windows 11.
+     * @var bool|null $allowWindows11Upgrade When TRUE, allows eligible Windows 10 devices to upgrade to Windows 11. When FALSE, implies the device stays on the existing operating system. Returned by default. Query parameters are not supported.
     */
     private ?bool $allowWindows11Upgrade = null;
     
     /**
-     * @var AutomaticUpdateMode|null $automaticUpdateMode Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault.
+     * @var AutomaticUpdateMode|null $automaticUpdateMode Possible values for automatic update mode.
     */
     private ?AutomaticUpdateMode $automaticUpdateMode = null;
     
     /**
-     * @var AutoRestartNotificationDismissalMethod|null $autoRestartNotificationDismissal Specify the method by which the auto-restart required notification is dismissed. Possible values are: notConfigured, automatic, user.
+     * @var AutoRestartNotificationDismissalMethod|null $autoRestartNotificationDismissal Auto restart required notification dismissal method
     */
     private ?AutoRestartNotificationDismissalMethod $autoRestartNotificationDismissal = null;
     
     /**
-     * @var WindowsUpdateType|null $businessReadyUpdatesOnly Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease.
+     * @var WindowsUpdateType|null $businessReadyUpdatesOnly Which branch devices will receive their updates from
     */
     private ?WindowsUpdateType $businessReadyUpdatesOnly = null;
     
     /**
-     * @var int|null $deadlineForFeatureUpdatesInDays Number of days before feature updates are installed automatically with valid range from 0 to 30 days
+     * @var int|null $deadlineForFeatureUpdatesInDays Number of days before feature updates are installed automatically with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
     */
     private ?int $deadlineForFeatureUpdatesInDays = null;
     
     /**
-     * @var int|null $deadlineForQualityUpdatesInDays Number of days before quality updates are installed automatically with valid range from 0 to 30 days
+     * @var int|null $deadlineForQualityUpdatesInDays Number of days before quality updates are installed automatically with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
     */
     private ?int $deadlineForQualityUpdatesInDays = null;
     
     /**
-     * @var int|null $deadlineGracePeriodInDays Number of days after deadline  until restarts occur automatically with valid range from 0 to 7 days
+     * @var int|null $deadlineGracePeriodInDays Number of days after deadline until restarts occur automatically with valid range from 0 to 7 days. Returned by default. Query parameters are not supported.
     */
     private ?int $deadlineGracePeriodInDays = null;
     
     /**
-     * @var WindowsDeliveryOptimizationMode|null $deliveryOptimizationMode Delivery Optimization Mode. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+     * @var WindowsDeliveryOptimizationMode|null $deliveryOptimizationMode Delivery optimization mode for peer distribution
     */
     private ?WindowsDeliveryOptimizationMode $deliveryOptimizationMode = null;
     
@@ -56,142 +56,142 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     private ?array $deviceUpdateStates = null;
     
     /**
-     * @var bool|null $driversExcluded Exclude Windows update Drivers
+     * @var bool|null $driversExcluded When TRUE, excludes Windows update Drivers. When FALSE, does not exclude Windows update Drivers. Returned by default. Query parameters are not supported.
     */
     private ?bool $driversExcluded = null;
     
     /**
-     * @var int|null $engagedRestartDeadlineInDays Deadline in days before automatically scheduling and executing a pending restart outside of active hours, with valid range from 2 to 30 days
+     * @var int|null $engagedRestartDeadlineInDays Deadline in days before automatically scheduling and executing a pending restart outside of active hours, with valid range from 2 to 30 days. Returned by default. Query parameters are not supported.
     */
     private ?int $engagedRestartDeadlineInDays = null;
     
     /**
-     * @var int|null $engagedRestartSnoozeScheduleInDays Number of days a user can snooze Engaged Restart reminder notifications with valid range from 1 to 3 days
+     * @var int|null $engagedRestartSnoozeScheduleInDays Number of days a user can snooze Engaged Restart reminder notifications with valid range from 1 to 3 days. Returned by default. Query parameters are not supported.
     */
     private ?int $engagedRestartSnoozeScheduleInDays = null;
     
     /**
-     * @var int|null $engagedRestartTransitionScheduleInDays Number of days before transitioning from Auto Restarts scheduled outside of active hours to Engaged Restart, which requires the user to schedule, with valid range from 0 to 30 days
+     * @var int|null $engagedRestartTransitionScheduleInDays Number of days before transitioning from Auto Restarts scheduled outside of active hours to Engaged Restart, which requires the user to schedule, with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
     */
     private ?int $engagedRestartTransitionScheduleInDays = null;
     
     /**
-     * @var int|null $featureUpdatesDeferralPeriodInDays Defer Feature Updates by these many days
+     * @var int|null $featureUpdatesDeferralPeriodInDays Defer Feature Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
     */
     private ?int $featureUpdatesDeferralPeriodInDays = null;
     
     /**
-     * @var bool|null $featureUpdatesPaused Pause Feature Updates
+     * @var bool|null $featureUpdatesPaused When TRUE, assigned devices are paused from receiving feature updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Feature Updates. Returned by default. Query parameters are not supported.s
     */
     private ?bool $featureUpdatesPaused = null;
     
     /**
-     * @var DateTime|null $featureUpdatesPauseExpiryDateTime Feature Updates Pause Expiry datetime
+     * @var DateTime|null $featureUpdatesPauseExpiryDateTime The Feature Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported.
     */
     private ?DateTime $featureUpdatesPauseExpiryDateTime = null;
     
     /**
-     * @var Date|null $featureUpdatesPauseStartDate Feature Updates Pause start date. This property is read-only.
+     * @var Date|null $featureUpdatesPauseStartDate The Feature Updates Pause start date. This value is the time when the admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. This property is read-only.
     */
     private ?Date $featureUpdatesPauseStartDate = null;
     
     /**
-     * @var DateTime|null $featureUpdatesRollbackStartDateTime Feature Updates Rollback Start datetime
+     * @var DateTime|null $featureUpdatesRollbackStartDateTime The Feature Updates Rollback Start datetime.This value is the time when the admin rolled back the Feature update for the ring.Returned by default.Query parameters are not supported.
     */
     private ?DateTime $featureUpdatesRollbackStartDateTime = null;
     
     /**
-     * @var int|null $featureUpdatesRollbackWindowInDays The number of days after a Feature Update for which a rollback is valid
+     * @var int|null $featureUpdatesRollbackWindowInDays The number of days after a Feature Update for which a rollback is valid with valid range from 2 to 60 days. Returned by default. Query parameters are not supported.
     */
     private ?int $featureUpdatesRollbackWindowInDays = null;
     
     /**
-     * @var bool|null $featureUpdatesWillBeRolledBack Specifies whether to rollback Feature Updates on the next device check in
+     * @var bool|null $featureUpdatesWillBeRolledBack When TRUE, rollback Feature Updates on the next device check in. When FALSE, do not rollback Feature Updates on the next device check in. Returned by default.Query parameters are not supported.
     */
     private ?bool $featureUpdatesWillBeRolledBack = null;
     
     /**
-     * @var WindowsUpdateInstallScheduleType|null $installationSchedule Installation schedule
+     * @var WindowsUpdateInstallScheduleType|null $installationSchedule The Installation Schedule. Possible values are: ActiveHoursStart, ActiveHoursEnd, ScheduledInstallDay, ScheduledInstallTime. Returned by default. Query parameters are not supported.
     */
     private ?WindowsUpdateInstallScheduleType $installationSchedule = null;
     
     /**
-     * @var bool|null $microsoftUpdateServiceAllowed Allow Microsoft Update Service
+     * @var bool|null $microsoftUpdateServiceAllowed When TRUE, allows Microsoft Update Service. When FALSE, does not allow Microsoft Update Service. Returned by default. Query parameters are not supported.
     */
     private ?bool $microsoftUpdateServiceAllowed = null;
     
     /**
-     * @var bool|null $postponeRebootUntilAfterDeadline Specifies if the device should wait until deadline for rebooting outside of active hours
+     * @var bool|null $postponeRebootUntilAfterDeadline When TRUE the device should wait until deadline for rebooting outside of active hours. When FALSE the device should not wait until deadline for rebooting outside of active hours. Returned by default. Query parameters are not supported.
     */
     private ?bool $postponeRebootUntilAfterDeadline = null;
     
     /**
-     * @var PrereleaseFeatures|null $prereleaseFeatures The pre-release features. Possible values are: userDefined, settingsOnly, settingsAndExperimentations, notAllowed.
+     * @var PrereleaseFeatures|null $prereleaseFeatures Possible values for pre-release features.
     */
     private ?PrereleaseFeatures $prereleaseFeatures = null;
     
     /**
-     * @var int|null $qualityUpdatesDeferralPeriodInDays Defer Quality Updates by these many days
+     * @var int|null $qualityUpdatesDeferralPeriodInDays Defer Quality Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
     */
     private ?int $qualityUpdatesDeferralPeriodInDays = null;
     
     /**
-     * @var bool|null $qualityUpdatesPaused Pause Quality Updates
+     * @var bool|null $qualityUpdatesPaused When TRUE, assigned devices are paused from receiving quality updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Quality Updates. Returned by default. Query parameters are not supported.
     */
     private ?bool $qualityUpdatesPaused = null;
     
     /**
-     * @var DateTime|null $qualityUpdatesPauseExpiryDateTime Quality Updates Pause Expiry datetime
+     * @var DateTime|null $qualityUpdatesPauseExpiryDateTime The Quality Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported.
     */
     private ?DateTime $qualityUpdatesPauseExpiryDateTime = null;
     
     /**
-     * @var Date|null $qualityUpdatesPauseStartDate Quality Updates Pause start date. This property is read-only.
+     * @var Date|null $qualityUpdatesPauseStartDate The Quality Updates Pause start date. This value is the time when the admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. This property is read-only.
     */
     private ?Date $qualityUpdatesPauseStartDate = null;
     
     /**
-     * @var DateTime|null $qualityUpdatesRollbackStartDateTime Quality Updates Rollback Start datetime
+     * @var DateTime|null $qualityUpdatesRollbackStartDateTime The Quality Updates Rollback Start datetime. This value is the time when the admin rolled back the Quality update for the ring. Returned by default. Query parameters are not supported.
     */
     private ?DateTime $qualityUpdatesRollbackStartDateTime = null;
     
     /**
-     * @var bool|null $qualityUpdatesWillBeRolledBack Specifies whether to rollback Quality Updates on the next device check in
+     * @var bool|null $qualityUpdatesWillBeRolledBack When TRUE, rollback Quality Updates on the next device check in. When FALSE, do not rollback Quality Updates on the next device check in. Returned by default. Query parameters are not supported.
     */
     private ?bool $qualityUpdatesWillBeRolledBack = null;
     
     /**
-     * @var int|null $scheduleImminentRestartWarningInMinutes Specify the period for auto-restart imminent warning notifications. Supported values: 15, 30 or 60 (minutes).
+     * @var int|null $scheduleImminentRestartWarningInMinutes Specify the period for auto-restart imminent warning notifications. Supported values: 15, 30 or 60 (minutes). Returned by default. Query parameters are not supported.
     */
     private ?int $scheduleImminentRestartWarningInMinutes = null;
     
     /**
-     * @var int|null $scheduleRestartWarningInHours Specify the period for auto-restart warning reminder notifications. Supported values: 2, 4, 8, 12 or 24 (hours).
+     * @var int|null $scheduleRestartWarningInHours Specify the period for auto-restart warning reminder notifications. Supported values: 2, 4, 8, 12 or 24 (hours). Returned by default. Query parameters are not supported.
     */
     private ?int $scheduleRestartWarningInHours = null;
     
     /**
-     * @var bool|null $skipChecksBeforeRestart Set to skip all check before restart: Battery level = 40%, User presence, Display Needed, Presentation mode, Full screen mode, phone call state, game mode etc.
+     * @var bool|null $skipChecksBeforeRestart When TRUE, skips all checks before restart: Battery level = 40%, User presence, Display Needed, Presentation mode, Full screen mode, phone call state, game mode etc. When FALSE, does not skip all checks before restart. Returned by default. Query parameters are not supported.
     */
     private ?bool $skipChecksBeforeRestart = null;
     
     /**
-     * @var WindowsUpdateNotificationDisplayOption|null $updateNotificationLevel Specifies what Windows Update notifications users see. Possible values are: notConfigured, defaultNotifications, restartWarningsOnly, disableAllNotifications.
+     * @var WindowsUpdateNotificationDisplayOption|null $updateNotificationLevel Windows Update Notification Display Options
     */
     private ?WindowsUpdateNotificationDisplayOption $updateNotificationLevel = null;
     
     /**
-     * @var WindowsUpdateForBusinessUpdateWeeks|null $updateWeeks Scheduled the update installation on the weeks of the month. Possible values are: userDefined, firstWeek, secondWeek, thirdWeek, fourthWeek, everyWeek.
+     * @var WindowsUpdateForBusinessUpdateWeeks|null $updateWeeks Schedule the update installation on the weeks of the month. Possible values are: UserDefined, FirstWeek, SecondWeek, ThirdWeek, FourthWeek, EveryWeek. Returned by default. Query parameters are not supported. Possible values are: userDefined, firstWeek, secondWeek, thirdWeek, fourthWeek, everyWeek, unknownFutureValue.
     */
     private ?WindowsUpdateForBusinessUpdateWeeks $updateWeeks = null;
     
     /**
-     * @var Enablement|null $userPauseAccess Specifies whether to enable end user’s access to pause software updates. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $userPauseAccess Possible values of a property
     */
     private ?Enablement $userPauseAccess = null;
     
     /**
-     * @var Enablement|null $userWindowsUpdateScanAccess Specifies whether to disable user’s access to scan Windows Update. Possible values are: notConfigured, enabled, disabled.
+     * @var Enablement|null $userWindowsUpdateScanAccess Possible values of a property
     */
     private ?Enablement $userWindowsUpdateScanAccess = null;
     
@@ -200,6 +200,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.windowsUpdateForBusinessConfiguration');
     }
 
     /**
@@ -212,7 +213,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the allowWindows11Upgrade property value. Allow eligible Windows 10 devices to upgrade to the latest version of Windows 11.
+     * Gets the allowWindows11Upgrade property value. When TRUE, allows eligible Windows 10 devices to upgrade to Windows 11. When FALSE, implies the device stays on the existing operating system. Returned by default. Query parameters are not supported.
      * @return bool|null
     */
     public function getAllowWindows11Upgrade(): ?bool {
@@ -220,7 +221,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the automaticUpdateMode property value. Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault.
+     * Gets the automaticUpdateMode property value. Possible values for automatic update mode.
      * @return AutomaticUpdateMode|null
     */
     public function getAutomaticUpdateMode(): ?AutomaticUpdateMode {
@@ -228,7 +229,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the autoRestartNotificationDismissal property value. Specify the method by which the auto-restart required notification is dismissed. Possible values are: notConfigured, automatic, user.
+     * Gets the autoRestartNotificationDismissal property value. Auto restart required notification dismissal method
      * @return AutoRestartNotificationDismissalMethod|null
     */
     public function getAutoRestartNotificationDismissal(): ?AutoRestartNotificationDismissalMethod {
@@ -236,7 +237,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the businessReadyUpdatesOnly property value. Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease.
+     * Gets the businessReadyUpdatesOnly property value. Which branch devices will receive their updates from
      * @return WindowsUpdateType|null
     */
     public function getBusinessReadyUpdatesOnly(): ?WindowsUpdateType {
@@ -244,7 +245,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the deadlineForFeatureUpdatesInDays property value. Number of days before feature updates are installed automatically with valid range from 0 to 30 days
+     * Gets the deadlineForFeatureUpdatesInDays property value. Number of days before feature updates are installed automatically with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
      * @return int|null
     */
     public function getDeadlineForFeatureUpdatesInDays(): ?int {
@@ -252,7 +253,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the deadlineForQualityUpdatesInDays property value. Number of days before quality updates are installed automatically with valid range from 0 to 30 days
+     * Gets the deadlineForQualityUpdatesInDays property value. Number of days before quality updates are installed automatically with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
      * @return int|null
     */
     public function getDeadlineForQualityUpdatesInDays(): ?int {
@@ -260,7 +261,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the deadlineGracePeriodInDays property value. Number of days after deadline  until restarts occur automatically with valid range from 0 to 7 days
+     * Gets the deadlineGracePeriodInDays property value. Number of days after deadline until restarts occur automatically with valid range from 0 to 7 days. Returned by default. Query parameters are not supported.
      * @return int|null
     */
     public function getDeadlineGracePeriodInDays(): ?int {
@@ -268,7 +269,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the deliveryOptimizationMode property value. Delivery Optimization Mode. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+     * Gets the deliveryOptimizationMode property value. Delivery optimization mode for peer distribution
      * @return WindowsDeliveryOptimizationMode|null
     */
     public function getDeliveryOptimizationMode(): ?WindowsDeliveryOptimizationMode {
@@ -284,7 +285,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the driversExcluded property value. Exclude Windows update Drivers
+     * Gets the driversExcluded property value. When TRUE, excludes Windows update Drivers. When FALSE, does not exclude Windows update Drivers. Returned by default. Query parameters are not supported.
      * @return bool|null
     */
     public function getDriversExcluded(): ?bool {
@@ -292,7 +293,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the engagedRestartDeadlineInDays property value. Deadline in days before automatically scheduling and executing a pending restart outside of active hours, with valid range from 2 to 30 days
+     * Gets the engagedRestartDeadlineInDays property value. Deadline in days before automatically scheduling and executing a pending restart outside of active hours, with valid range from 2 to 30 days. Returned by default. Query parameters are not supported.
      * @return int|null
     */
     public function getEngagedRestartDeadlineInDays(): ?int {
@@ -300,7 +301,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the engagedRestartSnoozeScheduleInDays property value. Number of days a user can snooze Engaged Restart reminder notifications with valid range from 1 to 3 days
+     * Gets the engagedRestartSnoozeScheduleInDays property value. Number of days a user can snooze Engaged Restart reminder notifications with valid range from 1 to 3 days. Returned by default. Query parameters are not supported.
      * @return int|null
     */
     public function getEngagedRestartSnoozeScheduleInDays(): ?int {
@@ -308,7 +309,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the engagedRestartTransitionScheduleInDays property value. Number of days before transitioning from Auto Restarts scheduled outside of active hours to Engaged Restart, which requires the user to schedule, with valid range from 0 to 30 days
+     * Gets the engagedRestartTransitionScheduleInDays property value. Number of days before transitioning from Auto Restarts scheduled outside of active hours to Engaged Restart, which requires the user to schedule, with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
      * @return int|null
     */
     public function getEngagedRestartTransitionScheduleInDays(): ?int {
@@ -316,7 +317,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the featureUpdatesDeferralPeriodInDays property value. Defer Feature Updates by these many days
+     * Gets the featureUpdatesDeferralPeriodInDays property value. Defer Feature Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
      * @return int|null
     */
     public function getFeatureUpdatesDeferralPeriodInDays(): ?int {
@@ -324,7 +325,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the featureUpdatesPaused property value. Pause Feature Updates
+     * Gets the featureUpdatesPaused property value. When TRUE, assigned devices are paused from receiving feature updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Feature Updates. Returned by default. Query parameters are not supported.s
      * @return bool|null
     */
     public function getFeatureUpdatesPaused(): ?bool {
@@ -332,7 +333,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the featureUpdatesPauseExpiryDateTime property value. Feature Updates Pause Expiry datetime
+     * Gets the featureUpdatesPauseExpiryDateTime property value. The Feature Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported.
      * @return DateTime|null
     */
     public function getFeatureUpdatesPauseExpiryDateTime(): ?DateTime {
@@ -340,7 +341,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the featureUpdatesPauseStartDate property value. Feature Updates Pause start date. This property is read-only.
+     * Gets the featureUpdatesPauseStartDate property value. The Feature Updates Pause start date. This value is the time when the admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. This property is read-only.
      * @return Date|null
     */
     public function getFeatureUpdatesPauseStartDate(): ?Date {
@@ -348,7 +349,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the featureUpdatesRollbackStartDateTime property value. Feature Updates Rollback Start datetime
+     * Gets the featureUpdatesRollbackStartDateTime property value. The Feature Updates Rollback Start datetime.This value is the time when the admin rolled back the Feature update for the ring.Returned by default.Query parameters are not supported.
      * @return DateTime|null
     */
     public function getFeatureUpdatesRollbackStartDateTime(): ?DateTime {
@@ -356,7 +357,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the featureUpdatesRollbackWindowInDays property value. The number of days after a Feature Update for which a rollback is valid
+     * Gets the featureUpdatesRollbackWindowInDays property value. The number of days after a Feature Update for which a rollback is valid with valid range from 2 to 60 days. Returned by default. Query parameters are not supported.
      * @return int|null
     */
     public function getFeatureUpdatesRollbackWindowInDays(): ?int {
@@ -364,7 +365,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the featureUpdatesWillBeRolledBack property value. Specifies whether to rollback Feature Updates on the next device check in
+     * Gets the featureUpdatesWillBeRolledBack property value. When TRUE, rollback Feature Updates on the next device check in. When FALSE, do not rollback Feature Updates on the next device check in. Returned by default.Query parameters are not supported.
      * @return bool|null
     */
     public function getFeatureUpdatesWillBeRolledBack(): ?bool {
@@ -419,7 +420,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the installationSchedule property value. Installation schedule
+     * Gets the installationSchedule property value. The Installation Schedule. Possible values are: ActiveHoursStart, ActiveHoursEnd, ScheduledInstallDay, ScheduledInstallTime. Returned by default. Query parameters are not supported.
      * @return WindowsUpdateInstallScheduleType|null
     */
     public function getInstallationSchedule(): ?WindowsUpdateInstallScheduleType {
@@ -427,7 +428,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the microsoftUpdateServiceAllowed property value. Allow Microsoft Update Service
+     * Gets the microsoftUpdateServiceAllowed property value. When TRUE, allows Microsoft Update Service. When FALSE, does not allow Microsoft Update Service. Returned by default. Query parameters are not supported.
      * @return bool|null
     */
     public function getMicrosoftUpdateServiceAllowed(): ?bool {
@@ -435,7 +436,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the postponeRebootUntilAfterDeadline property value. Specifies if the device should wait until deadline for rebooting outside of active hours
+     * Gets the postponeRebootUntilAfterDeadline property value. When TRUE the device should wait until deadline for rebooting outside of active hours. When FALSE the device should not wait until deadline for rebooting outside of active hours. Returned by default. Query parameters are not supported.
      * @return bool|null
     */
     public function getPostponeRebootUntilAfterDeadline(): ?bool {
@@ -443,7 +444,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the prereleaseFeatures property value. The pre-release features. Possible values are: userDefined, settingsOnly, settingsAndExperimentations, notAllowed.
+     * Gets the prereleaseFeatures property value. Possible values for pre-release features.
      * @return PrereleaseFeatures|null
     */
     public function getPrereleaseFeatures(): ?PrereleaseFeatures {
@@ -451,7 +452,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the qualityUpdatesDeferralPeriodInDays property value. Defer Quality Updates by these many days
+     * Gets the qualityUpdatesDeferralPeriodInDays property value. Defer Quality Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
      * @return int|null
     */
     public function getQualityUpdatesDeferralPeriodInDays(): ?int {
@@ -459,7 +460,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the qualityUpdatesPaused property value. Pause Quality Updates
+     * Gets the qualityUpdatesPaused property value. When TRUE, assigned devices are paused from receiving quality updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Quality Updates. Returned by default. Query parameters are not supported.
      * @return bool|null
     */
     public function getQualityUpdatesPaused(): ?bool {
@@ -467,7 +468,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the qualityUpdatesPauseExpiryDateTime property value. Quality Updates Pause Expiry datetime
+     * Gets the qualityUpdatesPauseExpiryDateTime property value. The Quality Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported.
      * @return DateTime|null
     */
     public function getQualityUpdatesPauseExpiryDateTime(): ?DateTime {
@@ -475,7 +476,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the qualityUpdatesPauseStartDate property value. Quality Updates Pause start date. This property is read-only.
+     * Gets the qualityUpdatesPauseStartDate property value. The Quality Updates Pause start date. This value is the time when the admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. This property is read-only.
      * @return Date|null
     */
     public function getQualityUpdatesPauseStartDate(): ?Date {
@@ -483,7 +484,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the qualityUpdatesRollbackStartDateTime property value. Quality Updates Rollback Start datetime
+     * Gets the qualityUpdatesRollbackStartDateTime property value. The Quality Updates Rollback Start datetime. This value is the time when the admin rolled back the Quality update for the ring. Returned by default. Query parameters are not supported.
      * @return DateTime|null
     */
     public function getQualityUpdatesRollbackStartDateTime(): ?DateTime {
@@ -491,7 +492,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the qualityUpdatesWillBeRolledBack property value. Specifies whether to rollback Quality Updates on the next device check in
+     * Gets the qualityUpdatesWillBeRolledBack property value. When TRUE, rollback Quality Updates on the next device check in. When FALSE, do not rollback Quality Updates on the next device check in. Returned by default. Query parameters are not supported.
      * @return bool|null
     */
     public function getQualityUpdatesWillBeRolledBack(): ?bool {
@@ -499,7 +500,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the scheduleImminentRestartWarningInMinutes property value. Specify the period for auto-restart imminent warning notifications. Supported values: 15, 30 or 60 (minutes).
+     * Gets the scheduleImminentRestartWarningInMinutes property value. Specify the period for auto-restart imminent warning notifications. Supported values: 15, 30 or 60 (minutes). Returned by default. Query parameters are not supported.
      * @return int|null
     */
     public function getScheduleImminentRestartWarningInMinutes(): ?int {
@@ -507,7 +508,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the scheduleRestartWarningInHours property value. Specify the period for auto-restart warning reminder notifications. Supported values: 2, 4, 8, 12 or 24 (hours).
+     * Gets the scheduleRestartWarningInHours property value. Specify the period for auto-restart warning reminder notifications. Supported values: 2, 4, 8, 12 or 24 (hours). Returned by default. Query parameters are not supported.
      * @return int|null
     */
     public function getScheduleRestartWarningInHours(): ?int {
@@ -515,7 +516,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the skipChecksBeforeRestart property value. Set to skip all check before restart: Battery level = 40%, User presence, Display Needed, Presentation mode, Full screen mode, phone call state, game mode etc.
+     * Gets the skipChecksBeforeRestart property value. When TRUE, skips all checks before restart: Battery level = 40%, User presence, Display Needed, Presentation mode, Full screen mode, phone call state, game mode etc. When FALSE, does not skip all checks before restart. Returned by default. Query parameters are not supported.
      * @return bool|null
     */
     public function getSkipChecksBeforeRestart(): ?bool {
@@ -523,7 +524,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the updateNotificationLevel property value. Specifies what Windows Update notifications users see. Possible values are: notConfigured, defaultNotifications, restartWarningsOnly, disableAllNotifications.
+     * Gets the updateNotificationLevel property value. Windows Update Notification Display Options
      * @return WindowsUpdateNotificationDisplayOption|null
     */
     public function getUpdateNotificationLevel(): ?WindowsUpdateNotificationDisplayOption {
@@ -531,7 +532,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the updateWeeks property value. Scheduled the update installation on the weeks of the month. Possible values are: userDefined, firstWeek, secondWeek, thirdWeek, fourthWeek, everyWeek.
+     * Gets the updateWeeks property value. Schedule the update installation on the weeks of the month. Possible values are: UserDefined, FirstWeek, SecondWeek, ThirdWeek, FourthWeek, EveryWeek. Returned by default. Query parameters are not supported. Possible values are: userDefined, firstWeek, secondWeek, thirdWeek, fourthWeek, everyWeek, unknownFutureValue.
      * @return WindowsUpdateForBusinessUpdateWeeks|null
     */
     public function getUpdateWeeks(): ?WindowsUpdateForBusinessUpdateWeeks {
@@ -539,7 +540,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the userPauseAccess property value. Specifies whether to enable end user’s access to pause software updates. Possible values are: notConfigured, enabled, disabled.
+     * Gets the userPauseAccess property value. Possible values of a property
      * @return Enablement|null
     */
     public function getUserPauseAccess(): ?Enablement {
@@ -547,7 +548,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Gets the userWindowsUpdateScanAccess property value. Specifies whether to disable user’s access to scan Windows Update. Possible values are: notConfigured, enabled, disabled.
+     * Gets the userWindowsUpdateScanAccess property value. Possible values of a property
      * @return Enablement|null
     */
     public function getUserWindowsUpdateScanAccess(): ?Enablement {
@@ -600,7 +601,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the allowWindows11Upgrade property value. Allow eligible Windows 10 devices to upgrade to the latest version of Windows 11.
+     * Sets the allowWindows11Upgrade property value. When TRUE, allows eligible Windows 10 devices to upgrade to Windows 11. When FALSE, implies the device stays on the existing operating system. Returned by default. Query parameters are not supported.
      *  @param bool|null $value Value to set for the allowWindows11Upgrade property.
     */
     public function setAllowWindows11Upgrade(?bool $value ): void {
@@ -608,7 +609,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the automaticUpdateMode property value. Automatic update mode. Possible values are: userDefined, notifyDownload, autoInstallAtMaintenanceTime, autoInstallAndRebootAtMaintenanceTime, autoInstallAndRebootAtScheduledTime, autoInstallAndRebootWithoutEndUserControl, windowsDefault.
+     * Sets the automaticUpdateMode property value. Possible values for automatic update mode.
      *  @param AutomaticUpdateMode|null $value Value to set for the automaticUpdateMode property.
     */
     public function setAutomaticUpdateMode(?AutomaticUpdateMode $value ): void {
@@ -616,7 +617,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the autoRestartNotificationDismissal property value. Specify the method by which the auto-restart required notification is dismissed. Possible values are: notConfigured, automatic, user.
+     * Sets the autoRestartNotificationDismissal property value. Auto restart required notification dismissal method
      *  @param AutoRestartNotificationDismissalMethod|null $value Value to set for the autoRestartNotificationDismissal property.
     */
     public function setAutoRestartNotificationDismissal(?AutoRestartNotificationDismissalMethod $value ): void {
@@ -624,7 +625,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the businessReadyUpdatesOnly property value. Determines which branch devices will receive their updates from. Possible values are: userDefined, all, businessReadyOnly, windowsInsiderBuildFast, windowsInsiderBuildSlow, windowsInsiderBuildRelease.
+     * Sets the businessReadyUpdatesOnly property value. Which branch devices will receive their updates from
      *  @param WindowsUpdateType|null $value Value to set for the businessReadyUpdatesOnly property.
     */
     public function setBusinessReadyUpdatesOnly(?WindowsUpdateType $value ): void {
@@ -632,7 +633,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the deadlineForFeatureUpdatesInDays property value. Number of days before feature updates are installed automatically with valid range from 0 to 30 days
+     * Sets the deadlineForFeatureUpdatesInDays property value. Number of days before feature updates are installed automatically with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
      *  @param int|null $value Value to set for the deadlineForFeatureUpdatesInDays property.
     */
     public function setDeadlineForFeatureUpdatesInDays(?int $value ): void {
@@ -640,7 +641,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the deadlineForQualityUpdatesInDays property value. Number of days before quality updates are installed automatically with valid range from 0 to 30 days
+     * Sets the deadlineForQualityUpdatesInDays property value. Number of days before quality updates are installed automatically with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
      *  @param int|null $value Value to set for the deadlineForQualityUpdatesInDays property.
     */
     public function setDeadlineForQualityUpdatesInDays(?int $value ): void {
@@ -648,7 +649,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the deadlineGracePeriodInDays property value. Number of days after deadline  until restarts occur automatically with valid range from 0 to 7 days
+     * Sets the deadlineGracePeriodInDays property value. Number of days after deadline until restarts occur automatically with valid range from 0 to 7 days. Returned by default. Query parameters are not supported.
      *  @param int|null $value Value to set for the deadlineGracePeriodInDays property.
     */
     public function setDeadlineGracePeriodInDays(?int $value ): void {
@@ -656,7 +657,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the deliveryOptimizationMode property value. Delivery Optimization Mode. Possible values are: userDefined, httpOnly, httpWithPeeringNat, httpWithPeeringPrivateGroup, httpWithInternetPeering, simpleDownload, bypassMode.
+     * Sets the deliveryOptimizationMode property value. Delivery optimization mode for peer distribution
      *  @param WindowsDeliveryOptimizationMode|null $value Value to set for the deliveryOptimizationMode property.
     */
     public function setDeliveryOptimizationMode(?WindowsDeliveryOptimizationMode $value ): void {
@@ -672,7 +673,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the driversExcluded property value. Exclude Windows update Drivers
+     * Sets the driversExcluded property value. When TRUE, excludes Windows update Drivers. When FALSE, does not exclude Windows update Drivers. Returned by default. Query parameters are not supported.
      *  @param bool|null $value Value to set for the driversExcluded property.
     */
     public function setDriversExcluded(?bool $value ): void {
@@ -680,7 +681,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the engagedRestartDeadlineInDays property value. Deadline in days before automatically scheduling and executing a pending restart outside of active hours, with valid range from 2 to 30 days
+     * Sets the engagedRestartDeadlineInDays property value. Deadline in days before automatically scheduling and executing a pending restart outside of active hours, with valid range from 2 to 30 days. Returned by default. Query parameters are not supported.
      *  @param int|null $value Value to set for the engagedRestartDeadlineInDays property.
     */
     public function setEngagedRestartDeadlineInDays(?int $value ): void {
@@ -688,7 +689,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the engagedRestartSnoozeScheduleInDays property value. Number of days a user can snooze Engaged Restart reminder notifications with valid range from 1 to 3 days
+     * Sets the engagedRestartSnoozeScheduleInDays property value. Number of days a user can snooze Engaged Restart reminder notifications with valid range from 1 to 3 days. Returned by default. Query parameters are not supported.
      *  @param int|null $value Value to set for the engagedRestartSnoozeScheduleInDays property.
     */
     public function setEngagedRestartSnoozeScheduleInDays(?int $value ): void {
@@ -696,7 +697,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the engagedRestartTransitionScheduleInDays property value. Number of days before transitioning from Auto Restarts scheduled outside of active hours to Engaged Restart, which requires the user to schedule, with valid range from 0 to 30 days
+     * Sets the engagedRestartTransitionScheduleInDays property value. Number of days before transitioning from Auto Restarts scheduled outside of active hours to Engaged Restart, which requires the user to schedule, with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
      *  @param int|null $value Value to set for the engagedRestartTransitionScheduleInDays property.
     */
     public function setEngagedRestartTransitionScheduleInDays(?int $value ): void {
@@ -704,7 +705,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the featureUpdatesDeferralPeriodInDays property value. Defer Feature Updates by these many days
+     * Sets the featureUpdatesDeferralPeriodInDays property value. Defer Feature Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
      *  @param int|null $value Value to set for the featureUpdatesDeferralPeriodInDays property.
     */
     public function setFeatureUpdatesDeferralPeriodInDays(?int $value ): void {
@@ -712,7 +713,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the featureUpdatesPaused property value. Pause Feature Updates
+     * Sets the featureUpdatesPaused property value. When TRUE, assigned devices are paused from receiving feature updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Feature Updates. Returned by default. Query parameters are not supported.s
      *  @param bool|null $value Value to set for the featureUpdatesPaused property.
     */
     public function setFeatureUpdatesPaused(?bool $value ): void {
@@ -720,7 +721,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the featureUpdatesPauseExpiryDateTime property value. Feature Updates Pause Expiry datetime
+     * Sets the featureUpdatesPauseExpiryDateTime property value. The Feature Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported.
      *  @param DateTime|null $value Value to set for the featureUpdatesPauseExpiryDateTime property.
     */
     public function setFeatureUpdatesPauseExpiryDateTime(?DateTime $value ): void {
@@ -728,7 +729,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the featureUpdatesPauseStartDate property value. Feature Updates Pause start date. This property is read-only.
+     * Sets the featureUpdatesPauseStartDate property value. The Feature Updates Pause start date. This value is the time when the admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. This property is read-only.
      *  @param Date|null $value Value to set for the featureUpdatesPauseStartDate property.
     */
     public function setFeatureUpdatesPauseStartDate(?Date $value ): void {
@@ -736,7 +737,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the featureUpdatesRollbackStartDateTime property value. Feature Updates Rollback Start datetime
+     * Sets the featureUpdatesRollbackStartDateTime property value. The Feature Updates Rollback Start datetime.This value is the time when the admin rolled back the Feature update for the ring.Returned by default.Query parameters are not supported.
      *  @param DateTime|null $value Value to set for the featureUpdatesRollbackStartDateTime property.
     */
     public function setFeatureUpdatesRollbackStartDateTime(?DateTime $value ): void {
@@ -744,7 +745,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the featureUpdatesRollbackWindowInDays property value. The number of days after a Feature Update for which a rollback is valid
+     * Sets the featureUpdatesRollbackWindowInDays property value. The number of days after a Feature Update for which a rollback is valid with valid range from 2 to 60 days. Returned by default. Query parameters are not supported.
      *  @param int|null $value Value to set for the featureUpdatesRollbackWindowInDays property.
     */
     public function setFeatureUpdatesRollbackWindowInDays(?int $value ): void {
@@ -752,7 +753,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the featureUpdatesWillBeRolledBack property value. Specifies whether to rollback Feature Updates on the next device check in
+     * Sets the featureUpdatesWillBeRolledBack property value. When TRUE, rollback Feature Updates on the next device check in. When FALSE, do not rollback Feature Updates on the next device check in. Returned by default.Query parameters are not supported.
      *  @param bool|null $value Value to set for the featureUpdatesWillBeRolledBack property.
     */
     public function setFeatureUpdatesWillBeRolledBack(?bool $value ): void {
@@ -760,7 +761,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the installationSchedule property value. Installation schedule
+     * Sets the installationSchedule property value. The Installation Schedule. Possible values are: ActiveHoursStart, ActiveHoursEnd, ScheduledInstallDay, ScheduledInstallTime. Returned by default. Query parameters are not supported.
      *  @param WindowsUpdateInstallScheduleType|null $value Value to set for the installationSchedule property.
     */
     public function setInstallationSchedule(?WindowsUpdateInstallScheduleType $value ): void {
@@ -768,7 +769,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the microsoftUpdateServiceAllowed property value. Allow Microsoft Update Service
+     * Sets the microsoftUpdateServiceAllowed property value. When TRUE, allows Microsoft Update Service. When FALSE, does not allow Microsoft Update Service. Returned by default. Query parameters are not supported.
      *  @param bool|null $value Value to set for the microsoftUpdateServiceAllowed property.
     */
     public function setMicrosoftUpdateServiceAllowed(?bool $value ): void {
@@ -776,7 +777,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the postponeRebootUntilAfterDeadline property value. Specifies if the device should wait until deadline for rebooting outside of active hours
+     * Sets the postponeRebootUntilAfterDeadline property value. When TRUE the device should wait until deadline for rebooting outside of active hours. When FALSE the device should not wait until deadline for rebooting outside of active hours. Returned by default. Query parameters are not supported.
      *  @param bool|null $value Value to set for the postponeRebootUntilAfterDeadline property.
     */
     public function setPostponeRebootUntilAfterDeadline(?bool $value ): void {
@@ -784,7 +785,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the prereleaseFeatures property value. The pre-release features. Possible values are: userDefined, settingsOnly, settingsAndExperimentations, notAllowed.
+     * Sets the prereleaseFeatures property value. Possible values for pre-release features.
      *  @param PrereleaseFeatures|null $value Value to set for the prereleaseFeatures property.
     */
     public function setPrereleaseFeatures(?PrereleaseFeatures $value ): void {
@@ -792,7 +793,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the qualityUpdatesDeferralPeriodInDays property value. Defer Quality Updates by these many days
+     * Sets the qualityUpdatesDeferralPeriodInDays property value. Defer Quality Updates by these many days with valid range from 0 to 30 days. Returned by default. Query parameters are not supported.
      *  @param int|null $value Value to set for the qualityUpdatesDeferralPeriodInDays property.
     */
     public function setQualityUpdatesDeferralPeriodInDays(?int $value ): void {
@@ -800,7 +801,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the qualityUpdatesPaused property value. Pause Quality Updates
+     * Sets the qualityUpdatesPaused property value. When TRUE, assigned devices are paused from receiving quality updates for up to 35 days from the time you pause the ring. When FALSE, does not pause Quality Updates. Returned by default. Query parameters are not supported.
      *  @param bool|null $value Value to set for the qualityUpdatesPaused property.
     */
     public function setQualityUpdatesPaused(?bool $value ): void {
@@ -808,7 +809,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the qualityUpdatesPauseExpiryDateTime property value. Quality Updates Pause Expiry datetime
+     * Sets the qualityUpdatesPauseExpiryDateTime property value. The Quality Updates Pause Expiry datetime. This value is 35 days from the time admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported.
      *  @param DateTime|null $value Value to set for the qualityUpdatesPauseExpiryDateTime property.
     */
     public function setQualityUpdatesPauseExpiryDateTime(?DateTime $value ): void {
@@ -816,7 +817,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the qualityUpdatesPauseStartDate property value. Quality Updates Pause start date. This property is read-only.
+     * Sets the qualityUpdatesPauseStartDate property value. The Quality Updates Pause start date. This value is the time when the admin paused or extended the pause for the ring. Returned by default. Query parameters are not supported. This property is read-only.
      *  @param Date|null $value Value to set for the qualityUpdatesPauseStartDate property.
     */
     public function setQualityUpdatesPauseStartDate(?Date $value ): void {
@@ -824,7 +825,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the qualityUpdatesRollbackStartDateTime property value. Quality Updates Rollback Start datetime
+     * Sets the qualityUpdatesRollbackStartDateTime property value. The Quality Updates Rollback Start datetime. This value is the time when the admin rolled back the Quality update for the ring. Returned by default. Query parameters are not supported.
      *  @param DateTime|null $value Value to set for the qualityUpdatesRollbackStartDateTime property.
     */
     public function setQualityUpdatesRollbackStartDateTime(?DateTime $value ): void {
@@ -832,7 +833,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the qualityUpdatesWillBeRolledBack property value. Specifies whether to rollback Quality Updates on the next device check in
+     * Sets the qualityUpdatesWillBeRolledBack property value. When TRUE, rollback Quality Updates on the next device check in. When FALSE, do not rollback Quality Updates on the next device check in. Returned by default. Query parameters are not supported.
      *  @param bool|null $value Value to set for the qualityUpdatesWillBeRolledBack property.
     */
     public function setQualityUpdatesWillBeRolledBack(?bool $value ): void {
@@ -840,7 +841,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the scheduleImminentRestartWarningInMinutes property value. Specify the period for auto-restart imminent warning notifications. Supported values: 15, 30 or 60 (minutes).
+     * Sets the scheduleImminentRestartWarningInMinutes property value. Specify the period for auto-restart imminent warning notifications. Supported values: 15, 30 or 60 (minutes). Returned by default. Query parameters are not supported.
      *  @param int|null $value Value to set for the scheduleImminentRestartWarningInMinutes property.
     */
     public function setScheduleImminentRestartWarningInMinutes(?int $value ): void {
@@ -848,7 +849,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the scheduleRestartWarningInHours property value. Specify the period for auto-restart warning reminder notifications. Supported values: 2, 4, 8, 12 or 24 (hours).
+     * Sets the scheduleRestartWarningInHours property value. Specify the period for auto-restart warning reminder notifications. Supported values: 2, 4, 8, 12 or 24 (hours). Returned by default. Query parameters are not supported.
      *  @param int|null $value Value to set for the scheduleRestartWarningInHours property.
     */
     public function setScheduleRestartWarningInHours(?int $value ): void {
@@ -856,7 +857,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the skipChecksBeforeRestart property value. Set to skip all check before restart: Battery level = 40%, User presence, Display Needed, Presentation mode, Full screen mode, phone call state, game mode etc.
+     * Sets the skipChecksBeforeRestart property value. When TRUE, skips all checks before restart: Battery level = 40%, User presence, Display Needed, Presentation mode, Full screen mode, phone call state, game mode etc. When FALSE, does not skip all checks before restart. Returned by default. Query parameters are not supported.
      *  @param bool|null $value Value to set for the skipChecksBeforeRestart property.
     */
     public function setSkipChecksBeforeRestart(?bool $value ): void {
@@ -864,7 +865,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the updateNotificationLevel property value. Specifies what Windows Update notifications users see. Possible values are: notConfigured, defaultNotifications, restartWarningsOnly, disableAllNotifications.
+     * Sets the updateNotificationLevel property value. Windows Update Notification Display Options
      *  @param WindowsUpdateNotificationDisplayOption|null $value Value to set for the updateNotificationLevel property.
     */
     public function setUpdateNotificationLevel(?WindowsUpdateNotificationDisplayOption $value ): void {
@@ -872,7 +873,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the updateWeeks property value. Scheduled the update installation on the weeks of the month. Possible values are: userDefined, firstWeek, secondWeek, thirdWeek, fourthWeek, everyWeek.
+     * Sets the updateWeeks property value. Schedule the update installation on the weeks of the month. Possible values are: UserDefined, FirstWeek, SecondWeek, ThirdWeek, FourthWeek, EveryWeek. Returned by default. Query parameters are not supported. Possible values are: userDefined, firstWeek, secondWeek, thirdWeek, fourthWeek, everyWeek, unknownFutureValue.
      *  @param WindowsUpdateForBusinessUpdateWeeks|null $value Value to set for the updateWeeks property.
     */
     public function setUpdateWeeks(?WindowsUpdateForBusinessUpdateWeeks $value ): void {
@@ -880,7 +881,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the userPauseAccess property value. Specifies whether to enable end user’s access to pause software updates. Possible values are: notConfigured, enabled, disabled.
+     * Sets the userPauseAccess property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the userPauseAccess property.
     */
     public function setUserPauseAccess(?Enablement $value ): void {
@@ -888,7 +889,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration implemen
     }
 
     /**
-     * Sets the userWindowsUpdateScanAccess property value. Specifies whether to disable user’s access to scan Windows Update. Possible values are: notConfigured, enabled, disabled.
+     * Sets the userWindowsUpdateScanAccess property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the userWindowsUpdateScanAccess property.
     */
     public function setUserWindowsUpdateScanAccess(?Enablement $value ): void {

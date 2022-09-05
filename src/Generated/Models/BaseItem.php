@@ -15,7 +15,7 @@ class BaseItem extends Entity implements Parsable
     private ?IdentitySet $createdBy = null;
     
     /**
-     * @var User|null $createdByUser Identity of the user who created the item. Read-only.
+     * @var User|null $createdByUser The createdByUser property
     */
     private ?User $createdByUser = null;
     
@@ -25,7 +25,7 @@ class BaseItem extends Entity implements Parsable
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var string|null $description Provides a user-visible description of the item. Optional.
+     * @var string|null $description The description property
     */
     private ?string $description = null;
     
@@ -40,7 +40,7 @@ class BaseItem extends Entity implements Parsable
     private ?IdentitySet $lastModifiedBy = null;
     
     /**
-     * @var User|null $lastModifiedByUser Identity of the user who last modified the item. Read-only.
+     * @var User|null $lastModifiedByUser The lastModifiedByUser property
     */
     private ?User $lastModifiedByUser = null;
     
@@ -69,6 +69,7 @@ class BaseItem extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.baseItem');
     }
 
     /**
@@ -102,7 +103,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdByUser property value. Identity of the user who created the item. Read-only.
+     * Gets the createdByUser property value. The createdByUser property
      * @return User|null
     */
     public function getCreatedByUser(): ?User {
@@ -118,7 +119,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. Provides a user-visible description of the item. Optional.
+     * Gets the description property value. The description property
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -163,7 +164,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastModifiedByUser property value. Identity of the user who last modified the item. Read-only.
+     * Gets the lastModifiedByUser property value. The lastModifiedByUser property
      * @return User|null
     */
     public function getLastModifiedByUser(): ?User {
@@ -230,7 +231,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdByUser property value. Identity of the user who created the item. Read-only.
+     * Sets the createdByUser property value. The createdByUser property
      *  @param User|null $value Value to set for the createdByUser property.
     */
     public function setCreatedByUser(?User $value ): void {
@@ -246,7 +247,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. Provides a user-visible description of the item. Optional.
+     * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -270,7 +271,7 @@ class BaseItem extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastModifiedByUser property value. Identity of the user who last modified the item. Read-only.
+     * Sets the lastModifiedByUser property value. The lastModifiedByUser property
      *  @param User|null $value Value to set for the lastModifiedByUser property.
     */
     public function setLastModifiedByUser(?User $value ): void {

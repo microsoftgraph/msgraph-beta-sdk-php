@@ -20,6 +20,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
+     * @var bool|null $enableCertificatePinning When set to true, certificate pinning will be enforced on connections between the Microsoft Tunnel server and Microsoft Tunnel clients. When set to false, certificate pinning will be disabled.
+    */
+    private ?bool $enableCertificatePinning = null;
+    
+    /**
      * @var string|null $internalNetworkProbeUrl The MicrosoftTunnelSite's Internal Network Access Probe URL
     */
     private ?string $internalNetworkProbeUrl = null;
@@ -70,10 +75,11 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     private ?int $upgradeWindowUtcOffsetInMinutes = null;
     
     /**
-     * Instantiates a new MicrosoftTunnelSite and sets the default values.
+     * Instantiates a new microsoftTunnelSite and sets the default values.
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.microsoftTunnelSite');
     }
 
     /**
@@ -102,6 +108,14 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
+     * Gets the enableCertificatePinning property value. When set to true, certificate pinning will be enforced on connections between the Microsoft Tunnel server and Microsoft Tunnel clients. When set to false, certificate pinning will be disabled.
+     * @return bool|null
+    */
+    public function getEnableCertificatePinning(): ?bool {
+        return $this->enableCertificatePinning;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -110,6 +124,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'enableCertificatePinning' => function (ParseNode $n) use ($o) { $o->setEnableCertificatePinning($n->getBooleanValue()); },
             'internalNetworkProbeUrl' => function (ParseNode $n) use ($o) { $o->setInternalNetworkProbeUrl($n->getStringValue()); },
             'microsoftTunnelConfiguration' => function (ParseNode $n) use ($o) { $o->setMicrosoftTunnelConfiguration($n->getObjectValue(array(MicrosoftTunnelConfiguration::class, 'createFromDiscriminatorValue'))); },
             'microsoftTunnelServers' => function (ParseNode $n) use ($o) { $o->setMicrosoftTunnelServers($n->getCollectionOfObjectValues(array(MicrosoftTunnelServer::class, 'createFromDiscriminatorValue'))); },
@@ -211,6 +226,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeBooleanValue('enableCertificatePinning', $this->enableCertificatePinning);
         $writer->writeStringValue('internalNetworkProbeUrl', $this->internalNetworkProbeUrl);
         $writer->writeObjectValue('microsoftTunnelConfiguration', $this->microsoftTunnelConfiguration);
         $writer->writeCollectionOfObjectValues('microsoftTunnelServers', $this->microsoftTunnelServers);
@@ -237,6 +253,14 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
+    }
+
+    /**
+     * Sets the enableCertificatePinning property value. When set to true, certificate pinning will be enforced on connections between the Microsoft Tunnel server and Microsoft Tunnel clients. When set to false, certificate pinning will be disabled.
+     *  @param bool|null $value Value to set for the enableCertificatePinning property.
+    */
+    public function setEnableCertificatePinning(?bool $value ): void {
+        $this->enableCertificatePinning = $value;
     }
 
     /**

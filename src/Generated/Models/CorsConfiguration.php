@@ -10,32 +10,37 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CorsConfiguration implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
     /**
-     * @var array<string>|null $allowedHeaders The allowedHeaders property
+     * @var array<string>|null $allowedHeaders The request headers that the origin domain may specify on the CORS request. The wildcard character * indicates that any header beginning with the specified prefix is allowed.
     */
     private ?array $allowedHeaders = null;
     
     /**
-     * @var array<string>|null $allowedMethods The allowedMethods property
+     * @var array<string>|null $allowedMethods The HTTP request methods that the origin domain may use for a CORS request.
     */
     private ?array $allowedMethods = null;
     
     /**
-     * @var array<string>|null $allowedOrigins The allowedOrigins property
+     * @var array<string>|null $allowedOrigins The origin domains that are permitted to make a request against the service via CORS. The origin domain is the domain from which the request originates. The origin must be an exact case-sensitive match with the origin that the user age sends to the service.
     */
     private ?array $allowedOrigins = null;
     
     /**
-     * @var int|null $maxAgeInSeconds The maxAgeInSeconds property
+     * @var int|null $maxAgeInSeconds The maximum amount of time that a browser should cache the response to the preflight OPTIONS request.
     */
     private ?int $maxAgeInSeconds = null;
     
     /**
-     * @var string|null $resource The resource property
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
+     * @var string|null $resource Resource within the application segment for which CORS permissions are granted. / grants permission for whole app segment.
     */
     private ?string $resource = null;
     
@@ -43,7 +48,8 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
      * Instantiates a new corsConfiguration and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.corsConfiguration');
     }
 
     /**
@@ -64,7 +70,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the allowedHeaders property value. The allowedHeaders property
+     * Gets the allowedHeaders property value. The request headers that the origin domain may specify on the CORS request. The wildcard character * indicates that any header beginning with the specified prefix is allowed.
      * @return array<string>|null
     */
     public function getAllowedHeaders(): ?array {
@@ -72,7 +78,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the allowedMethods property value. The allowedMethods property
+     * Gets the allowedMethods property value. The HTTP request methods that the origin domain may use for a CORS request.
      * @return array<string>|null
     */
     public function getAllowedMethods(): ?array {
@@ -80,7 +86,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the allowedOrigins property value. The allowedOrigins property
+     * Gets the allowedOrigins property value. The origin domains that are permitted to make a request against the service via CORS. The origin domain is the domain from which the request originates. The origin must be an exact case-sensitive match with the origin that the user age sends to the service.
      * @return array<string>|null
     */
     public function getAllowedOrigins(): ?array {
@@ -98,12 +104,13 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
             'allowedMethods' => function (ParseNode $n) use ($o) { $o->setAllowedMethods($n->getCollectionOfPrimitiveValues()); },
             'allowedOrigins' => function (ParseNode $n) use ($o) { $o->setAllowedOrigins($n->getCollectionOfPrimitiveValues()); },
             'maxAgeInSeconds' => function (ParseNode $n) use ($o) { $o->setMaxAgeInSeconds($n->getIntegerValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the maxAgeInSeconds property value. The maxAgeInSeconds property
+     * Gets the maxAgeInSeconds property value. The maximum amount of time that a browser should cache the response to the preflight OPTIONS request.
      * @return int|null
     */
     public function getMaxAgeInSeconds(): ?int {
@@ -111,7 +118,15 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the resource property value. The resource property
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
+     * Gets the resource property value. Resource within the application segment for which CORS permissions are granted. / grants permission for whole app segment.
      * @return string|null
     */
     public function getResource(): ?string {
@@ -127,6 +142,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfPrimitiveValues('allowedMethods', $this->allowedMethods);
         $writer->writeCollectionOfPrimitiveValues('allowedOrigins', $this->allowedOrigins);
         $writer->writeIntegerValue('maxAgeInSeconds', $this->maxAgeInSeconds);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('resource', $this->resource);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -140,7 +156,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the allowedHeaders property value. The allowedHeaders property
+     * Sets the allowedHeaders property value. The request headers that the origin domain may specify on the CORS request. The wildcard character * indicates that any header beginning with the specified prefix is allowed.
      *  @param array<string>|null $value Value to set for the allowedHeaders property.
     */
     public function setAllowedHeaders(?array $value ): void {
@@ -148,7 +164,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the allowedMethods property value. The allowedMethods property
+     * Sets the allowedMethods property value. The HTTP request methods that the origin domain may use for a CORS request.
      *  @param array<string>|null $value Value to set for the allowedMethods property.
     */
     public function setAllowedMethods(?array $value ): void {
@@ -156,7 +172,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the allowedOrigins property value. The allowedOrigins property
+     * Sets the allowedOrigins property value. The origin domains that are permitted to make a request against the service via CORS. The origin domain is the domain from which the request originates. The origin must be an exact case-sensitive match with the origin that the user age sends to the service.
      *  @param array<string>|null $value Value to set for the allowedOrigins property.
     */
     public function setAllowedOrigins(?array $value ): void {
@@ -164,7 +180,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the maxAgeInSeconds property value. The maxAgeInSeconds property
+     * Sets the maxAgeInSeconds property value. The maximum amount of time that a browser should cache the response to the preflight OPTIONS request.
      *  @param int|null $value Value to set for the maxAgeInSeconds property.
     */
     public function setMaxAgeInSeconds(?int $value ): void {
@@ -172,7 +188,15 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the resource property value. The resource property
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
+    }
+
+    /**
+     * Sets the resource property value. Resource within the application segment for which CORS permissions are granted. / grants permission for whole app segment.
      *  @param string|null $value Value to set for the resource property.
     */
     public function setResource(?string $value ): void {

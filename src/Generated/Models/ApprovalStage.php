@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApprovalStage implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -40,6 +40,11 @@ class ApprovalStage implements AdditionalDataHolder, Parsable
     private ?bool $isEscalationEnabled = null;
     
     /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
+    
+    /**
      * @var array<UserSet>|null $primaryApprovers The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors. When creating or updating a policy, include at least one userSet in this collection.
     */
     private ?array $primaryApprovers = null;
@@ -48,7 +53,8 @@ class ApprovalStage implements AdditionalDataHolder, Parsable
      * Instantiates a new approvalStage and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.approvalStage');
     }
 
     /**
@@ -104,6 +110,7 @@ class ApprovalStage implements AdditionalDataHolder, Parsable
             'escalationTimeInMinutes' => function (ParseNode $n) use ($o) { $o->setEscalationTimeInMinutes($n->getIntegerValue()); },
             'isApproverJustificationRequired' => function (ParseNode $n) use ($o) { $o->setIsApproverJustificationRequired($n->getBooleanValue()); },
             'isEscalationEnabled' => function (ParseNode $n) use ($o) { $o->setIsEscalationEnabled($n->getBooleanValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'primaryApprovers' => function (ParseNode $n) use ($o) { $o->setPrimaryApprovers($n->getCollectionOfObjectValues(array(UserSet::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -125,6 +132,14 @@ class ApprovalStage implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
+    }
+
+    /**
      * Gets the primaryApprovers property value. The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors. When creating or updating a policy, include at least one userSet in this collection.
      * @return array<UserSet>|null
     */
@@ -142,6 +157,7 @@ class ApprovalStage implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('escalationTimeInMinutes', $this->escalationTimeInMinutes);
         $writer->writeBooleanValue('isApproverJustificationRequired', $this->isApproverJustificationRequired);
         $writer->writeBooleanValue('isEscalationEnabled', $this->isEscalationEnabled);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('primaryApprovers', $this->primaryApprovers);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -192,6 +208,14 @@ class ApprovalStage implements AdditionalDataHolder, Parsable
     */
     public function setIsEscalationEnabled(?bool $value ): void {
         $this->isEscalationEnabled = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
     /**

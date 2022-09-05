@@ -44,7 +44,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     private ?string $parentCategoryId = null;
     
     /**
-     * @var DeviceManagementConfigurationPlatforms|null $platforms Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * @var DeviceManagementConfigurationPlatforms|null $platforms Supported platform types.
     */
     private ?DeviceManagementConfigurationPlatforms $platforms = null;
     
@@ -54,12 +54,12 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     private ?string $rootCategoryId = null;
     
     /**
-     * @var DeviceManagementConfigurationSettingUsage|null $settingUsage Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.
+     * @var DeviceManagementConfigurationSettingUsage|null $settingUsage Supported setting types
     */
     private ?DeviceManagementConfigurationSettingUsage $settingUsage = null;
     
     /**
-     * @var DeviceManagementConfigurationTechnologies|null $technologies Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * @var DeviceManagementConfigurationTechnologies|null $technologies Describes which technology this setting can be deployed with
     */
     private ?DeviceManagementConfigurationTechnologies $technologies = null;
     
@@ -68,6 +68,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationCategory');
     }
 
     /**
@@ -157,7 +158,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the platforms property value. Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * Gets the platforms property value. Supported platform types.
      * @return DeviceManagementConfigurationPlatforms|null
     */
     public function getPlatforms(): ?DeviceManagementConfigurationPlatforms {
@@ -173,7 +174,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the settingUsage property value. Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.
+     * Gets the settingUsage property value. Supported setting types
      * @return DeviceManagementConfigurationSettingUsage|null
     */
     public function getSettingUsage(): ?DeviceManagementConfigurationSettingUsage {
@@ -181,7 +182,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Gets the technologies property value. Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Gets the technologies property value. Describes which technology this setting can be deployed with
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
@@ -264,7 +265,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the platforms property value. Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+     * Sets the platforms property value. Supported platform types.
      *  @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platforms property.
     */
     public function setPlatforms(?DeviceManagementConfigurationPlatforms $value ): void {
@@ -280,7 +281,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the settingUsage property value. Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.
+     * Sets the settingUsage property value. Supported setting types
      *  @param DeviceManagementConfigurationSettingUsage|null $value Value to set for the settingUsage property.
     */
     public function setSettingUsage(?DeviceManagementConfigurationSettingUsage $value ): void {
@@ -288,7 +289,7 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     }
 
     /**
-     * Sets the technologies property value. Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, unknownFutureValue.
+     * Sets the technologies property value. Describes which technology this setting can be deployed with
      *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
     public function setTechnologies(?DeviceManagementConfigurationTechnologies $value ): void {

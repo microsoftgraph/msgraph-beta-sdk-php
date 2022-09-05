@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LabelingOptions implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var array<string, mixed> $AdditionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
     
@@ -20,25 +20,31 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     private ?AssignmentMethod $assignmentMethod = null;
     
     /**
-     * @var DowngradeJustification|null $downgradeJustification The downgradeJustification property
+     * @var DowngradeJustification|null $downgradeJustification The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
     */
     private ?DowngradeJustification $downgradeJustification = null;
     
     /**
-     * @var array<KeyValuePair>|null $extendedProperties The extendedProperties property
+     * @var array<KeyValuePair>|null $extendedProperties Extended properties will be parsed and returned in the standard Microsoft Purview Information Protection labeled metadata format as part of the label information.
     */
     private ?array $extendedProperties = null;
     
     /**
-     * @var string|null $labelId The labelId property
+     * @var string|null $labelId The GUID of the label that should be applied to the information.
     */
     private ?string $labelId = null;
+    
+    /**
+     * @var string|null $odataType The OdataType property
+    */
+    private ?string $odataType = null;
     
     /**
      * Instantiates a new labelingOptions and sets the default values.
     */
     public function __construct() {
-        $this->additionalData = [];
+        $this->setAdditionalData([]);
+        $this->setOdataType('#microsoft.graph.security.labelingOptions');
     }
 
     /**
@@ -67,7 +73,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the downgradeJustification property value. The downgradeJustification property
+     * Gets the downgradeJustification property value. The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
      * @return DowngradeJustification|null
     */
     public function getDowngradeJustification(): ?DowngradeJustification {
@@ -75,7 +81,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the extendedProperties property value. The extendedProperties property
+     * Gets the extendedProperties property value. Extended properties will be parsed and returned in the standard Microsoft Purview Information Protection labeled metadata format as part of the label information.
      * @return array<KeyValuePair>|null
     */
     public function getExtendedProperties(): ?array {
@@ -93,15 +99,24 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
             'downgradeJustification' => function (ParseNode $n) use ($o) { $o->setDowngradeJustification($n->getObjectValue(array(DowngradeJustification::class, 'createFromDiscriminatorValue'))); },
             'extendedProperties' => function (ParseNode $n) use ($o) { $o->setExtendedProperties($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
             'labelId' => function (ParseNode $n) use ($o) { $o->setLabelId($n->getStringValue()); },
+            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
 
     /**
-     * Gets the labelId property value. The labelId property
+     * Gets the labelId property value. The GUID of the label that should be applied to the information.
      * @return string|null
     */
     public function getLabelId(): ?string {
         return $this->labelId;
+    }
+
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @return string|null
+    */
+    public function getOdataType(): ?string {
+        return $this->odataType;
     }
 
     /**
@@ -113,6 +128,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('downgradeJustification', $this->downgradeJustification);
         $writer->writeCollectionOfObjectValues('extendedProperties', $this->extendedProperties);
         $writer->writeStringValue('labelId', $this->labelId);
+        $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -133,7 +149,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the downgradeJustification property value. The downgradeJustification property
+     * Sets the downgradeJustification property value. The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
      *  @param DowngradeJustification|null $value Value to set for the downgradeJustification property.
     */
     public function setDowngradeJustification(?DowngradeJustification $value ): void {
@@ -141,7 +157,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the extendedProperties property value. The extendedProperties property
+     * Sets the extendedProperties property value. Extended properties will be parsed and returned in the standard Microsoft Purview Information Protection labeled metadata format as part of the label information.
      *  @param array<KeyValuePair>|null $value Value to set for the extendedProperties property.
     */
     public function setExtendedProperties(?array $value ): void {
@@ -149,11 +165,19 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the labelId property value. The labelId property
+     * Sets the labelId property value. The GUID of the label that should be applied to the information.
      *  @param string|null $value Value to set for the labelId property.
     */
     public function setLabelId(?string $value ): void {
         $this->labelId = $value;
+    }
+
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     *  @param string|null $value Value to set for the OdataType property.
+    */
+    public function setOdataType(?string $value ): void {
+        $this->odataType = $value;
     }
 
 }

@@ -14,7 +14,7 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
     private ?string $errorCode = null;
     
     /**
-     * @var RunState|null $runState Status of the item. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * @var RunState|null $runState Indicates the type of execution status of the device management script.
     */
     private ?RunState $runState = null;
     
@@ -28,6 +28,7 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
     */
     public function __construct() {
         parent::__construct();
+        $this->setOdataType('#microsoft.graph.mobileAppTroubleshootingAppTargetHistory');
     }
 
     /**
@@ -61,7 +62,7 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
     }
 
     /**
-     * Gets the runState property value. Status of the item. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Gets the runState property value. Indicates the type of execution status of the device management script.
      * @return RunState|null
     */
     public function getRunState(): ?RunState {
@@ -96,7 +97,7 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
     }
 
     /**
-     * Sets the runState property value. Status of the item. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     * Sets the runState property value. Indicates the type of execution status of the device management script.
      *  @param RunState|null $value Value to set for the runState property.
     */
     public function setRunState(?RunState $value ): void {
