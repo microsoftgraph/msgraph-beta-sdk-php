@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserAccount implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var string|null $accountName The accountName property
+     * @var string|null $accountName The user account's displayed name.
     */
     private ?string $accountName = null;
     
@@ -20,12 +20,12 @@ class UserAccount implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $azureAdUserId The azureAdUserId property
+     * @var string|null $azureAdUserId The user object identifier in Azure AD.
     */
     private ?string $azureAdUserId = null;
     
     /**
-     * @var string|null $domainName The domainName property
+     * @var string|null $domainName The name of the Active Directory domain of which the user is a member.
     */
     private ?string $domainName = null;
     
@@ -35,12 +35,12 @@ class UserAccount implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var string|null $userPrincipalName The userPrincipalName property
+     * @var string|null $userPrincipalName The user principal name of the account in Azure AD.
     */
     private ?string $userPrincipalName = null;
     
     /**
-     * @var string|null $userSid The userSid property
+     * @var string|null $userSid The local security identifier of the user account.
     */
     private ?string $userSid = null;
     
@@ -62,7 +62,7 @@ class UserAccount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the accountName property value. The accountName property
+     * Gets the accountName property value. The user account's displayed name.
      * @return string|null
     */
     public function getAccountName(): ?string {
@@ -78,7 +78,7 @@ class UserAccount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the azureAdUserId property value. The azureAdUserId property
+     * Gets the azureAdUserId property value. The user object identifier in Azure AD.
      * @return string|null
     */
     public function getAzureAdUserId(): ?string {
@@ -86,7 +86,7 @@ class UserAccount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the domainName property value. The domainName property
+     * Gets the domainName property value. The name of the Active Directory domain of which the user is a member.
      * @return string|null
     */
     public function getDomainName(): ?string {
@@ -118,7 +118,7 @@ class UserAccount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName property
+     * Gets the userPrincipalName property value. The user principal name of the account in Azure AD.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -126,7 +126,7 @@ class UserAccount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the userSid property value. The userSid property
+     * Gets the userSid property value. The local security identifier of the user account.
      * @return string|null
     */
     public function getUserSid(): ?string {
@@ -148,7 +148,7 @@ class UserAccount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the accountName property value. The accountName property
+     * Sets the accountName property value. The user account's displayed name.
      *  @param string|null $value Value to set for the accountName property.
     */
     public function setAccountName(?string $value ): void {
@@ -164,7 +164,7 @@ class UserAccount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the azureAdUserId property value. The azureAdUserId property
+     * Sets the azureAdUserId property value. The user object identifier in Azure AD.
      *  @param string|null $value Value to set for the azureAdUserId property.
     */
     public function setAzureAdUserId(?string $value ): void {
@@ -172,7 +172,7 @@ class UserAccount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the domainName property value. The domainName property
+     * Sets the domainName property value. The name of the Active Directory domain of which the user is a member.
      *  @param string|null $value Value to set for the domainName property.
     */
     public function setDomainName(?string $value ): void {
@@ -188,7 +188,7 @@ class UserAccount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The userPrincipalName property
+     * Sets the userPrincipalName property value. The user principal name of the account in Azure AD.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value ): void {
@@ -196,7 +196,7 @@ class UserAccount implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the userSid property value. The userSid property
+     * Sets the userSid property value. The local security identifier of the user account.
      *  @param string|null $value Value to set for the userSid property.
     */
     public function setUserSid(?string $value ): void {

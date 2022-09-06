@@ -50,7 +50,7 @@ class GroupPolicyCategory extends Entity implements Parsable
     private ?GroupPolicyCategory $parent = null;
     
     /**
-     * Instantiates a new GroupPolicyCategory and sets the default values.
+     * Instantiates a new groupPolicyCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

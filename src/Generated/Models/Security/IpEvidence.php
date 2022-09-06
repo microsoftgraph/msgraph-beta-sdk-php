@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IpEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $ipAddress The ipAddress property
+     * @var string|null $ipAddress The value of the IP Address, can be either in V4 address or V6 address format.
     */
     private ?string $ipAddress = null;
     
@@ -42,7 +42,7 @@ class IpEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the ipAddress property value. The ipAddress property
+     * Gets the ipAddress property value. The value of the IP Address, can be either in V4 address or V6 address format.
      * @return string|null
     */
     public function getIpAddress(): ?string {
@@ -59,7 +59,7 @@ class IpEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the ipAddress property value. The ipAddress property
+     * Sets the ipAddress property value. The value of the IP Address, can be either in V4 address or V6 address format.
      *  @param string|null $value Value to set for the ipAddress property.
     */
     public function setIpAddress(?string $value ): void {

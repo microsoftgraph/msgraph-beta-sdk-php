@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UrlEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $url The url property
+     * @var string|null $url The Unique Resource Locator (URL).
     */
     private ?string $url = null;
     
@@ -42,7 +42,7 @@ class UrlEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the url property value. The url property
+     * Gets the url property value. The Unique Resource Locator (URL).
      * @return string|null
     */
     public function getUrl(): ?string {
@@ -59,7 +59,7 @@ class UrlEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the url property value. The url property
+     * Sets the url property value. The Unique Resource Locator (URL).
      *  @param string|null $value Value to set for the url property.
     */
     public function setUrl(?string $value ): void {

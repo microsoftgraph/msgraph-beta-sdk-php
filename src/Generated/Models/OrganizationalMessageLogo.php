@@ -16,7 +16,7 @@ class OrganizationalMessageLogo implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var OrganizationalMessageLogoType|null $contentType The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo. Possible values are: png.
+     * @var OrganizationalMessageLogoType|null $contentType The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo. Possible values are: png, unknownFutureValue.
     */
     private ?OrganizationalMessageLogoType $contentType = null;
     
@@ -61,7 +61,7 @@ class OrganizationalMessageLogo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the contentType property value. The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo. Possible values are: png.
+     * Gets the contentType property value. The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo. Possible values are: png, unknownFutureValue.
      * @return OrganizationalMessageLogoType|null
     */
     public function getContentType(): ?OrganizationalMessageLogoType {
@@ -127,7 +127,7 @@ class OrganizationalMessageLogo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the contentType property value. The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo. Possible values are: png.
+     * Sets the contentType property value. The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo. Possible values are: png, unknownFutureValue.
      *  @param OrganizationalMessageLogoType|null $value Value to set for the contentType property.
     */
     public function setContentType(?OrganizationalMessageLogoType $value ): void {

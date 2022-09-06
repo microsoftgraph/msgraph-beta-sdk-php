@@ -60,7 +60,7 @@ class RecommendationResource extends Entity implements Parsable
     private ?RecommendationStatus $status = null;
     
     /**
-     * Instantiates a new recommendationResource and sets the default values.
+     * Instantiates a new RecommendationResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

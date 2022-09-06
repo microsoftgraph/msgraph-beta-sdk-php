@@ -57,7 +57,6 @@ use Microsoft\Graph\Beta\Generated\DataPolicyOperations\DataPolicyOperationsRequ
 use Microsoft\Graph\Beta\Generated\DataPolicyOperations\Item\DataPolicyOperationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceAppManagement\DeviceAppManagementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\DeviceManagementRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceRegistrationPolicy\DeviceRegistrationPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\DevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Devices\Item\DeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\DirectoryRequestBuilder;
@@ -184,6 +183,8 @@ use Microsoft\Graph\Beta\Generated\Teams\Item\TeamItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\TeamsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamsTemplates\Item\TeamsTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TeamsTemplates\TeamsTemplatesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\Item\TeamTemplateDefinitionItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TeamTemplateDefinition\TeamTemplateDefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\TenantRelationshipsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TermStore\TermStoreRequestBuilder;
@@ -431,13 +432,6 @@ class BaseGraphClient
     */
     public function deviceManagement(): DeviceManagementRequestBuilder {
         return new DeviceManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * The deviceRegistrationPolicy property
-    */
-    public function deviceRegistrationPolicy(): DeviceRegistrationPolicyRequestBuilder {
-        return new DeviceRegistrationPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -966,6 +960,13 @@ class BaseGraphClient
     */
     public function teamsTemplates(): TeamsTemplatesRequestBuilder {
         return new TeamsTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The teamTemplateDefinition property
+    */
+    public function teamTemplateDefinition(): TeamTemplateDefinitionRequestBuilder {
+        return new TeamTemplateDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1851,6 +1852,17 @@ class BaseGraphClient
         $urlTplParams = $this->pathParameters;
         $urlTplParams['teamsTemplate%2Did'] = $id;
         return new TeamsTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.teamTemplateDefinition.item collection
+     * @param string $id Unique identifier of the item
+     * @return TeamTemplateDefinitionItemRequestBuilder
+    */
+    public function teamTemplateDefinitionById(string $id): TeamTemplateDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['teamTemplateDefinition%2Did'] = $id;
+        return new TeamTemplateDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

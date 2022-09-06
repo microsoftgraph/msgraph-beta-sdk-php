@@ -25,17 +25,17 @@ class VmMetadata implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var string|null $resourceId The resourceId property
+     * @var string|null $resourceId Unique identifier of the Azure resource.
     */
     private ?string $resourceId = null;
     
     /**
-     * @var string|null $subscriptionId The subscriptionId property
+     * @var string|null $subscriptionId Unique identifier of the Azure subscription the customer tenant belongs to.
     */
     private ?string $subscriptionId = null;
     
     /**
-     * @var string|null $vmId The vmId property
+     * @var string|null $vmId Unique identifier of the virtual machine instance.
     */
     private ?string $vmId = null;
     
@@ -96,7 +96,7 @@ class VmMetadata implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the resourceId property value. The resourceId property
+     * Gets the resourceId property value. Unique identifier of the Azure resource.
      * @return string|null
     */
     public function getResourceId(): ?string {
@@ -104,7 +104,7 @@ class VmMetadata implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the subscriptionId property value. The subscriptionId property
+     * Gets the subscriptionId property value. Unique identifier of the Azure subscription the customer tenant belongs to.
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
@@ -112,7 +112,7 @@ class VmMetadata implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the vmId property value. The vmId property
+     * Gets the vmId property value. Unique identifier of the virtual machine instance.
      * @return string|null
     */
     public function getVmId(): ?string {
@@ -157,7 +157,7 @@ class VmMetadata implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the resourceId property value. The resourceId property
+     * Sets the resourceId property value. Unique identifier of the Azure resource.
      *  @param string|null $value Value to set for the resourceId property.
     */
     public function setResourceId(?string $value ): void {
@@ -165,7 +165,7 @@ class VmMetadata implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the subscriptionId property value. The subscriptionId property
+     * Sets the subscriptionId property value. Unique identifier of the Azure subscription the customer tenant belongs to.
      *  @param string|null $value Value to set for the subscriptionId property.
     */
     public function setSubscriptionId(?string $value ): void {
@@ -173,7 +173,7 @@ class VmMetadata implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the vmId property value. The vmId property
+     * Sets the vmId property value. Unique identifier of the virtual machine instance.
      *  @param string|null $value Value to set for the vmId property.
     */
     public function setVmId(?string $value ): void {

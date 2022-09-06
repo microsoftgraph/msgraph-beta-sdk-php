@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration implements Parsable 
 {
     /**
-     * @var array<MicrosoftAuthenticatorAuthenticationMethodTarget>|null $includeTargets A collection of users or groups who are enabled to use the authentication method.
+     * @var array<MicrosoftAuthenticatorAuthenticationMethodTarget>|null $includeTargets A collection of users or groups who are enabled to use the authentication method. Expanded by default.
     */
     private ?array $includeTargets = null;
     
@@ -42,7 +42,7 @@ class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends Authentica
     }
 
     /**
-     * Gets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * Gets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method. Expanded by default.
      * @return array<MicrosoftAuthenticatorAuthenticationMethodTarget>|null
     */
     public function getIncludeTargets(): ?array {
@@ -59,7 +59,7 @@ class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends Authentica
     }
 
     /**
-     * Sets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
+     * Sets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method. Expanded by default.
      *  @param array<MicrosoftAuthenticatorAuthenticationMethodTarget>|null $value Value to set for the includeTargets property.
     */
     public function setIncludeTargets(?array $value ): void {

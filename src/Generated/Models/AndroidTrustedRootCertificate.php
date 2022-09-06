@@ -20,7 +20,7 @@ class AndroidTrustedRootCertificate extends DeviceConfiguration implements Parsa
     private ?StreamInterface $trustedRootCertificate = null;
     
     /**
-     * Instantiates a new androidTrustedRootCertificate and sets the default values.
+     * Instantiates a new AndroidTrustedRootCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

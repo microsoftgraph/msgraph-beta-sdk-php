@@ -70,7 +70,7 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new managedAllDeviceCertificateState and sets the default values.
+     * Instantiates a new ManagedAllDeviceCertificateState and sets the default values.
     */
     public function __construct() {
         parent::__construct();

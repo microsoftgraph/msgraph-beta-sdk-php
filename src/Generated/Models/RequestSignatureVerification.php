@@ -15,12 +15,12 @@ class RequestSignatureVerification implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var WeakAlgorithms|null $allowedWeakAlgorithms The allowedWeakAlgorithms property
+     * @var WeakAlgorithms|null $allowedWeakAlgorithms Specifies whether this application accepts weak algorithms.  The possible values are: rsaSha1, unknownFutureValue.
     */
     private ?WeakAlgorithms $allowedWeakAlgorithms = null;
     
     /**
-     * @var bool|null $isSignedRequestRequired The isSignedRequestRequired property
+     * @var bool|null $isSignedRequestRequired Specifies whether signed authentication requests for this application should be required.
     */
     private ?bool $isSignedRequestRequired = null;
     
@@ -55,7 +55,7 @@ class RequestSignatureVerification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the allowedWeakAlgorithms property value. The allowedWeakAlgorithms property
+     * Gets the allowedWeakAlgorithms property value. Specifies whether this application accepts weak algorithms.  The possible values are: rsaSha1, unknownFutureValue.
      * @return WeakAlgorithms|null
     */
     public function getAllowedWeakAlgorithms(): ?WeakAlgorithms {
@@ -76,7 +76,7 @@ class RequestSignatureVerification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the isSignedRequestRequired property value. The isSignedRequestRequired property
+     * Gets the isSignedRequestRequired property value. Specifies whether signed authentication requests for this application should be required.
      * @return bool|null
     */
     public function getIsSignedRequestRequired(): ?bool {
@@ -111,7 +111,7 @@ class RequestSignatureVerification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the allowedWeakAlgorithms property value. The allowedWeakAlgorithms property
+     * Sets the allowedWeakAlgorithms property value. Specifies whether this application accepts weak algorithms.  The possible values are: rsaSha1, unknownFutureValue.
      *  @param WeakAlgorithms|null $value Value to set for the allowedWeakAlgorithms property.
     */
     public function setAllowedWeakAlgorithms(?WeakAlgorithms $value ): void {
@@ -119,7 +119,7 @@ class RequestSignatureVerification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isSignedRequestRequired property value. The isSignedRequestRequired property
+     * Sets the isSignedRequestRequired property value. Specifies whether signed authentication requests for this application should be required.
      *  @param bool|null $value Value to set for the isSignedRequestRequired property.
     */
     public function setIsSignedRequestRequired(?bool $value ): void {

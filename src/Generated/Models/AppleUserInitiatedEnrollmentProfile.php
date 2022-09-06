@@ -55,7 +55,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
     private ?int $priority = null;
     
     /**
-     * Instantiates a new AppleUserInitiatedEnrollmentProfile and sets the default values.
+     * Instantiates a new appleUserInitiatedEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

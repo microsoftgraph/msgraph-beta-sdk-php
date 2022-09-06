@@ -10,6 +10,7 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Root\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Root\Activities\Item\ItemActivityOLDItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Root\Analytics\AnalyticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Root\AssignSensitivityLabel\AssignSensitivityLabelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Root\Checkin\CheckinRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Root\Checkout\CheckoutRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Drives\Item\Root\Children\ChildrenRequestBuilder;
@@ -60,6 +61,13 @@ class RootRequestBuilder
     */
     public function analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The assignSensitivityLabel property
+    */
+    public function assignSensitivityLabel(): AssignSensitivityLabelRequestBuilder {
+        return new AssignSensitivityLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

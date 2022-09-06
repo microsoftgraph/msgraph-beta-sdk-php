@@ -47,6 +47,7 @@ class MobileAppAssignmentSettings implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.win32LobAppAssignmentSettings': return new Win32LobAppAssignmentSettings();
                 case '#microsoft.graph.windowsAppXAppAssignmentSettings': return new WindowsAppXAppAssignmentSettings();
                 case '#microsoft.graph.windowsUniversalAppXAppAssignmentSettings': return new WindowsUniversalAppXAppAssignmentSettings();
+                case '#microsoft.graph.winGetAppAssignmentSettings': return new WinGetAppAssignmentSettings();
             }
         }
         return new MobileAppAssignmentSettings();

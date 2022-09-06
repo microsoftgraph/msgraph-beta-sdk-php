@@ -9,17 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MailboxEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName The name associated with the mailbox.
     */
     private ?string $displayName = null;
     
     /**
-     * @var string|null $primaryAddress The primaryAddress property
+     * @var string|null $primaryAddress The primary email address of the mailbox.
     */
     private ?string $primaryAddress = null;
     
     /**
-     * @var UserAccount|null $userAccount The userAccount property
+     * @var UserAccount|null $userAccount The user account of the mailbox.
     */
     private ?UserAccount $userAccount = null;
     
@@ -41,7 +41,7 @@ class MailboxEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The name associated with the mailbox.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -62,7 +62,7 @@ class MailboxEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the primaryAddress property value. The primaryAddress property
+     * Gets the primaryAddress property value. The primary email address of the mailbox.
      * @return string|null
     */
     public function getPrimaryAddress(): ?string {
@@ -70,7 +70,7 @@ class MailboxEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the userAccount property value. The userAccount property
+     * Gets the userAccount property value. The user account of the mailbox.
      * @return UserAccount|null
     */
     public function getUserAccount(): ?UserAccount {
@@ -89,7 +89,7 @@ class MailboxEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The name associated with the mailbox.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -97,7 +97,7 @@ class MailboxEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the primaryAddress property value. The primaryAddress property
+     * Sets the primaryAddress property value. The primary email address of the mailbox.
      *  @param string|null $value Value to set for the primaryAddress property.
     */
     public function setPrimaryAddress(?string $value ): void {
@@ -105,7 +105,7 @@ class MailboxEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the userAccount property value. The userAccount property
+     * Sets the userAccount property value. The user account of the mailbox.
      *  @param UserAccount|null $value Value to set for the userAccount property.
     */
     public function setUserAccount(?UserAccount $value ): void {
