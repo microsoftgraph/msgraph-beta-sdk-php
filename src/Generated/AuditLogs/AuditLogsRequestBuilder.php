@@ -11,8 +11,6 @@ use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning\DirectoryProv
 use Microsoft\Graph\Beta\Generated\AuditLogs\DirectoryProvisioning\Item\ProvisioningObjectSummaryItemRequestBuilder as MicrosoftGraphBetaGeneratedAuditLogsDirectoryProvisioningItemProvisioningObjectSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\Item\ProvisioningObjectSummaryItemRequestBuilder as MicrosoftGraphBetaGeneratedAuditLogsProvisioningItemProvisioningObjectSummaryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\Provisioning\ProvisioningRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\RestrictedSignIns\Item\RestrictedSignInItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\AuditLogs\RestrictedSignIns\RestrictedSignInsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\Item\SignInItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\AuditLogs\SignIns\SignInsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AuditLogRoot;
@@ -57,13 +55,6 @@ class AuditLogsRequestBuilder
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
-    
-    /**
-     * The restrictedSignIns property
-    */
-    public function restrictedSignIns(): RestrictedSignInsRequestBuilder {
-        return new RestrictedSignInsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
     
     /**
      * The signIns property
@@ -206,17 +197,6 @@ class AuditLogsRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['provisioningObjectSummary%2Did'] = $id;
         return new MicrosoftGraphBetaGeneratedAuditLogsProvisioningItemProvisioningObjectSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.auditLogs.restrictedSignIns.item collection
-     * @param string $id Unique identifier of the item
-     * @return RestrictedSignInItemRequestBuilder
-    */
-    public function restrictedSignInsById(string $id): RestrictedSignInItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['restrictedSignIn%2Did'] = $id;
-        return new RestrictedSignInItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

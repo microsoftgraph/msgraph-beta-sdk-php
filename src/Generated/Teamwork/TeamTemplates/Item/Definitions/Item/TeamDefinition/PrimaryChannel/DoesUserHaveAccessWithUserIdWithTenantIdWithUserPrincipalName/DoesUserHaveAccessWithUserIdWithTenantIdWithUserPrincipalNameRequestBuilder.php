@@ -37,7 +37,7 @@ class DoesUserHaveAccessWithUserIdWithTenantIdWithUserPrincipalNameRequestBuilde
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/primaryChannel/microsoft.graph.doesUserHaveAccess(userId=\'{userId}\',tenantId=\'{tenantId}\',userPrincipalName=\'{userPrincipalName}\'){?userId,tenantId,userPrincipalName}';
+        $this->urlTemplate = '{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/primaryChannel/microsoft.graph.doesUserHaveAccess(userId=\'{userId}\',tenantId=\'{tenantId}\',userPrincipalName=\'{userPrincipalName}\'){?userId*,tenantId*,userPrincipalName*}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }

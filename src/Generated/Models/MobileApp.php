@@ -188,6 +188,7 @@ class MobileApp extends Entity implements Parsable
                 case '#microsoft.graph.windowsStoreApp': return new WindowsStoreApp();
                 case '#microsoft.graph.windowsUniversalAppX': return new WindowsUniversalAppX();
                 case '#microsoft.graph.windowsWebApp': return new WindowsWebApp();
+                case '#microsoft.graph.winGetApp': return new WinGetApp();
             }
         }
         return new MobileApp();

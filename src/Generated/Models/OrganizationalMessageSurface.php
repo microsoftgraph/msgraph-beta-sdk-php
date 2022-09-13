@@ -8,4 +8,5 @@ class OrganizationalMessageSurface extends Enum {
     public const ACTION_CENTER = 'actionCenter';
     public const GET_STARTED = 'getStarted';
     public const SOFT_LANDING = 'softLanding';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

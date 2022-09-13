@@ -29,6 +29,11 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     private ?AllowInvitesFrom $allowInvitesFrom = null;
     
     /**
+     * @var bool|null $allowUserConsentForRiskyApps The allowUserConsentForRiskyApps property
+    */
+    private ?bool $allowUserConsentForRiskyApps = null;
+    
+    /**
      * @var bool|null $blockMsolPowerShell To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.
     */
     private ?bool $blockMsolPowerShell = null;
@@ -108,6 +113,14 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
+     * Gets the allowUserConsentForRiskyApps property value. The allowUserConsentForRiskyApps property
+     * @return bool|null
+    */
+    public function getAllowUserConsentForRiskyApps(): ?bool {
+        return $this->allowUserConsentForRiskyApps;
+    }
+
+    /**
      * Gets the blockMsolPowerShell property value. To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.
      * @return bool|null
     */
@@ -150,6 +163,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
             'allowedToUseSSPR' => function (ParseNode $n) use ($o) { $o->setAllowedToUseSSPR($n->getBooleanValue()); },
             'allowEmailVerifiedUsersToJoinOrganization' => function (ParseNode $n) use ($o) { $o->setAllowEmailVerifiedUsersToJoinOrganization($n->getBooleanValue()); },
             'allowInvitesFrom' => function (ParseNode $n) use ($o) { $o->setAllowInvitesFrom($n->getEnumValue(AllowInvitesFrom::class)); },
+            'allowUserConsentForRiskyApps' => function (ParseNode $n) use ($o) { $o->setAllowUserConsentForRiskyApps($n->getBooleanValue()); },
             'blockMsolPowerShell' => function (ParseNode $n) use ($o) { $o->setBlockMsolPowerShell($n->getBooleanValue()); },
             'defaultUserRoleOverrides' => function (ParseNode $n) use ($o) { $o->setDefaultUserRoleOverrides($n->getCollectionOfObjectValues(array(DefaultUserRoleOverride::class, 'createFromDiscriminatorValue'))); },
             'defaultUserRolePermissions' => function (ParseNode $n) use ($o) { $o->setDefaultUserRolePermissions($n->getObjectValue(array(DefaultUserRolePermissions::class, 'createFromDiscriminatorValue'))); },
@@ -185,6 +199,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
         $writer->writeBooleanValue('allowedToUseSSPR', $this->allowedToUseSSPR);
         $writer->writeBooleanValue('allowEmailVerifiedUsersToJoinOrganization', $this->allowEmailVerifiedUsersToJoinOrganization);
         $writer->writeEnumValue('allowInvitesFrom', $this->allowInvitesFrom);
+        $writer->writeBooleanValue('allowUserConsentForRiskyApps', $this->allowUserConsentForRiskyApps);
         $writer->writeBooleanValue('blockMsolPowerShell', $this->blockMsolPowerShell);
         $writer->writeCollectionOfObjectValues('defaultUserRoleOverrides', $this->defaultUserRoleOverrides);
         $writer->writeObjectValue('defaultUserRolePermissions', $this->defaultUserRolePermissions);
@@ -223,6 +238,14 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     */
     public function setAllowInvitesFrom(?AllowInvitesFrom $value ): void {
         $this->allowInvitesFrom = $value;
+    }
+
+    /**
+     * Sets the allowUserConsentForRiskyApps property value. The allowUserConsentForRiskyApps property
+     *  @param bool|null $value Value to set for the allowUserConsentForRiskyApps property.
+    */
+    public function setAllowUserConsentForRiskyApps(?bool $value ): void {
+        $this->allowUserConsentForRiskyApps = $value;
     }
 
     /**

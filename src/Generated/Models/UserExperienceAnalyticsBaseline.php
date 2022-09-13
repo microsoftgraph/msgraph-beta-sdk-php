@@ -60,7 +60,7 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     private ?UserExperienceAnalyticsCategory $workFromAnywhereMetrics = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsBaseline and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsBaseline and sets the default values.
     */
     public function __construct() {
         parent::__construct();

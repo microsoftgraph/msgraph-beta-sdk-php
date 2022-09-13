@@ -15,27 +15,27 @@ class FileDetails implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $fileName The fileName property
+     * @var string|null $fileName The name of the file.
     */
     private ?string $fileName = null;
     
     /**
-     * @var string|null $filePath The filePath property
+     * @var string|null $filePath The file path (location) of the file instance.
     */
     private ?string $filePath = null;
     
     /**
-     * @var string|null $filePublisher The filePublisher property
+     * @var string|null $filePublisher The publisher of the file.
     */
     private ?string $filePublisher = null;
     
     /**
-     * @var int|null $fileSize The fileSize property
+     * @var int|null $fileSize The size of the file in bytes.
     */
     private ?int $fileSize = null;
     
     /**
-     * @var string|null $issuer The issuer property
+     * @var string|null $issuer The certificate authority (CA) that issued the certificate.
     */
     private ?string $issuer = null;
     
@@ -45,17 +45,17 @@ class FileDetails implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var string|null $sha1 The sha1 property
+     * @var string|null $sha1 The Sha1 cryptographic hash of the file content.
     */
     private ?string $sha1 = null;
     
     /**
-     * @var string|null $sha256 The sha256 property
+     * @var string|null $sha256 The Sha256 cryptographic hash of the file content.
     */
     private ?string $sha256 = null;
     
     /**
-     * @var string|null $signer The signer property
+     * @var string|null $signer The signer of the signed file.
     */
     private ?string $signer = null;
     
@@ -104,7 +104,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the fileName property value. The fileName property
+     * Gets the fileName property value. The name of the file.
      * @return string|null
     */
     public function getFileName(): ?string {
@@ -112,7 +112,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the filePath property value. The filePath property
+     * Gets the filePath property value. The file path (location) of the file instance.
      * @return string|null
     */
     public function getFilePath(): ?string {
@@ -120,7 +120,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the filePublisher property value. The filePublisher property
+     * Gets the filePublisher property value. The publisher of the file.
      * @return string|null
     */
     public function getFilePublisher(): ?string {
@@ -128,7 +128,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the fileSize property value. The fileSize property
+     * Gets the fileSize property value. The size of the file in bytes.
      * @return int|null
     */
     public function getFileSize(): ?int {
@@ -136,7 +136,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the issuer property value. The issuer property
+     * Gets the issuer property value. The certificate authority (CA) that issued the certificate.
      * @return string|null
     */
     public function getIssuer(): ?string {
@@ -152,7 +152,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the sha1 property value. The sha1 property
+     * Gets the sha1 property value. The Sha1 cryptographic hash of the file content.
      * @return string|null
     */
     public function getSha1(): ?string {
@@ -160,7 +160,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the sha256 property value. The sha256 property
+     * Gets the sha256 property value. The Sha256 cryptographic hash of the file content.
      * @return string|null
     */
     public function getSha256(): ?string {
@@ -168,7 +168,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the signer property value. The signer property
+     * Gets the signer property value. The signer of the signed file.
      * @return string|null
     */
     public function getSigner(): ?string {
@@ -201,7 +201,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the fileName property value. The fileName property
+     * Sets the fileName property value. The name of the file.
      *  @param string|null $value Value to set for the fileName property.
     */
     public function setFileName(?string $value ): void {
@@ -209,7 +209,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the filePath property value. The filePath property
+     * Sets the filePath property value. The file path (location) of the file instance.
      *  @param string|null $value Value to set for the filePath property.
     */
     public function setFilePath(?string $value ): void {
@@ -217,7 +217,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the filePublisher property value. The filePublisher property
+     * Sets the filePublisher property value. The publisher of the file.
      *  @param string|null $value Value to set for the filePublisher property.
     */
     public function setFilePublisher(?string $value ): void {
@@ -225,7 +225,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the fileSize property value. The fileSize property
+     * Sets the fileSize property value. The size of the file in bytes.
      *  @param int|null $value Value to set for the fileSize property.
     */
     public function setFileSize(?int $value ): void {
@@ -233,7 +233,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the issuer property value. The issuer property
+     * Sets the issuer property value. The certificate authority (CA) that issued the certificate.
      *  @param string|null $value Value to set for the issuer property.
     */
     public function setIssuer(?string $value ): void {
@@ -249,7 +249,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sha1 property value. The sha1 property
+     * Sets the sha1 property value. The Sha1 cryptographic hash of the file content.
      *  @param string|null $value Value to set for the sha1 property.
     */
     public function setSha1(?string $value ): void {
@@ -257,7 +257,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sha256 property value. The sha256 property
+     * Sets the sha256 property value. The Sha256 cryptographic hash of the file content.
      *  @param string|null $value Value to set for the sha256 property.
     */
     public function setSha256(?string $value ): void {
@@ -265,7 +265,7 @@ class FileDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the signer property value. The signer property
+     * Sets the signer property value. The signer of the signed file.
      *  @param string|null $value Value to set for the signer property.
     */
     public function setSigner(?string $value ): void {

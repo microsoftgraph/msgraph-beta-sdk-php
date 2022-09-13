@@ -45,9 +45,9 @@ class GetZebraFotaDeploymentReportPostRequestBody implements AdditionalDataHolde
     private ?array $select = null;
     
     /**
-     * @var int|null $sessionId The sessionId property
+     * @var string|null $sessionId The sessionId property
     */
-    private ?int $sessionId = null;
+    private ?string $sessionId = null;
     
     /**
      * @var int|null $skip The skip property
@@ -96,7 +96,7 @@ class GetZebraFotaDeploymentReportPostRequestBody implements AdditionalDataHolde
             'orderBy' => function (ParseNode $n) use ($o) { $o->setOrderBy($n->getCollectionOfPrimitiveValues()); },
             'search' => function (ParseNode $n) use ($o) { $o->setSearch($n->getStringValue()); },
             'select' => function (ParseNode $n) use ($o) { $o->setSelect($n->getCollectionOfPrimitiveValues()); },
-            'sessionId' => function (ParseNode $n) use ($o) { $o->setSessionId($n->getIntegerValue()); },
+            'sessionId' => function (ParseNode $n) use ($o) { $o->setSessionId($n->getStringValue()); },
             'skip' => function (ParseNode $n) use ($o) { $o->setSkip($n->getIntegerValue()); },
             'top' => function (ParseNode $n) use ($o) { $o->setTop($n->getIntegerValue()); },
         ];
@@ -152,9 +152,9 @@ class GetZebraFotaDeploymentReportPostRequestBody implements AdditionalDataHolde
 
     /**
      * Gets the sessionId property value. The sessionId property
-     * @return int|null
+     * @return string|null
     */
-    public function getSessionId(): ?int {
+    public function getSessionId(): ?string {
         return $this->sessionId;
     }
 
@@ -185,7 +185,7 @@ class GetZebraFotaDeploymentReportPostRequestBody implements AdditionalDataHolde
         $writer->writeCollectionOfPrimitiveValues('orderBy', $this->orderBy);
         $writer->writeStringValue('search', $this->search);
         $writer->writeCollectionOfPrimitiveValues('select', $this->select);
-        $writer->writeIntegerValue('sessionId', $this->sessionId);
+        $writer->writeStringValue('sessionId', $this->sessionId);
         $writer->writeIntegerValue('skip', $this->skip);
         $writer->writeIntegerValue('top', $this->top);
         $writer->writeAdditionalData($this->additionalData);
@@ -249,9 +249,9 @@ class GetZebraFotaDeploymentReportPostRequestBody implements AdditionalDataHolde
 
     /**
      * Sets the sessionId property value. The sessionId property
-     *  @param int|null $value Value to set for the sessionId property.
+     *  @param string|null $value Value to set for the sessionId property.
     */
-    public function setSessionId(?int $value ): void {
+    public function setSessionId(?string $value ): void {
         $this->sessionId = $value;
     }
 

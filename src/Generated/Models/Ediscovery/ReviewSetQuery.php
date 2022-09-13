@@ -42,7 +42,7 @@ class ReviewSetQuery extends Entity implements Parsable
     private ?string $query = null;
     
     /**
-     * Instantiates a new reviewSetQuery and sets the default values.
+     * Instantiates a new ReviewSetQuery and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -203,6 +203,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.audioRoutingGroup': return new AudioRoutingGroup();
                 case '#microsoft.graph.auditEvent': return new AuditEvent();
                 case '#microsoft.graph.authentication': return new Authentication();
+                case '#microsoft.graph.authenticationCombinationConfiguration': return new AuthenticationCombinationConfiguration();
                 case '#microsoft.graph.authenticationContextClassReference': return new AuthenticationContextClassReference();
                 case '#microsoft.graph.authenticationEventListener': return new AuthenticationEventListener();
                 case '#microsoft.graph.authenticationEventsPolicy': return new AuthenticationEventsPolicy();
@@ -210,14 +211,14 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.authenticationListener': return new AuthenticationListener();
                 case '#microsoft.graph.authenticationMethod': return new AuthenticationMethod();
                 case '#microsoft.graph.authenticationMethodConfiguration': return new AuthenticationMethodConfiguration();
+                case '#microsoft.graph.authenticationMethodModeDetail': return new AuthenticationMethodModeDetail();
                 case '#microsoft.graph.authenticationMethodsPolicy': return new AuthenticationMethodsPolicy();
                 case '#microsoft.graph.authenticationMethodsRoot': return new AuthenticationMethodsRoot();
                 case '#microsoft.graph.authenticationMethodTarget': return new AuthenticationMethodTarget();
+                case '#microsoft.graph.authenticationStrengthPolicy': return new AuthenticationStrengthPolicy();
+                case '#microsoft.graph.authenticationStrengthRoot': return new AuthenticationStrengthRoot();
                 case '#microsoft.graph.authoredNote': return new AuthoredNote();
                 case '#microsoft.graph.authorizationPolicy': return new AuthorizationPolicy();
-                case '#microsoft.graph.azureADFeatureUsage': return new AzureADFeatureUsage();
-                case '#microsoft.graph.azureADLicenseUsage': return new AzureADLicenseUsage();
-                case '#microsoft.graph.azureADUserFeatureUsage': return new AzureADUserFeatureUsage();
                 case '#microsoft.graph.azureADWindowsAutopilotDeploymentProfile': return new AzureADWindowsAutopilotDeploymentProfile();
                 case '#microsoft.graph.b2cAuthenticationMethodsPolicy': return new B2cAuthenticationMethodsPolicy();
                 case '#microsoft.graph.b2cIdentityUserFlow': return new B2cIdentityUserFlow();
@@ -337,6 +338,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.delegatedAdminRelationshipRequest': return new DelegatedAdminRelationshipRequest();
                 case '#microsoft.graph.delegatedAdminServiceManagementDetail': return new DelegatedAdminServiceManagementDetail();
                 case '#microsoft.graph.delegatedPermissionClassification': return new DelegatedPermissionClassification();
+                case '#microsoft.graph.deletedItemContainer': return new DeletedItemContainer();
                 case '#microsoft.graph.deletedTeam': return new DeletedTeam();
                 case '#microsoft.graph.depEnrollmentBaseProfile': return new DepEnrollmentBaseProfile();
                 case '#microsoft.graph.depEnrollmentProfile': return new DepEnrollmentProfile();
@@ -395,6 +397,9 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.deviceInstallState': return new DeviceInstallState();
                 case '#microsoft.graph.deviceLogCollectionResponse': return new DeviceLogCollectionResponse();
                 case '#microsoft.graph.deviceManagement': return new DeviceManagement();
+                case '#microsoft.graph.deviceManagement.alertRecord': return new AlertRecord();
+                case '#microsoft.graph.deviceManagement.alertRule': return new AlertRule();
+                case '#microsoft.graph.deviceManagement.monitoring': return new Monitoring();
                 case '#microsoft.graph.deviceManagementAbstractComplexSettingDefinition': return new DeviceManagementAbstractComplexSettingDefinition();
                 case '#microsoft.graph.deviceManagementAbstractComplexSettingInstance': return new DeviceManagementAbstractComplexSettingInstance();
                 case '#microsoft.graph.deviceManagementAutopilotEvent': return new DeviceManagementAutopilotEvent();
@@ -585,6 +590,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.federatedIdentityCredential': return new FederatedIdentityCredential();
                 case '#microsoft.graph.fido2AuthenticationMethod': return new Fido2AuthenticationMethod();
                 case '#microsoft.graph.fido2AuthenticationMethodConfiguration': return new Fido2AuthenticationMethodConfiguration();
+                case '#microsoft.graph.fido2CombinationConfiguration': return new Fido2CombinationConfiguration();
                 case '#microsoft.graph.fieldValueSet': return new FieldValueSet();
                 case '#microsoft.graph.fileAssessmentRequest': return new FileAssessmentRequest();
                 case '#microsoft.graph.fileAttachment': return new FileAttachment();
@@ -637,6 +643,16 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.identityApiConnector': return new IdentityApiConnector();
                 case '#microsoft.graph.identityBuiltInUserFlowAttribute': return new IdentityBuiltInUserFlowAttribute();
                 case '#microsoft.graph.identityCustomUserFlowAttribute': return new IdentityCustomUserFlowAttribute();
+                case '#microsoft.graph.identityGovernance.customTaskExtension': return new CustomTaskExtension();
+                case '#microsoft.graph.identityGovernance.lifecycleManagementSettings': return new LifecycleManagementSettings();
+                case '#microsoft.graph.identityGovernance.lifecycleWorkflowsContainer': return new LifecycleWorkflowsContainer();
+                case '#microsoft.graph.identityGovernance.run': return new Run();
+                case '#microsoft.graph.identityGovernance.task': return new Task();
+                case '#microsoft.graph.identityGovernance.taskDefinition': return new TaskDefinition();
+                case '#microsoft.graph.identityGovernance.taskProcessingResult': return new TaskProcessingResult();
+                case '#microsoft.graph.identityGovernance.taskReport': return new TaskReport();
+                case '#microsoft.graph.identityGovernance.userProcessingResult': return new UserProcessingResult();
+                case '#microsoft.graph.identityGovernance.workflowTemplate': return new WorkflowTemplate();
                 case '#microsoft.graph.identityProvider': return new IdentityProvider();
                 case '#microsoft.graph.identityProviderBase': return new IdentityProviderBase();
                 case '#microsoft.graph.identitySecurityDefaultsEnforcementPolicy': return new IdentitySecurityDefaultsEnforcementPolicy();
@@ -1023,7 +1039,6 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.resourceOperation': return new ResourceOperation();
                 case '#microsoft.graph.resourceSpecificPermissionGrant': return new ResourceSpecificPermissionGrant();
                 case '#microsoft.graph.restrictedAppsViolation': return new RestrictedAppsViolation();
-                case '#microsoft.graph.restrictedSignIn': return new RestrictedSignIn();
                 case '#microsoft.graph.richLongRunningOperation': return new RichLongRunningOperation();
                 case '#microsoft.graph.riskDetection': return new RiskDetection();
                 case '#microsoft.graph.riskyServicePrincipal': return new RiskyServicePrincipal();
@@ -1463,6 +1478,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.windowsWifiConfiguration': return new WindowsWifiConfiguration();
                 case '#microsoft.graph.windowsWifiEnterpriseEAPConfiguration': return new WindowsWifiEnterpriseEAPConfiguration();
                 case '#microsoft.graph.windowsWiredNetworkConfiguration': return new WindowsWiredNetworkConfiguration();
+                case '#microsoft.graph.winGetApp': return new WinGetApp();
                 case '#microsoft.graph.workbook': return new Workbook();
                 case '#microsoft.graph.workbookApplication': return new WorkbookApplication();
                 case '#microsoft.graph.workbookChart': return new WorkbookChart();

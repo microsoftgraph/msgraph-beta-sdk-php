@@ -86,7 +86,7 @@ class DeviceManagementScript extends Entity implements Parsable
     private ?array $userRunStates = null;
     
     /**
-     * Instantiates a new deviceManagementScript and sets the default values.
+     * Instantiates a new DeviceManagementScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -15,22 +15,22 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $alternateUrl The alternateUrl property
+     * @var string|null $alternateUrl If you're configuring a traffic manager in front of multiple App Proxy application segments, contains the user-friendly URL that will point to the traffic manager.
     */
     private ?string $alternateUrl = null;
     
     /**
-     * @var array<CorsConfiguration>|null $corsConfigurations The corsConfigurations property
+     * @var array<CorsConfiguration>|null $corsConfigurations CORS Rule definition for a particular application segment.
     */
     private ?array $corsConfigurations = null;
     
     /**
-     * @var string|null $externalUrl The externalUrl property
+     * @var string|null $externalUrl The published external URL for the application segment; for example, https://intranet.contoso.com./
     */
     private ?string $externalUrl = null;
     
     /**
-     * @var string|null $internalUrl The internalUrl property
+     * @var string|null $internalUrl The internal URL of the application segment; for example, https://intranet/.
     */
     private ?string $internalUrl = null;
     
@@ -65,7 +65,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the alternateUrl property value. The alternateUrl property
+     * Gets the alternateUrl property value. If you're configuring a traffic manager in front of multiple App Proxy application segments, contains the user-friendly URL that will point to the traffic manager.
      * @return string|null
     */
     public function getAlternateUrl(): ?string {
@@ -73,7 +73,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the corsConfigurations property value. The corsConfigurations property
+     * Gets the corsConfigurations property value. CORS Rule definition for a particular application segment.
      * @return array<CorsConfiguration>|null
     */
     public function getCorsConfigurations(): ?array {
@@ -81,7 +81,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the externalUrl property value. The externalUrl property
+     * Gets the externalUrl property value. The published external URL for the application segment; for example, https://intranet.contoso.com./
      * @return string|null
     */
     public function getExternalUrl(): ?string {
@@ -104,7 +104,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the internalUrl property value. The internalUrl property
+     * Gets the internalUrl property value. The internal URL of the application segment; for example, https://intranet/.
      * @return string|null
     */
     public function getInternalUrl(): ?string {
@@ -141,7 +141,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the alternateUrl property value. The alternateUrl property
+     * Sets the alternateUrl property value. If you're configuring a traffic manager in front of multiple App Proxy application segments, contains the user-friendly URL that will point to the traffic manager.
      *  @param string|null $value Value to set for the alternateUrl property.
     */
     public function setAlternateUrl(?string $value ): void {
@@ -149,7 +149,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the corsConfigurations property value. The corsConfigurations property
+     * Sets the corsConfigurations property value. CORS Rule definition for a particular application segment.
      *  @param array<CorsConfiguration>|null $value Value to set for the corsConfigurations property.
     */
     public function setCorsConfigurations(?array $value ): void {
@@ -157,7 +157,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the externalUrl property value. The externalUrl property
+     * Sets the externalUrl property value. The published external URL for the application segment; for example, https://intranet.contoso.com./
      *  @param string|null $value Value to set for the externalUrl property.
     */
     public function setExternalUrl(?string $value ): void {
@@ -165,7 +165,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the internalUrl property value. The internalUrl property
+     * Sets the internalUrl property value. The internal URL of the application segment; for example, https://intranet/.
      *  @param string|null $value Value to set for the internalUrl property.
     */
     public function setInternalUrl(?string $value ): void {

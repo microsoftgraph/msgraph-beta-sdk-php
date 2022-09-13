@@ -43,6 +43,13 @@ class CrossTenantAccessPolicyB2BSetting implements AdditionalDataHolder, Parsabl
      * @return CrossTenantAccessPolicyB2BSetting
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): CrossTenantAccessPolicyB2BSetting {
+        $mappingValueNode = $parseNode->getChildNode("@odata.type");
+        if ($mappingValueNode !== null) {
+            $mappingValue = $mappingValueNode->getStringValue();
+            switch ($mappingValue) {
+                case '#microsoft.graph.crossTenantAccessPolicyTenantRestrictions': return new CrossTenantAccessPolicyTenantRestrictions();
+            }
+        }
         return new CrossTenantAccessPolicyB2BSetting();
     }
 

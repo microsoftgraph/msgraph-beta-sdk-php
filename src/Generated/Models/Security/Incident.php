@@ -11,52 +11,52 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Incident extends Entity implements Parsable 
 {
     /**
-     * @var array<Alert>|null $alerts The alerts property
+     * @var array<Alert>|null $alerts The list of related alerts. Supports $expand.
     */
     private ?array $alerts = null;
     
     /**
-     * @var string|null $assignedTo The assignedTo property
+     * @var string|null $assignedTo Owner of the incident, or null if no owner is assigned. Free editable text.
     */
     private ?string $assignedTo = null;
     
     /**
-     * @var AlertClassification|null $classification The classification property
+     * @var AlertClassification|null $classification The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
     */
     private ?AlertClassification $classification = null;
     
     /**
-     * @var array<AlertComment>|null $comments The comments property
+     * @var array<AlertComment>|null $comments Array of comments created by the Security Operations (SecOps) team when the incident is managed.
     */
     private ?array $comments = null;
     
     /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
+     * @var DateTime|null $createdDateTime Time when the incident was first created.
     */
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var AlertDetermination|null $determination The determination property
+     * @var AlertDetermination|null $determination Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
     */
     private ?AlertDetermination $determination = null;
     
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName The incident name.
     */
     private ?string $displayName = null;
     
     /**
-     * @var string|null $incidentWebUrl The incidentWebUrl property
+     * @var string|null $incidentWebUrl The URL for the incident page in the Microsoft 365 Defender portal.
     */
     private ?string $incidentWebUrl = null;
     
     /**
-     * @var DateTime|null $lastUpdateDateTime The lastUpdateDateTime property
+     * @var DateTime|null $lastUpdateDateTime Time when the incident was last updated.
     */
     private ?DateTime $lastUpdateDateTime = null;
     
     /**
-     * @var string|null $redirectIncidentId The redirectIncidentId property
+     * @var string|null $redirectIncidentId Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.
     */
     private ?string $redirectIncidentId = null;
     
@@ -71,12 +71,12 @@ class Incident extends Entity implements Parsable
     private ?IncidentStatus $status = null;
     
     /**
-     * @var array<string>|null $tags The tags property
+     * @var array<string>|null $tags Array of custom tags associated with an incident.
     */
     private ?array $tags = null;
     
     /**
-     * @var string|null $tenantId The tenantId property
+     * @var string|null $tenantId The Azure Active Directory tenant in which the alert was created.
     */
     private ?string $tenantId = null;
     
@@ -98,7 +98,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the alerts property value. The alerts property
+     * Gets the alerts property value. The list of related alerts. Supports $expand.
      * @return array<Alert>|null
     */
     public function getAlerts(): ?array {
@@ -106,7 +106,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignedTo property value. The assignedTo property
+     * Gets the assignedTo property value. Owner of the incident, or null if no owner is assigned. Free editable text.
      * @return string|null
     */
     public function getAssignedTo(): ?string {
@@ -114,7 +114,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the classification property value. The classification property
+     * Gets the classification property value. The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      * @return AlertClassification|null
     */
     public function getClassification(): ?AlertClassification {
@@ -122,7 +122,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the comments property value. The comments property
+     * Gets the comments property value. Array of comments created by the Security Operations (SecOps) team when the incident is managed.
      * @return array<AlertComment>|null
     */
     public function getComments(): ?array {
@@ -130,7 +130,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. Time when the incident was first created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -138,7 +138,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the determination property value. The determination property
+     * Gets the determination property value. Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      * @return AlertDetermination|null
     */
     public function getDetermination(): ?AlertDetermination {
@@ -146,7 +146,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The incident name.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -178,7 +178,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the incidentWebUrl property value. The incidentWebUrl property
+     * Gets the incidentWebUrl property value. The URL for the incident page in the Microsoft 365 Defender portal.
      * @return string|null
     */
     public function getIncidentWebUrl(): ?string {
@@ -186,7 +186,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdateDateTime property value. The lastUpdateDateTime property
+     * Gets the lastUpdateDateTime property value. Time when the incident was last updated.
      * @return DateTime|null
     */
     public function getLastUpdateDateTime(): ?DateTime {
@@ -194,7 +194,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the redirectIncidentId property value. The redirectIncidentId property
+     * Gets the redirectIncidentId property value. Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.
      * @return string|null
     */
     public function getRedirectIncidentId(): ?string {
@@ -218,7 +218,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the tags property value. The tags property
+     * Gets the tags property value. Array of custom tags associated with an incident.
      * @return array<string>|null
     */
     public function getTags(): ?array {
@@ -226,7 +226,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantId property value. The tenantId property
+     * Gets the tenantId property value. The Azure Active Directory tenant in which the alert was created.
      * @return string|null
     */
     public function getTenantId(): ?string {
@@ -256,7 +256,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the alerts property value. The alerts property
+     * Sets the alerts property value. The list of related alerts. Supports $expand.
      *  @param array<Alert>|null $value Value to set for the alerts property.
     */
     public function setAlerts(?array $value ): void {
@@ -264,7 +264,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignedTo property value. The assignedTo property
+     * Sets the assignedTo property value. Owner of the incident, or null if no owner is assigned. Free editable text.
      *  @param string|null $value Value to set for the assignedTo property.
     */
     public function setAssignedTo(?string $value ): void {
@@ -272,7 +272,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the classification property value. The classification property
+     * Sets the classification property value. The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      *  @param AlertClassification|null $value Value to set for the classification property.
     */
     public function setClassification(?AlertClassification $value ): void {
@@ -280,7 +280,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the comments property value. The comments property
+     * Sets the comments property value. Array of comments created by the Security Operations (SecOps) team when the incident is managed.
      *  @param array<AlertComment>|null $value Value to set for the comments property.
     */
     public function setComments(?array $value ): void {
@@ -288,7 +288,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. Time when the incident was first created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
@@ -296,7 +296,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the determination property value. The determination property
+     * Sets the determination property value. Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      *  @param AlertDetermination|null $value Value to set for the determination property.
     */
     public function setDetermination(?AlertDetermination $value ): void {
@@ -304,7 +304,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The incident name.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -312,7 +312,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the incidentWebUrl property value. The incidentWebUrl property
+     * Sets the incidentWebUrl property value. The URL for the incident page in the Microsoft 365 Defender portal.
      *  @param string|null $value Value to set for the incidentWebUrl property.
     */
     public function setIncidentWebUrl(?string $value ): void {
@@ -320,7 +320,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdateDateTime property value. The lastUpdateDateTime property
+     * Sets the lastUpdateDateTime property value. Time when the incident was last updated.
      *  @param DateTime|null $value Value to set for the lastUpdateDateTime property.
     */
     public function setLastUpdateDateTime(?DateTime $value ): void {
@@ -328,7 +328,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the redirectIncidentId property value. The redirectIncidentId property
+     * Sets the redirectIncidentId property value. Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.
      *  @param string|null $value Value to set for the redirectIncidentId property.
     */
     public function setRedirectIncidentId(?string $value ): void {
@@ -352,7 +352,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the tags property value. The tags property
+     * Sets the tags property value. Array of custom tags associated with an incident.
      *  @param array<string>|null $value Value to set for the tags property.
     */
     public function setTags(?array $value ): void {
@@ -360,7 +360,7 @@ class Incident extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantId property value. The tenantId property
+     * Sets the tenantId property value. The Azure Active Directory tenant in which the alert was created.
      *  @param string|null $value Value to set for the tenantId property.
     */
     public function setTenantId(?string $value ): void {

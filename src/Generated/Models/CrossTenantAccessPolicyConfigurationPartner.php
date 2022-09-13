@@ -55,6 +55,11 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     private ?string $tenantId = null;
     
     /**
+     * @var CrossTenantAccessPolicyTenantRestrictions|null $tenantRestrictions The tenantRestrictions property
+    */
+    private ?CrossTenantAccessPolicyTenantRestrictions $tenantRestrictions = null;
+    
+    /**
      * Instantiates a new crossTenantAccessPolicyConfigurationPartner and sets the default values.
     */
     public function __construct() {
@@ -126,6 +131,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
             'isServiceProvider' => function (ParseNode $n) use ($o) { $o->setIsServiceProvider($n->getBooleanValue()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'tenantRestrictions' => function (ParseNode $n) use ($o) { $o->setTenantRestrictions($n->getObjectValue(array(CrossTenantAccessPolicyTenantRestrictions::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
@@ -162,6 +168,14 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     }
 
     /**
+     * Gets the tenantRestrictions property value. The tenantRestrictions property
+     * @return CrossTenantAccessPolicyTenantRestrictions|null
+    */
+    public function getTenantRestrictions(): ?CrossTenantAccessPolicyTenantRestrictions {
+        return $this->tenantRestrictions;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -174,6 +188,7 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
         $writer->writeBooleanValue('isServiceProvider', $this->isServiceProvider);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeObjectValue('tenantRestrictions', $this->tenantRestrictions);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -247,6 +262,14 @@ class CrossTenantAccessPolicyConfigurationPartner implements AdditionalDataHolde
     */
     public function setTenantId(?string $value ): void {
         $this->tenantId = $value;
+    }
+
+    /**
+     * Sets the tenantRestrictions property value. The tenantRestrictions property
+     *  @param CrossTenantAccessPolicyTenantRestrictions|null $value Value to set for the tenantRestrictions property.
+    */
+    public function setTenantRestrictions(?CrossTenantAccessPolicyTenantRestrictions $value ): void {
+        $this->tenantRestrictions = $value;
     }
 
 }

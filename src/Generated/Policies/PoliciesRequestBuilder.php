@@ -15,6 +15,8 @@ use Microsoft\Graph\Beta\Generated\Policies\AppManagementPolicies\AppManagementP
 use Microsoft\Graph\Beta\Generated\Policies\AppManagementPolicies\Item\AppManagementPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\AuthenticationFlowsPolicy\AuthenticationFlowsPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\AuthenticationMethodsPolicy\AuthenticationMethodsPolicyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\AuthenticationStrengthPoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Policies\AuthenticationStrengthPolicies\Item\AuthenticationStrengthPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\AuthorizationPolicyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\AuthorizationPolicy\Item\AuthorizationPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Policies\B2cAuthenticationMethodsPolicy\B2cAuthenticationMethodsPolicyRequestBuilder;
@@ -98,6 +100,13 @@ class PoliciesRequestBuilder
     */
     public function authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder {
         return new AuthenticationMethodsPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The authenticationStrengthPolicies property
+    */
+    public function authenticationStrengthPolicies(): AuthenticationStrengthPoliciesRequestBuilder {
+        return new AuthenticationStrengthPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -275,6 +284,17 @@ class PoliciesRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['appManagementPolicy%2Did'] = $id;
         return new AppManagementPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.authenticationStrengthPolicies.item collection
+     * @param string $id Unique identifier of the item
+     * @return AuthenticationStrengthPolicyItemRequestBuilder
+    */
+    public function authenticationStrengthPoliciesById(string $id): AuthenticationStrengthPolicyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['authenticationStrengthPolicy%2Did'] = $id;
+        return new AuthenticationStrengthPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

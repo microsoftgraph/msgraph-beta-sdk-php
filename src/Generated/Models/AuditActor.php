@@ -25,6 +25,11 @@ class AuditActor implements AdditionalDataHolder, Parsable
     private ?string $applicationId = null;
     
     /**
+     * @var string|null $auditActorType Actor Type.
+    */
+    private ?string $auditActorType = null;
+    
+    /**
      * @var string|null $ipAddress IPAddress.
     */
     private ?string $ipAddress = null;
@@ -116,6 +121,14 @@ class AuditActor implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the auditActorType property value. Actor Type.
+     * @return string|null
+    */
+    public function getAuditActorType(): ?string {
+        return $this->auditActorType;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -124,6 +137,7 @@ class AuditActor implements AdditionalDataHolder, Parsable
         return  [
             'applicationDisplayName' => function (ParseNode $n) use ($o) { $o->setApplicationDisplayName($n->getStringValue()); },
             'applicationId' => function (ParseNode $n) use ($o) { $o->setApplicationId($n->getStringValue()); },
+            'auditActorType' => function (ParseNode $n) use ($o) { $o->setAuditActorType($n->getStringValue()); },
             'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'remoteTenantId' => function (ParseNode $n) use ($o) { $o->setRemoteTenantId($n->getStringValue()); },
@@ -224,6 +238,7 @@ class AuditActor implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('applicationDisplayName', $this->applicationDisplayName);
         $writer->writeStringValue('applicationId', $this->applicationId);
+        $writer->writeStringValue('auditActorType', $this->auditActorType);
         $writer->writeStringValue('ipAddress', $this->ipAddress);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('remoteTenantId', $this->remoteTenantId);
@@ -259,6 +274,14 @@ class AuditActor implements AdditionalDataHolder, Parsable
     */
     public function setApplicationId(?string $value ): void {
         $this->applicationId = $value;
+    }
+
+    /**
+     * Sets the auditActorType property value. Actor Type.
+     *  @param string|null $value Value to set for the auditActorType property.
+    */
+    public function setAuditActorType(?string $value ): void {
+        $this->auditActorType = $value;
     }
 
     /**

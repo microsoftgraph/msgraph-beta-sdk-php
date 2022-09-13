@@ -150,6 +150,11 @@ class Team extends Entity implements Parsable
     private ?TeamsTemplate $template = null;
     
     /**
+     * @var TeamTemplateDefinition|null $templateDefinition The templateDefinition property
+    */
+    private ?TeamTemplateDefinition $templateDefinition = null;
+    
+    /**
      * @var string|null $tenantId The ID of the Azure Active Directory tenant.
     */
     private ?string $tenantId = null;
@@ -272,6 +277,7 @@ class Team extends Entity implements Parsable
             'summary' => function (ParseNode $n) use ($o) { $o->setSummary($n->getObjectValue(array(TeamSummary::class, 'createFromDiscriminatorValue'))); },
             'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfObjectValues(array(TeamworkTag::class, 'createFromDiscriminatorValue'))); },
             'template' => function (ParseNode $n) use ($o) { $o->setTemplate($n->getObjectValue(array(TeamsTemplate::class, 'createFromDiscriminatorValue'))); },
+            'templateDefinition' => function (ParseNode $n) use ($o) { $o->setTemplateDefinition($n->getObjectValue(array(TeamTemplateDefinition::class, 'createFromDiscriminatorValue'))); },
             'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
             'visibility' => function (ParseNode $n) use ($o) { $o->setVisibility($n->getEnumValue(TeamVisibilityType::class)); },
             'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
@@ -447,6 +453,14 @@ class Team extends Entity implements Parsable
     }
 
     /**
+     * Gets the templateDefinition property value. The templateDefinition property
+     * @return TeamTemplateDefinition|null
+    */
+    public function getTemplateDefinition(): ?TeamTemplateDefinition {
+        return $this->templateDefinition;
+    }
+
+    /**
      * Gets the tenantId property value. The ID of the Azure Active Directory tenant.
      * @return string|null
     */
@@ -504,6 +518,7 @@ class Team extends Entity implements Parsable
         $writer->writeObjectValue('summary', $this->summary);
         $writer->writeCollectionOfObjectValues('tags', $this->tags);
         $writer->writeObjectValue('template', $this->template);
+        $writer->writeObjectValue('templateDefinition', $this->templateDefinition);
         $writer->writeStringValue('tenantId', $this->tenantId);
         $writer->writeEnumValue('visibility', $this->visibility);
         $writer->writeStringValue('webUrl', $this->webUrl);
@@ -731,6 +746,14 @@ class Team extends Entity implements Parsable
     */
     public function setTemplate(?TeamsTemplate $value ): void {
         $this->template = $value;
+    }
+
+    /**
+     * Sets the templateDefinition property value. The templateDefinition property
+     *  @param TeamTemplateDefinition|null $value Value to set for the templateDefinition property.
+    */
+    public function setTemplateDefinition(?TeamTemplateDefinition $value ): void {
+        $this->templateDefinition = $value;
     }
 
     /**

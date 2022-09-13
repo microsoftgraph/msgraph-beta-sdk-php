@@ -78,7 +78,7 @@ class DirectorySettingTemplateItemRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/directorySettingTemplates/{directorySettingTemplate%2Did}{?%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/directorySettingTemplates/{directorySettingTemplate%2Did}{?%24select}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
