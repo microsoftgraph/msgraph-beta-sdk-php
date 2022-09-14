@@ -76,7 +76,7 @@ class User extends DirectoryObject implements Parsable
     private ?Authentication $authentication = null;
     
     /**
-     * @var AuthorizationInfo|null $authorizationInfo The authorizationInfo property
+     * @var AuthorizationInfo|null $authorizationInfo Identifiers that can be used to identify and authenticate a user in non-Azure AD environments. This property can be used to store identifiers for smartcard-based certificates that a user uses for access to on-premises Active Directory deployments or for federated access. It can also be used to store the Subject Alternate Name (SAN) that's associated with a Common Access Card (CAC). Nullable.Supports $filter (eq and startsWith).
     */
     private ?AuthorizationInfo $authorizationInfo = null;
     
@@ -231,7 +231,7 @@ class User extends DirectoryObject implements Parsable
     private ?string $employeeId = null;
     
     /**
-     * @var DateTime|null $employeeLeaveDateTime The employeeLeaveDateTime property
+     * @var DateTime|null $employeeLeaveDateTime The date and time when the user left or will leave the organization. Read: Requires User-LifeCycleInfo.Read.All. For delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Admin.  Write: Requires User-LifeCycleInfo.ReadWrite.All. For delegated scenarios, the admin needs the Global Administrator Azure AD role. Supports $filter (eq, ne, not , ge, le, in).
     */
     private ?DateTime $employeeLeaveDateTime = null;
     
@@ -736,7 +736,7 @@ class User extends DirectoryObject implements Parsable
     private ?array $windowsInformationProtectionDeviceRegistrations = null;
     
     /**
-     * Instantiates a new User and sets the default values.
+     * Instantiates a new user and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -857,7 +857,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the authorizationInfo property value. The authorizationInfo property
+     * Gets the authorizationInfo property value. Identifiers that can be used to identify and authenticate a user in non-Azure AD environments. This property can be used to store identifiers for smartcard-based certificates that a user uses for access to on-premises Active Directory deployments or for federated access. It can also be used to store the Subject Alternate Name (SAN) that's associated with a Common Access Card (CAC). Nullable.Supports $filter (eq and startsWith).
      * @return AuthorizationInfo|null
     */
     public function getAuthorizationInfo(): ?AuthorizationInfo {
@@ -1105,7 +1105,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the employeeLeaveDateTime property value. The employeeLeaveDateTime property
+     * Gets the employeeLeaveDateTime property value. The date and time when the user left or will leave the organization. Read: Requires User-LifeCycleInfo.Read.All. For delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Admin.  Write: Requires User-LifeCycleInfo.ReadWrite.All. For delegated scenarios, the admin needs the Global Administrator Azure AD role. Supports $filter (eq, ne, not , ge, le, in).
      * @return DateTime|null
     */
     public function getEmployeeLeaveDateTime(): ?DateTime {
@@ -2325,7 +2325,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the authorizationInfo property value. The authorizationInfo property
+     * Sets the authorizationInfo property value. Identifiers that can be used to identify and authenticate a user in non-Azure AD environments. This property can be used to store identifiers for smartcard-based certificates that a user uses for access to on-premises Active Directory deployments or for federated access. It can also be used to store the Subject Alternate Name (SAN) that's associated with a Common Access Card (CAC). Nullable.Supports $filter (eq and startsWith).
      *  @param AuthorizationInfo|null $value Value to set for the authorizationInfo property.
     */
     public function setAuthorizationInfo(?AuthorizationInfo $value ): void {
@@ -2573,7 +2573,7 @@ class User extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the employeeLeaveDateTime property value. The employeeLeaveDateTime property
+     * Sets the employeeLeaveDateTime property value. The date and time when the user left or will leave the organization. Read: Requires User-LifeCycleInfo.Read.All. For delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Admin.  Write: Requires User-LifeCycleInfo.ReadWrite.All. For delegated scenarios, the admin needs the Global Administrator Azure AD role. Supports $filter (eq, ne, not , ge, le, in).
      *  @param DateTime|null $value Value to set for the employeeLeaveDateTime property.
     */
     public function setEmployeeLeaveDateTime(?DateTime $value ): void {

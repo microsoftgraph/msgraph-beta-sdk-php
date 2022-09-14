@@ -76,7 +76,7 @@ class Application extends DirectoryObject implements Parsable
     private ?array $extensionProperties = null;
     
     /**
-     * @var array<FederatedIdentityCredential>|null $federatedIdentityCredentials Federated identities for applications. Supports $expand and $filter (eq when counting empty collections).
+     * @var array<FederatedIdentityCredential>|null $federatedIdentityCredentials Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
     */
     private ?array $federatedIdentityCredentials = null;
     
@@ -136,7 +136,7 @@ class Application extends DirectoryObject implements Parsable
     private ?OptionalClaims $optionalClaims = null;
     
     /**
-     * @var array<DirectoryObject>|null $owners Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * @var array<DirectoryObject>|null $owners Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections).
     */
     private ?array $owners = null;
     
@@ -357,7 +357,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (eq when counting empty collections).
+     * Gets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
      * @return array<FederatedIdentityCredential>|null
     */
     public function getFederatedIdentityCredentials(): ?array {
@@ -508,7 +508,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Gets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections).
      * @return array<DirectoryObject>|null
     */
     public function getOwners(): ?array {
@@ -825,7 +825,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (eq when counting empty collections).
+     * Sets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
      *  @param array<FederatedIdentityCredential>|null $value Value to set for the federatedIdentityCredentials property.
     */
     public function setFederatedIdentityCredentials(?array $value ): void {
@@ -921,7 +921,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq when counting empty collections).
+     * Sets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections).
      *  @param array<DirectoryObject>|null $value Value to set for the owners property.
     */
     public function setOwners(?array $value ): void {

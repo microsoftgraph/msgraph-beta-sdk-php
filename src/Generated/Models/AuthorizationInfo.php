@@ -15,7 +15,7 @@ class AuthorizationInfo implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var array<string>|null $certificateUserIds The certificateUserIds property
+     * @var array<string>|null $certificateUserIds The collection of unique identifiers that can be associated with a user and can be used to bind the Azure AD user to a certificate for authentication and authorization into non-Azure AD environments. The identifiers must be unique in the tenant.
     */
     private ?array $certificateUserIds = null;
     
@@ -50,7 +50,7 @@ class AuthorizationInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the certificateUserIds property value. The certificateUserIds property
+     * Gets the certificateUserIds property value. The collection of unique identifiers that can be associated with a user and can be used to bind the Azure AD user to a certificate for authentication and authorization into non-Azure AD environments. The identifiers must be unique in the tenant.
      * @return array<string>|null
     */
     public function getCertificateUserIds(): ?array {
@@ -96,7 +96,7 @@ class AuthorizationInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the certificateUserIds property value. The certificateUserIds property
+     * Sets the certificateUserIds property value. The collection of unique identifiers that can be associated with a user and can be used to bind the Azure AD user to a certificate for authentication and authorization into non-Azure AD environments. The identifiers must be unique in the tenant.
      *  @param array<string>|null $value Value to set for the certificateUserIds property.
     */
     public function setCertificateUserIds(?array $value ): void {

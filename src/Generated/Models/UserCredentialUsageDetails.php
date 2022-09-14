@@ -45,7 +45,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new userCredentialUsageDetails and sets the default values.
+     * Instantiates a new UserCredentialUsageDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();

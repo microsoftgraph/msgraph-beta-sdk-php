@@ -32,6 +32,7 @@ use Microsoft\Graph\Beta\Generated\Groups\Item\Team\SendActivityNotification\Sen
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Tags\Item\TeamworkTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Template\TemplateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Groups\Item\Team\TemplateDefinition\TemplateDefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Groups\Item\Team\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\Team;
@@ -179,6 +180,13 @@ class TeamRequestBuilder
     */
     public function template(): TemplateRequestBuilder {
         return new TemplateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The templateDefinition property
+    */
+    public function templateDefinition(): TemplateDefinitionRequestBuilder {
+        return new TemplateDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

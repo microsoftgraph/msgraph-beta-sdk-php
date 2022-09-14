@@ -70,7 +70,7 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
     private ?TeamworkTeamsClientConfiguration $teamsClientConfiguration = null;
     
     /**
-     * Instantiates a new teamworkDeviceConfiguration and sets the default values.
+     * Instantiates a new TeamworkDeviceConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -37,7 +37,7 @@ class AssignedPrincipalsWithTransitiveWithDirectoryScopeTypeWithDirectoryScopeId
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/roleManagement/entitlementManagement/roleDefinitions/{unifiedRoleDefinition%2Did}/inheritsPermissionsFrom/{unifiedRoleDefinition%2Did1}/microsoft.graph.assignedPrincipals(transitive={transitive},directoryScopeType=\'{directoryScopeType}\',directoryScopeId=\'{directoryScopeId}\'){?transitive,directoryScopeType,directoryScopeId}';
+        $this->urlTemplate = '{+baseurl}/roleManagement/entitlementManagement/roleDefinitions/{unifiedRoleDefinition%2Did}/inheritsPermissionsFrom/{unifiedRoleDefinition%2Did1}/microsoft.graph.assignedPrincipals(transitive={transitive},directoryScopeType=\'{directoryScopeType}\',directoryScopeId=\'{directoryScopeId}\'){?transitive*,directoryScopeType*,directoryScopeId*}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }

@@ -30,7 +30,7 @@ class CountryRegion extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * Instantiates a new countryRegion and sets the default values.
+     * Instantiates a new CountryRegion and sets the default values.
     */
     public function __construct() {
         parent::__construct();

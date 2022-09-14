@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeletedItemContainer extends Entity implements Parsable 
 {
     /**
-     * @var array<Workflow>|null $workflows The workflows property
+     * @var array<Workflow>|null $workflows Deleted workflows that end up in the deletedItemsContainer.
     */
     private ?array $workflows = null;
     
     /**
-     * Instantiates a new DeletedItemContainer and sets the default values.
+     * Instantiates a new deletedItemContainer and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -43,7 +43,7 @@ class DeletedItemContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the workflows property value. The workflows property
+     * Gets the workflows property value. Deleted workflows that end up in the deletedItemsContainer.
      * @return array<Workflow>|null
     */
     public function getWorkflows(): ?array {
@@ -60,7 +60,7 @@ class DeletedItemContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the workflows property value. The workflows property
+     * Sets the workflows property value. Deleted workflows that end up in the deletedItemsContainer.
      *  @param array<Workflow>|null $value Value to set for the workflows property.
     */
     public function setWorkflows(?array $value ): void {

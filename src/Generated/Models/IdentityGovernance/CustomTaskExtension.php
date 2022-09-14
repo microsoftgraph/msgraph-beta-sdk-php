@@ -13,27 +13,27 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomTaskExtension extends CustomCalloutExtension implements Parsable 
 {
     /**
-     * @var CustomExtensionCallbackConfiguration|null $callbackConfiguration The callbackConfiguration property
+     * @var CustomExtensionCallbackConfiguration|null $callbackConfiguration The callback configuration for a custom extension.
     */
     private ?CustomExtensionCallbackConfiguration $callbackConfiguration = null;
     
     /**
-     * @var User|null $createdBy The createdBy property
+     * @var User|null $createdBy The unique identifier of the Azure AD user that created the custom task extension.
     */
     private ?User $createdBy = null;
     
     /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
+     * @var DateTime|null $createdDateTime When the custom task extension was created.
     */
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var User|null $lastModifiedBy The lastModifiedBy property
+     * @var User|null $lastModifiedBy The unique identifier of the Azure AD user that modified the custom task extension last.
     */
     private ?User $lastModifiedBy = null;
     
     /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+     * @var DateTime|null $lastModifiedDateTime When the custom extension was last modified.
     */
     private ?DateTime $lastModifiedDateTime = null;
     
@@ -55,7 +55,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Gets the callbackConfiguration property value. The callbackConfiguration property
+     * Gets the callbackConfiguration property value. The callback configuration for a custom extension.
      * @return CustomExtensionCallbackConfiguration|null
     */
     public function getCallbackConfiguration(): ?CustomExtensionCallbackConfiguration {
@@ -63,7 +63,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. The unique identifier of the Azure AD user that created the custom task extension.
      * @return User|null
     */
     public function getCreatedBy(): ?User {
@@ -71,7 +71,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. When the custom task extension was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -94,7 +94,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. The unique identifier of the Azure AD user that modified the custom task extension last.
      * @return User|null
     */
     public function getLastModifiedBy(): ?User {
@@ -102,7 +102,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. When the custom extension was last modified.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -123,7 +123,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Sets the callbackConfiguration property value. The callbackConfiguration property
+     * Sets the callbackConfiguration property value. The callback configuration for a custom extension.
      *  @param CustomExtensionCallbackConfiguration|null $value Value to set for the callbackConfiguration property.
     */
     public function setCallbackConfiguration(?CustomExtensionCallbackConfiguration $value ): void {
@@ -131,7 +131,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. The unique identifier of the Azure AD user that created the custom task extension.
      *  @param User|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?User $value ): void {
@@ -139,7 +139,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. When the custom task extension was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
@@ -147,7 +147,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. The unique identifier of the Azure AD user that modified the custom task extension last.
      *  @param User|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?User $value ): void {
@@ -155,7 +155,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. When the custom extension was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {

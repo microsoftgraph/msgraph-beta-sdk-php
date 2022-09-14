@@ -20,6 +20,11 @@ class CloudPC extends Entity implements Parsable
     private ?CloudPcConnectivityResult $connectivityResult = null;
     
     /**
+     * @var CloudPcDiskEncryptionState|null $diskEncryptionState The diskEncryptionState property
+    */
+    private ?CloudPcDiskEncryptionState $diskEncryptionState = null;
+    
+    /**
      * @var string|null $displayName The display name of the Cloud PC.
     */
     private ?string $displayName = null;
@@ -115,7 +120,7 @@ class CloudPC extends Entity implements Parsable
     private ?string $userPrincipalName = null;
     
     /**
-     * Instantiates a new CloudPC and sets the default values.
+     * Instantiates a new cloudPC and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -148,6 +153,14 @@ class CloudPC extends Entity implements Parsable
     }
 
     /**
+     * Gets the diskEncryptionState property value. The diskEncryptionState property
+     * @return CloudPcDiskEncryptionState|null
+    */
+    public function getDiskEncryptionState(): ?CloudPcDiskEncryptionState {
+        return $this->diskEncryptionState;
+    }
+
+    /**
      * Gets the displayName property value. The display name of the Cloud PC.
      * @return string|null
     */
@@ -164,6 +177,7 @@ class CloudPC extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'aadDeviceId' => function (ParseNode $n) use ($o) { $o->setAadDeviceId($n->getStringValue()); },
             'connectivityResult' => function (ParseNode $n) use ($o) { $o->setConnectivityResult($n->getObjectValue(array(CloudPcConnectivityResult::class, 'createFromDiscriminatorValue'))); },
+            'diskEncryptionState' => function (ParseNode $n) use ($o) { $o->setDiskEncryptionState($n->getEnumValue(CloudPcDiskEncryptionState::class)); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'gracePeriodEndDateTime' => function (ParseNode $n) use ($o) { $o->setGracePeriodEndDateTime($n->getDateTimeValue()); },
             'imageDisplayName' => function (ParseNode $n) use ($o) { $o->setImageDisplayName($n->getStringValue()); },
@@ -338,6 +352,7 @@ class CloudPC extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('aadDeviceId', $this->aadDeviceId);
         $writer->writeObjectValue('connectivityResult', $this->connectivityResult);
+        $writer->writeEnumValue('diskEncryptionState', $this->diskEncryptionState);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeDateTimeValue('gracePeriodEndDateTime', $this->gracePeriodEndDateTime);
         $writer->writeStringValue('imageDisplayName', $this->imageDisplayName);
@@ -373,6 +388,14 @@ class CloudPC extends Entity implements Parsable
     */
     public function setConnectivityResult(?CloudPcConnectivityResult $value ): void {
         $this->connectivityResult = $value;
+    }
+
+    /**
+     * Sets the diskEncryptionState property value. The diskEncryptionState property
+     *  @param CloudPcDiskEncryptionState|null $value Value to set for the diskEncryptionState property.
+    */
+    public function setDiskEncryptionState(?CloudPcDiskEncryptionState $value ): void {
+        $this->diskEncryptionState = $value;
     }
 
     /**

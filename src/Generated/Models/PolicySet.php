@@ -60,7 +60,7 @@ class PolicySet extends Entity implements Parsable
     private ?PolicySetStatus $status = null;
     
     /**
-     * Instantiates a new policySet and sets the default values.
+     * Instantiates a new PolicySet and sets the default values.
     */
     public function __construct() {
         parent::__construct();

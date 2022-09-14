@@ -109,7 +109,7 @@ class Person extends Entity implements Parsable
     private ?string $yomiCompany = null;
     
     /**
-     * Instantiates a new Person and sets the default values.
+     * Instantiates a new person and sets the default values.
     */
     public function __construct() {
         parent::__construct();

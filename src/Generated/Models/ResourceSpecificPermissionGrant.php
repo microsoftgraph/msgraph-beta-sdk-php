@@ -34,7 +34,7 @@ class ResourceSpecificPermissionGrant extends DirectoryObject implements Parsabl
     private ?string $resourceAppId = null;
     
     /**
-     * Instantiates a new resourceSpecificPermissionGrant and sets the default values.
+     * Instantiates a new ResourceSpecificPermissionGrant and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -27,9 +27,6 @@ use Microsoft\Graph\Beta\Generated\Reports\GetAttackSimulationRepeatOffenders\Ge
 use Microsoft\Graph\Beta\Generated\Reports\GetAttackSimulationSimulationUserCoverage\GetAttackSimulationSimulationUserCoverageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetAttackSimulationTrainingUserCoverage\GetAttackSimulationTrainingUserCoverageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetAzureADApplicationSignInSummaryWithPeriod\GetAzureADApplicationSignInSummaryWithPeriodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\GetAzureADFeatureUsageWithPeriod\GetAzureADFeatureUsageWithPeriodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\GetAzureADLicenseUsageWithPeriod\GetAzureADLicenseUsageWithPeriodRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Reports\GetAzureADUserFeatureUsage\GetAzureADUserFeatureUsageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetBrowserDistributionUserCountsWithPeriod\GetBrowserDistributionUserCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetBrowserUserCountsWithPeriod\GetBrowserUserCountsWithPeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\GetBrowserUserDetailWithPeriod\GetBrowserUserDetailWithPeriodRequestBuilder;
@@ -463,32 +460,6 @@ class ReportsRequestBuilder
     */
     public function getAzureADApplicationSignInSummaryWithPeriod(string $period): GetAzureADApplicationSignInSummaryWithPeriodRequestBuilder {
         return new GetAzureADApplicationSignInSummaryWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
-    }
-
-    /**
-     * Provides operations to call the getAzureADFeatureUsage method.
-     * @param string $period Usage: period='{period}'
-     * @return GetAzureADFeatureUsageWithPeriodRequestBuilder
-    */
-    public function getAzureADFeatureUsageWithPeriod(string $period): GetAzureADFeatureUsageWithPeriodRequestBuilder {
-        return new GetAzureADFeatureUsageWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
-    }
-
-    /**
-     * Provides operations to call the getAzureADLicenseUsage method.
-     * @param string $period Usage: period='{period}'
-     * @return GetAzureADLicenseUsageWithPeriodRequestBuilder
-    */
-    public function getAzureADLicenseUsageWithPeriod(string $period): GetAzureADLicenseUsageWithPeriodRequestBuilder {
-        return new GetAzureADLicenseUsageWithPeriodRequestBuilder($this->pathParameters, $this->requestAdapter, $period);
-    }
-
-    /**
-     * Provides operations to call the getAzureADUserFeatureUsage method.
-     * @return GetAzureADUserFeatureUsageRequestBuilder
-    */
-    public function getAzureADUserFeatureUsage(): GetAzureADUserFeatureUsageRequestBuilder {
-        return new GetAzureADUserFeatureUsageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**

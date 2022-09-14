@@ -8,6 +8,7 @@ use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Me\Drives\Item\Items\Item\Activities\ActivitiesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Drives\Item\Items\Item\Activities\Item\ItemActivityOLDItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Drives\Item\Items\Item\Analytics\AnalyticsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Me\Drives\Item\Items\Item\AssignSensitivityLabel\AssignSensitivityLabelRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Drives\Item\Items\Item\Checkin\CheckinRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Drives\Item\Items\Item\Checkout\CheckoutRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Drives\Item\Items\Item\Children\ChildrenRequestBuilder;
@@ -59,6 +60,13 @@ class DriveItemItemRequestBuilder
     */
     public function analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The assignSensitivityLabel property
+    */
+    public function assignSensitivityLabel(): AssignSensitivityLabelRequestBuilder {
+        return new AssignSensitivityLabelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

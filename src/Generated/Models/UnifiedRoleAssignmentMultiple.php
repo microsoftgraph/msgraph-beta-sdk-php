@@ -64,7 +64,7 @@ class UnifiedRoleAssignmentMultiple extends Entity implements Parsable
     private ?string $roleDefinitionId = null;
     
     /**
-     * Instantiates a new unifiedRoleAssignmentMultiple and sets the default values.
+     * Instantiates a new UnifiedRoleAssignmentMultiple and sets the default values.
     */
     public function __construct() {
         parent::__construct();

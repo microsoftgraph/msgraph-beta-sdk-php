@@ -15,27 +15,27 @@ class WorkflowTemplate extends Entity implements Parsable
     private ?LifecycleWorkflowCategory $category = null;
     
     /**
-     * @var string|null $description The description property
+     * @var string|null $description The description of the workflowTemplate.
     */
     private ?string $description = null;
     
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName The display name of the workflowTemplate. Supports  orderby.
     */
     private ?string $displayName = null;
     
     /**
-     * @var WorkflowExecutionConditions|null $executionConditions The executionConditions property
+     * @var WorkflowExecutionConditions|null $executionConditions Conditions describing when to execute the workflow and the criteria to identify in-scope subject set.
     */
     private ?WorkflowExecutionConditions $executionConditions = null;
     
     /**
-     * @var array<Task>|null $tasks The tasks property
+     * @var array<Task>|null $tasks Represents the configured tasks to execute and their execution sequence within a workflow. This relationship is expanded by default.
     */
     private ?array $tasks = null;
     
     /**
-     * Instantiates a new WorkflowTemplate and sets the default values.
+     * Instantiates a new workflowTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -60,7 +60,7 @@ class WorkflowTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The description of the workflowTemplate.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -68,7 +68,7 @@ class WorkflowTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the workflowTemplate. Supports  orderby.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -76,7 +76,7 @@ class WorkflowTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the executionConditions property value. The executionConditions property
+     * Gets the executionConditions property value. Conditions describing when to execute the workflow and the criteria to identify in-scope subject set.
      * @return WorkflowExecutionConditions|null
     */
     public function getExecutionConditions(): ?WorkflowExecutionConditions {
@@ -99,7 +99,7 @@ class WorkflowTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the tasks property value. The tasks property
+     * Gets the tasks property value. Represents the configured tasks to execute and their execution sequence within a workflow. This relationship is expanded by default.
      * @return array<Task>|null
     */
     public function getTasks(): ?array {
@@ -128,7 +128,7 @@ class WorkflowTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The description of the workflowTemplate.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -136,7 +136,7 @@ class WorkflowTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the workflowTemplate. Supports  orderby.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -144,7 +144,7 @@ class WorkflowTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the executionConditions property value. The executionConditions property
+     * Sets the executionConditions property value. Conditions describing when to execute the workflow and the criteria to identify in-scope subject set.
      *  @param WorkflowExecutionConditions|null $value Value to set for the executionConditions property.
     */
     public function setExecutionConditions(?WorkflowExecutionConditions $value ): void {
@@ -152,7 +152,7 @@ class WorkflowTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the tasks property value. The tasks property
+     * Sets the tasks property value. Represents the configured tasks to execute and their execution sequence within a workflow. This relationship is expanded by default.
      *  @param array<Task>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value ): void {

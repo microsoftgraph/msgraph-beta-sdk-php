@@ -208,10 +208,6 @@ class SearchHit implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('_id', $this->_id);
-        $writer->writeIntegerValue('_score', $this->_score);
-        $writer->writeObjectValue('_source', $this->_source);
-        $writer->writeStringValue('_summary', $this->_summary);
         $writer->writeStringValue('contentSource', $this->contentSource);
         $writer->writeStringValue('hitId', $this->hitId);
         $writer->writeStringValue('@odata.type', $this->odataType);
@@ -219,6 +215,10 @@ class SearchHit implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('resource', $this->resource);
         $writer->writeStringValue('resultTemplateId', $this->resultTemplateId);
         $writer->writeStringValue('summary', $this->summary);
+        $writer->writeStringValue('_id', $this->_id);
+        $writer->writeIntegerValue('_score', $this->_score);
+        $writer->writeObjectValue('_source', $this->_source);
+        $writer->writeStringValue('_summary', $this->_summary);
         $writer->writeAdditionalData($this->additionalData);
     }
 

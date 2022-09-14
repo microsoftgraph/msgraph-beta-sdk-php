@@ -111,9 +111,9 @@ class SearchQuery implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('query_string', $this->query_string);
         $writer->writeStringValue('queryString', $this->queryString);
         $writer->writeStringValue('queryTemplate', $this->queryTemplate);
+        $writer->writeObjectValue('query_string', $this->query_string);
         $writer->writeAdditionalData($this->additionalData);
     }
 

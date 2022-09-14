@@ -22,37 +22,37 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     private ?LifecycleWorkflowCategory $category = null;
     
     /**
-     * @var User|null $createdBy The createdBy property
+     * @var User|null $createdBy The user who created the workflow.
     */
     private ?User $createdBy = null;
     
     /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
+     * @var DateTime|null $createdDateTime When a workflow was created.
     */
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var string|null $description The description property
+     * @var string|null $description A string that describes the purpose of the workflow.
     */
     private ?string $description = null;
     
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName A string to identify the workflow.
     */
     private ?string $displayName = null;
     
     /**
-     * @var WorkflowExecutionConditions|null $executionConditions The executionConditions property
+     * @var WorkflowExecutionConditions|null $executionConditions Defines when and for who the workflow will run.
     */
     private ?WorkflowExecutionConditions $executionConditions = null;
     
     /**
-     * @var User|null $lastModifiedBy The lastModifiedBy property
+     * @var User|null $lastModifiedBy The user who last modified the workflow.
     */
     private ?User $lastModifiedBy = null;
     
     /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
+     * @var DateTime|null $lastModifiedDateTime When the workflow was last modified.
     */
     private ?DateTime $lastModifiedDateTime = null;
     
@@ -62,7 +62,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var array<Task>|null $tasks The tasks property
+     * @var array<Task>|null $tasks The tasks in the workflow.
     */
     private ?array $tasks = null;
     
@@ -108,7 +108,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the createdBy property value. The createdBy property
+     * Gets the createdBy property value. The user who created the workflow.
      * @return User|null
     */
     public function getCreatedBy(): ?User {
@@ -116,7 +116,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. When a workflow was created.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -124,7 +124,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. A string that describes the purpose of the workflow.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -132,7 +132,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. A string to identify the workflow.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -140,7 +140,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the executionConditions property value. The executionConditions property
+     * Gets the executionConditions property value. Defines when and for who the workflow will run.
      * @return WorkflowExecutionConditions|null
     */
     public function getExecutionConditions(): ?WorkflowExecutionConditions {
@@ -168,7 +168,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The lastModifiedBy property
+     * Gets the lastModifiedBy property value. The user who last modified the workflow.
      * @return User|null
     */
     public function getLastModifiedBy(): ?User {
@@ -176,7 +176,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Gets the lastModifiedDateTime property value. When the workflow was last modified.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -192,7 +192,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the tasks property value. The tasks property
+     * Gets the tasks property value. The tasks in the workflow.
      * @return array<Task>|null
     */
     public function getTasks(): ?array {
@@ -234,7 +234,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the createdBy property value. The createdBy property
+     * Sets the createdBy property value. The user who created the workflow.
      *  @param User|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?User $value ): void {
@@ -242,7 +242,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. When a workflow was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
@@ -250,7 +250,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. A string that describes the purpose of the workflow.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -258,7 +258,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. A string to identify the workflow.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -266,7 +266,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the executionConditions property value. The executionConditions property
+     * Sets the executionConditions property value. Defines when and for who the workflow will run.
      *  @param WorkflowExecutionConditions|null $value Value to set for the executionConditions property.
     */
     public function setExecutionConditions(?WorkflowExecutionConditions $value ): void {
@@ -274,7 +274,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The lastModifiedBy property
+     * Sets the lastModifiedBy property value. The user who last modified the workflow.
      *  @param User|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?User $value ): void {
@@ -282,7 +282,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
+     * Sets the lastModifiedDateTime property value. When the workflow was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
@@ -298,7 +298,7 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the tasks property value. The tasks property
+     * Sets the tasks property value. The tasks in the workflow.
      *  @param array<Task>|null $value Value to set for the tasks property.
     */
     public function setTasks(?array $value ): void {

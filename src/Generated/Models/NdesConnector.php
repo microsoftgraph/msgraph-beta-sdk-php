@@ -45,7 +45,7 @@ class NdesConnector extends Entity implements Parsable
     private ?NdesConnectorState $state = null;
     
     /**
-     * Instantiates a new NdesConnector and sets the default values.
+     * Instantiates a new ndesConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();

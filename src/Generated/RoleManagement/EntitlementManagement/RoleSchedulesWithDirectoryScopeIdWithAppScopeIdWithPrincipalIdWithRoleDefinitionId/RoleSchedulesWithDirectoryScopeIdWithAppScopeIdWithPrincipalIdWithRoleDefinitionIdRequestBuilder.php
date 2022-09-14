@@ -37,7 +37,7 @@ class RoleSchedulesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefi
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/roleManagement/entitlementManagement/microsoft.graph.roleSchedules(directoryScopeId=\'{directoryScopeId}\',appScopeId=\'{appScopeId}\',principalId=\'{principalId}\',roleDefinitionId=\'{roleDefinitionId}\'){?directoryScopeId,appScopeId,principalId,roleDefinitionId}';
+        $this->urlTemplate = '{+baseurl}/roleManagement/entitlementManagement/microsoft.graph.roleSchedules(directoryScopeId=\'{directoryScopeId}\',appScopeId=\'{appScopeId}\',principalId=\'{principalId}\',roleDefinitionId=\'{roleDefinitionId}\'){?directoryScopeId*,appScopeId*,principalId*,roleDefinitionId*}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }

@@ -15,6 +15,11 @@ class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
+     * @var AuthenticationStrengthPolicy|null $authenticationStrength The authenticationStrength property
+    */
+    private ?AuthenticationStrengthPolicy $authenticationStrength = null;
+    
+    /**
      * @var array<string>|null $builtInControls List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
     */
     private ?array $builtInControls = null;
@@ -65,6 +70,14 @@ class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the authenticationStrength property value. The authenticationStrength property
+     * @return AuthenticationStrengthPolicy|null
+    */
+    public function getAuthenticationStrength(): ?AuthenticationStrengthPolicy {
+        return $this->authenticationStrength;
+    }
+
+    /**
      * Gets the builtInControls property value. List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
      * @return array<string>|null
     */
@@ -87,6 +100,7 @@ class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'authenticationStrength' => function (ParseNode $n) use ($o) { $o->setAuthenticationStrength($n->getObjectValue(array(AuthenticationStrengthPolicy::class, 'createFromDiscriminatorValue'))); },
             'builtInControls' => function (ParseNode $n) use ($o) { $o->setBuiltInControls($n->getCollectionOfPrimitiveValues()); },
             'customAuthenticationFactors' => function (ParseNode $n) use ($o) { $o->setCustomAuthenticationFactors($n->getCollectionOfPrimitiveValues()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
@@ -124,6 +138,7 @@ class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('authenticationStrength', $this->authenticationStrength);
         $writer->writeCollectionOfPrimitiveValues('builtInControls', $this->builtInControls);
         $writer->writeCollectionOfPrimitiveValues('customAuthenticationFactors', $this->customAuthenticationFactors);
         $writer->writeStringValue('@odata.type', $this->odataType);
@@ -138,6 +153,14 @@ class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the authenticationStrength property value. The authenticationStrength property
+     *  @param AuthenticationStrengthPolicy|null $value Value to set for the authenticationStrength property.
+    */
+    public function setAuthenticationStrength(?AuthenticationStrengthPolicy $value ): void {
+        $this->authenticationStrength = $value;
     }
 
     /**
