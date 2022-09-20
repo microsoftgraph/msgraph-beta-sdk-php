@@ -12,17 +12,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TaskProcessingResult extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $completedDateTime The completedDateTime property
+     * @var DateTime|null $completedDateTime The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.
     */
     private ?DateTime $completedDateTime = null;
     
     /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
+     * @var DateTime|null $createdDateTime The date time when the taskProcessingResult was created. Supports $filter(lt, gt) and orderBy.
     */
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var string|null $failureReason The failureReason property
+     * @var string|null $failureReason Describes why the taskProcessingResult has failed.
     */
     private ?string $failureReason = null;
     
@@ -32,7 +32,7 @@ class TaskProcessingResult extends Entity implements Parsable
     private ?LifecycleWorkflowProcessingStatus $processingStatus = null;
     
     /**
-     * @var DateTime|null $startedDateTime The startedDateTime property
+     * @var DateTime|null $startedDateTime The date time when taskProcessingResult execution started. Value is null if task execution has not yet started. Supports $filter(lt, gt) and orderBy.
     */
     private ?DateTime $startedDateTime = null;
     
@@ -64,7 +64,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. The completedDateTime property
+     * Gets the completedDateTime property value. The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -72,7 +72,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The createdDateTime property
+     * Gets the createdDateTime property value. The date time when the taskProcessingResult was created. Supports $filter(lt, gt) and orderBy.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -80,7 +80,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the failureReason property value. The failureReason property
+     * Gets the failureReason property value. Describes why the taskProcessingResult has failed.
      * @return string|null
     */
     public function getFailureReason(): ?string {
@@ -113,7 +113,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the startedDateTime property value. The startedDateTime property
+     * Gets the startedDateTime property value. The date time when taskProcessingResult execution started. Value is null if task execution has not yet started. Supports $filter(lt, gt) and orderBy.
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
@@ -152,7 +152,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. The completedDateTime property
+     * Sets the completedDateTime property value. The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.
      *  @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value ): void {
@@ -160,7 +160,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The createdDateTime property
+     * Sets the createdDateTime property value. The date time when the taskProcessingResult was created. Supports $filter(lt, gt) and orderBy.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
@@ -168,7 +168,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the failureReason property value. The failureReason property
+     * Sets the failureReason property value. Describes why the taskProcessingResult has failed.
      *  @param string|null $value Value to set for the failureReason property.
     */
     public function setFailureReason(?string $value ): void {
@@ -184,7 +184,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the startedDateTime property value. The startedDateTime property
+     * Sets the startedDateTime property value. The date time when taskProcessingResult execution started. Value is null if task execution has not yet started. Supports $filter(lt, gt) and orderBy.
      *  @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value ): void {

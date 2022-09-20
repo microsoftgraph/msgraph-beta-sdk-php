@@ -11,12 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LifecycleWorkflowsContainer extends Entity implements Parsable 
 {
     /**
-     * @var array<CustomTaskExtension>|null $customTaskExtensions The customTaskExtensions property
+     * @var array<CustomTaskExtension>|null $customTaskExtensions The customTaskExtension instance.
     */
     private ?array $customTaskExtensions = null;
     
     /**
-     * @var DeletedItemContainer|null $deletedItems The deletedItems property
+     * @var DeletedItemContainer|null $deletedItems Deleted workflows in your lifecycle workflows instance.
     */
     private ?DeletedItemContainer $deletedItems = null;
     
@@ -26,17 +26,17 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     private ?LifecycleManagementSettings $settings = null;
     
     /**
-     * @var array<TaskDefinition>|null $taskDefinitions The taskDefinitions property
+     * @var array<TaskDefinition>|null $taskDefinitions The definition of tasks within the lifecycle workflows instance.
     */
     private ?array $taskDefinitions = null;
     
     /**
-     * @var array<Workflow>|null $workflows The workflows property
+     * @var array<Workflow>|null $workflows The workflows in the lifecycle workflows instance.
     */
     private ?array $workflows = null;
     
     /**
-     * @var array<WorkflowTemplate>|null $workflowTemplates The workflowTemplates property
+     * @var array<WorkflowTemplate>|null $workflowTemplates The workflow templates in the lifecycle workflow instance.
     */
     private ?array $workflowTemplates = null;
     
@@ -58,7 +58,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the customTaskExtensions property value. The customTaskExtensions property
+     * Gets the customTaskExtensions property value. The customTaskExtension instance.
      * @return array<CustomTaskExtension>|null
     */
     public function getCustomTaskExtensions(): ?array {
@@ -66,7 +66,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the deletedItems property value. The deletedItems property
+     * Gets the deletedItems property value. Deleted workflows in your lifecycle workflows instance.
      * @return DeletedItemContainer|null
     */
     public function getDeletedItems(): ?DeletedItemContainer {
@@ -98,7 +98,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the taskDefinitions property value. The taskDefinitions property
+     * Gets the taskDefinitions property value. The definition of tasks within the lifecycle workflows instance.
      * @return array<TaskDefinition>|null
     */
     public function getTaskDefinitions(): ?array {
@@ -106,7 +106,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the workflows property value. The workflows property
+     * Gets the workflows property value. The workflows in the lifecycle workflows instance.
      * @return array<Workflow>|null
     */
     public function getWorkflows(): ?array {
@@ -114,7 +114,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     }
 
     /**
-     * Gets the workflowTemplates property value. The workflowTemplates property
+     * Gets the workflowTemplates property value. The workflow templates in the lifecycle workflow instance.
      * @return array<WorkflowTemplate>|null
     */
     public function getWorkflowTemplates(): ?array {
@@ -136,7 +136,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the customTaskExtensions property value. The customTaskExtensions property
+     * Sets the customTaskExtensions property value. The customTaskExtension instance.
      *  @param array<CustomTaskExtension>|null $value Value to set for the customTaskExtensions property.
     */
     public function setCustomTaskExtensions(?array $value ): void {
@@ -144,7 +144,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the deletedItems property value. The deletedItems property
+     * Sets the deletedItems property value. Deleted workflows in your lifecycle workflows instance.
      *  @param DeletedItemContainer|null $value Value to set for the deletedItems property.
     */
     public function setDeletedItems(?DeletedItemContainer $value ): void {
@@ -160,7 +160,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the taskDefinitions property value. The taskDefinitions property
+     * Sets the taskDefinitions property value. The definition of tasks within the lifecycle workflows instance.
      *  @param array<TaskDefinition>|null $value Value to set for the taskDefinitions property.
     */
     public function setTaskDefinitions(?array $value ): void {
@@ -168,7 +168,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the workflows property value. The workflows property
+     * Sets the workflows property value. The workflows in the lifecycle workflows instance.
      *  @param array<Workflow>|null $value Value to set for the workflows property.
     */
     public function setWorkflows(?array $value ): void {
@@ -176,7 +176,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     }
 
     /**
-     * Sets the workflowTemplates property value. The workflowTemplates property
+     * Sets the workflowTemplates property value. The workflow templates in the lifecycle workflow instance.
      *  @param array<WorkflowTemplate>|null $value Value to set for the workflowTemplates property.
     */
     public function setWorkflowTemplates(?array $value ): void {

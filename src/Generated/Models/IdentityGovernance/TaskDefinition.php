@@ -20,22 +20,22 @@ class TaskDefinition extends Entity implements Parsable
     private ?bool $continueOnError = null;
     
     /**
-     * @var string|null $description The description property
+     * @var string|null $description The description of the taskDefinition.
     */
     private ?string $description = null;
     
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName The display name of the taskDefinition.
     */
     private ?string $displayName = null;
     
     /**
-     * @var array<Parameter>|null $parameters The parameters property
+     * @var array<Parameter>|null $parameters The parameters that must be supplied when creating a task.
     */
     private ?array $parameters = null;
     
     /**
-     * @var int|null $version The version property
+     * @var int|null $version The version number of the taskDefinition. New records are pushed when we add support for new parameters.
     */
     private ?int $version = null;
     
@@ -73,7 +73,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The description of the taskDefinition.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -81,7 +81,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the taskDefinition.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -105,7 +105,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the parameters property value. The parameters property
+     * Gets the parameters property value. The parameters that must be supplied when creating a task.
      * @return array<Parameter>|null
     */
     public function getParameters(): ?array {
@@ -113,7 +113,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. The version number of the taskDefinition. New records are pushed when we add support for new parameters.
      * @return int|null
     */
     public function getVersion(): ?int {
@@ -151,7 +151,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The description of the taskDefinition.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -159,7 +159,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the taskDefinition.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -167,7 +167,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the parameters property value. The parameters property
+     * Sets the parameters property value. The parameters that must be supplied when creating a task.
      *  @param array<Parameter>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value ): void {
@@ -175,7 +175,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. The version number of the taskDefinition. New records are pushed when we add support for new parameters.
      *  @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value ): void {

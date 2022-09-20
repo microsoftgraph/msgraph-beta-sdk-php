@@ -25,7 +25,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
     private ?string $odataType = null;
     
     /**
-     * @var array<string>|null $osEditionTypes Applicability rule OS edition type.
+     * @var array<Windows10EditionType>|null $osEditionTypes Applicability rule OS edition type.
     */
     private ?array $osEditionTypes = null;
     
@@ -68,7 +68,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
         return  [
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'osEditionTypes' => function (ParseNode $n) use ($o) { $o->setOsEditionTypes($n->getCollectionOfPrimitiveValues()); },
+            'osEditionTypes' => function (ParseNode $n) use ($o) { $o->setOsEditionTypes($n->getCollectionOfEnumValues(Windows10EditionType::class)); },
             'ruleType' => function (ParseNode $n) use ($o) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
         ];
     }
@@ -91,7 +91,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
 
     /**
      * Gets the osEditionTypes property value. Applicability rule OS edition type.
-     * @return array<string>|null
+     * @return array<Windows10EditionType>|null
     */
     public function getOsEditionTypes(): ?array {
         return $this->osEditionTypes;
@@ -112,7 +112,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('name', $this->name);
         $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfPrimitiveValues('osEditionTypes', $this->osEditionTypes);
+        $writer->writeCollectionOfEnumValues('osEditionTypes', $this->osEditionTypes);
         $writer->writeEnumValue('ruleType', $this->ruleType);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -143,7 +143,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
 
     /**
      * Sets the osEditionTypes property value. Applicability rule OS edition type.
-     *  @param array<string>|null $value Value to set for the osEditionTypes property.
+     *  @param array<Windows10EditionType>|null $value Value to set for the osEditionTypes property.
     */
     public function setOsEditionTypes(?array $value ): void {
         $this->osEditionTypes = $value;

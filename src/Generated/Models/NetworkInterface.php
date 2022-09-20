@@ -15,7 +15,7 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $description Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection <#>, etc.).
+     * @var string|null $description Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
     */
     private ?string $description = null;
     
@@ -70,7 +70,7 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the description property value. Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection <#>, etc.).
+     * Gets the description property value. Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -156,7 +156,7 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the description property value. Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection <#>, etc.).
+     * Sets the description property value. Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {

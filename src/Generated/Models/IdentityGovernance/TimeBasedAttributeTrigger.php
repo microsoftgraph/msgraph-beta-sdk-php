@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TimeBasedAttributeTrigger extends WorkflowExecutionTrigger implements Parsable 
 {
     /**
-     * @var int|null $offsetInDays The offsetInDays property
+     * @var int|null $offsetInDays How many days before or after the time-based attribute specified the workflow should trigger. For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date.
     */
     private ?int $offsetInDays = null;
     
@@ -48,7 +48,7 @@ class TimeBasedAttributeTrigger extends WorkflowExecutionTrigger implements Pars
     }
 
     /**
-     * Gets the offsetInDays property value. The offsetInDays property
+     * Gets the offsetInDays property value. How many days before or after the time-based attribute specified the workflow should trigger. For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date.
      * @return int|null
     */
     public function getOffsetInDays(): ?int {
@@ -74,7 +74,7 @@ class TimeBasedAttributeTrigger extends WorkflowExecutionTrigger implements Pars
     }
 
     /**
-     * Sets the offsetInDays property value. The offsetInDays property
+     * Sets the offsetInDays property value. How many days before or after the time-based attribute specified the workflow should trigger. For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date.
      *  @param int|null $value Value to set for the offsetInDays property.
     */
     public function setOffsetInDays(?int $value ): void {

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUserRegistrationDetails extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $authMethods Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
+     * @var array<RegistrationAuthMethod>|null $authMethods Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
     */
     private ?array $authMethods = null;
     
@@ -62,7 +62,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
 
     /**
      * Gets the authMethods property value. Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
-     * @return array<string>|null
+     * @return array<RegistrationAuthMethod>|null
     */
     public function getAuthMethods(): ?array {
         return $this->authMethods;
@@ -75,7 +75,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authMethods' => function (ParseNode $n) use ($o) { $o->setAuthMethods($n->getCollectionOfPrimitiveValues()); },
+            'authMethods' => function (ParseNode $n) use ($o) { $o->setAuthMethods($n->getCollectionOfEnumValues(RegistrationAuthMethod::class)); },
             'isCapable' => function (ParseNode $n) use ($o) { $o->setIsCapable($n->getBooleanValue()); },
             'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
             'isMfaRegistered' => function (ParseNode $n) use ($o) { $o->setIsMfaRegistered($n->getBooleanValue()); },
@@ -139,7 +139,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('authMethods', $this->authMethods);
+        $writer->writeCollectionOfEnumValues('authMethods', $this->authMethods);
         $writer->writeBooleanValue('isCapable', $this->isCapable);
         $writer->writeBooleanValue('isEnabled', $this->isEnabled);
         $writer->writeBooleanValue('isMfaRegistered', $this->isMfaRegistered);
@@ -150,7 +150,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
 
     /**
      * Sets the authMethods property value. Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
-     *  @param array<string>|null $value Value to set for the authMethods property.
+     *  @param array<RegistrationAuthMethod>|null $value Value to set for the authMethods property.
     */
     public function setAuthMethods(?array $value ): void {
         $this->authMethods = $value;

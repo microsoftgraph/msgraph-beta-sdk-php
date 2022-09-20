@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions implements Parsable 
 {
     /**
-     * @var SubjectSet|null $scope The scope property
+     * @var SubjectSet|null $scope Defines who the workflow runs for.
     */
     private ?SubjectSet $scope = null;
     
     /**
-     * @var WorkflowExecutionTrigger|null $trigger The trigger property
+     * @var WorkflowExecutionTrigger|null $trigger What triggers a workflow to run.
     */
     private ?WorkflowExecutionTrigger $trigger = null;
     
@@ -49,7 +49,7 @@ class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions impleme
     }
 
     /**
-     * Gets the scope property value. The scope property
+     * Gets the scope property value. Defines who the workflow runs for.
      * @return SubjectSet|null
     */
     public function getScope(): ?SubjectSet {
@@ -57,7 +57,7 @@ class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions impleme
     }
 
     /**
-     * Gets the trigger property value. The trigger property
+     * Gets the trigger property value. What triggers a workflow to run.
      * @return WorkflowExecutionTrigger|null
     */
     public function getTrigger(): ?WorkflowExecutionTrigger {
@@ -75,7 +75,7 @@ class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions impleme
     }
 
     /**
-     * Sets the scope property value. The scope property
+     * Sets the scope property value. Defines who the workflow runs for.
      *  @param SubjectSet|null $value Value to set for the scope property.
     */
     public function setScope(?SubjectSet $value ): void {
@@ -83,7 +83,7 @@ class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions impleme
     }
 
     /**
-     * Sets the trigger property value. The trigger property
+     * Sets the trigger property value. What triggers a workflow to run.
      *  @param WorkflowExecutionTrigger|null $value Value to set for the trigger property.
     */
     public function setTrigger(?WorkflowExecutionTrigger $value ): void {

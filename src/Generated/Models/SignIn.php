@@ -25,6 +25,11 @@ class SignIn extends Entity implements Parsable
     private ?array $appliedConditionalAccessPolicies = null;
     
     /**
+     * @var array<AppliedAuthenticationEventListener>|null $appliedEventListeners The appliedEventListeners property
+    */
+    private ?array $appliedEventListeners = null;
+    
+    /**
      * @var array<AuthenticationContext>|null $authenticationContextClassReferences Contains a collection of values that represent the conditional access authentication contexts applied to the sign-in.
     */
     private ?array $authenticationContextClassReferences = null;
@@ -323,13 +328,6 @@ class SignIn extends Entity implements Parsable
      * @return SignIn
     */
     public static function createFromDiscriminatorValue(ParseNode $parseNode): SignIn {
-        $mappingValueNode = $parseNode->getChildNode("@odata.type");
-        if ($mappingValueNode !== null) {
-            $mappingValue = $mappingValueNode->getStringValue();
-            switch ($mappingValue) {
-                case '#microsoft.graph.restrictedSignIn': return new RestrictedSignIn();
-            }
-        }
         return new SignIn();
     }
 
@@ -355,6 +353,14 @@ class SignIn extends Entity implements Parsable
     */
     public function getAppliedConditionalAccessPolicies(): ?array {
         return $this->appliedConditionalAccessPolicies;
+    }
+
+    /**
+     * Gets the appliedEventListeners property value. The appliedEventListeners property
+     * @return array<AppliedAuthenticationEventListener>|null
+    */
+    public function getAppliedEventListeners(): ?array {
+        return $this->appliedEventListeners;
     }
 
     /**
@@ -503,6 +509,7 @@ class SignIn extends Entity implements Parsable
             'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
             'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
             'appliedConditionalAccessPolicies' => function (ParseNode $n) use ($o) { $o->setAppliedConditionalAccessPolicies($n->getCollectionOfObjectValues(array(AppliedConditionalAccessPolicy::class, 'createFromDiscriminatorValue'))); },
+            'appliedEventListeners' => function (ParseNode $n) use ($o) { $o->setAppliedEventListeners($n->getCollectionOfObjectValues(array(AppliedAuthenticationEventListener::class, 'createFromDiscriminatorValue'))); },
             'authenticationContextClassReferences' => function (ParseNode $n) use ($o) { $o->setAuthenticationContextClassReferences($n->getCollectionOfObjectValues(array(AuthenticationContext::class, 'createFromDiscriminatorValue'))); },
             'authenticationDetails' => function (ParseNode $n) use ($o) { $o->setAuthenticationDetails($n->getCollectionOfObjectValues(array(AuthenticationDetail::class, 'createFromDiscriminatorValue'))); },
             'authenticationMethodsUsed' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethodsUsed($n->getCollectionOfPrimitiveValues()); },
@@ -892,6 +899,7 @@ class SignIn extends Entity implements Parsable
         $writer->writeStringValue('appDisplayName', $this->appDisplayName);
         $writer->writeStringValue('appId', $this->appId);
         $writer->writeCollectionOfObjectValues('appliedConditionalAccessPolicies', $this->appliedConditionalAccessPolicies);
+        $writer->writeCollectionOfObjectValues('appliedEventListeners', $this->appliedEventListeners);
         $writer->writeCollectionOfObjectValues('authenticationContextClassReferences', $this->authenticationContextClassReferences);
         $writer->writeCollectionOfObjectValues('authenticationDetails', $this->authenticationDetails);
         $writer->writeCollectionOfPrimitiveValues('authenticationMethodsUsed', $this->authenticationMethodsUsed);
@@ -973,6 +981,14 @@ class SignIn extends Entity implements Parsable
     */
     public function setAppliedConditionalAccessPolicies(?array $value ): void {
         $this->appliedConditionalAccessPolicies = $value;
+    }
+
+    /**
+     * Sets the appliedEventListeners property value. The appliedEventListeners property
+     *  @param array<AppliedAuthenticationEventListener>|null $value Value to set for the appliedEventListeners property.
+    */
+    public function setAppliedEventListeners(?array $value ): void {
+        $this->appliedEventListeners = $value;
     }
 
     /**

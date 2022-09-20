@@ -15,7 +15,7 @@ class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var bool|null $isCaptionEnabled Indicates whether caption is enabled for this Teams live event.
+     * @var bool|null $isCaptionEnabled Indicates whether captions are enabled for this Teams live event.
     */
     private ?bool $isCaptionEnabled = null;
     
@@ -74,7 +74,7 @@ class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the isCaptionEnabled property value. Indicates whether caption is enabled for this Teams live event.
+     * Gets the isCaptionEnabled property value. Indicates whether captions are enabled for this Teams live event.
      * @return bool|null
     */
     public function getIsCaptionEnabled(): ?bool {
@@ -126,7 +126,7 @@ class BroadcastMeetingCaptionSettings implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isCaptionEnabled property value. Indicates whether caption is enabled for this Teams live event.
+     * Sets the isCaptionEnabled property value. Indicates whether captions are enabled for this Teams live event.
      *  @param bool|null $value Value to set for the isCaptionEnabled property.
     */
     public function setIsCaptionEnabled(?bool $value ): void {

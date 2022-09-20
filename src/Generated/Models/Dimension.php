@@ -30,7 +30,7 @@ class Dimension extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * Instantiates a new Dimension and sets the default values.
+     * Instantiates a new dimension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

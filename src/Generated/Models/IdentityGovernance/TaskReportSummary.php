@@ -15,7 +15,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var int|null $failedTasks The failedTasks property
+     * @var int|null $failedTasks The number of failed tasks in a report.
     */
     private ?int $failedTasks = null;
     
@@ -25,17 +25,17 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var int|null $successfulTasks The successfulTasks property
+     * @var int|null $successfulTasks The total number of successful tasks in a report.
     */
     private ?int $successfulTasks = null;
     
     /**
-     * @var int|null $totalTasks The totalTasks property
+     * @var int|null $totalTasks The total number of tasks in a report.
     */
     private ?int $totalTasks = null;
     
     /**
-     * @var int|null $unprocessedTasks The unprocessedTasks property
+     * @var int|null $unprocessedTasks The number of unprocessed tasks in a report.
     */
     private ?int $unprocessedTasks = null;
     
@@ -65,7 +65,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the failedTasks property value. The failedTasks property
+     * Gets the failedTasks property value. The number of failed tasks in a report.
      * @return int|null
     */
     public function getFailedTasks(): ?int {
@@ -96,7 +96,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the successfulTasks property value. The successfulTasks property
+     * Gets the successfulTasks property value. The total number of successful tasks in a report.
      * @return int|null
     */
     public function getSuccessfulTasks(): ?int {
@@ -104,7 +104,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the totalTasks property value. The totalTasks property
+     * Gets the totalTasks property value. The total number of tasks in a report.
      * @return int|null
     */
     public function getTotalTasks(): ?int {
@@ -112,7 +112,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the unprocessedTasks property value. The unprocessedTasks property
+     * Gets the unprocessedTasks property value. The number of unprocessed tasks in a report.
      * @return int|null
     */
     public function getUnprocessedTasks(): ?int {
@@ -141,7 +141,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the failedTasks property value. The failedTasks property
+     * Sets the failedTasks property value. The number of failed tasks in a report.
      *  @param int|null $value Value to set for the failedTasks property.
     */
     public function setFailedTasks(?int $value ): void {
@@ -157,7 +157,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the successfulTasks property value. The successfulTasks property
+     * Sets the successfulTasks property value. The total number of successful tasks in a report.
      *  @param int|null $value Value to set for the successfulTasks property.
     */
     public function setSuccessfulTasks(?int $value ): void {
@@ -165,7 +165,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the totalTasks property value. The totalTasks property
+     * Sets the totalTasks property value. The total number of tasks in a report.
      *  @param int|null $value Value to set for the totalTasks property.
     */
     public function setTotalTasks(?int $value ): void {
@@ -173,7 +173,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the unprocessedTasks property value. The unprocessedTasks property
+     * Sets the unprocessedTasks property value. The number of unprocessed tasks in a report.
      *  @param int|null $value Value to set for the unprocessedTasks property.
     */
     public function setUnprocessedTasks(?int $value ): void {

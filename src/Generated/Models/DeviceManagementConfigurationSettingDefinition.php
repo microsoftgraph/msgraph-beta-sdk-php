@@ -99,7 +99,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     private ?DeviceManagementConfigurationSettingVisibility $visibility = null;
     
     /**
-     * Instantiates a new DeviceManagementConfigurationSettingDefinition and sets the default values.
+     * Instantiates a new deviceManagementConfigurationSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

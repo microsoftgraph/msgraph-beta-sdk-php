@@ -20,6 +20,11 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     private ?array $excludeGroups = null;
     
     /**
+     * @var ConditionalAccessGuestsOrExternalUsers|null $excludeGuestsOrExternalUsers The excludeGuestsOrExternalUsers property
+    */
+    private ?ConditionalAccessGuestsOrExternalUsers $excludeGuestsOrExternalUsers = null;
+    
+    /**
      * @var array<string>|null $excludeRoles Role IDs excluded from scope of policy.
     */
     private ?array $excludeRoles = null;
@@ -33,6 +38,11 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
      * @var array<string>|null $includeGroups Group IDs in scope of policy unless explicitly excluded, or All.
     */
     private ?array $includeGroups = null;
+    
+    /**
+     * @var ConditionalAccessGuestsOrExternalUsers|null $includeGuestsOrExternalUsers The includeGuestsOrExternalUsers property
+    */
+    private ?ConditionalAccessGuestsOrExternalUsers $includeGuestsOrExternalUsers = null;
     
     /**
      * @var array<string>|null $includeRoles Role IDs in scope of policy unless explicitly excluded, or All.
@@ -83,6 +93,14 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the excludeGuestsOrExternalUsers property value. The excludeGuestsOrExternalUsers property
+     * @return ConditionalAccessGuestsOrExternalUsers|null
+    */
+    public function getExcludeGuestsOrExternalUsers(): ?ConditionalAccessGuestsOrExternalUsers {
+        return $this->excludeGuestsOrExternalUsers;
+    }
+
+    /**
      * Gets the excludeRoles property value. Role IDs excluded from scope of policy.
      * @return array<string>|null
     */
@@ -106,9 +124,11 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'excludeGroups' => function (ParseNode $n) use ($o) { $o->setExcludeGroups($n->getCollectionOfPrimitiveValues()); },
+            'excludeGuestsOrExternalUsers' => function (ParseNode $n) use ($o) { $o->setExcludeGuestsOrExternalUsers($n->getObjectValue(array(ConditionalAccessGuestsOrExternalUsers::class, 'createFromDiscriminatorValue'))); },
             'excludeRoles' => function (ParseNode $n) use ($o) { $o->setExcludeRoles($n->getCollectionOfPrimitiveValues()); },
             'excludeUsers' => function (ParseNode $n) use ($o) { $o->setExcludeUsers($n->getCollectionOfPrimitiveValues()); },
             'includeGroups' => function (ParseNode $n) use ($o) { $o->setIncludeGroups($n->getCollectionOfPrimitiveValues()); },
+            'includeGuestsOrExternalUsers' => function (ParseNode $n) use ($o) { $o->setIncludeGuestsOrExternalUsers($n->getObjectValue(array(ConditionalAccessGuestsOrExternalUsers::class, 'createFromDiscriminatorValue'))); },
             'includeRoles' => function (ParseNode $n) use ($o) { $o->setIncludeRoles($n->getCollectionOfPrimitiveValues()); },
             'includeUsers' => function (ParseNode $n) use ($o) { $o->setIncludeUsers($n->getCollectionOfPrimitiveValues()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
@@ -121,6 +141,14 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     */
     public function getIncludeGroups(): ?array {
         return $this->includeGroups;
+    }
+
+    /**
+     * Gets the includeGuestsOrExternalUsers property value. The includeGuestsOrExternalUsers property
+     * @return ConditionalAccessGuestsOrExternalUsers|null
+    */
+    public function getIncludeGuestsOrExternalUsers(): ?ConditionalAccessGuestsOrExternalUsers {
+        return $this->includeGuestsOrExternalUsers;
     }
 
     /**
@@ -153,9 +181,11 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfPrimitiveValues('excludeGroups', $this->excludeGroups);
+        $writer->writeObjectValue('excludeGuestsOrExternalUsers', $this->excludeGuestsOrExternalUsers);
         $writer->writeCollectionOfPrimitiveValues('excludeRoles', $this->excludeRoles);
         $writer->writeCollectionOfPrimitiveValues('excludeUsers', $this->excludeUsers);
         $writer->writeCollectionOfPrimitiveValues('includeGroups', $this->includeGroups);
+        $writer->writeObjectValue('includeGuestsOrExternalUsers', $this->includeGuestsOrExternalUsers);
         $writer->writeCollectionOfPrimitiveValues('includeRoles', $this->includeRoles);
         $writer->writeCollectionOfPrimitiveValues('includeUsers', $this->includeUsers);
         $writer->writeStringValue('@odata.type', $this->odataType);
@@ -176,6 +206,14 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     */
     public function setExcludeGroups(?array $value ): void {
         $this->excludeGroups = $value;
+    }
+
+    /**
+     * Sets the excludeGuestsOrExternalUsers property value. The excludeGuestsOrExternalUsers property
+     *  @param ConditionalAccessGuestsOrExternalUsers|null $value Value to set for the excludeGuestsOrExternalUsers property.
+    */
+    public function setExcludeGuestsOrExternalUsers(?ConditionalAccessGuestsOrExternalUsers $value ): void {
+        $this->excludeGuestsOrExternalUsers = $value;
     }
 
     /**
@@ -200,6 +238,14 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     */
     public function setIncludeGroups(?array $value ): void {
         $this->includeGroups = $value;
+    }
+
+    /**
+     * Sets the includeGuestsOrExternalUsers property value. The includeGuestsOrExternalUsers property
+     *  @param ConditionalAccessGuestsOrExternalUsers|null $value Value to set for the includeGuestsOrExternalUsers property.
+    */
+    public function setIncludeGuestsOrExternalUsers(?ConditionalAccessGuestsOrExternalUsers $value ): void {
+        $this->includeGuestsOrExternalUsers = $value;
     }
 
     /**

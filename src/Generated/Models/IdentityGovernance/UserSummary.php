@@ -15,12 +15,12 @@ class UserSummary implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var int|null $failedTasks The failedTasks property
+     * @var int|null $failedTasks The number of failed tasks for users in a user summary.
     */
     private ?int $failedTasks = null;
     
     /**
-     * @var int|null $failedUsers The failedUsers property
+     * @var int|null $failedUsers The number of failed users in a user summary.
     */
     private ?int $failedUsers = null;
     
@@ -30,17 +30,17 @@ class UserSummary implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var int|null $successfulUsers The successfulUsers property
+     * @var int|null $successfulUsers The number of successful users in a user summary.
     */
     private ?int $successfulUsers = null;
     
     /**
-     * @var int|null $totalTasks The totalTasks property
+     * @var int|null $totalTasks The total tasks of users in a user summary.
     */
     private ?int $totalTasks = null;
     
     /**
-     * @var int|null $totalUsers The totalUsers property
+     * @var int|null $totalUsers The total number of users in a user summary
     */
     private ?int $totalUsers = null;
     
@@ -70,7 +70,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the failedTasks property value. The failedTasks property
+     * Gets the failedTasks property value. The number of failed tasks for users in a user summary.
      * @return int|null
     */
     public function getFailedTasks(): ?int {
@@ -78,7 +78,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the failedUsers property value. The failedUsers property
+     * Gets the failedUsers property value. The number of failed users in a user summary.
      * @return int|null
     */
     public function getFailedUsers(): ?int {
@@ -110,7 +110,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the successfulUsers property value. The successfulUsers property
+     * Gets the successfulUsers property value. The number of successful users in a user summary.
      * @return int|null
     */
     public function getSuccessfulUsers(): ?int {
@@ -118,7 +118,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the totalTasks property value. The totalTasks property
+     * Gets the totalTasks property value. The total tasks of users in a user summary.
      * @return int|null
     */
     public function getTotalTasks(): ?int {
@@ -126,7 +126,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the totalUsers property value. The totalUsers property
+     * Gets the totalUsers property value. The total number of users in a user summary
      * @return int|null
     */
     public function getTotalUsers(): ?int {
@@ -156,7 +156,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the failedTasks property value. The failedTasks property
+     * Sets the failedTasks property value. The number of failed tasks for users in a user summary.
      *  @param int|null $value Value to set for the failedTasks property.
     */
     public function setFailedTasks(?int $value ): void {
@@ -164,7 +164,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the failedUsers property value. The failedUsers property
+     * Sets the failedUsers property value. The number of failed users in a user summary.
      *  @param int|null $value Value to set for the failedUsers property.
     */
     public function setFailedUsers(?int $value ): void {
@@ -180,7 +180,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the successfulUsers property value. The successfulUsers property
+     * Sets the successfulUsers property value. The number of successful users in a user summary.
      *  @param int|null $value Value to set for the successfulUsers property.
     */
     public function setSuccessfulUsers(?int $value ): void {
@@ -188,7 +188,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the totalTasks property value. The totalTasks property
+     * Sets the totalTasks property value. The total tasks of users in a user summary.
      *  @param int|null $value Value to set for the totalTasks property.
     */
     public function setTotalTasks(?int $value ): void {
@@ -196,7 +196,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the totalUsers property value. The totalUsers property
+     * Sets the totalUsers property value. The total number of users in a user summary
      *  @param int|null $value Value to set for the totalUsers property.
     */
     public function setTotalUsers(?int $value ): void {

@@ -3,6 +3,7 @@
 namespace Microsoft\Graph\Beta\Generated\Models\Search;
 
 use DateTime;
+use Microsoft\Graph\Beta\Generated\Models\DevicePlatformType;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -45,7 +46,7 @@ class Bookmark extends SearchAnswer implements Parsable
     private ?array $languageTags = null;
     
     /**
-     * @var array<string>|null $platforms List of devices and operating systems able to view this bookmark. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
+     * @var array<DevicePlatformType>|null $platforms List of devices and operating systems able to view this bookmark. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
     */
     private ?array $platforms = null;
     
@@ -119,7 +120,7 @@ class Bookmark extends SearchAnswer implements Parsable
             'isSuggested' => function (ParseNode $n) use ($o) { $o->setIsSuggested($n->getBooleanValue()); },
             'keywords' => function (ParseNode $n) use ($o) { $o->setKeywords($n->getObjectValue(array(AnswerKeyword::class, 'createFromDiscriminatorValue'))); },
             'languageTags' => function (ParseNode $n) use ($o) { $o->setLanguageTags($n->getCollectionOfPrimitiveValues()); },
-            'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getCollectionOfPrimitiveValues()); },
+            'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getCollectionOfEnumValues(DevicePlatformType::class)); },
             'powerAppIds' => function (ParseNode $n) use ($o) { $o->setPowerAppIds($n->getCollectionOfPrimitiveValues()); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(AnswerState::class)); },
             'targetedVariations' => function (ParseNode $n) use ($o) { $o->setTargetedVariations($n->getCollectionOfObjectValues(array(AnswerVariant::class, 'createFromDiscriminatorValue'))); },
@@ -160,7 +161,7 @@ class Bookmark extends SearchAnswer implements Parsable
 
     /**
      * Gets the platforms property value. List of devices and operating systems able to view this bookmark. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
-     * @return array<string>|null
+     * @return array<DevicePlatformType>|null
     */
     public function getPlatforms(): ?array {
         return $this->platforms;
@@ -203,7 +204,7 @@ class Bookmark extends SearchAnswer implements Parsable
         $writer->writeBooleanValue('isSuggested', $this->isSuggested);
         $writer->writeObjectValue('keywords', $this->keywords);
         $writer->writeCollectionOfPrimitiveValues('languageTags', $this->languageTags);
-        $writer->writeCollectionOfPrimitiveValues('platforms', $this->platforms);
+        $writer->writeCollectionOfEnumValues('platforms', $this->platforms);
         $writer->writeCollectionOfPrimitiveValues('powerAppIds', $this->powerAppIds);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeCollectionOfObjectValues('targetedVariations', $this->targetedVariations);
@@ -267,7 +268,7 @@ class Bookmark extends SearchAnswer implements Parsable
 
     /**
      * Sets the platforms property value. List of devices and operating systems able to view this bookmark. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
-     *  @param array<string>|null $value Value to set for the platforms property.
+     *  @param array<DevicePlatformType>|null $value Value to set for the platforms property.
     */
     public function setPlatforms(?array $value ): void {
         $this->platforms = $value;

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Call extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $activeModalities The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
+     * @var array<Modality>|null $activeModalities The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
     */
     private ?array $activeModalities = null;
     
@@ -99,7 +99,7 @@ class Call extends Entity implements Parsable
     private ?array $participants = null;
     
     /**
-     * @var array<string>|null $requestedModalities The requestedModalities property
+     * @var array<Modality>|null $requestedModalities The requestedModalities property
     */
     private ?array $requestedModalities = null;
     
@@ -114,7 +114,7 @@ class Call extends Entity implements Parsable
     private ?int $ringingTimeoutInSeconds = null;
     
     /**
-     * @var array<string>|null $routingPolicies The routingPolicies property
+     * @var array<RoutingPolicy>|null $routingPolicies The routingPolicies property
     */
     private ?array $routingPolicies = null;
     
@@ -177,7 +177,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Gets the activeModalities property value. The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
-     * @return array<string>|null
+     * @return array<Modality>|null
     */
     public function getActiveModalities(): ?array {
         return $this->activeModalities;
@@ -262,7 +262,7 @@ class Call extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeModalities' => function (ParseNode $n) use ($o) { $o->setActiveModalities($n->getCollectionOfPrimitiveValues()); },
+            'activeModalities' => function (ParseNode $n) use ($o) { $o->setActiveModalities($n->getCollectionOfEnumValues(Modality::class)); },
             'answeredBy' => function (ParseNode $n) use ($o) { $o->setAnsweredBy($n->getObjectValue(array(ParticipantInfo::class, 'createFromDiscriminatorValue'))); },
             'audioRoutingGroups' => function (ParseNode $n) use ($o) { $o->setAudioRoutingGroups($n->getCollectionOfObjectValues(array(AudioRoutingGroup::class, 'createFromDiscriminatorValue'))); },
             'callbackUri' => function (ParseNode $n) use ($o) { $o->setCallbackUri($n->getStringValue()); },
@@ -280,10 +280,10 @@ class Call extends Entity implements Parsable
             'myParticipantId' => function (ParseNode $n) use ($o) { $o->setMyParticipantId($n->getStringValue()); },
             'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(CommsOperation::class, 'createFromDiscriminatorValue'))); },
             'participants' => function (ParseNode $n) use ($o) { $o->setParticipants($n->getCollectionOfObjectValues(array(Participant::class, 'createFromDiscriminatorValue'))); },
-            'requestedModalities' => function (ParseNode $n) use ($o) { $o->setRequestedModalities($n->getCollectionOfPrimitiveValues()); },
+            'requestedModalities' => function (ParseNode $n) use ($o) { $o->setRequestedModalities($n->getCollectionOfEnumValues(Modality::class)); },
             'resultInfo' => function (ParseNode $n) use ($o) { $o->setResultInfo($n->getObjectValue(array(ResultInfo::class, 'createFromDiscriminatorValue'))); },
             'ringingTimeoutInSeconds' => function (ParseNode $n) use ($o) { $o->setRingingTimeoutInSeconds($n->getIntegerValue()); },
-            'routingPolicies' => function (ParseNode $n) use ($o) { $o->setRoutingPolicies($n->getCollectionOfPrimitiveValues()); },
+            'routingPolicies' => function (ParseNode $n) use ($o) { $o->setRoutingPolicies($n->getCollectionOfEnumValues(RoutingPolicy::class)); },
             'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getObjectValue(array(ParticipantInfo::class, 'createFromDiscriminatorValue'))); },
             'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(CallState::class)); },
             'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
@@ -361,7 +361,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Gets the requestedModalities property value. The requestedModalities property
-     * @return array<string>|null
+     * @return array<Modality>|null
     */
     public function getRequestedModalities(): ?array {
         return $this->requestedModalities;
@@ -385,7 +385,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Gets the routingPolicies property value. The routingPolicies property
-     * @return array<string>|null
+     * @return array<RoutingPolicy>|null
     */
     public function getRoutingPolicies(): ?array {
         return $this->routingPolicies;
@@ -461,7 +461,7 @@ class Call extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('activeModalities', $this->activeModalities);
+        $writer->writeCollectionOfEnumValues('activeModalities', $this->activeModalities);
         $writer->writeObjectValue('answeredBy', $this->answeredBy);
         $writer->writeCollectionOfObjectValues('audioRoutingGroups', $this->audioRoutingGroups);
         $writer->writeStringValue('callbackUri', $this->callbackUri);
@@ -479,10 +479,10 @@ class Call extends Entity implements Parsable
         $writer->writeStringValue('myParticipantId', $this->myParticipantId);
         $writer->writeCollectionOfObjectValues('operations', $this->operations);
         $writer->writeCollectionOfObjectValues('participants', $this->participants);
-        $writer->writeCollectionOfPrimitiveValues('requestedModalities', $this->requestedModalities);
+        $writer->writeCollectionOfEnumValues('requestedModalities', $this->requestedModalities);
         $writer->writeObjectValue('resultInfo', $this->resultInfo);
         $writer->writeIntegerValue('ringingTimeoutInSeconds', $this->ringingTimeoutInSeconds);
-        $writer->writeCollectionOfPrimitiveValues('routingPolicies', $this->routingPolicies);
+        $writer->writeCollectionOfEnumValues('routingPolicies', $this->routingPolicies);
         $writer->writeObjectValue('source', $this->source);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeStringValue('subject', $this->subject);
@@ -495,7 +495,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the activeModalities property value. The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.
-     *  @param array<string>|null $value Value to set for the activeModalities property.
+     *  @param array<Modality>|null $value Value to set for the activeModalities property.
     */
     public function setActiveModalities(?array $value ): void {
         $this->activeModalities = $value;
@@ -639,7 +639,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the requestedModalities property value. The requestedModalities property
-     *  @param array<string>|null $value Value to set for the requestedModalities property.
+     *  @param array<Modality>|null $value Value to set for the requestedModalities property.
     */
     public function setRequestedModalities(?array $value ): void {
         $this->requestedModalities = $value;
@@ -663,7 +663,7 @@ class Call extends Entity implements Parsable
 
     /**
      * Sets the routingPolicies property value. The routingPolicies property
-     *  @param array<string>|null $value Value to set for the routingPolicies property.
+     *  @param array<RoutingPolicy>|null $value Value to set for the routingPolicies property.
     */
     public function setRoutingPolicies(?array $value ): void {
         $this->routingPolicies = $value;

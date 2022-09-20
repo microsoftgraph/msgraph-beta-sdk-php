@@ -39,7 +39,7 @@ class UserExperienceAnalyticsBatteryHealthAppImpact extends Entity implements Pa
     private ?bool $isForegroundApp = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthAppImpact and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthAppImpact and sets the default values.
     */
     public function __construct() {
         parent::__construct();

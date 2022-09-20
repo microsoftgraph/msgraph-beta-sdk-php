@@ -19,7 +19,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
     private ?RestrictionAction $restrictionAction = null;
     
     /**
-     * @var array<string>|null $triggers The triggers property
+     * @var array<RestrictionTrigger>|null $triggers The triggers property
     */
     private ?array $triggers = null;
     
@@ -49,7 +49,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
             'restrictionAction' => function (ParseNode $n) use ($o) { $o->setRestrictionAction($n->getEnumValue(RestrictionAction::class)); },
-            'triggers' => function (ParseNode $n) use ($o) { $o->setTriggers($n->getCollectionOfPrimitiveValues()); },
+            'triggers' => function (ParseNode $n) use ($o) { $o->setTriggers($n->getCollectionOfEnumValues(RestrictionTrigger::class)); },
         ]);
     }
 
@@ -71,7 +71,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
 
     /**
      * Gets the triggers property value. The triggers property
-     * @return array<string>|null
+     * @return array<RestrictionTrigger>|null
     */
     public function getTriggers(): ?array {
         return $this->triggers;
@@ -85,7 +85,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('message', $this->message);
         $writer->writeEnumValue('restrictionAction', $this->restrictionAction);
-        $writer->writeCollectionOfPrimitiveValues('triggers', $this->triggers);
+        $writer->writeCollectionOfEnumValues('triggers', $this->triggers);
     }
 
     /**
@@ -106,7 +106,7 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
 
     /**
      * Sets the triggers property value. The triggers property
-     *  @param array<string>|null $value Value to set for the triggers property.
+     *  @param array<RestrictionTrigger>|null $value Value to set for the triggers property.
     */
     public function setTriggers(?array $value ): void {
         $this->triggers = $value;

@@ -35,7 +35,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
     private ?string $payloadId = null;
     
     /**
-     * @var array<string>|null $sources The reason where the link comes from.
+     * @var array<DeviceAndAppManagementAssignmentSource>|null $sources The reason where the link comes from.
     */
     private ?array $sources = null;
     
@@ -83,7 +83,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
             'hasLink' => function (ParseNode $n) use ($o) { $o->setHasLink($n->getBooleanValue()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'payloadId' => function (ParseNode $n) use ($o) { $o->setPayloadId($n->getStringValue()); },
-            'sources' => function (ParseNode $n) use ($o) { $o->setSources($n->getCollectionOfPrimitiveValues()); },
+            'sources' => function (ParseNode $n) use ($o) { $o->setSources($n->getCollectionOfEnumValues(DeviceAndAppManagementAssignmentSource::class)); },
         ];
     }
 
@@ -113,7 +113,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the sources property value. The reason where the link comes from.
-     * @return array<string>|null
+     * @return array<DeviceAndAppManagementAssignmentSource>|null
     */
     public function getSources(): ?array {
         return $this->sources;
@@ -128,7 +128,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('hasLink', $this->hasLink);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('payloadId', $this->payloadId);
-        $writer->writeCollectionOfPrimitiveValues('sources', $this->sources);
+        $writer->writeCollectionOfEnumValues('sources', $this->sources);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -174,7 +174,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the sources property value. The reason where the link comes from.
-     *  @param array<string>|null $value Value to set for the sources property.
+     *  @param array<DeviceAndAppManagementAssignmentSource>|null $value Value to set for the sources property.
     */
     public function setSources(?array $value ): void {
         $this->sources = $value;

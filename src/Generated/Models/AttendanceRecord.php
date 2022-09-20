@@ -19,7 +19,7 @@ class AttendanceRecord extends Entity implements Parsable
     private ?string $emailAddress = null;
     
     /**
-     * @var Identity|null $identity Identity of the user associated with this atttendance record.
+     * @var Identity|null $identity Identity of the user associated with this atttendance record. The specific type will be one of the following derived types of identity, depending on the type of the user: communicationsUserIdentity, azureCommunicationServicesUserIdentity.
     */
     private ?Identity $identity = null;
     
@@ -88,7 +88,7 @@ class AttendanceRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the identity property value. Identity of the user associated with this atttendance record.
+     * Gets the identity property value. Identity of the user associated with this atttendance record. The specific type will be one of the following derived types of identity, depending on the type of the user: communicationsUserIdentity, azureCommunicationServicesUserIdentity.
      * @return Identity|null
     */
     public function getIdentity(): ?Identity {
@@ -150,7 +150,7 @@ class AttendanceRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the identity property value. Identity of the user associated with this atttendance record.
+     * Sets the identity property value. Identity of the user associated with this atttendance record. The specific type will be one of the following derived types of identity, depending on the type of the user: communicationsUserIdentity, azureCommunicationServicesUserIdentity.
      *  @param Identity|null $value Value to set for the identity property.
     */
     public function setIdentity(?Identity $value ): void {

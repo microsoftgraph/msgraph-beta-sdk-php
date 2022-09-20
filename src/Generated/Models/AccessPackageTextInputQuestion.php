@@ -14,7 +14,7 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
     private ?bool $isSingleLineQuestion = null;
     
     /**
-     * @var string|null $regexPattern The regexPattern property
+     * @var string|null $regexPattern This is the regex pattern that the corresponding text answer must follow.
     */
     private ?string $regexPattern = null;
     
@@ -56,7 +56,7 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
     }
 
     /**
-     * Gets the regexPattern property value. The regexPattern property
+     * Gets the regexPattern property value. This is the regex pattern that the corresponding text answer must follow.
      * @return string|null
     */
     public function getRegexPattern(): ?string {
@@ -82,7 +82,7 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
     }
 
     /**
-     * Sets the regexPattern property value. The regexPattern property
+     * Sets the regexPattern property value. This is the regex pattern that the corresponding text answer must follow.
      *  @param string|null $value Value to set for the regexPattern property.
     */
     public function setRegexPattern(?string $value ): void {

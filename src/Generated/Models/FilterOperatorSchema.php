@@ -19,7 +19,7 @@ class FilterOperatorSchema extends Entity implements Parsable
     private ?ScopeOperatorMultiValuedComparisonType $multivaluedComparisonType = null;
     
     /**
-     * @var array<string>|null $supportedAttributeTypes Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
+     * @var array<AttributeType>|null $supportedAttributeTypes Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
     */
     private ?array $supportedAttributeTypes = null;
     
@@ -57,7 +57,7 @@ class FilterOperatorSchema extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'arity' => function (ParseNode $n) use ($o) { $o->setArity($n->getEnumValue(ScopeOperatorType::class)); },
             'multivaluedComparisonType' => function (ParseNode $n) use ($o) { $o->setMultivaluedComparisonType($n->getEnumValue(ScopeOperatorMultiValuedComparisonType::class)); },
-            'supportedAttributeTypes' => function (ParseNode $n) use ($o) { $o->setSupportedAttributeTypes($n->getCollectionOfPrimitiveValues()); },
+            'supportedAttributeTypes' => function (ParseNode $n) use ($o) { $o->setSupportedAttributeTypes($n->getCollectionOfEnumValues(AttributeType::class)); },
         ]);
     }
 
@@ -71,7 +71,7 @@ class FilterOperatorSchema extends Entity implements Parsable
 
     /**
      * Gets the supportedAttributeTypes property value. Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
-     * @return array<string>|null
+     * @return array<AttributeType>|null
     */
     public function getSupportedAttributeTypes(): ?array {
         return $this->supportedAttributeTypes;
@@ -85,7 +85,7 @@ class FilterOperatorSchema extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('arity', $this->arity);
         $writer->writeEnumValue('multivaluedComparisonType', $this->multivaluedComparisonType);
-        $writer->writeCollectionOfPrimitiveValues('supportedAttributeTypes', $this->supportedAttributeTypes);
+        $writer->writeCollectionOfEnumValues('supportedAttributeTypes', $this->supportedAttributeTypes);
     }
 
     /**
@@ -106,7 +106,7 @@ class FilterOperatorSchema extends Entity implements Parsable
 
     /**
      * Sets the supportedAttributeTypes property value. Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
-     *  @param array<string>|null $value Value to set for the supportedAttributeTypes property.
+     *  @param array<AttributeType>|null $value Value to set for the supportedAttributeTypes property.
     */
     public function setSupportedAttributeTypes(?array $value ): void {
         $this->supportedAttributeTypes = $value;

@@ -41,7 +41,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
     private ?DateTime $uploadDateTime = null;
     
     /**
-     * Instantiates a new groupPolicyUploadedDefinitionFile and sets the default values.
+     * Instantiates a new GroupPolicyUploadedDefinitionFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

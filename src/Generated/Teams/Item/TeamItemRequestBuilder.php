@@ -34,6 +34,7 @@ use Microsoft\Graph\Beta\Generated\Teams\Item\SendActivityNotification\SendActiv
 use Microsoft\Graph\Beta\Generated\Teams\Item\Tags\Item\TeamworkTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Template\TemplateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teams\Item\TemplateDefinition\TemplateDefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teams\Item\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -179,6 +180,13 @@ class TeamItemRequestBuilder
     */
     public function template(): TemplateRequestBuilder {
         return new TemplateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The templateDefinition property
+    */
+    public function templateDefinition(): TemplateDefinitionRequestBuilder {
+        return new TemplateDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
