@@ -63,7 +63,7 @@ class OrganizationRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/organization{?%24top,%24search,%24orderby,%24select}';
+        $this->urlTemplate = '{+baseurl}/organization{?%24top*,%24search*,%24orderby,%24select}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }

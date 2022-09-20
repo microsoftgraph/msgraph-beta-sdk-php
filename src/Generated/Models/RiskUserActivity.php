@@ -20,7 +20,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
     private ?RiskDetail $detail = null;
     
     /**
-     * @var array<string>|null $eventTypes The eventTypes property
+     * @var array<RiskEventType>|null $eventTypes The eventTypes property
     */
     private ?array $eventTypes = null;
     
@@ -69,7 +69,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the eventTypes property value. The eventTypes property
-     * @return array<string>|null
+     * @return array<RiskEventType>|null
     */
     public function getEventTypes(): ?array {
         return $this->eventTypes;
@@ -83,7 +83,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getEnumValue(RiskDetail::class)); },
-            'eventTypes' => function (ParseNode $n) use ($o) { $o->setEventTypes($n->getCollectionOfPrimitiveValues()); },
+            'eventTypes' => function (ParseNode $n) use ($o) { $o->setEventTypes($n->getCollectionOfEnumValues(RiskEventType::class)); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'riskEventTypes' => function (ParseNode $n) use ($o) { $o->setRiskEventTypes($n->getCollectionOfPrimitiveValues()); },
         ];
@@ -111,7 +111,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeEnumValue('detail', $this->detail);
-        $writer->writeCollectionOfPrimitiveValues('eventTypes', $this->eventTypes);
+        $writer->writeCollectionOfEnumValues('eventTypes', $this->eventTypes);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfPrimitiveValues('riskEventTypes', $this->riskEventTypes);
         $writer->writeAdditionalData($this->additionalData);
@@ -135,7 +135,7 @@ class RiskUserActivity implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the eventTypes property value. The eventTypes property
-     *  @param array<string>|null $value Value to set for the eventTypes property.
+     *  @param array<RiskEventType>|null $value Value to set for the eventTypes property.
     */
     public function setEventTypes(?array $value ): void {
         $this->eventTypes = $value;

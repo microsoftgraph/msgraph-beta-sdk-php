@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RuleBasedSubjectSet extends SubjectSet implements Parsable 
 {
     /**
-     * @var string|null $rule The rule property
+     * @var string|null $rule The rule for the subject set.
     */
     private ?string $rule = null;
     
@@ -43,7 +43,7 @@ class RuleBasedSubjectSet extends SubjectSet implements Parsable
     }
 
     /**
-     * Gets the rule property value. The rule property
+     * Gets the rule property value. The rule for the subject set.
      * @return string|null
     */
     public function getRule(): ?string {
@@ -60,7 +60,7 @@ class RuleBasedSubjectSet extends SubjectSet implements Parsable
     }
 
     /**
-     * Sets the rule property value. The rule property
+     * Sets the rule property value. The rule for the subject set.
      *  @param string|null $value Value to set for the rule property.
     */
     public function setRule(?string $value ): void {

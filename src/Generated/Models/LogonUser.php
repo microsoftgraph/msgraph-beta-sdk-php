@@ -46,7 +46,7 @@ class LogonUser implements AdditionalDataHolder, Parsable
     private ?string $logonId = null;
     
     /**
-     * @var array<string>|null $logonTypes Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
+     * @var array<LogonType>|null $logonTypes Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
     */
     private ?array $logonTypes = null;
     
@@ -117,7 +117,7 @@ class LogonUser implements AdditionalDataHolder, Parsable
             'firstSeenDateTime' => function (ParseNode $n) use ($o) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
             'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
             'logonId' => function (ParseNode $n) use ($o) { $o->setLogonId($n->getStringValue()); },
-            'logonTypes' => function (ParseNode $n) use ($o) { $o->setLogonTypes($n->getCollectionOfPrimitiveValues()); },
+            'logonTypes' => function (ParseNode $n) use ($o) { $o->setLogonTypes($n->getCollectionOfEnumValues(LogonType::class)); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
     }
@@ -148,7 +148,7 @@ class LogonUser implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-     * @return array<string>|null
+     * @return array<LogonType>|null
     */
     public function getLogonTypes(): ?array {
         return $this->logonTypes;
@@ -173,7 +173,7 @@ class LogonUser implements AdditionalDataHolder, Parsable
         $writer->writeDateTimeValue('firstSeenDateTime', $this->firstSeenDateTime);
         $writer->writeDateTimeValue('lastSeenDateTime', $this->lastSeenDateTime);
         $writer->writeStringValue('logonId', $this->logonId);
-        $writer->writeCollectionOfPrimitiveValues('logonTypes', $this->logonTypes);
+        $writer->writeCollectionOfEnumValues('logonTypes', $this->logonTypes);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -236,7 +236,7 @@ class LogonUser implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the logonTypes property value. Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-     *  @param array<string>|null $value Value to set for the logonTypes property.
+     *  @param array<LogonType>|null $value Value to set for the logonTypes property.
     */
     public function setLogonTypes(?array $value ): void {
         $this->logonTypes = $value;

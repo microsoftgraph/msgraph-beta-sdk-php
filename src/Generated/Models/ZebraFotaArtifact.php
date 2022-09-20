@@ -39,7 +39,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
     private ?string $releaseNotesUrl = null;
     
     /**
-     * Instantiates a new ZebraFotaArtifact and sets the default values.
+     * Instantiates a new zebraFotaArtifact and sets the default values.
     */
     public function __construct() {
         parent::__construct();

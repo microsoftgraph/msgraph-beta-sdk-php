@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedAppProtection extends ManagedAppPolicy implements Parsable 
 {
     /**
-     * @var array<string>|null $allowedDataIngestionLocations Data storage locations where a user may store managed data.
+     * @var array<ManagedAppDataIngestionLocation>|null $allowedDataIngestionLocations Data storage locations where a user may store managed data.
     */
     private ?array $allowedDataIngestionLocations = null;
     
     /**
-     * @var array<string>|null $allowedDataStorageLocations Data storage locations where a user may store managed data.
+     * @var array<ManagedAppDataStorageLocation>|null $allowedDataStorageLocations Data storage locations where a user may store managed data.
     */
     private ?array $allowedDataStorageLocations = null;
     
@@ -263,7 +263,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Gets the allowedDataIngestionLocations property value. Data storage locations where a user may store managed data.
-     * @return array<string>|null
+     * @return array<ManagedAppDataIngestionLocation>|null
     */
     public function getAllowedDataIngestionLocations(): ?array {
         return $this->allowedDataIngestionLocations;
@@ -271,7 +271,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Gets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
-     * @return array<string>|null
+     * @return array<ManagedAppDataStorageLocation>|null
     */
     public function getAllowedDataStorageLocations(): ?array {
         return $this->allowedDataStorageLocations;
@@ -388,8 +388,8 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedDataIngestionLocations' => function (ParseNode $n) use ($o) { $o->setAllowedDataIngestionLocations($n->getCollectionOfPrimitiveValues()); },
-            'allowedDataStorageLocations' => function (ParseNode $n) use ($o) { $o->setAllowedDataStorageLocations($n->getCollectionOfPrimitiveValues()); },
+            'allowedDataIngestionLocations' => function (ParseNode $n) use ($o) { $o->setAllowedDataIngestionLocations($n->getCollectionOfEnumValues(ManagedAppDataIngestionLocation::class)); },
+            'allowedDataStorageLocations' => function (ParseNode $n) use ($o) { $o->setAllowedDataStorageLocations($n->getCollectionOfEnumValues(ManagedAppDataStorageLocation::class)); },
             'allowedInboundDataTransferSources' => function (ParseNode $n) use ($o) { $o->setAllowedInboundDataTransferSources($n->getEnumValue(ManagedAppDataTransferLevel::class)); },
             'allowedOutboundClipboardSharingExceptionLength' => function (ParseNode $n) use ($o) { $o->setAllowedOutboundClipboardSharingExceptionLength($n->getIntegerValue()); },
             'allowedOutboundClipboardSharingLevel' => function (ParseNode $n) use ($o) { $o->setAllowedOutboundClipboardSharingLevel($n->getEnumValue(ManagedAppClipboardSharingLevel::class)); },
@@ -682,8 +682,8 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('allowedDataIngestionLocations', $this->allowedDataIngestionLocations);
-        $writer->writeCollectionOfPrimitiveValues('allowedDataStorageLocations', $this->allowedDataStorageLocations);
+        $writer->writeCollectionOfEnumValues('allowedDataIngestionLocations', $this->allowedDataIngestionLocations);
+        $writer->writeCollectionOfEnumValues('allowedDataStorageLocations', $this->allowedDataStorageLocations);
         $writer->writeEnumValue('allowedInboundDataTransferSources', $this->allowedInboundDataTransferSources);
         $writer->writeIntegerValue('allowedOutboundClipboardSharingExceptionLength', $this->allowedOutboundClipboardSharingExceptionLength);
         $writer->writeEnumValue('allowedOutboundClipboardSharingLevel', $this->allowedOutboundClipboardSharingLevel);
@@ -731,7 +731,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the allowedDataIngestionLocations property value. Data storage locations where a user may store managed data.
-     *  @param array<string>|null $value Value to set for the allowedDataIngestionLocations property.
+     *  @param array<ManagedAppDataIngestionLocation>|null $value Value to set for the allowedDataIngestionLocations property.
     */
     public function setAllowedDataIngestionLocations(?array $value ): void {
         $this->allowedDataIngestionLocations = $value;
@@ -739,7 +739,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
 
     /**
      * Sets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
-     *  @param array<string>|null $value Value to set for the allowedDataStorageLocations property.
+     *  @param array<ManagedAppDataStorageLocation>|null $value Value to set for the allowedDataStorageLocations property.
     */
     public function setAllowedDataStorageLocations(?array $value ): void {
         $this->allowedDataStorageLocations = $value;

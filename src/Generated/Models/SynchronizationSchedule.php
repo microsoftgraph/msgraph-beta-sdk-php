@@ -22,7 +22,7 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
     private ?DateTime $expiration = null;
     
     /**
-     * @var DateInterval|null $interval The interval between synchronization iterations.
+     * @var DateInterval|null $interval The interval between synchronization iterations. The value is represented in ISO 8601 format for durations. For example, PT1M represents a period of 1 month.
     */
     private ?DateInterval $interval = null;
     
@@ -84,7 +84,7 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the interval property value. The interval between synchronization iterations.
+     * Gets the interval property value. The interval between synchronization iterations. The value is represented in ISO 8601 format for durations. For example, PT1M represents a period of 1 month.
      * @return DateInterval|null
     */
     public function getInterval(): ?DateInterval {
@@ -136,7 +136,7 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the interval property value. The interval between synchronization iterations.
+     * Sets the interval property value. The interval between synchronization iterations. The value is represented in ISO 8601 format for durations. For example, PT1M represents a period of 1 month.
      *  @param DateInterval|null $value Value to set for the interval property.
     */
     public function setInterval(?DateInterval $value ): void {

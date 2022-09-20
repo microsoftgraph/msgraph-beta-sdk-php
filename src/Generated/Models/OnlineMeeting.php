@@ -26,11 +26,6 @@ class OnlineMeeting extends Entity implements Parsable
     private ?OnlineMeetingPresenters $allowedPresenters = null;
     
     /**
-     * @var MeetingChatMode|null $allowMeetingChat Specifies the mode of meeting chat.
-    */
-    private ?MeetingChatMode $allowMeetingChat = null;
-    
-    /**
      * @var bool|null $allowTeamworkReactions Indicates if Teams reactions are enabled for the meeting.
     */
     private ?bool $allowTeamworkReactions = null;
@@ -41,7 +36,7 @@ class OnlineMeeting extends Entity implements Parsable
     private ?StreamInterface $alternativeRecording = null;
     
     /**
-     * @var array<string>|null $anonymizeIdentityForRoles The anonymizeIdentityForRoles property
+     * @var array<OnlineMeetingRole>|null $anonymizeIdentityForRoles The anonymizeIdentityForRoles property
     */
     private ?array $anonymizeIdentityForRoles = null;
     
@@ -66,7 +61,7 @@ class OnlineMeeting extends Entity implements Parsable
     private ?BroadcastMeetingSettings $broadcastSettings = null;
     
     /**
-     * @var array<string>|null $capabilities The capabilities property
+     * @var array<MeetingCapabilities>|null $capabilities The capabilities property
     */
     private ?array $capabilities = null;
     
@@ -176,7 +171,7 @@ class OnlineMeeting extends Entity implements Parsable
     private ?VirtualAppointment $virtualAppointment = null;
     
     /**
-     * Instantiates a new onlineMeeting and sets the default values.
+     * Instantiates a new OnlineMeeting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -217,14 +212,6 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Gets the allowMeetingChat property value. Specifies the mode of meeting chat.
-     * @return MeetingChatMode|null
-    */
-    public function getAllowMeetingChat(): ?MeetingChatMode {
-        return $this->allowMeetingChat;
-    }
-
-    /**
      * Gets the allowTeamworkReactions property value. Indicates if Teams reactions are enabled for the meeting.
      * @return bool|null
     */
@@ -242,7 +229,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Gets the anonymizeIdentityForRoles property value. The anonymizeIdentityForRoles property
-     * @return array<string>|null
+     * @return array<OnlineMeetingRole>|null
     */
     public function getAnonymizeIdentityForRoles(): ?array {
         return $this->anonymizeIdentityForRoles;
@@ -282,7 +269,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Gets the capabilities property value. The capabilities property
-     * @return array<string>|null
+     * @return array<MeetingCapabilities>|null
     */
     public function getCapabilities(): ?array {
         return $this->capabilities;
@@ -330,15 +317,14 @@ class OnlineMeeting extends Entity implements Parsable
             'allowAttendeeToEnableCamera' => function (ParseNode $n) use ($o) { $o->setAllowAttendeeToEnableCamera($n->getBooleanValue()); },
             'allowAttendeeToEnableMic' => function (ParseNode $n) use ($o) { $o->setAllowAttendeeToEnableMic($n->getBooleanValue()); },
             'allowedPresenters' => function (ParseNode $n) use ($o) { $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)); },
-            'allowMeetingChat' => function (ParseNode $n) use ($o) { $o->setAllowMeetingChat($n->getEnumValue(MeetingChatMode::class)); },
             'allowTeamworkReactions' => function (ParseNode $n) use ($o) { $o->setAllowTeamworkReactions($n->getBooleanValue()); },
             'alternativeRecording' => function (ParseNode $n) use ($o) { $o->setAlternativeRecording($n->getBinaryContent()); },
-            'anonymizeIdentityForRoles' => function (ParseNode $n) use ($o) { $o->setAnonymizeIdentityForRoles($n->getCollectionOfPrimitiveValues()); },
+            'anonymizeIdentityForRoles' => function (ParseNode $n) use ($o) { $o->setAnonymizeIdentityForRoles($n->getCollectionOfEnumValues(OnlineMeetingRole::class)); },
             'attendanceReports' => function (ParseNode $n) use ($o) { $o->setAttendanceReports($n->getCollectionOfObjectValues(array(MeetingAttendanceReport::class, 'createFromDiscriminatorValue'))); },
             'attendeeReport' => function (ParseNode $n) use ($o) { $o->setAttendeeReport($n->getBinaryContent()); },
             'audioConferencing' => function (ParseNode $n) use ($o) { $o->setAudioConferencing($n->getObjectValue(array(AudioConferencing::class, 'createFromDiscriminatorValue'))); },
             'broadcastSettings' => function (ParseNode $n) use ($o) { $o->setBroadcastSettings($n->getObjectValue(array(BroadcastMeetingSettings::class, 'createFromDiscriminatorValue'))); },
-            'capabilities' => function (ParseNode $n) use ($o) { $o->setCapabilities($n->getCollectionOfPrimitiveValues()); },
+            'capabilities' => function (ParseNode $n) use ($o) { $o->setCapabilities($n->getCollectionOfEnumValues(MeetingCapabilities::class)); },
             'chatInfo' => function (ParseNode $n) use ($o) { $o->setChatInfo($n->getObjectValue(array(ChatInfo::class, 'createFromDiscriminatorValue'))); },
             'creationDateTime' => function (ParseNode $n) use ($o) { $o->setCreationDateTime($n->getDateTimeValue()); },
             'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
@@ -508,15 +494,14 @@ class OnlineMeeting extends Entity implements Parsable
         $writer->writeBooleanValue('allowAttendeeToEnableCamera', $this->allowAttendeeToEnableCamera);
         $writer->writeBooleanValue('allowAttendeeToEnableMic', $this->allowAttendeeToEnableMic);
         $writer->writeEnumValue('allowedPresenters', $this->allowedPresenters);
-        $writer->writeEnumValue('allowMeetingChat', $this->allowMeetingChat);
         $writer->writeBooleanValue('allowTeamworkReactions', $this->allowTeamworkReactions);
         $writer->writeBinaryContent('alternativeRecording', $this->alternativeRecording);
-        $writer->writeCollectionOfPrimitiveValues('anonymizeIdentityForRoles', $this->anonymizeIdentityForRoles);
+        $writer->writeCollectionOfEnumValues('anonymizeIdentityForRoles', $this->anonymizeIdentityForRoles);
         $writer->writeCollectionOfObjectValues('attendanceReports', $this->attendanceReports);
         $writer->writeBinaryContent('attendeeReport', $this->attendeeReport);
         $writer->writeObjectValue('audioConferencing', $this->audioConferencing);
         $writer->writeObjectValue('broadcastSettings', $this->broadcastSettings);
-        $writer->writeCollectionOfPrimitiveValues('capabilities', $this->capabilities);
+        $writer->writeCollectionOfEnumValues('capabilities', $this->capabilities);
         $writer->writeObjectValue('chatInfo', $this->chatInfo);
         $writer->writeDateTimeValue('creationDateTime', $this->creationDateTime);
         $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
@@ -565,14 +550,6 @@ class OnlineMeeting extends Entity implements Parsable
     }
 
     /**
-     * Sets the allowMeetingChat property value. Specifies the mode of meeting chat.
-     *  @param MeetingChatMode|null $value Value to set for the allowMeetingChat property.
-    */
-    public function setAllowMeetingChat(?MeetingChatMode $value ): void {
-        $this->allowMeetingChat = $value;
-    }
-
-    /**
      * Sets the allowTeamworkReactions property value. Indicates if Teams reactions are enabled for the meeting.
      *  @param bool|null $value Value to set for the allowTeamworkReactions property.
     */
@@ -590,7 +567,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the anonymizeIdentityForRoles property value. The anonymizeIdentityForRoles property
-     *  @param array<string>|null $value Value to set for the anonymizeIdentityForRoles property.
+     *  @param array<OnlineMeetingRole>|null $value Value to set for the anonymizeIdentityForRoles property.
     */
     public function setAnonymizeIdentityForRoles(?array $value ): void {
         $this->anonymizeIdentityForRoles = $value;
@@ -630,7 +607,7 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Sets the capabilities property value. The capabilities property
-     *  @param array<string>|null $value Value to set for the capabilities property.
+     *  @param array<MeetingCapabilities>|null $value Value to set for the capabilities property.
     */
     public function setCapabilities(?array $value ): void {
         $this->capabilities = $value;

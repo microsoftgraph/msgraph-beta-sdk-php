@@ -29,7 +29,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     private ?array $extendedKeyUsages = null;
     
     /**
-     * @var array<string>|null $hashAlgorithm SCEP Hash Algorithm.
+     * @var array<HashAlgorithms>|null $hashAlgorithm SCEP Hash Algorithm.
     */
     private ?array $hashAlgorithm = null;
     
@@ -133,7 +133,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
             'certificateValidityPeriodScale' => function (ParseNode $n) use ($o) { $o->setCertificateValidityPeriodScale($n->getEnumValue(CertificateValidityPeriodScale::class)); },
             'certificateValidityPeriodValue' => function (ParseNode $n) use ($o) { $o->setCertificateValidityPeriodValue($n->getIntegerValue()); },
             'extendedKeyUsages' => function (ParseNode $n) use ($o) { $o->setExtendedKeyUsages($n->getCollectionOfObjectValues(array(ExtendedKeyUsage::class, 'createFromDiscriminatorValue'))); },
-            'hashAlgorithm' => function (ParseNode $n) use ($o) { $o->setHashAlgorithm($n->getCollectionOfPrimitiveValues()); },
+            'hashAlgorithm' => function (ParseNode $n) use ($o) { $o->setHashAlgorithm($n->getCollectionOfEnumValues(HashAlgorithms::class)); },
             'keySize' => function (ParseNode $n) use ($o) { $o->setKeySize($n->getEnumValue(KeySize::class)); },
             'keyStorageProvider' => function (ParseNode $n) use ($o) { $o->setKeyStorageProvider($n->getEnumValue(KeyStorageProviderOption::class)); },
             'keyUsage' => function (ParseNode $n) use ($o) { $o->setKeyUsage($n->getEnumValue(KeyUsages::class)); },
@@ -147,7 +147,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Gets the hashAlgorithm property value. SCEP Hash Algorithm.
-     * @return array<string>|null
+     * @return array<HashAlgorithms>|null
     */
     public function getHashAlgorithm(): ?array {
         return $this->hashAlgorithm;
@@ -227,7 +227,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
         $writer->writeEnumValue('certificateValidityPeriodScale', $this->certificateValidityPeriodScale);
         $writer->writeIntegerValue('certificateValidityPeriodValue', $this->certificateValidityPeriodValue);
         $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->extendedKeyUsages);
-        $writer->writeCollectionOfPrimitiveValues('hashAlgorithm', $this->hashAlgorithm);
+        $writer->writeCollectionOfEnumValues('hashAlgorithm', $this->hashAlgorithm);
         $writer->writeEnumValue('keySize', $this->keySize);
         $writer->writeEnumValue('keyStorageProvider', $this->keyStorageProvider);
         $writer->writeEnumValue('keyUsage', $this->keyUsage);
@@ -272,7 +272,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
 
     /**
      * Sets the hashAlgorithm property value. SCEP Hash Algorithm.
-     *  @param array<string>|null $value Value to set for the hashAlgorithm property.
+     *  @param array<HashAlgorithms>|null $value Value to set for the hashAlgorithm property.
     */
     public function setHashAlgorithm(?array $value ): void {
         $this->hashAlgorithm = $value;

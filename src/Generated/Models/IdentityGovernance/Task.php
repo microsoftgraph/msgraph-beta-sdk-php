@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Task extends Entity implements Parsable 
 {
     /**
-     * @var array<KeyValuePair>|null $arguments The arguments property
+     * @var array<KeyValuePair>|null $arguments Arguments included within the task.
     */
     private ?array $arguments = null;
     
@@ -21,37 +21,37 @@ class Task extends Entity implements Parsable
     private ?LifecycleTaskCategory $category = null;
     
     /**
-     * @var bool|null $continueOnError The continueOnError property
+     * @var bool|null $continueOnError A boolean value that determines if the failure of this task stops the subsequent workflows from running.
     */
     private ?bool $continueOnError = null;
     
     /**
-     * @var string|null $description The description property
+     * @var string|null $description A string that describes the purpose of the task for administrative use.
     */
     private ?string $description = null;
     
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName A unique string that identifies the task. Supports $filter(eq) and orderBy.
     */
     private ?string $displayName = null;
     
     /**
-     * @var int|null $executionSequence The executionSequence property
+     * @var int|null $executionSequence An integer that states in what order the task will run in a workflow.
     */
     private ?int $executionSequence = null;
     
     /**
-     * @var bool|null $isEnabled The isEnabled property
+     * @var bool|null $isEnabled A boolean value that denotes whether the task is set to run or not. Supports $filter(eq, ne) and orderBy.
     */
     private ?bool $isEnabled = null;
     
     /**
-     * @var string|null $taskDefinitionId The taskDefinitionId property
+     * @var string|null $taskDefinitionId A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see supported tasks
     */
     private ?string $taskDefinitionId = null;
     
     /**
-     * @var array<TaskProcessingResult>|null $taskProcessingResults The taskProcessingResults property
+     * @var array<TaskProcessingResult>|null $taskProcessingResults The result of processing the task.
     */
     private ?array $taskProcessingResults = null;
     
@@ -73,7 +73,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Gets the arguments property value. The arguments property
+     * Gets the arguments property value. Arguments included within the task.
      * @return array<KeyValuePair>|null
     */
     public function getArguments(): ?array {
@@ -89,7 +89,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Gets the continueOnError property value. The continueOnError property
+     * Gets the continueOnError property value. A boolean value that determines if the failure of this task stops the subsequent workflows from running.
      * @return bool|null
     */
     public function getContinueOnError(): ?bool {
@@ -97,7 +97,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. A string that describes the purpose of the task for administrative use.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -105,7 +105,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. A unique string that identifies the task. Supports $filter(eq) and orderBy.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -113,7 +113,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Gets the executionSequence property value. The executionSequence property
+     * Gets the executionSequence property value. An integer that states in what order the task will run in a workflow.
      * @return int|null
     */
     public function getExecutionSequence(): ?int {
@@ -140,7 +140,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. A boolean value that denotes whether the task is set to run or not. Supports $filter(eq, ne) and orderBy.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -148,7 +148,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Gets the taskDefinitionId property value. The taskDefinitionId property
+     * Gets the taskDefinitionId property value. A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see supported tasks
      * @return string|null
     */
     public function getTaskDefinitionId(): ?string {
@@ -156,7 +156,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Gets the taskProcessingResults property value. The taskProcessingResults property
+     * Gets the taskProcessingResults property value. The result of processing the task.
      * @return array<TaskProcessingResult>|null
     */
     public function getTaskProcessingResults(): ?array {
@@ -181,7 +181,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Sets the arguments property value. The arguments property
+     * Sets the arguments property value. Arguments included within the task.
      *  @param array<KeyValuePair>|null $value Value to set for the arguments property.
     */
     public function setArguments(?array $value ): void {
@@ -197,7 +197,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Sets the continueOnError property value. The continueOnError property
+     * Sets the continueOnError property value. A boolean value that determines if the failure of this task stops the subsequent workflows from running.
      *  @param bool|null $value Value to set for the continueOnError property.
     */
     public function setContinueOnError(?bool $value ): void {
@@ -205,7 +205,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. A string that describes the purpose of the task for administrative use.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -213,7 +213,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. A unique string that identifies the task. Supports $filter(eq) and orderBy.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -221,7 +221,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Sets the executionSequence property value. The executionSequence property
+     * Sets the executionSequence property value. An integer that states in what order the task will run in a workflow.
      *  @param int|null $value Value to set for the executionSequence property.
     */
     public function setExecutionSequence(?int $value ): void {
@@ -229,7 +229,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. A boolean value that denotes whether the task is set to run or not. Supports $filter(eq, ne) and orderBy.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value ): void {
@@ -237,7 +237,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Sets the taskDefinitionId property value. The taskDefinitionId property
+     * Sets the taskDefinitionId property value. A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see supported tasks
      *  @param string|null $value Value to set for the taskDefinitionId property.
     */
     public function setTaskDefinitionId(?string $value ): void {
@@ -245,7 +245,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Sets the taskProcessingResults property value. The taskProcessingResults property
+     * Sets the taskProcessingResults property value. The result of processing the task.
      *  @param array<TaskProcessingResult>|null $value Value to set for the taskProcessingResults property.
     */
     public function setTaskProcessingResults(?array $value ): void {

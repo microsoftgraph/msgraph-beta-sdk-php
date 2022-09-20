@@ -100,7 +100,7 @@ class MobileThreatDefenseConnector extends Entity implements Parsable
     private ?bool $windowsMobileApplicationManagementEnabled = null;
     
     /**
-     * Instantiates a new mobileThreatDefenseConnector and sets the default values.
+     * Instantiates a new MobileThreatDefenseConnector and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -45,7 +45,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     private ?OfficeSuiteDefaultFileFormatType $officeSuiteAppDefaultFileFormat = null;
     
     /**
-     * @var array<string>|null $productIds The Product Ids that represent the Office365 Suite SKU.
+     * @var array<OfficeProductId>|null $productIds The Product Ids that represent the Office365 Suite SKU.
     */
     private ?array $productIds = null;
     
@@ -121,7 +121,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
             'officeConfigurationXml' => function (ParseNode $n) use ($o) { $o->setOfficeConfigurationXml($n->getBinaryContent()); },
             'officePlatformArchitecture' => function (ParseNode $n) use ($o) { $o->setOfficePlatformArchitecture($n->getEnumValue(WindowsArchitecture::class)); },
             'officeSuiteAppDefaultFileFormat' => function (ParseNode $n) use ($o) { $o->setOfficeSuiteAppDefaultFileFormat($n->getEnumValue(OfficeSuiteDefaultFileFormatType::class)); },
-            'productIds' => function (ParseNode $n) use ($o) { $o->setProductIds($n->getCollectionOfPrimitiveValues()); },
+            'productIds' => function (ParseNode $n) use ($o) { $o->setProductIds($n->getCollectionOfEnumValues(OfficeProductId::class)); },
             'shouldUninstallOlderVersionsOfOffice' => function (ParseNode $n) use ($o) { $o->setShouldUninstallOlderVersionsOfOffice($n->getBooleanValue()); },
             'targetVersion' => function (ParseNode $n) use ($o) { $o->setTargetVersion($n->getStringValue()); },
             'updateChannel' => function (ParseNode $n) use ($o) { $o->setUpdateChannel($n->getEnumValue(OfficeUpdateChannel::class)); },
@@ -172,7 +172,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Gets the productIds property value. The Product Ids that represent the Office365 Suite SKU.
-     * @return array<string>|null
+     * @return array<OfficeProductId>|null
     */
     public function getProductIds(): ?array {
         return $this->productIds;
@@ -231,7 +231,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
         $writer->writeBinaryContent('officeConfigurationXml', $this->officeConfigurationXml);
         $writer->writeEnumValue('officePlatformArchitecture', $this->officePlatformArchitecture);
         $writer->writeEnumValue('officeSuiteAppDefaultFileFormat', $this->officeSuiteAppDefaultFileFormat);
-        $writer->writeCollectionOfPrimitiveValues('productIds', $this->productIds);
+        $writer->writeCollectionOfEnumValues('productIds', $this->productIds);
         $writer->writeBooleanValue('shouldUninstallOlderVersionsOfOffice', $this->shouldUninstallOlderVersionsOfOffice);
         $writer->writeStringValue('targetVersion', $this->targetVersion);
         $writer->writeEnumValue('updateChannel', $this->updateChannel);
@@ -297,7 +297,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Sets the productIds property value. The Product Ids that represent the Office365 Suite SKU.
-     *  @param array<string>|null $value Value to set for the productIds property.
+     *  @param array<OfficeProductId>|null $value Value to set for the productIds property.
     */
     public function setProductIds(?array $value ): void {
         $this->productIds = $value;

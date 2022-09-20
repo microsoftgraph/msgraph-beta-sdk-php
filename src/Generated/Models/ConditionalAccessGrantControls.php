@@ -15,7 +15,12 @@ class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var array<string>|null $builtInControls List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
+     * @var AuthenticationStrengthPolicy|null $authenticationStrength The authenticationStrength property
+    */
+    private ?AuthenticationStrengthPolicy $authenticationStrength = null;
+    
+    /**
+     * @var array<ConditionalAccessGrantControl>|null $builtInControls List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
     */
     private ?array $builtInControls = null;
     
@@ -65,8 +70,16 @@ class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the authenticationStrength property value. The authenticationStrength property
+     * @return AuthenticationStrengthPolicy|null
+    */
+    public function getAuthenticationStrength(): ?AuthenticationStrengthPolicy {
+        return $this->authenticationStrength;
+    }
+
+    /**
      * Gets the builtInControls property value. List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
-     * @return array<string>|null
+     * @return array<ConditionalAccessGrantControl>|null
     */
     public function getBuiltInControls(): ?array {
         return $this->builtInControls;
@@ -87,7 +100,8 @@ class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'builtInControls' => function (ParseNode $n) use ($o) { $o->setBuiltInControls($n->getCollectionOfPrimitiveValues()); },
+            'authenticationStrength' => function (ParseNode $n) use ($o) { $o->setAuthenticationStrength($n->getObjectValue(array(AuthenticationStrengthPolicy::class, 'createFromDiscriminatorValue'))); },
+            'builtInControls' => function (ParseNode $n) use ($o) { $o->setBuiltInControls($n->getCollectionOfEnumValues(ConditionalAccessGrantControl::class)); },
             'customAuthenticationFactors' => function (ParseNode $n) use ($o) { $o->setCustomAuthenticationFactors($n->getCollectionOfPrimitiveValues()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'operator' => function (ParseNode $n) use ($o) { $o->setOperator($n->getStringValue()); },
@@ -124,7 +138,8 @@ class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('builtInControls', $this->builtInControls);
+        $writer->writeObjectValue('authenticationStrength', $this->authenticationStrength);
+        $writer->writeCollectionOfEnumValues('builtInControls', $this->builtInControls);
         $writer->writeCollectionOfPrimitiveValues('customAuthenticationFactors', $this->customAuthenticationFactors);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('operator', $this->operator);
@@ -141,8 +156,16 @@ class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Sets the authenticationStrength property value. The authenticationStrength property
+     *  @param AuthenticationStrengthPolicy|null $value Value to set for the authenticationStrength property.
+    */
+    public function setAuthenticationStrength(?AuthenticationStrengthPolicy $value ): void {
+        $this->authenticationStrength = $value;
+    }
+
+    /**
      * Sets the builtInControls property value. List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
-     *  @param array<string>|null $value Value to set for the builtInControls property.
+     *  @param array<ConditionalAccessGrantControl>|null $value Value to set for the builtInControls property.
     */
     public function setBuiltInControls(?array $value ): void {
         $this->builtInControls = $value;

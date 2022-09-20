@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomTaskExtensionCallbackData extends CustomExtensionData implements Parsable 
 {
     /**
-     * @var CustomTaskExtensionOperationStatus|null $operationStatus The operationStatus property
+     * @var CustomTaskExtensionOperationStatus|null $operationStatus Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
     */
     private ?CustomTaskExtensionOperationStatus $operationStatus = null;
     
@@ -43,7 +43,7 @@ class CustomTaskExtensionCallbackData extends CustomExtensionData implements Par
     }
 
     /**
-     * Gets the operationStatus property value. The operationStatus property
+     * Gets the operationStatus property value. Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
      * @return CustomTaskExtensionOperationStatus|null
     */
     public function getOperationStatus(): ?CustomTaskExtensionOperationStatus {
@@ -60,7 +60,7 @@ class CustomTaskExtensionCallbackData extends CustomExtensionData implements Par
     }
 
     /**
-     * Sets the operationStatus property value. The operationStatus property
+     * Sets the operationStatus property value. Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
      *  @param CustomTaskExtensionOperationStatus|null $value Value to set for the operationStatus property.
     */
     public function setOperationStatus(?CustomTaskExtensionOperationStatus $value ): void {

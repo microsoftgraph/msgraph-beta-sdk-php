@@ -34,7 +34,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     private ?bool $requiresAzureAd = null;
     
     /**
-     * @var array<string>|null $windowsSkus List of Windows SKUs that the setting is applicable for
+     * @var array<DeviceManagementConfigurationWindowsSkus>|null $windowsSkus List of Windows SKUs that the setting is applicable for
     */
     private ?array $windowsSkus = null;
     
@@ -75,7 +75,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
             'minimumSupportedVersion' => function (ParseNode $n) use ($o) { $o->setMinimumSupportedVersion($n->getStringValue()); },
             'requiredAzureAdTrustType' => function (ParseNode $n) use ($o) { $o->setRequiredAzureAdTrustType($n->getEnumValue(DeviceManagementConfigurationAzureAdTrustType::class)); },
             'requiresAzureAd' => function (ParseNode $n) use ($o) { $o->setRequiresAzureAd($n->getBooleanValue()); },
-            'windowsSkus' => function (ParseNode $n) use ($o) { $o->setWindowsSkus($n->getCollectionOfPrimitiveValues()); },
+            'windowsSkus' => function (ParseNode $n) use ($o) { $o->setWindowsSkus($n->getCollectionOfEnumValues(DeviceManagementConfigurationWindowsSkus::class)); },
         ]);
     }
 
@@ -113,7 +113,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
 
     /**
      * Gets the windowsSkus property value. List of Windows SKUs that the setting is applicable for
-     * @return array<string>|null
+     * @return array<DeviceManagementConfigurationWindowsSkus>|null
     */
     public function getWindowsSkus(): ?array {
         return $this->windowsSkus;
@@ -130,7 +130,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
         $writer->writeStringValue('minimumSupportedVersion', $this->minimumSupportedVersion);
         $writer->writeEnumValue('requiredAzureAdTrustType', $this->requiredAzureAdTrustType);
         $writer->writeBooleanValue('requiresAzureAd', $this->requiresAzureAd);
-        $writer->writeCollectionOfPrimitiveValues('windowsSkus', $this->windowsSkus);
+        $writer->writeCollectionOfEnumValues('windowsSkus', $this->windowsSkus);
     }
 
     /**
@@ -175,7 +175,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
 
     /**
      * Sets the windowsSkus property value. List of Windows SKUs that the setting is applicable for
-     *  @param array<string>|null $value Value to set for the windowsSkus property.
+     *  @param array<DeviceManagementConfigurationWindowsSkus>|null $value Value to set for the windowsSkus property.
     */
     public function setWindowsSkus(?array $value ): void {
         $this->windowsSkus = $value;

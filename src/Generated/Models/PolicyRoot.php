@@ -45,6 +45,11 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     private ?AuthenticationMethodsPolicy $authenticationMethodsPolicy = null;
     
     /**
+     * @var array<AuthenticationStrengthPolicy>|null $authenticationStrengthPolicies The authenticationStrengthPolicies property
+    */
+    private ?array $authenticationStrengthPolicies = null;
+    
+    /**
      * @var array<AuthorizationPolicy>|null $authorizationPolicy The policy that controls Azure AD authorization settings.
     */
     private ?array $authorizationPolicy = null;
@@ -223,6 +228,14 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the authenticationStrengthPolicies property value. The authenticationStrengthPolicies property
+     * @return array<AuthenticationStrengthPolicy>|null
+    */
+    public function getAuthenticationStrengthPolicies(): ?array {
+        return $this->authenticationStrengthPolicies;
+    }
+
+    /**
      * Gets the authorizationPolicy property value. The policy that controls Azure AD authorization settings.
      * @return array<AuthorizationPolicy>|null
     */
@@ -315,6 +328,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
             'appManagementPolicies' => function (ParseNode $n) use ($o) { $o->setAppManagementPolicies($n->getCollectionOfObjectValues(array(AppManagementPolicy::class, 'createFromDiscriminatorValue'))); },
             'authenticationFlowsPolicy' => function (ParseNode $n) use ($o) { $o->setAuthenticationFlowsPolicy($n->getObjectValue(array(AuthenticationFlowsPolicy::class, 'createFromDiscriminatorValue'))); },
             'authenticationMethodsPolicy' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethodsPolicy($n->getObjectValue(array(AuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'))); },
+            'authenticationStrengthPolicies' => function (ParseNode $n) use ($o) { $o->setAuthenticationStrengthPolicies($n->getCollectionOfObjectValues(array(AuthenticationStrengthPolicy::class, 'createFromDiscriminatorValue'))); },
             'authorizationPolicy' => function (ParseNode $n) use ($o) { $o->setAuthorizationPolicy($n->getCollectionOfObjectValues(array(AuthorizationPolicy::class, 'createFromDiscriminatorValue'))); },
             'b2cAuthenticationMethodsPolicy' => function (ParseNode $n) use ($o) { $o->setB2cAuthenticationMethodsPolicy($n->getObjectValue(array(B2cAuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'))); },
             'claimsMappingPolicies' => function (ParseNode $n) use ($o) { $o->setClaimsMappingPolicies($n->getCollectionOfObjectValues(array(ClaimsMappingPolicy::class, 'createFromDiscriminatorValue'))); },
@@ -438,6 +452,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfObjectValues('appManagementPolicies', $this->appManagementPolicies);
         $writer->writeObjectValue('authenticationFlowsPolicy', $this->authenticationFlowsPolicy);
         $writer->writeObjectValue('authenticationMethodsPolicy', $this->authenticationMethodsPolicy);
+        $writer->writeCollectionOfObjectValues('authenticationStrengthPolicies', $this->authenticationStrengthPolicies);
         $writer->writeCollectionOfObjectValues('authorizationPolicy', $this->authorizationPolicy);
         $writer->writeObjectValue('b2cAuthenticationMethodsPolicy', $this->b2cAuthenticationMethodsPolicy);
         $writer->writeCollectionOfObjectValues('claimsMappingPolicies', $this->claimsMappingPolicies);
@@ -516,6 +531,14 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     */
     public function setAuthenticationMethodsPolicy(?AuthenticationMethodsPolicy $value ): void {
         $this->authenticationMethodsPolicy = $value;
+    }
+
+    /**
+     * Sets the authenticationStrengthPolicies property value. The authenticationStrengthPolicies property
+     *  @param array<AuthenticationStrengthPolicy>|null $value Value to set for the authenticationStrengthPolicies property.
+    */
+    public function setAuthenticationStrengthPolicies(?array $value ): void {
+        $this->authenticationStrengthPolicies = $value;
     }
 
     /**

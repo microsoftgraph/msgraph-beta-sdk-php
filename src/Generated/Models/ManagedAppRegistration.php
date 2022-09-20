@@ -60,7 +60,7 @@ class ManagedAppRegistration extends Entity implements Parsable
     private ?string $deviceType = null;
     
     /**
-     * @var array<string>|null $flaggedReasons Zero or more reasons an app registration is flagged. E.g. app running on rooted device
+     * @var array<ManagedAppFlaggedReason>|null $flaggedReasons Zero or more reasons an app registration is flagged. E.g. app running on rooted device
     */
     private ?array $flaggedReasons = null;
     
@@ -226,7 +226,7 @@ class ManagedAppRegistration extends Entity implements Parsable
             'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
             'deviceTag' => function (ParseNode $n) use ($o) { $o->setDeviceTag($n->getStringValue()); },
             'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getStringValue()); },
-            'flaggedReasons' => function (ParseNode $n) use ($o) { $o->setFlaggedReasons($n->getCollectionOfPrimitiveValues()); },
+            'flaggedReasons' => function (ParseNode $n) use ($o) { $o->setFlaggedReasons($n->getCollectionOfEnumValues(ManagedAppFlaggedReason::class)); },
             'intendedPolicies' => function (ParseNode $n) use ($o) { $o->setIntendedPolicies($n->getCollectionOfObjectValues(array(ManagedAppPolicy::class, 'createFromDiscriminatorValue'))); },
             'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
             'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
@@ -240,7 +240,7 @@ class ManagedAppRegistration extends Entity implements Parsable
 
     /**
      * Gets the flaggedReasons property value. Zero or more reasons an app registration is flagged. E.g. app running on rooted device
-     * @return array<string>|null
+     * @return array<ManagedAppFlaggedReason>|null
     */
     public function getFlaggedReasons(): ?array {
         return $this->flaggedReasons;
@@ -326,7 +326,7 @@ class ManagedAppRegistration extends Entity implements Parsable
         $writer->writeStringValue('deviceName', $this->deviceName);
         $writer->writeStringValue('deviceTag', $this->deviceTag);
         $writer->writeStringValue('deviceType', $this->deviceType);
-        $writer->writeCollectionOfPrimitiveValues('flaggedReasons', $this->flaggedReasons);
+        $writer->writeCollectionOfEnumValues('flaggedReasons', $this->flaggedReasons);
         $writer->writeCollectionOfObjectValues('intendedPolicies', $this->intendedPolicies);
         $writer->writeDateTimeValue('lastSyncDateTime', $this->lastSyncDateTime);
         $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
@@ -419,7 +419,7 @@ class ManagedAppRegistration extends Entity implements Parsable
 
     /**
      * Sets the flaggedReasons property value. Zero or more reasons an app registration is flagged. E.g. app running on rooted device
-     *  @param array<string>|null $value Value to set for the flaggedReasons property.
+     *  @param array<ManagedAppFlaggedReason>|null $value Value to set for the flaggedReasons property.
     */
     public function setFlaggedReasons(?array $value ): void {
         $this->flaggedReasons = $value;

@@ -12,12 +12,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserProcessingResult extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $completedDateTime The completedDateTime property
+     * @var DateTime|null $completedDateTime The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed. Supports $filter(lt, gt) and $orderby.
     */
     private ?DateTime $completedDateTime = null;
     
     /**
-     * @var int|null $failedTasksCount The failedTasksCount property
+     * @var int|null $failedTasksCount The number of tasks that failed in the workflow execution.
     */
     private ?int $failedTasksCount = null;
     
@@ -27,12 +27,12 @@ class UserProcessingResult extends Entity implements Parsable
     private ?LifecycleWorkflowProcessingStatus $processingStatus = null;
     
     /**
-     * @var DateTime|null $scheduledDateTime The scheduledDateTime property
+     * @var DateTime|null $scheduledDateTime The date time that the workflow is scheduled to be executed for a user.
     */
     private ?DateTime $scheduledDateTime = null;
     
     /**
-     * @var DateTime|null $startedDateTime The startedDateTime property
+     * @var DateTime|null $startedDateTime The date time that the workflow execution started. Value is null if the workflow execution has not started. Supports $filter(lt, gt) and $orderby.
     */
     private ?DateTime $startedDateTime = null;
     
@@ -42,17 +42,17 @@ class UserProcessingResult extends Entity implements Parsable
     private ?User $subject = null;
     
     /**
-     * @var array<TaskProcessingResult>|null $taskProcessingResults The taskProcessingResults property
+     * @var array<TaskProcessingResult>|null $taskProcessingResults The associated individual task execution.
     */
     private ?array $taskProcessingResults = null;
     
     /**
-     * @var int|null $totalTasksCount The totalTasksCount property
+     * @var int|null $totalTasksCount The total number of tasks that in the workflow execution.
     */
     private ?int $totalTasksCount = null;
     
     /**
-     * @var int|null $totalUnprocessedTasksCount The totalUnprocessedTasksCount property
+     * @var int|null $totalUnprocessedTasksCount The total number of unprocessed tasks for the workflow.
     */
     private ?int $totalUnprocessedTasksCount = null;
     
@@ -62,7 +62,7 @@ class UserProcessingResult extends Entity implements Parsable
     private ?WorkflowExecutionType $workflowExecutionType = null;
     
     /**
-     * @var int|null $workflowVersion The workflowVersion property
+     * @var int|null $workflowVersion The version of the workflow that was executed.
     */
     private ?int $workflowVersion = null;
     
@@ -84,7 +84,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. The completedDateTime property
+     * Gets the completedDateTime property value. The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed. Supports $filter(lt, gt) and $orderby.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -92,7 +92,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the failedTasksCount property value. The failedTasksCount property
+     * Gets the failedTasksCount property value. The number of tasks that failed in the workflow execution.
      * @return int|null
     */
     public function getFailedTasksCount(): ?int {
@@ -129,7 +129,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the scheduledDateTime property value. The scheduledDateTime property
+     * Gets the scheduledDateTime property value. The date time that the workflow is scheduled to be executed for a user.
      * @return DateTime|null
     */
     public function getScheduledDateTime(): ?DateTime {
@@ -137,7 +137,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the startedDateTime property value. The startedDateTime property
+     * Gets the startedDateTime property value. The date time that the workflow execution started. Value is null if the workflow execution has not started. Supports $filter(lt, gt) and $orderby.
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
@@ -153,7 +153,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the taskProcessingResults property value. The taskProcessingResults property
+     * Gets the taskProcessingResults property value. The associated individual task execution.
      * @return array<TaskProcessingResult>|null
     */
     public function getTaskProcessingResults(): ?array {
@@ -161,7 +161,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalTasksCount property value. The totalTasksCount property
+     * Gets the totalTasksCount property value. The total number of tasks that in the workflow execution.
      * @return int|null
     */
     public function getTotalTasksCount(): ?int {
@@ -169,7 +169,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalUnprocessedTasksCount property value. The totalUnprocessedTasksCount property
+     * Gets the totalUnprocessedTasksCount property value. The total number of unprocessed tasks for the workflow.
      * @return int|null
     */
     public function getTotalUnprocessedTasksCount(): ?int {
@@ -185,7 +185,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the workflowVersion property value. The workflowVersion property
+     * Gets the workflowVersion property value. The version of the workflow that was executed.
      * @return int|null
     */
     public function getWorkflowVersion(): ?int {
@@ -212,7 +212,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. The completedDateTime property
+     * Sets the completedDateTime property value. The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed. Supports $filter(lt, gt) and $orderby.
      *  @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value ): void {
@@ -220,7 +220,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the failedTasksCount property value. The failedTasksCount property
+     * Sets the failedTasksCount property value. The number of tasks that failed in the workflow execution.
      *  @param int|null $value Value to set for the failedTasksCount property.
     */
     public function setFailedTasksCount(?int $value ): void {
@@ -236,7 +236,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the scheduledDateTime property value. The scheduledDateTime property
+     * Sets the scheduledDateTime property value. The date time that the workflow is scheduled to be executed for a user.
      *  @param DateTime|null $value Value to set for the scheduledDateTime property.
     */
     public function setScheduledDateTime(?DateTime $value ): void {
@@ -244,7 +244,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the startedDateTime property value. The startedDateTime property
+     * Sets the startedDateTime property value. The date time that the workflow execution started. Value is null if the workflow execution has not started. Supports $filter(lt, gt) and $orderby.
      *  @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value ): void {
@@ -260,7 +260,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the taskProcessingResults property value. The taskProcessingResults property
+     * Sets the taskProcessingResults property value. The associated individual task execution.
      *  @param array<TaskProcessingResult>|null $value Value to set for the taskProcessingResults property.
     */
     public function setTaskProcessingResults(?array $value ): void {
@@ -268,7 +268,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalTasksCount property value. The totalTasksCount property
+     * Sets the totalTasksCount property value. The total number of tasks that in the workflow execution.
      *  @param int|null $value Value to set for the totalTasksCount property.
     */
     public function setTotalTasksCount(?int $value ): void {
@@ -276,7 +276,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalUnprocessedTasksCount property value. The totalUnprocessedTasksCount property
+     * Sets the totalUnprocessedTasksCount property value. The total number of unprocessed tasks for the workflow.
      *  @param int|null $value Value to set for the totalUnprocessedTasksCount property.
     */
     public function setTotalUnprocessedTasksCount(?int $value ): void {
@@ -292,7 +292,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the workflowVersion property value. The workflowVersion property
+     * Sets the workflowVersion property value. The version of the workflow that was executed.
      *  @param int|null $value Value to set for the workflowVersion property.
     */
     public function setWorkflowVersion(?int $value ): void {
