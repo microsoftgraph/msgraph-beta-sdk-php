@@ -409,7 +409,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     private ?bool $passwordBlockKeyguard = null;
     
     /**
-     * @var array<string>|null $passwordBlockKeyguardFeatures List of device keyguard features to block. This collection can contain a maximum of 7 elements.
+     * @var array<AndroidKeyguardFeature>|null $passwordBlockKeyguardFeatures List of device keyguard features to block. This collection can contain a maximum of 7 elements.
     */
     private ?array $passwordBlockKeyguardFeatures = null;
     
@@ -539,7 +539,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     private ?bool $statusBarBlocked = null;
     
     /**
-     * @var array<string>|null $stayOnModes List of modes in which the device's display will stay powered-on. This collection can contain a maximum of 4 elements.
+     * @var array<AndroidDeviceOwnerBatteryPluggedMode>|null $stayOnModes List of modes in which the device's display will stay powered-on. This collection can contain a maximum of 4 elements.
     */
     private ?array $stayOnModes = null;
     
@@ -950,7 +950,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'networkEscapeHatchAllowed' => function (ParseNode $n) use ($o) { $o->setNetworkEscapeHatchAllowed($n->getBooleanValue()); },
             'nfcBlockOutgoingBeam' => function (ParseNode $n) use ($o) { $o->setNfcBlockOutgoingBeam($n->getBooleanValue()); },
             'passwordBlockKeyguard' => function (ParseNode $n) use ($o) { $o->setPasswordBlockKeyguard($n->getBooleanValue()); },
-            'passwordBlockKeyguardFeatures' => function (ParseNode $n) use ($o) { $o->setPasswordBlockKeyguardFeatures($n->getCollectionOfPrimitiveValues()); },
+            'passwordBlockKeyguardFeatures' => function (ParseNode $n) use ($o) { $o->setPasswordBlockKeyguardFeatures($n->getCollectionOfEnumValues(AndroidKeyguardFeature::class)); },
             'passwordExpirationDays' => function (ParseNode $n) use ($o) { $o->setPasswordExpirationDays($n->getIntegerValue()); },
             'passwordMinimumLength' => function (ParseNode $n) use ($o) { $o->setPasswordMinimumLength($n->getIntegerValue()); },
             'passwordMinimumLetterCharacters' => function (ParseNode $n) use ($o) { $o->setPasswordMinimumLetterCharacters($n->getIntegerValue()); },
@@ -976,7 +976,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
             'securityRequireVerifyApps' => function (ParseNode $n) use ($o) { $o->setSecurityRequireVerifyApps($n->getBooleanValue()); },
             'shortHelpText' => function (ParseNode $n) use ($o) { $o->setShortHelpText($n->getObjectValue(array(AndroidDeviceOwnerUserFacingMessage::class, 'createFromDiscriminatorValue'))); },
             'statusBarBlocked' => function (ParseNode $n) use ($o) { $o->setStatusBarBlocked($n->getBooleanValue()); },
-            'stayOnModes' => function (ParseNode $n) use ($o) { $o->setStayOnModes($n->getCollectionOfPrimitiveValues()); },
+            'stayOnModes' => function (ParseNode $n) use ($o) { $o->setStayOnModes($n->getCollectionOfEnumValues(AndroidDeviceOwnerBatteryPluggedMode::class)); },
             'storageAllowUsb' => function (ParseNode $n) use ($o) { $o->setStorageAllowUsb($n->getBooleanValue()); },
             'storageBlockExternalMedia' => function (ParseNode $n) use ($o) { $o->setStorageBlockExternalMedia($n->getBooleanValue()); },
             'storageBlockUsbFileTransfer' => function (ParseNode $n) use ($o) { $o->setStorageBlockUsbFileTransfer($n->getBooleanValue()); },
@@ -1481,7 +1481,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the passwordBlockKeyguardFeatures property value. List of device keyguard features to block. This collection can contain a maximum of 7 elements.
-     * @return array<string>|null
+     * @return array<AndroidKeyguardFeature>|null
     */
     public function getPasswordBlockKeyguardFeatures(): ?array {
         return $this->passwordBlockKeyguardFeatures;
@@ -1689,7 +1689,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Gets the stayOnModes property value. List of modes in which the device's display will stay powered-on. This collection can contain a maximum of 4 elements.
-     * @return array<string>|null
+     * @return array<AndroidDeviceOwnerBatteryPluggedMode>|null
     */
     public function getStayOnModes(): ?array {
         return $this->stayOnModes;
@@ -1997,7 +1997,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeBooleanValue('networkEscapeHatchAllowed', $this->networkEscapeHatchAllowed);
         $writer->writeBooleanValue('nfcBlockOutgoingBeam', $this->nfcBlockOutgoingBeam);
         $writer->writeBooleanValue('passwordBlockKeyguard', $this->passwordBlockKeyguard);
-        $writer->writeCollectionOfPrimitiveValues('passwordBlockKeyguardFeatures', $this->passwordBlockKeyguardFeatures);
+        $writer->writeCollectionOfEnumValues('passwordBlockKeyguardFeatures', $this->passwordBlockKeyguardFeatures);
         $writer->writeIntegerValue('passwordExpirationDays', $this->passwordExpirationDays);
         $writer->writeIntegerValue('passwordMinimumLength', $this->passwordMinimumLength);
         $writer->writeIntegerValue('passwordMinimumLetterCharacters', $this->passwordMinimumLetterCharacters);
@@ -2023,7 +2023,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeBooleanValue('securityRequireVerifyApps', $this->securityRequireVerifyApps);
         $writer->writeObjectValue('shortHelpText', $this->shortHelpText);
         $writer->writeBooleanValue('statusBarBlocked', $this->statusBarBlocked);
-        $writer->writeCollectionOfPrimitiveValues('stayOnModes', $this->stayOnModes);
+        $writer->writeCollectionOfEnumValues('stayOnModes', $this->stayOnModes);
         $writer->writeBooleanValue('storageAllowUsb', $this->storageAllowUsb);
         $writer->writeBooleanValue('storageBlockExternalMedia', $this->storageBlockExternalMedia);
         $writer->writeBooleanValue('storageBlockUsbFileTransfer', $this->storageBlockUsbFileTransfer);
@@ -2695,7 +2695,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the passwordBlockKeyguardFeatures property value. List of device keyguard features to block. This collection can contain a maximum of 7 elements.
-     *  @param array<string>|null $value Value to set for the passwordBlockKeyguardFeatures property.
+     *  @param array<AndroidKeyguardFeature>|null $value Value to set for the passwordBlockKeyguardFeatures property.
     */
     public function setPasswordBlockKeyguardFeatures(?array $value ): void {
         $this->passwordBlockKeyguardFeatures = $value;
@@ -2903,7 +2903,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
 
     /**
      * Sets the stayOnModes property value. List of modes in which the device's display will stay powered-on. This collection can contain a maximum of 4 elements.
-     *  @param array<string>|null $value Value to set for the stayOnModes property.
+     *  @param array<AndroidDeviceOwnerBatteryPluggedMode>|null $value Value to set for the stayOnModes property.
     */
     public function setStayOnModes(?array $value ): void {
         $this->stayOnModes = $value;

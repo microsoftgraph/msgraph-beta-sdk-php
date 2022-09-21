@@ -11,32 +11,32 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Workflow extends WorkflowBase implements Parsable 
 {
     /**
-     * @var DateTime|null $deletedDateTime The deletedDateTime property
+     * @var DateTime|null $deletedDateTime The time and date a workflow is deleted. Supports $filter(lt,gt) and $orderby.
     */
     private ?DateTime $deletedDateTime = null;
     
     /**
-     * @var array<User>|null $executionScope The executionScope property
+     * @var array<User>|null $executionScope The unique identifier of the Azure AD identity that last modified the workflow object..
     */
     private ?array $executionScope = null;
     
     /**
-     * @var string|null $id The id property
+     * @var string|null $id Identifier used for individually addressing a specific workflow. Supports $filter(eq).
     */
     private ?string $id = null;
     
     /**
-     * @var bool|null $isEnabled The isEnabled property
+     * @var bool|null $isEnabled If true, the workflow engine creates and processes taskProcessingResults on the users scoped to the workflow. Supports $filter(eq,ne) and orderby.
     */
     private ?bool $isEnabled = null;
     
     /**
-     * @var bool|null $isSchedulingEnabled The isSchedulingEnabled property
+     * @var bool|null $isSchedulingEnabled If true, the workflow engine executes the workflow on the schedule defined by tenant settings.
     */
     private ?bool $isSchedulingEnabled = null;
     
     /**
-     * @var DateTime|null $nextScheduleRunDateTime The nextScheduleRunDateTime property
+     * @var DateTime|null $nextScheduleRunDateTime The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderby.
     */
     private ?DateTime $nextScheduleRunDateTime = null;
     
@@ -46,7 +46,7 @@ class Workflow extends WorkflowBase implements Parsable
     private ?array $runs = null;
     
     /**
-     * @var array<TaskReport>|null $taskReports The taskReports property
+     * @var array<TaskReport>|null $taskReports Represents the aggregation of task execution data for tasks within a workflow object.
     */
     private ?array $taskReports = null;
     
@@ -56,12 +56,12 @@ class Workflow extends WorkflowBase implements Parsable
     private ?array $userProcessingResults = null;
     
     /**
-     * @var int|null $version The version property
+     * @var int|null $version The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq).
     */
     private ?int $version = null;
     
     /**
-     * @var array<WorkflowVersion>|null $versions The versions property
+     * @var array<WorkflowVersion>|null $versions The workflow versions that are available.
     */
     private ?array $versions = null;
     
@@ -83,7 +83,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the deletedDateTime property value. The deletedDateTime property
+     * Gets the deletedDateTime property value. The time and date a workflow is deleted. Supports $filter(lt,gt) and $orderby.
      * @return DateTime|null
     */
     public function getDeletedDateTime(): ?DateTime {
@@ -91,7 +91,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the executionScope property value. The executionScope property
+     * Gets the executionScope property value. The unique identifier of the Azure AD identity that last modified the workflow object..
      * @return array<User>|null
     */
     public function getExecutionScope(): ?array {
@@ -120,7 +120,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. Identifier used for individually addressing a specific workflow. Supports $filter(eq).
      * @return string|null
     */
     public function getId(): ?string {
@@ -128,7 +128,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. If true, the workflow engine creates and processes taskProcessingResults on the users scoped to the workflow. Supports $filter(eq,ne) and orderby.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -136,7 +136,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the isSchedulingEnabled property value. The isSchedulingEnabled property
+     * Gets the isSchedulingEnabled property value. If true, the workflow engine executes the workflow on the schedule defined by tenant settings.
      * @return bool|null
     */
     public function getIsSchedulingEnabled(): ?bool {
@@ -144,7 +144,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the nextScheduleRunDateTime property value. The nextScheduleRunDateTime property
+     * Gets the nextScheduleRunDateTime property value. The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderby.
      * @return DateTime|null
     */
     public function getNextScheduleRunDateTime(): ?DateTime {
@@ -160,7 +160,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the taskReports property value. The taskReports property
+     * Gets the taskReports property value. Represents the aggregation of task execution data for tasks within a workflow object.
      * @return array<TaskReport>|null
     */
     public function getTaskReports(): ?array {
@@ -176,7 +176,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the version property value. The version property
+     * Gets the version property value. The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq).
      * @return int|null
     */
     public function getVersion(): ?int {
@@ -184,7 +184,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the versions property value. The versions property
+     * Gets the versions property value. The workflow versions that are available.
      * @return array<WorkflowVersion>|null
     */
     public function getVersions(): ?array {
@@ -211,7 +211,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the deletedDateTime property value. The deletedDateTime property
+     * Sets the deletedDateTime property value. The time and date a workflow is deleted. Supports $filter(lt,gt) and $orderby.
      *  @param DateTime|null $value Value to set for the deletedDateTime property.
     */
     public function setDeletedDateTime(?DateTime $value ): void {
@@ -219,7 +219,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the executionScope property value. The executionScope property
+     * Sets the executionScope property value. The unique identifier of the Azure AD identity that last modified the workflow object..
      *  @param array<User>|null $value Value to set for the executionScope property.
     */
     public function setExecutionScope(?array $value ): void {
@@ -227,7 +227,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. Identifier used for individually addressing a specific workflow. Supports $filter(eq).
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {
@@ -235,7 +235,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. If true, the workflow engine creates and processes taskProcessingResults on the users scoped to the workflow. Supports $filter(eq,ne) and orderby.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value ): void {
@@ -243,7 +243,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the isSchedulingEnabled property value. The isSchedulingEnabled property
+     * Sets the isSchedulingEnabled property value. If true, the workflow engine executes the workflow on the schedule defined by tenant settings.
      *  @param bool|null $value Value to set for the isSchedulingEnabled property.
     */
     public function setIsSchedulingEnabled(?bool $value ): void {
@@ -251,7 +251,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the nextScheduleRunDateTime property value. The nextScheduleRunDateTime property
+     * Sets the nextScheduleRunDateTime property value. The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderby.
      *  @param DateTime|null $value Value to set for the nextScheduleRunDateTime property.
     */
     public function setNextScheduleRunDateTime(?DateTime $value ): void {
@@ -267,7 +267,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the taskReports property value. The taskReports property
+     * Sets the taskReports property value. Represents the aggregation of task execution data for tasks within a workflow object.
      *  @param array<TaskReport>|null $value Value to set for the taskReports property.
     */
     public function setTaskReports(?array $value ): void {
@@ -283,7 +283,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the version property value. The version property
+     * Sets the version property value. The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq).
      *  @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value ): void {
@@ -291,7 +291,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the versions property value. The versions property
+     * Sets the versions property value. The workflow versions that are available.
      *  @param array<WorkflowVersion>|null $value Value to set for the versions property.
     */
     public function setVersions(?array $value ): void {

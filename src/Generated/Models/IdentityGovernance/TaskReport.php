@@ -11,17 +11,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TaskReport extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $completedDateTime The completedDateTime property
+     * @var DateTime|null $completedDateTime The date time that the associated run completed. Value is null if the run has not completed.
     */
     private ?DateTime $completedDateTime = null;
     
     /**
-     * @var int|null $failedUsersCount The failedUsersCount property
+     * @var int|null $failedUsersCount The number of users in the run execution for which the associated task failed.
     */
     private ?int $failedUsersCount = null;
     
     /**
-     * @var DateTime|null $lastUpdatedDateTime The lastUpdatedDateTime property
+     * @var DateTime|null $lastUpdatedDateTime The date and time that the task report was last updated.
     */
     private ?DateTime $lastUpdatedDateTime = null;
     
@@ -31,17 +31,17 @@ class TaskReport extends Entity implements Parsable
     private ?LifecycleWorkflowProcessingStatus $processingStatus = null;
     
     /**
-     * @var string|null $runId The runId property
+     * @var string|null $runId The unique identifier of the associated run.
     */
     private ?string $runId = null;
     
     /**
-     * @var DateTime|null $startedDateTime The startedDateTime property
+     * @var DateTime|null $startedDateTime The date time that the associated run started. Value is null if the run has not started.
     */
     private ?DateTime $startedDateTime = null;
     
     /**
-     * @var int|null $successfulUsersCount The successfulUsersCount property
+     * @var int|null $successfulUsersCount The number of users in the run execution for which the associated task succeeded.
     */
     private ?int $successfulUsersCount = null;
     
@@ -56,17 +56,17 @@ class TaskReport extends Entity implements Parsable
     private ?TaskDefinition $taskDefinition = null;
     
     /**
-     * @var array<TaskProcessingResult>|null $taskProcessingResults The taskProcessingResults property
+     * @var array<TaskProcessingResult>|null $taskProcessingResults The related lifecycle workflow taskProcessingResults.
     */
     private ?array $taskProcessingResults = null;
     
     /**
-     * @var int|null $totalUsersCount The totalUsersCount property
+     * @var int|null $totalUsersCount The total number of users in the run execution for which the associated task was scheduled to execute.
     */
     private ?int $totalUsersCount = null;
     
     /**
-     * @var int|null $unprocessedUsersCount The unprocessedUsersCount property
+     * @var int|null $unprocessedUsersCount The number of users in the run execution for which the associated task is queued, in progress, or canceled.
     */
     private ?int $unprocessedUsersCount = null;
     
@@ -88,7 +88,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. The completedDateTime property
+     * Gets the completedDateTime property value. The date time that the associated run completed. Value is null if the run has not completed.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -96,7 +96,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the failedUsersCount property value. The failedUsersCount property
+     * Gets the failedUsersCount property value. The number of users in the run execution for which the associated task failed.
      * @return int|null
     */
     public function getFailedUsersCount(): ?int {
@@ -126,7 +126,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. The date and time that the task report was last updated.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -142,7 +142,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the runId property value. The runId property
+     * Gets the runId property value. The unique identifier of the associated run.
      * @return string|null
     */
     public function getRunId(): ?string {
@@ -150,7 +150,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the startedDateTime property value. The startedDateTime property
+     * Gets the startedDateTime property value. The date time that the associated run started. Value is null if the run has not started.
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
@@ -158,7 +158,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the successfulUsersCount property value. The successfulUsersCount property
+     * Gets the successfulUsersCount property value. The number of users in the run execution for which the associated task succeeded.
      * @return int|null
     */
     public function getSuccessfulUsersCount(): ?int {
@@ -182,7 +182,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the taskProcessingResults property value. The taskProcessingResults property
+     * Gets the taskProcessingResults property value. The related lifecycle workflow taskProcessingResults.
      * @return array<TaskProcessingResult>|null
     */
     public function getTaskProcessingResults(): ?array {
@@ -190,7 +190,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalUsersCount property value. The totalUsersCount property
+     * Gets the totalUsersCount property value. The total number of users in the run execution for which the associated task was scheduled to execute.
      * @return int|null
     */
     public function getTotalUsersCount(): ?int {
@@ -198,7 +198,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the unprocessedUsersCount property value. The unprocessedUsersCount property
+     * Gets the unprocessedUsersCount property value. The number of users in the run execution for which the associated task is queued, in progress, or canceled.
      * @return int|null
     */
     public function getUnprocessedUsersCount(): ?int {
@@ -226,7 +226,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. The completedDateTime property
+     * Sets the completedDateTime property value. The date time that the associated run completed. Value is null if the run has not completed.
      *  @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value ): void {
@@ -234,7 +234,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the failedUsersCount property value. The failedUsersCount property
+     * Sets the failedUsersCount property value. The number of users in the run execution for which the associated task failed.
      *  @param int|null $value Value to set for the failedUsersCount property.
     */
     public function setFailedUsersCount(?int $value ): void {
@@ -242,7 +242,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. The date and time that the task report was last updated.
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value ): void {
@@ -258,7 +258,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the runId property value. The runId property
+     * Sets the runId property value. The unique identifier of the associated run.
      *  @param string|null $value Value to set for the runId property.
     */
     public function setRunId(?string $value ): void {
@@ -266,7 +266,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the startedDateTime property value. The startedDateTime property
+     * Sets the startedDateTime property value. The date time that the associated run started. Value is null if the run has not started.
      *  @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value ): void {
@@ -274,7 +274,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the successfulUsersCount property value. The successfulUsersCount property
+     * Sets the successfulUsersCount property value. The number of users in the run execution for which the associated task succeeded.
      *  @param int|null $value Value to set for the successfulUsersCount property.
     */
     public function setSuccessfulUsersCount(?int $value ): void {
@@ -298,7 +298,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the taskProcessingResults property value. The taskProcessingResults property
+     * Sets the taskProcessingResults property value. The related lifecycle workflow taskProcessingResults.
      *  @param array<TaskProcessingResult>|null $value Value to set for the taskProcessingResults property.
     */
     public function setTaskProcessingResults(?array $value ): void {
@@ -306,7 +306,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalUsersCount property value. The totalUsersCount property
+     * Sets the totalUsersCount property value. The total number of users in the run execution for which the associated task was scheduled to execute.
      *  @param int|null $value Value to set for the totalUsersCount property.
     */
     public function setTotalUsersCount(?int $value ): void {
@@ -314,7 +314,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the unprocessedUsersCount property value. The unprocessedUsersCount property
+     * Sets the unprocessedUsersCount property value. The number of users in the run execution for which the associated task is queued, in progress, or canceled.
      *  @param int|null $value Value to set for the unprocessedUsersCount property.
     */
     public function setUnprocessedUsersCount(?int $value ): void {

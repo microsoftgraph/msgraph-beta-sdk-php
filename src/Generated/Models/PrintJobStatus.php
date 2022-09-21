@@ -25,7 +25,7 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
     private ?string $description = null;
     
     /**
-     * @var array<string>|null $details Additional details for print job state. Valid values are described in the following table. Read-only.
+     * @var array<PrintJobStateDetail>|null $details Additional details for print job state. Valid values are described in the following table. Read-only.
     */
     private ?array $details = null;
     
@@ -97,7 +97,7 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the details property value. Additional details for print job state. Valid values are described in the following table. Read-only.
-     * @return array<string>|null
+     * @return array<PrintJobStateDetail>|null
     */
     public function getDetails(): ?array {
         return $this->details;
@@ -112,7 +112,7 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
         return  [
             'acquiredByPrinter' => function (ParseNode $n) use ($o) { $o->setAcquiredByPrinter($n->getBooleanValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getCollectionOfPrimitiveValues()); },
+            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getCollectionOfEnumValues(PrintJobStateDetail::class)); },
             'isAcquiredByPrinter' => function (ParseNode $n) use ($o) { $o->setIsAcquiredByPrinter($n->getBooleanValue()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'processingState' => function (ParseNode $n) use ($o) { $o->setProcessingState($n->getEnumValue(PrintJobProcessingState::class)); },
@@ -168,7 +168,7 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('acquiredByPrinter', $this->acquiredByPrinter);
         $writer->writeStringValue('description', $this->description);
-        $writer->writeCollectionOfPrimitiveValues('details', $this->details);
+        $writer->writeCollectionOfEnumValues('details', $this->details);
         $writer->writeBooleanValue('isAcquiredByPrinter', $this->isAcquiredByPrinter);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('processingState', $this->processingState);
@@ -203,7 +203,7 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the details property value. Additional details for print job state. Valid values are described in the following table. Read-only.
-     *  @param array<string>|null $value Value to set for the details property.
+     *  @param array<PrintJobStateDetail>|null $value Value to set for the details property.
     */
     public function setDetails(?array $value ): void {
         $this->details = $value;

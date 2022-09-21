@@ -54,7 +54,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     private ?string $model = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsBatteryHealthDevicePerformance and sets the default values.
+     * Instantiates a new userExperienceAnalyticsBatteryHealthDevicePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();

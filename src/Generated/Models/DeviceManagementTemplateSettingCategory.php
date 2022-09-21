@@ -14,7 +14,7 @@ class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCat
     private ?array $recommendedSettings = null;
     
     /**
-     * Instantiates a new DeviceManagementTemplateSettingCategory and sets the default values.
+     * Instantiates a new deviceManagementTemplateSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

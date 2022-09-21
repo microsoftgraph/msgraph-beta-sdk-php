@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operat
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\CaseExportOperation\CaseExportOperationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Compliance\Ediscovery\Cases\Item\Operations\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperation;
 use Microsoft\Graph\Beta\Generated\Models\Ediscovery\CaseOperationCollectionResponse;
@@ -19,6 +20,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class OperationsRequestBuilder 
 {
+    /**
+     * The caseExportOperation property
+    */
+    public function caseExportOperation(): CaseExportOperationRequestBuilder {
+        return new CaseExportOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * The Count property
     */
@@ -47,7 +55,7 @@ class OperationsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/operations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/operations{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }

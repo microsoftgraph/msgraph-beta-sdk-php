@@ -7,6 +7,7 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationContextClassReferences\AuthenticationContextClassReferencesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationContextClassReferences\Item\AuthenticationContextClassReferenceItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\AuthenticationStrengths\AuthenticationStrengthsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\Item\NamedLocationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\NamedLocationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Policies\Item\ConditionalAccessPolicyItemRequestBuilder;
@@ -28,6 +29,13 @@ class ConditionalAccessRequestBuilder
     */
     public function authenticationContextClassReferences(): AuthenticationContextClassReferencesRequestBuilder {
         return new AuthenticationContextClassReferencesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The authenticationStrengths property
+    */
+    public function authenticationStrengths(): AuthenticationStrengthsRequestBuilder {
+        return new AuthenticationStrengthsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

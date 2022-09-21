@@ -49,7 +49,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
     private ?bool $isMostUsedVersion = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails and sets the default values.
+     * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();

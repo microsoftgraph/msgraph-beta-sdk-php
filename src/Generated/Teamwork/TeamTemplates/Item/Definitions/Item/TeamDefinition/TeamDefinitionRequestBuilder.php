@@ -34,6 +34,7 @@ use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Tags\Item\TeamworkTagItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Tags\TagsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Template\TemplateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\TemplateDefinition\TemplateDefinitionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Teamwork\TeamTemplates\Item\Definitions\Item\TeamDefinition\Unarchive\UnarchiveRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -179,6 +180,13 @@ class TeamDefinitionRequestBuilder
     */
     public function template(): TemplateRequestBuilder {
         return new TemplateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The templateDefinition property
+    */
+    public function templateDefinition(): TemplateDefinitionRequestBuilder {
+        return new TemplateDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

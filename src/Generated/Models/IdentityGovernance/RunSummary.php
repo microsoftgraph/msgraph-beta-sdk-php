@@ -15,12 +15,12 @@ class RunSummary implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var int|null $failedRuns The failedRuns property
+     * @var int|null $failedRuns The number of failed workflow runs.
     */
     private ?int $failedRuns = null;
     
     /**
-     * @var int|null $failedTasks The failedTasks property
+     * @var int|null $failedTasks The number of failed tasks of a workflow.
     */
     private ?int $failedTasks = null;
     
@@ -30,12 +30,12 @@ class RunSummary implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var int|null $successfulRuns The successfulRuns property
+     * @var int|null $successfulRuns The number of successful workflow runs.
     */
     private ?int $successfulRuns = null;
     
     /**
-     * @var int|null $totalRuns The totalRuns property
+     * @var int|null $totalRuns The total number of runs for a workflow.
     */
     private ?int $totalRuns = null;
     
@@ -75,7 +75,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the failedRuns property value. The failedRuns property
+     * Gets the failedRuns property value. The number of failed workflow runs.
      * @return int|null
     */
     public function getFailedRuns(): ?int {
@@ -83,7 +83,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the failedTasks property value. The failedTasks property
+     * Gets the failedTasks property value. The number of failed tasks of a workflow.
      * @return int|null
     */
     public function getFailedTasks(): ?int {
@@ -116,7 +116,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the successfulRuns property value. The successfulRuns property
+     * Gets the successfulRuns property value. The number of successful workflow runs.
      * @return int|null
     */
     public function getSuccessfulRuns(): ?int {
@@ -124,7 +124,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the totalRuns property value. The totalRuns property
+     * Gets the totalRuns property value. The total number of runs for a workflow.
      * @return int|null
     */
     public function getTotalRuns(): ?int {
@@ -171,7 +171,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the failedRuns property value. The failedRuns property
+     * Sets the failedRuns property value. The number of failed workflow runs.
      *  @param int|null $value Value to set for the failedRuns property.
     */
     public function setFailedRuns(?int $value ): void {
@@ -179,7 +179,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the failedTasks property value. The failedTasks property
+     * Sets the failedTasks property value. The number of failed tasks of a workflow.
      *  @param int|null $value Value to set for the failedTasks property.
     */
     public function setFailedTasks(?int $value ): void {
@@ -195,7 +195,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the successfulRuns property value. The successfulRuns property
+     * Sets the successfulRuns property value. The number of successful workflow runs.
      *  @param int|null $value Value to set for the successfulRuns property.
     */
     public function setSuccessfulRuns(?int $value ): void {
@@ -203,7 +203,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the totalRuns property value. The totalRuns property
+     * Sets the totalRuns property value. The total number of runs for a workflow.
      *  @param int|null $value Value to set for the totalRuns property.
     */
     public function setTotalRuns(?int $value ): void {

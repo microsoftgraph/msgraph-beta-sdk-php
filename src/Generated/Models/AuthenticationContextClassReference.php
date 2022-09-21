@@ -9,17 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationContextClassReference extends Entity implements Parsable 
 {
     /**
-     * @var string|null $description A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user facing admin experiences. For example, selection UX.
+     * @var string|null $description A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user-facing admin experiences. For example, a selection UX.
     */
     private ?string $description = null;
     
     /**
-     * @var string|null $displayName The display name is the friendly name of the authenticationContextClassReference. This value should be used to identify the authentication context class reference when building user facing admin experiences. For example, selection UX.
+     * @var string|null $displayName A friendly name that identifies the authenticationContextClassReference object when building user-facing admin experiences. For example, a selection UX.
     */
     private ?string $displayName = null;
     
     /**
-     * @var bool|null $isAvailable Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false it should not be shown in admin UX experiences because the value is not currently available for selection.
+     * @var bool|null $isAvailable Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false, it should not be shown in admin UX experiences because the value is not currently available for selection.  Supports $filter (eq).
     */
     private ?bool $isAvailable = null;
     
@@ -41,7 +41,7 @@ class AuthenticationContextClassReference extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user facing admin experiences. For example, selection UX.
+     * Gets the description property value. A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user-facing admin experiences. For example, a selection UX.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -49,7 +49,7 @@ class AuthenticationContextClassReference extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name is the friendly name of the authenticationContextClassReference. This value should be used to identify the authentication context class reference when building user facing admin experiences. For example, selection UX.
+     * Gets the displayName property value. A friendly name that identifies the authenticationContextClassReference object when building user-facing admin experiences. For example, a selection UX.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -70,7 +70,7 @@ class AuthenticationContextClassReference extends Entity implements Parsable
     }
 
     /**
-     * Gets the isAvailable property value. Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false it should not be shown in admin UX experiences because the value is not currently available for selection.
+     * Gets the isAvailable property value. Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false, it should not be shown in admin UX experiences because the value is not currently available for selection.  Supports $filter (eq).
      * @return bool|null
     */
     public function getIsAvailable(): ?bool {
@@ -89,7 +89,7 @@ class AuthenticationContextClassReference extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user facing admin experiences. For example, selection UX.
+     * Sets the description property value. A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user-facing admin experiences. For example, a selection UX.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -97,7 +97,7 @@ class AuthenticationContextClassReference extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name is the friendly name of the authenticationContextClassReference. This value should be used to identify the authentication context class reference when building user facing admin experiences. For example, selection UX.
+     * Sets the displayName property value. A friendly name that identifies the authenticationContextClassReference object when building user-facing admin experiences. For example, a selection UX.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -105,7 +105,7 @@ class AuthenticationContextClassReference extends Entity implements Parsable
     }
 
     /**
-     * Sets the isAvailable property value. Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false it should not be shown in admin UX experiences because the value is not currently available for selection.
+     * Sets the isAvailable property value. Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false, it should not be shown in admin UX experiences because the value is not currently available for selection.  Supports $filter (eq).
      *  @param bool|null $value Value to set for the isAvailable property.
     */
     public function setIsAvailable(?bool $value ): void {

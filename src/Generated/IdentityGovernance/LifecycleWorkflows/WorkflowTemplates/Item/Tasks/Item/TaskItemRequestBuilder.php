@@ -74,7 +74,7 @@ class TaskItemRequestBuilder
     }
 
     /**
-     * Get tasks from identityGovernance
+     * Represents the configured tasks to execute and their execution sequence within a workflow. This relationship is expanded by default.
      * @param TaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -141,7 +141,7 @@ class TaskItemRequestBuilder
     }
 
     /**
-     * Get tasks from identityGovernance
+     * Represents the configured tasks to execute and their execution sequence within a workflow. This relationship is expanded by default.
      * @param TaskItemRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

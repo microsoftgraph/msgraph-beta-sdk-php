@@ -14,7 +14,7 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
     private ?array $settings = null;
     
     /**
-     * Instantiates a new DeviceManagementIntentSettingCategory and sets the default values.
+     * Instantiates a new deviceManagementIntentSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();

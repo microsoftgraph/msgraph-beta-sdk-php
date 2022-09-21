@@ -35,11 +35,6 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
     private ?array $provisioning = null;
     
     /**
-     * @var array<RestrictedSignIn>|null $restrictedSignIns The restrictedSignIns property
-    */
-    private ?array $restrictedSignIns = null;
-    
-    /**
      * @var array<SignIn>|null $signIns The signIns property
     */
     private ?array $signIns = null;
@@ -96,7 +91,6 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
             'directoryProvisioning' => function (ParseNode $n) use ($o) { $o->setDirectoryProvisioning($n->getCollectionOfObjectValues(array(ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'))); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'provisioning' => function (ParseNode $n) use ($o) { $o->setProvisioning($n->getCollectionOfObjectValues(array(ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'))); },
-            'restrictedSignIns' => function (ParseNode $n) use ($o) { $o->setRestrictedSignIns($n->getCollectionOfObjectValues(array(RestrictedSignIn::class, 'createFromDiscriminatorValue'))); },
             'signIns' => function (ParseNode $n) use ($o) { $o->setSignIns($n->getCollectionOfObjectValues(array(SignIn::class, 'createFromDiscriminatorValue'))); },
         ];
     }
@@ -118,14 +112,6 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the restrictedSignIns property value. The restrictedSignIns property
-     * @return array<RestrictedSignIn>|null
-    */
-    public function getRestrictedSignIns(): ?array {
-        return $this->restrictedSignIns;
-    }
-
-    /**
      * Gets the signIns property value. The signIns property
      * @return array<SignIn>|null
     */
@@ -142,7 +128,6 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfObjectValues('directoryProvisioning', $this->directoryProvisioning);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeCollectionOfObjectValues('provisioning', $this->provisioning);
-        $writer->writeCollectionOfObjectValues('restrictedSignIns', $this->restrictedSignIns);
         $writer->writeCollectionOfObjectValues('signIns', $this->signIns);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -185,14 +170,6 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
     */
     public function setProvisioning(?array $value ): void {
         $this->provisioning = $value;
-    }
-
-    /**
-     * Sets the restrictedSignIns property value. The restrictedSignIns property
-     *  @param array<RestrictedSignIn>|null $value Value to set for the restrictedSignIns property.
-    */
-    public function setRestrictedSignIns(?array $value ): void {
-        $this->restrictedSignIns = $value;
     }
 
     /**

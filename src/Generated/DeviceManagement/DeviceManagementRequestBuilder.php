@@ -162,6 +162,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileAppTroubleshootingEven
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileAppTroubleshootingEvents\MobileAppTroubleshootingEventsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileThreatDefenseConnectors\Item\MobileThreatDefenseConnectorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MobileThreatDefenseConnectors\MobileThreatDefenseConnectorsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Monitoring\MonitoringRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\Item\NdesConnectorItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NdesConnectors\NdesConnectorsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\Item\NotificationMessageTemplateItemRequestBuilder;
@@ -896,6 +897,13 @@ class DeviceManagementRequestBuilder
     */
     public function mobileThreatDefenseConnectors(): MobileThreatDefenseConnectorsRequestBuilder {
         return new MobileThreatDefenseConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The monitoring property
+    */
+    public function monitoring(): MonitoringRequestBuilder {
+        return new MonitoringRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

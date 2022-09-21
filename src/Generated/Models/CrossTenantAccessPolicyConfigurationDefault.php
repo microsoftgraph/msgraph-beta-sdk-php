@@ -39,6 +39,11 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     private ?bool $isServiceDefault = null;
     
     /**
+     * @var CrossTenantAccessPolicyTenantRestrictions|null $tenantRestrictions The tenantRestrictions property
+    */
+    private ?CrossTenantAccessPolicyTenantRestrictions $tenantRestrictions = null;
+    
+    /**
      * Instantiates a new crossTenantAccessPolicyConfigurationDefault and sets the default values.
     */
     public function __construct() {
@@ -100,6 +105,7 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
             'b2bDirectConnectOutbound' => function (ParseNode $n) use ($o) { $o->setB2bDirectConnectOutbound($n->getObjectValue(array(CrossTenantAccessPolicyB2BSetting::class, 'createFromDiscriminatorValue'))); },
             'inboundTrust' => function (ParseNode $n) use ($o) { $o->setInboundTrust($n->getObjectValue(array(CrossTenantAccessPolicyInboundTrust::class, 'createFromDiscriminatorValue'))); },
             'isServiceDefault' => function (ParseNode $n) use ($o) { $o->setIsServiceDefault($n->getBooleanValue()); },
+            'tenantRestrictions' => function (ParseNode $n) use ($o) { $o->setTenantRestrictions($n->getObjectValue(array(CrossTenantAccessPolicyTenantRestrictions::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -120,6 +126,14 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     }
 
     /**
+     * Gets the tenantRestrictions property value. The tenantRestrictions property
+     * @return CrossTenantAccessPolicyTenantRestrictions|null
+    */
+    public function getTenantRestrictions(): ?CrossTenantAccessPolicyTenantRestrictions {
+        return $this->tenantRestrictions;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -131,6 +145,7 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
         $writer->writeObjectValue('b2bDirectConnectOutbound', $this->b2bDirectConnectOutbound);
         $writer->writeObjectValue('inboundTrust', $this->inboundTrust);
         $writer->writeBooleanValue('isServiceDefault', $this->isServiceDefault);
+        $writer->writeObjectValue('tenantRestrictions', $this->tenantRestrictions);
     }
 
     /**
@@ -179,6 +194,14 @@ class CrossTenantAccessPolicyConfigurationDefault extends Entity implements Pars
     */
     public function setIsServiceDefault(?bool $value ): void {
         $this->isServiceDefault = $value;
+    }
+
+    /**
+     * Sets the tenantRestrictions property value. The tenantRestrictions property
+     *  @param CrossTenantAccessPolicyTenantRestrictions|null $value Value to set for the tenantRestrictions property.
+    */
+    public function setTenantRestrictions(?CrossTenantAccessPolicyTenantRestrictions $value ): void {
+        $this->tenantRestrictions = $value;
     }
 
 }

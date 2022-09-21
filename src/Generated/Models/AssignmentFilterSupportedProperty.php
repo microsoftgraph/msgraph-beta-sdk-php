@@ -40,7 +40,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
     private ?string $propertyRegexConstraint = null;
     
     /**
-     * @var array<string>|null $supportedOperators List of all supported operators on this property.
+     * @var array<AssignmentFilterOperator>|null $supportedOperators List of all supported operators on this property.
     */
     private ?array $supportedOperators = null;
     
@@ -94,7 +94,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'propertyRegexConstraint' => function (ParseNode $n) use ($o) { $o->setPropertyRegexConstraint($n->getStringValue()); },
-            'supportedOperators' => function (ParseNode $n) use ($o) { $o->setSupportedOperators($n->getCollectionOfPrimitiveValues()); },
+            'supportedOperators' => function (ParseNode $n) use ($o) { $o->setSupportedOperators($n->getCollectionOfEnumValues(AssignmentFilterOperator::class)); },
             'supportedValues' => function (ParseNode $n) use ($o) { $o->setSupportedValues($n->getCollectionOfPrimitiveValues()); },
         ];
     }
@@ -133,7 +133,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
 
     /**
      * Gets the supportedOperators property value. List of all supported operators on this property.
-     * @return array<string>|null
+     * @return array<AssignmentFilterOperator>|null
     */
     public function getSupportedOperators(): ?array {
         return $this->supportedOperators;
@@ -157,7 +157,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
         $writer->writeStringValue('name', $this->name);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('propertyRegexConstraint', $this->propertyRegexConstraint);
-        $writer->writeCollectionOfPrimitiveValues('supportedOperators', $this->supportedOperators);
+        $writer->writeCollectionOfEnumValues('supportedOperators', $this->supportedOperators);
         $writer->writeCollectionOfPrimitiveValues('supportedValues', $this->supportedValues);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -212,7 +212,7 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
 
     /**
      * Sets the supportedOperators property value. List of all supported operators on this property.
-     *  @param array<string>|null $value Value to set for the supportedOperators property.
+     *  @param array<AssignmentFilterOperator>|null $value Value to set for the supportedOperators property.
     */
     public function setSupportedOperators(?array $value ): void {
         $this->supportedOperators = $value;

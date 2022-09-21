@@ -25,6 +25,11 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
     private ?bool $allowedToCreateSecurityGroups = null;
     
     /**
+     * @var bool|null $allowedToReadBitlockerKeysForOwnedDevice Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
+    */
+    private ?bool $allowedToReadBitlockerKeysForOwnedDevice = null;
+    
+    /**
      * @var bool|null $allowedToReadOtherUsers Indicates whether the default user role can read other users.
     */
     private ?bool $allowedToReadOtherUsers = null;
@@ -76,6 +81,14 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the allowedToReadBitlockerKeysForOwnedDevice property value. Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
+     * @return bool|null
+    */
+    public function getAllowedToReadBitlockerKeysForOwnedDevice(): ?bool {
+        return $this->allowedToReadBitlockerKeysForOwnedDevice;
+    }
+
+    /**
      * Gets the allowedToReadOtherUsers property value. Indicates whether the default user role can read other users.
      * @return bool|null
     */
@@ -92,6 +105,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
         return  [
             'allowedToCreateApps' => function (ParseNode $n) use ($o) { $o->setAllowedToCreateApps($n->getBooleanValue()); },
             'allowedToCreateSecurityGroups' => function (ParseNode $n) use ($o) { $o->setAllowedToCreateSecurityGroups($n->getBooleanValue()); },
+            'allowedToReadBitlockerKeysForOwnedDevice' => function (ParseNode $n) use ($o) { $o->setAllowedToReadBitlockerKeysForOwnedDevice($n->getBooleanValue()); },
             'allowedToReadOtherUsers' => function (ParseNode $n) use ($o) { $o->setAllowedToReadOtherUsers($n->getBooleanValue()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
         ];
@@ -112,6 +126,7 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('allowedToCreateApps', $this->allowedToCreateApps);
         $writer->writeBooleanValue('allowedToCreateSecurityGroups', $this->allowedToCreateSecurityGroups);
+        $writer->writeBooleanValue('allowedToReadBitlockerKeysForOwnedDevice', $this->allowedToReadBitlockerKeysForOwnedDevice);
         $writer->writeBooleanValue('allowedToReadOtherUsers', $this->allowedToReadOtherUsers);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
@@ -139,6 +154,14 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
     */
     public function setAllowedToCreateSecurityGroups(?bool $value ): void {
         $this->allowedToCreateSecurityGroups = $value;
+    }
+
+    /**
+     * Sets the allowedToReadBitlockerKeysForOwnedDevice property value. Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
+     *  @param bool|null $value Value to set for the allowedToReadBitlockerKeysForOwnedDevice property.
+    */
+    public function setAllowedToReadBitlockerKeysForOwnedDevice(?bool $value ): void {
+        $this->allowedToReadBitlockerKeysForOwnedDevice = $value;
     }
 
     /**

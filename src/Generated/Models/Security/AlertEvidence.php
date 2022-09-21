@@ -36,7 +36,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     private ?string $remediationStatusDetails = null;
     
     /**
-     * @var array<string>|null $roles The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'.
+     * @var array<EvidenceRole>|null $roles The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'.
     */
     private ?array $roles = null;
     
@@ -114,7 +114,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'remediationStatus' => function (ParseNode $n) use ($o) { $o->setRemediationStatus($n->getEnumValue(EvidenceRemediationStatus::class)); },
             'remediationStatusDetails' => function (ParseNode $n) use ($o) { $o->setRemediationStatusDetails($n->getStringValue()); },
-            'roles' => function (ParseNode $n) use ($o) { $o->setRoles($n->getCollectionOfPrimitiveValues()); },
+            'roles' => function (ParseNode $n) use ($o) { $o->setRoles($n->getCollectionOfEnumValues(EvidenceRole::class)); },
             'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
             'verdict' => function (ParseNode $n) use ($o) { $o->setVerdict($n->getEnumValue(EvidenceVerdict::class)); },
         ];
@@ -146,7 +146,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the roles property value. The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'.
-     * @return array<string>|null
+     * @return array<EvidenceRole>|null
     */
     public function getRoles(): ?array {
         return $this->roles;
@@ -177,7 +177,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeEnumValue('remediationStatus', $this->remediationStatus);
         $writer->writeStringValue('remediationStatusDetails', $this->remediationStatusDetails);
-        $writer->writeCollectionOfPrimitiveValues('roles', $this->roles);
+        $writer->writeCollectionOfEnumValues('roles', $this->roles);
         $writer->writeCollectionOfPrimitiveValues('tags', $this->tags);
         $writer->writeEnumValue('verdict', $this->verdict);
         $writer->writeAdditionalData($this->additionalData);
@@ -225,7 +225,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the roles property value. The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'.
-     *  @param array<string>|null $value Value to set for the roles property.
+     *  @param array<EvidenceRole>|null $value Value to set for the roles property.
     */
     public function setRoles(?array $value ): void {
         $this->roles = $value;

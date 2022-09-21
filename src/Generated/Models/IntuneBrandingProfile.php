@@ -170,7 +170,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
     private ?MimeContent $themeColorLogo = null;
     
     /**
-     * Instantiates a new intuneBrandingProfile and sets the default values.
+     * Instantiates a new IntuneBrandingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

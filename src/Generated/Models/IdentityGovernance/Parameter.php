@@ -15,7 +15,7 @@ class Parameter implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $name The name property
+     * @var string|null $name The name of the parameter.
     */
     private ?string $name = null;
     
@@ -25,7 +25,7 @@ class Parameter implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var array<string>|null $values The values property
+     * @var array<string>|null $values The values of the parameter.
     */
     private ?array $values = null;
     
@@ -74,7 +74,7 @@ class Parameter implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The name of the parameter.
      * @return string|null
     */
     public function getName(): ?string {
@@ -90,7 +90,7 @@ class Parameter implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the values property value. The values property
+     * Gets the values property value. The values of the parameter.
      * @return array<string>|null
     */
     public function getValues(): ?array {
@@ -126,7 +126,7 @@ class Parameter implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The name of the parameter.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {
@@ -142,7 +142,7 @@ class Parameter implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the values property value. The values property
+     * Sets the values property value. The values of the parameter.
      *  @param array<string>|null $value Value to set for the values property.
     */
     public function setValues(?array $value ): void {

@@ -29,7 +29,7 @@ class OnPremisesAgent extends Entity implements Parsable
     private ?AgentStatus $status = null;
     
     /**
-     * @var array<string>|null $supportedPublishingTypes The supportedPublishingTypes property
+     * @var array<OnPremisesPublishingType>|null $supportedPublishingTypes The supportedPublishingTypes property
     */
     private ?array $supportedPublishingTypes = null;
     
@@ -77,7 +77,7 @@ class OnPremisesAgent extends Entity implements Parsable
             'externalIp' => function (ParseNode $n) use ($o) { $o->setExternalIp($n->getStringValue()); },
             'machineName' => function (ParseNode $n) use ($o) { $o->setMachineName($n->getStringValue()); },
             'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(AgentStatus::class)); },
-            'supportedPublishingTypes' => function (ParseNode $n) use ($o) { $o->setSupportedPublishingTypes($n->getCollectionOfPrimitiveValues()); },
+            'supportedPublishingTypes' => function (ParseNode $n) use ($o) { $o->setSupportedPublishingTypes($n->getCollectionOfEnumValues(OnPremisesPublishingType::class)); },
         ]);
     }
 
@@ -99,7 +99,7 @@ class OnPremisesAgent extends Entity implements Parsable
 
     /**
      * Gets the supportedPublishingTypes property value. The supportedPublishingTypes property
-     * @return array<string>|null
+     * @return array<OnPremisesPublishingType>|null
     */
     public function getSupportedPublishingTypes(): ?array {
         return $this->supportedPublishingTypes;
@@ -115,7 +115,7 @@ class OnPremisesAgent extends Entity implements Parsable
         $writer->writeStringValue('externalIp', $this->externalIp);
         $writer->writeStringValue('machineName', $this->machineName);
         $writer->writeEnumValue('status', $this->status);
-        $writer->writeCollectionOfPrimitiveValues('supportedPublishingTypes', $this->supportedPublishingTypes);
+        $writer->writeCollectionOfEnumValues('supportedPublishingTypes', $this->supportedPublishingTypes);
     }
 
     /**
@@ -152,7 +152,7 @@ class OnPremisesAgent extends Entity implements Parsable
 
     /**
      * Sets the supportedPublishingTypes property value. The supportedPublishingTypes property
-     *  @param array<string>|null $value Value to set for the supportedPublishingTypes property.
+     *  @param array<OnPremisesPublishingType>|null $value Value to set for the supportedPublishingTypes property.
     */
     public function setSupportedPublishingTypes(?array $value ): void {
         $this->supportedPublishingTypes = $value;
