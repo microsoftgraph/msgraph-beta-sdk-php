@@ -48,13 +48,13 @@ class DeviceImagesRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/deviceImages{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/deviceImages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * The image resource on Cloud PC.
+     * List the properties and relationships of the cloudPcDeviceImage objects (OS images) uploaded to Cloud PC.
      * @param DeviceImagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -79,7 +79,7 @@ class DeviceImagesRequestBuilder
     }
 
     /**
-     * Create new navigation property to deviceImages for deviceManagement
+     * Create a new cloudPcDeviceImage object. Upload a custom OS image that you can later provision on Cloud PCs.
      * @param CloudPcDeviceImage $body 
      * @param DeviceImagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -103,7 +103,7 @@ class DeviceImagesRequestBuilder
     }
 
     /**
-     * The image resource on Cloud PC.
+     * List the properties and relationships of the cloudPcDeviceImage objects (OS images) uploaded to Cloud PC.
      * @param DeviceImagesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -130,7 +130,7 @@ class DeviceImagesRequestBuilder
     }
 
     /**
-     * Create new navigation property to deviceImages for deviceManagement
+     * Create a new cloudPcDeviceImage object. Upload a custom OS image that you can later provision on Cloud PCs.
      * @param CloudPcDeviceImage $body 
      * @param DeviceImagesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

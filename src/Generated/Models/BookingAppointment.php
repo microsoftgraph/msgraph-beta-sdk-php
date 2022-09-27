@@ -190,7 +190,7 @@ class BookingAppointment extends Entity implements Parsable
     private ?DateTimeTimeZone $start = null;
     
     /**
-     * Instantiates a new BookingAppointment and sets the default values.
+     * Instantiates a new bookingAppointment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -319,9 +319,7 @@ class BookingAppointment extends Entity implements Parsable
             'customerPhone' => function (ParseNode $n) use ($o) { $o->setCustomerPhone($n->getStringValue()); },
             'customers' => function (ParseNode $n) use ($o) { $o->setCustomers($n->getCollectionOfObjectValues(array(BookingCustomerInformationBase::class, 'createFromDiscriminatorValue'))); },
             'customerTimeZone' => function (ParseNode $n) use ($o) { $o->setCustomerTimeZone($n->getStringValue()); },
-            'duration' => function (ParseNode $n) use ($o) { $o->setDuration($n->getDateIntervalValue()); },
             'end' => function (ParseNode $n) use ($o) { $o->setEnd($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
-            'filledAttendeesCount' => function (ParseNode $n) use ($o) { $o->setFilledAttendeesCount($n->getIntegerValue()); },
             'invoiceAmount' => function (ParseNode $n) use ($o) { $o->setInvoiceAmount($n->getFloatValue()); },
             'invoiceDate' => function (ParseNode $n) use ($o) { $o->setInvoiceDate($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
             'invoiceId' => function (ParseNode $n) use ($o) { $o->setInvoiceId($n->getStringValue()); },
@@ -556,9 +554,7 @@ class BookingAppointment extends Entity implements Parsable
         $writer->writeStringValue('customerPhone', $this->customerPhone);
         $writer->writeCollectionOfObjectValues('customers', $this->customers);
         $writer->writeStringValue('customerTimeZone', $this->customerTimeZone);
-        $writer->writeDateIntervalValue('duration', $this->duration);
         $writer->writeObjectValue('end', $this->end);
-        $writer->writeIntegerValue('filledAttendeesCount', $this->filledAttendeesCount);
         $writer->writeFloatValue('invoiceAmount', $this->invoiceAmount);
         $writer->writeObjectValue('invoiceDate', $this->invoiceDate);
         $writer->writeStringValue('invoiceId', $this->invoiceId);
@@ -665,27 +661,11 @@ class BookingAppointment extends Entity implements Parsable
     }
 
     /**
-     * Sets the duration property value. The length of the appointment, denoted in ISO8601 format.
-     *  @param DateInterval|null $value Value to set for the duration property.
-    */
-    public function setDuration(?DateInterval $value ): void {
-        $this->duration = $value;
-    }
-
-    /**
      * Sets the end property value. The end property
      *  @param DateTimeTimeZone|null $value Value to set for the end property.
     */
     public function setEnd(?DateTimeTimeZone $value ): void {
         $this->end = $value;
-    }
-
-    /**
-     * Sets the filledAttendeesCount property value. The current number of customers in the appointment.
-     *  @param int|null $value Value to set for the filledAttendeesCount property.
-    */
-    public function setFilledAttendeesCount(?int $value ): void {
-        $this->filledAttendeesCount = $value;
     }
 
     /**

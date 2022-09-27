@@ -16,4 +16,9 @@ class SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilderGetRequestConf
     */
     public ?array $options = null;
     
+    /**
+     * @var SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?SummarizeDeviceRemoteConnectionWithSummarizeByRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

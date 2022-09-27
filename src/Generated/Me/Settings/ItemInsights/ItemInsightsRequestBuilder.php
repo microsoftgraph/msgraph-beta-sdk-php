@@ -65,7 +65,7 @@ class ItemInsightsRequestBuilder
     }
 
     /**
-     * The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
+     * Get the user-customizable privacy settings for itemInsights and meeting hours insights.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -90,7 +90,7 @@ class ItemInsightsRequestBuilder
     }
 
     /**
-     * Update the navigation property itemInsights in me
+     * Update the privacy settings for itemInsights and meeting hours insights of a user.
      * @param UserInsightsSettings $body 
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -100,6 +100,7 @@ class ItemInsightsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
@@ -132,7 +133,7 @@ class ItemInsightsRequestBuilder
     }
 
     /**
-     * The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
+     * Get the user-customizable privacy settings for itemInsights and meeting hours insights.
      * @param ItemInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -151,7 +152,7 @@ class ItemInsightsRequestBuilder
     }
 
     /**
-     * Update the navigation property itemInsights in me
+     * Update the privacy settings for itemInsights and meeting hours insights of a user.
      * @param UserInsightsSettings $body 
      * @param ItemInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -164,7 +165,7 @@ class ItemInsightsRequestBuilder
                     '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
                     '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, array(UserInsightsSettings::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

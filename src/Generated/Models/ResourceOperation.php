@@ -34,7 +34,7 @@ class ResourceOperation extends Entity implements Parsable
     private ?string $resourceName = null;
     
     /**
-     * Instantiates a new ResourceOperation and sets the default values.
+     * Instantiates a new resourceOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -83,8 +83,6 @@ class ResourceOperation extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'actionName' => function (ParseNode $n) use ($o) { $o->setActionName($n->getStringValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'enabledForScopeValidation' => function (ParseNode $n) use ($o) { $o->setEnabledForScopeValidation($n->getBooleanValue()); },
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getStringValue()); },
             'resourceName' => function (ParseNode $n) use ($o) { $o->setResourceName($n->getStringValue()); },
         ]);
     }
@@ -113,8 +111,6 @@ class ResourceOperation extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('actionName', $this->actionName);
         $writer->writeStringValue('description', $this->description);
-        $writer->writeBooleanValue('enabledForScopeValidation', $this->enabledForScopeValidation);
-        $writer->writeStringValue('resource', $this->resource);
         $writer->writeStringValue('resourceName', $this->resourceName);
     }
 
@@ -132,22 +128,6 @@ class ResourceOperation extends Entity implements Parsable
     */
     public function setDescription(?string $value ): void {
         $this->description = $value;
-    }
-
-    /**
-     * Sets the enabledForScopeValidation property value. Determines whether the Permission is validated for Scopes defined per Role Assignment. This property is read-only.
-     *  @param bool|null $value Value to set for the enabledForScopeValidation property.
-    */
-    public function setEnabledForScopeValidation(?bool $value ): void {
-        $this->enabledForScopeValidation = $value;
-    }
-
-    /**
-     * Sets the resource property value. Resource category to which this Operation belongs. This property is read-only.
-     *  @param string|null $value Value to set for the resource property.
-    */
-    public function setResource(?string $value ): void {
-        $this->resource = $value;
     }
 
     /**

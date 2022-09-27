@@ -42,7 +42,6 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'passcode' => function (ParseNode $n) use ($o) { $o->setPasscode($n->getStringValue()); },
             'passcodeSignInFailureCountBeforeWipe' => function (ParseNode $n) use ($o) { $o->setPasscodeSignInFailureCountBeforeWipe($n->getIntegerValue()); },
         ]);
     }
@@ -69,16 +68,7 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('passcode', $this->passcode);
         $writer->writeIntegerValue('passcodeSignInFailureCountBeforeWipe', $this->passcodeSignInFailureCountBeforeWipe);
-    }
-
-    /**
-     * Sets the passcode property value. Passcode to reset to Android device. This property is read-only.
-     *  @param string|null $value Value to set for the passcode property.
-    */
-    public function setPasscode(?string $value ): void {
-        $this->passcode = $value;
     }
 
     /**

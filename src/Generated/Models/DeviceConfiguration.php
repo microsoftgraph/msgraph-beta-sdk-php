@@ -354,7 +354,6 @@ class DeviceConfiguration extends Entity implements Parsable
             'groupAssignments' => function (ParseNode $n) use ($o) { $o->setGroupAssignments($n->getCollectionOfObjectValues(array(DeviceConfigurationGroupAssignment::class, 'createFromDiscriminatorValue'))); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'supportsScopeTags' => function (ParseNode $n) use ($o) { $o->setSupportsScopeTags($n->getBooleanValue()); },
             'userStatuses' => function (ParseNode $n) use ($o) { $o->setUserStatuses($n->getCollectionOfObjectValues(array(DeviceConfigurationUserStatus::class, 'createFromDiscriminatorValue'))); },
             'userStatusOverview' => function (ParseNode $n) use ($o) { $o->setUserStatusOverview($n->getObjectValue(array(DeviceConfigurationUserOverview::class, 'createFromDiscriminatorValue'))); },
             'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
@@ -436,7 +435,6 @@ class DeviceConfiguration extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->groupAssignments);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeBooleanValue('supportsScopeTags', $this->supportsScopeTags);
         $writer->writeCollectionOfObjectValues('userStatuses', $this->userStatuses);
         $writer->writeObjectValue('userStatusOverview', $this->userStatusOverview);
         $writer->writeIntegerValue('version', $this->version);
@@ -544,14 +542,6 @@ class DeviceConfiguration extends Entity implements Parsable
     */
     public function setRoleScopeTagIds(?array $value ): void {
         $this->roleScopeTagIds = $value;
-    }
-
-    /**
-     * Sets the supportsScopeTags property value. Indicates whether or not the underlying Device Configuration supports the assignment of scope tags. Assigning to the ScopeTags property is not allowed when this value is false and entities will not be visible to scoped users. This occurs for Legacy policies created in Silverlight and can be resolved by deleting and recreating the policy in the Azure Portal. This property is read-only.
-     *  @param bool|null $value Value to set for the supportsScopeTags property.
-    */
-    public function setSupportsScopeTags(?bool $value ): void {
-        $this->supportsScopeTags = $value;
     }
 
     /**

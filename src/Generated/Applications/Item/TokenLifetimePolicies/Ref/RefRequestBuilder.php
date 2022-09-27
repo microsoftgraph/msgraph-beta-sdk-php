@@ -39,13 +39,13 @@ class RefRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/applications/{application%2Did}/tokenLifetimePolicies/$ref{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby}';
+        $this->urlTemplate = '{+baseurl}/applications/{application%2Did}/tokenLifetimePolicies/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * The tokenLifetimePolicies assigned to this application. Supports $expand.
+     * List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal..
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -70,7 +70,7 @@ class RefRequestBuilder
     }
 
     /**
-     * Create new navigation property ref to tokenLifetimePolicies for applications
+     * Assign a tokenLifetimePolicy to an application or servicePrincipal.
      * @param ReferenceCreate $body 
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -93,7 +93,7 @@ class RefRequestBuilder
     }
 
     /**
-     * The tokenLifetimePolicies assigned to this application. Supports $expand.
+     * List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal..
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -112,7 +112,7 @@ class RefRequestBuilder
     }
 
     /**
-     * Create new navigation property ref to tokenLifetimePolicies for applications
+     * Assign a tokenLifetimePolicy to an application or servicePrincipal.
      * @param ReferenceCreate $body 
      * @param RefRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -47,13 +47,13 @@ class PatentsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/patents{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/patents{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Represents patents that a user has added to their profile.
+     * Retrieve a list of itemPatent objects from a user's profile.
      * @param PatentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class PatentsRequestBuilder
     }
 
     /**
-     * Create new navigation property to patents for users
+     * Create a new itemPatent object within a user's profile.
      * @param ItemPatent $body 
      * @param PatentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class PatentsRequestBuilder
     }
 
     /**
-     * Represents patents that a user has added to their profile.
+     * Retrieve a list of itemPatent objects from a user's profile.
      * @param PatentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class PatentsRequestBuilder
     }
 
     /**
-     * Create new navigation property to patents for users
+     * Create a new itemPatent object within a user's profile.
      * @param ItemPatent $body 
      * @param PatentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

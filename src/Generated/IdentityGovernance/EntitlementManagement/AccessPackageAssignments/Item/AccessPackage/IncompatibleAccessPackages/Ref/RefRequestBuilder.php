@@ -39,13 +39,13 @@ class RefRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignments/{accessPackageAssignment%2Did}/accessPackage/incompatibleAccessPackages/$ref{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby}';
+        $this->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignments/{accessPackageAssignment%2Did}/accessPackage/incompatibleAccessPackages/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * The  access packages whose assigned users are ineligible to be assigned this access package.
+     * Retrieve a list of the accessPackage objects that have been marked as incompatible on an accessPackage.  
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -93,7 +93,7 @@ class RefRequestBuilder
     }
 
     /**
-     * The  access packages whose assigned users are ineligible to be assigned this access package.
+     * Retrieve a list of the accessPackage objects that have been marked as incompatible on an accessPackage.  
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

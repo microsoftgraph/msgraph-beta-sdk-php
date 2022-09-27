@@ -14,7 +14,7 @@ class DeletedTeam extends Entity implements Parsable
     private ?array $channels = null;
     
     /**
-     * Instantiates a new DeletedTeam and sets the default values.
+     * Instantiates a new deletedTeam and sets the default values.
     */
     public function __construct() {
         parent::__construct();

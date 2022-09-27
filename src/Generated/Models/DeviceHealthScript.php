@@ -106,7 +106,7 @@ class DeviceHealthScript extends Entity implements Parsable
     private ?string $version = null;
     
     /**
-     * Instantiates a new DeviceHealthScript and sets the default values.
+     * Instantiates a new deviceHealthScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -194,7 +194,6 @@ class DeviceHealthScript extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceHealthScriptAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'detectionScriptContent' => function (ParseNode $n) use ($o) { $o->setDetectionScriptContent($n->getBinaryContent()); },
             'detectionScriptParameters' => function (ParseNode $n) use ($o) { $o->setDetectionScriptParameters($n->getCollectionOfObjectValues(array(DeviceHealthScriptParameter::class, 'createFromDiscriminatorValue'))); },
@@ -203,7 +202,6 @@ class DeviceHealthScript extends Entity implements Parsable
             'enforceSignatureCheck' => function (ParseNode $n) use ($o) { $o->setEnforceSignatureCheck($n->getBooleanValue()); },
             'highestAvailableVersion' => function (ParseNode $n) use ($o) { $o->setHighestAvailableVersion($n->getStringValue()); },
             'isGlobalScript' => function (ParseNode $n) use ($o) { $o->setIsGlobalScript($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
             'remediationScriptContent' => function (ParseNode $n) use ($o) { $o->setRemediationScriptContent($n->getBinaryContent()); },
             'remediationScriptParameters' => function (ParseNode $n) use ($o) { $o->setRemediationScriptParameters($n->getCollectionOfObjectValues(array(DeviceHealthScriptParameter::class, 'createFromDiscriminatorValue'))); },
@@ -310,7 +308,6 @@ class DeviceHealthScript extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('description', $this->description);
         $writer->writeBinaryContent('detectionScriptContent', $this->detectionScriptContent);
         $writer->writeCollectionOfObjectValues('detectionScriptParameters', $this->detectionScriptParameters);
@@ -319,7 +316,6 @@ class DeviceHealthScript extends Entity implements Parsable
         $writer->writeBooleanValue('enforceSignatureCheck', $this->enforceSignatureCheck);
         $writer->writeStringValue('highestAvailableVersion', $this->highestAvailableVersion);
         $writer->writeBooleanValue('isGlobalScript', $this->isGlobalScript);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('publisher', $this->publisher);
         $writer->writeBinaryContent('remediationScriptContent', $this->remediationScriptContent);
         $writer->writeCollectionOfObjectValues('remediationScriptParameters', $this->remediationScriptParameters);
@@ -336,14 +332,6 @@ class DeviceHealthScript extends Entity implements Parsable
     */
     public function setAssignments(?array $value ): void {
         $this->assignments = $value;
-    }
-
-    /**
-     * Sets the createdDateTime property value. The timestamp of when the device health script was created. This property is read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
-    */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
     }
 
     /**
@@ -408,14 +396,6 @@ class DeviceHealthScript extends Entity implements Parsable
     */
     public function setIsGlobalScript(?bool $value ): void {
         $this->isGlobalScript = $value;
-    }
-
-    /**
-     * Sets the lastModifiedDateTime property value. The timestamp of when the device health script was modified. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
-    */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
     }
 
     /**

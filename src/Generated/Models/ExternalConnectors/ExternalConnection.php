@@ -85,7 +85,7 @@ class ExternalConnection extends Entity implements Parsable
     private ?ConnectionState $state = null;
     
     /**
-     * Instantiates a new ExternalConnection and sets the default values.
+     * Instantiates a new externalConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -170,7 +170,6 @@ class ExternalConnection extends Entity implements Parsable
             'quota' => function (ParseNode $n) use ($o) { $o->setQuota($n->getObjectValue(array(ConnectionQuota::class, 'createFromDiscriminatorValue'))); },
             'schema' => function (ParseNode $n) use ($o) { $o->setSchema($n->getObjectValue(array(Schema::class, 'createFromDiscriminatorValue'))); },
             'searchSettings' => function (ParseNode $n) use ($o) { $o->setSearchSettings($n->getObjectValue(array(SearchSettings::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ConnectionState::class)); },
         ]);
     }
 
@@ -266,7 +265,6 @@ class ExternalConnection extends Entity implements Parsable
         $writer->writeObjectValue('quota', $this->quota);
         $writer->writeObjectValue('schema', $this->schema);
         $writer->writeObjectValue('searchSettings', $this->searchSettings);
-        $writer->writeEnumValue('state', $this->state);
     }
 
     /**
@@ -379,14 +377,6 @@ class ExternalConnection extends Entity implements Parsable
     */
     public function setSearchSettings(?SearchSettings $value ): void {
         $this->searchSettings = $value;
-    }
-
-    /**
-     * Sets the state property value. Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.
-     *  @param ConnectionState|null $value Value to set for the state property.
-    */
-    public function setState(?ConnectionState $value ): void {
-        $this->state = $value;
     }
 
 }

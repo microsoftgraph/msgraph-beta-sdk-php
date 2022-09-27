@@ -43,7 +43,7 @@ class AddMembersByIdRequestBuilder
     }
 
     /**
-     * Invoke action addMembersById
+     * Add members of the same type to an updatableAssetGroup. You can also use the method addMembers to add members.
      * @param AddMembersByIdPostRequestBody $body 
      * @param AddMembersByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -66,7 +66,7 @@ class AddMembersByIdRequestBuilder
     }
 
     /**
-     * Invoke action addMembersById
+     * Add members of the same type to an updatableAssetGroup. You can also use the method addMembers to add members.
      * @param AddMembersByIdPostRequestBody $body 
      * @param AddMembersByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -139,11 +139,9 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
             'displayVersion' => function (ParseNode $n) use ($o) { $o->setDisplayVersion($n->getStringValue()); },
             'lifecycleState' => function (ParseNode $n) use ($o) { $o->setLifecycleState($n->getEnumValue(DeviceManagementTemplateLifecycleState::class)); },
             'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
-            'settingTemplateCount' => function (ParseNode $n) use ($o) { $o->setSettingTemplateCount($n->getIntegerValue()); },
             'settingTemplates' => function (ParseNode $n) use ($o) { $o->setSettingTemplates($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingTemplate::class, 'createFromDiscriminatorValue'))); },
             'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
             'templateFamily' => function (ParseNode $n) use ($o) { $o->setTemplateFamily($n->getEnumValue(DeviceManagementConfigurationTemplateFamily::class)); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
         ]);
     }
 
@@ -216,11 +214,9 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
         $writer->writeStringValue('displayVersion', $this->displayVersion);
         $writer->writeEnumValue('lifecycleState', $this->lifecycleState);
         $writer->writeEnumValue('platforms', $this->platforms);
-        $writer->writeIntegerValue('settingTemplateCount', $this->settingTemplateCount);
         $writer->writeCollectionOfObjectValues('settingTemplates', $this->settingTemplates);
         $writer->writeEnumValue('technologies', $this->technologies);
         $writer->writeEnumValue('templateFamily', $this->templateFamily);
-        $writer->writeIntegerValue('version', $this->version);
     }
 
     /**
@@ -280,14 +276,6 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     }
 
     /**
-     * Sets the settingTemplateCount property value. Number of setting templates. Valid values 0 to 2147483647. This property is read-only.
-     *  @param int|null $value Value to set for the settingTemplateCount property.
-    */
-    public function setSettingTemplateCount(?int $value ): void {
-        $this->settingTemplateCount = $value;
-    }
-
-    /**
      * Sets the settingTemplates property value. Setting templates
      *  @param array<DeviceManagementConfigurationSettingTemplate>|null $value Value to set for the settingTemplates property.
     */
@@ -309,14 +297,6 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     */
     public function setTemplateFamily(?DeviceManagementConfigurationTemplateFamily $value ): void {
         $this->templateFamily = $value;
-    }
-
-    /**
-     * Sets the version property value. Template version. Valid values 1 to 2147483647. This property is read-only.
-     *  @param int|null $value Value to set for the version property.
-    */
-    public function setVersion(?int $value ): void {
-        $this->version = $value;
     }
 
 }

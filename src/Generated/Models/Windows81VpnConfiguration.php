@@ -88,7 +88,6 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applyOnlyToWindows81' => function (ParseNode $n) use ($o) { $o->setApplyOnlyToWindows81($n->getBooleanValue()); },
             'connectionType' => function (ParseNode $n) use ($o) { $o->setConnectionType($n->getEnumValue(WindowsVpnConnectionType::class)); },
             'enableSplitTunneling' => function (ParseNode $n) use ($o) { $o->setEnableSplitTunneling($n->getBooleanValue()); },
             'loginGroupOrDomain' => function (ParseNode $n) use ($o) { $o->setLoginGroupOrDomain($n->getStringValue()); },
@@ -118,19 +117,10 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('applyOnlyToWindows81', $this->applyOnlyToWindows81);
         $writer->writeEnumValue('connectionType', $this->connectionType);
         $writer->writeBooleanValue('enableSplitTunneling', $this->enableSplitTunneling);
         $writer->writeStringValue('loginGroupOrDomain', $this->loginGroupOrDomain);
         $writer->writeObjectValue('proxyServer', $this->proxyServer);
-    }
-
-    /**
-     * Sets the applyOnlyToWindows81 property value. Value indicating whether this policy only applies to Windows 8.1. This property is read-only.
-     *  @param bool|null $value Value to set for the applyOnlyToWindows81 property.
-    */
-    public function setApplyOnlyToWindows81(?bool $value ): void {
-        $this->applyOnlyToWindows81 = $value;
     }
 
     /**

@@ -47,13 +47,13 @@ class QnasRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/search/qnas{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/search/qnas{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization.
+     * Get a list of the qna objects and their properties.
      * @param QnasRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class QnasRequestBuilder
     }
 
     /**
-     * Create new navigation property to qnas for search
+     * Create a new qna object.
      * @param Qna $body 
      * @param QnasRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class QnasRequestBuilder
     }
 
     /**
-     * Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization.
+     * Get a list of the qna objects and their properties.
      * @param QnasRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class QnasRequestBuilder
     }
 
     /**
-     * Create new navigation property to qnas for search
+     * Create a new qna object.
      * @param Qna $body 
      * @param QnasRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

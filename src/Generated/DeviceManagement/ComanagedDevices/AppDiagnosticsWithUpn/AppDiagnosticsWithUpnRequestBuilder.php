@@ -38,7 +38,7 @@ class AppDiagnosticsWithUpnRequestBuilder
      * @param string|null $upn Usage: upn='{upn}'
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $upn = null) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/comanagedDevices/microsoft.graph.appDiagnostics(upn=\'{upn}\')';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/comanagedDevices/microsoft.graph.appDiagnostics(upn=\'{upn}\'){?%24top,%24skip,%24search,%24filter,%24count}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -60,6 +60,9 @@ class AppDiagnosticsWithUpnRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

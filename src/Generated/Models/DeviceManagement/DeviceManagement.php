@@ -1429,7 +1429,6 @@ class DeviceManagement extends Entity implements Parsable
             'deviceCompliancePolicies' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicies($n->getCollectionOfObjectValues(array(DeviceCompliancePolicy::class, 'createFromDiscriminatorValue'))); },
             'deviceCompliancePolicyDeviceStateSummary' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicyDeviceStateSummary($n->getObjectValue(array(DeviceCompliancePolicyDeviceStateSummary::class, 'createFromDiscriminatorValue'))); },
             'deviceCompliancePolicySettingStateSummaries' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicySettingStateSummaries($n->getCollectionOfObjectValues(array(DeviceCompliancePolicySettingStateSummary::class, 'createFromDiscriminatorValue'))); },
-            'deviceComplianceReportSummarizationDateTime' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceReportSummarizationDateTime($n->getDateTimeValue()); },
             'deviceComplianceScripts' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceScripts($n->getCollectionOfObjectValues(array(DeviceComplianceScript::class, 'createFromDiscriminatorValue'))); },
             'deviceConfigurationConflictSummary' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationConflictSummary($n->getCollectionOfObjectValues(array(DeviceConfigurationConflictSummary::class, 'createFromDiscriminatorValue'))); },
             'deviceConfigurationDeviceStateSummaries' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationDeviceStateSummaries($n->getObjectValue(array(DeviceConfigurationDeviceStateSummary::class, 'createFromDiscriminatorValue'))); },
@@ -1463,8 +1462,6 @@ class DeviceManagement extends Entity implements Parsable
             'intuneBrand' => function (ParseNode $n) use ($o) { $o->setIntuneBrand($n->getObjectValue(array(IntuneBrand::class, 'createFromDiscriminatorValue'))); },
             'intuneBrandingProfiles' => function (ParseNode $n) use ($o) { $o->setIntuneBrandingProfiles($n->getCollectionOfObjectValues(array(IntuneBrandingProfile::class, 'createFromDiscriminatorValue'))); },
             'iosUpdateStatuses' => function (ParseNode $n) use ($o) { $o->setIosUpdateStatuses($n->getCollectionOfObjectValues(array(IosUpdateDeviceStatus::class, 'createFromDiscriminatorValue'))); },
-            'lastReportAggregationDateTime' => function (ParseNode $n) use ($o) { $o->setLastReportAggregationDateTime($n->getDateTimeValue()); },
-            'legacyPcManangementEnabled' => function (ParseNode $n) use ($o) { $o->setLegacyPcManangementEnabled($n->getBooleanValue()); },
             'macOSSoftwareUpdateAccountSummaries' => function (ParseNode $n) use ($o) { $o->setMacOSSoftwareUpdateAccountSummaries($n->getCollectionOfObjectValues(array(MacOSSoftwareUpdateAccountSummary::class, 'createFromDiscriminatorValue'))); },
             'managedDeviceCleanupSettings' => function (ParseNode $n) use ($o) { $o->setManagedDeviceCleanupSettings($n->getObjectValue(array(ManagedDeviceCleanupSettings::class, 'createFromDiscriminatorValue'))); },
             'managedDeviceEncryptionStates' => function (ParseNode $n) use ($o) { $o->setManagedDeviceEncryptionStates($n->getCollectionOfObjectValues(array(ManagedDeviceEncryptionState::class, 'createFromDiscriminatorValue'))); },
@@ -1505,7 +1502,6 @@ class DeviceManagement extends Entity implements Parsable
             'tenantAttachRBAC' => function (ParseNode $n) use ($o) { $o->setTenantAttachRBAC($n->getObjectValue(array(TenantAttachRBAC::class, 'createFromDiscriminatorValue'))); },
             'termsAndConditions' => function (ParseNode $n) use ($o) { $o->setTermsAndConditions($n->getCollectionOfObjectValues(array(TermsAndConditions::class, 'createFromDiscriminatorValue'))); },
             'troubleshootingEvents' => function (ParseNode $n) use ($o) { $o->setTroubleshootingEvents($n->getCollectionOfObjectValues(array(DeviceManagementTroubleshootingEvent::class, 'createFromDiscriminatorValue'))); },
-            'unlicensedAdminstratorsEnabled' => function (ParseNode $n) use ($o) { $o->setUnlicensedAdminstratorsEnabled($n->getBooleanValue()); },
             'userExperienceAnalyticsAppHealthApplicationPerformance' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsAppHealthApplicationPerformance($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsAppHealthApplicationPerformance::class, 'createFromDiscriminatorValue'))); },
             'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion::class, 'createFromDiscriminatorValue'))); },
             'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails::class, 'createFromDiscriminatorValue'))); },
@@ -2533,7 +2529,6 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceCompliancePolicies', $this->deviceCompliancePolicies);
         $writer->writeObjectValue('deviceCompliancePolicyDeviceStateSummary', $this->deviceCompliancePolicyDeviceStateSummary);
         $writer->writeCollectionOfObjectValues('deviceCompliancePolicySettingStateSummaries', $this->deviceCompliancePolicySettingStateSummaries);
-        $writer->writeDateTimeValue('deviceComplianceReportSummarizationDateTime', $this->deviceComplianceReportSummarizationDateTime);
         $writer->writeCollectionOfObjectValues('deviceComplianceScripts', $this->deviceComplianceScripts);
         $writer->writeCollectionOfObjectValues('deviceConfigurationConflictSummary', $this->deviceConfigurationConflictSummary);
         $writer->writeObjectValue('deviceConfigurationDeviceStateSummaries', $this->deviceConfigurationDeviceStateSummaries);
@@ -2567,8 +2562,6 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('intuneBrand', $this->intuneBrand);
         $writer->writeCollectionOfObjectValues('intuneBrandingProfiles', $this->intuneBrandingProfiles);
         $writer->writeCollectionOfObjectValues('iosUpdateStatuses', $this->iosUpdateStatuses);
-        $writer->writeDateTimeValue('lastReportAggregationDateTime', $this->lastReportAggregationDateTime);
-        $writer->writeBooleanValue('legacyPcManangementEnabled', $this->legacyPcManangementEnabled);
         $writer->writeCollectionOfObjectValues('macOSSoftwareUpdateAccountSummaries', $this->macOSSoftwareUpdateAccountSummaries);
         $writer->writeObjectValue('managedDeviceCleanupSettings', $this->managedDeviceCleanupSettings);
         $writer->writeCollectionOfObjectValues('managedDeviceEncryptionStates', $this->managedDeviceEncryptionStates);
@@ -2609,7 +2602,6 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('tenantAttachRBAC', $this->tenantAttachRBAC);
         $writer->writeCollectionOfObjectValues('termsAndConditions', $this->termsAndConditions);
         $writer->writeCollectionOfObjectValues('troubleshootingEvents', $this->troubleshootingEvents);
-        $writer->writeBooleanValue('unlicensedAdminstratorsEnabled', $this->unlicensedAdminstratorsEnabled);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformance', $this->userExperienceAnalyticsAppHealthApplicationPerformance);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion', $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails', $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails);
@@ -2991,14 +2983,6 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceComplianceReportSummarizationDateTime property value. The last requested time of device compliance reporting for this account. This property is read-only.
-     *  @param DateTime|null $value Value to set for the deviceComplianceReportSummarizationDateTime property.
-    */
-    public function setDeviceComplianceReportSummarizationDateTime(?DateTime $value ): void {
-        $this->deviceComplianceReportSummarizationDateTime = $value;
-    }
-
-    /**
      * Sets the deviceComplianceScripts property value. The list of device compliance scripts associated with the tenant.
      *  @param array<DeviceComplianceScript>|null $value Value to set for the deviceComplianceScripts property.
     */
@@ -3260,22 +3244,6 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setIosUpdateStatuses(?array $value ): void {
         $this->iosUpdateStatuses = $value;
-    }
-
-    /**
-     * Sets the lastReportAggregationDateTime property value. The last modified time of reporting for this account. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastReportAggregationDateTime property.
-    */
-    public function setLastReportAggregationDateTime(?DateTime $value ): void {
-        $this->lastReportAggregationDateTime = $value;
-    }
-
-    /**
-     * Sets the legacyPcManangementEnabled property value. The property to enable Non-MDM managed legacy PC management for this account. This property is read-only.
-     *  @param bool|null $value Value to set for the legacyPcManangementEnabled property.
-    */
-    public function setLegacyPcManangementEnabled(?bool $value ): void {
-        $this->legacyPcManangementEnabled = $value;
     }
 
     /**
@@ -3596,14 +3564,6 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setTroubleshootingEvents(?array $value ): void {
         $this->troubleshootingEvents = $value;
-    }
-
-    /**
-     * Sets the unlicensedAdminstratorsEnabled property value. When enabled, users assigned as administrators via Role Assignment Memberships do not require an assigned Intune license. Prior to this, only Intune licensed users were granted permissions with an Intune role unless they were assigned a role via Azure Active Directory. You are limited to 350 unlicensed direct members for each AAD security group in a role assignment, but you can assign multiple AAD security groups to a role if you need to support more than 350 unlicensed administrators. Licensed administrators are unaffected, do not have to be direct members, nor does the 350 member limit apply. This property is read-only.
-     *  @param bool|null $value Value to set for the unlicensedAdminstratorsEnabled property.
-    */
-    public function setUnlicensedAdminstratorsEnabled(?bool $value ): void {
-        $this->unlicensedAdminstratorsEnabled = $value;
     }
 
     /**

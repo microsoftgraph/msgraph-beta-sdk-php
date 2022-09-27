@@ -107,10 +107,8 @@ class OmaSetting implements AdditionalDataHolder, Parsable
         return  [
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isEncrypted' => function (ParseNode $n) use ($o) { $o->setIsEncrypted($n->getBooleanValue()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'omaUri' => function (ParseNode $n) use ($o) { $o->setOmaUri($n->getStringValue()); },
-            'secretReferenceValueId' => function (ParseNode $n) use ($o) { $o->setSecretReferenceValueId($n->getStringValue()); },
         ];
     }
 
@@ -153,10 +151,8 @@ class OmaSetting implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isEncrypted', $this->isEncrypted);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('omaUri', $this->omaUri);
-        $writer->writeStringValue('secretReferenceValueId', $this->secretReferenceValueId);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -185,14 +181,6 @@ class OmaSetting implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isEncrypted property value. Indicates whether the value field is encrypted. This property is read-only.
-     *  @param bool|null $value Value to set for the isEncrypted property.
-    */
-    public function setIsEncrypted(?bool $value ): void {
-        $this->isEncrypted = $value;
-    }
-
-    /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
@@ -206,14 +194,6 @@ class OmaSetting implements AdditionalDataHolder, Parsable
     */
     public function setOmaUri(?string $value ): void {
         $this->omaUri = $value;
-    }
-
-    /**
-     * Sets the secretReferenceValueId property value. ReferenceId for looking up secret for decryption. This property is read-only.
-     *  @param string|null $value Value to set for the secretReferenceValueId property.
-    */
-    public function setSecretReferenceValueId(?string $value ): void {
-        $this->secretReferenceValueId = $value;
     }
 
 }

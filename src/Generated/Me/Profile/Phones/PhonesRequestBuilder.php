@@ -47,13 +47,13 @@ class PhonesRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/me/profile/phones{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/me/profile/phones{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Represents detailed information about phone numbers associated with a user in various services.
+     * Retrieve a list of itemPhone objects from a user's profile.
      * @param PhonesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class PhonesRequestBuilder
     }
 
     /**
-     * Create new navigation property to phones for me
+     * Use this API to create a new itemPhone object in a user's profile.
      * @param ItemPhone $body 
      * @param PhonesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class PhonesRequestBuilder
     }
 
     /**
-     * Represents detailed information about phone numbers associated with a user in various services.
+     * Retrieve a list of itemPhone objects from a user's profile.
      * @param PhonesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class PhonesRequestBuilder
     }
 
     /**
-     * Create new navigation property to phones for me
+     * Use this API to create a new itemPhone object in a user's profile.
      * @param ItemPhone $body 
      * @param PhonesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

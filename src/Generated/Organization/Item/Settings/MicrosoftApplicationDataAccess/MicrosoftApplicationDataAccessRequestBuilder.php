@@ -65,7 +65,7 @@ class MicrosoftApplicationDataAccessRequestBuilder
     }
 
     /**
-     * Get microsoftApplicationDataAccess from organization
+     * Get the _settings_ in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
      * @param MicrosoftApplicationDataAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -90,7 +90,7 @@ class MicrosoftApplicationDataAccessRequestBuilder
     }
 
     /**
-     * Update the navigation property microsoftApplicationDataAccess in organization
+     * Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
      * @param MicrosoftApplicationDataAccessSettings $body 
      * @param MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -100,6 +100,7 @@ class MicrosoftApplicationDataAccessRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
@@ -132,7 +133,7 @@ class MicrosoftApplicationDataAccessRequestBuilder
     }
 
     /**
-     * Get microsoftApplicationDataAccess from organization
+     * Get the _settings_ in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
      * @param MicrosoftApplicationDataAccessRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -151,7 +152,7 @@ class MicrosoftApplicationDataAccessRequestBuilder
     }
 
     /**
-     * Update the navigation property microsoftApplicationDataAccess in organization
+     * Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
      * @param MicrosoftApplicationDataAccessSettings $body 
      * @param MicrosoftApplicationDataAccessRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -164,7 +165,7 @@ class MicrosoftApplicationDataAccessRequestBuilder
                     '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
                     '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, array(MicrosoftApplicationDataAccessSettings::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

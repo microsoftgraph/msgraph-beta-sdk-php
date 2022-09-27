@@ -16,4 +16,9 @@ class GetOffice365ActiveUserDetailWithDateRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetOffice365ActiveUserDetailWithDateRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

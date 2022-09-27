@@ -63,9 +63,6 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'available' => function (ParseNode $n) use ($o) { $o->setAvailable($n->getBooleanValue()); },
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
-            'oemName' => function (ParseNode $n) use ($o) { $o->setOemName($n->getStringValue()); },
         ]);
     }
 
@@ -83,33 +80,6 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('available', $this->available);
-        $writer->writeBooleanValue('enabled', $this->enabled);
-        $writer->writeStringValue('oemName', $this->oemName);
-    }
-
-    /**
-     * Sets the available property value. Specifies whether warranty API is available. This property is read-only.
-     *  @param bool|null $value Value to set for the available property.
-    */
-    public function setAvailable(?bool $value ): void {
-        $this->available = $value;
-    }
-
-    /**
-     * Sets the enabled property value. Specifies whether warranty query is enabled for given OEM. This property is read-only.
-     *  @param bool|null $value Value to set for the enabled property.
-    */
-    public function setEnabled(?bool $value ): void {
-        $this->enabled = $value;
-    }
-
-    /**
-     * Sets the oemName property value. OEM name. This property is read-only.
-     *  @param string|null $value Value to set for the oemName property.
-    */
-    public function setOemName(?string $value ): void {
-        $this->oemName = $value;
     }
 
 }

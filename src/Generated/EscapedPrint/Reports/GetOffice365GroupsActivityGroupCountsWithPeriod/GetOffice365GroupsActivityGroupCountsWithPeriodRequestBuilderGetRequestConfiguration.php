@@ -16,4 +16,9 @@ class GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilderGetRequestCon
     */
     public ?array $options = null;
     
+    /**
+     * @var GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

@@ -86,7 +86,7 @@ class DeviceManagementScript extends Entity implements Parsable
     private ?array $userRunStates = null;
     
     /**
-     * Instantiates a new DeviceManagementScript and sets the default values.
+     * Instantiates a new deviceManagementScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -158,14 +158,12 @@ class DeviceManagementScript extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceManagementScriptAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'deviceRunStates' => function (ParseNode $n) use ($o) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(array(DeviceManagementScriptDeviceState::class, 'createFromDiscriminatorValue'))); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'enforceSignatureCheck' => function (ParseNode $n) use ($o) { $o->setEnforceSignatureCheck($n->getBooleanValue()); },
             'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
             'groupAssignments' => function (ParseNode $n) use ($o) { $o->setGroupAssignments($n->getCollectionOfObjectValues(array(DeviceManagementScriptGroupAssignment::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
             'runAs32Bit' => function (ParseNode $n) use ($o) { $o->setRunAs32Bit($n->getBooleanValue()); },
             'runAsAccount' => function (ParseNode $n) use ($o) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
@@ -254,14 +252,12 @@ class DeviceManagementScript extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('description', $this->description);
         $writer->writeCollectionOfObjectValues('deviceRunStates', $this->deviceRunStates);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeBooleanValue('enforceSignatureCheck', $this->enforceSignatureCheck);
         $writer->writeStringValue('fileName', $this->fileName);
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->groupAssignments);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeBooleanValue('runAs32Bit', $this->runAs32Bit);
         $writer->writeEnumValue('runAsAccount', $this->runAsAccount);
@@ -276,14 +272,6 @@ class DeviceManagementScript extends Entity implements Parsable
     */
     public function setAssignments(?array $value ): void {
         $this->assignments = $value;
-    }
-
-    /**
-     * Sets the createdDateTime property value. The date and time the device management script was created. This property is read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
-    */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
     }
 
     /**
@@ -332,14 +320,6 @@ class DeviceManagementScript extends Entity implements Parsable
     */
     public function setGroupAssignments(?array $value ): void {
         $this->groupAssignments = $value;
-    }
-
-    /**
-     * Sets the lastModifiedDateTime property value. The date and time the device management script was last modified. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
-    */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
     }
 
     /**

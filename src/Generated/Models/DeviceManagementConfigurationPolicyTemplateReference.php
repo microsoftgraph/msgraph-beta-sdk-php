@@ -72,8 +72,6 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
         $o = $this;
         return  [
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'templateDisplayName' => function (ParseNode $n) use ($o) { $o->setTemplateDisplayName($n->getStringValue()); },
-            'templateDisplayVersion' => function (ParseNode $n) use ($o) { $o->setTemplateDisplayVersion($n->getStringValue()); },
             'templateFamily' => function (ParseNode $n) use ($o) { $o->setTemplateFamily($n->getEnumValue(DeviceManagementConfigurationTemplateFamily::class)); },
             'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
         ];
@@ -125,8 +123,6 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('templateDisplayName', $this->templateDisplayName);
-        $writer->writeStringValue('templateDisplayVersion', $this->templateDisplayVersion);
         $writer->writeEnumValue('templateFamily', $this->templateFamily);
         $writer->writeStringValue('templateId', $this->templateId);
         $writer->writeAdditionalData($this->additionalData);
@@ -146,22 +142,6 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
     */
     public function setOdataType(?string $value ): void {
         $this->odataType = $value;
-    }
-
-    /**
-     * Sets the templateDisplayName property value. Template Display Name of the referenced template. This property is read-only.
-     *  @param string|null $value Value to set for the templateDisplayName property.
-    */
-    public function setTemplateDisplayName(?string $value ): void {
-        $this->templateDisplayName = $value;
-    }
-
-    /**
-     * Sets the templateDisplayVersion property value. Template Display Version of the referenced Template. This property is read-only.
-     *  @param string|null $value Value to set for the templateDisplayVersion property.
-    */
-    public function setTemplateDisplayVersion(?string $value ): void {
-        $this->templateDisplayVersion = $value;
     }
 
     /**

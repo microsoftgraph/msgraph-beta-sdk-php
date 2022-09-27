@@ -15,6 +15,7 @@ use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\Acce
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\IncompatibleAccessPackages\IncompatibleAccessPackagesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\IncompatibleGroups\IncompatibleGroupsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\IncompatibleGroups\Item\GroupItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\IdentityGovernance\EntitlementManagement\AccessPackageCatalogs\Item\AccessPackages\Item\MoveToCatalog\MoveToCatalogRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\AccessPackage;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -74,6 +75,13 @@ class AccessPackageItemRequestBuilder
     */
     public function incompatibleGroups(): IncompatibleGroupsRequestBuilder {
         return new IncompatibleGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The moveToCatalog property
+    */
+    public function moveToCatalog(): MoveToCatalogRequestBuilder {
+        return new MoveToCatalogRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -192,6 +200,7 @@ class AccessPackageItemRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
@@ -278,7 +287,7 @@ class AccessPackageItemRequestBuilder
                     '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
                     '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, array(AccessPackage::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

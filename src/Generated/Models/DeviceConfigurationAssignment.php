@@ -54,7 +54,6 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'intent' => function (ParseNode $n) use ($o) { $o->setIntent($n->getEnumValue(DeviceConfigAssignmentIntent::class)); },
             'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getEnumValue(DeviceAndAppManagementAssignmentSource::class)); },
-            'sourceId' => function (ParseNode $n) use ($o) { $o->setSourceId($n->getStringValue()); },
             'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
@@ -99,7 +98,6 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('intent', $this->intent);
         $writer->writeEnumValue('source', $this->source);
-        $writer->writeStringValue('sourceId', $this->sourceId);
         $writer->writeObjectValue('target', $this->target);
     }
 
@@ -117,14 +115,6 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
     */
     public function setSource(?DeviceAndAppManagementAssignmentSource $value ): void {
         $this->source = $value;
-    }
-
-    /**
-     * Sets the sourceId property value. The identifier of the source of the assignment. This property is read-only.
-     *  @param string|null $value Value to set for the sourceId property.
-    */
-    public function setSourceId(?string $value ): void {
-        $this->sourceId = $value;
     }
 
     /**

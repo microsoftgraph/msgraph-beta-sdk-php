@@ -79,7 +79,6 @@ class RoleScopeTag extends Entity implements Parsable
             'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(RoleScopeTagAutoAssignment::class, 'createFromDiscriminatorValue'))); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isBuiltIn' => function (ParseNode $n) use ($o) { $o->setIsBuiltIn($n->getBooleanValue()); },
         ]);
     }
 
@@ -100,7 +99,6 @@ class RoleScopeTag extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isBuiltIn', $this->isBuiltIn);
     }
 
     /**
@@ -125,14 +123,6 @@ class RoleScopeTag extends Entity implements Parsable
     */
     public function setDisplayName(?string $value ): void {
         $this->displayName = $value;
-    }
-
-    /**
-     * Sets the isBuiltIn property value. Description of the Role Scope Tag. This property is read-only.
-     *  @param bool|null $value Value to set for the isBuiltIn property.
-    */
-    public function setIsBuiltIn(?bool $value ): void {
-        $this->isBuiltIn = $value;
     }
 
 }

@@ -120,16 +120,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'compliancePolicyCount' => function (ParseNode $n) use ($o) { $o->setCompliancePolicyCount($n->getIntegerValue()); },
-            'configurationSettingsCount' => function (ParseNode $n) use ($o) { $o->setConfigurationSettingsCount($n->getIntegerValue()); },
-            'endpointProtectionCount' => function (ParseNode $n) use ($o) { $o->setEndpointProtectionCount($n->getIntegerValue()); },
-            'inventoryCount' => function (ParseNode $n) use ($o) { $o->setInventoryCount($n->getIntegerValue()); },
-            'modernAppsCount' => function (ParseNode $n) use ($o) { $o->setModernAppsCount($n->getIntegerValue()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'officeAppsCount' => function (ParseNode $n) use ($o) { $o->setOfficeAppsCount($n->getIntegerValue()); },
-            'resourceAccessCount' => function (ParseNode $n) use ($o) { $o->setResourceAccessCount($n->getIntegerValue()); },
-            'totalComanagedCount' => function (ParseNode $n) use ($o) { $o->setTotalComanagedCount($n->getIntegerValue()); },
-            'windowsUpdateForBusinessCount' => function (ParseNode $n) use ($o) { $o->setWindowsUpdateForBusinessCount($n->getIntegerValue()); },
         ];
     }
 
@@ -194,16 +185,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('compliancePolicyCount', $this->compliancePolicyCount);
-        $writer->writeIntegerValue('configurationSettingsCount', $this->configurationSettingsCount);
-        $writer->writeIntegerValue('endpointProtectionCount', $this->endpointProtectionCount);
-        $writer->writeIntegerValue('inventoryCount', $this->inventoryCount);
-        $writer->writeIntegerValue('modernAppsCount', $this->modernAppsCount);
         $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('officeAppsCount', $this->officeAppsCount);
-        $writer->writeIntegerValue('resourceAccessCount', $this->resourceAccessCount);
-        $writer->writeIntegerValue('totalComanagedCount', $this->totalComanagedCount);
-        $writer->writeIntegerValue('windowsUpdateForBusinessCount', $this->windowsUpdateForBusinessCount);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -216,83 +198,11 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the compliancePolicyCount property value. Number of devices with CompliancePolicy swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the compliancePolicyCount property.
-    */
-    public function setCompliancePolicyCount(?int $value ): void {
-        $this->compliancePolicyCount = $value;
-    }
-
-    /**
-     * Sets the configurationSettingsCount property value. Number of devices with ConfigurationSettings swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the configurationSettingsCount property.
-    */
-    public function setConfigurationSettingsCount(?int $value ): void {
-        $this->configurationSettingsCount = $value;
-    }
-
-    /**
-     * Sets the endpointProtectionCount property value. Number of devices with EndpointProtection swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the endpointProtectionCount property.
-    */
-    public function setEndpointProtectionCount(?int $value ): void {
-        $this->endpointProtectionCount = $value;
-    }
-
-    /**
-     * Sets the inventoryCount property value. Number of devices with Inventory swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the inventoryCount property.
-    */
-    public function setInventoryCount(?int $value ): void {
-        $this->inventoryCount = $value;
-    }
-
-    /**
-     * Sets the modernAppsCount property value. Number of devices with ModernApps swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the modernAppsCount property.
-    */
-    public function setModernAppsCount(?int $value ): void {
-        $this->modernAppsCount = $value;
-    }
-
-    /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
     public function setOdataType(?string $value ): void {
         $this->odataType = $value;
-    }
-
-    /**
-     * Sets the officeAppsCount property value. Number of devices with OfficeApps swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the officeAppsCount property.
-    */
-    public function setOfficeAppsCount(?int $value ): void {
-        $this->officeAppsCount = $value;
-    }
-
-    /**
-     * Sets the resourceAccessCount property value. Number of devices with ResourceAccess swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the resourceAccessCount property.
-    */
-    public function setResourceAccessCount(?int $value ): void {
-        $this->resourceAccessCount = $value;
-    }
-
-    /**
-     * Sets the totalComanagedCount property value. Number of Co-Managed Devices. This property is read-only.
-     *  @param int|null $value Value to set for the totalComanagedCount property.
-    */
-    public function setTotalComanagedCount(?int $value ): void {
-        $this->totalComanagedCount = $value;
-    }
-
-    /**
-     * Sets the windowsUpdateForBusinessCount property value. Number of devices with WindowsUpdateForBusiness swung-over. This property is read-only.
-     *  @param int|null $value Value to set for the windowsUpdateForBusinessCount property.
-    */
-    public function setWindowsUpdateForBusinessCount(?int $value ): void {
-        $this->windowsUpdateForBusinessCount = $value;
     }
 
 }

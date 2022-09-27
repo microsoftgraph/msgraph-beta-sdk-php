@@ -131,16 +131,12 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
             'creationSource' => function (ParseNode $n) use ($o) { $o->setCreationSource($n->getStringValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'isAssigned' => function (ParseNode $n) use ($o) { $o->setIsAssigned($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
             'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
             'scheduledActionsForRule' => function (ParseNode $n) use ($o) { $o->setScheduledActionsForRule($n->getCollectionOfObjectValues(array(DeviceManagementComplianceScheduledActionForRule::class, 'createFromDiscriminatorValue'))); },
-            'settingCount' => function (ParseNode $n) use ($o) { $o->setSettingCount($n->getIntegerValue()); },
             'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSetting::class, 'createFromDiscriminatorValue'))); },
             'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
         ]);
@@ -225,16 +221,12 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('creationSource', $this->creationSource);
         $writer->writeStringValue('description', $this->description);
-        $writer->writeBooleanValue('isAssigned', $this->isAssigned);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('name', $this->name);
         $writer->writeEnumValue('platforms', $this->platforms);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeCollectionOfObjectValues('scheduledActionsForRule', $this->scheduledActionsForRule);
-        $writer->writeIntegerValue('settingCount', $this->settingCount);
         $writer->writeCollectionOfObjectValues('settings', $this->settings);
         $writer->writeEnumValue('technologies', $this->technologies);
     }
@@ -245,14 +237,6 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     */
     public function setAssignments(?array $value ): void {
         $this->assignments = $value;
-    }
-
-    /**
-     * Sets the createdDateTime property value. Policy creation date and time. This property is read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
-    */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
     }
 
     /**
@@ -269,22 +253,6 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     */
     public function setDescription(?string $value ): void {
         $this->description = $value;
-    }
-
-    /**
-     * Sets the isAssigned property value. Policy assignment status. This property is read-only.
-     *  @param bool|null $value Value to set for the isAssigned property.
-    */
-    public function setIsAssigned(?bool $value ): void {
-        $this->isAssigned = $value;
-    }
-
-    /**
-     * Sets the lastModifiedDateTime property value. Policy last modification date and time. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
-    */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
     }
 
     /**
@@ -317,14 +285,6 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     */
     public function setScheduledActionsForRule(?array $value ): void {
         $this->scheduledActionsForRule = $value;
-    }
-
-    /**
-     * Sets the settingCount property value. Number of settings. This property is read-only.
-     *  @param int|null $value Value to set for the settingCount property.
-    */
-    public function setSettingCount(?int $value ): void {
-        $this->settingCount = $value;
     }
 
     /**

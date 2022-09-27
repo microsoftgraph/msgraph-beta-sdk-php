@@ -134,7 +134,6 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
             'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
             'creationSource' => function (ParseNode $n) use ($o) { $o->setCreationSource($n->getStringValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'isAssigned' => function (ParseNode $n) use ($o) { $o->setIsAssigned($n->getBooleanValue()); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
             'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
@@ -228,7 +227,6 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('creationSource', $this->creationSource);
         $writer->writeStringValue('description', $this->description);
-        $writer->writeBooleanValue('isAssigned', $this->isAssigned);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('name', $this->name);
         $writer->writeEnumValue('platforms', $this->platforms);
@@ -269,14 +267,6 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
     */
     public function setDescription(?string $value ): void {
         $this->description = $value;
-    }
-
-    /**
-     * Sets the isAssigned property value. Policy assignment status. This property is read-only.
-     *  @param bool|null $value Value to set for the isAssigned property.
-    */
-    public function setIsAssigned(?bool $value ): void {
-        $this->isAssigned = $value;
     }
 
     /**

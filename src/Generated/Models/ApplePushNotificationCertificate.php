@@ -50,7 +50,7 @@ class ApplePushNotificationCertificate extends Entity implements Parsable
     private ?string $topicIdentifier = null;
     
     /**
-     * Instantiates a new ApplePushNotificationCertificate and sets the default values.
+     * Instantiates a new applePushNotificationCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -123,7 +123,6 @@ class ApplePushNotificationCertificate extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'appleIdentifier' => function (ParseNode $n) use ($o) { $o->setAppleIdentifier($n->getStringValue()); },
             'certificate' => function (ParseNode $n) use ($o) { $o->setCertificate($n->getStringValue()); },
-            'certificateSerialNumber' => function (ParseNode $n) use ($o) { $o->setCertificateSerialNumber($n->getStringValue()); },
             'certificateUploadFailureReason' => function (ParseNode $n) use ($o) { $o->setCertificateUploadFailureReason($n->getStringValue()); },
             'certificateUploadStatus' => function (ParseNode $n) use ($o) { $o->setCertificateUploadStatus($n->getStringValue()); },
             'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
@@ -156,7 +155,6 @@ class ApplePushNotificationCertificate extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('appleIdentifier', $this->appleIdentifier);
         $writer->writeStringValue('certificate', $this->certificate);
-        $writer->writeStringValue('certificateSerialNumber', $this->certificateSerialNumber);
         $writer->writeStringValue('certificateUploadFailureReason', $this->certificateUploadFailureReason);
         $writer->writeStringValue('certificateUploadStatus', $this->certificateUploadStatus);
         $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
@@ -178,14 +176,6 @@ class ApplePushNotificationCertificate extends Entity implements Parsable
     */
     public function setCertificate(?string $value ): void {
         $this->certificate = $value;
-    }
-
-    /**
-     * Sets the certificateSerialNumber property value. Certificate serial number. This property is read-only.
-     *  @param string|null $value Value to set for the certificateSerialNumber property.
-    */
-    public function setCertificateSerialNumber(?string $value ): void {
-        $this->certificateSerialNumber = $value;
     }
 
     /**

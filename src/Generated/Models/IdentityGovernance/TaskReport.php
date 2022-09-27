@@ -71,7 +71,7 @@ class TaskReport extends Entity implements Parsable
     private ?int $unprocessedUsersCount = null;
     
     /**
-     * Instantiates a new TaskReport and sets the default values.
+     * Instantiates a new taskReport and sets the default values.
     */
     public function __construct() {
         parent::__construct();

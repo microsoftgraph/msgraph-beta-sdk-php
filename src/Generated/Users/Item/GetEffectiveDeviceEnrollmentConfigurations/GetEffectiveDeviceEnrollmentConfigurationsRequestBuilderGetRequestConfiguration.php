@@ -16,4 +16,9 @@ class GetEffectiveDeviceEnrollmentConfigurationsRequestBuilderGetRequestConfigur
     */
     public ?array $options = null;
     
+    /**
+     * @var GetEffectiveDeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetEffectiveDeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

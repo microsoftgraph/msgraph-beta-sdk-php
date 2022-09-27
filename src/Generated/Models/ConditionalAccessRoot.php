@@ -29,6 +29,11 @@ class ConditionalAccessRoot extends Entity implements Parsable
     private ?array $policies = null;
     
     /**
+     * @var array<ConditionalAccessTemplate>|null $templates The templates property
+    */
+    private ?array $templates = null;
+    
+    /**
      * Instantiates a new ConditionalAccessRoot and sets the default values.
     */
     public function __construct() {
@@ -72,6 +77,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
             'authenticationStrengths' => function (ParseNode $n) use ($o) { $o->setAuthenticationStrengths($n->getObjectValue(array(AuthenticationStrengthRoot::class, 'createFromDiscriminatorValue'))); },
             'namedLocations' => function (ParseNode $n) use ($o) { $o->setNamedLocations($n->getCollectionOfObjectValues(array(NamedLocation::class, 'createFromDiscriminatorValue'))); },
             'policies' => function (ParseNode $n) use ($o) { $o->setPolicies($n->getCollectionOfObjectValues(array(ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'))); },
+            'templates' => function (ParseNode $n) use ($o) { $o->setTemplates($n->getCollectionOfObjectValues(array(ConditionalAccessTemplate::class, 'createFromDiscriminatorValue'))); },
         ]);
     }
 
@@ -92,6 +98,14 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the templates property value. The templates property
+     * @return array<ConditionalAccessTemplate>|null
+    */
+    public function getTemplates(): ?array {
+        return $this->templates;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -101,6 +115,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
         $writer->writeObjectValue('authenticationStrengths', $this->authenticationStrengths);
         $writer->writeCollectionOfObjectValues('namedLocations', $this->namedLocations);
         $writer->writeCollectionOfObjectValues('policies', $this->policies);
+        $writer->writeCollectionOfObjectValues('templates', $this->templates);
     }
 
     /**
@@ -133,6 +148,14 @@ class ConditionalAccessRoot extends Entity implements Parsable
     */
     public function setPolicies(?array $value ): void {
         $this->policies = $value;
+    }
+
+    /**
+     * Sets the templates property value. The templates property
+     *  @param array<ConditionalAccessTemplate>|null $value Value to set for the templates property.
+    */
+    public function setTemplates(?array $value ): void {
+        $this->templates = $value;
     }
 
 }

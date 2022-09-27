@@ -92,7 +92,7 @@ class DeviceShellScript extends Entity implements Parsable
     private ?array $userRunStates = null;
     
     /**
-     * Instantiates a new DeviceShellScript and sets the default values.
+     * Instantiates a new deviceShellScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -173,14 +173,12 @@ class DeviceShellScript extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceManagementScriptAssignment::class, 'createFromDiscriminatorValue'))); },
             'blockExecutionNotifications' => function (ParseNode $n) use ($o) { $o->setBlockExecutionNotifications($n->getBooleanValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'deviceRunStates' => function (ParseNode $n) use ($o) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(array(DeviceManagementScriptDeviceState::class, 'createFromDiscriminatorValue'))); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'executionFrequency' => function (ParseNode $n) use ($o) { $o->setExecutionFrequency($n->getDateIntervalValue()); },
             'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
             'groupAssignments' => function (ParseNode $n) use ($o) { $o->setGroupAssignments($n->getCollectionOfObjectValues(array(DeviceManagementScriptGroupAssignment::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'retryCount' => function (ParseNode $n) use ($o) { $o->setRetryCount($n->getIntegerValue()); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
             'runAsAccount' => function (ParseNode $n) use ($o) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
@@ -270,14 +268,12 @@ class DeviceShellScript extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
         $writer->writeBooleanValue('blockExecutionNotifications', $this->blockExecutionNotifications);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('description', $this->description);
         $writer->writeCollectionOfObjectValues('deviceRunStates', $this->deviceRunStates);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeDateIntervalValue('executionFrequency', $this->executionFrequency);
         $writer->writeStringValue('fileName', $this->fileName);
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->groupAssignments);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeIntegerValue('retryCount', $this->retryCount);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeEnumValue('runAsAccount', $this->runAsAccount);
@@ -300,14 +296,6 @@ class DeviceShellScript extends Entity implements Parsable
     */
     public function setBlockExecutionNotifications(?bool $value ): void {
         $this->blockExecutionNotifications = $value;
-    }
-
-    /**
-     * Sets the createdDateTime property value. The date and time the device management script was created. This property is read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
-    */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
     }
 
     /**
@@ -356,14 +344,6 @@ class DeviceShellScript extends Entity implements Parsable
     */
     public function setGroupAssignments(?array $value ): void {
         $this->groupAssignments = $value;
-    }
-
-    /**
-     * Sets the lastModifiedDateTime property value. The date and time the device management script was last modified. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
-    */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
     }
 
     /**

@@ -16,4 +16,9 @@ class GetDevicesScheduledToRetireRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetDevicesScheduledToRetireRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetDevicesScheduledToRetireRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

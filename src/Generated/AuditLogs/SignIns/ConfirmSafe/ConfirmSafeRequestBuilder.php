@@ -43,7 +43,7 @@ class ConfirmSafeRequestBuilder
     }
 
     /**
-     * Invoke action confirmSafe
+     * Allow admins to mark an event in Azure AD sign in logs as safe. Admins can either mark the events flagged as risky by Azure AD Identity Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk.
      * @param ConfirmSafePostRequestBody $body 
      * @param ConfirmSafeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -66,7 +66,7 @@ class ConfirmSafeRequestBuilder
     }
 
     /**
-     * Invoke action confirmSafe
+     * Allow admins to mark an event in Azure AD sign in logs as safe. Admins can either mark the events flagged as risky by Azure AD Identity Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk.
      * @param ConfirmSafePostRequestBody $body 
      * @param ConfirmSafeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

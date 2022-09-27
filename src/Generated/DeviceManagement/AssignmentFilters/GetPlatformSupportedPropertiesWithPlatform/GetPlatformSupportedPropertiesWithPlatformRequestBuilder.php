@@ -38,7 +38,7 @@ class GetPlatformSupportedPropertiesWithPlatformRequestBuilder
      * @param string|null $platform Usage: platform='{platform}'
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $platform = null) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/assignmentFilters/microsoft.graph.getPlatformSupportedProperties(platform=\'{platform}\')';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/assignmentFilters/microsoft.graph.getPlatformSupportedProperties(platform=\'{platform}\'){?%24top,%24skip,%24search,%24filter,%24count}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -60,6 +60,9 @@ class GetPlatformSupportedPropertiesWithPlatformRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

@@ -47,13 +47,13 @@ class AccessPackageAssignmentPoliciesRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.
+     * In Azure AD entitlement management, retrieve a list of accessPackageAssignmentPolicy objects. If the delegated user is in a directory role, the resulting list includes all the assignment policies that the caller has access to read, across all catalogs and access packages.  If the delegated user is an access package manager or catalog owner, they should instead retrieve the policies for the access packages they can read with list accessPackages by including `$expand=accessPackageAssignmentPolicies` in the query.
      * @param AccessPackageAssignmentPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class AccessPackageAssignmentPoliciesRequestBuilder
     }
 
     /**
-     * Create new navigation property to accessPackageAssignmentPolicies for identityGovernance
+     * In Azure AD entitlement management, create a new accessPackageAssignmentPolicy object.
      * @param AccessPackageAssignmentPolicy $body 
      * @param AccessPackageAssignmentPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class AccessPackageAssignmentPoliciesRequestBuilder
     }
 
     /**
-     * Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.
+     * In Azure AD entitlement management, retrieve a list of accessPackageAssignmentPolicy objects. If the delegated user is in a directory role, the resulting list includes all the assignment policies that the caller has access to read, across all catalogs and access packages.  If the delegated user is an access package manager or catalog owner, they should instead retrieve the policies for the access packages they can read with list accessPackages by including `$expand=accessPackageAssignmentPolicies` in the query.
      * @param AccessPackageAssignmentPoliciesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class AccessPackageAssignmentPoliciesRequestBuilder
     }
 
     /**
-     * Create new navigation property to accessPackageAssignmentPolicies for identityGovernance
+     * In Azure AD entitlement management, create a new accessPackageAssignmentPolicy object.
      * @param AccessPackageAssignmentPolicy $body 
      * @param AccessPackageAssignmentPoliciesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

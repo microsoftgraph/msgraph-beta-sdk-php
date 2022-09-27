@@ -86,7 +86,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     private ?array $userRunStates = null;
     
     /**
-     * Instantiates a new DeviceCustomAttributeShellScript and sets the default values.
+     * Instantiates a new deviceCustomAttributeShellScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -166,7 +166,6 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceManagementScriptAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
             'customAttributeName' => function (ParseNode $n) use ($o) { $o->setCustomAttributeName($n->getStringValue()); },
             'customAttributeType' => function (ParseNode $n) use ($o) { $o->setCustomAttributeType($n->getEnumValue(DeviceCustomAttributeValueType::class)); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
@@ -174,7 +173,6 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
             'groupAssignments' => function (ParseNode $n) use ($o) { $o->setGroupAssignments($n->getCollectionOfObjectValues(array(DeviceManagementScriptGroupAssignment::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
             'runAsAccount' => function (ParseNode $n) use ($o) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
             'runSummary' => function (ParseNode $n) use ($o) { $o->setRunSummary($n->getObjectValue(array(DeviceManagementScriptRunSummary::class, 'createFromDiscriminatorValue'))); },
@@ -254,7 +252,6 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('customAttributeName', $this->customAttributeName);
         $writer->writeEnumValue('customAttributeType', $this->customAttributeType);
         $writer->writeStringValue('description', $this->description);
@@ -262,7 +259,6 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('fileName', $this->fileName);
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->groupAssignments);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeEnumValue('runAsAccount', $this->runAsAccount);
         $writer->writeObjectValue('runSummary', $this->runSummary);
@@ -276,14 +272,6 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     */
     public function setAssignments(?array $value ): void {
         $this->assignments = $value;
-    }
-
-    /**
-     * Sets the createdDateTime property value. The date and time the device management script was created. This property is read-only.
-     *  @param DateTime|null $value Value to set for the createdDateTime property.
-    */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
     }
 
     /**
@@ -340,14 +328,6 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     */
     public function setGroupAssignments(?array $value ): void {
         $this->groupAssignments = $value;
-    }
-
-    /**
-     * Sets the lastModifiedDateTime property value. The date and time the device management script was last modified. This property is read-only.
-     *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
-    */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
     }
 
     /**

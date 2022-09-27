@@ -272,12 +272,14 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.cloudPcAuditEvent': return new CloudPcAuditEvent();
                 case '#microsoft.graph.cloudPCConnectivityIssue': return new CloudPCConnectivityIssue();
                 case '#microsoft.graph.cloudPcDeviceImage': return new CloudPcDeviceImage();
+                case '#microsoft.graph.cloudPcExportJob': return new CloudPcExportJob();
                 case '#microsoft.graph.cloudPcExternalPartnerSetting': return new CloudPcExternalPartnerSetting();
                 case '#microsoft.graph.cloudPcGalleryImage': return new CloudPcGalleryImage();
                 case '#microsoft.graph.cloudPcOnPremisesConnection': return new CloudPcOnPremisesConnection();
                 case '#microsoft.graph.cloudPcOrganizationSettings': return new CloudPcOrganizationSettings();
                 case '#microsoft.graph.cloudPcProvisioningPolicy': return new CloudPcProvisioningPolicy();
                 case '#microsoft.graph.cloudPcProvisioningPolicyAssignment': return new CloudPcProvisioningPolicyAssignment();
+                case '#microsoft.graph.cloudPcReports': return new CloudPcReports();
                 case '#microsoft.graph.cloudPcServicePlan': return new CloudPcServicePlan();
                 case '#microsoft.graph.cloudPcSnapshot': return new CloudPcSnapshot();
                 case '#microsoft.graph.cloudPcSupportedRegion': return new CloudPcSupportedRegion();
@@ -293,6 +295,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.complianceManagementPartner': return new ComplianceManagementPartner();
                 case '#microsoft.graph.conditionalAccessPolicy': return new ConditionalAccessPolicy();
                 case '#microsoft.graph.conditionalAccessRoot': return new ConditionalAccessRoot();
+                case '#microsoft.graph.conditionalAccessTemplate': return new ConditionalAccessTemplate();
                 case '#microsoft.graph.configManagerCollection': return new ConfigManagerCollection();
                 case '#microsoft.graph.connectedOrganization': return new ConnectedOrganization();
                 case '#microsoft.graph.connectionOperation': return new ConnectionOperation();

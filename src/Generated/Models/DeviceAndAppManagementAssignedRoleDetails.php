@@ -62,8 +62,6 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
         $o = $this;
         return  [
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'roleAssignmentIds' => function (ParseNode $n) use ($o) { $o->setRoleAssignmentIds($n->getCollectionOfPrimitiveValues()); },
-            'roleDefinitionIds' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionIds($n->getCollectionOfPrimitiveValues()); },
         ];
     }
 
@@ -97,8 +95,6 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfPrimitiveValues('roleAssignmentIds', $this->roleAssignmentIds);
-        $writer->writeCollectionOfPrimitiveValues('roleDefinitionIds', $this->roleDefinitionIds);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -116,22 +112,6 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
     */
     public function setOdataType(?string $value ): void {
         $this->odataType = $value;
-    }
-
-    /**
-     * Sets the roleAssignmentIds property value. Role Assignment IDs for the specifc Role Assignments assigned to a user. This property is read-only.
-     *  @param array<string>|null $value Value to set for the roleAssignmentIds property.
-    */
-    public function setRoleAssignmentIds(?array $value ): void {
-        $this->roleAssignmentIds = $value;
-    }
-
-    /**
-     * Sets the roleDefinitionIds property value. Role Definition IDs for the specifc Role Definitions assigned to a user. This property is read-only.
-     *  @param array<string>|null $value Value to set for the roleDefinitionIds property.
-    */
-    public function setRoleDefinitionIds(?array $value ): void {
-        $this->roleDefinitionIds = $value;
     }
 
 }

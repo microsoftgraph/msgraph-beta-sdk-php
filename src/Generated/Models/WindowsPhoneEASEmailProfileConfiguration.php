@@ -123,7 +123,6 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'accountName' => function (ParseNode $n) use ($o) { $o->setAccountName($n->getStringValue()); },
-            'applyOnlyToWindowsPhone81' => function (ParseNode $n) use ($o) { $o->setApplyOnlyToWindowsPhone81($n->getBooleanValue()); },
             'durationOfEmailToSync' => function (ParseNode $n) use ($o) { $o->setDurationOfEmailToSync($n->getEnumValue(EmailSyncDuration::class)); },
             'emailAddressSource' => function (ParseNode $n) use ($o) { $o->setEmailAddressSource($n->getEnumValue(UserEmailSource::class)); },
             'emailSyncSchedule' => function (ParseNode $n) use ($o) { $o->setEmailSyncSchedule($n->getEnumValue(EmailSyncSchedule::class)); },
@@ -182,7 +181,6 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('accountName', $this->accountName);
-        $writer->writeBooleanValue('applyOnlyToWindowsPhone81', $this->applyOnlyToWindowsPhone81);
         $writer->writeEnumValue('durationOfEmailToSync', $this->durationOfEmailToSync);
         $writer->writeEnumValue('emailAddressSource', $this->emailAddressSource);
         $writer->writeEnumValue('emailSyncSchedule', $this->emailSyncSchedule);
@@ -199,14 +197,6 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     */
     public function setAccountName(?string $value ): void {
         $this->accountName = $value;
-    }
-
-    /**
-     * Sets the applyOnlyToWindowsPhone81 property value. Value indicating whether this policy only applies to Windows 8.1. This property is read-only.
-     *  @param bool|null $value Value to set for the applyOnlyToWindowsPhone81 property.
-    */
-    public function setApplyOnlyToWindowsPhone81(?bool $value ): void {
-        $this->applyOnlyToWindowsPhone81 = $value;
     }
 
     /**

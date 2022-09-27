@@ -38,7 +38,7 @@ class SummarizeDeviceResourcePerformanceWithSummarizeByRequestBuilder
      * @param string|null $summarizeBy Usage: summarizeBy='{summarizeBy}'
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $summarizeBy = null) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsResourcePerformance/microsoft.graph.summarizeDeviceResourcePerformance(summarizeBy=\'{summarizeBy}\')';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/userExperienceAnalyticsResourcePerformance/microsoft.graph.summarizeDeviceResourcePerformance(summarizeBy=\'{summarizeBy}\'){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -60,6 +60,9 @@ class SummarizeDeviceResourcePerformanceWithSummarizeByRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

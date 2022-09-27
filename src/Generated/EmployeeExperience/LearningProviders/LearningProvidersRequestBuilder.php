@@ -47,13 +47,13 @@ class LearningProvidersRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/employeeExperience/learningProviders{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/employeeExperience/learningProviders{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * A collection of learning providers.
+     * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
      * @param LearningProvidersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class LearningProvidersRequestBuilder
     }
 
     /**
-     * Create new navigation property to learningProviders for employeeExperience
+     * Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.
      * @param LearningProvider $body 
      * @param LearningProvidersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class LearningProvidersRequestBuilder
     }
 
     /**
-     * A collection of learning providers.
+     * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
      * @param LearningProvidersRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class LearningProvidersRequestBuilder
     }
 
     /**
-     * Create new navigation property to learningProviders for employeeExperience
+     * Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.
      * @param LearningProvider $body 
      * @param LearningProvidersRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

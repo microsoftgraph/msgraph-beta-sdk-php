@@ -16,4 +16,9 @@ class GetCloudPcRemoteActionResultsRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetCloudPcRemoteActionResultsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetCloudPcRemoteActionResultsRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

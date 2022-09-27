@@ -40,7 +40,7 @@ class TaskDefinition extends Entity implements Parsable
     private ?int $version = null;
     
     /**
-     * Instantiates a new TaskDefinition and sets the default values.
+     * Instantiates a new taskDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

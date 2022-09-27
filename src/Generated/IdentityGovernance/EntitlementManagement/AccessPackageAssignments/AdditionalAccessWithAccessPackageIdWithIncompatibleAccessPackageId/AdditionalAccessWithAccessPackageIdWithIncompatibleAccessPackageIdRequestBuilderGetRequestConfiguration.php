@@ -16,4 +16,9 @@ class AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestB
     */
     public ?array $options = null;
     
+    /**
+     * @var AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

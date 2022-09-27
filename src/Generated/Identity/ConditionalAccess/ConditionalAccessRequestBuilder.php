@@ -12,6 +12,8 @@ use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\Ite
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\NamedLocations\NamedLocationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Policies\Item\ConditionalAccessPolicyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Policies\PoliciesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Templates\Item\ConditionalAccessTemplateItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Templates\TemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ConditionalAccessRoot;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -61,6 +63,13 @@ class ConditionalAccessRequestBuilder
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
+    
+    /**
+     * The templates property
+    */
+    public function templates(): TemplatesRequestBuilder {
+        return new TemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
@@ -146,6 +155,7 @@ class ConditionalAccessRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
@@ -221,7 +231,7 @@ class ConditionalAccessRequestBuilder
                     '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
                     '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, array(ConditionalAccessRoot::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -236,6 +246,17 @@ class ConditionalAccessRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['conditionalAccessPolicy%2Did'] = $id;
         return new ConditionalAccessPolicyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.identity.conditionalAccess.templates.item collection
+     * @param string $id Unique identifier of the item
+     * @return ConditionalAccessTemplateItemRequestBuilder
+    */
+    public function templatesById(string $id): ConditionalAccessTemplateItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['conditionalAccessTemplate%2Did'] = $id;
+        return new ConditionalAccessTemplateItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
 }

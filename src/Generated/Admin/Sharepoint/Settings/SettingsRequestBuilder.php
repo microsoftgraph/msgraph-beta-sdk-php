@@ -65,7 +65,7 @@ class SettingsRequestBuilder
     }
 
     /**
-     * Represents the tenant-level settings for SharePoint and OneDrive.
+     * Get the tenant-level settings for SharePoint and OneDrive.
      * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -90,7 +90,7 @@ class SettingsRequestBuilder
     }
 
     /**
-     * Update the navigation property settings in admin
+     * Update one or more tenant-level settings for SharePoint and OneDrive.
      * @param Settings $body 
      * @param SettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -100,6 +100,7 @@ class SettingsRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
@@ -132,7 +133,7 @@ class SettingsRequestBuilder
     }
 
     /**
-     * Represents the tenant-level settings for SharePoint and OneDrive.
+     * Get the tenant-level settings for SharePoint and OneDrive.
      * @param SettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -151,7 +152,7 @@ class SettingsRequestBuilder
     }
 
     /**
-     * Update the navigation property settings in admin
+     * Update one or more tenant-level settings for SharePoint and OneDrive.
      * @param Settings $body 
      * @param SettingsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -164,7 +165,7 @@ class SettingsRequestBuilder
                     '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
                     '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, array(Settings::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
