@@ -35,7 +35,7 @@ class WorkflowTemplate extends Entity implements Parsable
     private ?array $tasks = null;
     
     /**
-     * Instantiates a new WorkflowTemplate and sets the default values.
+     * Instantiates a new workflowTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -436,7 +436,6 @@ class DeviceConfiguration extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->groupAssignments);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeBooleanValue('supportsScopeTags', $this->supportsScopeTags);
         $writer->writeCollectionOfObjectValues('userStatuses', $this->userStatuses);
         $writer->writeObjectValue('userStatusOverview', $this->userStatusOverview);
         $writer->writeIntegerValue('version', $this->version);

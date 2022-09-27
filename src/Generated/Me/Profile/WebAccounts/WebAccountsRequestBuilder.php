@@ -47,13 +47,13 @@ class WebAccountsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/me/profile/webAccounts{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/me/profile/webAccounts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Represents web accounts the user has indicated they use or has added to their user profile.
+     * Retrieve a list of webAccounts objects from the user's profile.
      * @param WebAccountsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class WebAccountsRequestBuilder
     }
 
     /**
-     * Create new navigation property to webAccounts for me
+     * Create a new webAccount object in a user's profile.
      * @param WebAccount $body 
      * @param WebAccountsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class WebAccountsRequestBuilder
     }
 
     /**
-     * Represents web accounts the user has indicated they use or has added to their user profile.
+     * Retrieve a list of webAccounts objects from the user's profile.
      * @param WebAccountsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class WebAccountsRequestBuilder
     }
 
     /**
-     * Create new navigation property to webAccounts for me
+     * Create a new webAccount object in a user's profile.
      * @param WebAccount $body 
      * @param WebAccountsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -16,4 +16,9 @@ class FindRoomsWithRoomListRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var FindRoomsWithRoomListRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?FindRoomsWithRoomListRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

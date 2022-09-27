@@ -38,7 +38,7 @@ class GetLicensesForAppWithBundleIdRequestBuilder
      * @param string|null $bundleId Usage: bundleId='{bundleId}'
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $bundleId = null) {
-        $this->urlTemplate = '{+baseurl}/deviceAppManagement/vppTokens/microsoft.graph.getLicensesForApp(bundleId=\'{bundleId}\')';
+        $this->urlTemplate = '{+baseurl}/deviceAppManagement/vppTokens/microsoft.graph.getLicensesForApp(bundleId=\'{bundleId}\'){?%24top,%24skip,%24search,%24filter,%24count}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -60,6 +60,9 @@ class GetLicensesForAppWithBundleIdRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

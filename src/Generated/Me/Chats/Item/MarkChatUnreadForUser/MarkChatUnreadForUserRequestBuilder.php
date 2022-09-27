@@ -43,7 +43,7 @@ class MarkChatUnreadForUserRequestBuilder
     }
 
     /**
-     * Invoke action markChatUnreadForUser
+     * Mark a chat as unread for a user.
      * @param MarkChatUnreadForUserPostRequestBody $body 
      * @param MarkChatUnreadForUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -66,7 +66,7 @@ class MarkChatUnreadForUserRequestBuilder
     }
 
     /**
-     * Invoke action markChatUnreadForUser
+     * Mark a chat as unread for a user.
      * @param MarkChatUnreadForUserPostRequestBody $body 
      * @param MarkChatUnreadForUserRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

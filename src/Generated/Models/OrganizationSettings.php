@@ -9,6 +9,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OrganizationSettings extends Entity implements Parsable 
 {
     /**
+     * @var InsightsSettings|null $contactInsights The contactInsights property
+    */
+    private ?InsightsSettings $contactInsights = null;
+    
+    /**
      * @var InsightsSettings|null $itemInsights Contains the properties that are configured by an administrator for the visibility of Microsoft Graph-derived insights, between a user and other items in Microsoft 365, such as documents or sites. List itemInsights returns the settings to display or return item insights in an organization.
     */
     private ?InsightsSettings $itemInsights = null;
@@ -46,12 +51,21 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the contactInsights property value. The contactInsights property
+     * @return InsightsSettings|null
+    */
+    public function getContactInsights(): ?InsightsSettings {
+        return $this->contactInsights;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'contactInsights' => function (ParseNode $n) use ($o) { $o->setContactInsights($n->getObjectValue(array(InsightsSettings::class, 'createFromDiscriminatorValue'))); },
             'itemInsights' => function (ParseNode $n) use ($o) { $o->setItemInsights($n->getObjectValue(array(InsightsSettings::class, 'createFromDiscriminatorValue'))); },
             'microsoftApplicationDataAccess' => function (ParseNode $n) use ($o) { $o->setMicrosoftApplicationDataAccess($n->getObjectValue(array(MicrosoftApplicationDataAccessSettings::class, 'createFromDiscriminatorValue'))); },
             'peopleInsights' => function (ParseNode $n) use ($o) { $o->setPeopleInsights($n->getObjectValue(array(InsightsSettings::class, 'createFromDiscriminatorValue'))); },
@@ -97,10 +111,19 @@ class OrganizationSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeObjectValue('contactInsights', $this->contactInsights);
         $writer->writeObjectValue('itemInsights', $this->itemInsights);
         $writer->writeObjectValue('microsoftApplicationDataAccess', $this->microsoftApplicationDataAccess);
         $writer->writeObjectValue('peopleInsights', $this->peopleInsights);
         $writer->writeCollectionOfObjectValues('profileCardProperties', $this->profileCardProperties);
+    }
+
+    /**
+     * Sets the contactInsights property value. The contactInsights property
+     *  @param InsightsSettings|null $value Value to set for the contactInsights property.
+    */
+    public function setContactInsights(?InsightsSettings $value ): void {
+        $this->contactInsights = $value;
     }
 
     /**

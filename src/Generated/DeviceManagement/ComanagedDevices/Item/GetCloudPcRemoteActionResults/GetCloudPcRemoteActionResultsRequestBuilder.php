@@ -37,7 +37,7 @@ class GetCloudPcRemoteActionResultsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/microsoft.graph.getCloudPcRemoteActionResults()';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/microsoft.graph.getCloudPcRemoteActionResults(){?%24top,%24skip,%24search,%24filter,%24count}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
@@ -56,6 +56,9 @@ class GetCloudPcRemoteActionResultsRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

@@ -38,7 +38,7 @@ class GetAuditActivityTypesWithCategoryRequestBuilder
      * @param string|null $category Usage: category='{category}'
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $category = null) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/auditEvents/microsoft.graph.getAuditActivityTypes(category=\'{category}\')';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/auditEvents/microsoft.graph.getAuditActivityTypes(category=\'{category}\'){?%24top,%24skip,%24search,%24filter,%24count}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -60,6 +60,9 @@ class GetAuditActivityTypesWithCategoryRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

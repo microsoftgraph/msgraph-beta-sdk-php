@@ -35,7 +35,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
     private ?string $ouDistinguishedName = null;
     
     /**
-     * Instantiates a new GroupPolicyObjectFile and sets the default values.
+     * Instantiates a new groupPolicyObjectFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

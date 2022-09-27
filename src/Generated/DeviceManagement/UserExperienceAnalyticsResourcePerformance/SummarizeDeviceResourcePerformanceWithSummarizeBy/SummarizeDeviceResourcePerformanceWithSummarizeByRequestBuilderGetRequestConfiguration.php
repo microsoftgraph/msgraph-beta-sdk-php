@@ -16,4 +16,9 @@ class SummarizeDeviceResourcePerformanceWithSummarizeByRequestBuilderGetRequestC
     */
     public ?array $options = null;
     
+    /**
+     * @var SummarizeDeviceResourcePerformanceWithSummarizeByRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?SummarizeDeviceResourcePerformanceWithSummarizeByRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

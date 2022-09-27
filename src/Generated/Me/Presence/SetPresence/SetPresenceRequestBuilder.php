@@ -43,7 +43,7 @@ class SetPresenceRequestBuilder
     }
 
     /**
-     * Invoke action setPresence
+     * Set the availability and activity status in a presence session of an application for a user.
      * @param SetPresencePostRequestBody $body 
      * @param SetPresenceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -66,7 +66,7 @@ class SetPresenceRequestBuilder
     }
 
     /**
-     * Invoke action setPresence
+     * Set the availability and activity status in a presence session of an application for a user.
      * @param SetPresencePostRequestBody $body 
      * @param SetPresenceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -86,7 +86,7 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     private ?array $userRunStates = null;
     
     /**
-     * Instantiates a new DeviceCustomAttributeShellScript and sets the default values.
+     * Instantiates a new deviceCustomAttributeShellScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -254,7 +254,6 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('customAttributeName', $this->customAttributeName);
         $writer->writeEnumValue('customAttributeType', $this->customAttributeType);
         $writer->writeStringValue('description', $this->description);
@@ -262,7 +261,6 @@ class DeviceCustomAttributeShellScript extends Entity implements Parsable
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeStringValue('fileName', $this->fileName);
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->groupAssignments);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeEnumValue('runAsAccount', $this->runAsAccount);
         $writer->writeObjectValue('runSummary', $this->runSummary);

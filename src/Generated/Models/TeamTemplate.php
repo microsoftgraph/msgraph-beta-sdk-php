@@ -14,7 +14,7 @@ class TeamTemplate extends Entity implements Parsable
     private ?array $definitions = null;
     
     /**
-     * Instantiates a new TeamTemplate and sets the default values.
+     * Instantiates a new teamTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

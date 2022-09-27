@@ -43,7 +43,7 @@ class ClearPresenceRequestBuilder
     }
 
     /**
-     * Invoke action clearPresence
+     * Clear a presence session of an application for a user. If it is the user's only presence session, a successful **clearPresence** changes the user's presence to `Offline/Offline`. Read more about presence sessions and their time-out and expiration. 
      * @param ClearPresencePostRequestBody $body 
      * @param ClearPresenceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -66,7 +66,7 @@ class ClearPresenceRequestBuilder
     }
 
     /**
-     * Invoke action clearPresence
+     * Clear a presence session of an application for a user. If it is the user's only presence session, a successful **clearPresence** changes the user's presence to `Offline/Offline`. Read more about presence sessions and their time-out and expiration. 
      * @param ClearPresencePostRequestBody $body 
      * @param ClearPresenceRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

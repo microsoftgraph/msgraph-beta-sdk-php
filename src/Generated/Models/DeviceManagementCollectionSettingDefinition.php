@@ -14,7 +14,7 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
     private ?string $elementDefinitionId = null;
     
     /**
-     * Instantiates a new DeviceManagementCollectionSettingDefinition and sets the default values.
+     * Instantiates a new deviceManagementCollectionSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

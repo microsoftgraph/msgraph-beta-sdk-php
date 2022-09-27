@@ -15,6 +15,11 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
+     * @var ConditionalAccessFilter|null $applicationFilter The applicationFilter property
+    */
+    private ?ConditionalAccessFilter $applicationFilter = null;
+    
+    /**
      * @var array<string>|null $excludeApplications Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
     */
     private ?array $excludeApplications = null;
@@ -65,6 +70,14 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the applicationFilter property value. The applicationFilter property
+     * @return ConditionalAccessFilter|null
+    */
+    public function getApplicationFilter(): ?ConditionalAccessFilter {
+        return $this->applicationFilter;
+    }
+
+    /**
      * Gets the excludeApplications property value. Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      * @return array<string>|null
     */
@@ -79,6 +92,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'applicationFilter' => function (ParseNode $n) use ($o) { $o->setApplicationFilter($n->getObjectValue(array(ConditionalAccessFilter::class, 'createFromDiscriminatorValue'))); },
             'excludeApplications' => function (ParseNode $n) use ($o) { $o->setExcludeApplications($n->getCollectionOfPrimitiveValues()); },
             'includeApplications' => function (ParseNode $n) use ($o) { $o->setIncludeApplications($n->getCollectionOfPrimitiveValues()); },
             'includeAuthenticationContextClassReferences' => function (ParseNode $n) use ($o) { $o->setIncludeAuthenticationContextClassReferences($n->getCollectionOfPrimitiveValues()); },
@@ -124,6 +138,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('applicationFilter', $this->applicationFilter);
         $writer->writeCollectionOfPrimitiveValues('excludeApplications', $this->excludeApplications);
         $writer->writeCollectionOfPrimitiveValues('includeApplications', $this->includeApplications);
         $writer->writeCollectionOfPrimitiveValues('includeAuthenticationContextClassReferences', $this->includeAuthenticationContextClassReferences);
@@ -138,6 +153,14 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the applicationFilter property value. The applicationFilter property
+     *  @param ConditionalAccessFilter|null $value Value to set for the applicationFilter property.
+    */
+    public function setApplicationFilter(?ConditionalAccessFilter $value ): void {
+        $this->applicationFilter = $value;
     }
 
     /**

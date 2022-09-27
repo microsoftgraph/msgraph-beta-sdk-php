@@ -47,13 +47,13 @@ class PublicationsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/me/profile/publications{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/me/profile/publications{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Represents details of any publications a user has added to their profile.
+     * Retrieve a list of itemPublication objects from a user's profile.
      * @param PublicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class PublicationsRequestBuilder
     }
 
     /**
-     * Create new navigation property to publications for me
+     * Create a new itemPublication object in a user's profile.
      * @param ItemPublication $body 
      * @param PublicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class PublicationsRequestBuilder
     }
 
     /**
-     * Represents details of any publications a user has added to their profile.
+     * Retrieve a list of itemPublication objects from a user's profile.
      * @param PublicationsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class PublicationsRequestBuilder
     }
 
     /**
-     * Create new navigation property to publications for me
+     * Create a new itemPublication object in a user's profile.
      * @param ItemPublication $body 
      * @param PublicationsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

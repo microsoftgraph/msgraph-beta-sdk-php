@@ -80,7 +80,7 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     private ?string $userName = null;
     
     /**
-     * Instantiates a new PrivilegedOperationEvent and sets the default values.
+     * Instantiates a new privilegedOperationEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

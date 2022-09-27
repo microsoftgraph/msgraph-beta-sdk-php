@@ -47,13 +47,13 @@ class CustomSecurityAttributeDefinitionsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/directory/customSecurityAttributeDefinitions{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/directory/customSecurityAttributeDefinitions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Schema of a custom security attributes (key-value pairs).
+     * Get a list of the customSecurityAttributeDefinition objects and their properties.
      * @param CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class CustomSecurityAttributeDefinitionsRequestBuilder
     }
 
     /**
-     * Create new navigation property to customSecurityAttributeDefinitions for directory
+     * Create a new customSecurityAttributeDefinition object.
      * @param CustomSecurityAttributeDefinition $body 
      * @param CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class CustomSecurityAttributeDefinitionsRequestBuilder
     }
 
     /**
-     * Schema of a custom security attributes (key-value pairs).
+     * Get a list of the customSecurityAttributeDefinition objects and their properties.
      * @param CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class CustomSecurityAttributeDefinitionsRequestBuilder
     }
 
     /**
-     * Create new navigation property to customSecurityAttributeDefinitions for directory
+     * Create a new customSecurityAttributeDefinition object.
      * @param CustomSecurityAttributeDefinition $body 
      * @param CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

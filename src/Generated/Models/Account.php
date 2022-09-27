@@ -40,7 +40,7 @@ class Account extends Entity implements Parsable
     private ?string $subCategory = null;
     
     /**
-     * Instantiates a new Account and sets the default values.
+     * Instantiates a new account and sets the default values.
     */
     public function __construct() {
         parent::__construct();

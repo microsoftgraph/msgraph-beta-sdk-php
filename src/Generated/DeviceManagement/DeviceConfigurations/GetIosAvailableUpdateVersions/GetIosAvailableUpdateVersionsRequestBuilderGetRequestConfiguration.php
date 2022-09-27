@@ -16,4 +16,9 @@ class GetIosAvailableUpdateVersionsRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetIosAvailableUpdateVersionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetIosAvailableUpdateVersionsRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

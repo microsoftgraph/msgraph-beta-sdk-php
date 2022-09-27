@@ -47,13 +47,13 @@ class MyDecisionsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/accessReviews/{accessReview%2Did}/myDecisions{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/accessReviews/{accessReview%2Did}/myDecisions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * The collection of decisions for the caller, if the caller is a reviewer.
+     * In the Azure AD access reviews feature, retrieve the decisions of an accessReview object for the calling user as reviewer.
      * @param MyDecisionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +102,7 @@ class MyDecisionsRequestBuilder
     }
 
     /**
-     * The collection of decisions for the caller, if the caller is a reviewer.
+     * In the Azure AD access reviews feature, retrieve the decisions of an accessReview object for the calling user as reviewer.
      * @param MyDecisionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

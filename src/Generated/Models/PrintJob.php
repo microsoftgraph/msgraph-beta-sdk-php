@@ -25,6 +25,11 @@ class PrintJob extends Entity implements Parsable
     private ?DateTime $createdDateTime = null;
     
     /**
+     * @var string|null $displayName The displayName property
+    */
+    private ?string $displayName = null;
+    
+    /**
      * @var array<PrintDocument>|null $documents The documents property
     */
     private ?array $documents = null;
@@ -96,6 +101,14 @@ class PrintJob extends Entity implements Parsable
     }
 
     /**
+     * Gets the displayName property value. The displayName property
+     * @return string|null
+    */
+    public function getDisplayName(): ?string {
+        return $this->displayName;
+    }
+
+    /**
      * Gets the documents property value. The documents property
      * @return array<PrintDocument>|null
     */
@@ -113,6 +126,7 @@ class PrintJob extends Entity implements Parsable
             'configuration' => function (ParseNode $n) use ($o) { $o->setConfiguration($n->getObjectValue(array(PrintJobConfiguration::class, 'createFromDiscriminatorValue'))); },
             'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
             'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
+            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'documents' => function (ParseNode $n) use ($o) { $o->setDocuments($n->getCollectionOfObjectValues(array(PrintDocument::class, 'createFromDiscriminatorValue'))); },
             'isFetchable' => function (ParseNode $n) use ($o) { $o->setIsFetchable($n->getBooleanValue()); },
             'redirectedFrom' => function (ParseNode $n) use ($o) { $o->setRedirectedFrom($n->getStringValue()); },
@@ -171,6 +185,7 @@ class PrintJob extends Entity implements Parsable
         $writer->writeObjectValue('configuration', $this->configuration);
         $writer->writeObjectValue('createdBy', $this->createdBy);
         $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
+        $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeCollectionOfObjectValues('documents', $this->documents);
         $writer->writeBooleanValue('isFetchable', $this->isFetchable);
         $writer->writeStringValue('redirectedFrom', $this->redirectedFrom);
@@ -201,6 +216,14 @@ class PrintJob extends Entity implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value ): void {
         $this->createdDateTime = $value;
+    }
+
+    /**
+     * Sets the displayName property value. The displayName property
+     *  @param string|null $value Value to set for the displayName property.
+    */
+    public function setDisplayName(?string $value ): void {
+        $this->displayName = $value;
     }
 
     /**

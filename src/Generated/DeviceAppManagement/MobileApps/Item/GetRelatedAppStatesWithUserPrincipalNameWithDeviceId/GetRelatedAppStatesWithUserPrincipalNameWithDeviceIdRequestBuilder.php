@@ -39,7 +39,7 @@ class GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilder
      * @param string|null $userPrincipalName Usage: userPrincipalName='{userPrincipalName}'
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $deviceId = null, ?string $userPrincipalName = null) {
-        $this->urlTemplate = '{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/microsoft.graph.getRelatedAppStates(userPrincipalName=\'{userPrincipalName}\',deviceId=\'{deviceId}\')';
+        $this->urlTemplate = '{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/microsoft.graph.getRelatedAppStates(userPrincipalName=\'{userPrincipalName}\',deviceId=\'{deviceId}\'){?%24top,%24skip,%24search,%24filter,%24count}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -62,6 +62,9 @@ class GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

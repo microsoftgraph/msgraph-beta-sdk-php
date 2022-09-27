@@ -47,13 +47,13 @@ class LearningContentsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Learning catalog items for the provider.
+     * Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning.
      * @param LearningContentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +102,7 @@ class LearningContentsRequestBuilder
     }
 
     /**
-     * Learning catalog items for the provider.
+     * Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning.
      * @param LearningContentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

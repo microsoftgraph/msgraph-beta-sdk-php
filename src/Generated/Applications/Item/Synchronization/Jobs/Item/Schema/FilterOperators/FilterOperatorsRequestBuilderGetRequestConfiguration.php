@@ -16,4 +16,9 @@ class FilterOperatorsRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var FilterOperatorsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?FilterOperatorsRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

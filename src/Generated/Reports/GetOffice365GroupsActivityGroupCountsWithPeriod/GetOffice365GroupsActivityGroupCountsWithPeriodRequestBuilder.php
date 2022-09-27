@@ -38,7 +38,7 @@ class GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder
      * @param string|null $period Usage: period='{period}'
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $period = null) {
-        $this->urlTemplate = '{+baseurl}/reports/microsoft.graph.getOffice365GroupsActivityGroupCounts(period=\'{period}\')';
+        $this->urlTemplate = '{+baseurl}/reports/microsoft.graph.getOffice365GroupsActivityGroupCounts(period=\'{period}\'){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -60,6 +60,9 @@ class GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

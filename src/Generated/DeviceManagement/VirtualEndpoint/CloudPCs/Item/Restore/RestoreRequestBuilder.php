@@ -43,7 +43,7 @@ class RestoreRequestBuilder
     }
 
     /**
-     * Invoke action restore
+     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.
      * @param RestorePostRequestBody $body 
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -66,7 +66,7 @@ class RestoreRequestBuilder
     }
 
     /**
-     * Invoke action restore
+     * Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.
      * @param RestorePostRequestBody $body 
      * @param RestoreRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

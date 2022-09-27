@@ -44,7 +44,7 @@ class ParseExpressionRequestBuilder
     }
 
     /**
-     * Invoke action parseExpression
+     * Parse a given string expression into an attributeMappingSource object. For more information about expressions, see Writing Expressions for Attribute Mappings in Azure Active Directory.
      * @param ParseExpressionPostRequestBody $body 
      * @param ParseExpressionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -68,7 +68,7 @@ class ParseExpressionRequestBuilder
     }
 
     /**
-     * Invoke action parseExpression
+     * Parse a given string expression into an attributeMappingSource object. For more information about expressions, see Writing Expressions for Attribute Mappings in Azure Active Directory.
      * @param ParseExpressionPostRequestBody $body 
      * @param ParseExpressionRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

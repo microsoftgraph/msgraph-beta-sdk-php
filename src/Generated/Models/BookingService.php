@@ -341,7 +341,6 @@ class BookingService extends BookingNamedEntity implements Parsable
         $writer->writeObjectValue('schedulingPolicy', $this->schedulingPolicy);
         $writer->writeBooleanValue('smsNotificationsEnabled', $this->smsNotificationsEnabled);
         $writer->writeCollectionOfPrimitiveValues('staffMemberIds', $this->staffMemberIds);
-        $writer->writeStringValue('webUrl', $this->webUrl);
     }
 
     /**

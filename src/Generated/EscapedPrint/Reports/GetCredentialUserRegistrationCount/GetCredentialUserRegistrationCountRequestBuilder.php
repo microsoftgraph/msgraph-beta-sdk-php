@@ -37,13 +37,13 @@ class GetCredentialUserRegistrationCountRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/print/reports/microsoft.graph.getCredentialUserRegistrationCount()';
+        $this->urlTemplate = '{+baseurl}/print/reports/microsoft.graph.getCredentialUserRegistrationCount(){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Invoke function getCredentialUserRegistrationCount
+     * Report the current state of how many users in your organization are registered for self-service password reset and multi-factor authentication (MFA) capabilities.
      * @param GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -57,6 +57,9 @@ class GetCredentialUserRegistrationCountRequestBuilder
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
             }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
+            }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);
             }
@@ -65,7 +68,7 @@ class GetCredentialUserRegistrationCountRequestBuilder
     }
 
     /**
-     * Invoke function getCredentialUserRegistrationCount
+     * Report the current state of how many users in your organization are registered for self-service password reset and multi-factor authentication (MFA) capabilities.
      * @param GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

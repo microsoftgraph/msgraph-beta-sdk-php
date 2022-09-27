@@ -55,7 +55,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     private ?EducationSynchronizationProfileState $state = null;
     
     /**
-     * Instantiates a new EducationSynchronizationProfile and sets the default values.
+     * Instantiates a new educationSynchronizationProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
