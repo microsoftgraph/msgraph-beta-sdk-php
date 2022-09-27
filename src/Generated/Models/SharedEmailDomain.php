@@ -14,7 +14,7 @@ class SharedEmailDomain extends Entity implements Parsable
     private ?string $provisioningStatus = null;
     
     /**
-     * Instantiates a new SharedEmailDomain and sets the default values.
+     * Instantiates a new sharedEmailDomain and sets the default values.
     */
     public function __construct() {
         parent::__construct();

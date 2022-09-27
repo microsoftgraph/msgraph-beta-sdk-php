@@ -16,4 +16,9 @@ class GetCloudPcConnectivityHistoryRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetCloudPcConnectivityHistoryRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetCloudPcConnectivityHistoryRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

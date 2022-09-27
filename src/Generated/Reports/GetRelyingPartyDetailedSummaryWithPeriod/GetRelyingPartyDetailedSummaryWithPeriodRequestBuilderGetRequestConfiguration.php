@@ -16,4 +16,9 @@ class GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetRequestConfigurat
     */
     public ?array $options = null;
     
+    /**
+     * @var GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

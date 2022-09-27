@@ -100,7 +100,6 @@ class RoleScopeTag extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isBuiltIn', $this->isBuiltIn);
     }
 
     /**

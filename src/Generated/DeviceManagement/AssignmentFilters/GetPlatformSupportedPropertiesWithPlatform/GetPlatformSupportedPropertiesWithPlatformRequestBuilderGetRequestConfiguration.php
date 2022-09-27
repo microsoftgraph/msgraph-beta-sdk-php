@@ -16,4 +16,9 @@ class GetPlatformSupportedPropertiesWithPlatformRequestBuilderGetRequestConfigur
     */
     public ?array $options = null;
     
+    /**
+     * @var GetPlatformSupportedPropertiesWithPlatformRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetPlatformSupportedPropertiesWithPlatformRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

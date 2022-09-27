@@ -16,4 +16,9 @@ class GetStorageAccountsWithSubscriptionIdRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

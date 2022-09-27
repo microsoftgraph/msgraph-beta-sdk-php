@@ -16,4 +16,9 @@ class AdditionalAccessRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var AdditionalAccessRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?AdditionalAccessRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

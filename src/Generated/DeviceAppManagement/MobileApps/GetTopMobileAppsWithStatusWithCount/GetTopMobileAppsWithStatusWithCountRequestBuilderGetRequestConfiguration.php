@@ -16,4 +16,9 @@ class GetTopMobileAppsWithStatusWithCountRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetTopMobileAppsWithStatusWithCountRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetTopMobileAppsWithStatusWithCountRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

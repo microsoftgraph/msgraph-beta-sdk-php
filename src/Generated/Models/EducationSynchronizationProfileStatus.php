@@ -15,12 +15,12 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     private ?int $errorCount = null;
     
     /**
-     * @var DateTime|null $lastActivityDateTime Represents the time when most recent changes were observed in profile.
+     * @var DateTime|null $lastActivityDateTime Date and time when most recent changes were observed in the profile.
     */
     private ?DateTime $lastActivityDateTime = null;
     
     /**
-     * @var DateTime|null $lastSynchronizationDateTime Represents the time of the most recent successful  synchronization.
+     * @var DateTime|null $lastSynchronizationDateTime Date and time of the most recent successful synchronization.
     */
     private ?DateTime $lastSynchronizationDateTime = null;
     
@@ -30,7 +30,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     private ?EducationSynchronizationStatus $status = null;
     
     /**
-     * @var string|null $statusMessage Status message for the current profile's synchronization stage.
+     * @var string|null $statusMessage Status message for the synchronization stage of the current profile.
     */
     private ?string $statusMessage = null;
     
@@ -75,7 +75,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastActivityDateTime property value. Represents the time when most recent changes were observed in profile.
+     * Gets the lastActivityDateTime property value. Date and time when most recent changes were observed in the profile.
      * @return DateTime|null
     */
     public function getLastActivityDateTime(): ?DateTime {
@@ -83,7 +83,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastSynchronizationDateTime property value. Represents the time of the most recent successful  synchronization.
+     * Gets the lastSynchronizationDateTime property value. Date and time of the most recent successful synchronization.
      * @return DateTime|null
     */
     public function getLastSynchronizationDateTime(): ?DateTime {
@@ -99,7 +99,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Gets the statusMessage property value. Status message for the current profile's synchronization stage.
+     * Gets the statusMessage property value. Status message for the synchronization stage of the current profile.
      * @return string|null
     */
     public function getStatusMessage(): ?string {
@@ -128,7 +128,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastActivityDateTime property value. Represents the time when most recent changes were observed in profile.
+     * Sets the lastActivityDateTime property value. Date and time when most recent changes were observed in the profile.
      *  @param DateTime|null $value Value to set for the lastActivityDateTime property.
     */
     public function setLastActivityDateTime(?DateTime $value ): void {
@@ -136,7 +136,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastSynchronizationDateTime property value. Represents the time of the most recent successful  synchronization.
+     * Sets the lastSynchronizationDateTime property value. Date and time of the most recent successful synchronization.
      *  @param DateTime|null $value Value to set for the lastSynchronizationDateTime property.
     */
     public function setLastSynchronizationDateTime(?DateTime $value ): void {
@@ -152,7 +152,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     }
 
     /**
-     * Sets the statusMessage property value. Status message for the current profile's synchronization stage.
+     * Sets the statusMessage property value. Status message for the synchronization stage of the current profile.
      *  @param string|null $value Value to set for the statusMessage property.
     */
     public function setStatusMessage(?string $value ): void {

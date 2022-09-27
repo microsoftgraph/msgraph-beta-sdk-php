@@ -16,4 +16,9 @@ class GetAttackSimulationTrainingUserCoverageRequestBuilderGetRequestConfigurati
     */
     public ?array $options = null;
     
+    /**
+     * @var GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

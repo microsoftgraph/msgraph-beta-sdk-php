@@ -16,4 +16,9 @@ class GetLicensesForAppWithBundleIdRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetLicensesForAppWithBundleIdRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetLicensesForAppWithBundleIdRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

@@ -39,7 +39,7 @@ class FeatureRolloutPolicy extends Entity implements Parsable
     private ?bool $isEnabled = null;
     
     /**
-     * Instantiates a new FeatureRolloutPolicy and sets the default values.
+     * Instantiates a new featureRolloutPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

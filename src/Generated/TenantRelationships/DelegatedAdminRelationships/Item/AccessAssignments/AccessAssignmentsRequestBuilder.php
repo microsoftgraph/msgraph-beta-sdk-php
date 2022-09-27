@@ -47,13 +47,13 @@ class AccessAssignmentsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/accessAssignments{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/accessAssignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * The access assignments associated with the delegated admin relationship.
+     * Get a list of the delegatedAdminAccessAssignment objects and their properties.
      * @param AccessAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class AccessAssignmentsRequestBuilder
     }
 
     /**
-     * Create new navigation property to accessAssignments for tenantRelationships
+     * Create a new delegatedAdminAccessAssignment object.
      * @param DelegatedAdminAccessAssignment $body 
      * @param AccessAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class AccessAssignmentsRequestBuilder
     }
 
     /**
-     * The access assignments associated with the delegated admin relationship.
+     * Get a list of the delegatedAdminAccessAssignment objects and their properties.
      * @param AccessAssignmentsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class AccessAssignmentsRequestBuilder
     }
 
     /**
-     * Create new navigation property to accessAssignments for tenantRelationships
+     * Create a new delegatedAdminAccessAssignment object.
      * @param DelegatedAdminAccessAssignment $body 
      * @param AccessAssignmentsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

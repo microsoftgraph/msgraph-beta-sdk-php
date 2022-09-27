@@ -47,13 +47,13 @@ class AcronymsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/search/acronyms{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/search/acronyms{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Administrative answer in Microsoft Search results to define common acronyms in a organization.
+     * Get a list of the acronym objects and their properties.
      * @param AcronymsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class AcronymsRequestBuilder
     }
 
     /**
-     * Create new navigation property to acronyms for search
+     * Create a new acronym object.
      * @param Acronym $body 
      * @param AcronymsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class AcronymsRequestBuilder
     }
 
     /**
-     * Administrative answer in Microsoft Search results to define common acronyms in a organization.
+     * Get a list of the acronym objects and their properties.
      * @param AcronymsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class AcronymsRequestBuilder
     }
 
     /**
-     * Create new navigation property to acronyms for search
+     * Create a new acronym object.
      * @param Acronym $body 
      * @param AcronymsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

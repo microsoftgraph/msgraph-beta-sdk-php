@@ -16,4 +16,9 @@ class ExportRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var ExportRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?ExportRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

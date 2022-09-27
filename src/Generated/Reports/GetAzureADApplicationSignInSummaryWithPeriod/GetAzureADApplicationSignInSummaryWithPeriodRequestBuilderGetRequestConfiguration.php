@@ -16,4 +16,9 @@ class GetAzureADApplicationSignInSummaryWithPeriodRequestBuilderGetRequestConfig
     */
     public ?array $options = null;
     
+    /**
+     * @var GetAzureADApplicationSignInSummaryWithPeriodRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetAzureADApplicationSignInSummaryWithPeriodRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

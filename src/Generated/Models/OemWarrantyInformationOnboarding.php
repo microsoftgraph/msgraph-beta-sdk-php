@@ -83,9 +83,6 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('available', $this->available);
-        $writer->writeBooleanValue('enabled', $this->enabled);
-        $writer->writeStringValue('oemName', $this->oemName);
     }
 
     /**

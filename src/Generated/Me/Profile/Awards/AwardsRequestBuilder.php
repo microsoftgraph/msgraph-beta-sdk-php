@@ -47,13 +47,13 @@ class AwardsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/me/profile/awards{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/me/profile/awards{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Represents the details of awards or honors associated with a person.
+     * Retrieve a list of personAward objects from a user's profile.
      * @param AwardsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class AwardsRequestBuilder
     }
 
     /**
-     * Create new navigation property to awards for me
+     * Create a new personAward object in a user's profile.
      * @param PersonAward $body 
      * @param AwardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class AwardsRequestBuilder
     }
 
     /**
-     * Represents the details of awards or honors associated with a person.
+     * Retrieve a list of personAward objects from a user's profile.
      * @param AwardsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class AwardsRequestBuilder
     }
 
     /**
-     * Create new navigation property to awards for me
+     * Create a new personAward object in a user's profile.
      * @param PersonAward $body 
      * @param AwardsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

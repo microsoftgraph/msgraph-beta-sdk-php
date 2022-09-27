@@ -69,7 +69,6 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('passcode', $this->passcode);
         $writer->writeIntegerValue('passcodeSignInFailureCountBeforeWipe', $this->passcodeSignInFailureCountBeforeWipe);
     }
 

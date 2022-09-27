@@ -34,7 +34,7 @@ class ResourceOperation extends Entity implements Parsable
     private ?string $resourceName = null;
     
     /**
-     * Instantiates a new ResourceOperation and sets the default values.
+     * Instantiates a new resourceOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -113,8 +113,6 @@ class ResourceOperation extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeStringValue('actionName', $this->actionName);
         $writer->writeStringValue('description', $this->description);
-        $writer->writeBooleanValue('enabledForScopeValidation', $this->enabledForScopeValidation);
-        $writer->writeStringValue('resource', $this->resource);
         $writer->writeStringValue('resourceName', $this->resourceName);
     }
 

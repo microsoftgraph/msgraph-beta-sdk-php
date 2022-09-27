@@ -16,4 +16,9 @@ class CompareWithTemplateIdRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var CompareWithTemplateIdRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?CompareWithTemplateIdRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

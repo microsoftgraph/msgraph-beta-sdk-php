@@ -16,4 +16,9 @@ class MyRequestsRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var MyRequestsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?MyRequestsRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

@@ -24,7 +24,7 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
     private ?int $deviceCheckinsImpacted = null;
     
     /**
-     * Instantiates a new deviceConfigurationConflictSummary and sets the default values.
+     * Instantiates a new DeviceConfigurationConflictSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

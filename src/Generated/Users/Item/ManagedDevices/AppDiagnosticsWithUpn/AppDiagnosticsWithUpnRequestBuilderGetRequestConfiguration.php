@@ -16,4 +16,9 @@ class AppDiagnosticsWithUpnRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var AppDiagnosticsWithUpnRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?AppDiagnosticsWithUpnRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

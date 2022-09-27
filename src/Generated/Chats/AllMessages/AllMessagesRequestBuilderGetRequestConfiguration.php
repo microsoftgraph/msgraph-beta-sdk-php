@@ -16,4 +16,9 @@ class AllMessagesRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var AllMessagesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?AllMessagesRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

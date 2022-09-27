@@ -75,6 +75,11 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     private ?ResultTemplateOption $resultTemplateOptions = null;
     
     /**
+     * @var SharePointOneDriveOptions|null $sharePointOneDriveOptions The sharePointOneDriveOptions property
+    */
+    private ?SharePointOneDriveOptions $sharePointOneDriveOptions = null;
+    
+    /**
      * @var int|null $size The size of the page to be retrieved. Optional.
     */
     private ?int $size = null;
@@ -178,6 +183,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
             'queryAlterationOptions' => function (ParseNode $n) use ($o) { $o->setQueryAlterationOptions($n->getObjectValue(array(SearchAlterationOptions::class, 'createFromDiscriminatorValue'))); },
             'region' => function (ParseNode $n) use ($o) { $o->setRegion($n->getStringValue()); },
             'resultTemplateOptions' => function (ParseNode $n) use ($o) { $o->setResultTemplateOptions($n->getObjectValue(array(ResultTemplateOption::class, 'createFromDiscriminatorValue'))); },
+            'sharePointOneDriveOptions' => function (ParseNode $n) use ($o) { $o->setSharePointOneDriveOptions($n->getObjectValue(array(SharePointOneDriveOptions::class, 'createFromDiscriminatorValue'))); },
             'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
             'sortProperties' => function (ParseNode $n) use ($o) { $o->setSortProperties($n->getCollectionOfObjectValues(array(SortProperty::class, 'createFromDiscriminatorValue'))); },
             'stored_fields' => function (ParseNode $n) use ($o) { $o->setStored_fields($n->getCollectionOfPrimitiveValues()); },
@@ -242,6 +248,14 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the sharePointOneDriveOptions property value. The sharePointOneDriveOptions property
+     * @return SharePointOneDriveOptions|null
+    */
+    public function getSharePointOneDriveOptions(): ?SharePointOneDriveOptions {
+        return $this->sharePointOneDriveOptions;
+    }
+
+    /**
      * Gets the size property value. The size of the page to be retrieved. Optional.
      * @return int|null
     */
@@ -290,6 +304,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
         $writer->writeObjectValue('queryAlterationOptions', $this->queryAlterationOptions);
         $writer->writeStringValue('region', $this->region);
         $writer->writeObjectValue('resultTemplateOptions', $this->resultTemplateOptions);
+        $writer->writeObjectValue('sharePointOneDriveOptions', $this->sharePointOneDriveOptions);
         $writer->writeIntegerValue('size', $this->size);
         $writer->writeCollectionOfObjectValues('sortProperties', $this->sortProperties);
         $writer->writeCollectionOfPrimitiveValues('stored_fields', $this->stored_fields);
@@ -399,6 +414,14 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     */
     public function setResultTemplateOptions(?ResultTemplateOption $value ): void {
         $this->resultTemplateOptions = $value;
+    }
+
+    /**
+     * Sets the sharePointOneDriveOptions property value. The sharePointOneDriveOptions property
+     *  @param SharePointOneDriveOptions|null $value Value to set for the sharePointOneDriveOptions property.
+    */
+    public function setSharePointOneDriveOptions(?SharePointOneDriveOptions $value ): void {
+        $this->sharePointOneDriveOptions = $value;
     }
 
     /**

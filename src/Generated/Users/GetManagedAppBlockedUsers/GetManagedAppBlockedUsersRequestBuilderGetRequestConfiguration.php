@@ -16,4 +16,9 @@ class GetManagedAppBlockedUsersRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetManagedAppBlockedUsersRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetManagedAppBlockedUsersRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

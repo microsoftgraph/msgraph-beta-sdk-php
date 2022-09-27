@@ -16,4 +16,9 @@ class GetAuditCategoriesRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetAuditCategoriesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetAuditCategoriesRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

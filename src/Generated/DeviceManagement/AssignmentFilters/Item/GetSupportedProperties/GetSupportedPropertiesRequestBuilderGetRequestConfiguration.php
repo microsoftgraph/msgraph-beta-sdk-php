@@ -16,4 +16,9 @@ class GetSupportedPropertiesRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetSupportedPropertiesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetSupportedPropertiesRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

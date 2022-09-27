@@ -47,13 +47,13 @@ class WorkflowsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/identityGovernance/lifecycleWorkflows/workflows{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/identityGovernance/lifecycleWorkflows/workflows{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * The workflows in the lifecycle workflows instance.
+     * Get the workflow resources from the workflows navigation property.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class WorkflowsRequestBuilder
     }
 
     /**
-     * Create new navigation property to workflows for identityGovernance
+     * Create a new workflow object.
      * @param Workflow $body 
      * @param WorkflowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class WorkflowsRequestBuilder
     }
 
     /**
-     * The workflows in the lifecycle workflows instance.
+     * Get the workflow resources from the workflows navigation property.
      * @param WorkflowsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class WorkflowsRequestBuilder
     }
 
     /**
-     * Create new navigation property to workflows for identityGovernance
+     * Create a new workflow object.
      * @param Workflow $body 
      * @param WorkflowsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

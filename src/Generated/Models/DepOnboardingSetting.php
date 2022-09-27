@@ -90,7 +90,7 @@ class DepOnboardingSetting extends Entity implements Parsable
     private ?DepTokenType $tokenType = null;
     
     /**
-     * Instantiates a new DepOnboardingSetting and sets the default values.
+     * Instantiates a new depOnboardingSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();

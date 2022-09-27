@@ -30,6 +30,11 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Parsa
     private ?string $odataType = null;
     
     /**
+     * @var ConditionalAccessFilter|null $servicePrincipalFilter The servicePrincipalFilter property
+    */
+    private ?ConditionalAccessFilter $servicePrincipalFilter = null;
+    
+    /**
      * Instantiates a new conditionalAccessClientApplications and sets the default values.
     */
     public function __construct() {
@@ -72,6 +77,7 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Parsa
             'excludeServicePrincipals' => function (ParseNode $n) use ($o) { $o->setExcludeServicePrincipals($n->getCollectionOfPrimitiveValues()); },
             'includeServicePrincipals' => function (ParseNode $n) use ($o) { $o->setIncludeServicePrincipals($n->getCollectionOfPrimitiveValues()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'servicePrincipalFilter' => function (ParseNode $n) use ($o) { $o->setServicePrincipalFilter($n->getObjectValue(array(ConditionalAccessFilter::class, 'createFromDiscriminatorValue'))); },
         ];
     }
 
@@ -92,6 +98,14 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Parsa
     }
 
     /**
+     * Gets the servicePrincipalFilter property value. The servicePrincipalFilter property
+     * @return ConditionalAccessFilter|null
+    */
+    public function getServicePrincipalFilter(): ?ConditionalAccessFilter {
+        return $this->servicePrincipalFilter;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -99,6 +113,7 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Parsa
         $writer->writeCollectionOfPrimitiveValues('excludeServicePrincipals', $this->excludeServicePrincipals);
         $writer->writeCollectionOfPrimitiveValues('includeServicePrincipals', $this->includeServicePrincipals);
         $writer->writeStringValue('@odata.type', $this->odataType);
+        $writer->writeObjectValue('servicePrincipalFilter', $this->servicePrincipalFilter);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -132,6 +147,14 @@ class ConditionalAccessClientApplications implements AdditionalDataHolder, Parsa
     */
     public function setOdataType(?string $value ): void {
         $this->odataType = $value;
+    }
+
+    /**
+     * Sets the servicePrincipalFilter property value. The servicePrincipalFilter property
+     *  @param ConditionalAccessFilter|null $value Value to set for the servicePrincipalFilter property.
+    */
+    public function setServicePrincipalFilter(?ConditionalAccessFilter $value ): void {
+        $this->servicePrincipalFilter = $value;
     }
 
 }

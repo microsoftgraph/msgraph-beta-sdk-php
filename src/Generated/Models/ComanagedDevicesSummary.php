@@ -194,16 +194,7 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('compliancePolicyCount', $this->compliancePolicyCount);
-        $writer->writeIntegerValue('configurationSettingsCount', $this->configurationSettingsCount);
-        $writer->writeIntegerValue('endpointProtectionCount', $this->endpointProtectionCount);
-        $writer->writeIntegerValue('inventoryCount', $this->inventoryCount);
-        $writer->writeIntegerValue('modernAppsCount', $this->modernAppsCount);
         $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('officeAppsCount', $this->officeAppsCount);
-        $writer->writeIntegerValue('resourceAccessCount', $this->resourceAccessCount);
-        $writer->writeIntegerValue('totalComanagedCount', $this->totalComanagedCount);
-        $writer->writeIntegerValue('windowsUpdateForBusinessCount', $this->windowsUpdateForBusinessCount);
         $writer->writeAdditionalData($this->additionalData);
     }
 
