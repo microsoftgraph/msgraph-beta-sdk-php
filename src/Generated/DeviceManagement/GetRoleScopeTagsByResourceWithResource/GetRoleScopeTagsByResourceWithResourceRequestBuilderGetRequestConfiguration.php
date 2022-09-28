@@ -16,4 +16,9 @@ class GetRoleScopeTagsByResourceWithResourceRequestBuilderGetRequestConfiguratio
     */
     public ?array $options = null;
     
+    /**
+     * @var GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetRoleScopeTagsByResourceWithResourceRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

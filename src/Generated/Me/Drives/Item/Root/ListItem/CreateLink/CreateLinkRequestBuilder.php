@@ -44,7 +44,7 @@ class CreateLinkRequestBuilder
     }
 
     /**
-     * Invoke action createLink
+     * Create a sharing link for a listItem. The **createLink** action creates a new sharing link if the specified link type doesn't already exist for the calling application.If a sharing link of the specified type already exists for the app, this action will return the existing sharing link. **listItem** resources inherit sharing permissions from the list the item resides in.
      * @param CreateLinkPostRequestBody $body 
      * @param CreateLinkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -68,7 +68,7 @@ class CreateLinkRequestBuilder
     }
 
     /**
-     * Invoke action createLink
+     * Create a sharing link for a listItem. The **createLink** action creates a new sharing link if the specified link type doesn't already exist for the calling application.If a sharing link of the specified type already exists for the app, this action will return the existing sharing link. **listItem** resources inherit sharing permissions from the list the item resides in.
      * @param CreateLinkPostRequestBody $body 
      * @param CreateLinkRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

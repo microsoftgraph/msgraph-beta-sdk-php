@@ -47,13 +47,13 @@ class ServicePlansRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/servicePlans{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/servicePlans{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Cloud PC service plans.
+     * List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.
      * @param ServicePlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -102,7 +102,7 @@ class ServicePlansRequestBuilder
     }
 
     /**
-     * Cloud PC service plans.
+     * List the currently available service plans that an organization can purchase for their Cloud PCs. For examples of currently available service plans, see Windows 365 compare plans and pricing. Currently, Microsoft Graph API is available for Windows 365 Enterprise.
      * @param ServicePlansRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

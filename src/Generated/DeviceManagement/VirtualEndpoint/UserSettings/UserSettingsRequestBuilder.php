@@ -47,13 +47,13 @@ class UserSettingsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/userSettings{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/userSettings{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Cloud PC user settings.
+     * Retrieve a list of cloudPcUserSetting objects.
      * @param UserSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class UserSettingsRequestBuilder
     }
 
     /**
-     * Create new navigation property to userSettings for deviceManagement
+     * Create a new cloudPcUserSetting object.
      * @param CloudPcUserSetting $body 
      * @param UserSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class UserSettingsRequestBuilder
     }
 
     /**
-     * Cloud PC user settings.
+     * Retrieve a list of cloudPcUserSetting objects.
      * @param UserSettingsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class UserSettingsRequestBuilder
     }
 
     /**
-     * Create new navigation property to userSettings for deviceManagement
+     * Create a new cloudPcUserSetting object.
      * @param CloudPcUserSetting $body 
      * @param UserSettingsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

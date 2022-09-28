@@ -47,13 +47,13 @@ class RequestsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/requests{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/requests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * The requests associated with the delegated admin relationship.
+     * Get a list of the delegatedAdminRelationshipRequest objects and their properties.
      * @param RequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class RequestsRequestBuilder
     }
 
     /**
-     * Create new navigation property to requests for tenantRelationships
+     * Create a new delegatedAdminRelationshipRequest object.
      * @param DelegatedAdminRelationshipRequest $body 
      * @param RequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class RequestsRequestBuilder
     }
 
     /**
-     * The requests associated with the delegated admin relationship.
+     * Get a list of the delegatedAdminRelationshipRequest objects and their properties.
      * @param RequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class RequestsRequestBuilder
     }
 
     /**
-     * Create new navigation property to requests for tenantRelationships
+     * Create a new delegatedAdminRelationshipRequest object.
      * @param DelegatedAdminRelationshipRequest $body 
      * @param RequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

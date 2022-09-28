@@ -65,7 +65,7 @@ class ComplianceManagementPartner extends Entity implements Parsable
     private ?bool $windowsOnboarded = null;
     
     /**
-     * Instantiates a new ComplianceManagementPartner and sets the default values.
+     * Instantiates a new complianceManagementPartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();

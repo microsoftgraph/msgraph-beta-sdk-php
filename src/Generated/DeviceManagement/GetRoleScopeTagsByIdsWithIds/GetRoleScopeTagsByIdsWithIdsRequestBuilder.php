@@ -38,7 +38,7 @@ class GetRoleScopeTagsByIdsWithIdsRequestBuilder
      * @param string|null $ids Usage: ids={ids}
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $ids = null) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/microsoft.graph.getRoleScopeTagsByIds(ids={ids})';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/microsoft.graph.getRoleScopeTagsByIds(ids={ids}){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -60,6 +60,9 @@ class GetRoleScopeTagsByIdsWithIdsRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

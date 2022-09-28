@@ -55,13 +55,13 @@ class JobsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
+     * List existing jobs for a given application instance (service principal).
      * @param JobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -86,7 +86,7 @@ class JobsRequestBuilder
     }
 
     /**
-     * Create new navigation property to jobs for servicePrincipals
+     * Create new synchronization job with a default synchronization schema. The job is created in a disabled state. Call Start job to start synchronization.
      * @param SynchronizationJob $body 
      * @param JobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -110,7 +110,7 @@ class JobsRequestBuilder
     }
 
     /**
-     * Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
+     * List existing jobs for a given application instance (service principal).
      * @param JobsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -129,7 +129,7 @@ class JobsRequestBuilder
     }
 
     /**
-     * Create new navigation property to jobs for servicePrincipals
+     * Create new synchronization job with a default synchronization schema. The job is created in a disabled state. Call Start job to start synchronization.
      * @param SynchronizationJob $body 
      * @param JobsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

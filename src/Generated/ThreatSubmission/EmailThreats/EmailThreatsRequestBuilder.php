@@ -47,13 +47,13 @@ class EmailThreatsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/threatSubmission/emailThreats{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/threatSubmission/emailThreats{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Get emailThreats from threatSubmission
+     * Get a list of the emailThreatSubmission objects and their properties.
      * @param EmailThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class EmailThreatsRequestBuilder
     }
 
     /**
-     * Create new navigation property to emailThreats for threatSubmission
+     * Create a new emailThreatSubmission object.
      * @param EmailThreatSubmission $body 
      * @param EmailThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class EmailThreatsRequestBuilder
     }
 
     /**
-     * Get emailThreats from threatSubmission
+     * Get a list of the emailThreatSubmission objects and their properties.
      * @param EmailThreatsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class EmailThreatsRequestBuilder
     }
 
     /**
-     * Create new navigation property to emailThreats for threatSubmission
+     * Create a new emailThreatSubmission object.
      * @param EmailThreatSubmission $body 
      * @param EmailThreatsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

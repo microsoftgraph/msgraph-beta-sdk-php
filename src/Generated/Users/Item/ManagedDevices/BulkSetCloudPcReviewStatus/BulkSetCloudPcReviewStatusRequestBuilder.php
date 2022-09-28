@@ -44,7 +44,7 @@ class BulkSetCloudPcReviewStatusRequestBuilder
     }
 
     /**
-     * Invoke action bulkSetCloudPcReviewStatus
+     * Set the review status of multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices.
      * @param BulkSetCloudPcReviewStatusPostRequestBody $body 
      * @param BulkSetCloudPcReviewStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -68,7 +68,7 @@ class BulkSetCloudPcReviewStatusRequestBuilder
     }
 
     /**
-     * Invoke action bulkSetCloudPcReviewStatus
+     * Set the review status of multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices.
      * @param BulkSetCloudPcReviewStatusPostRequestBody $body 
      * @param BulkSetCloudPcReviewStatusRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

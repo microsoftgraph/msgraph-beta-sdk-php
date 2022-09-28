@@ -216,11 +216,9 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
         $writer->writeStringValue('displayVersion', $this->displayVersion);
         $writer->writeEnumValue('lifecycleState', $this->lifecycleState);
         $writer->writeEnumValue('platforms', $this->platforms);
-        $writer->writeIntegerValue('settingTemplateCount', $this->settingTemplateCount);
         $writer->writeCollectionOfObjectValues('settingTemplates', $this->settingTemplates);
         $writer->writeEnumValue('technologies', $this->technologies);
         $writer->writeEnumValue('templateFamily', $this->templateFamily);
-        $writer->writeIntegerValue('version', $this->version);
     }
 
     /**

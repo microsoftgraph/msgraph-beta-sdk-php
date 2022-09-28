@@ -50,7 +50,7 @@ class MessageTrace extends Entity implements Parsable
     private ?string $subject = null;
     
     /**
-     * Instantiates a new MessageTrace and sets the default values.
+     * Instantiates a new messageTrace and sets the default values.
     */
     public function __construct() {
         parent::__construct();

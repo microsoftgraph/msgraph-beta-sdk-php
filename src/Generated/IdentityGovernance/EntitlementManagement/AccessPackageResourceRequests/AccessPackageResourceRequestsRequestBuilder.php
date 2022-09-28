@@ -47,13 +47,13 @@ class AccessPackageResourceRequestsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/accessPackageResourceRequests{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/identityGovernance/entitlementManagement/accessPackageResourceRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Represents a request to add or remove a resource to or from a catalog respectively.
+     * Retrieve a list of accessPackageResourceRequest objects.
      * @param AccessPackageResourceRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class AccessPackageResourceRequestsRequestBuilder
     }
 
     /**
-     * Create new navigation property to accessPackageResourceRequests for identityGovernance
+     * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
      * @param AccessPackageResourceRequest $body 
      * @param AccessPackageResourceRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class AccessPackageResourceRequestsRequestBuilder
     }
 
     /**
-     * Represents a request to add or remove a resource to or from a catalog respectively.
+     * Retrieve a list of accessPackageResourceRequest objects.
      * @param AccessPackageResourceRequestsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class AccessPackageResourceRequestsRequestBuilder
     }
 
     /**
-     * Create new navigation property to accessPackageResourceRequests for identityGovernance
+     * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
      * @param AccessPackageResourceRequest $body 
      * @param AccessPackageResourceRequestsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

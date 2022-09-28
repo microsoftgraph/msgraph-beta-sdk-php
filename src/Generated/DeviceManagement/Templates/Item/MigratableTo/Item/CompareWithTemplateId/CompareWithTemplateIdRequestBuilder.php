@@ -38,7 +38,7 @@ class CompareWithTemplateIdRequestBuilder
      * @param string|null $templateId Usage: templateId='{templateId}'
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $templateId = null) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}/migratableTo/{deviceManagementTemplate%2Did1}/microsoft.graph.compare(templateId=\'{templateId}\')';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}/migratableTo/{deviceManagementTemplate%2Did1}/microsoft.graph.compare(templateId=\'{templateId}\'){?%24top,%24skip,%24search,%24filter,%24count}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -60,6 +60,9 @@ class CompareWithTemplateIdRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

@@ -65,7 +65,7 @@ class ConfigurationRequestBuilder
     }
 
     /**
-     * The configuration properties of the device.
+     * Get the configuration details of a Microsoft Teams-enabled device, including software versions, peripheral device configuration (for example, camera, display, microphone, and speaker), hardware configuration, and Microsoft Teams client configuration.
      * @param ConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -100,6 +100,7 @@ class ConfigurationRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
@@ -132,7 +133,7 @@ class ConfigurationRequestBuilder
     }
 
     /**
-     * The configuration properties of the device.
+     * Get the configuration details of a Microsoft Teams-enabled device, including software versions, peripheral device configuration (for example, camera, display, microphone, and speaker), hardware configuration, and Microsoft Teams client configuration.
      * @param ConfigurationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -164,7 +165,7 @@ class ConfigurationRequestBuilder
                     '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
                     '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, array(TeamworkDeviceConfiguration::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

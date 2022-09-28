@@ -84,7 +84,7 @@ class SchemaRequestBuilder
     }
 
     /**
-     * The synchronization schema configured for the job.
+     * Retrieve the schema for a given synchronization job or template.
      * @param SchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -109,7 +109,7 @@ class SchemaRequestBuilder
     }
 
     /**
-     * Update the navigation property schema in servicePrincipals
+     * Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
      * @param SynchronizationSchema $body 
      * @param SchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -119,6 +119,7 @@ class SchemaRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
@@ -178,7 +179,7 @@ class SchemaRequestBuilder
     }
 
     /**
-     * The synchronization schema configured for the job.
+     * Retrieve the schema for a given synchronization job or template.
      * @param SchemaRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -197,7 +198,7 @@ class SchemaRequestBuilder
     }
 
     /**
-     * Update the navigation property schema in servicePrincipals
+     * Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
      * @param SynchronizationSchema $body 
      * @param SchemaRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -210,7 +211,7 @@ class SchemaRequestBuilder
                     '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
                     '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, array(SynchronizationSchema::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

@@ -118,7 +118,6 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('applyOnlyToWindows81', $this->applyOnlyToWindows81);
         $writer->writeEnumValue('connectionType', $this->connectionType);
         $writer->writeBooleanValue('enableSplitTunneling', $this->enableSplitTunneling);
         $writer->writeStringValue('loginGroupOrDomain', $this->loginGroupOrDomain);

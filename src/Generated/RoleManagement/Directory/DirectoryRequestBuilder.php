@@ -27,8 +27,8 @@ use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilitySched
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilityScheduleRequests\RoleEligibilityScheduleRequestsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilitySchedules\Item\UnifiedRoleEligibilityScheduleItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleEligibilitySchedules\RoleEligibilitySchedulesRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionId\RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdRequestBuilder;
-use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleSchedulesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionId\RoleSchedulesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionId\RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder;
+use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionId\RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\TransitiveRoleAssignments\Item\UnifiedRoleAssignmentItemRequestBuilder as MicrosoftGraphBetaGeneratedRoleManagementDirectoryTransitiveRoleAssignmentsItemUnifiedRoleAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\RoleManagement\Directory\TransitiveRoleAssignments\TransitiveRoleAssignmentsRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -201,6 +201,7 @@ class DirectoryRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
@@ -265,7 +266,7 @@ class DirectoryRequestBuilder
                     '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
                     '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, array(RbacApplication::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -383,18 +384,18 @@ class DirectoryRequestBuilder
 
     /**
      * Provides operations to call the roleScheduleInstances method.
-     * @return RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdRequestBuilder
+     * @return RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder
     */
-    public function roleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionId(): RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdRequestBuilder {
-        return new RoleScheduleInstancesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function roleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionId(): RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder {
+        return new RoleScheduleInstancesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
      * Provides operations to call the roleSchedules method.
-     * @return RoleSchedulesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdRequestBuilder
+     * @return RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder
     */
-    public function roleSchedulesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionId(): RoleSchedulesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdRequestBuilder {
-        return new RoleSchedulesWithDirectoryScopeIdWithAppScopeIdWithPrincipalIdWithRoleDefinitionIdRequestBuilder($this->pathParameters, $this->requestAdapter);
+    public function roleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionId(): RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder {
+        return new RoleSchedulesdirectoryScopeIdDirectoryScopeIdAppScopeIdAppScopeIdPrincipalIdPrincipalIdRoleDefinitionIdRoleDefinitionIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**

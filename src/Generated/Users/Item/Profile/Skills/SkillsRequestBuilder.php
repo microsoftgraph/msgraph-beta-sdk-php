@@ -47,13 +47,13 @@ class SkillsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/skills{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/users/{user%2Did}/profile/skills{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Represents detailed information about skills associated with a user in various services.
+     * Retrieve a list of skillProficiency objects in a user's profile.
      * @param SkillsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class SkillsRequestBuilder
     }
 
     /**
-     * Create new navigation property to skills for users
+     * Use this API to create a new skillProficiency object in a user's profile.
      * @param SkillProficiency $body 
      * @param SkillsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class SkillsRequestBuilder
     }
 
     /**
-     * Represents detailed information about skills associated with a user in various services.
+     * Retrieve a list of skillProficiency objects in a user's profile.
      * @param SkillsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class SkillsRequestBuilder
     }
 
     /**
-     * Create new navigation property to skills for users
+     * Use this API to create a new skillProficiency object in a user's profile.
      * @param SkillProficiency $body 
      * @param SkillsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

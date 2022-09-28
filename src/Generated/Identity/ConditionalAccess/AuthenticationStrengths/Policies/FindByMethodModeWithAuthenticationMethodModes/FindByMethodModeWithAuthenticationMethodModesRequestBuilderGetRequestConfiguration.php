@@ -16,4 +16,9 @@ class FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetRequestConfi
     */
     public ?array $options = null;
     
+    /**
+     * @var FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?FindByMethodModeWithAuthenticationMethodModesRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

@@ -39,13 +39,13 @@ class RefRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/policies/mobileDeviceManagementPolicies/{mobilityManagementPolicy%2Did}/includedGroups/$ref{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby}';
+        $this->urlTemplate = '{+baseurl}/policies/mobileDeviceManagementPolicies/{mobilityManagementPolicy%2Did}/includedGroups/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Azure AD groups under the scope of the mobility management application if appliesTo is selected
+     * Get the list of groups that are included in a mobile app management policy.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -93,7 +93,7 @@ class RefRequestBuilder
     }
 
     /**
-     * Azure AD groups under the scope of the mobility management application if appliesTo is selected
+     * Get the list of groups that are included in a mobile app management policy.
      * @param RefRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

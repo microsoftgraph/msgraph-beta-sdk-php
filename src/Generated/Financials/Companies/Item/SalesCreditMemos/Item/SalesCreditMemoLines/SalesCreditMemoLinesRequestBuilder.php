@@ -7,7 +7,6 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Financials\Companies\Item\SalesCreditMemos\Item\SalesCreditMemoLines\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
-use Microsoft\Graph\Beta\Generated\Models\SalesCreditMemoLine;
 use Microsoft\Graph\Beta\Generated\Models\SalesCreditMemoLineCollectionResponse;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -47,7 +46,7 @@ class SalesCreditMemoLinesRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/financials/companies/{company%2Did}/salesCreditMemos/{salesCreditMemo%2Did}/salesCreditMemoLines{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/financials/companies/{company%2Did}/salesCreditMemos/{salesCreditMemo%2Did}/salesCreditMemoLines{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
@@ -78,30 +77,6 @@ class SalesCreditMemoLinesRequestBuilder
     }
 
     /**
-     * Create new navigation property to salesCreditMemoLines for financials
-     * @param SalesCreditMemoLine $body 
-     * @param SalesCreditMemoLinesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @return RequestInformation
-    */
-    public function createPostRequestInformation(SalesCreditMemoLine $body, ?SalesCreditMemoLinesRequestBuilderPostRequestConfiguration $requestConfiguration = null): RequestInformation {
-        $requestInfo = new RequestInformation();
-        $requestInfo->urlTemplate = $this->urlTemplate;
-        $requestInfo->pathParameters = $this->pathParameters;
-        $requestInfo->httpMethod = HttpMethod::POST;
-        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
-        if ($requestConfiguration !== null) {
-            if ($requestConfiguration->headers !== null) {
-                $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
-            }
-            if ($requestConfiguration->options !== null) {
-                $requestInfo->addRequestOptions(...$requestConfiguration->options);
-            }
-        }
-        $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
-        return $requestInfo;
-    }
-
-    /**
      * Get salesCreditMemoLines from financials
      * @param SalesCreditMemoLinesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -115,26 +90,6 @@ class SalesCreditMemoLinesRequestBuilder
                     '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
             ];
             return $this->requestAdapter->sendAsync($requestInfo, array(SalesCreditMemoLineCollectionResponse::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
-        } catch(Exception $ex) {
-            return new RejectedPromise($ex);
-        }
-    }
-
-    /**
-     * Create new navigation property to salesCreditMemoLines for financials
-     * @param SalesCreditMemoLine $body 
-     * @param SalesCreditMemoLinesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @return Promise
-    */
-    public function post(SalesCreditMemoLine $body, ?SalesCreditMemoLinesRequestBuilderPostRequestConfiguration $requestConfiguration = null, ?ResponseHandler $responseHandler = null): Promise {
-        $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
-        try {
-            $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-            ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(SalesCreditMemoLine::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

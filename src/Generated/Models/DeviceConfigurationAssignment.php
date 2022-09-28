@@ -99,7 +99,6 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeEnumValue('intent', $this->intent);
         $writer->writeEnumValue('source', $this->source);
-        $writer->writeStringValue('sourceId', $this->sourceId);
         $writer->writeObjectValue('target', $this->target);
     }
 

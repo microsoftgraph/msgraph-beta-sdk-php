@@ -47,13 +47,13 @@ class ProfileCardPropertiesRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/organization/{organization%2Did}/settings/profileCardProperties{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/organization/{organization%2Did}/settings/profileCardProperties{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
+     * Get a collection of profileCardProperty resources of an organization. Each resource is identified by its **directoryPropertyName** property.
      * @param ProfileCardPropertiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class ProfileCardPropertiesRequestBuilder
     }
 
     /**
-     * Create new navigation property to profileCardProperties for organization
+     * Create a new profileCardProperty for an organization. The new property is identified by its **directoryPropertyName** property. For more information on adding properties to the profile card for an organization, see customize the profile card.
      * @param ProfileCardProperty $body 
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class ProfileCardPropertiesRequestBuilder
     }
 
     /**
-     * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card. Get organization settings returns the properties configured for profile cards for the organization.
+     * Get a collection of profileCardProperty resources of an organization. Each resource is identified by its **directoryPropertyName** property.
      * @param ProfileCardPropertiesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class ProfileCardPropertiesRequestBuilder
     }
 
     /**
-     * Create new navigation property to profileCardProperties for organization
+     * Create a new profileCardProperty for an organization. The new property is identified by its **directoryPropertyName** property. For more information on adding properties to the profile card for an organization, see customize the profile card.
      * @param ProfileCardProperty $body 
      * @param ProfileCardPropertiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

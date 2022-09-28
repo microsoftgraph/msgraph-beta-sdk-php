@@ -228,7 +228,6 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
         $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('creationSource', $this->creationSource);
         $writer->writeStringValue('description', $this->description);
-        $writer->writeBooleanValue('isAssigned', $this->isAssigned);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('name', $this->name);
         $writer->writeEnumValue('platforms', $this->platforms);

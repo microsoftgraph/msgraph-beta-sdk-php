@@ -38,7 +38,7 @@ class GetRoleScopeTagsByResourceWithResourceRequestBuilder
      * @param string|null $resource Usage: resource='{resource}'
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $resource = null) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/microsoft.graph.getRoleScopeTagsByResource(resource=\'{resource}\')';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/microsoft.graph.getRoleScopeTagsByResource(resource=\'{resource}\'){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -60,6 +60,9 @@ class GetRoleScopeTagsByResourceWithResourceRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

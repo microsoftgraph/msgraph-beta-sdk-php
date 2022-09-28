@@ -93,7 +93,7 @@ class BrandingRequestBuilder
     }
 
     /**
-     * Delete navigation property branding for organization
+     * Delete the default organizational branding object. To delete the organizationalBranding object, all images (Stream types) must first be removed from the object.
      * @param BrandingRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -114,7 +114,7 @@ class BrandingRequestBuilder
     }
 
     /**
-     * Resource to manage the default branding for the organization. Nullable.
+     * Retrieve the default organizational branding object, if the **Accept-Language** header is set to `0` or `default`. If no default organizational branding object exists, this method returns a `404 Not Found` error. If the **Accept-Language** header is set to an existing locale identified by the value of its **id**, this method retrieves the branding for the specified locale. This method retrieves only non-Stream properties, for example, **usernameHintText** and **signInPageText**. To retrieve Stream types of the default branding, for example, **bannerLogo** and **backgroundImage**, use the GET organizationalBrandingLocalization method.
      * @param BrandingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -139,7 +139,7 @@ class BrandingRequestBuilder
     }
 
     /**
-     * Update the navigation property branding in organization
+     * Update the properties of the default branding object specified by the organizationalBranding resource.
      * @param OrganizationalBranding $body 
      * @param BrandingRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -149,6 +149,7 @@ class BrandingRequestBuilder
         $requestInfo->urlTemplate = $this->urlTemplate;
         $requestInfo->pathParameters = $this->pathParameters;
         $requestInfo->httpMethod = HttpMethod::PATCH;
+        $requestInfo->headers = array_merge($requestInfo->headers, ["Accept" => "application/json"]);
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
@@ -162,7 +163,7 @@ class BrandingRequestBuilder
     }
 
     /**
-     * Delete navigation property branding for organization
+     * Delete the default organizational branding object. To delete the organizationalBranding object, all images (Stream types) must first be removed from the object.
      * @param BrandingRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -181,7 +182,7 @@ class BrandingRequestBuilder
     }
 
     /**
-     * Resource to manage the default branding for the organization. Nullable.
+     * Retrieve the default organizational branding object, if the **Accept-Language** header is set to `0` or `default`. If no default organizational branding object exists, this method returns a `404 Not Found` error. If the **Accept-Language** header is set to an existing locale identified by the value of its **id**, this method retrieves the branding for the specified locale. This method retrieves only non-Stream properties, for example, **usernameHintText** and **signInPageText**. To retrieve Stream types of the default branding, for example, **bannerLogo** and **backgroundImage**, use the GET organizationalBrandingLocalization method.
      * @param BrandingRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -211,7 +212,7 @@ class BrandingRequestBuilder
     }
 
     /**
-     * Update the navigation property branding in organization
+     * Update the properties of the default branding object specified by the organizationalBranding resource.
      * @param OrganizationalBranding $body 
      * @param BrandingRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -224,7 +225,7 @@ class BrandingRequestBuilder
                     '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
                     '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
             ];
-            return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, array(OrganizationalBranding::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

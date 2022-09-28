@@ -16,4 +16,9 @@ class GetSubscriptionsRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetSubscriptionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetSubscriptionsRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

@@ -43,7 +43,7 @@ class UpdatePasswordSingleSignOnCredentialsRequestBuilder
     }
 
     /**
-     * Invoke action updatePasswordSingleSignOnCredentials
+     * Update single sign-on credentials using a password for a user or group.
      * @param UpdatePasswordSingleSignOnCredentialsPostRequestBody $body 
      * @param UpdatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -66,7 +66,7 @@ class UpdatePasswordSingleSignOnCredentialsRequestBuilder
     }
 
     /**
-     * Invoke action updatePasswordSingleSignOnCredentials
+     * Update single sign-on credentials using a password for a user or group.
      * @param UpdatePasswordSingleSignOnCredentialsPostRequestBody $body 
      * @param UpdatePasswordSingleSignOnCredentialsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -16,4 +16,9 @@ class GetScopesForUserWithUseridRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetScopesForUserWithUseridRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetScopesForUserWithUseridRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

@@ -106,7 +106,7 @@ class DeviceHealthScript extends Entity implements Parsable
     private ?string $version = null;
     
     /**
-     * Instantiates a new DeviceHealthScript and sets the default values.
+     * Instantiates a new deviceHealthScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -310,7 +310,6 @@ class DeviceHealthScript extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('description', $this->description);
         $writer->writeBinaryContent('detectionScriptContent', $this->detectionScriptContent);
         $writer->writeCollectionOfObjectValues('detectionScriptParameters', $this->detectionScriptParameters);
@@ -319,7 +318,6 @@ class DeviceHealthScript extends Entity implements Parsable
         $writer->writeBooleanValue('enforceSignatureCheck', $this->enforceSignatureCheck);
         $writer->writeStringValue('highestAvailableVersion', $this->highestAvailableVersion);
         $writer->writeBooleanValue('isGlobalScript', $this->isGlobalScript);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('publisher', $this->publisher);
         $writer->writeBinaryContent('remediationScriptContent', $this->remediationScriptContent);
         $writer->writeCollectionOfObjectValues('remediationScriptParameters', $this->remediationScriptParameters);

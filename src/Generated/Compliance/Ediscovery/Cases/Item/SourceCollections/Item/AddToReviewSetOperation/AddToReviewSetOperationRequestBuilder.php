@@ -44,7 +44,7 @@ class AddToReviewSetOperationRequestBuilder
     }
 
     /**
-     * Adds the results of the sourceCollection to the specified reviewSet.
+     * Get the last addToReviewSetOperation object associated with a source collection. 
      * @param AddToReviewSetOperationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -69,7 +69,7 @@ class AddToReviewSetOperationRequestBuilder
     }
 
     /**
-     * Adds the results of the sourceCollection to the specified reviewSet.
+     * Get the last addToReviewSetOperation object associated with a source collection. 
      * @param AddToReviewSetOperationRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

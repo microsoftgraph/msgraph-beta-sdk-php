@@ -16,4 +16,9 @@ class GetEffectivePermissionsRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetEffectivePermissionsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetEffectivePermissionsRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

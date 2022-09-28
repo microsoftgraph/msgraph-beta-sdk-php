@@ -14,7 +14,7 @@ class AdminReportSettings extends Entity implements Parsable
     private ?bool $displayConcealedNames = null;
     
     /**
-     * Instantiates a new adminReportSettings and sets the default values.
+     * Instantiates a new AdminReportSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

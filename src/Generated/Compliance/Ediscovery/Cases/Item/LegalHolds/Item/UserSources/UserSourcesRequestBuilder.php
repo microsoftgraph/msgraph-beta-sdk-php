@@ -47,13 +47,13 @@ class UserSourcesRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/legalHolds/{legalHold%2Did}/userSources{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/legalHolds/{legalHold%2Did}/userSources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
+     * Get the list of userSource objects associated with a legal hold.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class UserSourcesRequestBuilder
     }
 
     /**
-     * Create new navigation property to userSources for compliance
+     * Adds a userSource to a legalHold object.
      * @param UserSource $body 
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class UserSourcesRequestBuilder
     }
 
     /**
-     * Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
+     * Get the list of userSource objects associated with a legal hold.
      * @param UserSourcesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class UserSourcesRequestBuilder
     }
 
     /**
-     * Create new navigation property to userSources for compliance
+     * Adds a userSource to a legalHold object.
      * @param UserSource $body 
      * @param UserSourcesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

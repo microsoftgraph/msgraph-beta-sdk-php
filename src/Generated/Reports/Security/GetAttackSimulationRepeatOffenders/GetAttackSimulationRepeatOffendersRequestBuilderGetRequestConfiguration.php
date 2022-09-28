@@ -16,4 +16,9 @@ class GetAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

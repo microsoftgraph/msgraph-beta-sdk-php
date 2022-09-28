@@ -16,4 +16,9 @@ class GetSourceImagesRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetSourceImagesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetSourceImagesRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

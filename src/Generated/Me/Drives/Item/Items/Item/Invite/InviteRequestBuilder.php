@@ -43,7 +43,7 @@ class InviteRequestBuilder
     }
 
     /**
-     * Invoke action invite
+     * Sends a sharing invitation for a **DriveItem**.A sharing invitation provides permissions to the recipients and optionally sends an email to the recipients to notify them the item was shared.
      * @param InvitePostRequestBody $body 
      * @param InviteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -67,7 +67,7 @@ class InviteRequestBuilder
     }
 
     /**
-     * Invoke action invite
+     * Sends a sharing invitation for a **DriveItem**.A sharing invitation provides permissions to the recipients and optionally sends an email to the recipients to notify them the item was shared.
      * @param InvitePostRequestBody $body 
      * @param InviteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

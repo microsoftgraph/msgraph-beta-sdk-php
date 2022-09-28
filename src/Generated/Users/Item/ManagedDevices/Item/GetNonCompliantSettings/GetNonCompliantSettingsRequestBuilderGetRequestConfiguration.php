@@ -16,4 +16,9 @@ class GetNonCompliantSettingsRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetNonCompliantSettingsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetNonCompliantSettingsRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

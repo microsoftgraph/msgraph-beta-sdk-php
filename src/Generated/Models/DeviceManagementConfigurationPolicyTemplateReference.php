@@ -125,8 +125,6 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('templateDisplayName', $this->templateDisplayName);
-        $writer->writeStringValue('templateDisplayVersion', $this->templateDisplayVersion);
         $writer->writeEnumValue('templateFamily', $this->templateFamily);
         $writer->writeStringValue('templateId', $this->templateId);
         $writer->writeAdditionalData($this->additionalData);

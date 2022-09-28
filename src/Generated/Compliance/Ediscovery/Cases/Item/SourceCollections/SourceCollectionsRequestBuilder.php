@@ -47,13 +47,13 @@ class SourceCollectionsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/sourceCollections{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/compliance/ediscovery/cases/{case%2Did}/sourceCollections{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Returns a list of sourceCollection objects associated with this case.
+     * Get the list of sourceCollections from a case object.
      * @param SourceCollectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class SourceCollectionsRequestBuilder
     }
 
     /**
-     * Create new navigation property to sourceCollections for compliance
+     * Create a new sourceCollection object.
      * @param SourceCollection $body 
      * @param SourceCollectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class SourceCollectionsRequestBuilder
     }
 
     /**
-     * Returns a list of sourceCollection objects associated with this case.
+     * Get the list of sourceCollections from a case object.
      * @param SourceCollectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class SourceCollectionsRequestBuilder
     }
 
     /**
-     * Create new navigation property to sourceCollections for compliance
+     * Create a new sourceCollection object.
      * @param SourceCollection $body 
      * @param SourceCollectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
