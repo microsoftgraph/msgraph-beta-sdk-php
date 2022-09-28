@@ -225,16 +225,12 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('creationSource', $this->creationSource);
         $writer->writeStringValue('description', $this->description);
-        $writer->writeBooleanValue('isAssigned', $this->isAssigned);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('name', $this->name);
         $writer->writeEnumValue('platforms', $this->platforms);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeCollectionOfObjectValues('scheduledActionsForRule', $this->scheduledActionsForRule);
-        $writer->writeIntegerValue('settingCount', $this->settingCount);
         $writer->writeCollectionOfObjectValues('settings', $this->settings);
         $writer->writeEnumValue('technologies', $this->technologies);
     }

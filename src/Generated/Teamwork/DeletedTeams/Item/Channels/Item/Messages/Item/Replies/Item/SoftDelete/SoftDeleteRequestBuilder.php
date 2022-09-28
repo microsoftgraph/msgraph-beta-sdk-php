@@ -43,7 +43,7 @@ class SoftDeleteRequestBuilder
     }
 
     /**
-     * Invoke action softDelete
+     * Delete a single message or a message reply in a channel or a chat.
      * @param SoftDeleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -64,7 +64,7 @@ class SoftDeleteRequestBuilder
     }
 
     /**
-     * Invoke action softDelete
+     * Delete a single message or a message reply in a channel or a chat.
      * @param SoftDeleteRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

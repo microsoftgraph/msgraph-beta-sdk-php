@@ -97,8 +97,6 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfPrimitiveValues('roleAssignmentIds', $this->roleAssignmentIds);
-        $writer->writeCollectionOfPrimitiveValues('roleDefinitionIds', $this->roleDefinitionIds);
         $writer->writeAdditionalData($this->additionalData);
     }
 

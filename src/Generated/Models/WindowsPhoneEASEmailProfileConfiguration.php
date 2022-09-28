@@ -182,7 +182,6 @@ class WindowsPhoneEASEmailProfileConfiguration extends EasEmailProfileConfigurat
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('accountName', $this->accountName);
-        $writer->writeBooleanValue('applyOnlyToWindowsPhone81', $this->applyOnlyToWindowsPhone81);
         $writer->writeEnumValue('durationOfEmailToSync', $this->durationOfEmailToSync);
         $writer->writeEnumValue('emailAddressSource', $this->emailAddressSource);
         $writer->writeEnumValue('emailSyncSchedule', $this->emailSyncSchedule);

@@ -47,13 +47,13 @@ class BookmarksRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/search/bookmarks{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/search/bookmarks{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * Administrative answer in Microsoft Search results for common search queries in an organization.
+     * Get a list of bookmark objects and their properties.
      * @param BookmarksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class BookmarksRequestBuilder
     }
 
     /**
-     * Create new navigation property to bookmarks for search
+     * Create a new bookmark object.
      * @param Bookmark $body 
      * @param BookmarksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class BookmarksRequestBuilder
     }
 
     /**
-     * Administrative answer in Microsoft Search results for common search queries in an organization.
+     * Get a list of bookmark objects and their properties.
      * @param BookmarksRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class BookmarksRequestBuilder
     }
 
     /**
-     * Create new navigation property to bookmarks for search
+     * Create a new bookmark object.
      * @param Bookmark $body 
      * @param BookmarksRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

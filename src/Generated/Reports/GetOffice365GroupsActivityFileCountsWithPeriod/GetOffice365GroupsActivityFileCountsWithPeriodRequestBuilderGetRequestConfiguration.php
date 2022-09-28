@@ -16,4 +16,9 @@ class GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilderGetRequestConf
     */
     public ?array $options = null;
     
+    /**
+     * @var GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

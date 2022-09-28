@@ -39,7 +39,7 @@ class PrivilegedAccess extends Entity implements Parsable
     private ?array $roleSettings = null;
     
     /**
-     * Instantiates a new PrivilegedAccess and sets the default values.
+     * Instantiates a new privilegedAccess and sets the default values.
     */
     public function __construct() {
         parent::__construct();

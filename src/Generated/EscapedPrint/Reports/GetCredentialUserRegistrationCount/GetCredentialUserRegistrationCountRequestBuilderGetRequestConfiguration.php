@@ -16,4 +16,9 @@ class GetCredentialUserRegistrationCountRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetCredentialUserRegistrationCountRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

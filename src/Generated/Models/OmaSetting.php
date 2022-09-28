@@ -153,10 +153,8 @@ class OmaSetting implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isEncrypted', $this->isEncrypted);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeStringValue('omaUri', $this->omaUri);
-        $writer->writeStringValue('secretReferenceValueId', $this->secretReferenceValueId);
         $writer->writeAdditionalData($this->additionalData);
     }
 

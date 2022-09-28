@@ -44,7 +44,7 @@ class UploadPkcs12RequestBuilder
     }
 
     /**
-     * Invoke action uploadPkcs12
+     * Upload a PKCS12 format key (PFX) to a trustFrameworkKeyset. The input is a base-64 encoded value of the Pfx certificate contents. This method returns trustFrameworkKey.
      * @param UploadPkcs12PostRequestBody $body 
      * @param UploadPkcs12RequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -68,7 +68,7 @@ class UploadPkcs12RequestBuilder
     }
 
     /**
-     * Invoke action uploadPkcs12
+     * Upload a PKCS12 format key (PFX) to a trustFrameworkKeyset. The input is a base-64 encoded value of the Pfx certificate contents. This method returns trustFrameworkKey.
      * @param UploadPkcs12PostRequestBody $body 
      * @param UploadPkcs12RequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

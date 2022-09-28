@@ -19,7 +19,7 @@ class ProgramControlType extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * Instantiates a new ProgramControlType and sets the default values.
+     * Instantiates a new programControlType and sets the default values.
     */
     public function __construct() {
         parent::__construct();

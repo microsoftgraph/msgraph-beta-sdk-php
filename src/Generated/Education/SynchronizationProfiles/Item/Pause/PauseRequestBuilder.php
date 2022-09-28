@@ -43,7 +43,7 @@ class PauseRequestBuilder
     }
 
     /**
-     * Invoke action pause
+     * Pause the sync of a specific school data synchronization profile in the tenant.
      * @param PauseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -64,7 +64,7 @@ class PauseRequestBuilder
     }
 
     /**
-     * Invoke action pause
+     * Pause the sync of a specific school data synchronization profile in the tenant.
      * @param PauseRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

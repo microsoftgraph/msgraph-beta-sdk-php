@@ -19,6 +19,11 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     private ?string $description = null;
     
     /**
+     * @var ItemBody|null $notes The notes property
+    */
+    private ?ItemBody $notes = null;
+    
+    /**
      * @var PlannerPreviewType|null $previewType This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
     */
     private ?PlannerPreviewType $previewType = null;
@@ -70,9 +75,18 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'checklist' => function (ParseNode $n) use ($o) { $o->setChecklist($n->getObjectValue(array(PlannerChecklistItems::class, 'createFromDiscriminatorValue'))); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
+            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
             'previewType' => function (ParseNode $n) use ($o) { $o->setPreviewType($n->getEnumValue(PlannerPreviewType::class)); },
             'references' => function (ParseNode $n) use ($o) { $o->setReferences($n->getObjectValue(array(PlannerExternalReferences::class, 'createFromDiscriminatorValue'))); },
         ]);
+    }
+
+    /**
+     * Gets the notes property value. The notes property
+     * @return ItemBody|null
+    */
+    public function getNotes(): ?ItemBody {
+        return $this->notes;
     }
 
     /**
@@ -99,6 +113,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
         parent::serialize($writer);
         $writer->writeObjectValue('checklist', $this->checklist);
         $writer->writeStringValue('description', $this->description);
+        $writer->writeObjectValue('notes', $this->notes);
         $writer->writeEnumValue('previewType', $this->previewType);
         $writer->writeObjectValue('references', $this->references);
     }
@@ -117,6 +132,14 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     */
     public function setDescription(?string $value ): void {
         $this->description = $value;
+    }
+
+    /**
+     * Sets the notes property value. The notes property
+     *  @param ItemBody|null $value Value to set for the notes property.
+    */
+    public function setNotes(?ItemBody $value ): void {
+        $this->notes = $value;
     }
 
     /**

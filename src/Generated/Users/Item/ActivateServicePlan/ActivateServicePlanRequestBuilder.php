@@ -43,7 +43,7 @@ class ActivateServicePlanRequestBuilder
     }
 
     /**
-     * Invoke action activateServicePlan
+     * Activate a service plan with a given `servicePlanId` and `skuId` for a given user.
      * @param ActivateServicePlanPostRequestBody $body 
      * @param ActivateServicePlanRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -66,7 +66,7 @@ class ActivateServicePlanRequestBuilder
     }
 
     /**
-     * Invoke action activateServicePlan
+     * Activate a service plan with a given `servicePlanId` and `skuId` for a given user.
      * @param ActivateServicePlanPostRequestBody $body 
      * @param ActivateServicePlanRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -44,7 +44,7 @@ class AdministrativeUnitRequestBuilder
     }
 
     /**
-     * Get administrativeUnit from education
+     * Retrieve the simple directory **administrativeUnit** that corresponds to this **educationSchool**.
      * @param AdministrativeUnitRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -69,7 +69,7 @@ class AdministrativeUnitRequestBuilder
     }
 
     /**
-     * Get administrativeUnit from education
+     * Retrieve the simple directory **administrativeUnit** that corresponds to this **educationSchool**.
      * @param AdministrativeUnitRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

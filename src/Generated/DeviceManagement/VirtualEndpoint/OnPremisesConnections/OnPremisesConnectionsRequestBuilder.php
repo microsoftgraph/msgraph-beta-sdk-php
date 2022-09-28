@@ -47,13 +47,13 @@ class OnPremisesConnectionsRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/onPremisesConnections{?%24top*,%24skip*,%24search*,%24filter*,%24count*,%24orderby,%24select,%24expand}';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/onPremisesConnections{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }
 
     /**
-     * A defined collection of Azure resource information that can be used to establish on-premises network connectivity for Cloud PCs.
+     * List properties and relationships of the cloudPcOnPremisesConnection objects.
      * @param OnPremisesConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -78,7 +78,7 @@ class OnPremisesConnectionsRequestBuilder
     }
 
     /**
-     * Create new navigation property to onPremisesConnections for deviceManagement
+     * Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs.
      * @param CloudPcOnPremisesConnection $body 
      * @param OnPremisesConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -102,7 +102,7 @@ class OnPremisesConnectionsRequestBuilder
     }
 
     /**
-     * A defined collection of Azure resource information that can be used to establish on-premises network connectivity for Cloud PCs.
+     * List properties and relationships of the cloudPcOnPremisesConnection objects.
      * @param OnPremisesConnectionsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -121,7 +121,7 @@ class OnPremisesConnectionsRequestBuilder
     }
 
     /**
-     * Create new navigation property to onPremisesConnections for deviceManagement
+     * Create a new cloudPcOnPremisesConnection object for provisioning Cloud PCs.
      * @param CloudPcOnPremisesConnection $body 
      * @param OnPremisesConnectionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

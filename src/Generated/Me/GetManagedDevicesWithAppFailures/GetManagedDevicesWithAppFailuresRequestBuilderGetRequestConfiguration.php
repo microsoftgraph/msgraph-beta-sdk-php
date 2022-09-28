@@ -16,4 +16,9 @@ class GetManagedDevicesWithAppFailuresRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

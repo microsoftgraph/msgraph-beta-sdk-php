@@ -16,4 +16,9 @@ class GetOffice365ActiveUserCountsWithPeriodRequestBuilderGetRequestConfiguratio
     */
     public ?array $options = null;
     
+    /**
+     * @var GetOffice365ActiveUserCountsWithPeriodRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetOffice365ActiveUserCountsWithPeriodRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

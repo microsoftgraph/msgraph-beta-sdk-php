@@ -204,7 +204,7 @@ class Company extends Entity implements Parsable
     private ?array $vendors = null;
     
     /**
-     * Instantiates a new Company and sets the default values.
+     * Instantiates a new company and sets the default values.
     */
     public function __construct() {
         parent::__construct();

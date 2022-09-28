@@ -14,7 +14,7 @@ class AuthenticationCombinationConfiguration extends Entity implements Parsable
     private ?array $appliesToCombinations = null;
     
     /**
-     * Instantiates a new AuthenticationCombinationConfiguration and sets the default values.
+     * Instantiates a new authenticationCombinationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

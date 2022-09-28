@@ -16,4 +16,9 @@ class GetPortalNotificationsRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetPortalNotificationsRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetPortalNotificationsRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

@@ -16,4 +16,9 @@ class GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilderGetReque
     */
     public ?array $options = null;
     
+    /**
+     * @var GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetRelatedAppStatesWithUserPrincipalNameWithDeviceIdRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

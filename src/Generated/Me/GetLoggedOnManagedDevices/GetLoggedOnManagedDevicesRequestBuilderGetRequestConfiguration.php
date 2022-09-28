@@ -16,4 +16,9 @@ class GetLoggedOnManagedDevicesRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetLoggedOnManagedDevicesRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetLoggedOnManagedDevicesRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

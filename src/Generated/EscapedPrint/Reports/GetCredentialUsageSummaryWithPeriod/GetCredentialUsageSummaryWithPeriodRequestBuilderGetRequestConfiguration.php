@@ -16,4 +16,9 @@ class GetCredentialUsageSummaryWithPeriodRequestBuilderGetRequestConfiguration
     */
     public ?array $options = null;
     
+    /**
+     * @var GetCredentialUsageSummaryWithPeriodRequestBuilderGetQueryParameters|null $queryParameters Request query parameters
+    */
+    public ?GetCredentialUsageSummaryWithPeriodRequestBuilderGetQueryParameters $queryParameters = null;
+    
 }

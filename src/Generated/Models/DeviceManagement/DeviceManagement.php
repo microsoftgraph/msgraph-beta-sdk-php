@@ -2533,7 +2533,6 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceCompliancePolicies', $this->deviceCompliancePolicies);
         $writer->writeObjectValue('deviceCompliancePolicyDeviceStateSummary', $this->deviceCompliancePolicyDeviceStateSummary);
         $writer->writeCollectionOfObjectValues('deviceCompliancePolicySettingStateSummaries', $this->deviceCompliancePolicySettingStateSummaries);
-        $writer->writeDateTimeValue('deviceComplianceReportSummarizationDateTime', $this->deviceComplianceReportSummarizationDateTime);
         $writer->writeCollectionOfObjectValues('deviceComplianceScripts', $this->deviceComplianceScripts);
         $writer->writeCollectionOfObjectValues('deviceConfigurationConflictSummary', $this->deviceConfigurationConflictSummary);
         $writer->writeObjectValue('deviceConfigurationDeviceStateSummaries', $this->deviceConfigurationDeviceStateSummaries);
@@ -2567,8 +2566,6 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('intuneBrand', $this->intuneBrand);
         $writer->writeCollectionOfObjectValues('intuneBrandingProfiles', $this->intuneBrandingProfiles);
         $writer->writeCollectionOfObjectValues('iosUpdateStatuses', $this->iosUpdateStatuses);
-        $writer->writeDateTimeValue('lastReportAggregationDateTime', $this->lastReportAggregationDateTime);
-        $writer->writeBooleanValue('legacyPcManangementEnabled', $this->legacyPcManangementEnabled);
         $writer->writeCollectionOfObjectValues('macOSSoftwareUpdateAccountSummaries', $this->macOSSoftwareUpdateAccountSummaries);
         $writer->writeObjectValue('managedDeviceCleanupSettings', $this->managedDeviceCleanupSettings);
         $writer->writeCollectionOfObjectValues('managedDeviceEncryptionStates', $this->managedDeviceEncryptionStates);
@@ -2609,7 +2606,6 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('tenantAttachRBAC', $this->tenantAttachRBAC);
         $writer->writeCollectionOfObjectValues('termsAndConditions', $this->termsAndConditions);
         $writer->writeCollectionOfObjectValues('troubleshootingEvents', $this->troubleshootingEvents);
-        $writer->writeBooleanValue('unlicensedAdminstratorsEnabled', $this->unlicensedAdminstratorsEnabled);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformance', $this->userExperienceAnalyticsAppHealthApplicationPerformance);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion', $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails', $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails);

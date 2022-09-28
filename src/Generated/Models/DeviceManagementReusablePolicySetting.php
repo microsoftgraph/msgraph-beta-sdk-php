@@ -55,7 +55,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
     private ?int $version = null;
     
     /**
-     * Instantiates a new DeviceManagementReusablePolicySetting and sets the default values.
+     * Instantiates a new deviceManagementReusablePolicySetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -168,15 +168,11 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeCollectionOfObjectValues('referencingConfigurationPolicies', $this->referencingConfigurationPolicies);
-        $writer->writeIntegerValue('referencingConfigurationPolicyCount', $this->referencingConfigurationPolicyCount);
         $writer->writeStringValue('settingDefinitionId', $this->settingDefinitionId);
         $writer->writeObjectValue('settingInstance', $this->settingInstance);
-        $writer->writeIntegerValue('version', $this->version);
     }
 
     /**

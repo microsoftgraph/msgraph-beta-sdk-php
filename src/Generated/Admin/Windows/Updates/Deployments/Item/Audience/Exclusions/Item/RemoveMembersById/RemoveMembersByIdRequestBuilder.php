@@ -43,7 +43,7 @@ class RemoveMembersByIdRequestBuilder
     }
 
     /**
-     * Invoke action removeMembersById
+     * Remove members of the same type from an updatableAssetGroup. You can also use the method removeMembers to remove members.
      * @param RemoveMembersByIdPostRequestBody $body 
      * @param RemoveMembersByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -66,7 +66,7 @@ class RemoveMembersByIdRequestBuilder
     }
 
     /**
-     * Invoke action removeMembersById
+     * Remove members of the same type from an updatableAssetGroup. You can also use the method removeMembers to remove members.
      * @param RemoveMembersByIdPostRequestBody $body 
      * @param RemoveMembersByIdRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -92,7 +92,7 @@ class DeviceShellScript extends Entity implements Parsable
     private ?array $userRunStates = null;
     
     /**
-     * Instantiates a new DeviceShellScript and sets the default values.
+     * Instantiates a new deviceShellScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -270,14 +270,12 @@ class DeviceShellScript extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
         $writer->writeBooleanValue('blockExecutionNotifications', $this->blockExecutionNotifications);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('description', $this->description);
         $writer->writeCollectionOfObjectValues('deviceRunStates', $this->deviceRunStates);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeDateIntervalValue('executionFrequency', $this->executionFrequency);
         $writer->writeStringValue('fileName', $this->fileName);
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->groupAssignments);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeIntegerValue('retryCount', $this->retryCount);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeEnumValue('runAsAccount', $this->runAsAccount);

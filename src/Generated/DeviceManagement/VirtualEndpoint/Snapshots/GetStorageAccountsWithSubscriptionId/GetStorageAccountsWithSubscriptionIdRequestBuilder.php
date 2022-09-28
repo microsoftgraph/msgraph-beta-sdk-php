@@ -38,7 +38,7 @@ class GetStorageAccountsWithSubscriptionIdRequestBuilder
      * @param string|null $subscriptionId Usage: subscriptionId='{subscriptionId}'
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?string $subscriptionId = null) {
-        $this->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/snapshots/microsoft.graph.getStorageAccounts(subscriptionId=\'{subscriptionId}\')';
+        $this->urlTemplate = '{+baseurl}/deviceManagement/virtualEndpoint/snapshots/microsoft.graph.getStorageAccounts(subscriptionId=\'{subscriptionId}\'){?%24top,%24skip,%24search,%24filter,%24count}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -60,6 +60,9 @@ class GetStorageAccountsWithSubscriptionIdRequestBuilder
         if ($requestConfiguration !== null) {
             if ($requestConfiguration->headers !== null) {
                 $requestInfo->headers = array_merge($requestInfo->headers, $requestConfiguration->headers);
+            }
+            if ($requestConfiguration->queryParameters !== null) {
+                $requestInfo->setQueryParameters($requestConfiguration->queryParameters);
             }
             if ($requestConfiguration->options !== null) {
                 $requestInfo->addRequestOptions(...$requestConfiguration->options);

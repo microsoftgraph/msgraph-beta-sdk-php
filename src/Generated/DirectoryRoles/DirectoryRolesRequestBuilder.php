@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\DirectoryRoles;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\DirectoryRoles\Count\CountRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DirectoryRoles\Delta\DeltaRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DirectoryRoles\GetByIds\GetByIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DirectoryRoles\GetUserOwnedObjects\GetUserOwnedObjectsRequestBuilder;
@@ -22,6 +23,13 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 
 class DirectoryRolesRequestBuilder 
 {
+    /**
+     * The Count property
+    */
+    public function count(): CountRequestBuilder {
+        return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
     /**
      * The getByIds property
     */
@@ -64,7 +72,7 @@ class DirectoryRolesRequestBuilder
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter) {
-        $this->urlTemplate = '{+baseurl}/directoryRoles{?%24search*,%24orderby,%24select}';
+        $this->urlTemplate = '{+baseurl}/directoryRoles{?%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
     }

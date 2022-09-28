@@ -86,7 +86,7 @@ class DeviceManagementScript extends Entity implements Parsable
     private ?array $userRunStates = null;
     
     /**
-     * Instantiates a new DeviceManagementScript and sets the default values.
+     * Instantiates a new deviceManagementScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -254,14 +254,12 @@ class DeviceManagementScript extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('description', $this->description);
         $writer->writeCollectionOfObjectValues('deviceRunStates', $this->deviceRunStates);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeBooleanValue('enforceSignatureCheck', $this->enforceSignatureCheck);
         $writer->writeStringValue('fileName', $this->fileName);
         $writer->writeCollectionOfObjectValues('groupAssignments', $this->groupAssignments);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeBooleanValue('runAs32Bit', $this->runAs32Bit);
         $writer->writeEnumValue('runAsAccount', $this->runAsAccount);
