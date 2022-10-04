@@ -50,7 +50,7 @@ class Simulation extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * @var bool|null $isAutomated Flag representing if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby.
+     * @var bool|null $isAutomated Flag that represents if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby.
     */
     private ?bool $isAutomated = null;
     
@@ -191,7 +191,7 @@ class Simulation extends Entity implements Parsable
     }
 
     /**
-     * Gets the isAutomated property value. Flag representing if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby.
+     * Gets the isAutomated property value. Flag that represents if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby.
      * @return bool|null
     */
     public function getIsAutomated(): ?bool {
@@ -334,7 +334,7 @@ class Simulation extends Entity implements Parsable
     }
 
     /**
-     * Sets the isAutomated property value. Flag representing if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby.
+     * Sets the isAutomated property value. Flag that represents if the attack simulation and training campaign was created from a simulation automation flow. Supports $filter and $orderby.
      *  @param bool|null $value Value to set for the isAutomated property.
     */
     public function setIsAutomated(?bool $value ): void {

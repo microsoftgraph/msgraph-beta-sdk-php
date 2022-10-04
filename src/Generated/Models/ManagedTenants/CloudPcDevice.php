@@ -16,12 +16,12 @@ class CloudPcDevice extends Entity implements Parsable
     private ?string $cloudPcStatus = null;
     
     /**
-     * @var string|null $deviceSpecification The deviceSpecification property
+     * @var string|null $deviceSpecification The specification of the cloud PC device. Required. Read-only.
     */
     private ?string $deviceSpecification = null;
     
     /**
-     * @var string|null $displayName The display name for the cloud PC. Required. Read-only.
+     * @var string|null $displayName The display name  of the cloud PC device. Required. Read-only.
     */
     private ?string $displayName = null;
     
@@ -31,27 +31,27 @@ class CloudPcDevice extends Entity implements Parsable
     private ?DateTime $lastRefreshedDateTime = null;
     
     /**
-     * @var string|null $managedDeviceId The managed device identifier for the cloud PC. Optional. Read-only.
+     * @var string|null $managedDeviceId The managed device identifier of the cloud PC device. Optional. Read-only.
     */
     private ?string $managedDeviceId = null;
     
     /**
-     * @var string|null $managedDeviceName The managed device display name for the cloud PC. Optional. Read-only.
+     * @var string|null $managedDeviceName The managed device display name of the cloud PC device. Optional. Read-only.
     */
     private ?string $managedDeviceName = null;
     
     /**
-     * @var string|null $provisioningPolicyId The provisioning policy identifier for the cloud PC. Required. Read-only.
+     * @var string|null $provisioningPolicyId The provisioning policy identifier for the cloud PC device. Required. Read-only.
     */
     private ?string $provisioningPolicyId = null;
     
     /**
-     * @var string|null $servicePlanName The service plan name for the cloud PC. Required. Read-only.
+     * @var string|null $servicePlanName The service plan name of the cloud PC device. Required. Read-only.
     */
     private ?string $servicePlanName = null;
     
     /**
-     * @var string|null $servicePlanType The servicePlanType property
+     * @var string|null $servicePlanType The service plan type of the cloud PC device. Required. Read-only.
     */
     private ?string $servicePlanType = null;
     
@@ -66,7 +66,7 @@ class CloudPcDevice extends Entity implements Parsable
     private ?string $tenantId = null;
     
     /**
-     * @var string|null $userPrincipalName The user principal name (UPN) of the user assigned to the cloud PC. Required. Read-only.
+     * @var string|null $userPrincipalName The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
     */
     private ?string $userPrincipalName = null;
     
@@ -96,7 +96,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the deviceSpecification property value. The deviceSpecification property
+     * Gets the deviceSpecification property value. The specification of the cloud PC device. Required. Read-only.
      * @return string|null
     */
     public function getDeviceSpecification(): ?string {
@@ -104,7 +104,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name for the cloud PC. Required. Read-only.
+     * Gets the displayName property value. The display name  of the cloud PC device. Required. Read-only.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -142,7 +142,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedDeviceId property value. The managed device identifier for the cloud PC. Optional. Read-only.
+     * Gets the managedDeviceId property value. The managed device identifier of the cloud PC device. Optional. Read-only.
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
@@ -150,7 +150,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the managedDeviceName property value. The managed device display name for the cloud PC. Optional. Read-only.
+     * Gets the managedDeviceName property value. The managed device display name of the cloud PC device. Optional. Read-only.
      * @return string|null
     */
     public function getManagedDeviceName(): ?string {
@@ -158,7 +158,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the provisioningPolicyId property value. The provisioning policy identifier for the cloud PC. Required. Read-only.
+     * Gets the provisioningPolicyId property value. The provisioning policy identifier for the cloud PC device. Required. Read-only.
      * @return string|null
     */
     public function getProvisioningPolicyId(): ?string {
@@ -166,7 +166,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the servicePlanName property value. The service plan name for the cloud PC. Required. Read-only.
+     * Gets the servicePlanName property value. The service plan name of the cloud PC device. Required. Read-only.
      * @return string|null
     */
     public function getServicePlanName(): ?string {
@@ -174,7 +174,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the servicePlanType property value. The servicePlanType property
+     * Gets the servicePlanType property value. The service plan type of the cloud PC device. Required. Read-only.
      * @return string|null
     */
     public function getServicePlanType(): ?string {
@@ -198,7 +198,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Gets the userPrincipalName property value. The user principal name (UPN) of the user assigned to the cloud PC. Required. Read-only.
+     * Gets the userPrincipalName property value. The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
@@ -234,7 +234,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the deviceSpecification property value. The deviceSpecification property
+     * Sets the deviceSpecification property value. The specification of the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the deviceSpecification property.
     */
     public function setDeviceSpecification(?string $value ): void {
@@ -242,7 +242,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name for the cloud PC. Required. Read-only.
+     * Sets the displayName property value. The display name  of the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -258,7 +258,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the managedDeviceId property value. The managed device identifier for the cloud PC. Optional. Read-only.
+     * Sets the managedDeviceId property value. The managed device identifier of the cloud PC device. Optional. Read-only.
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
     public function setManagedDeviceId(?string $value ): void {
@@ -266,7 +266,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the managedDeviceName property value. The managed device display name for the cloud PC. Optional. Read-only.
+     * Sets the managedDeviceName property value. The managed device display name of the cloud PC device. Optional. Read-only.
      *  @param string|null $value Value to set for the managedDeviceName property.
     */
     public function setManagedDeviceName(?string $value ): void {
@@ -274,7 +274,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the provisioningPolicyId property value. The provisioning policy identifier for the cloud PC. Required. Read-only.
+     * Sets the provisioningPolicyId property value. The provisioning policy identifier for the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the provisioningPolicyId property.
     */
     public function setProvisioningPolicyId(?string $value ): void {
@@ -282,7 +282,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the servicePlanName property value. The service plan name for the cloud PC. Required. Read-only.
+     * Sets the servicePlanName property value. The service plan name of the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the servicePlanName property.
     */
     public function setServicePlanName(?string $value ): void {
@@ -290,7 +290,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the servicePlanType property value. The servicePlanType property
+     * Sets the servicePlanType property value. The service plan type of the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the servicePlanType property.
     */
     public function setServicePlanType(?string $value ): void {
@@ -314,7 +314,7 @@ class CloudPcDevice extends Entity implements Parsable
     }
 
     /**
-     * Sets the userPrincipalName property value. The user principal name (UPN) of the user assigned to the cloud PC. Required. Read-only.
+     * Sets the userPrincipalName property value. The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
     public function setUserPrincipalName(?string $value ): void {

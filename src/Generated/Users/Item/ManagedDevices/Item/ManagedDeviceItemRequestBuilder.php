@@ -26,6 +26,7 @@ use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\DeviceConfigur
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\Disable\DisableRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\DisableLostMode\DisableLostModeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\EnableLostMode\EnableLostModeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\EnrollNowAction\EnrollNowActionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetCloudPcRemoteActionResults\GetCloudPcRemoteActionResultsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetCloudPcReviewStatus\GetCloudPcReviewStatusRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\ManagedDevices\Item\GetFileVaultKey\GetFileVaultKeyRequestBuilder;
@@ -182,6 +183,13 @@ class ManagedDeviceItemRequestBuilder
     */
     public function enableLostMode(): EnableLostModeRequestBuilder {
         return new EnableLostModeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The enrollNowAction property
+    */
+    public function enrollNowAction(): EnrollNowActionRequestBuilder {
+        return new EnrollNowActionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

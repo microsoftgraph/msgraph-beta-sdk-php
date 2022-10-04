@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LifecycleManagementSettings extends Entity implements Parsable 
 {
     /**
-     * @var int|null $workflowScheduleIntervalInHours The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24.
+     * @var int|null $workflowScheduleIntervalInHours The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24. The default value is 3 hours.
     */
     private ?int $workflowScheduleIntervalInHours = null;
     
@@ -43,7 +43,7 @@ class LifecycleManagementSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the workflowScheduleIntervalInHours property value. The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24.
+     * Gets the workflowScheduleIntervalInHours property value. The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24. The default value is 3 hours.
      * @return int|null
     */
     public function getWorkflowScheduleIntervalInHours(): ?int {
@@ -60,7 +60,7 @@ class LifecycleManagementSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the workflowScheduleIntervalInHours property value. The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24.
+     * Sets the workflowScheduleIntervalInHours property value. The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24. The default value is 3 hours.
      *  @param int|null $value Value to set for the workflowScheduleIntervalInHours property.
     */
     public function setWorkflowScheduleIntervalInHours(?int $value ): void {

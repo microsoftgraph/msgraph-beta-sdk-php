@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExternalTenants implements Parsable 
 {
     /**
-     * @var array<string>|null $members The members property
+     * @var array<string>|null $members Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
     */
     private ?array $members = null;
     
@@ -42,7 +42,7 @@ class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExtern
     }
 
     /**
-     * Gets the members property value. The members property
+     * Gets the members property value. Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
      * @return array<string>|null
     */
     public function getMembers(): ?array {
@@ -59,7 +59,7 @@ class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExtern
     }
 
     /**
-     * Sets the members property value. The members property
+     * Sets the members property value. Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
      *  @param array<string>|null $value Value to set for the members property.
     */
     public function setMembers(?array $value ): void {

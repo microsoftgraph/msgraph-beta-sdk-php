@@ -220,7 +220,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     private ?array $publishedPermissionScopes = null;
     
     /**
-     * @var string|null $publisherName The publisherName property
+     * @var string|null $publisherName The name of the Azure AD tenant that published the application.
     */
     private ?string $publisherName = null;
     
@@ -709,7 +709,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the publisherName property value. The publisherName property
+     * Gets the publisherName property value. The name of the Azure AD tenant that published the application.
      * @return string|null
     */
     public function getPublisherName(): ?string {
@@ -1221,7 +1221,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the publisherName property value. The publisherName property
+     * Sets the publisherName property value. The name of the Azure AD tenant that published the application.
      *  @param string|null $value Value to set for the publisherName property.
     */
     public function setPublisherName(?string $value ): void {

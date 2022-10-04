@@ -181,6 +181,11 @@ class Application extends DirectoryObject implements Parsable
     private ?string $serviceManagementReference = null;
     
     /**
+     * @var ServicePrincipalLockConfiguration|null $servicePrincipalLockConfiguration The servicePrincipalLockConfiguration property
+    */
+    private ?ServicePrincipalLockConfiguration $servicePrincipalLockConfiguration = null;
+    
+    /**
      * @var string|null $signInAudience Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).
     */
     private ?string $signInAudience = null;
@@ -236,7 +241,7 @@ class Application extends DirectoryObject implements Parsable
     private ?WindowsApplication $windows = null;
     
     /**
-     * Instantiates a new Application and sets the default values.
+     * Instantiates a new application and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -405,6 +410,7 @@ class Application extends DirectoryObject implements Parsable
             'requiredResourceAccess' => function (ParseNode $n) use ($o) { $o->setRequiredResourceAccess($n->getCollectionOfObjectValues(array(RequiredResourceAccess::class, 'createFromDiscriminatorValue'))); },
             'samlMetadataUrl' => function (ParseNode $n) use ($o) { $o->setSamlMetadataUrl($n->getStringValue()); },
             'serviceManagementReference' => function (ParseNode $n) use ($o) { $o->setServiceManagementReference($n->getStringValue()); },
+            'servicePrincipalLockConfiguration' => function (ParseNode $n) use ($o) { $o->setServicePrincipalLockConfiguration($n->getObjectValue(array(ServicePrincipalLockConfiguration::class, 'createFromDiscriminatorValue'))); },
             'signInAudience' => function (ParseNode $n) use ($o) { $o->setSignInAudience($n->getStringValue()); },
             'spa' => function (ParseNode $n) use ($o) { $o->setSpa($n->getObjectValue(array(SpaApplication::class, 'createFromDiscriminatorValue'))); },
             'synchronization' => function (ParseNode $n) use ($o) { $o->setSynchronization($n->getObjectValue(array(Synchronization::class, 'createFromDiscriminatorValue'))); },
@@ -580,6 +586,14 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the servicePrincipalLockConfiguration property value. The servicePrincipalLockConfiguration property
+     * @return ServicePrincipalLockConfiguration|null
+    */
+    public function getServicePrincipalLockConfiguration(): ?ServicePrincipalLockConfiguration {
+        return $this->servicePrincipalLockConfiguration;
+    }
+
+    /**
      * Gets the signInAudience property value. Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).
      * @return string|null
     */
@@ -707,6 +721,7 @@ class Application extends DirectoryObject implements Parsable
         $writer->writeCollectionOfObjectValues('requiredResourceAccess', $this->requiredResourceAccess);
         $writer->writeStringValue('samlMetadataUrl', $this->samlMetadataUrl);
         $writer->writeStringValue('serviceManagementReference', $this->serviceManagementReference);
+        $writer->writeObjectValue('servicePrincipalLockConfiguration', $this->servicePrincipalLockConfiguration);
         $writer->writeStringValue('signInAudience', $this->signInAudience);
         $writer->writeObjectValue('spa', $this->spa);
         $writer->writeObjectValue('synchronization', $this->synchronization);
@@ -990,6 +1005,14 @@ class Application extends DirectoryObject implements Parsable
     */
     public function setServiceManagementReference(?string $value ): void {
         $this->serviceManagementReference = $value;
+    }
+
+    /**
+     * Sets the servicePrincipalLockConfiguration property value. The servicePrincipalLockConfiguration property
+     *  @param ServicePrincipalLockConfiguration|null $value Value to set for the servicePrincipalLockConfiguration property.
+    */
+    public function setServicePrincipalLockConfiguration(?ServicePrincipalLockConfiguration $value ): void {
+        $this->servicePrincipalLockConfiguration = $value;
     }
 
     /**

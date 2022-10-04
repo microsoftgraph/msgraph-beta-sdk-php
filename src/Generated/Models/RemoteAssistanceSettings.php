@@ -14,6 +14,11 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     private ?bool $allowSessionsToUnenrolledDevices = null;
     
     /**
+     * @var bool|null $blockChat Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
+    */
+    private ?bool $blockChat = null;
+    
+    /**
      * @var RemoteAssistanceState|null $remoteAssistanceState State of remote assistance for the account
     */
     private ?RemoteAssistanceState $remoteAssistanceState = null;
@@ -44,6 +49,14 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     }
 
     /**
+     * Gets the blockChat property value. Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
+     * @return bool|null
+    */
+    public function getBlockChat(): ?bool {
+        return $this->blockChat;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
@@ -51,6 +64,7 @@ class RemoteAssistanceSettings extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'allowSessionsToUnenrolledDevices' => function (ParseNode $n) use ($o) { $o->setAllowSessionsToUnenrolledDevices($n->getBooleanValue()); },
+            'blockChat' => function (ParseNode $n) use ($o) { $o->setBlockChat($n->getBooleanValue()); },
             'remoteAssistanceState' => function (ParseNode $n) use ($o) { $o->setRemoteAssistanceState($n->getEnumValue(RemoteAssistanceState::class)); },
         ]);
     }
@@ -70,6 +84,7 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeBooleanValue('allowSessionsToUnenrolledDevices', $this->allowSessionsToUnenrolledDevices);
+        $writer->writeBooleanValue('blockChat', $this->blockChat);
         $writer->writeEnumValue('remoteAssistanceState', $this->remoteAssistanceState);
     }
 
@@ -79,6 +94,14 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     */
     public function setAllowSessionsToUnenrolledDevices(?bool $value ): void {
         $this->allowSessionsToUnenrolledDevices = $value;
+    }
+
+    /**
+     * Sets the blockChat property value. Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
+     *  @param bool|null $value Value to set for the blockChat property.
+    */
+    public function setBlockChat(?bool $value ): void {
+        $this->blockChat = $value;
     }
 
     /**

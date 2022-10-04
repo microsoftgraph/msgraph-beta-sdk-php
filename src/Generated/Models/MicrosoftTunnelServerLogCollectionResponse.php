@@ -40,7 +40,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
     private ?DateTime $startDateTime = null;
     
     /**
-     * @var MicrosoftTunnelLogCollectionStatus|null $status Enum type that represent the status of log collection.
+     * @var MicrosoftTunnelLogCollectionStatus|null $status Enum type that represent the status of log collection
     */
     private ?MicrosoftTunnelLogCollectionStatus $status = null;
     
@@ -127,7 +127,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
     }
 
     /**
-     * Gets the status property value. Enum type that represent the status of log collection.
+     * Gets the status property value. Enum type that represent the status of log collection
      * @return MicrosoftTunnelLogCollectionStatus|null
     */
     public function getStatus(): ?MicrosoftTunnelLogCollectionStatus {
@@ -198,7 +198,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
     }
 
     /**
-     * Sets the status property value. Enum type that represent the status of log collection.
+     * Sets the status property value. Enum type that represent the status of log collection
      *  @param MicrosoftTunnelLogCollectionStatus|null $value Value to set for the status property.
     */
     public function setStatus(?MicrosoftTunnelLogCollectionStatus $value ): void {

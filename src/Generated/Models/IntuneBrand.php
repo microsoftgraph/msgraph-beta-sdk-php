@@ -130,6 +130,11 @@ class IntuneBrand implements AdditionalDataHolder, Parsable
     private ?bool $showAzureADEnterpriseApps = null;
     
     /**
+     * @var bool|null $showConfigurationManagerApps Boolean that indicates if ConfigurationManagerApps will be shown in Company Portal
+    */
+    private ?bool $showConfigurationManagerApps = null;
+    
+    /**
      * @var bool|null $showDisplayNameNextToLogo Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
     */
     private ?bool $showDisplayNameNextToLogo = null;
@@ -305,6 +310,7 @@ class IntuneBrand implements AdditionalDataHolder, Parsable
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
             'sendDeviceOwnershipChangePushNotification' => function (ParseNode $n) use ($o) { $o->setSendDeviceOwnershipChangePushNotification($n->getBooleanValue()); },
             'showAzureADEnterpriseApps' => function (ParseNode $n) use ($o) { $o->setShowAzureADEnterpriseApps($n->getBooleanValue()); },
+            'showConfigurationManagerApps' => function (ParseNode $n) use ($o) { $o->setShowConfigurationManagerApps($n->getBooleanValue()); },
             'showDisplayNameNextToLogo' => function (ParseNode $n) use ($o) { $o->setShowDisplayNameNextToLogo($n->getBooleanValue()); },
             'showLogo' => function (ParseNode $n) use ($o) { $o->setShowLogo($n->getBooleanValue()); },
             'showNameNextToLogo' => function (ParseNode $n) use ($o) { $o->setShowNameNextToLogo($n->getBooleanValue()); },
@@ -402,6 +408,14 @@ class IntuneBrand implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the showConfigurationManagerApps property value. Boolean that indicates if ConfigurationManagerApps will be shown in Company Portal
+     * @return bool|null
+    */
+    public function getShowConfigurationManagerApps(): ?bool {
+        return $this->showConfigurationManagerApps;
+    }
+
+    /**
      * Gets the showDisplayNameNextToLogo property value. Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
      * @return bool|null
     */
@@ -469,6 +483,7 @@ class IntuneBrand implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeBooleanValue('sendDeviceOwnershipChangePushNotification', $this->sendDeviceOwnershipChangePushNotification);
         $writer->writeBooleanValue('showAzureADEnterpriseApps', $this->showAzureADEnterpriseApps);
+        $writer->writeBooleanValue('showConfigurationManagerApps', $this->showConfigurationManagerApps);
         $writer->writeBooleanValue('showDisplayNameNextToLogo', $this->showDisplayNameNextToLogo);
         $writer->writeBooleanValue('showLogo', $this->showLogo);
         $writer->writeBooleanValue('showNameNextToLogo', $this->showNameNextToLogo);
@@ -667,6 +682,14 @@ class IntuneBrand implements AdditionalDataHolder, Parsable
     */
     public function setShowAzureADEnterpriseApps(?bool $value ): void {
         $this->showAzureADEnterpriseApps = $value;
+    }
+
+    /**
+     * Sets the showConfigurationManagerApps property value. Boolean that indicates if ConfigurationManagerApps will be shown in Company Portal
+     *  @param bool|null $value Value to set for the showConfigurationManagerApps property.
+    */
+    public function setShowConfigurationManagerApps(?bool $value ): void {
+        $this->showConfigurationManagerApps = $value;
     }
 
     /**

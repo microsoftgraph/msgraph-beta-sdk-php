@@ -25,12 +25,12 @@ class TaskDefinition extends Entity implements Parsable
     private ?string $description = null;
     
     /**
-     * @var string|null $displayName The display name of the taskDefinition.
+     * @var string|null $displayName The display name of the taskDefinition`.
     */
     private ?string $displayName = null;
     
     /**
-     * @var array<Parameter>|null $parameters The parameters that must be supplied when creating a task.
+     * @var array<Parameter>|null $parameters The parameters that must be supplied when creating a workflow task object.
     */
     private ?array $parameters = null;
     
@@ -81,7 +81,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name of the taskDefinition.
+     * Gets the displayName property value. The display name of the taskDefinition`.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -105,7 +105,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the parameters property value. The parameters that must be supplied when creating a task.
+     * Gets the parameters property value. The parameters that must be supplied when creating a workflow task object.
      * @return array<Parameter>|null
     */
     public function getParameters(): ?array {
@@ -159,7 +159,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name of the taskDefinition.
+     * Sets the displayName property value. The display name of the taskDefinition`.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -167,7 +167,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the parameters property value. The parameters that must be supplied when creating a task.
+     * Sets the parameters property value. The parameters that must be supplied when creating a workflow task object.
      *  @param array<Parameter>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value ): void {

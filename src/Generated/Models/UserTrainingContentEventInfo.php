@@ -41,7 +41,7 @@ class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable
     private ?string $osPlatformDeviceDetails = null;
     
     /**
-     * @var float|null $potentialScoreImpact Potential improvement in security posture of the tenant after completion of the training by the user.
+     * @var float|null $potentialScoreImpact Potential improvement in the tenant security posture after completion of the training by the user.
     */
     private ?float $potentialScoreImpact = null;
     
@@ -127,7 +127,7 @@ class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the potentialScoreImpact property value. Potential improvement in security posture of the tenant after completion of the training by the user.
+     * Gets the potentialScoreImpact property value. Potential improvement in the tenant security posture after completion of the training by the user.
      * @return float|null
     */
     public function getPotentialScoreImpact(): ?float {
@@ -197,7 +197,7 @@ class UserTrainingContentEventInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the potentialScoreImpact property value. Potential improvement in security posture of the tenant after completion of the training by the user.
+     * Sets the potentialScoreImpact property value. Potential improvement in the tenant security posture after completion of the training by the user.
      *  @param float|null $value Value to set for the potentialScoreImpact property.
     */
     public function setPotentialScoreImpact(?float $value ): void {

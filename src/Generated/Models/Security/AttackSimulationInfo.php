@@ -17,22 +17,22 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var DateTime|null $attackSimDateTime Specifies the date time of the attack simulation.
+     * @var DateTime|null $attackSimDateTime The date and time of the attack simulation.
     */
     private ?DateTime $attackSimDateTime = null;
     
     /**
-     * @var DateInterval|null $attackSimDurationTime Specifies the duration (in time) for the attack simulation
+     * @var DateInterval|null $attackSimDurationTime The duration (in time) for the attack simulation.
     */
     private ?DateInterval $attackSimDurationTime = null;
     
     /**
-     * @var string|null $attackSimId Specifies the activity id for the attack simulation.
+     * @var string|null $attackSimId The activity ID for the attack simulation.
     */
     private ?string $attackSimId = null;
     
     /**
-     * @var string|null $attackSimUserId Specifies the user id of the user who got the attack simulation email
+     * @var string|null $attackSimUserId The unique identifier for the user who got the attack simulation email.
     */
     private ?string $attackSimUserId = null;
     
@@ -67,7 +67,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the attackSimDateTime property value. Specifies the date time of the attack simulation.
+     * Gets the attackSimDateTime property value. The date and time of the attack simulation.
      * @return DateTime|null
     */
     public function getAttackSimDateTime(): ?DateTime {
@@ -75,7 +75,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the attackSimDurationTime property value. Specifies the duration (in time) for the attack simulation
+     * Gets the attackSimDurationTime property value. The duration (in time) for the attack simulation.
      * @return DateInterval|null
     */
     public function getAttackSimDurationTime(): ?DateInterval {
@@ -83,7 +83,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the attackSimId property value. Specifies the activity id for the attack simulation.
+     * Gets the attackSimId property value. The activity ID for the attack simulation.
      * @return string|null
     */
     public function getAttackSimId(): ?string {
@@ -91,7 +91,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the attackSimUserId property value. Specifies the user id of the user who got the attack simulation email
+     * Gets the attackSimUserId property value. The unique identifier for the user who got the attack simulation email.
      * @return string|null
     */
     public function getAttackSimUserId(): ?string {
@@ -143,7 +143,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the attackSimDateTime property value. Specifies the date time of the attack simulation.
+     * Sets the attackSimDateTime property value. The date and time of the attack simulation.
      *  @param DateTime|null $value Value to set for the attackSimDateTime property.
     */
     public function setAttackSimDateTime(?DateTime $value ): void {
@@ -151,7 +151,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the attackSimDurationTime property value. Specifies the duration (in time) for the attack simulation
+     * Sets the attackSimDurationTime property value. The duration (in time) for the attack simulation.
      *  @param DateInterval|null $value Value to set for the attackSimDurationTime property.
     */
     public function setAttackSimDurationTime(?DateInterval $value ): void {
@@ -159,7 +159,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the attackSimId property value. Specifies the activity id for the attack simulation.
+     * Sets the attackSimId property value. The activity ID for the attack simulation.
      *  @param string|null $value Value to set for the attackSimId property.
     */
     public function setAttackSimId(?string $value ): void {
@@ -167,7 +167,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the attackSimUserId property value. Specifies the user id of the user who got the attack simulation email
+     * Sets the attackSimUserId property value. The unique identifier for the user who got the attack simulation email.
      *  @param string|null $value Value to set for the attackSimUserId property.
     */
     public function setAttackSimUserId(?string $value ): void {

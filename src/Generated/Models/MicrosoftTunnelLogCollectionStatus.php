@@ -8,4 +8,5 @@ class MicrosoftTunnelLogCollectionStatus extends Enum {
     public const PENDING = 'pending';
     public const COMPLETED = 'completed';
     public const FAILED = 'failed';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

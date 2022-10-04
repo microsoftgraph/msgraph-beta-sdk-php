@@ -50,6 +50,11 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
     private ?DeviceManagementConfigurationPlatforms $platforms = null;
     
     /**
+     * @var DeviceManagementPriorityMetaData|null $priorityMetaData Indicates the priority of each policies that are selected by the admin during enrollment process
+    */
+    private ?DeviceManagementPriorityMetaData $priorityMetaData = null;
+    
+    /**
      * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
     */
     private ?array $roleScopeTagIds = null;
@@ -138,6 +143,7 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
             'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
+            'priorityMetaData' => function (ParseNode $n) use ($o) { $o->setPriorityMetaData($n->getObjectValue(array(DeviceManagementPriorityMetaData::class, 'createFromDiscriminatorValue'))); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
             'settingCount' => function (ParseNode $n) use ($o) { $o->setSettingCount($n->getIntegerValue()); },
             'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSetting::class, 'createFromDiscriminatorValue'))); },
@@ -176,6 +182,14 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
     */
     public function getPlatforms(): ?DeviceManagementConfigurationPlatforms {
         return $this->platforms;
+    }
+
+    /**
+     * Gets the priorityMetaData property value. Indicates the priority of each policies that are selected by the admin during enrollment process
+     * @return DeviceManagementPriorityMetaData|null
+    */
+    public function getPriorityMetaData(): ?DeviceManagementPriorityMetaData {
+        return $this->priorityMetaData;
     }
 
     /**
@@ -231,6 +245,7 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('name', $this->name);
         $writer->writeEnumValue('platforms', $this->platforms);
+        $writer->writeObjectValue('priorityMetaData', $this->priorityMetaData);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeIntegerValue('settingCount', $this->settingCount);
         $writer->writeCollectionOfObjectValues('settings', $this->settings);
@@ -300,6 +315,14 @@ class DeviceManagementConfigurationPolicy extends Entity implements Parsable
     */
     public function setPlatforms(?DeviceManagementConfigurationPlatforms $value ): void {
         $this->platforms = $value;
+    }
+
+    /**
+     * Sets the priorityMetaData property value. Indicates the priority of each policies that are selected by the admin during enrollment process
+     *  @param DeviceManagementPriorityMetaData|null $value Value to set for the priorityMetaData property.
+    */
+    public function setPriorityMetaData(?DeviceManagementPriorityMetaData $value ): void {
+        $this->priorityMetaData = $value;
     }
 
     /**

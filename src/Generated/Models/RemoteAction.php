@@ -29,4 +29,8 @@ class RemoteAction extends Enum {
     public const GET_FILE_VAULT_KEY = 'getFileVaultKey';
     public const SET_DEVICE_NAME = 'setDeviceName';
     public const ACTIVATE_DEVICE_ESIM = 'activateDeviceEsim';
+    public const DEPROVISION = 'deprovision';
+    public const DISABLE = 'disable';
+    public const REENABLE = 'reenable';
+    public const MOVE_DEVICE_TO_ORGANIZATIONAL_UNIT = 'moveDeviceToOrganizationalUnit';
 }
