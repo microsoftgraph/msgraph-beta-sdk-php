@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Task extends Entity implements Parsable 
 {
     /**
-     * @var array<KeyValuePair>|null $arguments Arguments included within the task.
+     * @var array<KeyValuePair>|null $arguments Arguments included within the task.  For guidance to configure this property, see Configure the arguments for built-in Lifecycle Workflow tasks.
     */
     private ?array $arguments = null;
     
@@ -73,7 +73,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Gets the arguments property value. Arguments included within the task.
+     * Gets the arguments property value. Arguments included within the task.  For guidance to configure this property, see Configure the arguments for built-in Lifecycle Workflow tasks.
      * @return array<KeyValuePair>|null
     */
     public function getArguments(): ?array {
@@ -181,7 +181,7 @@ class Task extends Entity implements Parsable
     }
 
     /**
-     * Sets the arguments property value. Arguments included within the task.
+     * Sets the arguments property value. Arguments included within the task.  For guidance to configure this property, see Configure the arguments for built-in Lifecycle Workflow tasks.
      *  @param array<KeyValuePair>|null $value Value to set for the arguments property.
     */
     public function setArguments(?array $value ): void {

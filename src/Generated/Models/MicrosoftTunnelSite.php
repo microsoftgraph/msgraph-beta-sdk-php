@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class MicrosoftTunnelSite extends Entity implements Parsable 
 {
     /**
-     * @var string|null $description The MicrosoftTunnelSite's description
+     * @var string|null $description The site's description (optional)
     */
     private ?string $description = null;
     
     /**
-     * @var string|null $displayName The MicrosoftTunnelSite's display name
+     * @var string|null $displayName The display name for the site. This property is required when a site is created.
     */
     private ?string $displayName = null;
     
@@ -25,7 +25,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     private ?bool $enableCertificatePinning = null;
     
     /**
-     * @var string|null $internalNetworkProbeUrl The MicrosoftTunnelSite's Internal Network Access Probe URL
+     * @var string|null $internalNetworkProbeUrl The site's Internal Network Access Probe URL
     */
     private ?string $internalNetworkProbeUrl = null;
     
@@ -40,12 +40,12 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     private ?array $microsoftTunnelServers = null;
     
     /**
-     * @var string|null $publicAddress The MicrosoftTunnelSite's public domain name or IP address
+     * @var string|null $publicAddress The site's public domain name or IP address
     */
     private ?string $publicAddress = null;
     
     /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
+     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance
     */
     private ?array $roleScopeTagIds = null;
     
@@ -55,7 +55,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     private ?bool $upgradeAutomatically = null;
     
     /**
-     * @var bool|null $upgradeAvailable True if an upgrade is available
+     * @var bool|null $upgradeAvailable The site provides the state of when an upgrade is available
     */
     private ?bool $upgradeAvailable = null;
     
@@ -92,7 +92,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The MicrosoftTunnelSite's description
+     * Gets the description property value. The site's description (optional)
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -100,7 +100,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The MicrosoftTunnelSite's display name
+     * Gets the displayName property value. The display name for the site. This property is required when a site is created.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -139,7 +139,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the internalNetworkProbeUrl property value. The MicrosoftTunnelSite's Internal Network Access Probe URL
+     * Gets the internalNetworkProbeUrl property value. The site's Internal Network Access Probe URL
      * @return string|null
     */
     public function getInternalNetworkProbeUrl(): ?string {
@@ -163,7 +163,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the publicAddress property value. The MicrosoftTunnelSite's public domain name or IP address
+     * Gets the publicAddress property value. The site's public domain name or IP address
      * @return string|null
     */
     public function getPublicAddress(): ?string {
@@ -171,7 +171,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
+     * Gets the roleScopeTagIds property value. List of Scope Tags for this Entity instance
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
@@ -187,7 +187,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Gets the upgradeAvailable property value. True if an upgrade is available
+     * Gets the upgradeAvailable property value. The site provides the state of when an upgrade is available
      * @return bool|null
     */
     public function getUpgradeAvailable(): ?bool {
@@ -240,7 +240,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The MicrosoftTunnelSite's description
+     * Sets the description property value. The site's description (optional)
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -248,7 +248,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The MicrosoftTunnelSite's display name
+     * Sets the displayName property value. The display name for the site. This property is required when a site is created.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -264,7 +264,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the internalNetworkProbeUrl property value. The MicrosoftTunnelSite's Internal Network Access Probe URL
+     * Sets the internalNetworkProbeUrl property value. The site's Internal Network Access Probe URL
      *  @param string|null $value Value to set for the internalNetworkProbeUrl property.
     */
     public function setInternalNetworkProbeUrl(?string $value ): void {
@@ -288,7 +288,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the publicAddress property value. The MicrosoftTunnelSite's public domain name or IP address
+     * Sets the publicAddress property value. The site's public domain name or IP address
      *  @param string|null $value Value to set for the publicAddress property.
     */
     public function setPublicAddress(?string $value ): void {
@@ -296,7 +296,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
+     * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value ): void {
@@ -312,7 +312,7 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     }
 
     /**
-     * Sets the upgradeAvailable property value. True if an upgrade is available
+     * Sets the upgradeAvailable property value. The site provides the state of when an upgrade is available
      *  @param bool|null $value Value to set for the upgradeAvailable property.
     */
     public function setUpgradeAvailable(?bool $value ): void {

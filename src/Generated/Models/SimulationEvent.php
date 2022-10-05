@@ -15,7 +15,7 @@ class SimulationEvent implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var int|null $count Count of occurence of the simulation event in an attack simulation and training campaign.
+     * @var int|null $count Count of the simulation event occurrence in an attack simulation and training campaign.
     */
     private ?int $count = null;
     
@@ -55,7 +55,7 @@ class SimulationEvent implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the count property value. Count of occurence of the simulation event in an attack simulation and training campaign.
+     * Gets the count property value. Count of the simulation event occurrence in an attack simulation and training campaign.
      * @return int|null
     */
     public function getCount(): ?int {
@@ -111,7 +111,7 @@ class SimulationEvent implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the count property value. Count of occurence of the simulation event in an attack simulation and training campaign.
+     * Sets the count property value. Count of the simulation event occurrence in an attack simulation and training campaign.
      *  @param int|null $value Value to set for the count property.
     */
     public function setCount(?int $value ): void {

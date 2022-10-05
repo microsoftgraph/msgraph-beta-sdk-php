@@ -36,7 +36,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     private ?int $inProgressTrainingsCount = null;
     
     /**
-     * @var bool|null $isCompromised Flag representing if user was compromised in an attack simulation and training campaign.
+     * @var bool|null $isCompromised Indicates whether a user was compromised in an attack simulation and training campaign.
     */
     private ?bool $isCompromised = null;
     
@@ -46,7 +46,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var DateTime|null $reportedPhishDateTime Date and time when user reported delivered payload as phish in the attack simulation and training campaign.
+     * @var DateTime|null $reportedPhishDateTime Date and time when a user reported the delivered payload as phishing in the attack simulation and training campaign.
     */
     private ?DateTime $reportedPhishDateTime = null;
     
@@ -56,7 +56,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     private ?array $simulationEvents = null;
     
     /**
-     * @var AttackSimulationUser|null $simulationUser User in an attack simulation and training campaign.
+     * @var AttackSimulationUser|null $simulationUser The user in an attack simulation and training campaign.
     */
     private ?AttackSimulationUser $simulationUser = null;
     
@@ -143,7 +143,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the isCompromised property value. Flag representing if user was compromised in an attack simulation and training campaign.
+     * Gets the isCompromised property value. Indicates whether a user was compromised in an attack simulation and training campaign.
      * @return bool|null
     */
     public function getIsCompromised(): ?bool {
@@ -159,7 +159,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the reportedPhishDateTime property value. Date and time when user reported delivered payload as phish in the attack simulation and training campaign.
+     * Gets the reportedPhishDateTime property value. Date and time when a user reported the delivered payload as phishing in the attack simulation and training campaign.
      * @return DateTime|null
     */
     public function getReportedPhishDateTime(): ?DateTime {
@@ -175,7 +175,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the simulationUser property value. User in an attack simulation and training campaign.
+     * Gets the simulationUser property value. The user in an attack simulation and training campaign.
      * @return AttackSimulationUser|null
     */
     public function getSimulationUser(): ?AttackSimulationUser {
@@ -249,7 +249,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isCompromised property value. Flag representing if user was compromised in an attack simulation and training campaign.
+     * Sets the isCompromised property value. Indicates whether a user was compromised in an attack simulation and training campaign.
      *  @param bool|null $value Value to set for the isCompromised property.
     */
     public function setIsCompromised(?bool $value ): void {
@@ -265,7 +265,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the reportedPhishDateTime property value. Date and time when user reported delivered payload as phish in the attack simulation and training campaign.
+     * Sets the reportedPhishDateTime property value. Date and time when a user reported the delivered payload as phishing in the attack simulation and training campaign.
      *  @param DateTime|null $value Value to set for the reportedPhishDateTime property.
     */
     public function setReportedPhishDateTime(?DateTime $value ): void {
@@ -281,7 +281,7 @@ class UserSimulationDetails implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the simulationUser property value. User in an attack simulation and training campaign.
+     * Sets the simulationUser property value. The user in an attack simulation and training campaign.
      *  @param AttackSimulationUser|null $value Value to set for the simulationUser property.
     */
     public function setSimulationUser(?AttackSimulationUser $value ): void {

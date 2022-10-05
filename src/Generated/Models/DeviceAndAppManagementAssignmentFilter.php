@@ -30,6 +30,11 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
+     * @var array<PayloadByFilter>|null $payloads Associated assignments for a specific filter
+    */
+    private ?array $payloads = null;
+    
+    /**
      * @var DevicePlatformType|null $platform Supported platform types.
     */
     private ?DevicePlatformType $platform = null;
@@ -103,6 +108,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'payloads' => function (ParseNode $n) use ($o) { $o->setPayloads($n->getCollectionOfObjectValues(array(PayloadByFilter::class, 'createFromDiscriminatorValue'))); },
             'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
             'roleScopeTags' => function (ParseNode $n) use ($o) { $o->setRoleScopeTags($n->getCollectionOfPrimitiveValues()); },
             'rule' => function (ParseNode $n) use ($o) { $o->setRule($n->getStringValue()); },
@@ -115,6 +121,14 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     */
     public function getLastModifiedDateTime(): ?DateTime {
         return $this->lastModifiedDateTime;
+    }
+
+    /**
+     * Gets the payloads property value. Associated assignments for a specific filter
+     * @return array<PayloadByFilter>|null
+    */
+    public function getPayloads(): ?array {
+        return $this->payloads;
     }
 
     /**
@@ -151,6 +165,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
+        $writer->writeCollectionOfObjectValues('payloads', $this->payloads);
         $writer->writeEnumValue('platform', $this->platform);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTags', $this->roleScopeTags);
         $writer->writeStringValue('rule', $this->rule);
@@ -186,6 +201,14 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {
         $this->lastModifiedDateTime = $value;
+    }
+
+    /**
+     * Sets the payloads property value. Associated assignments for a specific filter
+     *  @param array<PayloadByFilter>|null $value Value to set for the payloads property.
+    */
+    public function setPayloads(?array $value ): void {
+        $this->payloads = $value;
     }
 
     /**

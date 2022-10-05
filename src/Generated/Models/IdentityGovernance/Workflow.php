@@ -16,7 +16,7 @@ class Workflow extends WorkflowBase implements Parsable
     private ?DateTime $deletedDateTime = null;
     
     /**
-     * @var array<User>|null $executionScope The unique identifier of the Azure AD identity that last modified the workflow object..
+     * @var array<User>|null $executionScope The unique identifier of the Azure AD identity that last modified the workflow object.
     */
     private ?array $executionScope = null;
     
@@ -91,7 +91,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the executionScope property value. The unique identifier of the Azure AD identity that last modified the workflow object..
+     * Gets the executionScope property value. The unique identifier of the Azure AD identity that last modified the workflow object.
      * @return array<User>|null
     */
     public function getExecutionScope(): ?array {
@@ -219,7 +219,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the executionScope property value. The unique identifier of the Azure AD identity that last modified the workflow object..
+     * Sets the executionScope property value. The unique identifier of the Azure AD identity that last modified the workflow object.
      *  @param array<User>|null $value Value to set for the executionScope property.
     */
     public function setExecutionScope(?array $value ): void {

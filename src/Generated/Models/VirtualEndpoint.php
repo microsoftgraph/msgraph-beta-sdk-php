@@ -49,6 +49,11 @@ class VirtualEndpoint extends Entity implements Parsable
     private ?array $provisioningPolicies = null;
     
     /**
+     * @var CloudPcReports|null $reports The reports property
+    */
+    private ?CloudPcReports $reports = null;
+    
+    /**
      * @var array<CloudPcServicePlan>|null $servicePlans Cloud PC service plans.
     */
     private ?array $servicePlans = null;
@@ -132,6 +137,7 @@ class VirtualEndpoint extends Entity implements Parsable
             'onPremisesConnections' => function (ParseNode $n) use ($o) { $o->setOnPremisesConnections($n->getCollectionOfObjectValues(array(CloudPcOnPremisesConnection::class, 'createFromDiscriminatorValue'))); },
             'organizationSettings' => function (ParseNode $n) use ($o) { $o->setOrganizationSettings($n->getObjectValue(array(CloudPcOrganizationSettings::class, 'createFromDiscriminatorValue'))); },
             'provisioningPolicies' => function (ParseNode $n) use ($o) { $o->setProvisioningPolicies($n->getCollectionOfObjectValues(array(CloudPcProvisioningPolicy::class, 'createFromDiscriminatorValue'))); },
+            'reports' => function (ParseNode $n) use ($o) { $o->setReports($n->getObjectValue(array(CloudPcReports::class, 'createFromDiscriminatorValue'))); },
             'servicePlans' => function (ParseNode $n) use ($o) { $o->setServicePlans($n->getCollectionOfObjectValues(array(CloudPcServicePlan::class, 'createFromDiscriminatorValue'))); },
             'snapshots' => function (ParseNode $n) use ($o) { $o->setSnapshots($n->getCollectionOfObjectValues(array(CloudPcSnapshot::class, 'createFromDiscriminatorValue'))); },
             'supportedRegions' => function (ParseNode $n) use ($o) { $o->setSupportedRegions($n->getCollectionOfObjectValues(array(CloudPcSupportedRegion::class, 'createFromDiscriminatorValue'))); },
@@ -169,6 +175,14 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function getProvisioningPolicies(): ?array {
         return $this->provisioningPolicies;
+    }
+
+    /**
+     * Gets the reports property value. The reports property
+     * @return CloudPcReports|null
+    */
+    public function getReports(): ?CloudPcReports {
+        return $this->reports;
     }
 
     /**
@@ -217,6 +231,7 @@ class VirtualEndpoint extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('onPremisesConnections', $this->onPremisesConnections);
         $writer->writeObjectValue('organizationSettings', $this->organizationSettings);
         $writer->writeCollectionOfObjectValues('provisioningPolicies', $this->provisioningPolicies);
+        $writer->writeObjectValue('reports', $this->reports);
         $writer->writeCollectionOfObjectValues('servicePlans', $this->servicePlans);
         $writer->writeCollectionOfObjectValues('snapshots', $this->snapshots);
         $writer->writeCollectionOfObjectValues('supportedRegions', $this->supportedRegions);
@@ -285,6 +300,14 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function setProvisioningPolicies(?array $value ): void {
         $this->provisioningPolicies = $value;
+    }
+
+    /**
+     * Sets the reports property value. The reports property
+     *  @param CloudPcReports|null $value Value to set for the reports property.
+    */
+    public function setReports(?CloudPcReports $value ): void {
+        $this->reports = $value;
     }
 
     /**

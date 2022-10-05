@@ -15,7 +15,7 @@ class ExternalConnection extends Entity implements Parsable
     private ?ActivitySettings $activitySettings = null;
     
     /**
-     * @var ComplianceSettings|null $complianceSettings The complianceSettings property
+     * @var ComplianceSettings|null $complianceSettings The settings required for the connection to participate in eDiscovery, such as the display templates for eDiscovery results.
     */
     private ?ComplianceSettings $complianceSettings = null;
     
@@ -35,7 +35,7 @@ class ExternalConnection extends Entity implements Parsable
     private ?string $description = null;
     
     /**
-     * @var ContentExperienceType|null $enabledContentExperiences The enabledContentExperiences property
+     * @var ContentExperienceType|null $enabledContentExperiences The list of content experiences the connection will participate in. Possible values are search and compliance.
     */
     private ?ContentExperienceType $enabledContentExperiences = null;
     
@@ -85,7 +85,7 @@ class ExternalConnection extends Entity implements Parsable
     private ?ConnectionState $state = null;
     
     /**
-     * Instantiates a new externalConnection and sets the default values.
+     * Instantiates a new ExternalConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -110,7 +110,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the complianceSettings property value. The complianceSettings property
+     * Gets the complianceSettings property value. The settings required for the connection to participate in eDiscovery, such as the display templates for eDiscovery results.
      * @return ComplianceSettings|null
     */
     public function getComplianceSettings(): ?ComplianceSettings {
@@ -142,7 +142,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Gets the enabledContentExperiences property value. The enabledContentExperiences property
+     * Gets the enabledContentExperiences property value. The list of content experiences the connection will participate in. Possible values are search and compliance.
      * @return ContentExperienceType|null
     */
     public function getEnabledContentExperiences(): ?ContentExperienceType {
@@ -277,7 +277,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the complianceSettings property value. The complianceSettings property
+     * Sets the complianceSettings property value. The settings required for the connection to participate in eDiscovery, such as the display templates for eDiscovery results.
      *  @param ComplianceSettings|null $value Value to set for the complianceSettings property.
     */
     public function setComplianceSettings(?ComplianceSettings $value ): void {
@@ -309,7 +309,7 @@ class ExternalConnection extends Entity implements Parsable
     }
 
     /**
-     * Sets the enabledContentExperiences property value. The enabledContentExperiences property
+     * Sets the enabledContentExperiences property value. The list of content experiences the connection will participate in. Possible values are search and compliance.
      *  @param ContentExperienceType|null $value Value to set for the enabledContentExperiences property.
     */
     public function setEnabledContentExperiences(?ContentExperienceType $value ): void {

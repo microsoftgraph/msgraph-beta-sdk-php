@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\CreateServerLogCollectionRequest\CreateServerLogCollectionRequestRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\GenerateServerLogCollectionRequest\GenerateServerLogCollectionRequestRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\GetHealthMetrics\GetHealthMetricsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelSites\Item\MicrosoftTunnelServers\Item\GetHealthMetricTimeSeries\GetHealthMetricTimeSeriesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelServer;
@@ -25,6 +26,13 @@ class MicrosoftTunnelServerItemRequestBuilder
     */
     public function createServerLogCollectionRequest(): CreateServerLogCollectionRequestRequestBuilder {
         return new CreateServerLogCollectionRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The generateServerLogCollectionRequest property
+    */
+    public function generateServerLogCollectionRequest(): GenerateServerLogCollectionRequestRequestBuilder {
+        return new GenerateServerLogCollectionRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

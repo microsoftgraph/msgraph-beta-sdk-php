@@ -65,7 +65,7 @@ class ContactInsightsRequestBuilder
     }
 
     /**
-     * Get contactInsights from organization
+     * Get the properties of an insightsSettings object for displaying or returning contact insights in an organization.
      * @param ContactInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -90,7 +90,7 @@ class ContactInsightsRequestBuilder
     }
 
     /**
-     * Update the navigation property contactInsights in organization
+     * Update the privacy settings to display or return the specified type of insights in an organization. The type of settings can be contact insights, item insights, or people insights. To learn more about customizing insights privacy for your organization, see:-  Customize item insights privacy -  Customize people insights privacy
      * @param InsightsSettings $body 
      * @param ContactInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -133,7 +133,7 @@ class ContactInsightsRequestBuilder
     }
 
     /**
-     * Get contactInsights from organization
+     * Get the properties of an insightsSettings object for displaying or returning contact insights in an organization.
      * @param ContactInsightsRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise
@@ -152,7 +152,7 @@ class ContactInsightsRequestBuilder
     }
 
     /**
-     * Update the navigation property contactInsights in organization
+     * Update the privacy settings to display or return the specified type of insights in an organization. The type of settings can be contact insights, item insights, or people insights. To learn more about customizing insights privacy for your organization, see:-  Customize item insights privacy -  Customize people insights privacy
      * @param InsightsSettings $body 
      * @param ContactInsightsRequestBuilderPatchRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

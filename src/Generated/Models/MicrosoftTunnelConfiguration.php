@@ -20,17 +20,17 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     private ?string $defaultDomainSuffix = null;
     
     /**
-     * @var string|null $description The MicrosoftTunnelConfiguration's description
+     * @var string|null $description The configuration's description (optional)
     */
     private ?string $description = null;
     
     /**
-     * @var bool|null $disableUdpConnections When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to tansfer data.
+     * @var bool|null $disableUdpConnections When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to transfer data.
     */
     private ?bool $disableUdpConnections = null;
     
     /**
-     * @var string|null $displayName The MicrosoftTunnelConfiguration's display name
+     * @var string|null $displayName The display name for the server configuration. This property is required when a server is created.
     */
     private ?string $displayName = null;
     
@@ -40,7 +40,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     private ?array $dnsServers = null;
     
     /**
-     * @var DateTime|null $lastUpdateDateTime When the MicrosoftTunnelConfiguration was last updated
+     * @var DateTime|null $lastUpdateDateTime When the configuration was last updated
     */
     private ?DateTime $lastUpdateDateTime = null;
     
@@ -55,17 +55,27 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     private ?string $network = null;
     
     /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
+     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance
     */
     private ?array $roleScopeTagIds = null;
     
     /**
-     * @var array<string>|null $routesExclude Subsets of the routes that will not be routed by the server
+     * @var array<string>|null $routeExcludes Subsets of the routes that will not be routed by the server
+    */
+    private ?array $routeExcludes = null;
+    
+    /**
+     * @var array<string>|null $routeIncludes The routes that will be routed by the server
+    */
+    private ?array $routeIncludes = null;
+    
+    /**
+     * @var array<string>|null $routesExclude Subsets of the routes that will not be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteExcludes'.
     */
     private ?array $routesExclude = null;
     
     /**
-     * @var array<string>|null $routesInclude The routs that will be routed by the server
+     * @var array<string>|null $routesInclude The routes that will be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteIncludes'.
     */
     private ?array $routesInclude = null;
     
@@ -108,7 +118,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The MicrosoftTunnelConfiguration's description
+     * Gets the description property value. The configuration's description (optional)
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -116,7 +126,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the disableUdpConnections property value. When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to tansfer data.
+     * Gets the disableUdpConnections property value. When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to transfer data.
      * @return bool|null
     */
     public function getDisableUdpConnections(): ?bool {
@@ -124,7 +134,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The MicrosoftTunnelConfiguration's display name
+     * Gets the displayName property value. The display name for the server configuration. This property is required when a server is created.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -156,6 +166,8 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
             'listenPort' => function (ParseNode $n) use ($o) { $o->setListenPort($n->getIntegerValue()); },
             'network' => function (ParseNode $n) use ($o) { $o->setNetwork($n->getStringValue()); },
             'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'routeExcludes' => function (ParseNode $n) use ($o) { $o->setRouteExcludes($n->getCollectionOfPrimitiveValues()); },
+            'routeIncludes' => function (ParseNode $n) use ($o) { $o->setRouteIncludes($n->getCollectionOfPrimitiveValues()); },
             'routesExclude' => function (ParseNode $n) use ($o) { $o->setRoutesExclude($n->getCollectionOfPrimitiveValues()); },
             'routesInclude' => function (ParseNode $n) use ($o) { $o->setRoutesInclude($n->getCollectionOfPrimitiveValues()); },
             'splitDNS' => function (ParseNode $n) use ($o) { $o->setSplitDNS($n->getCollectionOfPrimitiveValues()); },
@@ -163,7 +175,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdateDateTime property value. When the MicrosoftTunnelConfiguration was last updated
+     * Gets the lastUpdateDateTime property value. When the configuration was last updated
      * @return DateTime|null
     */
     public function getLastUpdateDateTime(): ?DateTime {
@@ -187,7 +199,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
+     * Gets the roleScopeTagIds property value. List of Scope Tags for this Entity instance
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
@@ -195,7 +207,23 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the routesExclude property value. Subsets of the routes that will not be routed by the server
+     * Gets the routeExcludes property value. Subsets of the routes that will not be routed by the server
+     * @return array<string>|null
+    */
+    public function getRouteExcludes(): ?array {
+        return $this->routeExcludes;
+    }
+
+    /**
+     * Gets the routeIncludes property value. The routes that will be routed by the server
+     * @return array<string>|null
+    */
+    public function getRouteIncludes(): ?array {
+        return $this->routeIncludes;
+    }
+
+    /**
+     * Gets the routesExclude property value. Subsets of the routes that will not be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteExcludes'.
      * @return array<string>|null
     */
     public function getRoutesExclude(): ?array {
@@ -203,7 +231,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the routesInclude property value. The routs that will be routed by the server
+     * Gets the routesInclude property value. The routes that will be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteIncludes'.
      * @return array<string>|null
     */
     public function getRoutesInclude(): ?array {
@@ -234,6 +262,8 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
         $writer->writeIntegerValue('listenPort', $this->listenPort);
         $writer->writeStringValue('network', $this->network);
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
+        $writer->writeCollectionOfPrimitiveValues('routeExcludes', $this->routeExcludes);
+        $writer->writeCollectionOfPrimitiveValues('routeIncludes', $this->routeIncludes);
         $writer->writeCollectionOfPrimitiveValues('routesExclude', $this->routesExclude);
         $writer->writeCollectionOfPrimitiveValues('routesInclude', $this->routesInclude);
         $writer->writeCollectionOfPrimitiveValues('splitDNS', $this->splitDNS);
@@ -256,7 +286,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The MicrosoftTunnelConfiguration's description
+     * Sets the description property value. The configuration's description (optional)
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -264,7 +294,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the disableUdpConnections property value. When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to tansfer data.
+     * Sets the disableUdpConnections property value. When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to transfer data.
      *  @param bool|null $value Value to set for the disableUdpConnections property.
     */
     public function setDisableUdpConnections(?bool $value ): void {
@@ -272,7 +302,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The MicrosoftTunnelConfiguration's display name
+     * Sets the displayName property value. The display name for the server configuration. This property is required when a server is created.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -288,7 +318,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdateDateTime property value. When the MicrosoftTunnelConfiguration was last updated
+     * Sets the lastUpdateDateTime property value. When the configuration was last updated
      *  @param DateTime|null $value Value to set for the lastUpdateDateTime property.
     */
     public function setLastUpdateDateTime(?DateTime $value ): void {
@@ -312,7 +342,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
+     * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
     public function setRoleScopeTagIds(?array $value ): void {
@@ -320,7 +350,23 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the routesExclude property value. Subsets of the routes that will not be routed by the server
+     * Sets the routeExcludes property value. Subsets of the routes that will not be routed by the server
+     *  @param array<string>|null $value Value to set for the routeExcludes property.
+    */
+    public function setRouteExcludes(?array $value ): void {
+        $this->routeExcludes = $value;
+    }
+
+    /**
+     * Sets the routeIncludes property value. The routes that will be routed by the server
+     *  @param array<string>|null $value Value to set for the routeIncludes property.
+    */
+    public function setRouteIncludes(?array $value ): void {
+        $this->routeIncludes = $value;
+    }
+
+    /**
+     * Sets the routesExclude property value. Subsets of the routes that will not be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteExcludes'.
      *  @param array<string>|null $value Value to set for the routesExclude property.
     */
     public function setRoutesExclude(?array $value ): void {
@@ -328,7 +374,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the routesInclude property value. The routs that will be routed by the server
+     * Sets the routesInclude property value. The routes that will be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteIncludes'.
      *  @param array<string>|null $value Value to set for the routesInclude property.
     */
     public function setRoutesInclude(?array $value ): void {

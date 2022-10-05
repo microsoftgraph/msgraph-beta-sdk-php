@@ -20,7 +20,7 @@ class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension implem
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * Instantiates a new customAccessPackageWorkflowExtension and sets the default values.
+     * Instantiates a new CustomAccessPackageWorkflowExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();

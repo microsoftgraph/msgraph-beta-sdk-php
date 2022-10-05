@@ -165,6 +165,11 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     private ?string $minimumWipeOsVersion = null;
     
     /**
+     * @var MobileThreatDefensePartnerPriority|null $mobileThreatDefensePartnerPriority Indicates how to prioritize which Mobile Threat Defense (MTD) partner is enabled for a given platform, when more than one is enabled. An app can only be actively using a single Mobile Threat Defense partner. When NULL, Microsoft Defender will be given preference. Otherwise setting the value to defenderOverThirdPartyPartner or thirdPartyPartnerOverDefender will make explicit which partner to prioritize. Possible values are: null, defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender and unknownFutureValue. Default value is null. Possible values are: defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender, unknownFutureValue.
+    */
+    private ?MobileThreatDefensePartnerPriority $mobileThreatDefensePartnerPriority = null;
+    
+    /**
      * @var ManagedAppRemediationAction|null $mobileThreatDefenseRemediationAction An admin initiated action to be applied on a managed app.
     */
     private ?ManagedAppRemediationAction $mobileThreatDefenseRemediationAction = null;
@@ -419,6 +424,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
             'minimumWarningOsVersion' => function (ParseNode $n) use ($o) { $o->setMinimumWarningOsVersion($n->getStringValue()); },
             'minimumWipeAppVersion' => function (ParseNode $n) use ($o) { $o->setMinimumWipeAppVersion($n->getStringValue()); },
             'minimumWipeOsVersion' => function (ParseNode $n) use ($o) { $o->setMinimumWipeOsVersion($n->getStringValue()); },
+            'mobileThreatDefensePartnerPriority' => function (ParseNode $n) use ($o) { $o->setMobileThreatDefensePartnerPriority($n->getEnumValue(MobileThreatDefensePartnerPriority::class)); },
             'mobileThreatDefenseRemediationAction' => function (ParseNode $n) use ($o) { $o->setMobileThreatDefenseRemediationAction($n->getEnumValue(ManagedAppRemediationAction::class)); },
             'notificationRestriction' => function (ParseNode $n) use ($o) { $o->setNotificationRestriction($n->getEnumValue(ManagedAppNotificationRestriction::class)); },
             'organizationalCredentialsRequired' => function (ParseNode $n) use ($o) { $o->setOrganizationalCredentialsRequired($n->getBooleanValue()); },
@@ -562,6 +568,14 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     */
     public function getMinimumWipeOsVersion(): ?string {
         return $this->minimumWipeOsVersion;
+    }
+
+    /**
+     * Gets the mobileThreatDefensePartnerPriority property value. Indicates how to prioritize which Mobile Threat Defense (MTD) partner is enabled for a given platform, when more than one is enabled. An app can only be actively using a single Mobile Threat Defense partner. When NULL, Microsoft Defender will be given preference. Otherwise setting the value to defenderOverThirdPartyPartner or thirdPartyPartnerOverDefender will make explicit which partner to prioritize. Possible values are: null, defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender and unknownFutureValue. Default value is null. Possible values are: defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender, unknownFutureValue.
+     * @return MobileThreatDefensePartnerPriority|null
+    */
+    public function getMobileThreatDefensePartnerPriority(): ?MobileThreatDefensePartnerPriority {
+        return $this->mobileThreatDefensePartnerPriority;
     }
 
     /**
@@ -713,6 +727,7 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
         $writer->writeStringValue('minimumWarningOsVersion', $this->minimumWarningOsVersion);
         $writer->writeStringValue('minimumWipeAppVersion', $this->minimumWipeAppVersion);
         $writer->writeStringValue('minimumWipeOsVersion', $this->minimumWipeOsVersion);
+        $writer->writeEnumValue('mobileThreatDefensePartnerPriority', $this->mobileThreatDefensePartnerPriority);
         $writer->writeEnumValue('mobileThreatDefenseRemediationAction', $this->mobileThreatDefenseRemediationAction);
         $writer->writeEnumValue('notificationRestriction', $this->notificationRestriction);
         $writer->writeBooleanValue('organizationalCredentialsRequired', $this->organizationalCredentialsRequired);
@@ -975,6 +990,14 @@ class ManagedAppProtection extends ManagedAppPolicy implements Parsable
     */
     public function setMinimumWipeOsVersion(?string $value ): void {
         $this->minimumWipeOsVersion = $value;
+    }
+
+    /**
+     * Sets the mobileThreatDefensePartnerPriority property value. Indicates how to prioritize which Mobile Threat Defense (MTD) partner is enabled for a given platform, when more than one is enabled. An app can only be actively using a single Mobile Threat Defense partner. When NULL, Microsoft Defender will be given preference. Otherwise setting the value to defenderOverThirdPartyPartner or thirdPartyPartnerOverDefender will make explicit which partner to prioritize. Possible values are: null, defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender and unknownFutureValue. Default value is null. Possible values are: defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender, unknownFutureValue.
+     *  @param MobileThreatDefensePartnerPriority|null $value Value to set for the mobileThreatDefensePartnerPriority property.
+    */
+    public function setMobileThreatDefensePartnerPriority(?MobileThreatDefensePartnerPriority $value ): void {
+        $this->mobileThreatDefensePartnerPriority = $value;
     }
 
     /**

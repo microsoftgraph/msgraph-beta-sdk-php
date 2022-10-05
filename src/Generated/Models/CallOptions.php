@@ -15,7 +15,7 @@ class CallOptions implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var bool|null $hideBotAfterEscalation The hideBotAfterEscalation property
+     * @var bool|null $hideBotAfterEscalation Indicates whether to hide the app after the call is escalated.
     */
     private ?bool $hideBotAfterEscalation = null;
     
@@ -76,7 +76,7 @@ class CallOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the hideBotAfterEscalation property value. The hideBotAfterEscalation property
+     * Gets the hideBotAfterEscalation property value. Indicates whether to hide the app after the call is escalated.
      * @return bool|null
     */
     public function getHideBotAfterEscalation(): ?bool {
@@ -119,7 +119,7 @@ class CallOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the hideBotAfterEscalation property value. The hideBotAfterEscalation property
+     * Sets the hideBotAfterEscalation property value. Indicates whether to hide the app after the call is escalated.
      *  @param bool|null $value Value to set for the hideBotAfterEscalation property.
     */
     public function setHideBotAfterEscalation(?bool $value ): void {

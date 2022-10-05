@@ -59,6 +59,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
     private ?int $passwordSignInFailureCountBeforeFactoryReset = null;
     
     /**
+     * @var AndroidRequiredPasswordComplexity|null $requiredPasswordComplexity The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+    */
+    private ?AndroidRequiredPasswordComplexity $requiredPasswordComplexity = null;
+    
+    /**
      * @var bool|null $securityRequireVerifyApps Require the Android Verify apps feature is turned on.
     */
     private ?bool $securityRequireVerifyApps = null;
@@ -219,6 +224,11 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
     private ?int $workProfilePasswordSignInFailureCountBeforeFactoryReset = null;
     
     /**
+     * @var AndroidRequiredPasswordComplexity|null $workProfileRequiredPasswordComplexity The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+    */
+    private ?AndroidRequiredPasswordComplexity $workProfileRequiredPasswordComplexity = null;
+    
+    /**
      * @var bool|null $workProfileRequirePassword Password is required or not for work profile
     */
     private ?bool $workProfileRequirePassword = null;
@@ -257,6 +267,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
             'passwordPreviousPasswordBlockCount' => function (ParseNode $n) use ($o) { $o->setPasswordPreviousPasswordBlockCount($n->getIntegerValue()); },
             'passwordRequiredType' => function (ParseNode $n) use ($o) { $o->setPasswordRequiredType($n->getEnumValue(AndroidWorkProfileRequiredPasswordType::class)); },
             'passwordSignInFailureCountBeforeFactoryReset' => function (ParseNode $n) use ($o) { $o->setPasswordSignInFailureCountBeforeFactoryReset($n->getIntegerValue()); },
+            'requiredPasswordComplexity' => function (ParseNode $n) use ($o) { $o->setRequiredPasswordComplexity($n->getEnumValue(AndroidRequiredPasswordComplexity::class)); },
             'securityRequireVerifyApps' => function (ParseNode $n) use ($o) { $o->setSecurityRequireVerifyApps($n->getBooleanValue()); },
             'vpnAlwaysOnPackageIdentifier' => function (ParseNode $n) use ($o) { $o->setVpnAlwaysOnPackageIdentifier($n->getStringValue()); },
             'vpnEnableAlwaysOnLockdownMode' => function (ParseNode $n) use ($o) { $o->setVpnEnableAlwaysOnLockdownMode($n->getBooleanValue()); },
@@ -289,6 +300,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
             'workProfilePasswordPreviousPasswordBlockCount' => function (ParseNode $n) use ($o) { $o->setWorkProfilePasswordPreviousPasswordBlockCount($n->getIntegerValue()); },
             'workProfilePasswordRequiredType' => function (ParseNode $n) use ($o) { $o->setWorkProfilePasswordRequiredType($n->getEnumValue(AndroidWorkProfileRequiredPasswordType::class)); },
             'workProfilePasswordSignInFailureCountBeforeFactoryReset' => function (ParseNode $n) use ($o) { $o->setWorkProfilePasswordSignInFailureCountBeforeFactoryReset($n->getIntegerValue()); },
+            'workProfileRequiredPasswordComplexity' => function (ParseNode $n) use ($o) { $o->setWorkProfileRequiredPasswordComplexity($n->getEnumValue(AndroidRequiredPasswordComplexity::class)); },
             'workProfileRequirePassword' => function (ParseNode $n) use ($o) { $o->setWorkProfileRequirePassword($n->getBooleanValue()); },
         ]);
     }
@@ -371,6 +383,14 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function getPasswordSignInFailureCountBeforeFactoryReset(): ?int {
         return $this->passwordSignInFailureCountBeforeFactoryReset;
+    }
+
+    /**
+     * Gets the requiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+     * @return AndroidRequiredPasswordComplexity|null
+    */
+    public function getRequiredPasswordComplexity(): ?AndroidRequiredPasswordComplexity {
+        return $this->requiredPasswordComplexity;
     }
 
     /**
@@ -630,6 +650,14 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
+     * Gets the workProfileRequiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+     * @return AndroidRequiredPasswordComplexity|null
+    */
+    public function getWorkProfileRequiredPasswordComplexity(): ?AndroidRequiredPasswordComplexity {
+        return $this->workProfileRequiredPasswordComplexity;
+    }
+
+    /**
      * Gets the workProfileRequirePassword property value. Password is required or not for work profile
      * @return bool|null
     */
@@ -653,6 +681,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeIntegerValue('passwordPreviousPasswordBlockCount', $this->passwordPreviousPasswordBlockCount);
         $writer->writeEnumValue('passwordRequiredType', $this->passwordRequiredType);
         $writer->writeIntegerValue('passwordSignInFailureCountBeforeFactoryReset', $this->passwordSignInFailureCountBeforeFactoryReset);
+        $writer->writeEnumValue('requiredPasswordComplexity', $this->requiredPasswordComplexity);
         $writer->writeBooleanValue('securityRequireVerifyApps', $this->securityRequireVerifyApps);
         $writer->writeStringValue('vpnAlwaysOnPackageIdentifier', $this->vpnAlwaysOnPackageIdentifier);
         $writer->writeBooleanValue('vpnEnableAlwaysOnLockdownMode', $this->vpnEnableAlwaysOnLockdownMode);
@@ -685,6 +714,7 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
         $writer->writeIntegerValue('workProfilePasswordPreviousPasswordBlockCount', $this->workProfilePasswordPreviousPasswordBlockCount);
         $writer->writeEnumValue('workProfilePasswordRequiredType', $this->workProfilePasswordRequiredType);
         $writer->writeIntegerValue('workProfilePasswordSignInFailureCountBeforeFactoryReset', $this->workProfilePasswordSignInFailureCountBeforeFactoryReset);
+        $writer->writeEnumValue('workProfileRequiredPasswordComplexity', $this->workProfileRequiredPasswordComplexity);
         $writer->writeBooleanValue('workProfileRequirePassword', $this->workProfileRequirePassword);
     }
 
@@ -766,6 +796,14 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function setPasswordSignInFailureCountBeforeFactoryReset(?int $value ): void {
         $this->passwordSignInFailureCountBeforeFactoryReset = $value;
+    }
+
+    /**
+     * Sets the requiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+     *  @param AndroidRequiredPasswordComplexity|null $value Value to set for the requiredPasswordComplexity property.
+    */
+    public function setRequiredPasswordComplexity(?AndroidRequiredPasswordComplexity $value ): void {
+        $this->requiredPasswordComplexity = $value;
     }
 
     /**
@@ -1022,6 +1060,14 @@ class AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConfiguration i
     */
     public function setWorkProfilePasswordSignInFailureCountBeforeFactoryReset(?int $value ): void {
         $this->workProfilePasswordSignInFailureCountBeforeFactoryReset = $value;
+    }
+
+    /**
+     * Sets the workProfileRequiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+     *  @param AndroidRequiredPasswordComplexity|null $value Value to set for the workProfileRequiredPasswordComplexity property.
+    */
+    public function setWorkProfileRequiredPasswordComplexity(?AndroidRequiredPasswordComplexity $value ): void {
+        $this->workProfileRequiredPasswordComplexity = $value;
     }
 
     /**

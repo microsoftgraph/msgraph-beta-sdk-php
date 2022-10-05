@@ -42,6 +42,11 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     private ?DateTime $downloadRuleStartDateTime = null;
     
     /**
+     * @var string|null $firmwareTargetArtifactDescription A description provided by Zebra for the the firmware artifact to update the device to (e.g.: LifeGuard Update 120 (released 29-June-2022).
+    */
+    private ?string $firmwareTargetArtifactDescription = null;
+    
+    /**
      * @var string|null $firmwareTargetBoardSupportPackageVersion Deployment's Board Support Package (BSP. E.g.: '01.18.02.00'). Required only for custom update type.
     */
     private ?string $firmwareTargetBoardSupportPackageVersion = null;
@@ -173,6 +178,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
             'deviceModel' => function (ParseNode $n) use ($o) { $o->setDeviceModel($n->getStringValue()); },
             'downloadRuleNetworkType' => function (ParseNode $n) use ($o) { $o->setDownloadRuleNetworkType($n->getEnumValue(ZebraFotaNetworkType::class)); },
             'downloadRuleStartDateTime' => function (ParseNode $n) use ($o) { $o->setDownloadRuleStartDateTime($n->getDateTimeValue()); },
+            'firmwareTargetArtifactDescription' => function (ParseNode $n) use ($o) { $o->setFirmwareTargetArtifactDescription($n->getStringValue()); },
             'firmwareTargetBoardSupportPackageVersion' => function (ParseNode $n) use ($o) { $o->setFirmwareTargetBoardSupportPackageVersion($n->getStringValue()); },
             'firmwareTargetOsVersion' => function (ParseNode $n) use ($o) { $o->setFirmwareTargetOsVersion($n->getStringValue()); },
             'firmwareTargetPatch' => function (ParseNode $n) use ($o) { $o->setFirmwareTargetPatch($n->getStringValue()); },
@@ -185,6 +191,14 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
             'timeZoneOffsetInMinutes' => function (ParseNode $n) use ($o) { $o->setTimeZoneOffsetInMinutes($n->getIntegerValue()); },
             'updateType' => function (ParseNode $n) use ($o) { $o->setUpdateType($n->getEnumValue(ZebraFotaUpdateType::class)); },
         ];
+    }
+
+    /**
+     * Gets the firmwareTargetArtifactDescription property value. A description provided by Zebra for the the firmware artifact to update the device to (e.g.: LifeGuard Update 120 (released 29-June-2022).
+     * @return string|null
+    */
+    public function getFirmwareTargetArtifactDescription(): ?string {
+        return $this->firmwareTargetArtifactDescription;
     }
 
     /**
@@ -285,6 +299,7 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('deviceModel', $this->deviceModel);
         $writer->writeEnumValue('downloadRuleNetworkType', $this->downloadRuleNetworkType);
         $writer->writeDateTimeValue('downloadRuleStartDateTime', $this->downloadRuleStartDateTime);
+        $writer->writeStringValue('firmwareTargetArtifactDescription', $this->firmwareTargetArtifactDescription);
         $writer->writeStringValue('firmwareTargetBoardSupportPackageVersion', $this->firmwareTargetBoardSupportPackageVersion);
         $writer->writeStringValue('firmwareTargetOsVersion', $this->firmwareTargetOsVersion);
         $writer->writeStringValue('firmwareTargetPatch', $this->firmwareTargetPatch);
@@ -345,6 +360,14 @@ class ZebraFotaDeploymentSettings implements AdditionalDataHolder, Parsable
     */
     public function setDownloadRuleStartDateTime(?DateTime $value ): void {
         $this->downloadRuleStartDateTime = $value;
+    }
+
+    /**
+     * Sets the firmwareTargetArtifactDescription property value. A description provided by Zebra for the the firmware artifact to update the device to (e.g.: LifeGuard Update 120 (released 29-June-2022).
+     *  @param string|null $value Value to set for the firmwareTargetArtifactDescription property.
+    */
+    public function setFirmwareTargetArtifactDescription(?string $value ): void {
+        $this->firmwareTargetArtifactDescription = $value;
     }
 
     /**

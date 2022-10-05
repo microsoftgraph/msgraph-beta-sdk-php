@@ -15,7 +15,7 @@ class ConditionalAccessExternalTenants implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var ConditionalAccessExternalTenantsMembershipKind|null $membershipKind The membershipKind property
+     * @var ConditionalAccessExternalTenantsMembershipKind|null $membershipKind Represents the membership kind. The possible values are: all, enumerated, unknownFutureValue. enumerated references an object of conditionalAccessEnumeratedExternalTenants derived type.
     */
     private ?ConditionalAccessExternalTenantsMembershipKind $membershipKind = null;
     
@@ -70,7 +70,7 @@ class ConditionalAccessExternalTenants implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the membershipKind property value. The membershipKind property
+     * Gets the membershipKind property value. Represents the membership kind. The possible values are: all, enumerated, unknownFutureValue. enumerated references an object of conditionalAccessEnumeratedExternalTenants derived type.
      * @return ConditionalAccessExternalTenantsMembershipKind|null
     */
     public function getMembershipKind(): ?ConditionalAccessExternalTenantsMembershipKind {
@@ -104,7 +104,7 @@ class ConditionalAccessExternalTenants implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the membershipKind property value. The membershipKind property
+     * Sets the membershipKind property value. Represents the membership kind. The possible values are: all, enumerated, unknownFutureValue. enumerated references an object of conditionalAccessEnumeratedExternalTenants derived type.
      *  @param ConditionalAccessExternalTenantsMembershipKind|null $value Value to set for the membershipKind property.
     */
     public function setMembershipKind(?ConditionalAccessExternalTenantsMembershipKind $value ): void {
