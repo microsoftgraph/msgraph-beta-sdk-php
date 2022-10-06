@@ -15,7 +15,7 @@ class Entity implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $id The id property
+     * @var string|null $id The unique identifier for an entity. Read-only.
     */
     private ?string $id = null;
     
@@ -272,12 +272,14 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.cloudPcAuditEvent': return new CloudPcAuditEvent();
                 case '#microsoft.graph.cloudPCConnectivityIssue': return new CloudPCConnectivityIssue();
                 case '#microsoft.graph.cloudPcDeviceImage': return new CloudPcDeviceImage();
+                case '#microsoft.graph.cloudPcExportJob': return new CloudPcExportJob();
                 case '#microsoft.graph.cloudPcExternalPartnerSetting': return new CloudPcExternalPartnerSetting();
                 case '#microsoft.graph.cloudPcGalleryImage': return new CloudPcGalleryImage();
                 case '#microsoft.graph.cloudPcOnPremisesConnection': return new CloudPcOnPremisesConnection();
                 case '#microsoft.graph.cloudPcOrganizationSettings': return new CloudPcOrganizationSettings();
                 case '#microsoft.graph.cloudPcProvisioningPolicy': return new CloudPcProvisioningPolicy();
                 case '#microsoft.graph.cloudPcProvisioningPolicyAssignment': return new CloudPcProvisioningPolicyAssignment();
+                case '#microsoft.graph.cloudPcReports': return new CloudPcReports();
                 case '#microsoft.graph.cloudPcServicePlan': return new CloudPcServicePlan();
                 case '#microsoft.graph.cloudPcSnapshot': return new CloudPcSnapshot();
                 case '#microsoft.graph.cloudPcSupportedRegion': return new CloudPcSupportedRegion();
@@ -293,6 +295,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.complianceManagementPartner': return new ComplianceManagementPartner();
                 case '#microsoft.graph.conditionalAccessPolicy': return new ConditionalAccessPolicy();
                 case '#microsoft.graph.conditionalAccessRoot': return new ConditionalAccessRoot();
+                case '#microsoft.graph.conditionalAccessTemplate': return new ConditionalAccessTemplate();
                 case '#microsoft.graph.configManagerCollection': return new ConfigManagerCollection();
                 case '#microsoft.graph.connectedOrganization': return new ConnectedOrganization();
                 case '#microsoft.graph.connectionOperation': return new ConnectionOperation();
@@ -1301,6 +1304,8 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.userConfiguration': return new UserConfiguration();
                 case '#microsoft.graph.userConsentRequest': return new UserConsentRequest();
                 case '#microsoft.graph.userCredentialUsageDetails': return new UserCredentialUsageDetails();
+                case '#microsoft.graph.userExperienceAnalyticsAnomaly': return new UserExperienceAnalyticsAnomaly();
+                case '#microsoft.graph.userExperienceAnalyticsAnomalyDevice': return new UserExperienceAnalyticsAnomalyDevice();
                 case '#microsoft.graph.userExperienceAnalyticsAppHealthApplicationPerformance': return new UserExperienceAnalyticsAppHealthApplicationPerformance();
                 case '#microsoft.graph.userExperienceAnalyticsAppHealthAppPerformanceByAppVersion': return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion();
                 case '#microsoft.graph.userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails': return new UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails();
@@ -1558,7 +1563,7 @@ class Entity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. The unique identifier for an entity. Read-only.
      * @return string|null
     */
     public function getId(): ?string {
@@ -1592,7 +1597,7 @@ class Entity implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. The unique identifier for an entity. Read-only.
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {

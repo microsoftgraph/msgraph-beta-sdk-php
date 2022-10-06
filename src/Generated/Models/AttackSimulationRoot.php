@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttackSimulationRoot extends Entity implements Parsable 
 {
     /**
-     * @var array<SimulationAutomation>|null $simulationAutomations Represents simulation automations created to run on a tenant.
+     * @var array<SimulationAutomation>|null $simulationAutomations Represents simulation automation created to run on a tenant.
     */
     private ?array $simulationAutomations = null;
     
@@ -48,7 +48,7 @@ class AttackSimulationRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the simulationAutomations property value. Represents simulation automations created to run on a tenant.
+     * Gets the simulationAutomations property value. Represents simulation automation created to run on a tenant.
      * @return array<SimulationAutomation>|null
     */
     public function getSimulationAutomations(): ?array {
@@ -74,7 +74,7 @@ class AttackSimulationRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the simulationAutomations property value. Represents simulation automations created to run on a tenant.
+     * Sets the simulationAutomations property value. Represents simulation automation created to run on a tenant.
      *  @param array<SimulationAutomation>|null $value Value to set for the simulationAutomations property.
     */
     public function setSimulationAutomations(?array $value ): void {

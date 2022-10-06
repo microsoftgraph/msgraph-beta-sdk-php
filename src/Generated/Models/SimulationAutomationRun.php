@@ -25,7 +25,7 @@ class SimulationAutomationRun extends Entity implements Parsable
     private ?DateTime $startDateTime = null;
     
     /**
-     * @var SimulationAutomationRunStatus|null $status Status of the run of an attack simulation automation. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
+     * @var SimulationAutomationRunStatus|null $status Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
     */
     private ?SimulationAutomationRunStatus $status = null;
     
@@ -85,7 +85,7 @@ class SimulationAutomationRun extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Status of the run of an attack simulation automation. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
+     * Gets the status property value. Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
      * @return SimulationAutomationRunStatus|null
     */
     public function getStatus(): ?SimulationAutomationRunStatus {
@@ -129,7 +129,7 @@ class SimulationAutomationRun extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Status of the run of an attack simulation automation. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
+     * Sets the status property value. Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
      *  @param SimulationAutomationRunStatus|null $value Value to set for the status property.
     */
     public function setStatus(?SimulationAutomationRunStatus $value ): void {

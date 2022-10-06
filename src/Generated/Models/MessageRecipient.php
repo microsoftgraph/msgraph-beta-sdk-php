@@ -24,7 +24,7 @@ class MessageRecipient extends Entity implements Parsable
     private ?string $recipientEmail = null;
     
     /**
-     * Instantiates a new messageRecipient and sets the default values.
+     * Instantiates a new MessageRecipient and sets the default values.
     */
     public function __construct() {
         parent::__construct();

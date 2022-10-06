@@ -30,7 +30,7 @@ class AttackSimulationUser implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var string|null $userId This is the id property value of the user resource that represents the user in the Azure AD tenant.
+     * @var string|null $userId This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.
     */
     private ?string $userId = null;
     
@@ -98,7 +98,7 @@ class AttackSimulationUser implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the userId property value. This is the id property value of the user resource that represents the user in the Azure AD tenant.
+     * Gets the userId property value. This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -150,7 +150,7 @@ class AttackSimulationUser implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the userId property value. This is the id property value of the user resource that represents the user in the Azure AD tenant.
+     * Sets the userId property value. This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.
      *  @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value ): void {

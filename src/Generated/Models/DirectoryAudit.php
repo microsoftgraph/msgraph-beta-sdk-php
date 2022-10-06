@@ -70,7 +70,7 @@ class DirectoryAudit extends Entity implements Parsable
     private ?string $userAgent = null;
     
     /**
-     * Instantiates a new DirectoryAudit and sets the default values.
+     * Instantiates a new directoryAudit and sets the default values.
     */
     public function __construct() {
         parent::__construct();

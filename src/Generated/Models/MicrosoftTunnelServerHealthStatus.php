@@ -12,4 +12,5 @@ class MicrosoftTunnelServerHealthStatus extends Enum {
     public const OFFLINE = 'offline';
     public const UPGRADE_IN_PROGRESS = 'upgradeInProgress';
     public const UPGRADE_FAILED = 'upgradeFailed';
+    public const UNKNOWN_FUTURE_VALUE = 'unknownFutureValue';
 }

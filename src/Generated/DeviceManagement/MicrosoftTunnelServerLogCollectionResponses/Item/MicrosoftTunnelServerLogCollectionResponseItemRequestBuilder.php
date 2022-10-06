@@ -6,6 +6,7 @@ use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses\Item\CreateDownloadUrl\CreateDownloadUrlRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\MicrosoftTunnelServerLogCollectionResponses\Item\GenerateDownloadUrl\GenerateDownloadUrlRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\MicrosoftTunnelServerLogCollectionResponse;
 use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -23,6 +24,13 @@ class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder
     */
     public function createDownloadUrl(): CreateDownloadUrlRequestBuilder {
         return new CreateDownloadUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The generateDownloadUrl property
+    */
+    public function generateDownloadUrl(): GenerateDownloadUrlRequestBuilder {
+        return new GenerateDownloadUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

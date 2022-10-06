@@ -25,7 +25,7 @@ class RecommendedAction implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var float|null $potentialScoreImpact Potential improvement in security score of the tenant from the recommended action.
+     * @var float|null $potentialScoreImpact Potential improvement in the tenant security score from the recommended action.
     */
     private ?float $potentialScoreImpact = null;
     
@@ -90,7 +90,7 @@ class RecommendedAction implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the potentialScoreImpact property value. Potential improvement in security score of the tenant from the recommended action.
+     * Gets the potentialScoreImpact property value. Potential improvement in the tenant security score from the recommended action.
      * @return float|null
     */
     public function getPotentialScoreImpact(): ?float {
@@ -142,7 +142,7 @@ class RecommendedAction implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the potentialScoreImpact property value. Potential improvement in security score of the tenant from the recommended action.
+     * Sets the potentialScoreImpact property value. Potential improvement in the tenant security score from the recommended action.
      *  @param float|null $value Value to set for the potentialScoreImpact property.
     */
     public function setPotentialScoreImpact(?float $value ): void {

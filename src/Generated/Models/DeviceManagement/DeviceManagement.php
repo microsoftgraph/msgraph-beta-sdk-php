@@ -596,6 +596,21 @@ class DeviceManagement extends Entity implements Parsable
     private ?bool $unlicensedAdminstratorsEnabled = null;
     
     /**
+     * @var array<UserExperienceAnalyticsAnomaly>|null $userExperienceAnalyticsAnomaly The user experience analytics anomaly entity contains anomaly details.
+    */
+    private ?array $userExperienceAnalyticsAnomaly = null;
+    
+    /**
+     * @var array<UserExperienceAnalyticsAnomalyDevice>|null $userExperienceAnalyticsAnomalyDevice The user experience analytics anomaly entity contains device details.
+    */
+    private ?array $userExperienceAnalyticsAnomalyDevice = null;
+    
+    /**
+     * @var UserExperienceAnalyticsAnomalySeverityOverview|null $userExperienceAnalyticsAnomalySeverityOverview The user experience analytics anomaly severity overview entity contains the count information for each severity of anomaly.
+    */
+    private ?UserExperienceAnalyticsAnomalySeverityOverview $userExperienceAnalyticsAnomalySeverityOverview = null;
+    
+    /**
      * @var array<UserExperienceAnalyticsAppHealthApplicationPerformance>|null $userExperienceAnalyticsAppHealthApplicationPerformance User experience analytics appHealth Application Performance
     */
     private ?array $userExperienceAnalyticsAppHealthApplicationPerformance = null;
@@ -1506,6 +1521,9 @@ class DeviceManagement extends Entity implements Parsable
             'termsAndConditions' => function (ParseNode $n) use ($o) { $o->setTermsAndConditions($n->getCollectionOfObjectValues(array(TermsAndConditions::class, 'createFromDiscriminatorValue'))); },
             'troubleshootingEvents' => function (ParseNode $n) use ($o) { $o->setTroubleshootingEvents($n->getCollectionOfObjectValues(array(DeviceManagementTroubleshootingEvent::class, 'createFromDiscriminatorValue'))); },
             'unlicensedAdminstratorsEnabled' => function (ParseNode $n) use ($o) { $o->setUnlicensedAdminstratorsEnabled($n->getBooleanValue()); },
+            'userExperienceAnalyticsAnomaly' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsAnomaly($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsAnomaly::class, 'createFromDiscriminatorValue'))); },
+            'userExperienceAnalyticsAnomalyDevice' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsAnomalyDevice($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsAnomalyDevice::class, 'createFromDiscriminatorValue'))); },
+            'userExperienceAnalyticsAnomalySeverityOverview' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsAnomalySeverityOverview($n->getObjectValue(array(UserExperienceAnalyticsAnomalySeverityOverview::class, 'createFromDiscriminatorValue'))); },
             'userExperienceAnalyticsAppHealthApplicationPerformance' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsAppHealthApplicationPerformance($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsAppHealthApplicationPerformance::class, 'createFromDiscriminatorValue'))); },
             'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion::class, 'createFromDiscriminatorValue'))); },
             'userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails::class, 'createFromDiscriminatorValue'))); },
@@ -2021,6 +2039,30 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function getUnlicensedAdminstratorsEnabled(): ?bool {
         return $this->unlicensedAdminstratorsEnabled;
+    }
+
+    /**
+     * Gets the userExperienceAnalyticsAnomaly property value. The user experience analytics anomaly entity contains anomaly details.
+     * @return array<UserExperienceAnalyticsAnomaly>|null
+    */
+    public function getUserExperienceAnalyticsAnomaly(): ?array {
+        return $this->userExperienceAnalyticsAnomaly;
+    }
+
+    /**
+     * Gets the userExperienceAnalyticsAnomalyDevice property value. The user experience analytics anomaly entity contains device details.
+     * @return array<UserExperienceAnalyticsAnomalyDevice>|null
+    */
+    public function getUserExperienceAnalyticsAnomalyDevice(): ?array {
+        return $this->userExperienceAnalyticsAnomalyDevice;
+    }
+
+    /**
+     * Gets the userExperienceAnalyticsAnomalySeverityOverview property value. The user experience analytics anomaly severity overview entity contains the count information for each severity of anomaly.
+     * @return UserExperienceAnalyticsAnomalySeverityOverview|null
+    */
+    public function getUserExperienceAnalyticsAnomalySeverityOverview(): ?UserExperienceAnalyticsAnomalySeverityOverview {
+        return $this->userExperienceAnalyticsAnomalySeverityOverview;
     }
 
     /**
@@ -2606,6 +2648,9 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeObjectValue('tenantAttachRBAC', $this->tenantAttachRBAC);
         $writer->writeCollectionOfObjectValues('termsAndConditions', $this->termsAndConditions);
         $writer->writeCollectionOfObjectValues('troubleshootingEvents', $this->troubleshootingEvents);
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAnomaly', $this->userExperienceAnalyticsAnomaly);
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAnomalyDevice', $this->userExperienceAnalyticsAnomalyDevice);
+        $writer->writeObjectValue('userExperienceAnalyticsAnomalySeverityOverview', $this->userExperienceAnalyticsAnomalySeverityOverview);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformance', $this->userExperienceAnalyticsAppHealthApplicationPerformance);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion', $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails', $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails);
@@ -3600,6 +3645,30 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setUnlicensedAdminstratorsEnabled(?bool $value ): void {
         $this->unlicensedAdminstratorsEnabled = $value;
+    }
+
+    /**
+     * Sets the userExperienceAnalyticsAnomaly property value. The user experience analytics anomaly entity contains anomaly details.
+     *  @param array<UserExperienceAnalyticsAnomaly>|null $value Value to set for the userExperienceAnalyticsAnomaly property.
+    */
+    public function setUserExperienceAnalyticsAnomaly(?array $value ): void {
+        $this->userExperienceAnalyticsAnomaly = $value;
+    }
+
+    /**
+     * Sets the userExperienceAnalyticsAnomalyDevice property value. The user experience analytics anomaly entity contains device details.
+     *  @param array<UserExperienceAnalyticsAnomalyDevice>|null $value Value to set for the userExperienceAnalyticsAnomalyDevice property.
+    */
+    public function setUserExperienceAnalyticsAnomalyDevice(?array $value ): void {
+        $this->userExperienceAnalyticsAnomalyDevice = $value;
+    }
+
+    /**
+     * Sets the userExperienceAnalyticsAnomalySeverityOverview property value. The user experience analytics anomaly severity overview entity contains the count information for each severity of anomaly.
+     *  @param UserExperienceAnalyticsAnomalySeverityOverview|null $value Value to set for the userExperienceAnalyticsAnomalySeverityOverview property.
+    */
+    public function setUserExperienceAnalyticsAnomalySeverityOverview(?UserExperienceAnalyticsAnomalySeverityOverview $value ): void {
+        $this->userExperienceAnalyticsAnomalySeverityOverview = $value;
     }
 
     /**

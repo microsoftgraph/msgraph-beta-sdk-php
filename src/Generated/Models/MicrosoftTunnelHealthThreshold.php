@@ -9,22 +9,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftTunnelHealthThreshold extends Entity implements Parsable 
 {
     /**
-     * @var int|null $defaultHealthyThreshold The default threshold for being healthy
+     * @var int|null $defaultHealthyThreshold The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized. Read-only.
     */
     private ?int $defaultHealthyThreshold = null;
     
     /**
-     * @var int|null $defaultUnhealthyThreshold The default threshold for being unhealthy
+     * @var int|null $defaultUnhealthyThreshold The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency unhealthy > 20ms, health metrics can be customized. Read-only.
     */
     private ?int $defaultUnhealthyThreshold = null;
     
     /**
-     * @var int|null $healthyThreshold The threshold for being healthy
+     * @var int|null $healthyThreshold The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized.
     */
     private ?int $healthyThreshold = null;
     
     /**
-     * @var int|null $unhealthyThreshold The threshold for being unhealthy
+     * @var int|null $unhealthyThreshold The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency Unhealthy > 20ms, health metrics can be customized.
     */
     private ?int $unhealthyThreshold = null;
     
@@ -46,7 +46,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
     }
 
     /**
-     * Gets the defaultHealthyThreshold property value. The default threshold for being healthy
+     * Gets the defaultHealthyThreshold property value. The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized. Read-only.
      * @return int|null
     */
     public function getDefaultHealthyThreshold(): ?int {
@@ -54,7 +54,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
     }
 
     /**
-     * Gets the defaultUnhealthyThreshold property value. The default threshold for being unhealthy
+     * Gets the defaultUnhealthyThreshold property value. The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency unhealthy > 20ms, health metrics can be customized. Read-only.
      * @return int|null
     */
     public function getDefaultUnhealthyThreshold(): ?int {
@@ -76,7 +76,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
     }
 
     /**
-     * Gets the healthyThreshold property value. The threshold for being healthy
+     * Gets the healthyThreshold property value. The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized.
      * @return int|null
     */
     public function getHealthyThreshold(): ?int {
@@ -84,7 +84,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
     }
 
     /**
-     * Gets the unhealthyThreshold property value. The threshold for being unhealthy
+     * Gets the unhealthyThreshold property value. The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency Unhealthy > 20ms, health metrics can be customized.
      * @return int|null
     */
     public function getUnhealthyThreshold(): ?int {
@@ -104,7 +104,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
     }
 
     /**
-     * Sets the defaultHealthyThreshold property value. The default threshold for being healthy
+     * Sets the defaultHealthyThreshold property value. The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized. Read-only.
      *  @param int|null $value Value to set for the defaultHealthyThreshold property.
     */
     public function setDefaultHealthyThreshold(?int $value ): void {
@@ -112,7 +112,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
     }
 
     /**
-     * Sets the defaultUnhealthyThreshold property value. The default threshold for being unhealthy
+     * Sets the defaultUnhealthyThreshold property value. The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency unhealthy > 20ms, health metrics can be customized. Read-only.
      *  @param int|null $value Value to set for the defaultUnhealthyThreshold property.
     */
     public function setDefaultUnhealthyThreshold(?int $value ): void {
@@ -120,7 +120,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
     }
 
     /**
-     * Sets the healthyThreshold property value. The threshold for being healthy
+     * Sets the healthyThreshold property value. The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized.
      *  @param int|null $value Value to set for the healthyThreshold property.
     */
     public function setHealthyThreshold(?int $value ): void {
@@ -128,7 +128,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
     }
 
     /**
-     * Sets the unhealthyThreshold property value. The threshold for being unhealthy
+     * Sets the unhealthyThreshold property value. The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency Unhealthy > 20ms, health metrics can be customized.
      *  @param int|null $value Value to set for the unhealthyThreshold property.
     */
     public function setUnhealthyThreshold(?int $value ): void {

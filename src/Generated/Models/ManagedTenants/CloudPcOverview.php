@@ -91,7 +91,7 @@ class CloudPcOverview extends Entity implements Parsable
     private ?string $tenantId = null;
     
     /**
-     * @var int|null $totalBusinessLicenses The totalBusinessLicenses property
+     * @var int|null $totalBusinessLicenses The total number of cloud PC devices that have the Business SKU. Optional. Read-only.
     */
     private ?int $totalBusinessLicenses = null;
     
@@ -106,7 +106,7 @@ class CloudPcOverview extends Entity implements Parsable
     private ?int $totalCloudPcStatus = null;
     
     /**
-     * @var int|null $totalEnterpriseLicenses The totalEnterpriseLicenses property
+     * @var int|null $totalEnterpriseLicenses The total number of cloud PC devices that have the Enterprise SKU. Optional. Read-only.
     */
     private ?int $totalEnterpriseLicenses = null;
     
@@ -286,7 +286,7 @@ class CloudPcOverview extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalBusinessLicenses property value. The totalBusinessLicenses property
+     * Gets the totalBusinessLicenses property value. The total number of cloud PC devices that have the Business SKU. Optional. Read-only.
      * @return int|null
     */
     public function getTotalBusinessLicenses(): ?int {
@@ -310,7 +310,7 @@ class CloudPcOverview extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalEnterpriseLicenses property value. The totalEnterpriseLicenses property
+     * Gets the totalEnterpriseLicenses property value. The total number of cloud PC devices that have the Enterprise SKU. Optional. Read-only.
      * @return int|null
     */
     public function getTotalEnterpriseLicenses(): ?int {
@@ -474,7 +474,7 @@ class CloudPcOverview extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalBusinessLicenses property value. The totalBusinessLicenses property
+     * Sets the totalBusinessLicenses property value. The total number of cloud PC devices that have the Business SKU. Optional. Read-only.
      *  @param int|null $value Value to set for the totalBusinessLicenses property.
     */
     public function setTotalBusinessLicenses(?int $value ): void {
@@ -498,7 +498,7 @@ class CloudPcOverview extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalEnterpriseLicenses property value. The totalEnterpriseLicenses property
+     * Sets the totalEnterpriseLicenses property value. The total number of cloud PC devices that have the Enterprise SKU. Optional. Read-only.
      *  @param int|null $value Value to set for the totalEnterpriseLicenses property.
     */
     public function setTotalEnterpriseLicenses(?int $value ): void {

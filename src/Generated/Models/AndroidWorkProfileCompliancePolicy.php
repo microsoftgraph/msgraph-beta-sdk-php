@@ -74,6 +74,11 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
     private ?int $passwordSignInFailureCountBeforeFactoryReset = null;
     
     /**
+     * @var AndroidRequiredPasswordComplexity|null $requiredPasswordComplexity The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+    */
+    private ?AndroidRequiredPasswordComplexity $requiredPasswordComplexity = null;
+    
+    /**
      * @var bool|null $securityBlockJailbrokenDevices Devices must not be jailbroken or rooted.
     */
     private ?bool $securityBlockJailbrokenDevices = null;
@@ -189,6 +194,7 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
             'passwordRequired' => function (ParseNode $n) use ($o) { $o->setPasswordRequired($n->getBooleanValue()); },
             'passwordRequiredType' => function (ParseNode $n) use ($o) { $o->setPasswordRequiredType($n->getEnumValue(AndroidRequiredPasswordType::class)); },
             'passwordSignInFailureCountBeforeFactoryReset' => function (ParseNode $n) use ($o) { $o->setPasswordSignInFailureCountBeforeFactoryReset($n->getIntegerValue()); },
+            'requiredPasswordComplexity' => function (ParseNode $n) use ($o) { $o->setRequiredPasswordComplexity($n->getEnumValue(AndroidRequiredPasswordComplexity::class)); },
             'securityBlockJailbrokenDevices' => function (ParseNode $n) use ($o) { $o->setSecurityBlockJailbrokenDevices($n->getBooleanValue()); },
             'securityDisableUsbDebugging' => function (ParseNode $n) use ($o) { $o->setSecurityDisableUsbDebugging($n->getBooleanValue()); },
             'securityPreventInstallAppsFromUnknownSources' => function (ParseNode $n) use ($o) { $o->setSecurityPreventInstallAppsFromUnknownSources($n->getBooleanValue()); },
@@ -281,6 +287,14 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
     */
     public function getPasswordSignInFailureCountBeforeFactoryReset(): ?int {
         return $this->passwordSignInFailureCountBeforeFactoryReset;
+    }
+
+    /**
+     * Gets the requiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+     * @return AndroidRequiredPasswordComplexity|null
+    */
+    public function getRequiredPasswordComplexity(): ?AndroidRequiredPasswordComplexity {
+        return $this->requiredPasswordComplexity;
     }
 
     /**
@@ -390,6 +404,7 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
         $writer->writeBooleanValue('passwordRequired', $this->passwordRequired);
         $writer->writeEnumValue('passwordRequiredType', $this->passwordRequiredType);
         $writer->writeIntegerValue('passwordSignInFailureCountBeforeFactoryReset', $this->passwordSignInFailureCountBeforeFactoryReset);
+        $writer->writeEnumValue('requiredPasswordComplexity', $this->requiredPasswordComplexity);
         $writer->writeBooleanValue('securityBlockJailbrokenDevices', $this->securityBlockJailbrokenDevices);
         $writer->writeBooleanValue('securityDisableUsbDebugging', $this->securityDisableUsbDebugging);
         $writer->writeBooleanValue('securityPreventInstallAppsFromUnknownSources', $this->securityPreventInstallAppsFromUnknownSources);
@@ -505,6 +520,14 @@ class AndroidWorkProfileCompliancePolicy extends DeviceCompliancePolicy implemen
     */
     public function setPasswordSignInFailureCountBeforeFactoryReset(?int $value ): void {
         $this->passwordSignInFailureCountBeforeFactoryReset = $value;
+    }
+
+    /**
+     * Sets the requiredPasswordComplexity property value. The password complexity types that can be set on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+     *  @param AndroidRequiredPasswordComplexity|null $value Value to set for the requiredPasswordComplexity property.
+    */
+    public function setRequiredPasswordComplexity(?AndroidRequiredPasswordComplexity $value ): void {
+        $this->requiredPasswordComplexity = $value;
     }
 
     /**

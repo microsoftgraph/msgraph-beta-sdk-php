@@ -116,6 +116,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\GetComanagedDevicesSummary\G
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetComanagementEligibleDevicesSummary\GetComanagementEligibleDevicesSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetEffectivePermissions\GetEffectivePermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetEffectivePermissionsWithScope\GetEffectivePermissionsWithScopeRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\GetOrganizationalMessageTenantConsent\GetOrganizationalMessageTenantConsentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetRoleScopeTagsByIdsWithIds\GetRoleScopeTagsByIdsWithIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetRoleScopeTagsByResourceWithResource\GetRoleScopeTagsByResourceWithResourceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetSuggestedEnrollmentLimitWithEnrollmentType\GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder;
@@ -173,6 +174,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageDetails
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageDetails\OrganizationalMessageDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageGuidedContents\Item\OrganizationalMessageGuidedContentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageGuidedContents\OrganizationalMessageGuidedContentsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\PostOrganizationalMessageTenantConsent\PostOrganizationalMessageTenantConsentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\Item\RemoteActionAuditItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\RemoteActionAuditsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistancePartners\Item\RemoteAssistancePartnerItemRequestBuilder;
@@ -209,6 +211,11 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\Term
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\TermsAndConditionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TroubleshootingEvents\Item\DeviceManagementTroubleshootingEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TroubleshootingEvents\TroubleshootingEventsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UpdateOrganizationalMessageTenantConsent\UpdateOrganizationalMessageTenantConsentRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\Item\UserExperienceAnalyticsAnomalyItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\UserExperienceAnalyticsAnomalyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomalyDevice\Item\UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomalyDevice\UserExperienceAnalyticsAnomalyDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformance\Item\UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformance\UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion\Item\UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionItemRequestBuilder;
@@ -947,6 +954,13 @@ class DeviceManagementRequestBuilder
     private array $pathParameters;
     
     /**
+     * The postOrganizationalMessageTenantConsent property
+    */
+    public function postOrganizationalMessageTenantConsent(): PostOrganizationalMessageTenantConsentRequestBuilder {
+        return new PostOrganizationalMessageTenantConsentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * The remoteActionAudits property
     */
     public function remoteActionAudits(): RemoteActionAuditsRequestBuilder {
@@ -1092,9 +1106,30 @@ class DeviceManagementRequestBuilder
     }
     
     /**
+     * The updateOrganizationalMessageTenantConsent property
+    */
+    public function updateOrganizationalMessageTenantConsent(): UpdateOrganizationalMessageTenantConsentRequestBuilder {
+        return new UpdateOrganizationalMessageTenantConsentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * @var string $urlTemplate Url template to use to build the URL for the current request builder
     */
     private string $urlTemplate;
+    
+    /**
+     * The userExperienceAnalyticsAnomaly property
+    */
+    public function userExperienceAnalyticsAnomaly(): UserExperienceAnalyticsAnomalyRequestBuilder {
+        return new UserExperienceAnalyticsAnomalyRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The userExperienceAnalyticsAnomalyDevice property
+    */
+    public function userExperienceAnalyticsAnomalyDevice(): UserExperienceAnalyticsAnomalyDeviceRequestBuilder {
+        return new UserExperienceAnalyticsAnomalyDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
     
     /**
      * The userExperienceAnalyticsAppHealthApplicationPerformance property
@@ -2115,6 +2150,14 @@ class DeviceManagementRequestBuilder
     }
 
     /**
+     * Provides operations to call the getOrganizationalMessageTenantConsent method.
+     * @return GetOrganizationalMessageTenantConsentRequestBuilder
+    */
+    public function getOrganizationalMessageTenantConsent(): GetOrganizationalMessageTenantConsentRequestBuilder {
+        return new GetOrganizationalMessageTenantConsentRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+
+    /**
      * Provides operations to call the getRoleScopeTagsByIds method.
      * @param string $ids Usage: ids={ids}
      * @return GetRoleScopeTagsByIdsWithIdsRequestBuilder
@@ -2619,6 +2662,28 @@ class DeviceManagementRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['deviceManagementTroubleshootingEvent%2Did'] = $id;
         return new DeviceManagementTroubleshootingEventItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAnomaly.item collection
+     * @param string $id Unique identifier of the item
+     * @return UserExperienceAnalyticsAnomalyItemRequestBuilder
+    */
+    public function userExperienceAnalyticsAnomalyById(string $id): UserExperienceAnalyticsAnomalyItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsAnomaly%2Did'] = $id;
+        return new UserExperienceAnalyticsAnomalyItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAnomalyDevice.item collection
+     * @param string $id Unique identifier of the item
+     * @return UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder
+    */
+    public function userExperienceAnalyticsAnomalyDeviceById(string $id): UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['userExperienceAnalyticsAnomalyDevice%2Did'] = $id;
+        return new UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

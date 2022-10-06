@@ -46,6 +46,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetFailedMobileAppsS
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetGroupPolicySettingsDeviceSettingsReport\GetGroupPolicySettingsDeviceSettingsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetHistoricalReport\GetHistoricalReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetMalwareSummaryReport\GetMalwareSummaryReportRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetMobileApplicationManagementAppRegistrationSummaryReport\GetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetNoncompliantDevicesAndSettingsReport\GetNoncompliantDevicesAndSettingsReportRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetPolicyNonComplianceMetadata\GetPolicyNonComplianceMetadataRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\Reports\GetPolicyNonComplianceReport\GetPolicyNonComplianceReportRequestBuilder;
@@ -348,6 +349,13 @@ class ReportsRequestBuilder
     */
     public function getMalwareSummaryReport(): GetMalwareSummaryReportRequestBuilder {
         return new GetMalwareSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The getMobileApplicationManagementAppRegistrationSummaryReport property
+    */
+    public function getMobileApplicationManagementAppRegistrationSummaryReport(): GetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder {
+        return new GetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

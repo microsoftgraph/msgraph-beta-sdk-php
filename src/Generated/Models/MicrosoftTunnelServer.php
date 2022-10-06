@@ -15,12 +15,12 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     private ?string $agentImageDigest = null;
     
     /**
-     * @var string|null $displayName The MicrosoftTunnelServer's display name
+     * @var string|null $displayName The display name for the server. This property is required when a server is created and cannot be cleared during updates.
     */
     private ?string $displayName = null;
     
     /**
-     * @var DateTime|null $lastCheckinDateTime When the MicrosoftTunnelServer last checked in
+     * @var DateTime|null $lastCheckinDateTime Indicates when the server last checked in
     */
     private ?DateTime $lastCheckinDateTime = null;
     
@@ -60,7 +60,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The MicrosoftTunnelServer's display name
+     * Gets the displayName property value. The display name for the server. This property is required when a server is created and cannot be cleared during updates.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -83,7 +83,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastCheckinDateTime property value. When the MicrosoftTunnelServer last checked in
+     * Gets the lastCheckinDateTime property value. Indicates when the server last checked in
      * @return DateTime|null
     */
     public function getLastCheckinDateTime(): ?DateTime {
@@ -128,7 +128,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The MicrosoftTunnelServer's display name
+     * Sets the displayName property value. The display name for the server. This property is required when a server is created and cannot be cleared during updates.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -136,7 +136,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastCheckinDateTime property value. When the MicrosoftTunnelServer last checked in
+     * Sets the lastCheckinDateTime property value. Indicates when the server last checked in
      *  @param DateTime|null $value Value to set for the lastCheckinDateTime property.
     */
     public function setLastCheckinDateTime(?DateTime $value ): void {

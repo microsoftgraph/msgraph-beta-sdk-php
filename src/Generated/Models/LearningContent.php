@@ -21,9 +21,9 @@ class LearningContent extends Entity implements Parsable
     private ?string $contentWebUrl = null;
     
     /**
-     * @var string|null $contributor The author, creator, or contributor of the learning content. Optional.
+     * @var array<string>|null $contributors The contributors property
     */
-    private ?string $contributor = null;
+    private ?array $contributors = null;
     
     /**
      * @var DateTime|null $createdDateTime The date when the learning content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
@@ -134,11 +134,11 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
-     * Gets the contributor property value. The author, creator, or contributor of the learning content. Optional.
-     * @return string|null
+     * Gets the contributors property value. The contributors property
+     * @return array<string>|null
     */
-    public function getContributor(): ?string {
-        return $this->contributor;
+    public function getContributors(): ?array {
+        return $this->contributors;
     }
 
     /**
@@ -182,7 +182,7 @@ class LearningContent extends Entity implements Parsable
         return array_merge(parent::getFieldDeserializers(), [
             'additionalTags' => function (ParseNode $n) use ($o) { $o->setAdditionalTags($n->getCollectionOfPrimitiveValues()); },
             'contentWebUrl' => function (ParseNode $n) use ($o) { $o->setContentWebUrl($n->getStringValue()); },
-            'contributor' => function (ParseNode $n) use ($o) { $o->setContributor($n->getStringValue()); },
+            'contributors' => function (ParseNode $n) use ($o) { $o->setContributors($n->getCollectionOfPrimitiveValues()); },
             'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'duration' => function (ParseNode $n) use ($o) { $o->setDuration($n->getDateIntervalValue()); },
@@ -297,7 +297,7 @@ class LearningContent extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('additionalTags', $this->additionalTags);
         $writer->writeStringValue('contentWebUrl', $this->contentWebUrl);
-        $writer->writeStringValue('contributor', $this->contributor);
+        $writer->writeCollectionOfPrimitiveValues('contributors', $this->contributors);
         $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
         $writer->writeStringValue('description', $this->description);
         $writer->writeDateIntervalValue('duration', $this->duration);
@@ -332,11 +332,11 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
-     * Sets the contributor property value. The author, creator, or contributor of the learning content. Optional.
-     *  @param string|null $value Value to set for the contributor property.
+     * Sets the contributors property value. The contributors property
+     *  @param array<string>|null $value Value to set for the contributors property.
     */
-    public function setContributor(?string $value ): void {
-        $this->contributor = $value;
+    public function setContributors(?array $value ): void {
+        $this->contributors = $value;
     }
 
     /**

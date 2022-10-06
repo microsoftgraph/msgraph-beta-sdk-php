@@ -15,7 +15,7 @@ class AttackSimulationRepeatOffender implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var AttackSimulationUser|null $attackSimulationUser User in an attack simulation and training campaign.
+     * @var AttackSimulationUser|null $attackSimulationUser The user in an attack simulation and training campaign.
     */
     private ?AttackSimulationUser $attackSimulationUser = null;
     
@@ -55,7 +55,7 @@ class AttackSimulationRepeatOffender implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the attackSimulationUser property value. User in an attack simulation and training campaign.
+     * Gets the attackSimulationUser property value. The user in an attack simulation and training campaign.
      * @return AttackSimulationUser|null
     */
     public function getAttackSimulationUser(): ?AttackSimulationUser {
@@ -111,7 +111,7 @@ class AttackSimulationRepeatOffender implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the attackSimulationUser property value. User in an attack simulation and training campaign.
+     * Sets the attackSimulationUser property value. The user in an attack simulation and training campaign.
      *  @param AttackSimulationUser|null $value Value to set for the attackSimulationUser property.
     */
     public function setAttackSimulationUser(?AttackSimulationUser $value ): void {

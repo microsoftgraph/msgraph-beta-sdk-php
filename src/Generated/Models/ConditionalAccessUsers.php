@@ -20,7 +20,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     private ?array $excludeGroups = null;
     
     /**
-     * @var ConditionalAccessGuestsOrExternalUsers|null $excludeGuestsOrExternalUsers The excludeGuestsOrExternalUsers property
+     * @var ConditionalAccessGuestsOrExternalUsers|null $excludeGuestsOrExternalUsers Internal guests or external users excluded in the policy scope. Optionally populated.
     */
     private ?ConditionalAccessGuestsOrExternalUsers $excludeGuestsOrExternalUsers = null;
     
@@ -40,7 +40,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     private ?array $includeGroups = null;
     
     /**
-     * @var ConditionalAccessGuestsOrExternalUsers|null $includeGuestsOrExternalUsers The includeGuestsOrExternalUsers property
+     * @var ConditionalAccessGuestsOrExternalUsers|null $includeGuestsOrExternalUsers Internal guests or external users included in the policy scope. Optionally populated.
     */
     private ?ConditionalAccessGuestsOrExternalUsers $includeGuestsOrExternalUsers = null;
     
@@ -93,7 +93,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the excludeGuestsOrExternalUsers property value. The excludeGuestsOrExternalUsers property
+     * Gets the excludeGuestsOrExternalUsers property value. Internal guests or external users excluded in the policy scope. Optionally populated.
      * @return ConditionalAccessGuestsOrExternalUsers|null
     */
     public function getExcludeGuestsOrExternalUsers(): ?ConditionalAccessGuestsOrExternalUsers {
@@ -144,7 +144,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the includeGuestsOrExternalUsers property value. The includeGuestsOrExternalUsers property
+     * Gets the includeGuestsOrExternalUsers property value. Internal guests or external users included in the policy scope. Optionally populated.
      * @return ConditionalAccessGuestsOrExternalUsers|null
     */
     public function getIncludeGuestsOrExternalUsers(): ?ConditionalAccessGuestsOrExternalUsers {
@@ -209,7 +209,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the excludeGuestsOrExternalUsers property value. The excludeGuestsOrExternalUsers property
+     * Sets the excludeGuestsOrExternalUsers property value. Internal guests or external users excluded in the policy scope. Optionally populated.
      *  @param ConditionalAccessGuestsOrExternalUsers|null $value Value to set for the excludeGuestsOrExternalUsers property.
     */
     public function setExcludeGuestsOrExternalUsers(?ConditionalAccessGuestsOrExternalUsers $value ): void {
@@ -241,7 +241,7 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the includeGuestsOrExternalUsers property value. The includeGuestsOrExternalUsers property
+     * Sets the includeGuestsOrExternalUsers property value. Internal guests or external users included in the policy scope. Optionally populated.
      *  @param ConditionalAccessGuestsOrExternalUsers|null $value Value to set for the includeGuestsOrExternalUsers property.
     */
     public function setIncludeGuestsOrExternalUsers(?ConditionalAccessGuestsOrExternalUsers $value ): void {

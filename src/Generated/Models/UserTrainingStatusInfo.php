@@ -36,7 +36,7 @@ class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var TrainingStatus|null $trainingStatus Status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
+     * @var TrainingStatus|null $trainingStatus The status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
     */
     private ?TrainingStatus $trainingStatus = null;
     
@@ -113,7 +113,7 @@ class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the trainingStatus property value. Status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
+     * Gets the trainingStatus property value. The status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
      * @return TrainingStatus|null
     */
     public function getTrainingStatus(): ?TrainingStatus {
@@ -174,7 +174,7 @@ class UserTrainingStatusInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the trainingStatus property value. Status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
+     * Sets the trainingStatus property value. The status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
      *  @param TrainingStatus|null $value Value to set for the trainingStatus property.
     */
     public function setTrainingStatus(?TrainingStatus $value ): void {

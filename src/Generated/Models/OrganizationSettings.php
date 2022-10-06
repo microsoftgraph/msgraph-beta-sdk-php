@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OrganizationSettings extends Entity implements Parsable 
 {
     /**
-     * @var InsightsSettings|null $contactInsights The contactInsights property
+     * @var InsightsSettings|null $contactInsights Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user's contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
     */
     private ?InsightsSettings $contactInsights = null;
     
@@ -51,7 +51,7 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Gets the contactInsights property value. The contactInsights property
+     * Gets the contactInsights property value. Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user's contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
      * @return InsightsSettings|null
     */
     public function getContactInsights(): ?InsightsSettings {
@@ -119,7 +119,7 @@ class OrganizationSettings extends Entity implements Parsable
     }
 
     /**
-     * Sets the contactInsights property value. The contactInsights property
+     * Sets the contactInsights property value. Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user's contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
      *  @param InsightsSettings|null $value Value to set for the contactInsights property.
     */
     public function setContactInsights(?InsightsSettings $value ): void {

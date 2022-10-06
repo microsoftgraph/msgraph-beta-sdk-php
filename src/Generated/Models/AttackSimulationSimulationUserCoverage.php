@@ -31,7 +31,7 @@ class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Pa
     private ?int $compromisedCount = null;
     
     /**
-     * @var DateTime|null $latestSimulationDateTime Date and time of latest attack simulation and training campaign that the user was included in.
+     * @var DateTime|null $latestSimulationDateTime Date and time of the latest attack simulation and training campaign that the user was included in.
     */
     private ?DateTime $latestSimulationDateTime = null;
     
@@ -111,7 +111,7 @@ class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Gets the latestSimulationDateTime property value. Date and time of latest attack simulation and training campaign that the user was included in.
+     * Gets the latestSimulationDateTime property value. Date and time of the latest attack simulation and training campaign that the user was included in.
      * @return DateTime|null
     */
     public function getLatestSimulationDateTime(): ?DateTime {
@@ -181,7 +181,7 @@ class AttackSimulationSimulationUserCoverage implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Sets the latestSimulationDateTime property value. Date and time of latest attack simulation and training campaign that the user was included in.
+     * Sets the latestSimulationDateTime property value. Date and time of the latest attack simulation and training campaign that the user was included in.
      *  @param DateTime|null $value Value to set for the latestSimulationDateTime property.
     */
     public function setLatestSimulationDateTime(?DateTime $value ): void {

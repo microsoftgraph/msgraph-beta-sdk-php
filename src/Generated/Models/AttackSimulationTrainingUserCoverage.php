@@ -25,7 +25,7 @@ class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Pars
     private ?string $odataType = null;
     
     /**
-     * @var array<UserTrainingStatusInfo>|null $userTrainings List of assigned trainings' and their statuses for the user.
+     * @var array<UserTrainingStatusInfo>|null $userTrainings List of assigned trainings and their statuses for the user.
     */
     private ?array $userTrainings = null;
     
@@ -84,7 +84,7 @@ class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Gets the userTrainings property value. List of assigned trainings' and their statuses for the user.
+     * Gets the userTrainings property value. List of assigned trainings and their statuses for the user.
      * @return array<UserTrainingStatusInfo>|null
     */
     public function getUserTrainings(): ?array {
@@ -127,7 +127,7 @@ class AttackSimulationTrainingUserCoverage implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Sets the userTrainings property value. List of assigned trainings' and their statuses for the user.
+     * Sets the userTrainings property value. List of assigned trainings and their statuses for the user.
      *  @param array<UserTrainingStatusInfo>|null $value Value to set for the userTrainings property.
     */
     public function setUserTrainings(?array $value ): void {
