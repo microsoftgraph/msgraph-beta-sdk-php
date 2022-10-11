@@ -123,9 +123,9 @@ class DeviceComplianceScript extends Entity implements Parsable
 
     /**
      * Gets the detectionScriptContent property value. The entire content of the detection powershell script
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getDetectionScriptContent(): ?StreamInterface {
+    public function getDetectionScriptContent(): StreamInterface {
         return $this->detectionScriptContent;
     }
 

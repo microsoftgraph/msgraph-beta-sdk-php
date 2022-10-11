@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessTemplate extends Entity implements Parsable 
 {
     /**
-     * @var string|null $description The description property
+     * @var string|null $description The user-friendly name of the template.
     */
     private ?string $description = null;
     
@@ -19,7 +19,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     private ?ConditionalAccessPolicyDetail $details = null;
     
     /**
-     * @var string|null $name The name property
+     * @var string|null $name The user-friendly name of the template.
     */
     private ?string $name = null;
     
@@ -29,7 +29,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     private ?TemplateScenarios $scenarios = null;
     
     /**
-     * Instantiates a new conditionalAccessTemplate and sets the default values.
+     * Instantiates a new ConditionalAccessTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,7 +46,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The user-friendly name of the template.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -76,7 +76,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The user-friendly name of the template.
      * @return string|null
     */
     public function getName(): ?string {
@@ -104,7 +104,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The user-friendly name of the template.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -120,7 +120,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The user-friendly name of the template.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {

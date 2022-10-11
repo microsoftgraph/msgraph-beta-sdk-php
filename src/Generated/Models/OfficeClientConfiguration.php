@@ -126,9 +126,9 @@ class OfficeClientConfiguration extends Entity implements Parsable
 
     /**
      * Gets the policyPayload property value. Policy settings JSON string in binary format, these values cannot be changed by the user.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getPolicyPayload(): ?StreamInterface {
+    public function getPolicyPayload(): StreamInterface {
         return $this->policyPayload;
     }
 
@@ -150,9 +150,9 @@ class OfficeClientConfiguration extends Entity implements Parsable
 
     /**
      * Gets the userPreferencePayload property value. Preference settings JSON string in binary format, these values can be overridden by the user.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getUserPreferencePayload(): ?StreamInterface {
+    public function getUserPreferencePayload(): StreamInterface {
         return $this->userPreferencePayload;
     }
 

@@ -35,7 +35,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     private ?bool $enableTopResults = null;
     
     /**
-     * @var array<EntityType>|null $entityTypes One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
+     * @var array<EntityType>|null $entityTypes One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
     */
     private ?array $entityTypes = null;
     
@@ -65,7 +65,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     private ?SearchAlterationOptions $queryAlterationOptions = null;
     
     /**
-     * @var string|null $region The region property
+     * @var string|null $region Required for searches that use application permissions. Represents the geographic location for the search. For details, see Get the region value.
     */
     private ?string $region = null;
     
@@ -75,7 +75,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     private ?ResultTemplateOption $resultTemplateOptions = null;
     
     /**
-     * @var SharePointOneDriveOptions|null $sharePointOneDriveOptions The sharePointOneDriveOptions property
+     * @var SharePointOneDriveOptions|null $sharePointOneDriveOptions Indicates the kind of contents to be searched when a search is performed using application permissions. Optional.
     */
     private ?SharePointOneDriveOptions $sharePointOneDriveOptions = null;
     
@@ -157,7 +157,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
+     * Gets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
      * @return array<EntityType>|null
     */
     public function getEntityTypes(): ?array {
@@ -232,7 +232,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the region property value. The region property
+     * Gets the region property value. Required for searches that use application permissions. Represents the geographic location for the search. For details, see Get the region value.
      * @return string|null
     */
     public function getRegion(): ?string {
@@ -248,7 +248,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the sharePointOneDriveOptions property value. The sharePointOneDriveOptions property
+     * Gets the sharePointOneDriveOptions property value. Indicates the kind of contents to be searched when a search is performed using application permissions. Optional.
      * @return SharePointOneDriveOptions|null
     */
     public function getSharePointOneDriveOptions(): ?SharePointOneDriveOptions {
@@ -353,7 +353,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
+     * Sets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
      *  @param array<EntityType>|null $value Value to set for the entityTypes property.
     */
     public function setEntityTypes(?array $value ): void {
@@ -401,7 +401,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the region property value. The region property
+     * Sets the region property value. Required for searches that use application permissions. Represents the geographic location for the search. For details, see Get the region value.
      *  @param string|null $value Value to set for the region property.
     */
     public function setRegion(?string $value ): void {
@@ -417,7 +417,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sharePointOneDriveOptions property value. The sharePointOneDriveOptions property
+     * Sets the sharePointOneDriveOptions property value. Indicates the kind of contents to be searched when a search is performed using application permissions. Optional.
      *  @param SharePointOneDriveOptions|null $value Value to set for the sharePointOneDriveOptions property.
     */
     public function setSharePointOneDriveOptions(?SharePointOneDriveOptions $value ): void {

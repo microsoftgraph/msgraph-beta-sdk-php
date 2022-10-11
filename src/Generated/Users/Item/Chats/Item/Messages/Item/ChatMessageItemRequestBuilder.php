@@ -10,8 +10,10 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\HostedContents\HostedContentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\HostedContents\Item\ChatMessageHostedContentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\Replies\RepliesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\SetReaction\SetReactionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\SoftDelete\SoftDeleteRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\UndoSoftDelete\UndoSoftDeleteRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\Chats\Item\Messages\Item\UnsetReaction\UnsetReactionRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
 use Microsoft\Kiota\Abstractions\RequestInformation;
@@ -47,6 +49,13 @@ class ChatMessageItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
+     * The setReaction property
+    */
+    public function setReaction(): SetReactionRequestBuilder {
+        return new SetReactionRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * The softDelete property
     */
     public function softDelete(): SoftDeleteRequestBuilder {
@@ -58,6 +67,13 @@ class ChatMessageItemRequestBuilder
     */
     public function undoSoftDelete(): UndoSoftDeleteRequestBuilder {
         return new UndoSoftDeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The unsetReaction property
+    */
+    public function unsetReaction(): UnsetReactionRequestBuilder {
+        return new UnsetReactionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

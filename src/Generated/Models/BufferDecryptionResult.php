@@ -52,9 +52,9 @@ class BufferDecryptionResult implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the decryptedBuffer property value. The decryptedBuffer property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getDecryptedBuffer(): ?StreamInterface {
+    public function getDecryptedBuffer(): StreamInterface {
         return $this->decryptedBuffer;
     }
 

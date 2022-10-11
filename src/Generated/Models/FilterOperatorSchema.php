@@ -24,7 +24,7 @@ class FilterOperatorSchema extends Entity implements Parsable
     private ?array $supportedAttributeTypes = null;
     
     /**
-     * Instantiates a new filterOperatorSchema and sets the default values.
+     * Instantiates a new FilterOperatorSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -100,9 +100,9 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
 
     /**
      * Gets the notificationContent property value. Notification text that will be sent to users quarantined by this policy. This is UTF8 encoded byte array HTML.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getNotificationContent(): ?StreamInterface {
+    public function getNotificationContent(): StreamInterface {
         return $this->notificationContent;
     }
 

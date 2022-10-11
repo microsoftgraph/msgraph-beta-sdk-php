@@ -78,9 +78,9 @@ class SigningResult implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the signature property value. The signature property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getSignature(): ?StreamInterface {
+    public function getSignature(): StreamInterface {
         return $this->signature;
     }
 

@@ -86,9 +86,9 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the rulesContent property value. Json of the rules.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getRulesContent(): ?StreamInterface {
+    public function getRulesContent(): StreamInterface {
         return $this->rulesContent;
     }
 

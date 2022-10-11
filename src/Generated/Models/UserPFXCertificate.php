@@ -97,9 +97,9 @@ class UserPFXCertificate extends Entity implements Parsable
 
     /**
      * Gets the encryptedPfxBlob property value. Encrypted PFX blob.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getEncryptedPfxBlob(): ?StreamInterface {
+    public function getEncryptedPfxBlob(): StreamInterface {
         return $this->encryptedPfxBlob;
     }
 

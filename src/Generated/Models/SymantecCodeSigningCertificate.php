@@ -74,9 +74,9 @@ class SymantecCodeSigningCertificate extends Entity implements Parsable
 
     /**
      * Gets the content property value. The Windows Symantec Code-Signing Certificate in the raw data format.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 

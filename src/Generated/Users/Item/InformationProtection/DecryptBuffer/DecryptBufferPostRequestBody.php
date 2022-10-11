@@ -51,9 +51,9 @@ class DecryptBufferPostRequestBody implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the encryptedBuffer property value. The encryptedBuffer property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getEncryptedBuffer(): ?StreamInterface {
+    public function getEncryptedBuffer(): StreamInterface {
         return $this->encryptedBuffer;
     }
 
@@ -71,9 +71,9 @@ class DecryptBufferPostRequestBody implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the publishingLicense property value. The publishingLicense property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getPublishingLicense(): ?StreamInterface {
+    public function getPublishingLicense(): StreamInterface {
         return $this->publishingLicense;
     }
 

@@ -47,7 +47,7 @@ class Tag extends Entity implements Parsable
     private ?Tag $parent = null;
     
     /**
-     * Instantiates a new tag and sets the default values.
+     * Instantiates a new Tag and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -30,7 +30,7 @@ class AccessPackageResource extends Entity implements Parsable
     private ?string $addedBy = null;
     
     /**
-     * @var DateTime|null $addedOn The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @var DateTime|null $addedOn The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     */
     private ?DateTime $addedOn = null;
     
@@ -50,7 +50,7 @@ class AccessPackageResource extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * @var bool|null $isPendingOnboarding True if the resource is not yet available for assignment.
+     * @var bool|null $isPendingOnboarding True if the resource is not yet available for assignment. Read-only.
     */
     private ?bool $isPendingOnboarding = null;
     
@@ -124,7 +124,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the addedOn property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the addedOn property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @return DateTime|null
     */
     public function getAddedOn(): ?DateTime {
@@ -179,7 +179,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Gets the isPendingOnboarding property value. True if the resource is not yet available for assignment.
+     * Gets the isPendingOnboarding property value. True if the resource is not yet available for assignment. Read-only.
      * @return bool|null
     */
     public function getIsPendingOnboarding(): ?bool {
@@ -272,7 +272,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the addedOn property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the addedOn property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      *  @param DateTime|null $value Value to set for the addedOn property.
     */
     public function setAddedOn(?DateTime $value ): void {
@@ -304,7 +304,7 @@ class AccessPackageResource extends Entity implements Parsable
     }
 
     /**
-     * Sets the isPendingOnboarding property value. True if the resource is not yet available for assignment.
+     * Sets the isPendingOnboarding property value. True if the resource is not yet available for assignment. Read-only.
      *  @param bool|null $value Value to set for the isPendingOnboarding property.
     */
     public function setIsPendingOnboarding(?bool $value ): void {

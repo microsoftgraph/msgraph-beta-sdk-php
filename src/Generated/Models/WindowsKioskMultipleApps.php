@@ -100,9 +100,9 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
 
     /**
      * Gets the startMenuLayoutXml property value. Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getStartMenuLayoutXml(): ?StreamInterface {
+    public function getStartMenuLayoutXml(): StreamInterface {
         return $this->startMenuLayoutXml;
     }
 

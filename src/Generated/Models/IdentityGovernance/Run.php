@@ -81,7 +81,7 @@ class Run extends Entity implements Parsable
     private ?WorkflowExecutionType $workflowExecutionType = null;
     
     /**
-     * Instantiates a new run and sets the default values.
+     * Instantiates a new Run and sets the default values.
     */
     public function __construct() {
         parent::__construct();

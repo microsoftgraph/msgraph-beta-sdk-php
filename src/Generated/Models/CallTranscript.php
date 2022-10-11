@@ -39,9 +39,9 @@ class CallTranscript extends Entity implements Parsable
 
     /**
      * Gets the content property value. A field representing the content of the transcript. Read-only.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 

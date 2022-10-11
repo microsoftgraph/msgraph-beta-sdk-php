@@ -41,7 +41,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
     private ?DateTime $uploadDateTime = null;
     
     /**
-     * Instantiates a new GroupPolicyUploadedDefinitionFile and sets the default values.
+     * Instantiates a new groupPolicyUploadedDefinitionFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -59,9 +59,9 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
 
     /**
      * Gets the content property value. The contents of the uploaded ADMX file.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 

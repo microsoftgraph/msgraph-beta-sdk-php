@@ -241,7 +241,7 @@ class Application extends DirectoryObject implements Parsable
     private ?WindowsApplication $windows = null;
     
     /**
-     * Instantiates a new application and sets the default values.
+     * Instantiates a new Application and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -483,9 +483,9 @@ class Application extends DirectoryObject implements Parsable
 
     /**
      * Gets the logo property value. The main logo for the application. Not nullable.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getLogo(): ?StreamInterface {
+    public function getLogo(): StreamInterface {
         return $this->logo;
     }
 

@@ -60,9 +60,9 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Gets the customXml property value. Custom XML commands that configures the VPN connection. (UTF8 encoded byte array)
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getCustomXml(): ?StreamInterface {
+    public function getCustomXml(): StreamInterface {
         return $this->customXml;
     }
 

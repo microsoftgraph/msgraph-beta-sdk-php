@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Workflow extends WorkflowBase implements Parsable 
 {
     /**
-     * @var DateTime|null $deletedDateTime The time and date a workflow is deleted. Supports $filter(lt,gt) and $orderby.
+     * @var DateTime|null $deletedDateTime When the workflow was deleted. Supports $filter(lt,gt) and $orderBy.
     */
     private ?DateTime $deletedDateTime = null;
     
@@ -21,22 +21,12 @@ class Workflow extends WorkflowBase implements Parsable
     private ?array $executionScope = null;
     
     /**
-     * @var string|null $id Identifier used for individually addressing a specific workflow. Supports $filter(eq).
+     * @var string|null $id Identifier used for individually addressing a specific workflow. Supports $filter(eq, ne).
     */
     private ?string $id = null;
     
     /**
-     * @var bool|null $isEnabled If true, the workflow engine creates and processes taskProcessingResults on the users scoped to the workflow. Supports $filter(eq,ne) and orderby.
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
-     * @var bool|null $isSchedulingEnabled If true, the workflow engine executes the workflow on the schedule defined by tenant settings.
-    */
-    private ?bool $isSchedulingEnabled = null;
-    
-    /**
-     * @var DateTime|null $nextScheduleRunDateTime The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderby.
+     * @var DateTime|null $nextScheduleRunDateTime The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderBy.
     */
     private ?DateTime $nextScheduleRunDateTime = null;
     
@@ -56,7 +46,7 @@ class Workflow extends WorkflowBase implements Parsable
     private ?array $userProcessingResults = null;
     
     /**
-     * @var int|null $version The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq).
+     * @var int|null $version The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq, ne).
     */
     private ?int $version = null;
     
@@ -83,7 +73,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the deletedDateTime property value. The time and date a workflow is deleted. Supports $filter(lt,gt) and $orderby.
+     * Gets the deletedDateTime property value. When the workflow was deleted. Supports $filter(lt,gt) and $orderBy.
      * @return DateTime|null
     */
     public function getDeletedDateTime(): ?DateTime {
@@ -108,8 +98,6 @@ class Workflow extends WorkflowBase implements Parsable
             'deletedDateTime' => function (ParseNode $n) use ($o) { $o->setDeletedDateTime($n->getDateTimeValue()); },
             'executionScope' => function (ParseNode $n) use ($o) { $o->setExecutionScope($n->getCollectionOfObjectValues(array(User::class, 'createFromDiscriminatorValue'))); },
             'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'isSchedulingEnabled' => function (ParseNode $n) use ($o) { $o->setIsSchedulingEnabled($n->getBooleanValue()); },
             'nextScheduleRunDateTime' => function (ParseNode $n) use ($o) { $o->setNextScheduleRunDateTime($n->getDateTimeValue()); },
             'runs' => function (ParseNode $n) use ($o) { $o->setRuns($n->getCollectionOfObjectValues(array(Run::class, 'createFromDiscriminatorValue'))); },
             'taskReports' => function (ParseNode $n) use ($o) { $o->setTaskReports($n->getCollectionOfObjectValues(array(TaskReport::class, 'createFromDiscriminatorValue'))); },
@@ -120,7 +108,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the id property value. Identifier used for individually addressing a specific workflow. Supports $filter(eq).
+     * Gets the id property value. Identifier used for individually addressing a specific workflow. Supports $filter(eq, ne).
      * @return string|null
     */
     public function getId(): ?string {
@@ -128,23 +116,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the isEnabled property value. If true, the workflow engine creates and processes taskProcessingResults on the users scoped to the workflow. Supports $filter(eq,ne) and orderby.
-     * @return bool|null
-    */
-    public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
-    }
-
-    /**
-     * Gets the isSchedulingEnabled property value. If true, the workflow engine executes the workflow on the schedule defined by tenant settings.
-     * @return bool|null
-    */
-    public function getIsSchedulingEnabled(): ?bool {
-        return $this->isSchedulingEnabled;
-    }
-
-    /**
-     * Gets the nextScheduleRunDateTime property value. The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderby.
+     * Gets the nextScheduleRunDateTime property value. The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderBy.
      * @return DateTime|null
     */
     public function getNextScheduleRunDateTime(): ?DateTime {
@@ -176,7 +148,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the version property value. The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq).
+     * Gets the version property value. The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq, ne).
      * @return int|null
     */
     public function getVersion(): ?int {
@@ -200,8 +172,6 @@ class Workflow extends WorkflowBase implements Parsable
         $writer->writeDateTimeValue('deletedDateTime', $this->deletedDateTime);
         $writer->writeCollectionOfObjectValues('executionScope', $this->executionScope);
         $writer->writeStringValue('id', $this->id);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
-        $writer->writeBooleanValue('isSchedulingEnabled', $this->isSchedulingEnabled);
         $writer->writeDateTimeValue('nextScheduleRunDateTime', $this->nextScheduleRunDateTime);
         $writer->writeCollectionOfObjectValues('runs', $this->runs);
         $writer->writeCollectionOfObjectValues('taskReports', $this->taskReports);
@@ -211,7 +181,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the deletedDateTime property value. The time and date a workflow is deleted. Supports $filter(lt,gt) and $orderby.
+     * Sets the deletedDateTime property value. When the workflow was deleted. Supports $filter(lt,gt) and $orderBy.
      *  @param DateTime|null $value Value to set for the deletedDateTime property.
     */
     public function setDeletedDateTime(?DateTime $value ): void {
@@ -227,7 +197,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the id property value. Identifier used for individually addressing a specific workflow. Supports $filter(eq).
+     * Sets the id property value. Identifier used for individually addressing a specific workflow. Supports $filter(eq, ne).
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {
@@ -235,23 +205,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the isEnabled property value. If true, the workflow engine creates and processes taskProcessingResults on the users scoped to the workflow. Supports $filter(eq,ne) and orderby.
-     *  @param bool|null $value Value to set for the isEnabled property.
-    */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
-    }
-
-    /**
-     * Sets the isSchedulingEnabled property value. If true, the workflow engine executes the workflow on the schedule defined by tenant settings.
-     *  @param bool|null $value Value to set for the isSchedulingEnabled property.
-    */
-    public function setIsSchedulingEnabled(?bool $value ): void {
-        $this->isSchedulingEnabled = $value;
-    }
-
-    /**
-     * Sets the nextScheduleRunDateTime property value. The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderby.
+     * Sets the nextScheduleRunDateTime property value. The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderBy.
      *  @param DateTime|null $value Value to set for the nextScheduleRunDateTime property.
     */
     public function setNextScheduleRunDateTime(?DateTime $value ): void {
@@ -283,7 +237,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the version property value. The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq).
+     * Sets the version property value. The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq, ne).
      *  @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value ): void {

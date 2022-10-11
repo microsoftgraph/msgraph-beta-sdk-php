@@ -84,9 +84,9 @@ class OrganizationalMessageLogo implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the logo property value. The binary contents of the logo. This is null when logoCdnUrl is used to send the logo
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getLogo(): ?StreamInterface {
+    public function getLogo(): StreamInterface {
         return $this->logo;
     }
 

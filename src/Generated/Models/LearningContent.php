@@ -21,7 +21,7 @@ class LearningContent extends Entity implements Parsable
     private ?string $contentWebUrl = null;
     
     /**
-     * @var array<string>|null $contributors The contributors property
+     * @var array<string>|null $contributors The authors, creators, or contributors of the learning content. Optional.
     */
     private ?array $contributors = null;
     
@@ -134,7 +134,7 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
-     * Gets the contributors property value. The contributors property
+     * Gets the contributors property value. The authors, creators, or contributors of the learning content. Optional.
      * @return array<string>|null
     */
     public function getContributors(): ?array {
@@ -332,7 +332,7 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
-     * Sets the contributors property value. The contributors property
+     * Sets the contributors property value. The authors, creators, or contributors of the learning content. Optional.
      *  @param array<string>|null $value Value to set for the contributors property.
     */
     public function setContributors(?array $value ): void {

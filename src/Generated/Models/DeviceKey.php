@@ -84,9 +84,9 @@ class DeviceKey implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the keyMaterial property value. The keyMaterial property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getKeyMaterial(): ?StreamInterface {
+    public function getKeyMaterial(): StreamInterface {
         return $this->keyMaterial;
     }
 

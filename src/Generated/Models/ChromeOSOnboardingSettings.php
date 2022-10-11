@@ -30,7 +30,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
     private ?string $ownerUserPrincipalName = null;
     
     /**
-     * Instantiates a new chromeOSOnboardingSettings and sets the default values.
+     * Instantiates a new ChromeOSOnboardingSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

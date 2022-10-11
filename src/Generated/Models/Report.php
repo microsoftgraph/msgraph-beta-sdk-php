@@ -52,9 +52,9 @@ class Report implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the content property value. Report content; details vary by report type.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 

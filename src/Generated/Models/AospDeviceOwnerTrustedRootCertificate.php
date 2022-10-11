@@ -58,9 +58,9 @@ class AospDeviceOwnerTrustedRootCertificate extends DeviceConfiguration implemen
 
     /**
      * Gets the trustedRootCertificate property value. Trusted Root Certificate
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getTrustedRootCertificate(): ?StreamInterface {
+    public function getTrustedRootCertificate(): StreamInterface {
         return $this->trustedRootCertificate;
     }
 

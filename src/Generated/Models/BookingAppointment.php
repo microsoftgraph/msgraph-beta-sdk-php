@@ -190,7 +190,7 @@ class BookingAppointment extends Entity implements Parsable
     private ?DateTimeTimeZone $start = null;
     
     /**
-     * Instantiates a new bookingAppointment and sets the default values.
+     * Instantiates a new BookingAppointment and sets the default values.
     */
     public function __construct() {
         parent::__construct();

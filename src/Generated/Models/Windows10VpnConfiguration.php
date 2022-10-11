@@ -201,9 +201,9 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration implements Parsa
 
     /**
      * Gets the eapXml property value. Extensible Authentication Protocol (EAP) XML. (UTF8 encoded byte array)
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getEapXml(): ?StreamInterface {
+    public function getEapXml(): StreamInterface {
         return $this->eapXml;
     }
 

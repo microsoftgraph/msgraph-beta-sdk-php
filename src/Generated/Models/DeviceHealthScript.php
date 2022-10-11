@@ -106,7 +106,7 @@ class DeviceHealthScript extends Entity implements Parsable
     private ?string $version = null;
     
     /**
-     * Instantiates a new deviceHealthScript and sets the default values.
+     * Instantiates a new DeviceHealthScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -148,9 +148,9 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Gets the detectionScriptContent property value. The entire content of the detection powershell script
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getDetectionScriptContent(): ?StreamInterface {
+    public function getDetectionScriptContent(): StreamInterface {
         return $this->detectionScriptContent;
     }
 
@@ -249,9 +249,9 @@ class DeviceHealthScript extends Entity implements Parsable
 
     /**
      * Gets the remediationScriptContent property value. The entire content of the remediation powershell script
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getRemediationScriptContent(): ?StreamInterface {
+    public function getRemediationScriptContent(): StreamInterface {
         return $this->remediationScriptContent;
     }
 

@@ -821,6 +821,13 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.managedTenants.managedDeviceCompliance': return new ManagedDeviceCompliance();
                 case '#microsoft.graph.managedTenants.managedDeviceComplianceTrend': return new ManagedDeviceComplianceTrend();
                 case '#microsoft.graph.managedTenants.managedTenant': return new ManagedTenant();
+                case '#microsoft.graph.managedTenants.managedTenantAlert': return new ManagedTenantAlert();
+                case '#microsoft.graph.managedTenants.managedTenantAlertLog': return new ManagedTenantAlertLog();
+                case '#microsoft.graph.managedTenants.managedTenantAlertRule': return new ManagedTenantAlertRule();
+                case '#microsoft.graph.managedTenants.managedTenantAlertRuleDefinition': return new ManagedTenantAlertRuleDefinition();
+                case '#microsoft.graph.managedTenants.managedTenantApiNotification': return new ManagedTenantApiNotification();
+                case '#microsoft.graph.managedTenants.managedTenantEmailNotification': return new ManagedTenantEmailNotification();
+                case '#microsoft.graph.managedTenants.managedTenantTicketingEndpoint': return new ManagedTenantTicketingEndpoint();
                 case '#microsoft.graph.managedTenants.managementAction': return new ManagementAction();
                 case '#microsoft.graph.managedTenants.managementActionTenantDeploymentStatus': return new ManagementActionTenantDeploymentStatus();
                 case '#microsoft.graph.managedTenants.managementIntent': return new ManagementIntent();

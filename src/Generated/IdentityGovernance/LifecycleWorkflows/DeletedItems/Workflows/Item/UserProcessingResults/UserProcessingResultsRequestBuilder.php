@@ -144,8 +144,8 @@ class UserProcessingResultsRequestBuilder
 
     /**
      * Provides operations to call the summary method.
-     * @param DateTime $endDateTime Usage: endDateTime='{endDateTime}'
-     * @param DateTime $startDateTime Usage: startDateTime='{startDateTime}'
+     * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
+     * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
      * @return SummaryWithStartDateTimeWithEndDateTimeRequestBuilder
     */
     public function summaryWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): SummaryWithStartDateTimeWithEndDateTimeRequestBuilder {

@@ -29,7 +29,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     private ?array $policies = null;
     
     /**
-     * @var array<ConditionalAccessTemplate>|null $templates The templates property
+     * @var array<ConditionalAccessTemplate>|null $templates Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
     */
     private ?array $templates = null;
     
@@ -98,7 +98,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the templates property value. The templates property
+     * Gets the templates property value. Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
      * @return array<ConditionalAccessTemplate>|null
     */
     public function getTemplates(): ?array {
@@ -151,7 +151,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the templates property value. The templates property
+     * Sets the templates property value. Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
      *  @param array<ConditionalAccessTemplate>|null $value Value to set for the templates property.
     */
     public function setTemplates(?array $value ): void {

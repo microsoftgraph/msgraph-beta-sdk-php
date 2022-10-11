@@ -35,7 +35,7 @@ class PrinterShare extends PrinterBase implements Parsable
     private ?Printer $printer = null;
     
     /**
-     * @var PrinterShareViewpoint|null $viewPoint The viewPoint property
+     * @var PrinterShareViewpoint|null $viewPoint Additional data for a printer share as viewed by the signed-in user.
     */
     private ?PrinterShareViewpoint $viewPoint = null;
     
@@ -113,7 +113,7 @@ class PrinterShare extends PrinterBase implements Parsable
     }
 
     /**
-     * Gets the viewPoint property value. The viewPoint property
+     * Gets the viewPoint property value. Additional data for a printer share as viewed by the signed-in user.
      * @return PrinterShareViewpoint|null
     */
     public function getViewPoint(): ?PrinterShareViewpoint {
@@ -175,7 +175,7 @@ class PrinterShare extends PrinterBase implements Parsable
     }
 
     /**
-     * Sets the viewPoint property value. The viewPoint property
+     * Sets the viewPoint property value. Additional data for a printer share as viewed by the signed-in user.
      *  @param PrinterShareViewpoint|null $value Value to set for the viewPoint property.
     */
     public function setViewPoint(?PrinterShareViewpoint $value ): void {
