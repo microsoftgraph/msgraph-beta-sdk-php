@@ -51,9 +51,9 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Gets the configurationXml property value. Configuration xml. (UTF8 encoded byte array)
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getConfigurationXml(): ?StreamInterface {
+    public function getConfigurationXml(): StreamInterface {
         return $this->configurationXml;
     }
 

@@ -20,7 +20,7 @@ class ConditionalAccessPolicyDetail implements AdditionalDataHolder, Parsable
     private ?ConditionalAccessConditionSet $conditions = null;
     
     /**
-     * @var ConditionalAccessGrantControls|null $grantControls The grantControls property
+     * @var ConditionalAccessGrantControls|null $grantControls Represents grant controls that must be fulfilled for the policy.
     */
     private ?ConditionalAccessGrantControls $grantControls = null;
     
@@ -30,7 +30,7 @@ class ConditionalAccessPolicyDetail implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var ConditionalAccessSessionControls|null $sessionControls The sessionControls property
+     * @var ConditionalAccessSessionControls|null $sessionControls Represents a complex type of session controls that is enforced after sign-in.
     */
     private ?ConditionalAccessSessionControls $sessionControls = null;
     
@@ -82,7 +82,7 @@ class ConditionalAccessPolicyDetail implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the grantControls property value. The grantControls property
+     * Gets the grantControls property value. Represents grant controls that must be fulfilled for the policy.
      * @return ConditionalAccessGrantControls|null
     */
     public function getGrantControls(): ?ConditionalAccessGrantControls {
@@ -98,7 +98,7 @@ class ConditionalAccessPolicyDetail implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the sessionControls property value. The sessionControls property
+     * Gets the sessionControls property value. Represents a complex type of session controls that is enforced after sign-in.
      * @return ConditionalAccessSessionControls|null
     */
     public function getSessionControls(): ?ConditionalAccessSessionControls {
@@ -134,7 +134,7 @@ class ConditionalAccessPolicyDetail implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the grantControls property value. The grantControls property
+     * Sets the grantControls property value. Represents grant controls that must be fulfilled for the policy.
      *  @param ConditionalAccessGrantControls|null $value Value to set for the grantControls property.
     */
     public function setGrantControls(?ConditionalAccessGrantControls $value ): void {
@@ -150,7 +150,7 @@ class ConditionalAccessPolicyDetail implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sessionControls property value. The sessionControls property
+     * Sets the sessionControls property value. Represents a complex type of session controls that is enforced after sign-in.
      *  @param ConditionalAccessSessionControls|null $value Value to set for the sessionControls property.
     */
     public function setSessionControls(?ConditionalAccessSessionControls $value ): void {

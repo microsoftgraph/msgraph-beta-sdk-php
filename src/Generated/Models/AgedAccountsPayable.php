@@ -60,7 +60,7 @@ class AgedAccountsPayable extends Entity implements Parsable
     private ?string $vendorNumber = null;
     
     /**
-     * Instantiates a new agedAccountsPayable and sets the default values.
+     * Instantiates a new AgedAccountsPayable and sets the default values.
     */
     public function __construct() {
         parent::__construct();

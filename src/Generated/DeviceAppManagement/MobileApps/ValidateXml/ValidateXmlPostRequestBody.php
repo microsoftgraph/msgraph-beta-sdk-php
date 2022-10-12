@@ -57,9 +57,9 @@ class ValidateXmlPostRequestBody implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the officeConfigurationXml property value. The officeConfigurationXml property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getOfficeConfigurationXml(): ?StreamInterface {
+    public function getOfficeConfigurationXml(): StreamInterface {
         return $this->officeConfigurationXml;
     }
 

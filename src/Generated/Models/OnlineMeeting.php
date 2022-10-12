@@ -171,7 +171,7 @@ class OnlineMeeting extends Entity implements Parsable
     private ?VirtualAppointment $virtualAppointment = null;
     
     /**
-     * Instantiates a new onlineMeeting and sets the default values.
+     * Instantiates a new OnlineMeeting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -221,9 +221,9 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Gets the alternativeRecording property value. The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getAlternativeRecording(): ?StreamInterface {
+    public function getAlternativeRecording(): StreamInterface {
         return $this->alternativeRecording;
     }
 
@@ -245,9 +245,9 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Gets the attendeeReport property value. The content stream of the attendee report of a Teams live event. Read-only.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getAttendeeReport(): ?StreamInterface {
+    public function getAttendeeReport(): StreamInterface {
         return $this->attendeeReport;
     }
 
@@ -431,9 +431,9 @@ class OnlineMeeting extends Entity implements Parsable
 
     /**
      * Gets the recording property value. The content stream of the recording of a Teams live event. Read-only.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getRecording(): ?StreamInterface {
+    public function getRecording(): StreamInterface {
         return $this->recording;
     }
 

@@ -56,9 +56,9 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Gets the payload property value. Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getPayload(): ?StreamInterface {
+    public function getPayload(): StreamInterface {
         return $this->payload;
     }
 

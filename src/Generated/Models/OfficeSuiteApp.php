@@ -148,9 +148,9 @@ class OfficeSuiteApp extends MobileApp implements Parsable
 
     /**
      * Gets the officeConfigurationXml property value. The property to represent the XML configuration file that can be specified for Office ProPlus Apps. Takes precedence over all other properties. When present, the XML configuration file will be used to create the app.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getOfficeConfigurationXml(): ?StreamInterface {
+    public function getOfficeConfigurationXml(): StreamInterface {
         return $this->officeConfigurationXml;
     }
 

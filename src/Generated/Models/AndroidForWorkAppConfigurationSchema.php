@@ -20,7 +20,7 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
     private ?array $schemaItems = null;
     
     /**
-     * Instantiates a new androidForWorkAppConfigurationSchema and sets the default values.
+     * Instantiates a new AndroidForWorkAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,9 +38,9 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
 
     /**
      * Gets the exampleJson property value. UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getExampleJson(): ?StreamInterface {
+    public function getExampleJson(): StreamInterface {
         return $this->exampleJson;
     }
 

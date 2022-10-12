@@ -92,9 +92,9 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
 
     /**
      * Gets the content property value. The WindowsDefenderApplicationControl supplemental policy content in byte array format.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 

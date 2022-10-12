@@ -15,7 +15,7 @@ class LifecycleManagementSettings extends Entity implements Parsable
     private ?int $workflowScheduleIntervalInHours = null;
     
     /**
-     * Instantiates a new lifecycleManagementSettings and sets the default values.
+     * Instantiates a new LifecycleManagementSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();

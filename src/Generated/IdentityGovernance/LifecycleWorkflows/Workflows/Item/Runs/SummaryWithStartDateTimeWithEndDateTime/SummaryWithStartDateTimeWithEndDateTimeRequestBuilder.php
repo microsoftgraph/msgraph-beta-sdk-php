@@ -37,11 +37,11 @@ class SummaryWithStartDateTimeWithEndDateTimeRequestBuilder
      * Instantiates a new SummaryWithStartDateTimeWithEndDateTimeRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-     * @param DateTime|null $endDateTime Usage: endDateTime='{endDateTime}'
-     * @param DateTime|null $startDateTime Usage: startDateTime='{startDateTime}'
+     * @param DateTime|null $endDateTime Usage: endDateTime={endDateTime}
+     * @param DateTime|null $startDateTime Usage: startDateTime={startDateTime}
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?DateTime $endDateTime = null, ?DateTime $startDateTime = null) {
-        $this->urlTemplate = '{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/runs/microsoft.graph.identityGovernance.summary(startDateTime=\'{startDateTime}\',endDateTime=\'{endDateTime}\')';
+        $this->urlTemplate = '{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/runs/microsoft.graph.identityGovernance.summary(startDateTime={startDateTime},endDateTime={endDateTime})';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;

@@ -153,9 +153,9 @@ class MobileAppContentFile extends Entity implements Parsable
 
     /**
      * Gets the manifest property value. The manifest information.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getManifest(): ?StreamInterface {
+    public function getManifest(): StreamInterface {
         return $this->manifest;
     }
 

@@ -51,9 +51,9 @@ class Windows10XVpnConfiguration extends DeviceManagementResourceAccessProfileBa
 
     /**
      * Gets the customXml property value. Custom XML commands that configures the VPN connection. (UTF8 byte encoding)
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getCustomXml(): ?StreamInterface {
+    public function getCustomXml(): StreamInterface {
         return $this->customXml;
     }
 

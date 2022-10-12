@@ -33,9 +33,9 @@ class UserConfiguration extends Entity implements Parsable
 
     /**
      * Gets the binaryData property value. The binaryData property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getBinaryData(): ?StreamInterface {
+    public function getBinaryData(): StreamInterface {
         return $this->binaryData;
     }
 

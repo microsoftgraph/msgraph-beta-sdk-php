@@ -184,9 +184,9 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Gets the picture property value. The picture property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getPicture(): ?StreamInterface {
+    public function getPicture(): StreamInterface {
         return $this->picture;
     }
 

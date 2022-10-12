@@ -47,6 +47,16 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     private ?WorkflowExecutionConditions $executionConditions = null;
     
     /**
+     * @var bool|null $isEnabled Whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true.
+    */
+    private ?bool $isEnabled = null;
+    
+    /**
+     * @var bool|null $isSchedulingEnabled If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Cannot be true for a disabled workflow (where isEnabled is false).
+    */
+    private ?bool $isSchedulingEnabled = null;
+    
+    /**
      * @var User|null $lastModifiedBy The user who last modified the workflow.
     */
     private ?User $lastModifiedBy = null;
@@ -160,11 +170,29 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
             'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
             'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
             'executionConditions' => function (ParseNode $n) use ($o) { $o->setExecutionConditions($n->getObjectValue(array(WorkflowExecutionConditions::class, 'createFromDiscriminatorValue'))); },
+            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
+            'isSchedulingEnabled' => function (ParseNode $n) use ($o) { $o->setIsSchedulingEnabled($n->getBooleanValue()); },
             'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(User::class, 'createFromDiscriminatorValue'))); },
             'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
             '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
             'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(Task::class, 'createFromDiscriminatorValue'))); },
         ];
+    }
+
+    /**
+     * Gets the isEnabled property value. Whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true.
+     * @return bool|null
+    */
+    public function getIsEnabled(): ?bool {
+        return $this->isEnabled;
+    }
+
+    /**
+     * Gets the isSchedulingEnabled property value. If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Cannot be true for a disabled workflow (where isEnabled is false).
+     * @return bool|null
+    */
+    public function getIsSchedulingEnabled(): ?bool {
+        return $this->isSchedulingEnabled;
     }
 
     /**
@@ -210,6 +238,8 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('description', $this->description);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeObjectValue('executionConditions', $this->executionConditions);
+        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
+        $writer->writeBooleanValue('isSchedulingEnabled', $this->isSchedulingEnabled);
         $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('@odata.type', $this->odataType);
@@ -271,6 +301,22 @@ class WorkflowBase implements AdditionalDataHolder, Parsable
     */
     public function setExecutionConditions(?WorkflowExecutionConditions $value ): void {
         $this->executionConditions = $value;
+    }
+
+    /**
+     * Sets the isEnabled property value. Whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true.
+     *  @param bool|null $value Value to set for the isEnabled property.
+    */
+    public function setIsEnabled(?bool $value ): void {
+        $this->isEnabled = $value;
+    }
+
+    /**
+     * Sets the isSchedulingEnabled property value. If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Cannot be true for a disabled workflow (where isEnabled is false).
+     *  @param bool|null $value Value to set for the isSchedulingEnabled property.
+    */
+    public function setIsSchedulingEnabled(?bool $value ): void {
+        $this->isSchedulingEnabled = $value;
     }
 
     /**

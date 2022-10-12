@@ -56,7 +56,7 @@ class Task extends Entity implements Parsable
     private ?array $taskProcessingResults = null;
     
     /**
-     * Instantiates a new task and sets the default values.
+     * Instantiates a new Task and sets the default values.
     */
     public function __construct() {
         parent::__construct();

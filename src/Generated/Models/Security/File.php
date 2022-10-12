@@ -97,9 +97,9 @@ class File extends Entity implements Parsable
 
     /**
      * Gets the content property value. The content property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 
@@ -121,9 +121,9 @@ class File extends Entity implements Parsable
 
     /**
      * Gets the extractedTextContent property value. The extractedTextContent property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getExtractedTextContent(): ?StreamInterface {
+    public function getExtractedTextContent(): StreamInterface {
         return $this->extractedTextContent;
     }
 

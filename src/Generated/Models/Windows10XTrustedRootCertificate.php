@@ -72,9 +72,9 @@ class Windows10XTrustedRootCertificate extends DeviceManagementResourceAccessPro
 
     /**
      * Gets the trustedRootCertificate property value. Trusted Root Certificate
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getTrustedRootCertificate(): ?StreamInterface {
+    public function getTrustedRootCertificate(): StreamInterface {
         return $this->trustedRootCertificate;
     }
 

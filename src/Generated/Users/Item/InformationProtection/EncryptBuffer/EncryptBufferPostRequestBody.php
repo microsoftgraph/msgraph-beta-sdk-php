@@ -51,9 +51,9 @@ class EncryptBufferPostRequestBody implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the buffer property value. The buffer property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getBuffer(): ?StreamInterface {
+    public function getBuffer(): StreamInterface {
         return $this->buffer;
     }
 

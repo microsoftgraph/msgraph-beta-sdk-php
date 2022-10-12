@@ -86,9 +86,9 @@ class AppMetadataEntry implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the value property value. The value property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getValue(): ?StreamInterface {
+    public function getValue(): StreamInterface {
         return $this->value;
     }
 

@@ -63,9 +63,9 @@ class ClassifyFilePostRequestBody implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the file property value. The file property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getFile(): ?StreamInterface {
+    public function getFile(): StreamInterface {
         return $this->file;
     }
 

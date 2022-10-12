@@ -38,9 +38,9 @@ class StrongAuthenticationDetail extends Entity implements Parsable
 
     /**
      * Gets the encryptedPinHashHistory property value. The encryptedPinHashHistory property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getEncryptedPinHashHistory(): ?StreamInterface {
+    public function getEncryptedPinHashHistory(): StreamInterface {
         return $this->encryptedPinHashHistory;
     }
 

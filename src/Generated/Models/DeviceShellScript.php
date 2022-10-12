@@ -248,9 +248,9 @@ class DeviceShellScript extends Entity implements Parsable
 
     /**
      * Gets the scriptContent property value. The script content.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getScriptContent(): ?StreamInterface {
+    public function getScriptContent(): StreamInterface {
         return $this->scriptContent;
     }
 

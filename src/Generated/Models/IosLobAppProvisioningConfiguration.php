@@ -181,9 +181,9 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
 
     /**
      * Gets the payload property value. Payload. (UTF8 encoded byte array)
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getPayload(): ?StreamInterface {
+    public function getPayload(): StreamInterface {
         return $this->payload;
     }
 

@@ -278,9 +278,9 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Gets the fileVaultInstitutionalRecoveryKeyCertificate property value. Required if selected recovery key type(s) include InstitutionalRecoveryKey. The DER Encoded certificate file used to set an institutional recovery key.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getFileVaultInstitutionalRecoveryKeyCertificate(): ?StreamInterface {
+    public function getFileVaultInstitutionalRecoveryKeyCertificate(): StreamInterface {
         return $this->fileVaultInstitutionalRecoveryKeyCertificate;
     }
 
