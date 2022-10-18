@@ -112,16 +112,16 @@ class TeamworkNetworkConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'defaultGateway' => function (ParseNode $n) use ($o) { $o->setDefaultGateway($n->getStringValue()); },
-            'domainName' => function (ParseNode $n) use ($o) { $o->setDomainName($n->getStringValue()); },
-            'hostName' => function (ParseNode $n) use ($o) { $o->setHostName($n->getStringValue()); },
-            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
-            'isDhcpEnabled' => function (ParseNode $n) use ($o) { $o->setIsDhcpEnabled($n->getBooleanValue()); },
-            'isPCPortEnabled' => function (ParseNode $n) use ($o) { $o->setIsPCPortEnabled($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'primaryDns' => function (ParseNode $n) use ($o) { $o->setPrimaryDns($n->getStringValue()); },
-            'secondaryDns' => function (ParseNode $n) use ($o) { $o->setSecondaryDns($n->getStringValue()); },
-            'subnetMask' => function (ParseNode $n) use ($o) { $o->setSubnetMask($n->getStringValue()); },
+            'defaultGateway' => fn(ParseNode $n) => $o->setDefaultGateway($n->getStringValue()),
+            'domainName' => fn(ParseNode $n) => $o->setDomainName($n->getStringValue()),
+            'hostName' => fn(ParseNode $n) => $o->setHostName($n->getStringValue()),
+            'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
+            'isDhcpEnabled' => fn(ParseNode $n) => $o->setIsDhcpEnabled($n->getBooleanValue()),
+            'isPCPortEnabled' => fn(ParseNode $n) => $o->setIsPCPortEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'primaryDns' => fn(ParseNode $n) => $o->setPrimaryDns($n->getStringValue()),
+            'secondaryDns' => fn(ParseNode $n) => $o->setSecondaryDns($n->getStringValue()),
+            'subnetMask' => fn(ParseNode $n) => $o->setSubnetMask($n->getStringValue()),
         ];
     }
 

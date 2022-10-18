@@ -45,7 +45,7 @@ class RotateBitLockerKeysDeviceActionResult extends DeviceActionResult implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
         ]);
     }
 

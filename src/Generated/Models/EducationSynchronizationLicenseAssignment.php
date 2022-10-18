@@ -69,9 +69,9 @@ class EducationSynchronizationLicenseAssignment implements AdditionalDataHolder,
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appliesTo' => function (ParseNode $n) use ($o) { $o->setAppliesTo($n->getEnumValue(EducationUserRole::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'skuIds' => function (ParseNode $n) use ($o) { $o->setSkuIds($n->getCollectionOfPrimitiveValues()); },
+            'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getEnumValue(EducationUserRole::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'skuIds' => fn(ParseNode $n) => $o->setSkuIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

@@ -142,20 +142,20 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appsBlockInstallFromUnknownSources' => function (ParseNode $n) use ($o) { $o->setAppsBlockInstallFromUnknownSources($n->getBooleanValue()); },
-            'bluetoothBlockConfiguration' => function (ParseNode $n) use ($o) { $o->setBluetoothBlockConfiguration($n->getBooleanValue()); },
-            'bluetoothBlocked' => function (ParseNode $n) use ($o) { $o->setBluetoothBlocked($n->getBooleanValue()); },
-            'cameraBlocked' => function (ParseNode $n) use ($o) { $o->setCameraBlocked($n->getBooleanValue()); },
-            'factoryResetBlocked' => function (ParseNode $n) use ($o) { $o->setFactoryResetBlocked($n->getBooleanValue()); },
-            'passwordMinimumLength' => function (ParseNode $n) use ($o) { $o->setPasswordMinimumLength($n->getIntegerValue()); },
-            'passwordMinutesOfInactivityBeforeScreenTimeout' => function (ParseNode $n) use ($o) { $o->setPasswordMinutesOfInactivityBeforeScreenTimeout($n->getIntegerValue()); },
-            'passwordRequiredType' => function (ParseNode $n) use ($o) { $o->setPasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordType::class)); },
-            'passwordSignInFailureCountBeforeFactoryReset' => function (ParseNode $n) use ($o) { $o->setPasswordSignInFailureCountBeforeFactoryReset($n->getIntegerValue()); },
-            'screenCaptureBlocked' => function (ParseNode $n) use ($o) { $o->setScreenCaptureBlocked($n->getBooleanValue()); },
-            'securityAllowDebuggingFeatures' => function (ParseNode $n) use ($o) { $o->setSecurityAllowDebuggingFeatures($n->getBooleanValue()); },
-            'storageBlockExternalMedia' => function (ParseNode $n) use ($o) { $o->setStorageBlockExternalMedia($n->getBooleanValue()); },
-            'storageBlockUsbFileTransfer' => function (ParseNode $n) use ($o) { $o->setStorageBlockUsbFileTransfer($n->getBooleanValue()); },
-            'wifiBlockEditConfigurations' => function (ParseNode $n) use ($o) { $o->setWifiBlockEditConfigurations($n->getBooleanValue()); },
+            'appsBlockInstallFromUnknownSources' => fn(ParseNode $n) => $o->setAppsBlockInstallFromUnknownSources($n->getBooleanValue()),
+            'bluetoothBlockConfiguration' => fn(ParseNode $n) => $o->setBluetoothBlockConfiguration($n->getBooleanValue()),
+            'bluetoothBlocked' => fn(ParseNode $n) => $o->setBluetoothBlocked($n->getBooleanValue()),
+            'cameraBlocked' => fn(ParseNode $n) => $o->setCameraBlocked($n->getBooleanValue()),
+            'factoryResetBlocked' => fn(ParseNode $n) => $o->setFactoryResetBlocked($n->getBooleanValue()),
+            'passwordMinimumLength' => fn(ParseNode $n) => $o->setPasswordMinimumLength($n->getIntegerValue()),
+            'passwordMinutesOfInactivityBeforeScreenTimeout' => fn(ParseNode $n) => $o->setPasswordMinutesOfInactivityBeforeScreenTimeout($n->getIntegerValue()),
+            'passwordRequiredType' => fn(ParseNode $n) => $o->setPasswordRequiredType($n->getEnumValue(AndroidDeviceOwnerRequiredPasswordType::class)),
+            'passwordSignInFailureCountBeforeFactoryReset' => fn(ParseNode $n) => $o->setPasswordSignInFailureCountBeforeFactoryReset($n->getIntegerValue()),
+            'screenCaptureBlocked' => fn(ParseNode $n) => $o->setScreenCaptureBlocked($n->getBooleanValue()),
+            'securityAllowDebuggingFeatures' => fn(ParseNode $n) => $o->setSecurityAllowDebuggingFeatures($n->getBooleanValue()),
+            'storageBlockExternalMedia' => fn(ParseNode $n) => $o->setStorageBlockExternalMedia($n->getBooleanValue()),
+            'storageBlockUsbFileTransfer' => fn(ParseNode $n) => $o->setStorageBlockUsbFileTransfer($n->getBooleanValue()),
+            'wifiBlockEditConfigurations' => fn(ParseNode $n) => $o->setWifiBlockEditConfigurations($n->getBooleanValue()),
         ]);
     }
 

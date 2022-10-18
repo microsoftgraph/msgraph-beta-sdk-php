@@ -103,11 +103,11 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit implements AdditionalDataH
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'bandwidthBeginBusinessHours' => function (ParseNode $n) use ($o) { $o->setBandwidthBeginBusinessHours($n->getIntegerValue()); },
-            'bandwidthEndBusinessHours' => function (ParseNode $n) use ($o) { $o->setBandwidthEndBusinessHours($n->getIntegerValue()); },
-            'bandwidthPercentageDuringBusinessHours' => function (ParseNode $n) use ($o) { $o->setBandwidthPercentageDuringBusinessHours($n->getIntegerValue()); },
-            'bandwidthPercentageOutsideBusinessHours' => function (ParseNode $n) use ($o) { $o->setBandwidthPercentageOutsideBusinessHours($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'bandwidthBeginBusinessHours' => fn(ParseNode $n) => $o->setBandwidthBeginBusinessHours($n->getIntegerValue()),
+            'bandwidthEndBusinessHours' => fn(ParseNode $n) => $o->setBandwidthEndBusinessHours($n->getIntegerValue()),
+            'bandwidthPercentageDuringBusinessHours' => fn(ParseNode $n) => $o->setBandwidthPercentageDuringBusinessHours($n->getIntegerValue()),
+            'bandwidthPercentageOutsideBusinessHours' => fn(ParseNode $n) => $o->setBandwidthPercentageOutsideBusinessHours($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

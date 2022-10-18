@@ -95,15 +95,15 @@ class Workflow extends WorkflowBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deletedDateTime' => function (ParseNode $n) use ($o) { $o->setDeletedDateTime($n->getDateTimeValue()); },
-            'executionScope' => function (ParseNode $n) use ($o) { $o->setExecutionScope($n->getCollectionOfObjectValues(array(User::class, 'createFromDiscriminatorValue'))); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'nextScheduleRunDateTime' => function (ParseNode $n) use ($o) { $o->setNextScheduleRunDateTime($n->getDateTimeValue()); },
-            'runs' => function (ParseNode $n) use ($o) { $o->setRuns($n->getCollectionOfObjectValues(array(Run::class, 'createFromDiscriminatorValue'))); },
-            'taskReports' => function (ParseNode $n) use ($o) { $o->setTaskReports($n->getCollectionOfObjectValues(array(TaskReport::class, 'createFromDiscriminatorValue'))); },
-            'userProcessingResults' => function (ParseNode $n) use ($o) { $o->setUserProcessingResults($n->getCollectionOfObjectValues(array(UserProcessingResult::class, 'createFromDiscriminatorValue'))); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
-            'versions' => function (ParseNode $n) use ($o) { $o->setVersions($n->getCollectionOfObjectValues(array(WorkflowVersion::class, 'createFromDiscriminatorValue'))); },
+            'deletedDateTime' => fn(ParseNode $n) => $o->setDeletedDateTime($n->getDateTimeValue()),
+            'executionScope' => fn(ParseNode $n) => $o->setExecutionScope($n->getCollectionOfObjectValues([User::class, 'createFromDiscriminatorValue'])),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'nextScheduleRunDateTime' => fn(ParseNode $n) => $o->setNextScheduleRunDateTime($n->getDateTimeValue()),
+            'runs' => fn(ParseNode $n) => $o->setRuns($n->getCollectionOfObjectValues([Run::class, 'createFromDiscriminatorValue'])),
+            'taskReports' => fn(ParseNode $n) => $o->setTaskReports($n->getCollectionOfObjectValues([TaskReport::class, 'createFromDiscriminatorValue'])),
+            'userProcessingResults' => fn(ParseNode $n) => $o->setUserProcessingResults($n->getCollectionOfObjectValues([UserProcessingResult::class, 'createFromDiscriminatorValue'])),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
+            'versions' => fn(ParseNode $n) => $o->setVersions($n->getCollectionOfObjectValues([WorkflowVersion::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

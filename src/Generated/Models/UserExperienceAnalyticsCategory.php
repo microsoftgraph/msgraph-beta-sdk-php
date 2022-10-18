@@ -42,8 +42,8 @@ class UserExperienceAnalyticsCategory extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'insights' => function (ParseNode $n) use ($o) { $o->setInsights($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsInsight::class, 'createFromDiscriminatorValue'))); },
-            'metricValues' => function (ParseNode $n) use ($o) { $o->setMetricValues($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'))); },
+            'insights' => fn(ParseNode $n) => $o->setInsights($n->getCollectionOfObjectValues([UserExperienceAnalyticsInsight::class, 'createFromDiscriminatorValue'])),
+            'metricValues' => fn(ParseNode $n) => $o->setMetricValues($n->getCollectionOfObjectValues([UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

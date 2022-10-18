@@ -58,8 +58,8 @@ class MeetingRegistrationBase extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedRegistrant' => function (ParseNode $n) use ($o) { $o->setAllowedRegistrant($n->getEnumValue(MeetingAudience::class)); },
-            'registrants' => function (ParseNode $n) use ($o) { $o->setRegistrants($n->getCollectionOfObjectValues(array(MeetingRegistrantBase::class, 'createFromDiscriminatorValue'))); },
+            'allowedRegistrant' => fn(ParseNode $n) => $o->setAllowedRegistrant($n->getEnumValue(MeetingAudience::class)),
+            'registrants' => fn(ParseNode $n) => $o->setRegistrants($n->getCollectionOfObjectValues([MeetingRegistrantBase::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

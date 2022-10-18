@@ -66,10 +66,10 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'manager' => function (ParseNode $n) use ($o) { $o->setManager($n->getObjectValue(array(SynchronizationJobSubject::class, 'createFromDiscriminatorValue'))); },
-            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfObjectValues(array(SynchronizationJobSubject::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'owners' => function (ParseNode $n) use ($o) { $o->setOwners($n->getCollectionOfObjectValues(array(SynchronizationJobSubject::class, 'createFromDiscriminatorValue'))); },
+            'manager' => fn(ParseNode $n) => $o->setManager($n->getObjectValue([SynchronizationJobSubject::class, 'createFromDiscriminatorValue'])),
+            'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([SynchronizationJobSubject::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'owners' => fn(ParseNode $n) => $o->setOwners($n->getCollectionOfObjectValues([SynchronizationJobSubject::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

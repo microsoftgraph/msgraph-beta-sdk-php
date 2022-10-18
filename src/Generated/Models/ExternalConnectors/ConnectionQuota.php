@@ -38,7 +38,7 @@ class ConnectionQuota extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'itemsRemaining' => function (ParseNode $n) use ($o) { $o->setItemsRemaining($n->getIntegerValue()); },
+            'itemsRemaining' => fn(ParseNode $n) => $o->setItemsRemaining($n->getIntegerValue()),
         ]);
     }
 

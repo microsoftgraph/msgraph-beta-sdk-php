@@ -55,8 +55,8 @@ class ActivateServicePlanPostRequestBody implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'servicePlanId' => function (ParseNode $n) use ($o) { $o->setServicePlanId($n->getStringValue()); },
-            'skuId' => function (ParseNode $n) use ($o) { $o->setSkuId($n->getStringValue()); },
+            'servicePlanId' => fn(ParseNode $n) => $o->setServicePlanId($n->getStringValue()),
+            'skuId' => fn(ParseNode $n) => $o->setSkuId($n->getStringValue()),
         ];
     }
 

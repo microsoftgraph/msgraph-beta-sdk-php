@@ -56,8 +56,8 @@ class SuggestedEnrollmentLimit implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'suggestedDailyLimit' => function (ParseNode $n) use ($o) { $o->setSuggestedDailyLimit($n->getIntegerValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'suggestedDailyLimit' => fn(ParseNode $n) => $o->setSuggestedDailyLimit($n->getIntegerValue()),
         ];
     }
 

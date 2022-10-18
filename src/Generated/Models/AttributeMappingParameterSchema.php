@@ -79,11 +79,11 @@ class AttributeMappingParameterSchema implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowMultipleOccurrences' => function (ParseNode $n) use ($o) { $o->setAllowMultipleOccurrences($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(AttributeType::class)); },
+            'allowMultipleOccurrences' => fn(ParseNode $n) => $o->setAllowMultipleOccurrences($n->getBooleanValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'required' => fn(ParseNode $n) => $o->setRequired($n->getBooleanValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(AttributeType::class)),
         ];
     }
 

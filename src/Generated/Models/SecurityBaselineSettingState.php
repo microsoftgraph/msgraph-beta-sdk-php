@@ -88,14 +88,14 @@ class SecurityBaselineSettingState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contributingPolicies' => function (ParseNode $n) use ($o) { $o->setContributingPolicies($n->getCollectionOfObjectValues(array(SecurityBaselineContributingPolicy::class, 'createFromDiscriminatorValue'))); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getStringValue()); },
-            'settingCategoryId' => function (ParseNode $n) use ($o) { $o->setSettingCategoryId($n->getStringValue()); },
-            'settingCategoryName' => function (ParseNode $n) use ($o) { $o->setSettingCategoryName($n->getStringValue()); },
-            'settingId' => function (ParseNode $n) use ($o) { $o->setSettingId($n->getStringValue()); },
-            'settingName' => function (ParseNode $n) use ($o) { $o->setSettingName($n->getStringValue()); },
-            'sourcePolicies' => function (ParseNode $n) use ($o) { $o->setSourcePolicies($n->getCollectionOfObjectValues(array(SettingSource::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(SecurityBaselineComplianceState::class)); },
+            'contributingPolicies' => fn(ParseNode $n) => $o->setContributingPolicies($n->getCollectionOfObjectValues([SecurityBaselineContributingPolicy::class, 'createFromDiscriminatorValue'])),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getStringValue()),
+            'settingCategoryId' => fn(ParseNode $n) => $o->setSettingCategoryId($n->getStringValue()),
+            'settingCategoryName' => fn(ParseNode $n) => $o->setSettingCategoryName($n->getStringValue()),
+            'settingId' => fn(ParseNode $n) => $o->setSettingId($n->getStringValue()),
+            'settingName' => fn(ParseNode $n) => $o->setSettingName($n->getStringValue()),
+            'sourcePolicies' => fn(ParseNode $n) => $o->setSourcePolicies($n->getCollectionOfObjectValues([SettingSource::class, 'createFromDiscriminatorValue'])),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(SecurityBaselineComplianceState::class)),
         ]);
     }
 

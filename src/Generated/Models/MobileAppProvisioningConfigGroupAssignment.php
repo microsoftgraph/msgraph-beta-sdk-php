@@ -37,7 +37,7 @@ class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'targetGroupId' => function (ParseNode $n) use ($o) { $o->setTargetGroupId($n->getStringValue()); },
+            'targetGroupId' => fn(ParseNode $n) => $o->setTargetGroupId($n->getStringValue()),
         ]);
     }
 

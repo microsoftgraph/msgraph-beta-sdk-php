@@ -70,11 +70,11 @@ class WipePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'keepEnrollmentData' => function (ParseNode $n) use ($o) { $o->setKeepEnrollmentData($n->getBooleanValue()); },
-            'keepUserData' => function (ParseNode $n) use ($o) { $o->setKeepUserData($n->getBooleanValue()); },
-            'macOsUnlockCode' => function (ParseNode $n) use ($o) { $o->setMacOsUnlockCode($n->getStringValue()); },
-            'persistEsimDataPlan' => function (ParseNode $n) use ($o) { $o->setPersistEsimDataPlan($n->getBooleanValue()); },
-            'useProtectedWipe' => function (ParseNode $n) use ($o) { $o->setUseProtectedWipe($n->getBooleanValue()); },
+            'keepEnrollmentData' => fn(ParseNode $n) => $o->setKeepEnrollmentData($n->getBooleanValue()),
+            'keepUserData' => fn(ParseNode $n) => $o->setKeepUserData($n->getBooleanValue()),
+            'macOsUnlockCode' => fn(ParseNode $n) => $o->setMacOsUnlockCode($n->getStringValue()),
+            'persistEsimDataPlan' => fn(ParseNode $n) => $o->setPersistEsimDataPlan($n->getBooleanValue()),
+            'useProtectedWipe' => fn(ParseNode $n) => $o->setUseProtectedWipe($n->getBooleanValue()),
         ];
     }
 

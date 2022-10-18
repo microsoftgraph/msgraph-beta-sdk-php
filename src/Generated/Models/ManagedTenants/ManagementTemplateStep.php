@@ -143,18 +143,18 @@ class ManagementTemplateStep extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'acceptedVersion' => function (ParseNode $n) use ($o) { $o->setAcceptedVersion($n->getObjectValue(array(ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'))); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
-            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'managementTemplate' => function (ParseNode $n) use ($o) { $o->setManagementTemplate($n->getObjectValue(array(ManagementTemplate::class, 'createFromDiscriminatorValue'))); },
-            'portalLink' => function (ParseNode $n) use ($o) { $o->setPortalLink($n->getObjectValue(array(ActionUrl::class, 'createFromDiscriminatorValue'))); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'versions' => function (ParseNode $n) use ($o) { $o->setVersions($n->getCollectionOfObjectValues(array(ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'))); },
+            'acceptedVersion' => fn(ParseNode $n) => $o->setAcceptedVersion($n->getObjectValue([ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'])),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(ManagementCategory::class)),
+            'createdByUserId' => fn(ParseNode $n) => $o->setCreatedByUserId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
+            'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
+            'managementTemplate' => fn(ParseNode $n) => $o->setManagementTemplate($n->getObjectValue([ManagementTemplate::class, 'createFromDiscriminatorValue'])),
+            'portalLink' => fn(ParseNode $n) => $o->setPortalLink($n->getObjectValue([ActionUrl::class, 'createFromDiscriminatorValue'])),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'versions' => fn(ParseNode $n) => $o->setVersions($n->getCollectionOfObjectValues([ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

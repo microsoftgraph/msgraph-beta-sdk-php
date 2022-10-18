@@ -87,12 +87,12 @@ class EducationSynchronizationError extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'entryType' => function (ParseNode $n) use ($o) { $o->setEntryType($n->getStringValue()); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getStringValue()); },
-            'errorMessage' => function (ParseNode $n) use ($o) { $o->setErrorMessage($n->getStringValue()); },
-            'joiningValue' => function (ParseNode $n) use ($o) { $o->setJoiningValue($n->getStringValue()); },
-            'recordedDateTime' => function (ParseNode $n) use ($o) { $o->setRecordedDateTime($n->getDateTimeValue()); },
-            'reportableIdentifier' => function (ParseNode $n) use ($o) { $o->setReportableIdentifier($n->getStringValue()); },
+            'entryType' => fn(ParseNode $n) => $o->setEntryType($n->getStringValue()),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getStringValue()),
+            'errorMessage' => fn(ParseNode $n) => $o->setErrorMessage($n->getStringValue()),
+            'joiningValue' => fn(ParseNode $n) => $o->setJoiningValue($n->getStringValue()),
+            'recordedDateTime' => fn(ParseNode $n) => $o->setRecordedDateTime($n->getDateTimeValue()),
+            'reportableIdentifier' => fn(ParseNode $n) => $o->setReportableIdentifier($n->getStringValue()),
         ]);
     }
 

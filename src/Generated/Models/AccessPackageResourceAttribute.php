@@ -105,13 +105,13 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'attributeDestination' => function (ParseNode $n) use ($o) { $o->setAttributeDestination($n->getObjectValue(array(AccessPackageResourceAttributeDestination::class, 'createFromDiscriminatorValue'))); },
-            'attributeName' => function (ParseNode $n) use ($o) { $o->setAttributeName($n->getStringValue()); },
-            'attributeSource' => function (ParseNode $n) use ($o) { $o->setAttributeSource($n->getObjectValue(array(AccessPackageResourceAttributeSource::class, 'createFromDiscriminatorValue'))); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'isEditable' => function (ParseNode $n) use ($o) { $o->setIsEditable($n->getBooleanValue()); },
-            'isPersistedOnAssignmentRemoval' => function (ParseNode $n) use ($o) { $o->setIsPersistedOnAssignmentRemoval($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'attributeDestination' => fn(ParseNode $n) => $o->setAttributeDestination($n->getObjectValue([AccessPackageResourceAttributeDestination::class, 'createFromDiscriminatorValue'])),
+            'attributeName' => fn(ParseNode $n) => $o->setAttributeName($n->getStringValue()),
+            'attributeSource' => fn(ParseNode $n) => $o->setAttributeSource($n->getObjectValue([AccessPackageResourceAttributeSource::class, 'createFromDiscriminatorValue'])),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'isEditable' => fn(ParseNode $n) => $o->setIsEditable($n->getBooleanValue()),
+            'isPersistedOnAssignmentRemoval' => fn(ParseNode $n) => $o->setIsPersistedOnAssignmentRemoval($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

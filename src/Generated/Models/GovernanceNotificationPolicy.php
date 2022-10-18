@@ -69,9 +69,9 @@ class GovernanceNotificationPolicy implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'enabledTemplateTypes' => function (ParseNode $n) use ($o) { $o->setEnabledTemplateTypes($n->getCollectionOfPrimitiveValues()); },
-            'notificationTemplates' => function (ParseNode $n) use ($o) { $o->setNotificationTemplates($n->getCollectionOfObjectValues(array(GovernanceNotificationTemplate::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'enabledTemplateTypes' => fn(ParseNode $n) => $o->setEnabledTemplateTypes($n->getCollectionOfPrimitiveValues()),
+            'notificationTemplates' => fn(ParseNode $n) => $o->setNotificationTemplates($n->getCollectionOfObjectValues([GovernanceNotificationTemplate::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

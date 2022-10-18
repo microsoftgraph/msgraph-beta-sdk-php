@@ -55,8 +55,8 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'notificationBody' => function (ParseNode $n) use ($o) { $o->setNotificationBody($n->getStringValue()); },
-            'notificationTitle' => function (ParseNode $n) use ($o) { $o->setNotificationTitle($n->getStringValue()); },
+            'notificationBody' => fn(ParseNode $n) => $o->setNotificationBody($n->getStringValue()),
+            'notificationTitle' => fn(ParseNode $n) => $o->setNotificationTitle($n->getStringValue()),
         ];
     }
 

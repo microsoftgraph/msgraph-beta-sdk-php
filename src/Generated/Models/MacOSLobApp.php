@@ -106,16 +106,16 @@ class MacOSLobApp extends MobileLobApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'buildNumber' => function (ParseNode $n) use ($o) { $o->setBuildNumber($n->getStringValue()); },
-            'bundleId' => function (ParseNode $n) use ($o) { $o->setBundleId($n->getStringValue()); },
-            'childApps' => function (ParseNode $n) use ($o) { $o->setChildApps($n->getCollectionOfObjectValues(array(MacOSLobChildApp::class, 'createFromDiscriminatorValue'))); },
-            'identityVersion' => function (ParseNode $n) use ($o) { $o->setIdentityVersion($n->getStringValue()); },
-            'ignoreVersionDetection' => function (ParseNode $n) use ($o) { $o->setIgnoreVersionDetection($n->getBooleanValue()); },
-            'installAsManaged' => function (ParseNode $n) use ($o) { $o->setInstallAsManaged($n->getBooleanValue()); },
-            'md5Hash' => function (ParseNode $n) use ($o) { $o->setMd5Hash($n->getCollectionOfPrimitiveValues()); },
-            'md5HashChunkSize' => function (ParseNode $n) use ($o) { $o->setMd5HashChunkSize($n->getIntegerValue()); },
-            'minimumSupportedOperatingSystem' => function (ParseNode $n) use ($o) { $o->setMinimumSupportedOperatingSystem($n->getObjectValue(array(MacOSMinimumOperatingSystem::class, 'createFromDiscriminatorValue'))); },
-            'versionNumber' => function (ParseNode $n) use ($o) { $o->setVersionNumber($n->getStringValue()); },
+            'buildNumber' => fn(ParseNode $n) => $o->setBuildNumber($n->getStringValue()),
+            'bundleId' => fn(ParseNode $n) => $o->setBundleId($n->getStringValue()),
+            'childApps' => fn(ParseNode $n) => $o->setChildApps($n->getCollectionOfObjectValues([MacOSLobChildApp::class, 'createFromDiscriminatorValue'])),
+            'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
+            'ignoreVersionDetection' => fn(ParseNode $n) => $o->setIgnoreVersionDetection($n->getBooleanValue()),
+            'installAsManaged' => fn(ParseNode $n) => $o->setInstallAsManaged($n->getBooleanValue()),
+            'md5Hash' => fn(ParseNode $n) => $o->setMd5Hash($n->getCollectionOfPrimitiveValues()),
+            'md5HashChunkSize' => fn(ParseNode $n) => $o->setMd5HashChunkSize($n->getIntegerValue()),
+            'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([MacOSMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
+            'versionNumber' => fn(ParseNode $n) => $o->setVersionNumber($n->getStringValue()),
         ]);
     }
 

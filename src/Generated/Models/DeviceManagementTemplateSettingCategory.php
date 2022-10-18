@@ -37,7 +37,7 @@ class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCat
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'recommendedSettings' => function (ParseNode $n) use ($o) { $o->setRecommendedSettings($n->getCollectionOfObjectValues(array(DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'))); },
+            'recommendedSettings' => fn(ParseNode $n) => $o->setRecommendedSettings($n->getCollectionOfObjectValues([DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

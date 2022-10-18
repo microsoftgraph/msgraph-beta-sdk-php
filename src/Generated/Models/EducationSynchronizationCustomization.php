@@ -80,11 +80,11 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowDisplayNameUpdate' => function (ParseNode $n) use ($o) { $o->setAllowDisplayNameUpdate($n->getBooleanValue()); },
-            'isSyncDeferred' => function (ParseNode $n) use ($o) { $o->setIsSyncDeferred($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'optionalPropertiesToSync' => function (ParseNode $n) use ($o) { $o->setOptionalPropertiesToSync($n->getCollectionOfPrimitiveValues()); },
-            'synchronizationStartDate' => function (ParseNode $n) use ($o) { $o->setSynchronizationStartDate($n->getDateTimeValue()); },
+            'allowDisplayNameUpdate' => fn(ParseNode $n) => $o->setAllowDisplayNameUpdate($n->getBooleanValue()),
+            'isSyncDeferred' => fn(ParseNode $n) => $o->setIsSyncDeferred($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'optionalPropertiesToSync' => fn(ParseNode $n) => $o->setOptionalPropertiesToSync($n->getCollectionOfPrimitiveValues()),
+            'synchronizationStartDate' => fn(ParseNode $n) => $o->setSynchronizationStartDate($n->getDateTimeValue()),
         ];
     }
 

@@ -37,7 +37,7 @@ class LookupResultRow extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'row' => function (ParseNode $n) use ($o) { $o->setRow($n->getStringValue()); },
+            'row' => fn(ParseNode $n) => $o->setRow($n->getStringValue()),
         ]);
     }
 

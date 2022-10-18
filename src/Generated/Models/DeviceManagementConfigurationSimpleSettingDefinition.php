@@ -83,10 +83,10 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getObjectValue(array(DeviceManagementConfigurationSettingValue::class, 'createFromDiscriminatorValue'))); },
-            'dependedOnBy' => function (ParseNode $n) use ($o) { $o->setDependedOnBy($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingDependedOnBy::class, 'createFromDiscriminatorValue'))); },
-            'dependentOn' => function (ParseNode $n) use ($o) { $o->setDependentOn($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationDependentOn::class, 'createFromDiscriminatorValue'))); },
-            'valueDefinition' => function (ParseNode $n) use ($o) { $o->setValueDefinition($n->getObjectValue(array(DeviceManagementConfigurationSettingValueDefinition::class, 'createFromDiscriminatorValue'))); },
+            'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getObjectValue([DeviceManagementConfigurationSettingValue::class, 'createFromDiscriminatorValue'])),
+            'dependedOnBy' => fn(ParseNode $n) => $o->setDependedOnBy($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingDependedOnBy::class, 'createFromDiscriminatorValue'])),
+            'dependentOn' => fn(ParseNode $n) => $o->setDependentOn($n->getCollectionOfObjectValues([DeviceManagementConfigurationDependentOn::class, 'createFromDiscriminatorValue'])),
+            'valueDefinition' => fn(ParseNode $n) => $o->setValueDefinition($n->getObjectValue([DeviceManagementConfigurationSettingValueDefinition::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

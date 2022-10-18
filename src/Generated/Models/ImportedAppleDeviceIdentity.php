@@ -127,17 +127,17 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'discoverySource' => function (ParseNode $n) use ($o) { $o->setDiscoverySource($n->getEnumValue(DiscoverySource::class)); },
-            'enrollmentState' => function (ParseNode $n) use ($o) { $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)); },
-            'isDeleted' => function (ParseNode $n) use ($o) { $o->setIsDeleted($n->getBooleanValue()); },
-            'isSupervised' => function (ParseNode $n) use ($o) { $o->setIsSupervised($n->getBooleanValue()); },
-            'lastContactedDateTime' => function (ParseNode $n) use ($o) { $o->setLastContactedDateTime($n->getDateTimeValue()); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(Platform::class)); },
-            'requestedEnrollmentProfileAssignmentDateTime' => function (ParseNode $n) use ($o) { $o->setRequestedEnrollmentProfileAssignmentDateTime($n->getDateTimeValue()); },
-            'requestedEnrollmentProfileId' => function (ParseNode $n) use ($o) { $o->setRequestedEnrollmentProfileId($n->getStringValue()); },
-            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'discoverySource' => fn(ParseNode $n) => $o->setDiscoverySource($n->getEnumValue(DiscoverySource::class)),
+            'enrollmentState' => fn(ParseNode $n) => $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)),
+            'isDeleted' => fn(ParseNode $n) => $o->setIsDeleted($n->getBooleanValue()),
+            'isSupervised' => fn(ParseNode $n) => $o->setIsSupervised($n->getBooleanValue()),
+            'lastContactedDateTime' => fn(ParseNode $n) => $o->setLastContactedDateTime($n->getDateTimeValue()),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(Platform::class)),
+            'requestedEnrollmentProfileAssignmentDateTime' => fn(ParseNode $n) => $o->setRequestedEnrollmentProfileAssignmentDateTime($n->getDateTimeValue()),
+            'requestedEnrollmentProfileId' => fn(ParseNode $n) => $o->setRequestedEnrollmentProfileId($n->getStringValue()),
+            'serialNumber' => fn(ParseNode $n) => $o->setSerialNumber($n->getStringValue()),
         ]);
     }
 

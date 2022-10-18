@@ -37,7 +37,7 @@ class WorkflowVersion extends WorkflowBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'versionNumber' => function (ParseNode $n) use ($o) { $o->setVersionNumber($n->getIntegerValue()); },
+            'versionNumber' => fn(ParseNode $n) => $o->setVersionNumber($n->getIntegerValue()),
         ]);
     }
 

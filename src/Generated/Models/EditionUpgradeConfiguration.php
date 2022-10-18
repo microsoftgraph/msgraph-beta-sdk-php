@@ -57,11 +57,11 @@ class EditionUpgradeConfiguration extends DeviceConfiguration implements Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'license' => function (ParseNode $n) use ($o) { $o->setLicense($n->getStringValue()); },
-            'licenseType' => function (ParseNode $n) use ($o) { $o->setLicenseType($n->getEnumValue(EditionUpgradeLicenseType::class)); },
-            'productKey' => function (ParseNode $n) use ($o) { $o->setProductKey($n->getStringValue()); },
-            'targetEdition' => function (ParseNode $n) use ($o) { $o->setTargetEdition($n->getEnumValue(Windows10EditionType::class)); },
-            'windowsSMode' => function (ParseNode $n) use ($o) { $o->setWindowsSMode($n->getEnumValue(WindowsSModeConfiguration::class)); },
+            'license' => fn(ParseNode $n) => $o->setLicense($n->getStringValue()),
+            'licenseType' => fn(ParseNode $n) => $o->setLicenseType($n->getEnumValue(EditionUpgradeLicenseType::class)),
+            'productKey' => fn(ParseNode $n) => $o->setProductKey($n->getStringValue()),
+            'targetEdition' => fn(ParseNode $n) => $o->setTargetEdition($n->getEnumValue(Windows10EditionType::class)),
+            'windowsSMode' => fn(ParseNode $n) => $o->setWindowsSMode($n->getEnumValue(WindowsSModeConfiguration::class)),
         ]);
     }
 

@@ -42,8 +42,8 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
-            'valueState' => function (ParseNode $n) use ($o) { $o->setValueState($n->getEnumValue(DeviceManagementConfigurationSecretSettingValueState::class)); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
+            'valueState' => fn(ParseNode $n) => $o->setValueState($n->getEnumValue(DeviceManagementConfigurationSecretSettingValueState::class)),
         ]);
     }
 

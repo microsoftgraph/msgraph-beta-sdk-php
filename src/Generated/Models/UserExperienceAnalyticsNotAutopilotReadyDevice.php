@@ -117,15 +117,15 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity implements P
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'autoPilotProfileAssigned' => function (ParseNode $n) use ($o) { $o->setAutoPilotProfileAssigned($n->getBooleanValue()); },
-            'autoPilotRegistered' => function (ParseNode $n) use ($o) { $o->setAutoPilotRegistered($n->getBooleanValue()); },
-            'azureAdJoinType' => function (ParseNode $n) use ($o) { $o->setAzureAdJoinType($n->getStringValue()); },
-            'azureAdRegistered' => function (ParseNode $n) use ($o) { $o->setAzureAdRegistered($n->getBooleanValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'managedBy' => function (ParseNode $n) use ($o) { $o->setManagedBy($n->getStringValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
+            'autoPilotProfileAssigned' => fn(ParseNode $n) => $o->setAutoPilotProfileAssigned($n->getBooleanValue()),
+            'autoPilotRegistered' => fn(ParseNode $n) => $o->setAutoPilotRegistered($n->getBooleanValue()),
+            'azureAdJoinType' => fn(ParseNode $n) => $o->setAzureAdJoinType($n->getStringValue()),
+            'azureAdRegistered' => fn(ParseNode $n) => $o->setAzureAdRegistered($n->getBooleanValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getStringValue()),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            'serialNumber' => fn(ParseNode $n) => $o->setSerialNumber($n->getStringValue()),
         ]);
     }
 

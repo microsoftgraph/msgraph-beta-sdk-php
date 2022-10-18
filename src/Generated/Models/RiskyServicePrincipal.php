@@ -114,16 +114,16 @@ class RiskyServicePrincipal extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accountEnabled' => function (ParseNode $n) use ($o) { $o->setAccountEnabled($n->getBooleanValue()); },
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'history' => function (ParseNode $n) use ($o) { $o->setHistory($n->getCollectionOfObjectValues(array(RiskyServicePrincipalHistoryItem::class, 'createFromDiscriminatorValue'))); },
-            'isProcessing' => function (ParseNode $n) use ($o) { $o->setIsProcessing($n->getBooleanValue()); },
-            'riskDetail' => function (ParseNode $n) use ($o) { $o->setRiskDetail($n->getEnumValue(RiskDetail::class)); },
-            'riskLastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setRiskLastUpdatedDateTime($n->getDateTimeValue()); },
-            'riskLevel' => function (ParseNode $n) use ($o) { $o->setRiskLevel($n->getEnumValue(RiskLevel::class)); },
-            'riskState' => function (ParseNode $n) use ($o) { $o->setRiskState($n->getEnumValue(RiskState::class)); },
-            'servicePrincipalType' => function (ParseNode $n) use ($o) { $o->setServicePrincipalType($n->getStringValue()); },
+            'accountEnabled' => fn(ParseNode $n) => $o->setAccountEnabled($n->getBooleanValue()),
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'history' => fn(ParseNode $n) => $o->setHistory($n->getCollectionOfObjectValues([RiskyServicePrincipalHistoryItem::class, 'createFromDiscriminatorValue'])),
+            'isProcessing' => fn(ParseNode $n) => $o->setIsProcessing($n->getBooleanValue()),
+            'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
+            'riskLastUpdatedDateTime' => fn(ParseNode $n) => $o->setRiskLastUpdatedDateTime($n->getDateTimeValue()),
+            'riskLevel' => fn(ParseNode $n) => $o->setRiskLevel($n->getEnumValue(RiskLevel::class)),
+            'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskState::class)),
+            'servicePrincipalType' => fn(ParseNode $n) => $o->setServicePrincipalType($n->getStringValue()),
         ]);
     }
 

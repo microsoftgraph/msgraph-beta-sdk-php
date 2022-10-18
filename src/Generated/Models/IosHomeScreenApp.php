@@ -50,8 +50,8 @@ class IosHomeScreenApp extends IosHomeScreenItem implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bundleID' => function (ParseNode $n) use ($o) { $o->setBundleID($n->getStringValue()); },
-            'isWebClip' => function (ParseNode $n) use ($o) { $o->setIsWebClip($n->getBooleanValue()); },
+            'bundleID' => fn(ParseNode $n) => $o->setBundleID($n->getStringValue()),
+            'isWebClip' => fn(ParseNode $n) => $o->setIsWebClip($n->getBooleanValue()),
         ]);
     }
 

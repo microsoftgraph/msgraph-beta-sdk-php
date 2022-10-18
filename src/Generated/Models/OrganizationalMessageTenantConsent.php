@@ -56,8 +56,8 @@ class OrganizationalMessageTenantConsent implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'firstPartyMessageAllowed' => function (ParseNode $n) use ($o) { $o->setFirstPartyMessageAllowed($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'firstPartyMessageAllowed' => fn(ParseNode $n) => $o->setFirstPartyMessageAllowed($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

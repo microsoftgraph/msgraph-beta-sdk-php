@@ -42,8 +42,8 @@ class EducationSynchronizationOAuth2ClientCredentialsConnectionSettings extends 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getStringValue()); },
-            'tokenUrl' => function (ParseNode $n) use ($o) { $o->setTokenUrl($n->getStringValue()); },
+            'scope' => fn(ParseNode $n) => $o->setScope($n->getStringValue()),
+            'tokenUrl' => fn(ParseNode $n) => $o->setTokenUrl($n->getStringValue()),
         ]);
     }
 

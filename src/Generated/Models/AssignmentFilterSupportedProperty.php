@@ -89,13 +89,13 @@ class AssignmentFilterSupportedProperty implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dataType' => function (ParseNode $n) use ($o) { $o->setDataType($n->getStringValue()); },
-            'isCollection' => function (ParseNode $n) use ($o) { $o->setIsCollection($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'propertyRegexConstraint' => function (ParseNode $n) use ($o) { $o->setPropertyRegexConstraint($n->getStringValue()); },
-            'supportedOperators' => function (ParseNode $n) use ($o) { $o->setSupportedOperators($n->getCollectionOfEnumValues(AssignmentFilterOperator::class)); },
-            'supportedValues' => function (ParseNode $n) use ($o) { $o->setSupportedValues($n->getCollectionOfPrimitiveValues()); },
+            'dataType' => fn(ParseNode $n) => $o->setDataType($n->getStringValue()),
+            'isCollection' => fn(ParseNode $n) => $o->setIsCollection($n->getBooleanValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'propertyRegexConstraint' => fn(ParseNode $n) => $o->setPropertyRegexConstraint($n->getStringValue()),
+            'supportedOperators' => fn(ParseNode $n) => $o->setSupportedOperators($n->getCollectionOfEnumValues(AssignmentFilterOperator::class)),
+            'supportedValues' => fn(ParseNode $n) => $o->setSupportedValues($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

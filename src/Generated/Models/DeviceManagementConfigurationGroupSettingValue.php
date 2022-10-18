@@ -14,7 +14,7 @@ class DeviceManagementConfigurationGroupSettingValue extends DeviceManagementCon
     private ?array $children = null;
     
     /**
-     * Instantiates a new DeviceManagementConfigurationGroupSettingValue and sets the default values.
+     * Instantiates a new deviceManagementConfigurationGroupSettingValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,7 +45,7 @@ class DeviceManagementConfigurationGroupSettingValue extends DeviceManagementCon
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'children' => function (ParseNode $n) use ($o) { $o->setChildren($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingInstance::class, 'createFromDiscriminatorValue'))); },
+            'children' => fn(ParseNode $n) => $o->setChildren($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingInstance::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

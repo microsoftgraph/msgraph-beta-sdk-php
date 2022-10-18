@@ -65,8 +65,8 @@ class UploadNewVersionPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'groupPolicyUploadedLanguageFiles' => function (ParseNode $n) use ($o) { $o->setGroupPolicyUploadedLanguageFiles($n->getCollectionOfObjectValues(array(GroupPolicyUploadedLanguageFile::class, 'createFromDiscriminatorValue'))); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
+            'groupPolicyUploadedLanguageFiles' => fn(ParseNode $n) => $o->setGroupPolicyUploadedLanguageFiles($n->getCollectionOfObjectValues([GroupPolicyUploadedLanguageFile::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

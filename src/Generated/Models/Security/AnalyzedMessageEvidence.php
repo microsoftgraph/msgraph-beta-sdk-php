@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AnalyzedMessageEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $antiSpamDirection Direction of the email relative to your network. The possible values are: Inbound, Outbound or Intraorg.
+     * @var string|null $antiSpamDirection Direction of the email relative to your network. The possible values are: inbound, outbound or intraorg.
     */
     private ?string $antiSpamDirection = null;
     
@@ -20,12 +20,12 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
     private ?int $attachmentsCount = null;
     
     /**
-     * @var string|null $deliveryAction Delivery action of the email. The possible values are: Delivered, DeliveredAsSpam, Junked, Blocked, or Replaced.
+     * @var string|null $deliveryAction Delivery action of the email. The possible values are: delivered, deliveredAsSpam, junked, blocked, or replaced.
     */
     private ?string $deliveryAction = null;
     
     /**
-     * @var string|null $deliveryLocation Location where the email was delivered. The possible values are: Inbox, External, JunkFolder, Quarantine, Failed, Dropped, DeletedFolder or Forwarded.
+     * @var string|null $deliveryLocation Location where the email was delivered. The possible values are: inbox, external, junkFolder, quarantine, failed, dropped, deletedFolder or forwarded.
     */
     private ?string $deliveryLocation = null;
     
@@ -117,7 +117,7 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the antiSpamDirection property value. Direction of the email relative to your network. The possible values are: Inbound, Outbound or Intraorg.
+     * Gets the antiSpamDirection property value. Direction of the email relative to your network. The possible values are: inbound, outbound or intraorg.
      * @return string|null
     */
     public function getAntiSpamDirection(): ?string {
@@ -133,7 +133,7 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the deliveryAction property value. Delivery action of the email. The possible values are: Delivered, DeliveredAsSpam, Junked, Blocked, or Replaced.
+     * Gets the deliveryAction property value. Delivery action of the email. The possible values are: delivered, deliveredAsSpam, junked, blocked, or replaced.
      * @return string|null
     */
     public function getDeliveryAction(): ?string {
@@ -141,7 +141,7 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Gets the deliveryLocation property value. Location where the email was delivered. The possible values are: Inbox, External, JunkFolder, Quarantine, Failed, Dropped, DeletedFolder or Forwarded.
+     * Gets the deliveryLocation property value. Location where the email was delivered. The possible values are: inbox, external, junkFolder, quarantine, failed, dropped, deletedFolder or forwarded.
      * @return string|null
     */
     public function getDeliveryLocation(): ?string {
@@ -155,24 +155,24 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'antiSpamDirection' => function (ParseNode $n) use ($o) { $o->setAntiSpamDirection($n->getStringValue()); },
-            'attachmentsCount' => function (ParseNode $n) use ($o) { $o->setAttachmentsCount($n->getIntegerValue()); },
-            'deliveryAction' => function (ParseNode $n) use ($o) { $o->setDeliveryAction($n->getStringValue()); },
-            'deliveryLocation' => function (ParseNode $n) use ($o) { $o->setDeliveryLocation($n->getStringValue()); },
-            'internetMessageId' => function (ParseNode $n) use ($o) { $o->setInternetMessageId($n->getStringValue()); },
-            'language' => function (ParseNode $n) use ($o) { $o->setLanguage($n->getStringValue()); },
-            'networkMessageId' => function (ParseNode $n) use ($o) { $o->setNetworkMessageId($n->getStringValue()); },
-            'p1Sender' => function (ParseNode $n) use ($o) { $o->setP1Sender($n->getObjectValue(array(EmailSender::class, 'createFromDiscriminatorValue'))); },
-            'p2Sender' => function (ParseNode $n) use ($o) { $o->setP2Sender($n->getObjectValue(array(EmailSender::class, 'createFromDiscriminatorValue'))); },
-            'receivedDateTime' => function (ParseNode $n) use ($o) { $o->setReceivedDateTime($n->getDateTimeValue()); },
-            'recipientEmailAddress' => function (ParseNode $n) use ($o) { $o->setRecipientEmailAddress($n->getStringValue()); },
-            'senderIp' => function (ParseNode $n) use ($o) { $o->setSenderIp($n->getStringValue()); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
-            'threatDetectionMethods' => function (ParseNode $n) use ($o) { $o->setThreatDetectionMethods($n->getCollectionOfPrimitiveValues()); },
-            'threats' => function (ParseNode $n) use ($o) { $o->setThreats($n->getCollectionOfPrimitiveValues()); },
-            'urlCount' => function (ParseNode $n) use ($o) { $o->setUrlCount($n->getIntegerValue()); },
-            'urls' => function (ParseNode $n) use ($o) { $o->setUrls($n->getCollectionOfPrimitiveValues()); },
-            'urn' => function (ParseNode $n) use ($o) { $o->setUrn($n->getStringValue()); },
+            'antiSpamDirection' => fn(ParseNode $n) => $o->setAntiSpamDirection($n->getStringValue()),
+            'attachmentsCount' => fn(ParseNode $n) => $o->setAttachmentsCount($n->getIntegerValue()),
+            'deliveryAction' => fn(ParseNode $n) => $o->setDeliveryAction($n->getStringValue()),
+            'deliveryLocation' => fn(ParseNode $n) => $o->setDeliveryLocation($n->getStringValue()),
+            'internetMessageId' => fn(ParseNode $n) => $o->setInternetMessageId($n->getStringValue()),
+            'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
+            'networkMessageId' => fn(ParseNode $n) => $o->setNetworkMessageId($n->getStringValue()),
+            'p1Sender' => fn(ParseNode $n) => $o->setP1Sender($n->getObjectValue([EmailSender::class, 'createFromDiscriminatorValue'])),
+            'p2Sender' => fn(ParseNode $n) => $o->setP2Sender($n->getObjectValue([EmailSender::class, 'createFromDiscriminatorValue'])),
+            'receivedDateTime' => fn(ParseNode $n) => $o->setReceivedDateTime($n->getDateTimeValue()),
+            'recipientEmailAddress' => fn(ParseNode $n) => $o->setRecipientEmailAddress($n->getStringValue()),
+            'senderIp' => fn(ParseNode $n) => $o->setSenderIp($n->getStringValue()),
+            'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
+            'threatDetectionMethods' => fn(ParseNode $n) => $o->setThreatDetectionMethods($n->getCollectionOfPrimitiveValues()),
+            'threats' => fn(ParseNode $n) => $o->setThreats($n->getCollectionOfPrimitiveValues()),
+            'urlCount' => fn(ParseNode $n) => $o->setUrlCount($n->getIntegerValue()),
+            'urls' => fn(ParseNode $n) => $o->setUrls($n->getCollectionOfPrimitiveValues()),
+            'urn' => fn(ParseNode $n) => $o->setUrn($n->getStringValue()),
         ]);
     }
 
@@ -315,7 +315,7 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the antiSpamDirection property value. Direction of the email relative to your network. The possible values are: Inbound, Outbound or Intraorg.
+     * Sets the antiSpamDirection property value. Direction of the email relative to your network. The possible values are: inbound, outbound or intraorg.
      *  @param string|null $value Value to set for the antiSpamDirection property.
     */
     public function setAntiSpamDirection(?string $value ): void {
@@ -331,7 +331,7 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the deliveryAction property value. Delivery action of the email. The possible values are: Delivered, DeliveredAsSpam, Junked, Blocked, or Replaced.
+     * Sets the deliveryAction property value. Delivery action of the email. The possible values are: delivered, deliveredAsSpam, junked, blocked, or replaced.
      *  @param string|null $value Value to set for the deliveryAction property.
     */
     public function setDeliveryAction(?string $value ): void {
@@ -339,7 +339,7 @@ class AnalyzedMessageEvidence extends AlertEvidence implements Parsable
     }
 
     /**
-     * Sets the deliveryLocation property value. Location where the email was delivered. The possible values are: Inbox, External, JunkFolder, Quarantine, Failed, Dropped, DeletedFolder or Forwarded.
+     * Sets the deliveryLocation property value. Location where the email was delivered. The possible values are: inbox, external, junkFolder, quarantine, failed, dropped, deletedFolder or forwarded.
      *  @param string|null $value Value to set for the deliveryLocation property.
     */
     public function setDeliveryLocation(?string $value ): void {

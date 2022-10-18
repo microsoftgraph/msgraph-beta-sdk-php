@@ -63,9 +63,9 @@ class ProtectGroup extends LabelActionBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowEmailFromGuestUsers' => function (ParseNode $n) use ($o) { $o->setAllowEmailFromGuestUsers($n->getBooleanValue()); },
-            'allowGuestUsers' => function (ParseNode $n) use ($o) { $o->setAllowGuestUsers($n->getBooleanValue()); },
-            'privacy' => function (ParseNode $n) use ($o) { $o->setPrivacy($n->getEnumValue(GroupPrivacy::class)); },
+            'allowEmailFromGuestUsers' => fn(ParseNode $n) => $o->setAllowEmailFromGuestUsers($n->getBooleanValue()),
+            'allowGuestUsers' => fn(ParseNode $n) => $o->setAllowGuestUsers($n->getBooleanValue()),
+            'privacy' => fn(ParseNode $n) => $o->setPrivacy($n->getEnumValue(GroupPrivacy::class)),
         ]);
     }
 

@@ -37,7 +37,7 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'win32App' => function (ParseNode $n) use ($o) { $o->setWin32App($n->getObjectValue(array(WindowsKioskWin32App::class, 'createFromDiscriminatorValue'))); },
+            'win32App' => fn(ParseNode $n) => $o->setWin32App($n->getObjectValue([WindowsKioskWin32App::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

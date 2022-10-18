@@ -45,7 +45,7 @@ class DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate ex
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'constantValue' => function (ParseNode $n) use ($o) { $o->setConstantValue($n->getIntegerValue()); },
+            'constantValue' => fn(ParseNode $n) => $o->setConstantValue($n->getIntegerValue()),
         ]);
     }
 

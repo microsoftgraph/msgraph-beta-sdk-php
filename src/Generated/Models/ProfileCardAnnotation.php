@@ -69,9 +69,9 @@ class ProfileCardAnnotation implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'localizations' => function (ParseNode $n) use ($o) { $o->setLocalizations($n->getCollectionOfObjectValues(array(DisplayNameLocalization::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'localizations' => fn(ParseNode $n) => $o->setLocalizations($n->getCollectionOfObjectValues([DisplayNameLocalization::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

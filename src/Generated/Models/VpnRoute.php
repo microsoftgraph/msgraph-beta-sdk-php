@@ -69,9 +69,9 @@ class VpnRoute implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'destinationPrefix' => function (ParseNode $n) use ($o) { $o->setDestinationPrefix($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'prefixSize' => function (ParseNode $n) use ($o) { $o->setPrefixSize($n->getIntegerValue()); },
+            'destinationPrefix' => fn(ParseNode $n) => $o->setDestinationPrefix($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'prefixSize' => fn(ParseNode $n) => $o->setPrefixSize($n->getIntegerValue()),
         ];
     }
 

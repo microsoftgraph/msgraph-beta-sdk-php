@@ -65,11 +65,11 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'helpUrl' => function (ParseNode $n) use ($o) { $o->setHelpUrl($n->getStringValue()); },
-            'issuer' => function (ParseNode $n) use ($o) { $o->setIssuer($n->getEnumValue(DeviceManagementDerivedCredentialIssuer::class)); },
-            'notificationType' => function (ParseNode $n) use ($o) { $o->setNotificationType($n->getEnumValue(DeviceManagementDerivedCredentialNotificationType::class)); },
-            'renewalThresholdPercentage' => function (ParseNode $n) use ($o) { $o->setRenewalThresholdPercentage($n->getIntegerValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'helpUrl' => fn(ParseNode $n) => $o->setHelpUrl($n->getStringValue()),
+            'issuer' => fn(ParseNode $n) => $o->setIssuer($n->getEnumValue(DeviceManagementDerivedCredentialIssuer::class)),
+            'notificationType' => fn(ParseNode $n) => $o->setNotificationType($n->getEnumValue(DeviceManagementDerivedCredentialNotificationType::class)),
+            'renewalThresholdPercentage' => fn(ParseNode $n) => $o->setRenewalThresholdPercentage($n->getIntegerValue()),
         ]);
     }
 

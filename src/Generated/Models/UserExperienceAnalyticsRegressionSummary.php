@@ -47,9 +47,9 @@ class UserExperienceAnalyticsRegressionSummary extends Entity implements Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'manufacturerRegression' => function (ParseNode $n) use ($o) { $o->setManufacturerRegression($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'))); },
-            'modelRegression' => function (ParseNode $n) use ($o) { $o->setModelRegression($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'))); },
-            'operatingSystemRegression' => function (ParseNode $n) use ($o) { $o->setOperatingSystemRegression($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'))); },
+            'manufacturerRegression' => fn(ParseNode $n) => $o->setManufacturerRegression($n->getCollectionOfObjectValues([UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'])),
+            'modelRegression' => fn(ParseNode $n) => $o->setModelRegression($n->getCollectionOfObjectValues([UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'])),
+            'operatingSystemRegression' => fn(ParseNode $n) => $o->setOperatingSystemRegression($n->getCollectionOfObjectValues([UserExperienceAnalyticsMetric::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

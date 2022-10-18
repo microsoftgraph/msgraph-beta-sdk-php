@@ -108,15 +108,15 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
-            'installState' => function (ParseNode $n) use ($o) { $o->setInstallState($n->getEnumValue(ResultantAppState::class)); },
-            'installStateDetail' => function (ParseNode $n) use ($o) { $o->setInstallStateDetail($n->getEnumValue(ResultantAppStateDetail::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'sourceIds' => function (ParseNode $n) use ($o) { $o->setSourceIds($n->getCollectionOfPrimitiveValues()); },
-            'targetDisplayName' => function (ParseNode $n) use ($o) { $o->setTargetDisplayName($n->getStringValue()); },
-            'targetId' => function (ParseNode $n) use ($o) { $o->setTargetId($n->getStringValue()); },
-            'targetLastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setTargetLastSyncDateTime($n->getDateTimeValue()); },
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
+            'installState' => fn(ParseNode $n) => $o->setInstallState($n->getEnumValue(ResultantAppState::class)),
+            'installStateDetail' => fn(ParseNode $n) => $o->setInstallStateDetail($n->getEnumValue(ResultantAppStateDetail::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'sourceIds' => fn(ParseNode $n) => $o->setSourceIds($n->getCollectionOfPrimitiveValues()),
+            'targetDisplayName' => fn(ParseNode $n) => $o->setTargetDisplayName($n->getStringValue()),
+            'targetId' => fn(ParseNode $n) => $o->setTargetId($n->getStringValue()),
+            'targetLastSyncDateTime' => fn(ParseNode $n) => $o->setTargetLastSyncDateTime($n->getDateTimeValue()),
         ];
     }
 

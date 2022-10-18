@@ -37,7 +37,7 @@ class EducationIdentityCreationConfiguration extends EducationIdentitySynchroniz
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userDomains' => function (ParseNode $n) use ($o) { $o->setUserDomains($n->getCollectionOfObjectValues(array(EducationIdentityDomain::class, 'createFromDiscriminatorValue'))); },
+            'userDomains' => fn(ParseNode $n) => $o->setUserDomains($n->getCollectionOfObjectValues([EducationIdentityDomain::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -37,7 +37,7 @@ class UnmanagedDeviceDiscoveryTask extends DeviceAppManagementTask implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'unmanagedDevices' => function (ParseNode $n) use ($o) { $o->setUnmanagedDevices($n->getCollectionOfObjectValues(array(UnmanagedDevice::class, 'createFromDiscriminatorValue'))); },
+            'unmanagedDevices' => fn(ParseNode $n) => $o->setUnmanagedDevices($n->getCollectionOfObjectValues([UnmanagedDevice::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

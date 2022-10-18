@@ -86,12 +86,12 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'connectionSettings' => function (ParseNode $n) use ($o) { $o->setConnectionSettings($n->getObjectValue(array(EducationSynchronizationConnectionSettings::class, 'createFromDiscriminatorValue'))); },
-            'connectionUrl' => function (ParseNode $n) use ($o) { $o->setConnectionUrl($n->getStringValue()); },
-            'customizations' => function (ParseNode $n) use ($o) { $o->setCustomizations($n->getObjectValue(array(EducationSynchronizationCustomizations::class, 'createFromDiscriminatorValue'))); },
-            'providerName' => function (ParseNode $n) use ($o) { $o->setProviderName($n->getStringValue()); },
-            'schoolsIds' => function (ParseNode $n) use ($o) { $o->setSchoolsIds($n->getCollectionOfPrimitiveValues()); },
-            'termIds' => function (ParseNode $n) use ($o) { $o->setTermIds($n->getCollectionOfPrimitiveValues()); },
+            'connectionSettings' => fn(ParseNode $n) => $o->setConnectionSettings($n->getObjectValue([EducationSynchronizationConnectionSettings::class, 'createFromDiscriminatorValue'])),
+            'connectionUrl' => fn(ParseNode $n) => $o->setConnectionUrl($n->getStringValue()),
+            'customizations' => fn(ParseNode $n) => $o->setCustomizations($n->getObjectValue([EducationSynchronizationCustomizations::class, 'createFromDiscriminatorValue'])),
+            'providerName' => fn(ParseNode $n) => $o->setProviderName($n->getStringValue()),
+            'schoolsIds' => fn(ParseNode $n) => $o->setSchoolsIds($n->getCollectionOfPrimitiveValues()),
+            'termIds' => fn(ParseNode $n) => $o->setTermIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

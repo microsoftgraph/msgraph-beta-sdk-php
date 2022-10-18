@@ -71,11 +71,11 @@ class IdentityProtectionRoot implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'riskDetections' => function (ParseNode $n) use ($o) { $o->setRiskDetections($n->getCollectionOfObjectValues(array(RiskDetection::class, 'createFromDiscriminatorValue'))); },
-            'riskyServicePrincipals' => function (ParseNode $n) use ($o) { $o->setRiskyServicePrincipals($n->getCollectionOfObjectValues(array(RiskyServicePrincipal::class, 'createFromDiscriminatorValue'))); },
-            'riskyUsers' => function (ParseNode $n) use ($o) { $o->setRiskyUsers($n->getCollectionOfObjectValues(array(RiskyUser::class, 'createFromDiscriminatorValue'))); },
-            'servicePrincipalRiskDetections' => function (ParseNode $n) use ($o) { $o->setServicePrincipalRiskDetections($n->getCollectionOfObjectValues(array(ServicePrincipalRiskDetection::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'riskDetections' => fn(ParseNode $n) => $o->setRiskDetections($n->getCollectionOfObjectValues([RiskDetection::class, 'createFromDiscriminatorValue'])),
+            'riskyServicePrincipals' => fn(ParseNode $n) => $o->setRiskyServicePrincipals($n->getCollectionOfObjectValues([RiskyServicePrincipal::class, 'createFromDiscriminatorValue'])),
+            'riskyUsers' => fn(ParseNode $n) => $o->setRiskyUsers($n->getCollectionOfObjectValues([RiskyUser::class, 'createFromDiscriminatorValue'])),
+            'servicePrincipalRiskDetections' => fn(ParseNode $n) => $o->setServicePrincipalRiskDetections($n->getCollectionOfObjectValues([ServicePrincipalRiskDetection::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

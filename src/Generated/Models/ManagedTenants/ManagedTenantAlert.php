@@ -106,7 +106,7 @@ class ManagedTenantAlert extends Entity implements Parsable
     private ?string $title = null;
     
     /**
-     * Instantiates a new ManagedTenantAlert and sets the default values.
+     * Instantiates a new managedTenantAlert and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -225,25 +225,25 @@ class ManagedTenantAlert extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alertData' => function (ParseNode $n) use ($o) { $o->setAlertData($n->getObjectValue(array(AlertData::class, 'createFromDiscriminatorValue'))); },
-            'alertDataReferenceStrings' => function (ParseNode $n) use ($o) { $o->setAlertDataReferenceStrings($n->getCollectionOfObjectValues(array(AlertDataReferenceString::class, 'createFromDiscriminatorValue'))); },
-            'alertLogs' => function (ParseNode $n) use ($o) { $o->setAlertLogs($n->getCollectionOfObjectValues(array(ManagedTenantAlertLog::class, 'createFromDiscriminatorValue'))); },
-            'alertRule' => function (ParseNode $n) use ($o) { $o->setAlertRule($n->getObjectValue(array(ManagedTenantAlertRule::class, 'createFromDiscriminatorValue'))); },
-            'alertRuleDisplayName' => function (ParseNode $n) use ($o) { $o->setAlertRuleDisplayName($n->getStringValue()); },
-            'apiNotifications' => function (ParseNode $n) use ($o) { $o->setApiNotifications($n->getCollectionOfObjectValues(array(ManagedTenantApiNotification::class, 'createFromDiscriminatorValue'))); },
-            'assignedToUserId' => function (ParseNode $n) use ($o) { $o->setAssignedToUserId($n->getStringValue()); },
-            'correlationCount' => function (ParseNode $n) use ($o) { $o->setCorrelationCount($n->getIntegerValue()); },
-            'correlationId' => function (ParseNode $n) use ($o) { $o->setCorrelationId($n->getStringValue()); },
-            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'emailNotifications' => function (ParseNode $n) use ($o) { $o->setEmailNotifications($n->getCollectionOfObjectValues(array(ManagedTenantEmailNotification::class, 'createFromDiscriminatorValue'))); },
-            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
-            'severity' => function (ParseNode $n) use ($o) { $o->setSeverity($n->getEnumValue(AlertSeverity::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(AlertStatus::class)); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
+            'alertData' => fn(ParseNode $n) => $o->setAlertData($n->getObjectValue([AlertData::class, 'createFromDiscriminatorValue'])),
+            'alertDataReferenceStrings' => fn(ParseNode $n) => $o->setAlertDataReferenceStrings($n->getCollectionOfObjectValues([AlertDataReferenceString::class, 'createFromDiscriminatorValue'])),
+            'alertLogs' => fn(ParseNode $n) => $o->setAlertLogs($n->getCollectionOfObjectValues([ManagedTenantAlertLog::class, 'createFromDiscriminatorValue'])),
+            'alertRule' => fn(ParseNode $n) => $o->setAlertRule($n->getObjectValue([ManagedTenantAlertRule::class, 'createFromDiscriminatorValue'])),
+            'alertRuleDisplayName' => fn(ParseNode $n) => $o->setAlertRuleDisplayName($n->getStringValue()),
+            'apiNotifications' => fn(ParseNode $n) => $o->setApiNotifications($n->getCollectionOfObjectValues([ManagedTenantApiNotification::class, 'createFromDiscriminatorValue'])),
+            'assignedToUserId' => fn(ParseNode $n) => $o->setAssignedToUserId($n->getStringValue()),
+            'correlationCount' => fn(ParseNode $n) => $o->setCorrelationCount($n->getIntegerValue()),
+            'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
+            'createdByUserId' => fn(ParseNode $n) => $o->setCreatedByUserId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'emailNotifications' => fn(ParseNode $n) => $o->setEmailNotifications($n->getCollectionOfObjectValues([ManagedTenantEmailNotification::class, 'createFromDiscriminatorValue'])),
+            'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
+            'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
+            'message' => fn(ParseNode $n) => $o->setMessage($n->getStringValue()),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AlertStatus::class)),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
     }
 

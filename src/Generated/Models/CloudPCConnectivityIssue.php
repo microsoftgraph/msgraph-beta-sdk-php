@@ -40,7 +40,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
     private ?string $userId = null;
     
     /**
-     * Instantiates a new CloudPCConnectivityIssue and sets the default values.
+     * Instantiates a new cloudPCConnectivityIssue and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -95,12 +95,12 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getStringValue()); },
-            'errorDateTime' => function (ParseNode $n) use ($o) { $o->setErrorDateTime($n->getDateTimeValue()); },
-            'errorDescription' => function (ParseNode $n) use ($o) { $o->setErrorDescription($n->getStringValue()); },
-            'recommendedAction' => function (ParseNode $n) use ($o) { $o->setRecommendedAction($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getStringValue()),
+            'errorDateTime' => fn(ParseNode $n) => $o->setErrorDateTime($n->getDateTimeValue()),
+            'errorDescription' => fn(ParseNode $n) => $o->setErrorDescription($n->getStringValue()),
+            'recommendedAction' => fn(ParseNode $n) => $o->setRecommendedAction($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 

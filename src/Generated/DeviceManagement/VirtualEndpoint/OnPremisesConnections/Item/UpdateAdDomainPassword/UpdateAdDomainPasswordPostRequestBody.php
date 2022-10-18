@@ -58,7 +58,7 @@ class UpdateAdDomainPasswordPostRequestBody implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'adDomainPassword' => function (ParseNode $n) use ($o) { $o->setAdDomainPassword($n->getStringValue()); },
+            'adDomainPassword' => fn(ParseNode $n) => $o->setAdDomainPassword($n->getStringValue()),
         ];
     }
 

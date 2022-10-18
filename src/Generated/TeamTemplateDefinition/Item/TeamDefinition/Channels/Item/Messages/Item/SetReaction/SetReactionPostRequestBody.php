@@ -50,7 +50,7 @@ class SetReactionPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'reactionType' => function (ParseNode $n) use ($o) { $o->setReactionType($n->getStringValue()); },
+            'reactionType' => fn(ParseNode $n) => $o->setReactionType($n->getStringValue()),
         ];
     }
 

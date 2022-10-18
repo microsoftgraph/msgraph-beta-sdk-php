@@ -93,12 +93,12 @@ class WindowsKioskForceUpdateSchedule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dayofMonth' => function (ParseNode $n) use ($o) { $o->setDayofMonth($n->getIntegerValue()); },
-            'dayofWeek' => function (ParseNode $n) use ($o) { $o->setDayofWeek($n->getEnumValue(DayOfWeek::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recurrence' => function (ParseNode $n) use ($o) { $o->setRecurrence($n->getEnumValue(Windows10AppsUpdateRecurrence::class)); },
-            'runImmediatelyIfAfterStartDateTime' => function (ParseNode $n) use ($o) { $o->setRunImmediatelyIfAfterStartDateTime($n->getBooleanValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'dayofMonth' => fn(ParseNode $n) => $o->setDayofMonth($n->getIntegerValue()),
+            'dayofWeek' => fn(ParseNode $n) => $o->setDayofWeek($n->getEnumValue(DayOfWeek::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recurrence' => fn(ParseNode $n) => $o->setRecurrence($n->getEnumValue(Windows10AppsUpdateRecurrence::class)),
+            'runImmediatelyIfAfterStartDateTime' => fn(ParseNode $n) => $o->setRunImmediatelyIfAfterStartDateTime($n->getBooleanValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
         ];
     }
 

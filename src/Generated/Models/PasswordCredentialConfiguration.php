@@ -68,10 +68,10 @@ class PasswordCredentialConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'maxLifetime' => function (ParseNode $n) use ($o) { $o->setMaxLifetime($n->getDateIntervalValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'restrictForAppsCreatedAfterDateTime' => function (ParseNode $n) use ($o) { $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()); },
-            'restrictionType' => function (ParseNode $n) use ($o) { $o->setRestrictionType($n->getEnumValue(AppCredentialRestrictionType::class)); },
+            'maxLifetime' => fn(ParseNode $n) => $o->setMaxLifetime($n->getDateIntervalValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'restrictForAppsCreatedAfterDateTime' => fn(ParseNode $n) => $o->setRestrictForAppsCreatedAfterDateTime($n->getDateTimeValue()),
+            'restrictionType' => fn(ParseNode $n) => $o->setRestrictionType($n->getEnumValue(AppCredentialRestrictionType::class)),
         ];
     }
 

@@ -104,7 +104,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     private ?string $userName = null;
     
     /**
-     * Instantiates a new ComanagementEligibleDevice and sets the default values.
+     * Instantiates a new comanagementEligibleDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -159,25 +159,25 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'clientRegistrationStatus' => function (ParseNode $n) use ($o) { $o->setClientRegistrationStatus($n->getEnumValue(DeviceRegistrationState::class)); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getEnumValue(DeviceType::class)); },
-            'entitySource' => function (ParseNode $n) use ($o) { $o->setEntitySource($n->getIntegerValue()); },
-            'managementAgents' => function (ParseNode $n) use ($o) { $o->setManagementAgents($n->getEnumValue(ManagementAgentType::class)); },
-            'managementState' => function (ParseNode $n) use ($o) { $o->setManagementState($n->getEnumValue(ManagementState::class)); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'mdmStatus' => function (ParseNode $n) use ($o) { $o->setMdmStatus($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'osDescription' => function (ParseNode $n) use ($o) { $o->setOsDescription($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getEnumValue(OwnerType::class)); },
-            'referenceId' => function (ParseNode $n) use ($o) { $o->setReferenceId($n->getStringValue()); },
-            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ComanagementEligibleType::class)); },
-            'upn' => function (ParseNode $n) use ($o) { $o->setUpn($n->getStringValue()); },
-            'userEmail' => function (ParseNode $n) use ($o) { $o->setUserEmail($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'clientRegistrationStatus' => fn(ParseNode $n) => $o->setClientRegistrationStatus($n->getEnumValue(DeviceRegistrationState::class)),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'deviceType' => fn(ParseNode $n) => $o->setDeviceType($n->getEnumValue(DeviceType::class)),
+            'entitySource' => fn(ParseNode $n) => $o->setEntitySource($n->getIntegerValue()),
+            'managementAgents' => fn(ParseNode $n) => $o->setManagementAgents($n->getEnumValue(ManagementAgentType::class)),
+            'managementState' => fn(ParseNode $n) => $o->setManagementState($n->getEnumValue(ManagementState::class)),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'mdmStatus' => fn(ParseNode $n) => $o->setMdmStatus($n->getStringValue()),
+            'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            'osDescription' => fn(ParseNode $n) => $o->setOsDescription($n->getStringValue()),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
+            'ownerType' => fn(ParseNode $n) => $o->setOwnerType($n->getEnumValue(OwnerType::class)),
+            'referenceId' => fn(ParseNode $n) => $o->setReferenceId($n->getStringValue()),
+            'serialNumber' => fn(ParseNode $n) => $o->setSerialNumber($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ComanagementEligibleType::class)),
+            'upn' => fn(ParseNode $n) => $o->setUpn($n->getStringValue()),
+            'userEmail' => fn(ParseNode $n) => $o->setUserEmail($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
         ]);
     }
 

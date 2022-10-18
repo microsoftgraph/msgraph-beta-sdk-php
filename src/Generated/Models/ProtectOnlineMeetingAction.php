@@ -73,11 +73,11 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedForwarders' => function (ParseNode $n) use ($o) { $o->setAllowedForwarders($n->getEnumValue(OnlineMeetingForwarders::class)); },
-            'allowedPresenters' => function (ParseNode $n) use ($o) { $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)); },
-            'isCopyToClipboardEnabled' => function (ParseNode $n) use ($o) { $o->setIsCopyToClipboardEnabled($n->getBooleanValue()); },
-            'isLobbyEnabled' => function (ParseNode $n) use ($o) { $o->setIsLobbyEnabled($n->getBooleanValue()); },
-            'lobbyBypassSettings' => function (ParseNode $n) use ($o) { $o->setLobbyBypassSettings($n->getObjectValue(array(LobbyBypassSettings::class, 'createFromDiscriminatorValue'))); },
+            'allowedForwarders' => fn(ParseNode $n) => $o->setAllowedForwarders($n->getEnumValue(OnlineMeetingForwarders::class)),
+            'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)),
+            'isCopyToClipboardEnabled' => fn(ParseNode $n) => $o->setIsCopyToClipboardEnabled($n->getBooleanValue()),
+            'isLobbyEnabled' => fn(ParseNode $n) => $o->setIsLobbyEnabled($n->getBooleanValue()),
+            'lobbyBypassSettings' => fn(ParseNode $n) => $o->setLobbyBypassSettings($n->getObjectValue([LobbyBypassSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

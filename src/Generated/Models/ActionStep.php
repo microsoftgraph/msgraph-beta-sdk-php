@@ -74,10 +74,10 @@ class ActionStep implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'actionUrl' => function (ParseNode $n) use ($o) { $o->setActionUrl($n->getObjectValue(array(ActionUrl::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'stepNumber' => function (ParseNode $n) use ($o) { $o->setStepNumber($n->getIntegerValue()); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
+            'actionUrl' => fn(ParseNode $n) => $o->setActionUrl($n->getObjectValue([ActionUrl::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'stepNumber' => fn(ParseNode $n) => $o->setStepNumber($n->getIntegerValue()),
+            'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
         ];
     }
 

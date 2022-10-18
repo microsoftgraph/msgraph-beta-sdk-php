@@ -82,11 +82,11 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessRules' => function (ParseNode $n) use ($o) { $o->setAccessRules($n->getCollectionOfObjectValues(array(DeviceManagementExchangeAccessRule::class, 'createFromDiscriminatorValue'))); },
-            'conditionalAccessSettings' => function (ParseNode $n) use ($o) { $o->setConditionalAccessSettings($n->getObjectValue(array(OnPremisesConditionalAccessSettings::class, 'createFromDiscriminatorValue'))); },
-            'defaultAccessLevel' => function (ParseNode $n) use ($o) { $o->setDefaultAccessLevel($n->getEnumValue(DeviceManagementExchangeAccessLevel::class)); },
-            'knownDeviceClasses' => function (ParseNode $n) use ($o) { $o->setKnownDeviceClasses($n->getCollectionOfObjectValues(array(DeviceManagementExchangeDeviceClass::class, 'createFromDiscriminatorValue'))); },
-            'notificationContent' => function (ParseNode $n) use ($o) { $o->setNotificationContent($n->getBinaryContent()); },
+            'accessRules' => fn(ParseNode $n) => $o->setAccessRules($n->getCollectionOfObjectValues([DeviceManagementExchangeAccessRule::class, 'createFromDiscriminatorValue'])),
+            'conditionalAccessSettings' => fn(ParseNode $n) => $o->setConditionalAccessSettings($n->getObjectValue([OnPremisesConditionalAccessSettings::class, 'createFromDiscriminatorValue'])),
+            'defaultAccessLevel' => fn(ParseNode $n) => $o->setDefaultAccessLevel($n->getEnumValue(DeviceManagementExchangeAccessLevel::class)),
+            'knownDeviceClasses' => fn(ParseNode $n) => $o->setKnownDeviceClasses($n->getCollectionOfObjectValues([DeviceManagementExchangeDeviceClass::class, 'createFromDiscriminatorValue'])),
+            'notificationContent' => fn(ParseNode $n) => $o->setNotificationContent($n->getBinaryContent()),
         ]);
     }
 

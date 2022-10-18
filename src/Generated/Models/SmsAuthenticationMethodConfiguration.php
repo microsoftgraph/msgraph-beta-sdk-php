@@ -37,7 +37,7 @@ class SmsAuthenticationMethodConfiguration extends AuthenticationMethodConfigura
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'includeTargets' => function (ParseNode $n) use ($o) { $o->setIncludeTargets($n->getCollectionOfObjectValues(array(SmsAuthenticationMethodTarget::class, 'createFromDiscriminatorValue'))); },
+            'includeTargets' => fn(ParseNode $n) => $o->setIncludeTargets($n->getCollectionOfObjectValues([SmsAuthenticationMethodTarget::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

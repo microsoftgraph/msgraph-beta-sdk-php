@@ -77,9 +77,9 @@ class DriveItemSource implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'application' => function (ParseNode $n) use ($o) { $o->setApplication($n->getEnumValue(DriveItemSourceApplication::class)); },
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'application' => fn(ParseNode $n) => $o->setApplication($n->getEnumValue(DriveItemSourceApplication::class)),
+            'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

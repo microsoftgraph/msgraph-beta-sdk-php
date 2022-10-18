@@ -145,16 +145,16 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appliedPolicies' => function (ParseNode $n) use ($o) { $o->setAppliedPolicies($n->getCollectionOfPrimitiveValues()); },
-            'checkinDateTime' => function (ParseNode $n) use ($o) { $o->setCheckinDateTime($n->getDateTimeValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'devicePlatform' => function (ParseNode $n) use ($o) { $o->setDevicePlatform($n->getStringValue()); },
-            'devicePlatformVersion' => function (ParseNode $n) use ($o) { $o->setDevicePlatformVersion($n->getStringValue()); },
-            'errorMessage' => function (ParseNode $n) use ($o) { $o->setErrorMessage($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
-            'wasSuccessful' => function (ParseNode $n) use ($o) { $o->setWasSuccessful($n->getBooleanValue()); },
+            'appliedPolicies' => fn(ParseNode $n) => $o->setAppliedPolicies($n->getCollectionOfPrimitiveValues()),
+            'checkinDateTime' => fn(ParseNode $n) => $o->setCheckinDateTime($n->getDateTimeValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'devicePlatform' => fn(ParseNode $n) => $o->setDevicePlatform($n->getStringValue()),
+            'devicePlatformVersion' => fn(ParseNode $n) => $o->setDevicePlatformVersion($n->getStringValue()),
+            'errorMessage' => fn(ParseNode $n) => $o->setErrorMessage($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
+            'wasSuccessful' => fn(ParseNode $n) => $o->setWasSuccessful($n->getBooleanValue()),
         ];
     }
 

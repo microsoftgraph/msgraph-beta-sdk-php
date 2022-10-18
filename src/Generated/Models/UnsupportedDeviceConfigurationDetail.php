@@ -61,9 +61,9 @@ class UnsupportedDeviceConfigurationDetail implements AdditionalDataHolder, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'propertyName' => function (ParseNode $n) use ($o) { $o->setPropertyName($n->getStringValue()); },
+            'message' => fn(ParseNode $n) => $o->setMessage($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'propertyName' => fn(ParseNode $n) => $o->setPropertyName($n->getStringValue()),
         ];
     }
 

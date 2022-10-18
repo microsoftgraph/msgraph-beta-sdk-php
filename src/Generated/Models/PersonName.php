@@ -95,17 +95,17 @@ class PersonName extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'first' => function (ParseNode $n) use ($o) { $o->setFirst($n->getStringValue()); },
-            'initials' => function (ParseNode $n) use ($o) { $o->setInitials($n->getStringValue()); },
-            'languageTag' => function (ParseNode $n) use ($o) { $o->setLanguageTag($n->getStringValue()); },
-            'last' => function (ParseNode $n) use ($o) { $o->setLast($n->getStringValue()); },
-            'maiden' => function (ParseNode $n) use ($o) { $o->setMaiden($n->getStringValue()); },
-            'middle' => function (ParseNode $n) use ($o) { $o->setMiddle($n->getStringValue()); },
-            'nickname' => function (ParseNode $n) use ($o) { $o->setNickname($n->getStringValue()); },
-            'pronunciation' => function (ParseNode $n) use ($o) { $o->setPronunciation($n->getObjectValue(array(PersonNamePronounciation::class, 'createFromDiscriminatorValue'))); },
-            'suffix' => function (ParseNode $n) use ($o) { $o->setSuffix($n->getStringValue()); },
-            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'first' => fn(ParseNode $n) => $o->setFirst($n->getStringValue()),
+            'initials' => fn(ParseNode $n) => $o->setInitials($n->getStringValue()),
+            'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
+            'last' => fn(ParseNode $n) => $o->setLast($n->getStringValue()),
+            'maiden' => fn(ParseNode $n) => $o->setMaiden($n->getStringValue()),
+            'middle' => fn(ParseNode $n) => $o->setMiddle($n->getStringValue()),
+            'nickname' => fn(ParseNode $n) => $o->setNickname($n->getStringValue()),
+            'pronunciation' => fn(ParseNode $n) => $o->setPronunciation($n->getObjectValue([PersonNamePronounciation::class, 'createFromDiscriminatorValue'])),
+            'suffix' => fn(ParseNode $n) => $o->setSuffix($n->getStringValue()),
+            'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
     }
 

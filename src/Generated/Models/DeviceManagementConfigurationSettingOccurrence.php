@@ -61,9 +61,9 @@ class DeviceManagementConfigurationSettingOccurrence implements AdditionalDataHo
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'maxDeviceOccurrence' => function (ParseNode $n) use ($o) { $o->setMaxDeviceOccurrence($n->getIntegerValue()); },
-            'minDeviceOccurrence' => function (ParseNode $n) use ($o) { $o->setMinDeviceOccurrence($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'maxDeviceOccurrence' => fn(ParseNode $n) => $o->setMaxDeviceOccurrence($n->getIntegerValue()),
+            'minDeviceOccurrence' => fn(ParseNode $n) => $o->setMinDeviceOccurrence($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

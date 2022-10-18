@@ -66,10 +66,10 @@ class EvaluateLabelJobResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'responsiblePolicy' => function (ParseNode $n) use ($o) { $o->setResponsiblePolicy($n->getObjectValue(array(ResponsiblePolicy::class, 'createFromDiscriminatorValue'))); },
-            'responsibleSensitiveTypes' => function (ParseNode $n) use ($o) { $o->setResponsibleSensitiveTypes($n->getCollectionOfObjectValues(array(ResponsibleSensitiveType::class, 'createFromDiscriminatorValue'))); },
-            'sensitivityLabel' => function (ParseNode $n) use ($o) { $o->setSensitivityLabel($n->getObjectValue(array(MatchingLabel::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'responsiblePolicy' => fn(ParseNode $n) => $o->setResponsiblePolicy($n->getObjectValue([ResponsiblePolicy::class, 'createFromDiscriminatorValue'])),
+            'responsibleSensitiveTypes' => fn(ParseNode $n) => $o->setResponsibleSensitiveTypes($n->getCollectionOfObjectValues([ResponsibleSensitiveType::class, 'createFromDiscriminatorValue'])),
+            'sensitivityLabel' => fn(ParseNode $n) => $o->setSensitivityLabel($n->getObjectValue([MatchingLabel::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

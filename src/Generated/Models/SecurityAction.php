@@ -80,7 +80,7 @@ class SecurityAction extends Entity implements Parsable
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
-     * Instantiates a new SecurityAction and sets the default values.
+     * Instantiates a new securityAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -159,20 +159,20 @@ class SecurityAction extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionReason' => function (ParseNode $n) use ($o) { $o->setActionReason($n->getStringValue()); },
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
-            'clientContext' => function (ParseNode $n) use ($o) { $o->setClientContext($n->getStringValue()); },
-            'completedDateTime' => function (ParseNode $n) use ($o) { $o->setCompletedDateTime($n->getDateTimeValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'errorInfo' => function (ParseNode $n) use ($o) { $o->setErrorInfo($n->getObjectValue(array(ResultInfo::class, 'createFromDiscriminatorValue'))); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'parameters' => function (ParseNode $n) use ($o) { $o->setParameters($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'states' => function (ParseNode $n) use ($o) { $o->setStates($n->getCollectionOfObjectValues(array(SecurityActionState::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(OperationStatus::class)); },
-            'user' => function (ParseNode $n) use ($o) { $o->setUser($n->getStringValue()); },
-            'vendorInformation' => function (ParseNode $n) use ($o) { $o->setVendorInformation($n->getObjectValue(array(SecurityVendorInformation::class, 'createFromDiscriminatorValue'))); },
+            'actionReason' => fn(ParseNode $n) => $o->setActionReason($n->getStringValue()),
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'azureTenantId' => fn(ParseNode $n) => $o->setAzureTenantId($n->getStringValue()),
+            'clientContext' => fn(ParseNode $n) => $o->setClientContext($n->getStringValue()),
+            'completedDateTime' => fn(ParseNode $n) => $o->setCompletedDateTime($n->getDateTimeValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'errorInfo' => fn(ParseNode $n) => $o->setErrorInfo($n->getObjectValue([ResultInfo::class, 'createFromDiscriminatorValue'])),
+            'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'parameters' => fn(ParseNode $n) => $o->setParameters($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'states' => fn(ParseNode $n) => $o->setStates($n->getCollectionOfObjectValues([SecurityActionState::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(OperationStatus::class)),
+            'user' => fn(ParseNode $n) => $o->setUser($n->getStringValue()),
+            'vendorInformation' => fn(ParseNode $n) => $o->setVendorInformation($n->getObjectValue([SecurityVendorInformation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -59,7 +59,7 @@ class ValidateFilterPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceAndAppManagementAssignmentFilter' => function (ParseNode $n) use ($o) { $o->setDeviceAndAppManagementAssignmentFilter($n->getObjectValue(array(DeviceAndAppManagementAssignmentFilter::class, 'createFromDiscriminatorValue'))); },
+            'deviceAndAppManagementAssignmentFilter' => fn(ParseNode $n) => $o->setDeviceAndAppManagementAssignmentFilter($n->getObjectValue([DeviceAndAppManagementAssignmentFilter::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

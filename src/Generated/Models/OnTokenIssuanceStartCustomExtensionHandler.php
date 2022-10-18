@@ -45,7 +45,7 @@ class OnTokenIssuanceStartCustomExtensionHandler extends OnTokenIssuanceStartHan
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'customExtension' => function (ParseNode $n) use ($o) { $o->setCustomExtension($n->getObjectValue(array(OnTokenIssuanceStartCustomExtension::class, 'createFromDiscriminatorValue'))); },
+            'customExtension' => fn(ParseNode $n) => $o->setCustomExtension($n->getObjectValue([OnTokenIssuanceStartCustomExtension::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

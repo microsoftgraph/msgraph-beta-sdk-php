@@ -80,7 +80,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     private ?string $subjectId = null;
     
     /**
-     * Instantiates a new GovernanceRoleAssignment and sets the default values.
+     * Instantiates a new governanceRoleAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -127,20 +127,20 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignmentState' => function (ParseNode $n) use ($o) { $o->setAssignmentState($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
-            'linkedEligibleRoleAssignment' => function (ParseNode $n) use ($o) { $o->setLinkedEligibleRoleAssignment($n->getObjectValue(array(GovernanceRoleAssignment::class, 'createFromDiscriminatorValue'))); },
-            'linkedEligibleRoleAssignmentId' => function (ParseNode $n) use ($o) { $o->setLinkedEligibleRoleAssignmentId($n->getStringValue()); },
-            'memberType' => function (ParseNode $n) use ($o) { $o->setMemberType($n->getStringValue()); },
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(GovernanceResource::class, 'createFromDiscriminatorValue'))); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'roleDefinition' => function (ParseNode $n) use ($o) { $o->setRoleDefinition($n->getObjectValue(array(GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'roleDefinitionId' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionId($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getObjectValue(array(GovernanceSubject::class, 'createFromDiscriminatorValue'))); },
-            'subjectId' => function (ParseNode $n) use ($o) { $o->setSubjectId($n->getStringValue()); },
+            'assignmentState' => fn(ParseNode $n) => $o->setAssignmentState($n->getStringValue()),
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
+            'linkedEligibleRoleAssignment' => fn(ParseNode $n) => $o->setLinkedEligibleRoleAssignment($n->getObjectValue([GovernanceRoleAssignment::class, 'createFromDiscriminatorValue'])),
+            'linkedEligibleRoleAssignmentId' => fn(ParseNode $n) => $o->setLinkedEligibleRoleAssignmentId($n->getStringValue()),
+            'memberType' => fn(ParseNode $n) => $o->setMemberType($n->getStringValue()),
+            'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([GovernanceResource::class, 'createFromDiscriminatorValue'])),
+            'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
+            'roleDefinition' => fn(ParseNode $n) => $o->setRoleDefinition($n->getObjectValue([GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'])),
+            'roleDefinitionId' => fn(ParseNode $n) => $o->setRoleDefinitionId($n->getStringValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
+            'subject' => fn(ParseNode $n) => $o->setSubject($n->getObjectValue([GovernanceSubject::class, 'createFromDiscriminatorValue'])),
+            'subjectId' => fn(ParseNode $n) => $o->setSubjectId($n->getStringValue()),
         ]);
     }
 

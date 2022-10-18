@@ -37,7 +37,7 @@ class DeviceManagementBooleanSettingInstance extends DeviceManagementSettingInst
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getBooleanValue()); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getBooleanValue()),
         ]);
     }
 

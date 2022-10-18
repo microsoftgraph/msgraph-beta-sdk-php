@@ -61,9 +61,9 @@ class TeamworkConfiguredPeripheral implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'isOptional' => function (ParseNode $n) use ($o) { $o->setIsOptional($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'peripheral' => function (ParseNode $n) use ($o) { $o->setPeripheral($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            'isOptional' => fn(ParseNode $n) => $o->setIsOptional($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'peripheral' => fn(ParseNode $n) => $o->setPeripheral($n->getObjectValue([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

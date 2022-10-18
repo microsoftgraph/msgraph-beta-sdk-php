@@ -69,9 +69,9 @@ class UrlMatchInfo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'baseUrls' => function (ParseNode $n) use ($o) { $o->setBaseUrls($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'urlPattern' => function (ParseNode $n) use ($o) { $o->setUrlPattern($n->getStringValue()); },
+            'baseUrls' => fn(ParseNode $n) => $o->setBaseUrls($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'urlPattern' => fn(ParseNode $n) => $o->setUrlPattern($n->getStringValue()),
         ];
     }
 

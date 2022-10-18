@@ -133,17 +133,17 @@ class ItemActionSet implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'comment' => function (ParseNode $n) use ($o) { $o->setComment($n->getObjectValue(array(CommentAction::class, 'createFromDiscriminatorValue'))); },
-            'create' => function (ParseNode $n) use ($o) { $o->setCreate($n->getObjectValue(array(CreateAction::class, 'createFromDiscriminatorValue'))); },
-            'delete' => function (ParseNode $n) use ($o) { $o->setDelete($n->getObjectValue(array(DeleteAction::class, 'createFromDiscriminatorValue'))); },
-            'edit' => function (ParseNode $n) use ($o) { $o->setEdit($n->getObjectValue(array(EditAction::class, 'createFromDiscriminatorValue'))); },
-            'mention' => function (ParseNode $n) use ($o) { $o->setMention($n->getObjectValue(array(MentionAction::class, 'createFromDiscriminatorValue'))); },
-            'move' => function (ParseNode $n) use ($o) { $o->setMove($n->getObjectValue(array(MoveAction::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'rename' => function (ParseNode $n) use ($o) { $o->setRename($n->getObjectValue(array(RenameAction::class, 'createFromDiscriminatorValue'))); },
-            'restore' => function (ParseNode $n) use ($o) { $o->setRestore($n->getObjectValue(array(RestoreAction::class, 'createFromDiscriminatorValue'))); },
-            'share' => function (ParseNode $n) use ($o) { $o->setShare($n->getObjectValue(array(ShareAction::class, 'createFromDiscriminatorValue'))); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getObjectValue(array(VersionAction::class, 'createFromDiscriminatorValue'))); },
+            'comment' => fn(ParseNode $n) => $o->setComment($n->getObjectValue([CommentAction::class, 'createFromDiscriminatorValue'])),
+            'create' => fn(ParseNode $n) => $o->setCreate($n->getObjectValue([CreateAction::class, 'createFromDiscriminatorValue'])),
+            'delete' => fn(ParseNode $n) => $o->setDelete($n->getObjectValue([DeleteAction::class, 'createFromDiscriminatorValue'])),
+            'edit' => fn(ParseNode $n) => $o->setEdit($n->getObjectValue([EditAction::class, 'createFromDiscriminatorValue'])),
+            'mention' => fn(ParseNode $n) => $o->setMention($n->getObjectValue([MentionAction::class, 'createFromDiscriminatorValue'])),
+            'move' => fn(ParseNode $n) => $o->setMove($n->getObjectValue([MoveAction::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'rename' => fn(ParseNode $n) => $o->setRename($n->getObjectValue([RenameAction::class, 'createFromDiscriminatorValue'])),
+            'restore' => fn(ParseNode $n) => $o->setRestore($n->getObjectValue([RestoreAction::class, 'createFromDiscriminatorValue'])),
+            'share' => fn(ParseNode $n) => $o->setShare($n->getObjectValue([ShareAction::class, 'createFromDiscriminatorValue'])),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getObjectValue([VersionAction::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

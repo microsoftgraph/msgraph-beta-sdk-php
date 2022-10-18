@@ -42,8 +42,8 @@ class RegistryKeyEvidence extends AlertEvidence implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'registryHive' => function (ParseNode $n) use ($o) { $o->setRegistryHive($n->getStringValue()); },
-            'registryKey' => function (ParseNode $n) use ($o) { $o->setRegistryKey($n->getStringValue()); },
+            'registryHive' => fn(ParseNode $n) => $o->setRegistryHive($n->getStringValue()),
+            'registryKey' => fn(ParseNode $n) => $o->setRegistryKey($n->getStringValue()),
         ]);
     }
 

@@ -56,8 +56,8 @@ class PasswordSingleSignOnSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'fields' => function (ParseNode $n) use ($o) { $o->setFields($n->getCollectionOfObjectValues(array(PasswordSingleSignOnField::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'fields' => fn(ParseNode $n) => $o->setFields($n->getCollectionOfObjectValues([PasswordSingleSignOnField::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

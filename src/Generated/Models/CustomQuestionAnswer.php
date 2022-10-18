@@ -74,10 +74,10 @@ class CustomQuestionAnswer implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'questionId' => function (ParseNode $n) use ($o) { $o->setQuestionId($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'questionId' => fn(ParseNode $n) => $o->setQuestionId($n->getStringValue()),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
         ];
     }
 

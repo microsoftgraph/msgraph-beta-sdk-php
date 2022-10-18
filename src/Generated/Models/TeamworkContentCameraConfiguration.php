@@ -66,10 +66,10 @@ class TeamworkContentCameraConfiguration implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'isContentCameraInverted' => function (ParseNode $n) use ($o) { $o->setIsContentCameraInverted($n->getBooleanValue()); },
-            'isContentCameraOptional' => function (ParseNode $n) use ($o) { $o->setIsContentCameraOptional($n->getBooleanValue()); },
-            'isContentEnhancementEnabled' => function (ParseNode $n) use ($o) { $o->setIsContentEnhancementEnabled($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'isContentCameraInverted' => fn(ParseNode $n) => $o->setIsContentCameraInverted($n->getBooleanValue()),
+            'isContentCameraOptional' => fn(ParseNode $n) => $o->setIsContentCameraOptional($n->getBooleanValue()),
+            'isContentEnhancementEnabled' => fn(ParseNode $n) => $o->setIsContentEnhancementEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -81,11 +81,11 @@ class WorkPosition extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'colleagues' => function (ParseNode $n) use ($o) { $o->setColleagues($n->getCollectionOfObjectValues(array(RelatedPerson::class, 'createFromDiscriminatorValue'))); },
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getObjectValue(array(PositionDetail::class, 'createFromDiscriminatorValue'))); },
-            'isCurrent' => function (ParseNode $n) use ($o) { $o->setIsCurrent($n->getBooleanValue()); },
-            'manager' => function (ParseNode $n) use ($o) { $o->setManager($n->getObjectValue(array(RelatedPerson::class, 'createFromDiscriminatorValue'))); },
+            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfPrimitiveValues()),
+            'colleagues' => fn(ParseNode $n) => $o->setColleagues($n->getCollectionOfObjectValues([RelatedPerson::class, 'createFromDiscriminatorValue'])),
+            'detail' => fn(ParseNode $n) => $o->setDetail($n->getObjectValue([PositionDetail::class, 'createFromDiscriminatorValue'])),
+            'isCurrent' => fn(ParseNode $n) => $o->setIsCurrent($n->getBooleanValue()),
+            'manager' => fn(ParseNode $n) => $o->setManager($n->getObjectValue([RelatedPerson::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

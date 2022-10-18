@@ -154,16 +154,16 @@ class UserExperienceAnalyticsAppHealthApplicationPerformance extends Entity impl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeDeviceCount' => function (ParseNode $n) use ($o) { $o->setActiveDeviceCount($n->getIntegerValue()); },
-            'appCrashCount' => function (ParseNode $n) use ($o) { $o->setAppCrashCount($n->getIntegerValue()); },
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appHangCount' => function (ParseNode $n) use ($o) { $o->setAppHangCount($n->getIntegerValue()); },
-            'appHealthScore' => function (ParseNode $n) use ($o) { $o->setAppHealthScore($n->getFloatValue()); },
-            'appHealthStatus' => function (ParseNode $n) use ($o) { $o->setAppHealthStatus($n->getStringValue()); },
-            'appName' => function (ParseNode $n) use ($o) { $o->setAppName($n->getStringValue()); },
-            'appPublisher' => function (ParseNode $n) use ($o) { $o->setAppPublisher($n->getStringValue()); },
-            'appUsageDuration' => function (ParseNode $n) use ($o) { $o->setAppUsageDuration($n->getIntegerValue()); },
-            'meanTimeToFailureInMinutes' => function (ParseNode $n) use ($o) { $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()); },
+            'activeDeviceCount' => fn(ParseNode $n) => $o->setActiveDeviceCount($n->getIntegerValue()),
+            'appCrashCount' => fn(ParseNode $n) => $o->setAppCrashCount($n->getIntegerValue()),
+            'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
+            'appHangCount' => fn(ParseNode $n) => $o->setAppHangCount($n->getIntegerValue()),
+            'appHealthScore' => fn(ParseNode $n) => $o->setAppHealthScore($n->getFloatValue()),
+            'appHealthStatus' => fn(ParseNode $n) => $o->setAppHealthStatus($n->getStringValue()),
+            'appName' => fn(ParseNode $n) => $o->setAppName($n->getStringValue()),
+            'appPublisher' => fn(ParseNode $n) => $o->setAppPublisher($n->getStringValue()),
+            'appUsageDuration' => fn(ParseNode $n) => $o->setAppUsageDuration($n->getIntegerValue()),
+            'meanTimeToFailureInMinutes' => fn(ParseNode $n) => $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()),
         ]);
     }
 

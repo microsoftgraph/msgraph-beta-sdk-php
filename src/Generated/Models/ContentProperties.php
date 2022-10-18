@@ -87,11 +87,11 @@ class ContentProperties implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'extensions' => function (ParseNode $n) use ($o) { $o->setExtensions($n->getCollectionOfPrimitiveValues()); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getObjectValue(array(ContentMetadata::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfPrimitiveValues()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getObjectValue([ContentMetadata::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

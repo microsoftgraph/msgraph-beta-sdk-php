@@ -47,7 +47,7 @@ class Tag extends Entity implements Parsable
     private ?Tag $parent = null;
     
     /**
-     * Instantiates a new Tag and sets the default values.
+     * Instantiates a new tag and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -110,13 +110,13 @@ class Tag extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'childSelectability' => function (ParseNode $n) use ($o) { $o->setChildSelectability($n->getEnumValue(ChildSelectability::class)); },
-            'childTags' => function (ParseNode $n) use ($o) { $o->setChildTags($n->getCollectionOfObjectValues(array(Tag::class, 'createFromDiscriminatorValue'))); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(Tag::class, 'createFromDiscriminatorValue'))); },
+            'childSelectability' => fn(ParseNode $n) => $o->setChildSelectability($n->getEnumValue(ChildSelectability::class)),
+            'childTags' => fn(ParseNode $n) => $o->setChildTags($n->getCollectionOfObjectValues([Tag::class, 'createFromDiscriminatorValue'])),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'parent' => fn(ParseNode $n) => $o->setParent($n->getObjectValue([Tag::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

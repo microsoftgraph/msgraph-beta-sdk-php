@@ -36,7 +36,7 @@ class SecurityBaselineDeviceStateCollectionResponse extends BaseCollectionPagina
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(SecurityBaselineDeviceState::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([SecurityBaselineDeviceState::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -56,8 +56,8 @@ class DelegatedAdminAccessDetails implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'unifiedRoles' => function (ParseNode $n) use ($o) { $o->setUnifiedRoles($n->getCollectionOfObjectValues(array(UnifiedRole::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'unifiedRoles' => fn(ParseNode $n) => $o->setUnifiedRoles($n->getCollectionOfObjectValues([UnifiedRole::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

@@ -60,9 +60,9 @@ class ChangeDeploymentStatusPostRequestBody implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'managementTemplateStepId' => function (ParseNode $n) use ($o) { $o->setManagementTemplateStepId($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'managementTemplateStepId' => fn(ParseNode $n) => $o->setManagementTemplateStepId($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ];
     }
 

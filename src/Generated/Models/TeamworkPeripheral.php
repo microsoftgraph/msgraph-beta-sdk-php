@@ -24,7 +24,7 @@ class TeamworkPeripheral extends Entity implements Parsable
     private ?string $vendorId = null;
     
     /**
-     * Instantiates a new TeamworkPeripheral and sets the default values.
+     * Instantiates a new teamworkPeripheral and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,9 +55,9 @@ class TeamworkPeripheral extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'productId' => function (ParseNode $n) use ($o) { $o->setProductId($n->getStringValue()); },
-            'vendorId' => function (ParseNode $n) use ($o) { $o->setVendorId($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'productId' => fn(ParseNode $n) => $o->setProductId($n->getStringValue()),
+            'vendorId' => fn(ParseNode $n) => $o->setVendorId($n->getStringValue()),
         ]);
     }
 

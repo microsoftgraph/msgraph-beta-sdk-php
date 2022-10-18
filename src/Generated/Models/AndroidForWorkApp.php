@@ -73,11 +73,11 @@ class AndroidForWorkApp extends MobileApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appIdentifier' => function (ParseNode $n) use ($o) { $o->setAppIdentifier($n->getStringValue()); },
-            'appStoreUrl' => function (ParseNode $n) use ($o) { $o->setAppStoreUrl($n->getStringValue()); },
-            'packageId' => function (ParseNode $n) use ($o) { $o->setPackageId($n->getStringValue()); },
-            'totalLicenseCount' => function (ParseNode $n) use ($o) { $o->setTotalLicenseCount($n->getIntegerValue()); },
-            'usedLicenseCount' => function (ParseNode $n) use ($o) { $o->setUsedLicenseCount($n->getIntegerValue()); },
+            'appIdentifier' => fn(ParseNode $n) => $o->setAppIdentifier($n->getStringValue()),
+            'appStoreUrl' => fn(ParseNode $n) => $o->setAppStoreUrl($n->getStringValue()),
+            'packageId' => fn(ParseNode $n) => $o->setPackageId($n->getStringValue()),
+            'totalLicenseCount' => fn(ParseNode $n) => $o->setTotalLicenseCount($n->getIntegerValue()),
+            'usedLicenseCount' => fn(ParseNode $n) => $o->setUsedLicenseCount($n->getIntegerValue()),
         ]);
     }
 

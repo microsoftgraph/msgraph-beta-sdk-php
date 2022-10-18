@@ -68,10 +68,10 @@ class UserAccountInformation extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'ageGroup' => function (ParseNode $n) use ($o) { $o->setAgeGroup($n->getStringValue()); },
-            'countryCode' => function (ParseNode $n) use ($o) { $o->setCountryCode($n->getStringValue()); },
-            'preferredLanguageTag' => function (ParseNode $n) use ($o) { $o->setPreferredLanguageTag($n->getObjectValue(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'ageGroup' => fn(ParseNode $n) => $o->setAgeGroup($n->getStringValue()),
+            'countryCode' => fn(ParseNode $n) => $o->setCountryCode($n->getStringValue()),
+            'preferredLanguageTag' => fn(ParseNode $n) => $o->setPreferredLanguageTag($n->getObjectValue([LocaleInfo::class, 'createFromDiscriminatorValue'])),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

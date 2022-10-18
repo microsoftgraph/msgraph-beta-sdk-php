@@ -37,7 +37,7 @@ class AuthenticationMethodsRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userRegistrationDetails' => function (ParseNode $n) use ($o) { $o->setUserRegistrationDetails($n->getCollectionOfObjectValues(array(UserRegistrationDetails::class, 'createFromDiscriminatorValue'))); },
+            'userRegistrationDetails' => fn(ParseNode $n) => $o->setUserRegistrationDetails($n->getCollectionOfObjectValues([UserRegistrationDetails::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

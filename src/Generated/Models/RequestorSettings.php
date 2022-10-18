@@ -82,10 +82,10 @@ class RequestorSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'acceptRequests' => function (ParseNode $n) use ($o) { $o->setAcceptRequests($n->getBooleanValue()); },
-            'allowedRequestors' => function (ParseNode $n) use ($o) { $o->setAllowedRequestors($n->getCollectionOfObjectValues(array(UserSet::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'scopeType' => function (ParseNode $n) use ($o) { $o->setScopeType($n->getStringValue()); },
+            'acceptRequests' => fn(ParseNode $n) => $o->setAcceptRequests($n->getBooleanValue()),
+            'allowedRequestors' => fn(ParseNode $n) => $o->setAllowedRequestors($n->getCollectionOfObjectValues([UserSet::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'scopeType' => fn(ParseNode $n) => $o->setScopeType($n->getStringValue()),
         ];
     }
 

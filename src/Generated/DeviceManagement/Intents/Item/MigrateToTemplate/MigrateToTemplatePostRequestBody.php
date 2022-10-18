@@ -55,8 +55,8 @@ class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'newTemplateId' => function (ParseNode $n) use ($o) { $o->setNewTemplateId($n->getStringValue()); },
-            'preserveCustomValues' => function (ParseNode $n) use ($o) { $o->setPreserveCustomValues($n->getBooleanValue()); },
+            'newTemplateId' => fn(ParseNode $n) => $o->setNewTemplateId($n->getStringValue()),
+            'preserveCustomValues' => fn(ParseNode $n) => $o->setPreserveCustomValues($n->getBooleanValue()),
         ];
     }
 

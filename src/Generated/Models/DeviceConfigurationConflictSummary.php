@@ -71,9 +71,9 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'conflictingDeviceConfigurations' => function (ParseNode $n) use ($o) { $o->setConflictingDeviceConfigurations($n->getCollectionOfObjectValues(array(SettingSource::class, 'createFromDiscriminatorValue'))); },
-            'contributingSettings' => function (ParseNode $n) use ($o) { $o->setContributingSettings($n->getCollectionOfPrimitiveValues()); },
-            'deviceCheckinsImpacted' => function (ParseNode $n) use ($o) { $o->setDeviceCheckinsImpacted($n->getIntegerValue()); },
+            'conflictingDeviceConfigurations' => fn(ParseNode $n) => $o->setConflictingDeviceConfigurations($n->getCollectionOfObjectValues([SettingSource::class, 'createFromDiscriminatorValue'])),
+            'contributingSettings' => fn(ParseNode $n) => $o->setContributingSettings($n->getCollectionOfPrimitiveValues()),
+            'deviceCheckinsImpacted' => fn(ParseNode $n) => $o->setDeviceCheckinsImpacted($n->getIntegerValue()),
         ]);
     }
 

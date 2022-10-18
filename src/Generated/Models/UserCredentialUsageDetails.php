@@ -100,13 +100,13 @@ class UserCredentialUsageDetails extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authMethod' => function (ParseNode $n) use ($o) { $o->setAuthMethod($n->getEnumValue(UsageAuthMethod::class)); },
-            'eventDateTime' => function (ParseNode $n) use ($o) { $o->setEventDateTime($n->getDateTimeValue()); },
-            'failureReason' => function (ParseNode $n) use ($o) { $o->setFailureReason($n->getStringValue()); },
-            'feature' => function (ParseNode $n) use ($o) { $o->setFeature($n->getEnumValue(FeatureType::class)); },
-            'isSuccess' => function (ParseNode $n) use ($o) { $o->setIsSuccess($n->getBooleanValue()); },
-            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'authMethod' => fn(ParseNode $n) => $o->setAuthMethod($n->getEnumValue(UsageAuthMethod::class)),
+            'eventDateTime' => fn(ParseNode $n) => $o->setEventDateTime($n->getDateTimeValue()),
+            'failureReason' => fn(ParseNode $n) => $o->setFailureReason($n->getStringValue()),
+            'feature' => fn(ParseNode $n) => $o->setFeature($n->getEnumValue(FeatureType::class)),
+            'isSuccess' => fn(ParseNode $n) => $o->setIsSuccess($n->getBooleanValue()),
+            'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

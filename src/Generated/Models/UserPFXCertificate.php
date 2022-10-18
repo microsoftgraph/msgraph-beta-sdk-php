@@ -126,18 +126,18 @@ class UserPFXCertificate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'encryptedPfxBlob' => function (ParseNode $n) use ($o) { $o->setEncryptedPfxBlob($n->getBinaryContent()); },
-            'encryptedPfxPassword' => function (ParseNode $n) use ($o) { $o->setEncryptedPfxPassword($n->getStringValue()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'intendedPurpose' => function (ParseNode $n) use ($o) { $o->setIntendedPurpose($n->getEnumValue(UserPfxIntendedPurpose::class)); },
-            'keyName' => function (ParseNode $n) use ($o) { $o->setKeyName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'paddingScheme' => function (ParseNode $n) use ($o) { $o->setPaddingScheme($n->getEnumValue(UserPfxPaddingScheme::class)); },
-            'providerName' => function (ParseNode $n) use ($o) { $o->setProviderName($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'thumbprint' => function (ParseNode $n) use ($o) { $o->setThumbprint($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'encryptedPfxBlob' => fn(ParseNode $n) => $o->setEncryptedPfxBlob($n->getBinaryContent()),
+            'encryptedPfxPassword' => fn(ParseNode $n) => $o->setEncryptedPfxPassword($n->getStringValue()),
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'intendedPurpose' => fn(ParseNode $n) => $o->setIntendedPurpose($n->getEnumValue(UserPfxIntendedPurpose::class)),
+            'keyName' => fn(ParseNode $n) => $o->setKeyName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'paddingScheme' => fn(ParseNode $n) => $o->setPaddingScheme($n->getEnumValue(UserPfxPaddingScheme::class)),
+            'providerName' => fn(ParseNode $n) => $o->setProviderName($n->getStringValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'thumbprint' => fn(ParseNode $n) => $o->setThumbprint($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

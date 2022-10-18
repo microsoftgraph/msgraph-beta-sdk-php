@@ -85,12 +85,12 @@ class SecurityBaselineStateSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'conflictCount' => function (ParseNode $n) use ($o) { $o->setConflictCount($n->getIntegerValue()); },
-            'errorCount' => function (ParseNode $n) use ($o) { $o->setErrorCount($n->getIntegerValue()); },
-            'notApplicableCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableCount($n->getIntegerValue()); },
-            'notSecureCount' => function (ParseNode $n) use ($o) { $o->setNotSecureCount($n->getIntegerValue()); },
-            'secureCount' => function (ParseNode $n) use ($o) { $o->setSecureCount($n->getIntegerValue()); },
-            'unknownCount' => function (ParseNode $n) use ($o) { $o->setUnknownCount($n->getIntegerValue()); },
+            'conflictCount' => fn(ParseNode $n) => $o->setConflictCount($n->getIntegerValue()),
+            'errorCount' => fn(ParseNode $n) => $o->setErrorCount($n->getIntegerValue()),
+            'notApplicableCount' => fn(ParseNode $n) => $o->setNotApplicableCount($n->getIntegerValue()),
+            'notSecureCount' => fn(ParseNode $n) => $o->setNotSecureCount($n->getIntegerValue()),
+            'secureCount' => fn(ParseNode $n) => $o->setSecureCount($n->getIntegerValue()),
+            'unknownCount' => fn(ParseNode $n) => $o->setUnknownCount($n->getIntegerValue()),
         ]);
     }
 

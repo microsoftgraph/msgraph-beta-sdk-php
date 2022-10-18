@@ -61,9 +61,9 @@ class DirectorySizeQuota implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'total' => function (ParseNode $n) use ($o) { $o->setTotal($n->getIntegerValue()); },
-            'used' => function (ParseNode $n) use ($o) { $o->setUsed($n->getIntegerValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'total' => fn(ParseNode $n) => $o->setTotal($n->getIntegerValue()),
+            'used' => fn(ParseNode $n) => $o->setUsed($n->getIntegerValue()),
         ];
     }
 

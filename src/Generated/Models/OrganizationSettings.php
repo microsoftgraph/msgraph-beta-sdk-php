@@ -65,11 +65,11 @@ class OrganizationSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contactInsights' => function (ParseNode $n) use ($o) { $o->setContactInsights($n->getObjectValue(array(InsightsSettings::class, 'createFromDiscriminatorValue'))); },
-            'itemInsights' => function (ParseNode $n) use ($o) { $o->setItemInsights($n->getObjectValue(array(InsightsSettings::class, 'createFromDiscriminatorValue'))); },
-            'microsoftApplicationDataAccess' => function (ParseNode $n) use ($o) { $o->setMicrosoftApplicationDataAccess($n->getObjectValue(array(MicrosoftApplicationDataAccessSettings::class, 'createFromDiscriminatorValue'))); },
-            'peopleInsights' => function (ParseNode $n) use ($o) { $o->setPeopleInsights($n->getObjectValue(array(InsightsSettings::class, 'createFromDiscriminatorValue'))); },
-            'profileCardProperties' => function (ParseNode $n) use ($o) { $o->setProfileCardProperties($n->getCollectionOfObjectValues(array(ProfileCardProperty::class, 'createFromDiscriminatorValue'))); },
+            'contactInsights' => fn(ParseNode $n) => $o->setContactInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
+            'itemInsights' => fn(ParseNode $n) => $o->setItemInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
+            'microsoftApplicationDataAccess' => fn(ParseNode $n) => $o->setMicrosoftApplicationDataAccess($n->getObjectValue([MicrosoftApplicationDataAccessSettings::class, 'createFromDiscriminatorValue'])),
+            'peopleInsights' => fn(ParseNode $n) => $o->setPeopleInsights($n->getObjectValue([InsightsSettings::class, 'createFromDiscriminatorValue'])),
+            'profileCardProperties' => fn(ParseNode $n) => $o->setProfileCardProperties($n->getCollectionOfObjectValues([ProfileCardProperty::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

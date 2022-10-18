@@ -145,22 +145,22 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'coreBootTimeInMs' => function (ParseNode $n) use ($o) { $o->setCoreBootTimeInMs($n->getIntegerValue()); },
-            'coreLoginTimeInMs' => function (ParseNode $n) use ($o) { $o->setCoreLoginTimeInMs($n->getIntegerValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'featureUpdateBootTimeInMs' => function (ParseNode $n) use ($o) { $o->setFeatureUpdateBootTimeInMs($n->getIntegerValue()); },
-            'groupPolicyBootTimeInMs' => function (ParseNode $n) use ($o) { $o->setGroupPolicyBootTimeInMs($n->getIntegerValue()); },
-            'groupPolicyLoginTimeInMs' => function (ParseNode $n) use ($o) { $o->setGroupPolicyLoginTimeInMs($n->getIntegerValue()); },
-            'isFeatureUpdate' => function (ParseNode $n) use ($o) { $o->setIsFeatureUpdate($n->getBooleanValue()); },
-            'isFirstLogin' => function (ParseNode $n) use ($o) { $o->setIsFirstLogin($n->getBooleanValue()); },
-            'operatingSystemVersion' => function (ParseNode $n) use ($o) { $o->setOperatingSystemVersion($n->getStringValue()); },
-            'responsiveDesktopTimeInMs' => function (ParseNode $n) use ($o) { $o->setResponsiveDesktopTimeInMs($n->getIntegerValue()); },
-            'restartCategory' => function (ParseNode $n) use ($o) { $o->setRestartCategory($n->getEnumValue(UserExperienceAnalyticsOperatingSystemRestartCategory::class)); },
-            'restartFaultBucket' => function (ParseNode $n) use ($o) { $o->setRestartFaultBucket($n->getStringValue()); },
-            'restartStopCode' => function (ParseNode $n) use ($o) { $o->setRestartStopCode($n->getStringValue()); },
-            'startTime' => function (ParseNode $n) use ($o) { $o->setStartTime($n->getDateTimeValue()); },
-            'totalBootTimeInMs' => function (ParseNode $n) use ($o) { $o->setTotalBootTimeInMs($n->getIntegerValue()); },
-            'totalLoginTimeInMs' => function (ParseNode $n) use ($o) { $o->setTotalLoginTimeInMs($n->getIntegerValue()); },
+            'coreBootTimeInMs' => fn(ParseNode $n) => $o->setCoreBootTimeInMs($n->getIntegerValue()),
+            'coreLoginTimeInMs' => fn(ParseNode $n) => $o->setCoreLoginTimeInMs($n->getIntegerValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'featureUpdateBootTimeInMs' => fn(ParseNode $n) => $o->setFeatureUpdateBootTimeInMs($n->getIntegerValue()),
+            'groupPolicyBootTimeInMs' => fn(ParseNode $n) => $o->setGroupPolicyBootTimeInMs($n->getIntegerValue()),
+            'groupPolicyLoginTimeInMs' => fn(ParseNode $n) => $o->setGroupPolicyLoginTimeInMs($n->getIntegerValue()),
+            'isFeatureUpdate' => fn(ParseNode $n) => $o->setIsFeatureUpdate($n->getBooleanValue()),
+            'isFirstLogin' => fn(ParseNode $n) => $o->setIsFirstLogin($n->getBooleanValue()),
+            'operatingSystemVersion' => fn(ParseNode $n) => $o->setOperatingSystemVersion($n->getStringValue()),
+            'responsiveDesktopTimeInMs' => fn(ParseNode $n) => $o->setResponsiveDesktopTimeInMs($n->getIntegerValue()),
+            'restartCategory' => fn(ParseNode $n) => $o->setRestartCategory($n->getEnumValue(UserExperienceAnalyticsOperatingSystemRestartCategory::class)),
+            'restartFaultBucket' => fn(ParseNode $n) => $o->setRestartFaultBucket($n->getStringValue()),
+            'restartStopCode' => fn(ParseNode $n) => $o->setRestartStopCode($n->getStringValue()),
+            'startTime' => fn(ParseNode $n) => $o->setStartTime($n->getDateTimeValue()),
+            'totalBootTimeInMs' => fn(ParseNode $n) => $o->setTotalBootTimeInMs($n->getIntegerValue()),
+            'totalLoginTimeInMs' => fn(ParseNode $n) => $o->setTotalLoginTimeInMs($n->getIntegerValue()),
         ]);
     }
 

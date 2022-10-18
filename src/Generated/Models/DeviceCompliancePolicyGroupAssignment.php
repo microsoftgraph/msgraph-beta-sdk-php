@@ -63,9 +63,9 @@ class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceCompliancePolicy' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicy($n->getObjectValue(array(DeviceCompliancePolicy::class, 'createFromDiscriminatorValue'))); },
-            'excludeGroup' => function (ParseNode $n) use ($o) { $o->setExcludeGroup($n->getBooleanValue()); },
-            'targetGroupId' => function (ParseNode $n) use ($o) { $o->setTargetGroupId($n->getStringValue()); },
+            'deviceCompliancePolicy' => fn(ParseNode $n) => $o->setDeviceCompliancePolicy($n->getObjectValue([DeviceCompliancePolicy::class, 'createFromDiscriminatorValue'])),
+            'excludeGroup' => fn(ParseNode $n) => $o->setExcludeGroup($n->getBooleanValue()),
+            'targetGroupId' => fn(ParseNode $n) => $o->setTargetGroupId($n->getStringValue()),
         ]);
     }
 

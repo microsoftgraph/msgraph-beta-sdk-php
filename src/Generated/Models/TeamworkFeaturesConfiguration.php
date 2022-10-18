@@ -84,12 +84,12 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'emailToSendLogsAndFeedback' => function (ParseNode $n) use ($o) { $o->setEmailToSendLogsAndFeedback($n->getStringValue()); },
-            'isAutoScreenShareEnabled' => function (ParseNode $n) use ($o) { $o->setIsAutoScreenShareEnabled($n->getBooleanValue()); },
-            'isBluetoothBeaconingEnabled' => function (ParseNode $n) use ($o) { $o->setIsBluetoothBeaconingEnabled($n->getBooleanValue()); },
-            'isHideMeetingNamesEnabled' => function (ParseNode $n) use ($o) { $o->setIsHideMeetingNamesEnabled($n->getBooleanValue()); },
-            'isSendLogsAndFeedbackEnabled' => function (ParseNode $n) use ($o) { $o->setIsSendLogsAndFeedbackEnabled($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'emailToSendLogsAndFeedback' => fn(ParseNode $n) => $o->setEmailToSendLogsAndFeedback($n->getStringValue()),
+            'isAutoScreenShareEnabled' => fn(ParseNode $n) => $o->setIsAutoScreenShareEnabled($n->getBooleanValue()),
+            'isBluetoothBeaconingEnabled' => fn(ParseNode $n) => $o->setIsBluetoothBeaconingEnabled($n->getBooleanValue()),
+            'isHideMeetingNamesEnabled' => fn(ParseNode $n) => $o->setIsHideMeetingNamesEnabled($n->getBooleanValue()),
+            'isSendLogsAndFeedbackEnabled' => fn(ParseNode $n) => $o->setIsSendLogsAndFeedbackEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

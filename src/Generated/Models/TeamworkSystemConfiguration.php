@@ -136,19 +136,19 @@ class TeamworkSystemConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dateTimeConfiguration' => function (ParseNode $n) use ($o) { $o->setDateTimeConfiguration($n->getObjectValue(array(TeamworkDateTimeConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'defaultPassword' => function (ParseNode $n) use ($o) { $o->setDefaultPassword($n->getStringValue()); },
-            'deviceLockTimeout' => function (ParseNode $n) use ($o) { $o->setDeviceLockTimeout($n->getDateIntervalValue()); },
-            'isDeviceLockEnabled' => function (ParseNode $n) use ($o) { $o->setIsDeviceLockEnabled($n->getBooleanValue()); },
-            'isLoggingEnabled' => function (ParseNode $n) use ($o) { $o->setIsLoggingEnabled($n->getBooleanValue()); },
-            'isPowerSavingEnabled' => function (ParseNode $n) use ($o) { $o->setIsPowerSavingEnabled($n->getBooleanValue()); },
-            'isScreenCaptureEnabled' => function (ParseNode $n) use ($o) { $o->setIsScreenCaptureEnabled($n->getBooleanValue()); },
-            'isSilentModeEnabled' => function (ParseNode $n) use ($o) { $o->setIsSilentModeEnabled($n->getBooleanValue()); },
-            'language' => function (ParseNode $n) use ($o) { $o->setLanguage($n->getStringValue()); },
-            'lockPin' => function (ParseNode $n) use ($o) { $o->setLockPin($n->getStringValue()); },
-            'loggingLevel' => function (ParseNode $n) use ($o) { $o->setLoggingLevel($n->getStringValue()); },
-            'networkConfiguration' => function (ParseNode $n) use ($o) { $o->setNetworkConfiguration($n->getObjectValue(array(TeamworkNetworkConfiguration::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'dateTimeConfiguration' => fn(ParseNode $n) => $o->setDateTimeConfiguration($n->getObjectValue([TeamworkDateTimeConfiguration::class, 'createFromDiscriminatorValue'])),
+            'defaultPassword' => fn(ParseNode $n) => $o->setDefaultPassword($n->getStringValue()),
+            'deviceLockTimeout' => fn(ParseNode $n) => $o->setDeviceLockTimeout($n->getDateIntervalValue()),
+            'isDeviceLockEnabled' => fn(ParseNode $n) => $o->setIsDeviceLockEnabled($n->getBooleanValue()),
+            'isLoggingEnabled' => fn(ParseNode $n) => $o->setIsLoggingEnabled($n->getBooleanValue()),
+            'isPowerSavingEnabled' => fn(ParseNode $n) => $o->setIsPowerSavingEnabled($n->getBooleanValue()),
+            'isScreenCaptureEnabled' => fn(ParseNode $n) => $o->setIsScreenCaptureEnabled($n->getBooleanValue()),
+            'isSilentModeEnabled' => fn(ParseNode $n) => $o->setIsSilentModeEnabled($n->getBooleanValue()),
+            'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
+            'lockPin' => fn(ParseNode $n) => $o->setLockPin($n->getStringValue()),
+            'loggingLevel' => fn(ParseNode $n) => $o->setLoggingLevel($n->getStringValue()),
+            'networkConfiguration' => fn(ParseNode $n) => $o->setNetworkConfiguration($n->getObjectValue([TeamworkNetworkConfiguration::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

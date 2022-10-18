@@ -55,9 +55,9 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'servicePrincipalDisplayName' => function (ParseNode $n) use ($o) { $o->setServicePrincipalDisplayName($n->getStringValue()); },
-            'servicePrincipalId' => function (ParseNode $n) use ($o) { $o->setServicePrincipalId($n->getStringValue()); },
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'servicePrincipalDisplayName' => fn(ParseNode $n) => $o->setServicePrincipalDisplayName($n->getStringValue()),
+            'servicePrincipalId' => fn(ParseNode $n) => $o->setServicePrincipalId($n->getStringValue()),
         ]);
     }
 

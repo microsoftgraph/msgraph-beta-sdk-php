@@ -81,14 +81,14 @@ class MessageTrace extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'destinationIPAddress' => function (ParseNode $n) use ($o) { $o->setDestinationIPAddress($n->getStringValue()); },
-            'messageId' => function (ParseNode $n) use ($o) { $o->setMessageId($n->getStringValue()); },
-            'receivedDateTime' => function (ParseNode $n) use ($o) { $o->setReceivedDateTime($n->getDateTimeValue()); },
-            'recipients' => function (ParseNode $n) use ($o) { $o->setRecipients($n->getCollectionOfObjectValues(array(MessageRecipient::class, 'createFromDiscriminatorValue'))); },
-            'senderEmail' => function (ParseNode $n) use ($o) { $o->setSenderEmail($n->getStringValue()); },
-            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
-            'sourceIPAddress' => function (ParseNode $n) use ($o) { $o->setSourceIPAddress($n->getStringValue()); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
+            'destinationIPAddress' => fn(ParseNode $n) => $o->setDestinationIPAddress($n->getStringValue()),
+            'messageId' => fn(ParseNode $n) => $o->setMessageId($n->getStringValue()),
+            'receivedDateTime' => fn(ParseNode $n) => $o->setReceivedDateTime($n->getDateTimeValue()),
+            'recipients' => fn(ParseNode $n) => $o->setRecipients($n->getCollectionOfObjectValues([MessageRecipient::class, 'createFromDiscriminatorValue'])),
+            'senderEmail' => fn(ParseNode $n) => $o->setSenderEmail($n->getStringValue()),
+            'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
+            'sourceIPAddress' => fn(ParseNode $n) => $o->setSourceIPAddress($n->getStringValue()),
+            'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
         ]);
     }
 

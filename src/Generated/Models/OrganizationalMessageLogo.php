@@ -75,10 +75,10 @@ class OrganizationalMessageLogo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getEnumValue(OrganizationalMessageLogoType::class)); },
-            'logo' => function (ParseNode $n) use ($o) { $o->setLogo($n->getBinaryContent()); },
-            'logoCdnUrl' => function (ParseNode $n) use ($o) { $o->setLogoCdnUrl($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'contentType' => fn(ParseNode $n) => $o->setContentType($n->getEnumValue(OrganizationalMessageLogoType::class)),
+            'logo' => fn(ParseNode $n) => $o->setLogo($n->getBinaryContent()),
+            'logoCdnUrl' => fn(ParseNode $n) => $o->setLogoCdnUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

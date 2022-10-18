@@ -74,10 +74,10 @@ class TeamworkLoginStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'exchangeConnection' => function (ParseNode $n) use ($o) { $o->setExchangeConnection($n->getObjectValue(array(TeamworkConnection::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'skypeConnection' => function (ParseNode $n) use ($o) { $o->setSkypeConnection($n->getObjectValue(array(TeamworkConnection::class, 'createFromDiscriminatorValue'))); },
-            'teamsConnection' => function (ParseNode $n) use ($o) { $o->setTeamsConnection($n->getObjectValue(array(TeamworkConnection::class, 'createFromDiscriminatorValue'))); },
+            'exchangeConnection' => fn(ParseNode $n) => $o->setExchangeConnection($n->getObjectValue([TeamworkConnection::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'skypeConnection' => fn(ParseNode $n) => $o->setSkypeConnection($n->getObjectValue([TeamworkConnection::class, 'createFromDiscriminatorValue'])),
+            'teamsConnection' => fn(ParseNode $n) => $o->setTeamsConnection($n->getObjectValue([TeamworkConnection::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

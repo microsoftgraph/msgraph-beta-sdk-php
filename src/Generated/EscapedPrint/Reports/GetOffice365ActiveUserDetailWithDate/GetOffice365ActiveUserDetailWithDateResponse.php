@@ -38,7 +38,7 @@ class GetOffice365ActiveUserDetailWithDateResponse extends BaseCollectionPaginat
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(Office365ActiveUserDetail::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([Office365ActiveUserDetail::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -45,7 +45,7 @@ class CrossTenantAccessPolicyTenantRestrictions extends CrossTenantAccessPolicyB
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'devices' => function (ParseNode $n) use ($o) { $o->setDevices($n->getObjectValue(array(DevicesFilter::class, 'createFromDiscriminatorValue'))); },
+            'devices' => fn(ParseNode $n) => $o->setDevices($n->getObjectValue([DevicesFilter::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

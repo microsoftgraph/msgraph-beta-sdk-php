@@ -87,12 +87,12 @@ class ManagementAction extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'referenceTemplateId' => function (ParseNode $n) use ($o) { $o->setReferenceTemplateId($n->getStringValue()); },
-            'referenceTemplateVersion' => function (ParseNode $n) use ($o) { $o->setReferenceTemplateVersion($n->getIntegerValue()); },
-            'workloadActions' => function (ParseNode $n) use ($o) { $o->setWorkloadActions($n->getCollectionOfObjectValues(array(WorkloadAction::class, 'createFromDiscriminatorValue'))); },
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(ManagementCategory::class)),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'referenceTemplateId' => fn(ParseNode $n) => $o->setReferenceTemplateId($n->getStringValue()),
+            'referenceTemplateVersion' => fn(ParseNode $n) => $o->setReferenceTemplateVersion($n->getIntegerValue()),
+            'workloadActions' => fn(ParseNode $n) => $o->setWorkloadActions($n->getCollectionOfObjectValues([WorkloadAction::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

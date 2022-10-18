@@ -89,14 +89,14 @@ class EmbeddedSIMDeviceState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(EmbeddedSIMDeviceStateValue::class)); },
-            'stateDetails' => function (ParseNode $n) use ($o) { $o->setStateDetails($n->getStringValue()); },
-            'universalIntegratedCircuitCardIdentifier' => function (ParseNode $n) use ($o) { $o->setUniversalIntegratedCircuitCardIdentifier($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(EmbeddedSIMDeviceStateValue::class)),
+            'stateDetails' => fn(ParseNode $n) => $o->setStateDetails($n->getStringValue()),
+            'universalIntegratedCircuitCardIdentifier' => fn(ParseNode $n) => $o->setUniversalIntegratedCircuitCardIdentifier($n->getStringValue()),
+            'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
         ]);
     }
 

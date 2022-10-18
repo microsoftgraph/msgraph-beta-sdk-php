@@ -68,10 +68,10 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'check32BitOn64System' => function (ParseNode $n) use ($o) { $o->setCheck32BitOn64System($n->getBooleanValue()); },
-            'detectionType' => function (ParseNode $n) use ($o) { $o->setDetectionType($n->getEnumValue(Win32LobAppFileSystemDetectionType::class)); },
-            'fileOrFolderName' => function (ParseNode $n) use ($o) { $o->setFileOrFolderName($n->getStringValue()); },
-            'path' => function (ParseNode $n) use ($o) { $o->setPath($n->getStringValue()); },
+            'check32BitOn64System' => fn(ParseNode $n) => $o->setCheck32BitOn64System($n->getBooleanValue()),
+            'detectionType' => fn(ParseNode $n) => $o->setDetectionType($n->getEnumValue(Win32LobAppFileSystemDetectionType::class)),
+            'fileOrFolderName' => fn(ParseNode $n) => $o->setFileOrFolderName($n->getStringValue()),
+            'path' => fn(ParseNode $n) => $o->setPath($n->getStringValue()),
         ]);
     }
 

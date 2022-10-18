@@ -50,8 +50,8 @@ class UserAnalytics extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activityStatistics' => function (ParseNode $n) use ($o) { $o->setActivityStatistics($n->getCollectionOfObjectValues(array(ActivityStatistics::class, 'createFromDiscriminatorValue'))); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(Settings::class, 'createFromDiscriminatorValue'))); },
+            'activityStatistics' => fn(ParseNode $n) => $o->setActivityStatistics($n->getCollectionOfObjectValues([ActivityStatistics::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([Settings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

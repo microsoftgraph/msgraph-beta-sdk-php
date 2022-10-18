@@ -50,8 +50,8 @@ class AttributeSet extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'maxAttributesPerSet' => function (ParseNode $n) use ($o) { $o->setMaxAttributesPerSet($n->getIntegerValue()); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'maxAttributesPerSet' => fn(ParseNode $n) => $o->setMaxAttributesPerSet($n->getIntegerValue()),
         ]);
     }
 

@@ -67,10 +67,10 @@ class SubmissionAdminReview implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'reviewBy' => function (ParseNode $n) use ($o) { $o->setReviewBy($n->getStringValue()); },
-            'reviewDateTime' => function (ParseNode $n) use ($o) { $o->setReviewDateTime($n->getDateTimeValue()); },
-            'reviewResult' => function (ParseNode $n) use ($o) { $o->setReviewResult($n->getEnumValue(SubmissionResultCategory::class)); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'reviewBy' => fn(ParseNode $n) => $o->setReviewBy($n->getStringValue()),
+            'reviewDateTime' => fn(ParseNode $n) => $o->setReviewDateTime($n->getDateTimeValue()),
+            'reviewResult' => fn(ParseNode $n) => $o->setReviewResult($n->getEnumValue(SubmissionResultCategory::class)),
         ];
     }
 

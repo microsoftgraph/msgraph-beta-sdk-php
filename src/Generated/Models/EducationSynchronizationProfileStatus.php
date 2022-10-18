@@ -66,11 +66,11 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'errorCount' => function (ParseNode $n) use ($o) { $o->setErrorCount($n->getIntegerValue()); },
-            'lastActivityDateTime' => function (ParseNode $n) use ($o) { $o->setLastActivityDateTime($n->getDateTimeValue()); },
-            'lastSynchronizationDateTime' => function (ParseNode $n) use ($o) { $o->setLastSynchronizationDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(EducationSynchronizationStatus::class)); },
-            'statusMessage' => function (ParseNode $n) use ($o) { $o->setStatusMessage($n->getStringValue()); },
+            'errorCount' => fn(ParseNode $n) => $o->setErrorCount($n->getIntegerValue()),
+            'lastActivityDateTime' => fn(ParseNode $n) => $o->setLastActivityDateTime($n->getDateTimeValue()),
+            'lastSynchronizationDateTime' => fn(ParseNode $n) => $o->setLastSynchronizationDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(EducationSynchronizationStatus::class)),
+            'statusMessage' => fn(ParseNode $n) => $o->setStatusMessage($n->getStringValue()),
         ]);
     }
 

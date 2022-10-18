@@ -59,7 +59,7 @@ class AssignedAccessMultiModeProfilesPostRequestBody implements AdditionalDataHo
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assignedAccessMultiModeProfiles' => function (ParseNode $n) use ($o) { $o->setAssignedAccessMultiModeProfiles($n->getCollectionOfObjectValues(array(WindowsAssignedAccessProfile::class, 'createFromDiscriminatorValue'))); },
+            'assignedAccessMultiModeProfiles' => fn(ParseNode $n) => $o->setAssignedAccessMultiModeProfiles($n->getCollectionOfObjectValues([WindowsAssignedAccessProfile::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

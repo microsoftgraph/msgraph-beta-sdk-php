@@ -84,12 +84,12 @@ class GovernanceNotificationTemplate implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'culture' => function (ParseNode $n) use ($o) { $o->setCulture($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'culture' => fn(ParseNode $n) => $o->setCulture($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'source' => fn(ParseNode $n) => $o->setSource($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ];
     }
 

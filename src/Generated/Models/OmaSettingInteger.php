@@ -42,8 +42,8 @@ class OmaSettingInteger extends OmaSetting implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isReadOnly' => function (ParseNode $n) use ($o) { $o->setIsReadOnly($n->getBooleanValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getIntegerValue()); },
+            'isReadOnly' => fn(ParseNode $n) => $o->setIsReadOnly($n->getBooleanValue()),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getIntegerValue()),
         ]);
     }
 

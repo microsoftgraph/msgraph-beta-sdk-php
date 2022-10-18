@@ -89,17 +89,17 @@ class CredentialUserRegistrationsSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'mfaAndSsprCapableUserCount' => function (ParseNode $n) use ($o) { $o->setMfaAndSsprCapableUserCount($n->getIntegerValue()); },
-            'mfaConditionalAccessPolicyState' => function (ParseNode $n) use ($o) { $o->setMfaConditionalAccessPolicyState($n->getStringValue()); },
-            'mfaExcludedUserCount' => function (ParseNode $n) use ($o) { $o->setMfaExcludedUserCount($n->getIntegerValue()); },
-            'mfaRegisteredUserCount' => function (ParseNode $n) use ($o) { $o->setMfaRegisteredUserCount($n->getIntegerValue()); },
-            'securityDefaultsEnabled' => function (ParseNode $n) use ($o) { $o->setSecurityDefaultsEnabled($n->getBooleanValue()); },
-            'ssprEnabledUserCount' => function (ParseNode $n) use ($o) { $o->setSsprEnabledUserCount($n->getIntegerValue()); },
-            'ssprRegisteredUserCount' => function (ParseNode $n) use ($o) { $o->setSsprRegisteredUserCount($n->getIntegerValue()); },
-            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'totalUserCount' => function (ParseNode $n) use ($o) { $o->setTotalUserCount($n->getIntegerValue()); },
+            'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
+            'mfaAndSsprCapableUserCount' => fn(ParseNode $n) => $o->setMfaAndSsprCapableUserCount($n->getIntegerValue()),
+            'mfaConditionalAccessPolicyState' => fn(ParseNode $n) => $o->setMfaConditionalAccessPolicyState($n->getStringValue()),
+            'mfaExcludedUserCount' => fn(ParseNode $n) => $o->setMfaExcludedUserCount($n->getIntegerValue()),
+            'mfaRegisteredUserCount' => fn(ParseNode $n) => $o->setMfaRegisteredUserCount($n->getIntegerValue()),
+            'securityDefaultsEnabled' => fn(ParseNode $n) => $o->setSecurityDefaultsEnabled($n->getBooleanValue()),
+            'ssprEnabledUserCount' => fn(ParseNode $n) => $o->setSsprEnabledUserCount($n->getIntegerValue()),
+            'ssprRegisteredUserCount' => fn(ParseNode $n) => $o->setSsprRegisteredUserCount($n->getIntegerValue()),
+            'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'totalUserCount' => fn(ParseNode $n) => $o->setTotalUserCount($n->getIntegerValue()),
         ]);
     }
 

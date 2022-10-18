@@ -123,16 +123,16 @@ class TenantDetailedInformation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'city' => function (ParseNode $n) use ($o) { $o->setCity($n->getStringValue()); },
-            'countryCode' => function (ParseNode $n) use ($o) { $o->setCountryCode($n->getStringValue()); },
-            'countryName' => function (ParseNode $n) use ($o) { $o->setCountryName($n->getStringValue()); },
-            'defaultDomainName' => function (ParseNode $n) use ($o) { $o->setDefaultDomainName($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'industryName' => function (ParseNode $n) use ($o) { $o->setIndustryName($n->getStringValue()); },
-            'region' => function (ParseNode $n) use ($o) { $o->setRegion($n->getStringValue()); },
-            'segmentName' => function (ParseNode $n) use ($o) { $o->setSegmentName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'verticalName' => function (ParseNode $n) use ($o) { $o->setVerticalName($n->getStringValue()); },
+            'city' => fn(ParseNode $n) => $o->setCity($n->getStringValue()),
+            'countryCode' => fn(ParseNode $n) => $o->setCountryCode($n->getStringValue()),
+            'countryName' => fn(ParseNode $n) => $o->setCountryName($n->getStringValue()),
+            'defaultDomainName' => fn(ParseNode $n) => $o->setDefaultDomainName($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'industryName' => fn(ParseNode $n) => $o->setIndustryName($n->getStringValue()),
+            'region' => fn(ParseNode $n) => $o->setRegion($n->getStringValue()),
+            'segmentName' => fn(ParseNode $n) => $o->setSegmentName($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'verticalName' => fn(ParseNode $n) => $o->setVerticalName($n->getStringValue()),
         ]);
     }
 

@@ -66,10 +66,10 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'osEditionTypes' => function (ParseNode $n) use ($o) { $o->setOsEditionTypes($n->getCollectionOfEnumValues(Windows10EditionType::class)); },
-            'ruleType' => function (ParseNode $n) use ($o) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'osEditionTypes' => fn(ParseNode $n) => $o->setOsEditionTypes($n->getCollectionOfEnumValues(Windows10EditionType::class)),
+            'ruleType' => fn(ParseNode $n) => $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)),
         ];
     }
 

@@ -51,7 +51,7 @@ class CreateNewVersionPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'workflow' => function (ParseNode $n) use ($o) { $o->setWorkflow($n->getObjectValue(array(Workflow::class, 'createFromDiscriminatorValue'))); },
+            'workflow' => fn(ParseNode $n) => $o->setWorkflow($n->getObjectValue([Workflow::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

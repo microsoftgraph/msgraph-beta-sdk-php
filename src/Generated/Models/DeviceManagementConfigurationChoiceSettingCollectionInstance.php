@@ -45,7 +45,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstance extends Devic
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'choiceSettingCollectionValue' => function (ParseNode $n) use ($o) { $o->setChoiceSettingCollectionValue($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationChoiceSettingValue::class, 'createFromDiscriminatorValue'))); },
+            'choiceSettingCollectionValue' => fn(ParseNode $n) => $o->setChoiceSettingCollectionValue($n->getCollectionOfObjectValues([DeviceManagementConfigurationChoiceSettingValue::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

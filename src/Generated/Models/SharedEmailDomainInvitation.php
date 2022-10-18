@@ -56,9 +56,9 @@ class SharedEmailDomainInvitation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'expiryTime' => function (ParseNode $n) use ($o) { $o->setExpiryTime($n->getDateTimeValue()); },
-            'invitationDomain' => function (ParseNode $n) use ($o) { $o->setInvitationDomain($n->getStringValue()); },
-            'invitationStatus' => function (ParseNode $n) use ($o) { $o->setInvitationStatus($n->getStringValue()); },
+            'expiryTime' => fn(ParseNode $n) => $o->setExpiryTime($n->getDateTimeValue()),
+            'invitationDomain' => fn(ParseNode $n) => $o->setInvitationDomain($n->getStringValue()),
+            'invitationStatus' => fn(ParseNode $n) => $o->setInvitationStatus($n->getStringValue()),
         ]);
     }
 

@@ -75,10 +75,10 @@ class DeviceHealthScriptRemediationHistoryData implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'date' => function (ParseNode $n) use ($o) { $o->setDate($n->getDateValue()); },
-            'noIssueDeviceCount' => function (ParseNode $n) use ($o) { $o->setNoIssueDeviceCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'remediatedDeviceCount' => function (ParseNode $n) use ($o) { $o->setRemediatedDeviceCount($n->getIntegerValue()); },
+            'date' => fn(ParseNode $n) => $o->setDate($n->getDateValue()),
+            'noIssueDeviceCount' => fn(ParseNode $n) => $o->setNoIssueDeviceCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'remediatedDeviceCount' => fn(ParseNode $n) => $o->setRemediatedDeviceCount($n->getIntegerValue()),
         ];
     }
 

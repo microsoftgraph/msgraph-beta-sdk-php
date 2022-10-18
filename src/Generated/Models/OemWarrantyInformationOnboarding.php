@@ -24,7 +24,7 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
     private ?string $oemName = null;
     
     /**
-     * Instantiates a new OemWarrantyInformationOnboarding and sets the default values.
+     * Instantiates a new oemWarrantyInformationOnboarding and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -63,9 +63,9 @@ class OemWarrantyInformationOnboarding extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'available' => function (ParseNode $n) use ($o) { $o->setAvailable($n->getBooleanValue()); },
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
-            'oemName' => function (ParseNode $n) use ($o) { $o->setOemName($n->getStringValue()); },
+            'available' => fn(ParseNode $n) => $o->setAvailable($n->getBooleanValue()),
+            'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
+            'oemName' => fn(ParseNode $n) => $o->setOemName($n->getStringValue()),
         ]);
     }
 

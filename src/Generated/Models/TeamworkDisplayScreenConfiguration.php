@@ -93,12 +93,12 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'backlightBrightness' => function (ParseNode $n) use ($o) { $o->setBacklightBrightness($n->getIntegerValue()); },
-            'backlightTimeout' => function (ParseNode $n) use ($o) { $o->setBacklightTimeout($n->getDateIntervalValue()); },
-            'isHighContrastEnabled' => function (ParseNode $n) use ($o) { $o->setIsHighContrastEnabled($n->getBooleanValue()); },
-            'isScreensaverEnabled' => function (ParseNode $n) use ($o) { $o->setIsScreensaverEnabled($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'screensaverTimeout' => function (ParseNode $n) use ($o) { $o->setScreensaverTimeout($n->getDateIntervalValue()); },
+            'backlightBrightness' => fn(ParseNode $n) => $o->setBacklightBrightness($n->getIntegerValue()),
+            'backlightTimeout' => fn(ParseNode $n) => $o->setBacklightTimeout($n->getDateIntervalValue()),
+            'isHighContrastEnabled' => fn(ParseNode $n) => $o->setIsHighContrastEnabled($n->getBooleanValue()),
+            'isScreensaverEnabled' => fn(ParseNode $n) => $o->setIsScreensaverEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'screensaverTimeout' => fn(ParseNode $n) => $o->setScreensaverTimeout($n->getDateIntervalValue()),
         ];
     }
 

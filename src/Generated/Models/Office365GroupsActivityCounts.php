@@ -76,13 +76,13 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exchangeEmailsReceived' => function (ParseNode $n) use ($o) { $o->setExchangeEmailsReceived($n->getIntegerValue()); },
-            'reportDate' => function (ParseNode $n) use ($o) { $o->setReportDate($n->getDateValue()); },
-            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
-            'yammerMessagesLiked' => function (ParseNode $n) use ($o) { $o->setYammerMessagesLiked($n->getIntegerValue()); },
-            'yammerMessagesPosted' => function (ParseNode $n) use ($o) { $o->setYammerMessagesPosted($n->getIntegerValue()); },
-            'yammerMessagesRead' => function (ParseNode $n) use ($o) { $o->setYammerMessagesRead($n->getIntegerValue()); },
+            'exchangeEmailsReceived' => fn(ParseNode $n) => $o->setExchangeEmailsReceived($n->getIntegerValue()),
+            'reportDate' => fn(ParseNode $n) => $o->setReportDate($n->getDateValue()),
+            'reportPeriod' => fn(ParseNode $n) => $o->setReportPeriod($n->getStringValue()),
+            'reportRefreshDate' => fn(ParseNode $n) => $o->setReportRefreshDate($n->getDateValue()),
+            'yammerMessagesLiked' => fn(ParseNode $n) => $o->setYammerMessagesLiked($n->getIntegerValue()),
+            'yammerMessagesPosted' => fn(ParseNode $n) => $o->setYammerMessagesPosted($n->getIntegerValue()),
+            'yammerMessagesRead' => fn(ParseNode $n) => $o->setYammerMessagesRead($n->getIntegerValue()),
         ]);
     }
 

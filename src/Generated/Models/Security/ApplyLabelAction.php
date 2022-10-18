@@ -68,10 +68,10 @@ class ApplyLabelAction extends InformationProtectionAction implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actions' => function (ParseNode $n) use ($o) { $o->setActions($n->getCollectionOfObjectValues(array(InformationProtectionAction::class, 'createFromDiscriminatorValue'))); },
-            'actionSource' => function (ParseNode $n) use ($o) { $o->setActionSource($n->getEnumValue(ActionSource::class)); },
-            'responsibleSensitiveTypeIds' => function (ParseNode $n) use ($o) { $o->setResponsibleSensitiveTypeIds($n->getCollectionOfPrimitiveValues()); },
-            'sensitivityLabelId' => function (ParseNode $n) use ($o) { $o->setSensitivityLabelId($n->getStringValue()); },
+            'actions' => fn(ParseNode $n) => $o->setActions($n->getCollectionOfObjectValues([InformationProtectionAction::class, 'createFromDiscriminatorValue'])),
+            'actionSource' => fn(ParseNode $n) => $o->setActionSource($n->getEnumValue(ActionSource::class)),
+            'responsibleSensitiveTypeIds' => fn(ParseNode $n) => $o->setResponsibleSensitiveTypeIds($n->getCollectionOfPrimitiveValues()),
+            'sensitivityLabelId' => fn(ParseNode $n) => $o->setSensitivityLabelId($n->getStringValue()),
         ]);
     }
 

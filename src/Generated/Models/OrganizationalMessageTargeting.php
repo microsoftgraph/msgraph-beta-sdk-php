@@ -74,10 +74,10 @@ class OrganizationalMessageTargeting implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'excludeIds' => function (ParseNode $n) use ($o) { $o->setExcludeIds($n->getCollectionOfPrimitiveValues()); },
-            'includeIds' => function (ParseNode $n) use ($o) { $o->setIncludeIds($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'targetingType' => function (ParseNode $n) use ($o) { $o->setTargetingType($n->getEnumValue(OrganizationalMessageTargetingType::class)); },
+            'excludeIds' => fn(ParseNode $n) => $o->setExcludeIds($n->getCollectionOfPrimitiveValues()),
+            'includeIds' => fn(ParseNode $n) => $o->setIncludeIds($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'targetingType' => fn(ParseNode $n) => $o->setTargetingType($n->getEnumValue(OrganizationalMessageTargetingType::class)),
         ];
     }
 

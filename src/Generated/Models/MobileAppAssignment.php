@@ -57,11 +57,11 @@ class MobileAppAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'intent' => function (ParseNode $n) use ($o) { $o->setIntent($n->getEnumValue(InstallIntent::class)); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(MobileAppAssignmentSettings::class, 'createFromDiscriminatorValue'))); },
-            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getEnumValue(DeviceAndAppManagementAssignmentSource::class)); },
-            'sourceId' => function (ParseNode $n) use ($o) { $o->setSourceId($n->getStringValue()); },
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
+            'intent' => fn(ParseNode $n) => $o->setIntent($n->getEnumValue(InstallIntent::class)),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([MobileAppAssignmentSettings::class, 'createFromDiscriminatorValue'])),
+            'source' => fn(ParseNode $n) => $o->setSource($n->getEnumValue(DeviceAndAppManagementAssignmentSource::class)),
+            'sourceId' => fn(ParseNode $n) => $o->setSourceId($n->getStringValue()),
+            'target' => fn(ParseNode $n) => $o->setTarget($n->getObjectValue([DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

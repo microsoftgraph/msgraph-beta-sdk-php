@@ -62,12 +62,12 @@ class AndroidLobApp extends MobileLobApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'identityName' => function (ParseNode $n) use ($o) { $o->setIdentityName($n->getStringValue()); },
-            'identityVersion' => function (ParseNode $n) use ($o) { $o->setIdentityVersion($n->getStringValue()); },
-            'minimumSupportedOperatingSystem' => function (ParseNode $n) use ($o) { $o->setMinimumSupportedOperatingSystem($n->getObjectValue(array(AndroidMinimumOperatingSystem::class, 'createFromDiscriminatorValue'))); },
-            'packageId' => function (ParseNode $n) use ($o) { $o->setPackageId($n->getStringValue()); },
-            'versionCode' => function (ParseNode $n) use ($o) { $o->setVersionCode($n->getStringValue()); },
-            'versionName' => function (ParseNode $n) use ($o) { $o->setVersionName($n->getStringValue()); },
+            'identityName' => fn(ParseNode $n) => $o->setIdentityName($n->getStringValue()),
+            'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
+            'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([AndroidMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
+            'packageId' => fn(ParseNode $n) => $o->setPackageId($n->getStringValue()),
+            'versionCode' => fn(ParseNode $n) => $o->setVersionCode($n->getStringValue()),
+            'versionName' => fn(ParseNode $n) => $o->setVersionName($n->getStringValue()),
         ]);
     }
 

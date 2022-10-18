@@ -76,10 +76,10 @@ class CredentialUsageSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authMethod' => function (ParseNode $n) use ($o) { $o->setAuthMethod($n->getEnumValue(UsageAuthMethod::class)); },
-            'failureActivityCount' => function (ParseNode $n) use ($o) { $o->setFailureActivityCount($n->getIntegerValue()); },
-            'feature' => function (ParseNode $n) use ($o) { $o->setFeature($n->getEnumValue(FeatureType::class)); },
-            'successfulActivityCount' => function (ParseNode $n) use ($o) { $o->setSuccessfulActivityCount($n->getIntegerValue()); },
+            'authMethod' => fn(ParseNode $n) => $o->setAuthMethod($n->getEnumValue(UsageAuthMethod::class)),
+            'failureActivityCount' => fn(ParseNode $n) => $o->setFailureActivityCount($n->getIntegerValue()),
+            'feature' => fn(ParseNode $n) => $o->setFeature($n->getEnumValue(FeatureType::class)),
+            'successfulActivityCount' => fn(ParseNode $n) => $o->setSuccessfulActivityCount($n->getIntegerValue()),
         ]);
     }
 

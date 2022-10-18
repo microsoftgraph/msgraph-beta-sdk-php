@@ -135,17 +135,17 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alwaysOn' => function (ParseNode $n) use ($o) { $o->setAlwaysOn($n->getBooleanValue()); },
-            'alwaysOnLockdown' => function (ParseNode $n) use ($o) { $o->setAlwaysOnLockdown($n->getBooleanValue()); },
-            'connectionType' => function (ParseNode $n) use ($o) { $o->setConnectionType($n->getEnumValue(AndroidVpnConnectionType::class)); },
-            'customData' => function (ParseNode $n) use ($o) { $o->setCustomData($n->getCollectionOfObjectValues(array(KeyValue::class, 'createFromDiscriminatorValue'))); },
-            'customKeyValueData' => function (ParseNode $n) use ($o) { $o->setCustomKeyValueData($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'derivedCredentialSettings' => function (ParseNode $n) use ($o) { $o->setDerivedCredentialSettings($n->getObjectValue(array(DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'))); },
-            'identityCertificate' => function (ParseNode $n) use ($o) { $o->setIdentityCertificate($n->getObjectValue(array(AndroidDeviceOwnerCertificateProfileBase::class, 'createFromDiscriminatorValue'))); },
-            'microsoftTunnelSiteId' => function (ParseNode $n) use ($o) { $o->setMicrosoftTunnelSiteId($n->getStringValue()); },
-            'proxyServer' => function (ParseNode $n) use ($o) { $o->setProxyServer($n->getObjectValue(array(VpnProxyServer::class, 'createFromDiscriminatorValue'))); },
-            'targetedMobileApps' => function (ParseNode $n) use ($o) { $o->setTargetedMobileApps($n->getCollectionOfObjectValues(array(AppListItem::class, 'createFromDiscriminatorValue'))); },
-            'targetedPackageIds' => function (ParseNode $n) use ($o) { $o->setTargetedPackageIds($n->getCollectionOfPrimitiveValues()); },
+            'alwaysOn' => fn(ParseNode $n) => $o->setAlwaysOn($n->getBooleanValue()),
+            'alwaysOnLockdown' => fn(ParseNode $n) => $o->setAlwaysOnLockdown($n->getBooleanValue()),
+            'connectionType' => fn(ParseNode $n) => $o->setConnectionType($n->getEnumValue(AndroidVpnConnectionType::class)),
+            'customData' => fn(ParseNode $n) => $o->setCustomData($n->getCollectionOfObjectValues([KeyValue::class, 'createFromDiscriminatorValue'])),
+            'customKeyValueData' => fn(ParseNode $n) => $o->setCustomKeyValueData($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'derivedCredentialSettings' => fn(ParseNode $n) => $o->setDerivedCredentialSettings($n->getObjectValue([DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'])),
+            'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([AndroidDeviceOwnerCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
+            'microsoftTunnelSiteId' => fn(ParseNode $n) => $o->setMicrosoftTunnelSiteId($n->getStringValue()),
+            'proxyServer' => fn(ParseNode $n) => $o->setProxyServer($n->getObjectValue([VpnProxyServer::class, 'createFromDiscriminatorValue'])),
+            'targetedMobileApps' => fn(ParseNode $n) => $o->setTargetedMobileApps($n->getCollectionOfObjectValues([AppListItem::class, 'createFromDiscriminatorValue'])),
+            'targetedPackageIds' => fn(ParseNode $n) => $o->setTargetedPackageIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

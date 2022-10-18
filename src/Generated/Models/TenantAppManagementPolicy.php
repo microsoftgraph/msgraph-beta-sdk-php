@@ -55,9 +55,9 @@ class TenantAppManagementPolicy extends PolicyBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationRestrictions' => function (ParseNode $n) use ($o) { $o->setApplicationRestrictions($n->getObjectValue(array(AppManagementConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'servicePrincipalRestrictions' => function (ParseNode $n) use ($o) { $o->setServicePrincipalRestrictions($n->getObjectValue(array(AppManagementConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'applicationRestrictions' => fn(ParseNode $n) => $o->setApplicationRestrictions($n->getObjectValue([AppManagementConfiguration::class, 'createFromDiscriminatorValue'])),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            'servicePrincipalRestrictions' => fn(ParseNode $n) => $o->setServicePrincipalRestrictions($n->getObjectValue([AppManagementConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

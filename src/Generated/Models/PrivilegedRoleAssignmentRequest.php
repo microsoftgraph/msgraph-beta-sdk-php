@@ -109,18 +109,18 @@ class PrivilegedRoleAssignmentRequest extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignmentState' => function (ParseNode $n) use ($o) { $o->setAssignmentState($n->getStringValue()); },
-            'duration' => function (ParseNode $n) use ($o) { $o->setDuration($n->getStringValue()); },
-            'reason' => function (ParseNode $n) use ($o) { $o->setReason($n->getStringValue()); },
-            'requestedDateTime' => function (ParseNode $n) use ($o) { $o->setRequestedDateTime($n->getDateTimeValue()); },
-            'roleId' => function (ParseNode $n) use ($o) { $o->setRoleId($n->getStringValue()); },
-            'roleInfo' => function (ParseNode $n) use ($o) { $o->setRoleInfo($n->getObjectValue(array(PrivilegedRole::class, 'createFromDiscriminatorValue'))); },
-            'schedule' => function (ParseNode $n) use ($o) { $o->setSchedule($n->getObjectValue(array(GovernanceSchedule::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'ticketNumber' => function (ParseNode $n) use ($o) { $o->setTicketNumber($n->getStringValue()); },
-            'ticketSystem' => function (ParseNode $n) use ($o) { $o->setTicketSystem($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'assignmentState' => fn(ParseNode $n) => $o->setAssignmentState($n->getStringValue()),
+            'duration' => fn(ParseNode $n) => $o->setDuration($n->getStringValue()),
+            'reason' => fn(ParseNode $n) => $o->setReason($n->getStringValue()),
+            'requestedDateTime' => fn(ParseNode $n) => $o->setRequestedDateTime($n->getDateTimeValue()),
+            'roleId' => fn(ParseNode $n) => $o->setRoleId($n->getStringValue()),
+            'roleInfo' => fn(ParseNode $n) => $o->setRoleInfo($n->getObjectValue([PrivilegedRole::class, 'createFromDiscriminatorValue'])),
+            'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([GovernanceSchedule::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
+            'ticketNumber' => fn(ParseNode $n) => $o->setTicketNumber($n->getStringValue()),
+            'ticketSystem' => fn(ParseNode $n) => $o->setTicketSystem($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 

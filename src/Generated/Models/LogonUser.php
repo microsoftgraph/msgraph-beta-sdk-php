@@ -111,14 +111,14 @@ class LogonUser implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accountDomain' => function (ParseNode $n) use ($o) { $o->setAccountDomain($n->getStringValue()); },
-            'accountName' => function (ParseNode $n) use ($o) { $o->setAccountName($n->getStringValue()); },
-            'accountType' => function (ParseNode $n) use ($o) { $o->setAccountType($n->getEnumValue(UserAccountSecurityType::class)); },
-            'firstSeenDateTime' => function (ParseNode $n) use ($o) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
-            'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
-            'logonId' => function (ParseNode $n) use ($o) { $o->setLogonId($n->getStringValue()); },
-            'logonTypes' => function (ParseNode $n) use ($o) { $o->setLogonTypes($n->getCollectionOfEnumValues(LogonType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'accountDomain' => fn(ParseNode $n) => $o->setAccountDomain($n->getStringValue()),
+            'accountName' => fn(ParseNode $n) => $o->setAccountName($n->getStringValue()),
+            'accountType' => fn(ParseNode $n) => $o->setAccountType($n->getEnumValue(UserAccountSecurityType::class)),
+            'firstSeenDateTime' => fn(ParseNode $n) => $o->setFirstSeenDateTime($n->getDateTimeValue()),
+            'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
+            'logonId' => fn(ParseNode $n) => $o->setLogonId($n->getStringValue()),
+            'logonTypes' => fn(ParseNode $n) => $o->setLogonTypes($n->getCollectionOfEnumValues(LogonType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

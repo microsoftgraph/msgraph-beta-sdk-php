@@ -83,13 +83,13 @@ class InformationProtectionLabel extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'color' => function (ParseNode $n) use ($o) { $o->setColor($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(ParentLabelDetails::class, 'createFromDiscriminatorValue'))); },
-            'sensitivity' => function (ParseNode $n) use ($o) { $o->setSensitivity($n->getIntegerValue()); },
-            'tooltip' => function (ParseNode $n) use ($o) { $o->setTooltip($n->getStringValue()); },
+            'color' => fn(ParseNode $n) => $o->setColor($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'parent' => fn(ParseNode $n) => $o->setParent($n->getObjectValue([ParentLabelDetails::class, 'createFromDiscriminatorValue'])),
+            'sensitivity' => fn(ParseNode $n) => $o->setSensitivity($n->getIntegerValue()),
+            'tooltip' => fn(ParseNode $n) => $o->setTooltip($n->getStringValue()),
         ]);
     }
 

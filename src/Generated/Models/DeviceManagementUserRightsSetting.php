@@ -61,9 +61,9 @@ class DeviceManagementUserRightsSetting implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'localUsersOrGroups' => function (ParseNode $n) use ($o) { $o->setLocalUsersOrGroups($n->getCollectionOfObjectValues(array(DeviceManagementUserRightsLocalUserOrGroup::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(StateManagementSetting::class)); },
+            'localUsersOrGroups' => fn(ParseNode $n) => $o->setLocalUsersOrGroups($n->getCollectionOfObjectValues([DeviceManagementUserRightsLocalUserOrGroup::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(StateManagementSetting::class)),
         ];
     }
 

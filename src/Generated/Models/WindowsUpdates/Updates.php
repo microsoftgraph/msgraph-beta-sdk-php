@@ -69,10 +69,10 @@ class Updates extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'catalog' => function (ParseNode $n) use ($o) { $o->setCatalog($n->getObjectValue(array(Catalog::class, 'createFromDiscriminatorValue'))); },
-            'deployments' => function (ParseNode $n) use ($o) { $o->setDeployments($n->getCollectionOfObjectValues(array(Deployment::class, 'createFromDiscriminatorValue'))); },
-            'resourceConnections' => function (ParseNode $n) use ($o) { $o->setResourceConnections($n->getCollectionOfObjectValues(array(ResourceConnection::class, 'createFromDiscriminatorValue'))); },
-            'updatableAssets' => function (ParseNode $n) use ($o) { $o->setUpdatableAssets($n->getCollectionOfObjectValues(array(UpdatableAsset::class, 'createFromDiscriminatorValue'))); },
+            'catalog' => fn(ParseNode $n) => $o->setCatalog($n->getObjectValue([Catalog::class, 'createFromDiscriminatorValue'])),
+            'deployments' => fn(ParseNode $n) => $o->setDeployments($n->getCollectionOfObjectValues([Deployment::class, 'createFromDiscriminatorValue'])),
+            'resourceConnections' => fn(ParseNode $n) => $o->setResourceConnections($n->getCollectionOfObjectValues([ResourceConnection::class, 'createFromDiscriminatorValue'])),
+            'updatableAssets' => fn(ParseNode $n) => $o->setUpdatableAssets($n->getCollectionOfObjectValues([UpdatableAsset::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

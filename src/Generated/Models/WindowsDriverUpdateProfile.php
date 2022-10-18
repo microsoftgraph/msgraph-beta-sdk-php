@@ -157,18 +157,18 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'approvalType' => function (ParseNode $n) use ($o) { $o->setApprovalType($n->getEnumValue(DriverUpdateProfileApprovalType::class)); },
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(WindowsDriverUpdateProfileAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deploymentDeferralInDays' => function (ParseNode $n) use ($o) { $o->setDeploymentDeferralInDays($n->getIntegerValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'deviceReporting' => function (ParseNode $n) use ($o) { $o->setDeviceReporting($n->getIntegerValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'driverInventories' => function (ParseNode $n) use ($o) { $o->setDriverInventories($n->getCollectionOfObjectValues(array(WindowsDriverUpdateInventory::class, 'createFromDiscriminatorValue'))); },
-            'inventorySyncStatus' => function (ParseNode $n) use ($o) { $o->setInventorySyncStatus($n->getObjectValue(array(WindowsDriverUpdateProfileInventorySyncStatus::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'newUpdates' => function (ParseNode $n) use ($o) { $o->setNewUpdates($n->getIntegerValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'approvalType' => fn(ParseNode $n) => $o->setApprovalType($n->getEnumValue(DriverUpdateProfileApprovalType::class)),
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([WindowsDriverUpdateProfileAssignment::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'deploymentDeferralInDays' => fn(ParseNode $n) => $o->setDeploymentDeferralInDays($n->getIntegerValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'deviceReporting' => fn(ParseNode $n) => $o->setDeviceReporting($n->getIntegerValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'driverInventories' => fn(ParseNode $n) => $o->setDriverInventories($n->getCollectionOfObjectValues([WindowsDriverUpdateInventory::class, 'createFromDiscriminatorValue'])),
+            'inventorySyncStatus' => fn(ParseNode $n) => $o->setInventorySyncStatus($n->getObjectValue([WindowsDriverUpdateProfileInventorySyncStatus::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'newUpdates' => fn(ParseNode $n) => $o->setNewUpdates($n->getIntegerValue()),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

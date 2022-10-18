@@ -90,11 +90,11 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeDevices' => function (ParseNode $n) use ($o) { $o->setActiveDevices($n->getIntegerValue()); },
-            'batteryCapacityFair' => function (ParseNode $n) use ($o) { $o->setBatteryCapacityFair($n->getIntegerValue()); },
-            'batteryCapacityGood' => function (ParseNode $n) use ($o) { $o->setBatteryCapacityGood($n->getIntegerValue()); },
-            'batteryCapacityPoor' => function (ParseNode $n) use ($o) { $o->setBatteryCapacityPoor($n->getIntegerValue()); },
-            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
+            'activeDevices' => fn(ParseNode $n) => $o->setActiveDevices($n->getIntegerValue()),
+            'batteryCapacityFair' => fn(ParseNode $n) => $o->setBatteryCapacityFair($n->getIntegerValue()),
+            'batteryCapacityGood' => fn(ParseNode $n) => $o->setBatteryCapacityGood($n->getIntegerValue()),
+            'batteryCapacityPoor' => fn(ParseNode $n) => $o->setBatteryCapacityPoor($n->getIntegerValue()),
+            'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
         ]);
     }
 

@@ -57,8 +57,8 @@ class CloudPcLoginResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'time' => function (ParseNode $n) use ($o) { $o->setTime($n->getDateTimeValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'time' => fn(ParseNode $n) => $o->setTime($n->getDateTimeValue()),
         ];
     }
 

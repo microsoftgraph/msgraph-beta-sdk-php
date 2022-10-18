@@ -148,16 +148,16 @@ class GeneralLedgerEntry extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'account' => function (ParseNode $n) use ($o) { $o->setAccount($n->getObjectValue(array(Account::class, 'createFromDiscriminatorValue'))); },
-            'accountId' => function (ParseNode $n) use ($o) { $o->setAccountId($n->getStringValue()); },
-            'accountNumber' => function (ParseNode $n) use ($o) { $o->setAccountNumber($n->getStringValue()); },
-            'creditAmount' => function (ParseNode $n) use ($o) { $o->setCreditAmount($n->getStringValue()); },
-            'debitAmount' => function (ParseNode $n) use ($o) { $o->setDebitAmount($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'documentNumber' => function (ParseNode $n) use ($o) { $o->setDocumentNumber($n->getStringValue()); },
-            'documentType' => function (ParseNode $n) use ($o) { $o->setDocumentType($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'postingDate' => function (ParseNode $n) use ($o) { $o->setPostingDate($n->getDateValue()); },
+            'account' => fn(ParseNode $n) => $o->setAccount($n->getObjectValue([Account::class, 'createFromDiscriminatorValue'])),
+            'accountId' => fn(ParseNode $n) => $o->setAccountId($n->getStringValue()),
+            'accountNumber' => fn(ParseNode $n) => $o->setAccountNumber($n->getStringValue()),
+            'creditAmount' => fn(ParseNode $n) => $o->setCreditAmount($n->getStringValue()),
+            'debitAmount' => fn(ParseNode $n) => $o->setDebitAmount($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'documentNumber' => fn(ParseNode $n) => $o->setDocumentNumber($n->getStringValue()),
+            'documentType' => fn(ParseNode $n) => $o->setDocumentType($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'postingDate' => fn(ParseNode $n) => $o->setPostingDate($n->getDateValue()),
         ]);
     }
 

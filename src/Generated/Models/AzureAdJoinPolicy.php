@@ -95,11 +95,11 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedGroups' => function (ParseNode $n) use ($o) { $o->setAllowedGroups($n->getCollectionOfPrimitiveValues()); },
-            'allowedUsers' => function (ParseNode $n) use ($o) { $o->setAllowedUsers($n->getCollectionOfPrimitiveValues()); },
-            'appliesTo' => function (ParseNode $n) use ($o) { $o->setAppliesTo($n->getEnumValue(PolicyScope::class)); },
-            'isAdminConfigurable' => function (ParseNode $n) use ($o) { $o->setIsAdminConfigurable($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'allowedGroups' => fn(ParseNode $n) => $o->setAllowedGroups($n->getCollectionOfPrimitiveValues()),
+            'allowedUsers' => fn(ParseNode $n) => $o->setAllowedUsers($n->getCollectionOfPrimitiveValues()),
+            'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getEnumValue(PolicyScope::class)),
+            'isAdminConfigurable' => fn(ParseNode $n) => $o->setIsAdminConfigurable($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

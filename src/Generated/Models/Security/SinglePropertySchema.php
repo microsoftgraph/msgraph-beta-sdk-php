@@ -15,7 +15,7 @@ class SinglePropertySchema implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $name The name property
+     * @var string|null $name The name of the property.
     */
     private ?string $name = null;
     
@@ -25,7 +25,7 @@ class SinglePropertySchema implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var string|null $type The type property
+     * @var string|null $type The type of the property.
     */
     private ?string $type = null;
     
@@ -61,14 +61,14 @@ class SinglePropertySchema implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ];
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The name of the property.
      * @return string|null
     */
     public function getName(): ?string {
@@ -84,7 +84,7 @@ class SinglePropertySchema implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the type property value. The type property
+     * Gets the type property value. The type of the property.
      * @return string|null
     */
     public function getType(): ?string {
@@ -111,7 +111,7 @@ class SinglePropertySchema implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The name of the property.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {
@@ -127,7 +127,7 @@ class SinglePropertySchema implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the type property value. The type property
+     * Sets the type property value. The type of the property.
      *  @param string|null $value Value to set for the type property.
     */
     public function setType(?string $value ): void {

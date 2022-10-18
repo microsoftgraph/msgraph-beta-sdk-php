@@ -90,10 +90,10 @@ class TeamworkCameraConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'cameras' => function (ParseNode $n) use ($o) { $o->setCameras($n->getCollectionOfObjectValues(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'contentCameraConfiguration' => function (ParseNode $n) use ($o) { $o->setContentCameraConfiguration($n->getObjectValue(array(TeamworkContentCameraConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'defaultContentCamera' => function (ParseNode $n) use ($o) { $o->setDefaultContentCamera($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'cameras' => fn(ParseNode $n) => $o->setCameras($n->getCollectionOfObjectValues([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
+            'contentCameraConfiguration' => fn(ParseNode $n) => $o->setContentCameraConfiguration($n->getObjectValue([TeamworkContentCameraConfiguration::class, 'createFromDiscriminatorValue'])),
+            'defaultContentCamera' => fn(ParseNode $n) => $o->setDefaultContentCamera($n->getObjectValue([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

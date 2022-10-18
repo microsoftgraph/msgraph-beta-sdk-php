@@ -65,7 +65,7 @@ class AuditEvent extends Entity implements Parsable
     private ?array $resources = null;
     
     /**
-     * Instantiates a new AuditEvent and sets the default values.
+     * Instantiates a new auditEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -168,17 +168,17 @@ class AuditEvent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getStringValue()); },
-            'activityDateTime' => function (ParseNode $n) use ($o) { $o->setActivityDateTime($n->getDateTimeValue()); },
-            'activityOperationType' => function (ParseNode $n) use ($o) { $o->setActivityOperationType($n->getStringValue()); },
-            'activityResult' => function (ParseNode $n) use ($o) { $o->setActivityResult($n->getStringValue()); },
-            'activityType' => function (ParseNode $n) use ($o) { $o->setActivityType($n->getStringValue()); },
-            'actor' => function (ParseNode $n) use ($o) { $o->setActor($n->getObjectValue(array(AuditActor::class, 'createFromDiscriminatorValue'))); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getStringValue()); },
-            'componentName' => function (ParseNode $n) use ($o) { $o->setComponentName($n->getStringValue()); },
-            'correlationId' => function (ParseNode $n) use ($o) { $o->setCorrelationId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'resources' => function (ParseNode $n) use ($o) { $o->setResources($n->getCollectionOfObjectValues(array(AuditResource::class, 'createFromDiscriminatorValue'))); },
+            'activity' => fn(ParseNode $n) => $o->setActivity($n->getStringValue()),
+            'activityDateTime' => fn(ParseNode $n) => $o->setActivityDateTime($n->getDateTimeValue()),
+            'activityOperationType' => fn(ParseNode $n) => $o->setActivityOperationType($n->getStringValue()),
+            'activityResult' => fn(ParseNode $n) => $o->setActivityResult($n->getStringValue()),
+            'activityType' => fn(ParseNode $n) => $o->setActivityType($n->getStringValue()),
+            'actor' => fn(ParseNode $n) => $o->setActor($n->getObjectValue([AuditActor::class, 'createFromDiscriminatorValue'])),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getStringValue()),
+            'componentName' => fn(ParseNode $n) => $o->setComponentName($n->getStringValue()),
+            'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'resources' => fn(ParseNode $n) => $o->setResources($n->getCollectionOfObjectValues([AuditResource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

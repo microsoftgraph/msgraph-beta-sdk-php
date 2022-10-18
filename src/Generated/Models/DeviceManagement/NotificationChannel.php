@@ -15,12 +15,12 @@ class NotificationChannel implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var NotificationChannelType|null $notificationChannelType The notificationChannelType property
+     * @var NotificationChannelType|null $notificationChannelType The type of the notification channel. The possible values are: portal, email, phoneCall, sms, unknownFutureValue.
     */
     private ?NotificationChannelType $notificationChannelType = null;
     
     /**
-     * @var array<NotificationReceiver>|null $notificationReceivers The notificationReceivers property
+     * @var array<NotificationReceiver>|null $notificationReceivers Information about the notification receivers, such as locale and contact information. For example, en-us for locale and serena.davis@contoso.com for contact information.
     */
     private ?array $notificationReceivers = null;
     
@@ -30,7 +30,7 @@ class NotificationChannel implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var array<string>|null $receivers The receivers property
+     * @var array<string>|null $receivers The contact information about the notification receivers, such as email addresses. For portal notifications, receivers can be left blank. For email notifications, receivers consists of email addresses such as serena.davis@contoso.com.
     */
     private ?array $receivers = null;
     
@@ -66,15 +66,15 @@ class NotificationChannel implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'notificationChannelType' => function (ParseNode $n) use ($o) { $o->setNotificationChannelType($n->getEnumValue(NotificationChannelType::class)); },
-            'notificationReceivers' => function (ParseNode $n) use ($o) { $o->setNotificationReceivers($n->getCollectionOfObjectValues(array(NotificationReceiver::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'receivers' => function (ParseNode $n) use ($o) { $o->setReceivers($n->getCollectionOfPrimitiveValues()); },
+            'notificationChannelType' => fn(ParseNode $n) => $o->setNotificationChannelType($n->getEnumValue(NotificationChannelType::class)),
+            'notificationReceivers' => fn(ParseNode $n) => $o->setNotificationReceivers($n->getCollectionOfObjectValues([NotificationReceiver::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'receivers' => fn(ParseNode $n) => $o->setReceivers($n->getCollectionOfPrimitiveValues()),
         ];
     }
 
     /**
-     * Gets the notificationChannelType property value. The notificationChannelType property
+     * Gets the notificationChannelType property value. The type of the notification channel. The possible values are: portal, email, phoneCall, sms, unknownFutureValue.
      * @return NotificationChannelType|null
     */
     public function getNotificationChannelType(): ?NotificationChannelType {
@@ -82,7 +82,7 @@ class NotificationChannel implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the notificationReceivers property value. The notificationReceivers property
+     * Gets the notificationReceivers property value. Information about the notification receivers, such as locale and contact information. For example, en-us for locale and serena.davis@contoso.com for contact information.
      * @return array<NotificationReceiver>|null
     */
     public function getNotificationReceivers(): ?array {
@@ -98,7 +98,7 @@ class NotificationChannel implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the receivers property value. The receivers property
+     * Gets the receivers property value. The contact information about the notification receivers, such as email addresses. For portal notifications, receivers can be left blank. For email notifications, receivers consists of email addresses such as serena.davis@contoso.com.
      * @return array<string>|null
     */
     public function getReceivers(): ?array {
@@ -126,7 +126,7 @@ class NotificationChannel implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the notificationChannelType property value. The notificationChannelType property
+     * Sets the notificationChannelType property value. The type of the notification channel. The possible values are: portal, email, phoneCall, sms, unknownFutureValue.
      *  @param NotificationChannelType|null $value Value to set for the notificationChannelType property.
     */
     public function setNotificationChannelType(?NotificationChannelType $value ): void {
@@ -134,7 +134,7 @@ class NotificationChannel implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the notificationReceivers property value. The notificationReceivers property
+     * Sets the notificationReceivers property value. Information about the notification receivers, such as locale and contact information. For example, en-us for locale and serena.davis@contoso.com for contact information.
      *  @param array<NotificationReceiver>|null $value Value to set for the notificationReceivers property.
     */
     public function setNotificationReceivers(?array $value ): void {
@@ -150,7 +150,7 @@ class NotificationChannel implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the receivers property value. The receivers property
+     * Sets the receivers property value. The contact information about the notification receivers, such as email addresses. For portal notifications, receivers can be left blank. For email notifications, receivers consists of email addresses such as serena.davis@contoso.com.
      *  @param array<string>|null $value Value to set for the receivers property.
     */
     public function setReceivers(?array $value ): void {

@@ -77,9 +77,9 @@ class TeamworkTeamsClientConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accountConfiguration' => function (ParseNode $n) use ($o) { $o->setAccountConfiguration($n->getObjectValue(array(TeamworkAccountConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'featuresConfiguration' => function (ParseNode $n) use ($o) { $o->setFeaturesConfiguration($n->getObjectValue(array(TeamworkFeaturesConfiguration::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'accountConfiguration' => fn(ParseNode $n) => $o->setAccountConfiguration($n->getObjectValue([TeamworkAccountConfiguration::class, 'createFromDiscriminatorValue'])),
+            'featuresConfiguration' => fn(ParseNode $n) => $o->setFeaturesConfiguration($n->getObjectValue([TeamworkFeaturesConfiguration::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

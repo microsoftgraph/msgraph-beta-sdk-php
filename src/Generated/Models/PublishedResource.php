@@ -68,10 +68,10 @@ class PublishedResource extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agentGroups' => function (ParseNode $n) use ($o) { $o->setAgentGroups($n->getCollectionOfObjectValues(array(OnPremisesAgentGroup::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'publishingType' => function (ParseNode $n) use ($o) { $o->setPublishingType($n->getEnumValue(OnPremisesPublishingType::class)); },
-            'resourceName' => function (ParseNode $n) use ($o) { $o->setResourceName($n->getStringValue()); },
+            'agentGroups' => fn(ParseNode $n) => $o->setAgentGroups($n->getCollectionOfObjectValues([OnPremisesAgentGroup::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'publishingType' => fn(ParseNode $n) => $o->setPublishingType($n->getEnumValue(OnPremisesPublishingType::class)),
+            'resourceName' => fn(ParseNode $n) => $o->setResourceName($n->getStringValue()),
         ]);
     }
 

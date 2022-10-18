@@ -70,9 +70,9 @@ class BookingWorkTimeSlot implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'end' => function (ParseNode $n) use ($o) { $o->setEnd($n->getTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'start' => function (ParseNode $n) use ($o) { $o->setStart($n->getTimeValue()); },
+            'end' => fn(ParseNode $n) => $o->setEnd($n->getTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'start' => fn(ParseNode $n) => $o->setStart($n->getTimeValue()),
         ];
     }
 

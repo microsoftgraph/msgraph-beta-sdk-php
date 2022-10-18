@@ -47,9 +47,9 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'intent' => function (ParseNode $n) use ($o) { $o->setIntent($n->getEnumValue(DeviceManagementResourceAccessProfileIntent::class)); },
-            'sourceId' => function (ParseNode $n) use ($o) { $o->setSourceId($n->getStringValue()); },
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
+            'intent' => fn(ParseNode $n) => $o->setIntent($n->getEnumValue(DeviceManagementResourceAccessProfileIntent::class)),
+            'sourceId' => fn(ParseNode $n) => $o->setSourceId($n->getStringValue()),
+            'target' => fn(ParseNode $n) => $o->setTarget($n->getObjectValue([DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

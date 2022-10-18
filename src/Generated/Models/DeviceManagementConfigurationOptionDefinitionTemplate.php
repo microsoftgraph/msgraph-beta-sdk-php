@@ -69,9 +69,9 @@ class DeviceManagementConfigurationOptionDefinitionTemplate implements Additiona
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'children' => function (ParseNode $n) use ($o) { $o->setChildren($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingInstanceTemplate::class, 'createFromDiscriminatorValue'))); },
-            'itemId' => function (ParseNode $n) use ($o) { $o->setItemId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'children' => fn(ParseNode $n) => $o->setChildren($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingInstanceTemplate::class, 'createFromDiscriminatorValue'])),
+            'itemId' => fn(ParseNode $n) => $o->setItemId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

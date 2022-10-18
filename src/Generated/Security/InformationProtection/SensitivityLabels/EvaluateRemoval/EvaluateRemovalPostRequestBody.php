@@ -73,8 +73,8 @@ class EvaluateRemovalPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'contentInfo' => function (ParseNode $n) use ($o) { $o->setContentInfo($n->getObjectValue(array(ContentInfo::class, 'createFromDiscriminatorValue'))); },
-            'downgradeJustification' => function (ParseNode $n) use ($o) { $o->setDowngradeJustification($n->getObjectValue(array(DowngradeJustification::class, 'createFromDiscriminatorValue'))); },
+            'contentInfo' => fn(ParseNode $n) => $o->setContentInfo($n->getObjectValue([ContentInfo::class, 'createFromDiscriminatorValue'])),
+            'downgradeJustification' => fn(ParseNode $n) => $o->setDowngradeJustification($n->getObjectValue([DowngradeJustification::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

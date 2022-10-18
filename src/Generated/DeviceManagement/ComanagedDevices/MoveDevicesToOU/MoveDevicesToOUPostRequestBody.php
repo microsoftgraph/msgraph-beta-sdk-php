@@ -63,8 +63,8 @@ class MoveDevicesToOUPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceIds' => function (ParseNode $n) use ($o) { $o->setDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'organizationalUnitPath' => function (ParseNode $n) use ($o) { $o->setOrganizationalUnitPath($n->getStringValue()); },
+            'deviceIds' => fn(ParseNode $n) => $o->setDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'organizationalUnitPath' => fn(ParseNode $n) => $o->setOrganizationalUnitPath($n->getStringValue()),
         ];
     }
 

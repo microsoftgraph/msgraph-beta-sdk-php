@@ -109,15 +109,15 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accountName' => function (ParseNode $n) use ($o) { $o->setAccountName($n->getStringValue()); },
-            'durationOfEmailToSync' => function (ParseNode $n) use ($o) { $o->setDurationOfEmailToSync($n->getEnumValue(EmailSyncDuration::class)); },
-            'emailAddressSource' => function (ParseNode $n) use ($o) { $o->setEmailAddressSource($n->getEnumValue(UserEmailSource::class)); },
-            'emailSyncSchedule' => function (ParseNode $n) use ($o) { $o->setEmailSyncSchedule($n->getEnumValue(EmailSyncSchedule::class)); },
-            'hostName' => function (ParseNode $n) use ($o) { $o->setHostName($n->getStringValue()); },
-            'requireSsl' => function (ParseNode $n) use ($o) { $o->setRequireSsl($n->getBooleanValue()); },
-            'syncCalendar' => function (ParseNode $n) use ($o) { $o->setSyncCalendar($n->getBooleanValue()); },
-            'syncContacts' => function (ParseNode $n) use ($o) { $o->setSyncContacts($n->getBooleanValue()); },
-            'syncTasks' => function (ParseNode $n) use ($o) { $o->setSyncTasks($n->getBooleanValue()); },
+            'accountName' => fn(ParseNode $n) => $o->setAccountName($n->getStringValue()),
+            'durationOfEmailToSync' => fn(ParseNode $n) => $o->setDurationOfEmailToSync($n->getEnumValue(EmailSyncDuration::class)),
+            'emailAddressSource' => fn(ParseNode $n) => $o->setEmailAddressSource($n->getEnumValue(UserEmailSource::class)),
+            'emailSyncSchedule' => fn(ParseNode $n) => $o->setEmailSyncSchedule($n->getEnumValue(EmailSyncSchedule::class)),
+            'hostName' => fn(ParseNode $n) => $o->setHostName($n->getStringValue()),
+            'requireSsl' => fn(ParseNode $n) => $o->setRequireSsl($n->getBooleanValue()),
+            'syncCalendar' => fn(ParseNode $n) => $o->setSyncCalendar($n->getBooleanValue()),
+            'syncContacts' => fn(ParseNode $n) => $o->setSyncContacts($n->getBooleanValue()),
+            'syncTasks' => fn(ParseNode $n) => $o->setSyncTasks($n->getBooleanValue()),
         ]);
     }
 

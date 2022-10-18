@@ -42,8 +42,8 @@ class MacOsVppAppAssignmentSettings extends MobileAppAssignmentSettings implemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'uninstallOnDeviceRemoval' => function (ParseNode $n) use ($o) { $o->setUninstallOnDeviceRemoval($n->getBooleanValue()); },
-            'useDeviceLicensing' => function (ParseNode $n) use ($o) { $o->setUseDeviceLicensing($n->getBooleanValue()); },
+            'uninstallOnDeviceRemoval' => fn(ParseNode $n) => $o->setUninstallOnDeviceRemoval($n->getBooleanValue()),
+            'useDeviceLicensing' => fn(ParseNode $n) => $o->setUseDeviceLicensing($n->getBooleanValue()),
         ]);
     }
 

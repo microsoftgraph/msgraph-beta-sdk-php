@@ -55,9 +55,9 @@ class UsageRight extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'catalogId' => function (ParseNode $n) use ($o) { $o->setCatalogId($n->getStringValue()); },
-            'serviceIdentifier' => function (ParseNode $n) use ($o) { $o->setServiceIdentifier($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(UsageRightState::class)); },
+            'catalogId' => fn(ParseNode $n) => $o->setCatalogId($n->getStringValue()),
+            'serviceIdentifier' => fn(ParseNode $n) => $o->setServiceIdentifier($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(UsageRightState::class)),
         ]);
     }
 

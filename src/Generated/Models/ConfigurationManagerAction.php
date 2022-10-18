@@ -64,8 +64,8 @@ class ConfigurationManagerAction implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(ConfigurationManagerActionType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(ConfigurationManagerActionType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

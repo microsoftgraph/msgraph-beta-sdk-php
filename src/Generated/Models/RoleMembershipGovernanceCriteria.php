@@ -42,8 +42,8 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'roleId' => function (ParseNode $n) use ($o) { $o->setRoleId($n->getStringValue()); },
-            'roleTemplateId' => function (ParseNode $n) use ($o) { $o->setRoleTemplateId($n->getStringValue()); },
+            'roleId' => fn(ParseNode $n) => $o->setRoleId($n->getStringValue()),
+            'roleTemplateId' => fn(ParseNode $n) => $o->setRoleTemplateId($n->getStringValue()),
         ]);
     }
 

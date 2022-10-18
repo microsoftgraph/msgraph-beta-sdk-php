@@ -69,9 +69,9 @@ class AccessPackageLocalizedContent implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'defaultText' => function (ParseNode $n) use ($o) { $o->setDefaultText($n->getStringValue()); },
-            'localizedTexts' => function (ParseNode $n) use ($o) { $o->setLocalizedTexts($n->getCollectionOfObjectValues(array(AccessPackageLocalizedText::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'defaultText' => fn(ParseNode $n) => $o->setDefaultText($n->getStringValue()),
+            'localizedTexts' => fn(ParseNode $n) => $o->setLocalizedTexts($n->getCollectionOfObjectValues([AccessPackageLocalizedText::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

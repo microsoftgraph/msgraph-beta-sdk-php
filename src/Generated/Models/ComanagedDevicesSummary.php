@@ -120,16 +120,16 @@ class ComanagedDevicesSummary implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'compliancePolicyCount' => function (ParseNode $n) use ($o) { $o->setCompliancePolicyCount($n->getIntegerValue()); },
-            'configurationSettingsCount' => function (ParseNode $n) use ($o) { $o->setConfigurationSettingsCount($n->getIntegerValue()); },
-            'endpointProtectionCount' => function (ParseNode $n) use ($o) { $o->setEndpointProtectionCount($n->getIntegerValue()); },
-            'inventoryCount' => function (ParseNode $n) use ($o) { $o->setInventoryCount($n->getIntegerValue()); },
-            'modernAppsCount' => function (ParseNode $n) use ($o) { $o->setModernAppsCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'officeAppsCount' => function (ParseNode $n) use ($o) { $o->setOfficeAppsCount($n->getIntegerValue()); },
-            'resourceAccessCount' => function (ParseNode $n) use ($o) { $o->setResourceAccessCount($n->getIntegerValue()); },
-            'totalComanagedCount' => function (ParseNode $n) use ($o) { $o->setTotalComanagedCount($n->getIntegerValue()); },
-            'windowsUpdateForBusinessCount' => function (ParseNode $n) use ($o) { $o->setWindowsUpdateForBusinessCount($n->getIntegerValue()); },
+            'compliancePolicyCount' => fn(ParseNode $n) => $o->setCompliancePolicyCount($n->getIntegerValue()),
+            'configurationSettingsCount' => fn(ParseNode $n) => $o->setConfigurationSettingsCount($n->getIntegerValue()),
+            'endpointProtectionCount' => fn(ParseNode $n) => $o->setEndpointProtectionCount($n->getIntegerValue()),
+            'inventoryCount' => fn(ParseNode $n) => $o->setInventoryCount($n->getIntegerValue()),
+            'modernAppsCount' => fn(ParseNode $n) => $o->setModernAppsCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'officeAppsCount' => fn(ParseNode $n) => $o->setOfficeAppsCount($n->getIntegerValue()),
+            'resourceAccessCount' => fn(ParseNode $n) => $o->setResourceAccessCount($n->getIntegerValue()),
+            'totalComanagedCount' => fn(ParseNode $n) => $o->setTotalComanagedCount($n->getIntegerValue()),
+            'windowsUpdateForBusinessCount' => fn(ParseNode $n) => $o->setWindowsUpdateForBusinessCount($n->getIntegerValue()),
         ];
     }
 

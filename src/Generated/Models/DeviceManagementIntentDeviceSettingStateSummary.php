@@ -91,13 +91,13 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity implements 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'compliantCount' => function (ParseNode $n) use ($o) { $o->setCompliantCount($n->getIntegerValue()); },
-            'conflictCount' => function (ParseNode $n) use ($o) { $o->setConflictCount($n->getIntegerValue()); },
-            'errorCount' => function (ParseNode $n) use ($o) { $o->setErrorCount($n->getIntegerValue()); },
-            'nonCompliantCount' => function (ParseNode $n) use ($o) { $o->setNonCompliantCount($n->getIntegerValue()); },
-            'notApplicableCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableCount($n->getIntegerValue()); },
-            'remediatedCount' => function (ParseNode $n) use ($o) { $o->setRemediatedCount($n->getIntegerValue()); },
-            'settingName' => function (ParseNode $n) use ($o) { $o->setSettingName($n->getStringValue()); },
+            'compliantCount' => fn(ParseNode $n) => $o->setCompliantCount($n->getIntegerValue()),
+            'conflictCount' => fn(ParseNode $n) => $o->setConflictCount($n->getIntegerValue()),
+            'errorCount' => fn(ParseNode $n) => $o->setErrorCount($n->getIntegerValue()),
+            'nonCompliantCount' => fn(ParseNode $n) => $o->setNonCompliantCount($n->getIntegerValue()),
+            'notApplicableCount' => fn(ParseNode $n) => $o->setNotApplicableCount($n->getIntegerValue()),
+            'remediatedCount' => fn(ParseNode $n) => $o->setRemediatedCount($n->getIntegerValue()),
+            'settingName' => fn(ParseNode $n) => $o->setSettingName($n->getStringValue()),
         ]);
     }
 

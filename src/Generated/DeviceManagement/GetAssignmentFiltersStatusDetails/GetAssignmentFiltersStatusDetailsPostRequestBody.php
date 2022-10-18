@@ -83,12 +83,12 @@ class GetAssignmentFiltersStatusDetailsPostRequestBody implements AdditionalData
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assignmentFilterIds' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterIds($n->getCollectionOfPrimitiveValues()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'payloadId' => function (ParseNode $n) use ($o) { $o->setPayloadId($n->getStringValue()); },
-            'skip' => function (ParseNode $n) use ($o) { $o->setSkip($n->getIntegerValue()); },
-            'top' => function (ParseNode $n) use ($o) { $o->setTop($n->getIntegerValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'assignmentFilterIds' => fn(ParseNode $n) => $o->setAssignmentFilterIds($n->getCollectionOfPrimitiveValues()),
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            'payloadId' => fn(ParseNode $n) => $o->setPayloadId($n->getStringValue()),
+            'skip' => fn(ParseNode $n) => $o->setSkip($n->getIntegerValue()),
+            'top' => fn(ParseNode $n) => $o->setTop($n->getIntegerValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ];
     }
 

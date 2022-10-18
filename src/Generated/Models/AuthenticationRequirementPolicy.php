@@ -69,9 +69,9 @@ class AuthenticationRequirementPolicy implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'requirementProvider' => function (ParseNode $n) use ($o) { $o->setRequirementProvider($n->getEnumValue(RequirementProvider::class)); },
+            'detail' => fn(ParseNode $n) => $o->setDetail($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'requirementProvider' => fn(ParseNode $n) => $o->setRequirementProvider($n->getEnumValue(RequirementProvider::class)),
         ];
     }
 

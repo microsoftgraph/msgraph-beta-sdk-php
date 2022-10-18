@@ -63,9 +63,9 @@ class PlannerPlanDetails extends PlannerDelta implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categoryDescriptions' => function (ParseNode $n) use ($o) { $o->setCategoryDescriptions($n->getObjectValue(array(PlannerCategoryDescriptions::class, 'createFromDiscriminatorValue'))); },
-            'contextDetails' => function (ParseNode $n) use ($o) { $o->setContextDetails($n->getObjectValue(array(PlannerPlanContextDetailsCollection::class, 'createFromDiscriminatorValue'))); },
-            'sharedWith' => function (ParseNode $n) use ($o) { $o->setSharedWith($n->getObjectValue(array(PlannerUserIds::class, 'createFromDiscriminatorValue'))); },
+            'categoryDescriptions' => fn(ParseNode $n) => $o->setCategoryDescriptions($n->getObjectValue([PlannerCategoryDescriptions::class, 'createFromDiscriminatorValue'])),
+            'contextDetails' => fn(ParseNode $n) => $o->setContextDetails($n->getObjectValue([PlannerPlanContextDetailsCollection::class, 'createFromDiscriminatorValue'])),
+            'sharedWith' => fn(ParseNode $n) => $o->setSharedWith($n->getObjectValue([PlannerUserIds::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

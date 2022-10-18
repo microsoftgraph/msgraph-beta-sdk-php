@@ -68,10 +68,10 @@ class DeviceManagementScriptRunSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'errorDeviceCount' => function (ParseNode $n) use ($o) { $o->setErrorDeviceCount($n->getIntegerValue()); },
-            'errorUserCount' => function (ParseNode $n) use ($o) { $o->setErrorUserCount($n->getIntegerValue()); },
-            'successDeviceCount' => function (ParseNode $n) use ($o) { $o->setSuccessDeviceCount($n->getIntegerValue()); },
-            'successUserCount' => function (ParseNode $n) use ($o) { $o->setSuccessUserCount($n->getIntegerValue()); },
+            'errorDeviceCount' => fn(ParseNode $n) => $o->setErrorDeviceCount($n->getIntegerValue()),
+            'errorUserCount' => fn(ParseNode $n) => $o->setErrorUserCount($n->getIntegerValue()),
+            'successDeviceCount' => fn(ParseNode $n) => $o->setSuccessDeviceCount($n->getIntegerValue()),
+            'successUserCount' => fn(ParseNode $n) => $o->setSuccessUserCount($n->getIntegerValue()),
         ]);
     }
 

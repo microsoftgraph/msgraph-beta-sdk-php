@@ -77,9 +77,9 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accessContainerId' => function (ParseNode $n) use ($o) { $o->setAccessContainerId($n->getStringValue()); },
-            'accessContainerType' => function (ParseNode $n) use ($o) { $o->setAccessContainerType($n->getEnumValue(DelegatedAdminAccessContainerType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'accessContainerId' => fn(ParseNode $n) => $o->setAccessContainerId($n->getStringValue()),
+            'accessContainerType' => fn(ParseNode $n) => $o->setAccessContainerType($n->getEnumValue(DelegatedAdminAccessContainerType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

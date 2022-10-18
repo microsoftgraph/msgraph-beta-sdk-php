@@ -37,7 +37,7 @@ class AndroidDeviceOwnerGlobalProxyAutoConfig extends AndroidDeviceOwnerGlobalPr
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'proxyAutoConfigURL' => function (ParseNode $n) use ($o) { $o->setProxyAutoConfigURL($n->getStringValue()); },
+            'proxyAutoConfigURL' => fn(ParseNode $n) => $o->setProxyAutoConfigURL($n->getStringValue()),
         ]);
     }
 

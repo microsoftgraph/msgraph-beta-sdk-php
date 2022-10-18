@@ -78,12 +78,12 @@ class AttendanceRecord extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'attendanceIntervals' => function (ParseNode $n) use ($o) { $o->setAttendanceIntervals($n->getCollectionOfObjectValues(array(AttendanceInterval::class, 'createFromDiscriminatorValue'))); },
-            'emailAddress' => function (ParseNode $n) use ($o) { $o->setEmailAddress($n->getStringValue()); },
-            'identity' => function (ParseNode $n) use ($o) { $o->setIdentity($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
-            'registrantId' => function (ParseNode $n) use ($o) { $o->setRegistrantId($n->getStringValue()); },
-            'role' => function (ParseNode $n) use ($o) { $o->setRole($n->getStringValue()); },
-            'totalAttendanceInSeconds' => function (ParseNode $n) use ($o) { $o->setTotalAttendanceInSeconds($n->getIntegerValue()); },
+            'attendanceIntervals' => fn(ParseNode $n) => $o->setAttendanceIntervals($n->getCollectionOfObjectValues([AttendanceInterval::class, 'createFromDiscriminatorValue'])),
+            'emailAddress' => fn(ParseNode $n) => $o->setEmailAddress($n->getStringValue()),
+            'identity' => fn(ParseNode $n) => $o->setIdentity($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
+            'registrantId' => fn(ParseNode $n) => $o->setRegistrantId($n->getStringValue()),
+            'role' => fn(ParseNode $n) => $o->setRole($n->getStringValue()),
+            'totalAttendanceInSeconds' => fn(ParseNode $n) => $o->setTotalAttendanceInSeconds($n->getIntegerValue()),
         ]);
     }
 

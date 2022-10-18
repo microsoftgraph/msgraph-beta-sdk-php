@@ -104,11 +104,11 @@ class ClassificationInnerError implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'activityId' => function (ParseNode $n) use ($o) { $o->setActivityId($n->getStringValue()); },
-            'clientRequestId' => function (ParseNode $n) use ($o) { $o->setClientRequestId($n->getStringValue()); },
-            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
-            'errorDateTime' => function (ParseNode $n) use ($o) { $o->setErrorDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'activityId' => fn(ParseNode $n) => $o->setActivityId($n->getStringValue()),
+            'clientRequestId' => fn(ParseNode $n) => $o->setClientRequestId($n->getStringValue()),
+            'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
+            'errorDateTime' => fn(ParseNode $n) => $o->setErrorDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

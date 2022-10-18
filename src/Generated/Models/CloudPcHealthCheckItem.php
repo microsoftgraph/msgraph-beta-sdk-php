@@ -88,11 +88,11 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'additionalDetails' => function (ParseNode $n) use ($o) { $o->setAdditionalDetails($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastHealthCheckDateTime' => function (ParseNode $n) use ($o) { $o->setLastHealthCheckDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'result' => function (ParseNode $n) use ($o) { $o->setResult($n->getEnumValue(CloudPcConnectivityEventResult::class)); },
+            'additionalDetails' => fn(ParseNode $n) => $o->setAdditionalDetails($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastHealthCheckDateTime' => fn(ParseNode $n) => $o->setLastHealthCheckDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'result' => fn(ParseNode $n) => $o->setResult($n->getEnumValue(CloudPcConnectivityEventResult::class)),
         ];
     }
 

@@ -42,8 +42,8 @@ class MobileAppPolicySetItem extends PolicySetItem implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'intent' => function (ParseNode $n) use ($o) { $o->setIntent($n->getEnumValue(InstallIntent::class)); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(MobileAppAssignmentSettings::class, 'createFromDiscriminatorValue'))); },
+            'intent' => fn(ParseNode $n) => $o->setIntent($n->getEnumValue(InstallIntent::class)),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([MobileAppAssignmentSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

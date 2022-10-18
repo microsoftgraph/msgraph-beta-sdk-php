@@ -42,8 +42,8 @@ class MetadataAction extends InformationProtectionAction implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'metadataToAdd' => function (ParseNode $n) use ($o) { $o->setMetadataToAdd($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'metadataToRemove' => function (ParseNode $n) use ($o) { $o->setMetadataToRemove($n->getCollectionOfPrimitiveValues()); },
+            'metadataToAdd' => fn(ParseNode $n) => $o->setMetadataToAdd($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'metadataToRemove' => fn(ParseNode $n) => $o->setMetadataToRemove($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

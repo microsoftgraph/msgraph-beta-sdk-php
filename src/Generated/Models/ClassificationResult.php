@@ -82,10 +82,10 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'confidenceLevel' => function (ParseNode $n) use ($o) { $o->setConfidenceLevel($n->getIntegerValue()); },
-            'count' => function (ParseNode $n) use ($o) { $o->setCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'sensitiveTypeId' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeId($n->getStringValue()); },
+            'confidenceLevel' => fn(ParseNode $n) => $o->setConfidenceLevel($n->getIntegerValue()),
+            'count' => fn(ParseNode $n) => $o->setCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'sensitiveTypeId' => fn(ParseNode $n) => $o->setSensitiveTypeId($n->getStringValue()),
         ];
     }
 

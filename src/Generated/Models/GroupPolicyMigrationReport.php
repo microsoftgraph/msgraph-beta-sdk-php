@@ -80,7 +80,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
     private ?array $unsupportedGroupPolicyExtensions = null;
     
     /**
-     * Instantiates a new GroupPolicyMigrationReport and sets the default values.
+     * Instantiates a new groupPolicyMigrationReport and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -119,20 +119,20 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'groupPolicyCreatedDateTime' => function (ParseNode $n) use ($o) { $o->setGroupPolicyCreatedDateTime($n->getDateTimeValue()); },
-            'groupPolicyLastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setGroupPolicyLastModifiedDateTime($n->getDateTimeValue()); },
-            'groupPolicyObjectId' => function (ParseNode $n) use ($o) { $o->setGroupPolicyObjectId($n->getStringValue()); },
-            'groupPolicySettingMappings' => function (ParseNode $n) use ($o) { $o->setGroupPolicySettingMappings($n->getCollectionOfObjectValues(array(GroupPolicySettingMapping::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'migrationReadiness' => function (ParseNode $n) use ($o) { $o->setMigrationReadiness($n->getEnumValue(GroupPolicyMigrationReadiness::class)); },
-            'ouDistinguishedName' => function (ParseNode $n) use ($o) { $o->setOuDistinguishedName($n->getStringValue()); },
-            'supportedSettingsCount' => function (ParseNode $n) use ($o) { $o->setSupportedSettingsCount($n->getIntegerValue()); },
-            'supportedSettingsPercent' => function (ParseNode $n) use ($o) { $o->setSupportedSettingsPercent($n->getIntegerValue()); },
-            'targetedInActiveDirectory' => function (ParseNode $n) use ($o) { $o->setTargetedInActiveDirectory($n->getBooleanValue()); },
-            'totalSettingsCount' => function (ParseNode $n) use ($o) { $o->setTotalSettingsCount($n->getIntegerValue()); },
-            'unsupportedGroupPolicyExtensions' => function (ParseNode $n) use ($o) { $o->setUnsupportedGroupPolicyExtensions($n->getCollectionOfObjectValues(array(UnsupportedGroupPolicyExtension::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'groupPolicyCreatedDateTime' => fn(ParseNode $n) => $o->setGroupPolicyCreatedDateTime($n->getDateTimeValue()),
+            'groupPolicyLastModifiedDateTime' => fn(ParseNode $n) => $o->setGroupPolicyLastModifiedDateTime($n->getDateTimeValue()),
+            'groupPolicyObjectId' => fn(ParseNode $n) => $o->setGroupPolicyObjectId($n->getStringValue()),
+            'groupPolicySettingMappings' => fn(ParseNode $n) => $o->setGroupPolicySettingMappings($n->getCollectionOfObjectValues([GroupPolicySettingMapping::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'migrationReadiness' => fn(ParseNode $n) => $o->setMigrationReadiness($n->getEnumValue(GroupPolicyMigrationReadiness::class)),
+            'ouDistinguishedName' => fn(ParseNode $n) => $o->setOuDistinguishedName($n->getStringValue()),
+            'supportedSettingsCount' => fn(ParseNode $n) => $o->setSupportedSettingsCount($n->getIntegerValue()),
+            'supportedSettingsPercent' => fn(ParseNode $n) => $o->setSupportedSettingsPercent($n->getIntegerValue()),
+            'targetedInActiveDirectory' => fn(ParseNode $n) => $o->setTargetedInActiveDirectory($n->getBooleanValue()),
+            'totalSettingsCount' => fn(ParseNode $n) => $o->setTotalSettingsCount($n->getIntegerValue()),
+            'unsupportedGroupPolicyExtensions' => fn(ParseNode $n) => $o->setUnsupportedGroupPolicyExtensions($n->getCollectionOfObjectValues([UnsupportedGroupPolicyExtension::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

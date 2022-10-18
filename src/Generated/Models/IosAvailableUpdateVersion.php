@@ -80,11 +80,11 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'postingDateTime' => function (ParseNode $n) use ($o) { $o->setPostingDateTime($n->getDateTimeValue()); },
-            'productVersion' => function (ParseNode $n) use ($o) { $o->setProductVersion($n->getStringValue()); },
-            'supportedDevices' => function (ParseNode $n) use ($o) { $o->setSupportedDevices($n->getCollectionOfPrimitiveValues()); },
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'postingDateTime' => fn(ParseNode $n) => $o->setPostingDateTime($n->getDateTimeValue()),
+            'productVersion' => fn(ParseNode $n) => $o->setProductVersion($n->getStringValue()),
+            'supportedDevices' => fn(ParseNode $n) => $o->setSupportedDevices($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

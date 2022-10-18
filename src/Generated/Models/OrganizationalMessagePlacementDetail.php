@@ -61,9 +61,9 @@ class OrganizationalMessagePlacementDetail implements AdditionalDataHolder, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'placement' => function (ParseNode $n) use ($o) { $o->setPlacement($n->getEnumValue(OrganizationalMessagePlacement::class)); },
-            'variants' => function (ParseNode $n) use ($o) { $o->setVariants($n->getCollectionOfObjectValues(array(OrganizationalMessageVariant::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'placement' => fn(ParseNode $n) => $o->setPlacement($n->getEnumValue(OrganizationalMessagePlacement::class)),
+            'variants' => fn(ParseNode $n) => $o->setVariants($n->getCollectionOfObjectValues([OrganizationalMessageVariant::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

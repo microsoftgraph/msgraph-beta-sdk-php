@@ -42,8 +42,8 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem imp
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'limit' => function (ParseNode $n) use ($o) { $o->setLimit($n->getIntegerValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
+            'limit' => fn(ParseNode $n) => $o->setLimit($n->getIntegerValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
         ]);
     }
 

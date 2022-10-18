@@ -82,10 +82,10 @@ class MicrosoftAuthenticatorFeatureSettings implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'displayAppInformationRequiredState' => function (ParseNode $n) use ($o) { $o->setDisplayAppInformationRequiredState($n->getObjectValue(array(AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'displayLocationInformationRequiredState' => function (ParseNode $n) use ($o) { $o->setDisplayLocationInformationRequiredState($n->getObjectValue(array(AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'numberMatchingRequiredState' => function (ParseNode $n) use ($o) { $o->setNumberMatchingRequiredState($n->getObjectValue(array(AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'displayAppInformationRequiredState' => fn(ParseNode $n) => $o->setDisplayAppInformationRequiredState($n->getObjectValue([AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'])),
+            'displayLocationInformationRequiredState' => fn(ParseNode $n) => $o->setDisplayLocationInformationRequiredState($n->getObjectValue([AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'])),
+            'numberMatchingRequiredState' => fn(ParseNode $n) => $o->setNumberMatchingRequiredState($n->getObjectValue([AuthenticationMethodFeatureConfiguration::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

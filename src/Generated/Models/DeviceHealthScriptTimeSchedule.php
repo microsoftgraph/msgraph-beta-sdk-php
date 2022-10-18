@@ -51,8 +51,8 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule imple
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'time' => function (ParseNode $n) use ($o) { $o->setTime($n->getTimeValue()); },
-            'useUtc' => function (ParseNode $n) use ($o) { $o->setUseUtc($n->getBooleanValue()); },
+            'time' => fn(ParseNode $n) => $o->setTime($n->getTimeValue()),
+            'useUtc' => fn(ParseNode $n) => $o->setUseUtc($n->getBooleanValue()),
         ]);
     }
 

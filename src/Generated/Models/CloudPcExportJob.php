@@ -97,14 +97,14 @@ class CloudPcExportJob extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'exportJobStatus' => function (ParseNode $n) use ($o) { $o->setExportJobStatus($n->getEnumValue(CloudPcExportJobStatus::class)); },
-            'exportUrl' => function (ParseNode $n) use ($o) { $o->setExportUrl($n->getStringValue()); },
-            'filter' => function (ParseNode $n) use ($o) { $o->setFilter($n->getStringValue()); },
-            'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getStringValue()); },
-            'reportName' => function (ParseNode $n) use ($o) { $o->setReportName($n->getEnumValue(CloudPcReportName::class)); },
-            'requestDateTime' => function (ParseNode $n) use ($o) { $o->setRequestDateTime($n->getDateTimeValue()); },
-            'select' => function (ParseNode $n) use ($o) { $o->setSelect($n->getCollectionOfPrimitiveValues()); },
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'exportJobStatus' => fn(ParseNode $n) => $o->setExportJobStatus($n->getEnumValue(CloudPcExportJobStatus::class)),
+            'exportUrl' => fn(ParseNode $n) => $o->setExportUrl($n->getStringValue()),
+            'filter' => fn(ParseNode $n) => $o->setFilter($n->getStringValue()),
+            'format' => fn(ParseNode $n) => $o->setFormat($n->getStringValue()),
+            'reportName' => fn(ParseNode $n) => $o->setReportName($n->getEnumValue(CloudPcReportName::class)),
+            'requestDateTime' => fn(ParseNode $n) => $o->setRequestDateTime($n->getDateTimeValue()),
+            'select' => fn(ParseNode $n) => $o->setSelect($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

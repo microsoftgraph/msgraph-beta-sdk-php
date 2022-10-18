@@ -68,10 +68,10 @@ class RedirectSingleSignOnExtension extends SingleSignOnExtension implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurations' => function (ParseNode $n) use ($o) { $o->setConfigurations($n->getCollectionOfObjectValues(array(KeyTypedValuePair::class, 'createFromDiscriminatorValue'))); },
-            'extensionIdentifier' => function (ParseNode $n) use ($o) { $o->setExtensionIdentifier($n->getStringValue()); },
-            'teamIdentifier' => function (ParseNode $n) use ($o) { $o->setTeamIdentifier($n->getStringValue()); },
-            'urlPrefixes' => function (ParseNode $n) use ($o) { $o->setUrlPrefixes($n->getCollectionOfPrimitiveValues()); },
+            'configurations' => fn(ParseNode $n) => $o->setConfigurations($n->getCollectionOfObjectValues([KeyTypedValuePair::class, 'createFromDiscriminatorValue'])),
+            'extensionIdentifier' => fn(ParseNode $n) => $o->setExtensionIdentifier($n->getStringValue()),
+            'teamIdentifier' => fn(ParseNode $n) => $o->setTeamIdentifier($n->getStringValue()),
+            'urlPrefixes' => fn(ParseNode $n) => $o->setUrlPrefixes($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

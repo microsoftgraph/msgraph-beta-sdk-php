@@ -14,7 +14,7 @@ class AuthenticationMethodConfiguration extends Entity implements Parsable
     private ?AuthenticationMethodState $state = null;
     
     /**
-     * Instantiates a new AuthenticationMethodConfiguration and sets the default values.
+     * Instantiates a new authenticationMethodConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -49,7 +49,7 @@ class AuthenticationMethodConfiguration extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(AuthenticationMethodState::class)); },
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(AuthenticationMethodState::class)),
         ]);
     }
 

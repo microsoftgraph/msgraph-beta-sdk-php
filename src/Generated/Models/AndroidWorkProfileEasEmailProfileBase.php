@@ -99,13 +99,13 @@ class AndroidWorkProfileEasEmailProfileBase extends DeviceConfiguration implemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationMethod' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethod($n->getEnumValue(EasAuthenticationMethod::class)); },
-            'durationOfEmailToSync' => function (ParseNode $n) use ($o) { $o->setDurationOfEmailToSync($n->getEnumValue(EmailSyncDuration::class)); },
-            'emailAddressSource' => function (ParseNode $n) use ($o) { $o->setEmailAddressSource($n->getEnumValue(UserEmailSource::class)); },
-            'hostName' => function (ParseNode $n) use ($o) { $o->setHostName($n->getStringValue()); },
-            'identityCertificate' => function (ParseNode $n) use ($o) { $o->setIdentityCertificate($n->getObjectValue(array(AndroidWorkProfileCertificateProfileBase::class, 'createFromDiscriminatorValue'))); },
-            'requireSsl' => function (ParseNode $n) use ($o) { $o->setRequireSsl($n->getBooleanValue()); },
-            'usernameSource' => function (ParseNode $n) use ($o) { $o->setUsernameSource($n->getEnumValue(AndroidUsernameSource::class)); },
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(EasAuthenticationMethod::class)),
+            'durationOfEmailToSync' => fn(ParseNode $n) => $o->setDurationOfEmailToSync($n->getEnumValue(EmailSyncDuration::class)),
+            'emailAddressSource' => fn(ParseNode $n) => $o->setEmailAddressSource($n->getEnumValue(UserEmailSource::class)),
+            'hostName' => fn(ParseNode $n) => $o->setHostName($n->getStringValue()),
+            'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([AndroidWorkProfileCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
+            'requireSsl' => fn(ParseNode $n) => $o->setRequireSsl($n->getBooleanValue()),
+            'usernameSource' => fn(ParseNode $n) => $o->setUsernameSource($n->getEnumValue(AndroidUsernameSource::class)),
         ]);
     }
 

@@ -35,7 +35,7 @@ class WorkflowTemplate extends Entity implements Parsable
     private ?array $tasks = null;
     
     /**
-     * Instantiates a new WorkflowTemplate and sets the default values.
+     * Instantiates a new workflowTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -90,11 +90,11 @@ class WorkflowTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(LifecycleWorkflowCategory::class)); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'executionConditions' => function (ParseNode $n) use ($o) { $o->setExecutionConditions($n->getObjectValue(array(WorkflowExecutionConditions::class, 'createFromDiscriminatorValue'))); },
-            'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(Task::class, 'createFromDiscriminatorValue'))); },
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(LifecycleWorkflowCategory::class)),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'executionConditions' => fn(ParseNode $n) => $o->setExecutionConditions($n->getObjectValue([WorkflowExecutionConditions::class, 'createFromDiscriminatorValue'])),
+            'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([Task::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

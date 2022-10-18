@@ -61,9 +61,9 @@ class KerberosSignOnSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'kerberosServicePrincipalName' => function (ParseNode $n) use ($o) { $o->setKerberosServicePrincipalName($n->getStringValue()); },
-            'kerberosSignOnMappingAttributeType' => function (ParseNode $n) use ($o) { $o->setKerberosSignOnMappingAttributeType($n->getEnumValue(KerberosSignOnMappingAttributeType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'kerberosServicePrincipalName' => fn(ParseNode $n) => $o->setKerberosServicePrincipalName($n->getStringValue()),
+            'kerberosSignOnMappingAttributeType' => fn(ParseNode $n) => $o->setKerberosSignOnMappingAttributeType($n->getEnumValue(KerberosSignOnMappingAttributeType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

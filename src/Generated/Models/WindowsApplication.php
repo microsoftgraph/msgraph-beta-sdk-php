@@ -61,9 +61,9 @@ class WindowsApplication implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'packageSid' => function (ParseNode $n) use ($o) { $o->setPackageSid($n->getStringValue()); },
-            'redirectUris' => function (ParseNode $n) use ($o) { $o->setRedirectUris($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'packageSid' => fn(ParseNode $n) => $o->setPackageSid($n->getStringValue()),
+            'redirectUris' => fn(ParseNode $n) => $o->setRedirectUris($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

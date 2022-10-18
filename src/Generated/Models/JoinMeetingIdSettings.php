@@ -66,10 +66,10 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'isPasscodeRequired' => function (ParseNode $n) use ($o) { $o->setIsPasscodeRequired($n->getBooleanValue()); },
-            'joinMeetingId' => function (ParseNode $n) use ($o) { $o->setJoinMeetingId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'passcode' => function (ParseNode $n) use ($o) { $o->setPasscode($n->getStringValue()); },
+            'isPasscodeRequired' => fn(ParseNode $n) => $o->setIsPasscodeRequired($n->getBooleanValue()),
+            'joinMeetingId' => fn(ParseNode $n) => $o->setJoinMeetingId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'passcode' => fn(ParseNode $n) => $o->setPasscode($n->getStringValue()),
         ];
     }
 

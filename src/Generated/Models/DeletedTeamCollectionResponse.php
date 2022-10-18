@@ -36,7 +36,7 @@ class DeletedTeamCollectionResponse extends BaseCollectionPaginationCountRespons
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(DeletedTeam::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([DeletedTeam::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -87,11 +87,11 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowNewMessageFromBots' => function (ParseNode $n) use ($o) { $o->setAllowNewMessageFromBots($n->getBooleanValue()); },
-            'allowNewMessageFromConnectors' => function (ParseNode $n) use ($o) { $o->setAllowNewMessageFromConnectors($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'replyRestriction' => function (ParseNode $n) use ($o) { $o->setReplyRestriction($n->getEnumValue(ReplyRestriction::class)); },
-            'userNewMessageRestriction' => function (ParseNode $n) use ($o) { $o->setUserNewMessageRestriction($n->getEnumValue(UserNewMessageRestriction::class)); },
+            'allowNewMessageFromBots' => fn(ParseNode $n) => $o->setAllowNewMessageFromBots($n->getBooleanValue()),
+            'allowNewMessageFromConnectors' => fn(ParseNode $n) => $o->setAllowNewMessageFromConnectors($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'replyRestriction' => fn(ParseNode $n) => $o->setReplyRestriction($n->getEnumValue(ReplyRestriction::class)),
+            'userNewMessageRestriction' => fn(ParseNode $n) => $o->setUserNewMessageRestriction($n->getEnumValue(UserNewMessageRestriction::class)),
         ];
     }
 

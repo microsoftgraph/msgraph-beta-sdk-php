@@ -134,18 +134,18 @@ class File extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'dateTime' => function (ParseNode $n) use ($o) { $o->setDateTime($n->getDateTimeValue()); },
-            'extension' => function (ParseNode $n) use ($o) { $o->setExtension($n->getStringValue()); },
-            'extractedTextContent' => function (ParseNode $n) use ($o) { $o->setExtractedTextContent($n->getBinaryContent()); },
-            'mediaType' => function (ParseNode $n) use ($o) { $o->setMediaType($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'otherProperties' => function (ParseNode $n) use ($o) { $o->setOtherProperties($n->getObjectValue(array(StringValueDictionary::class, 'createFromDiscriminatorValue'))); },
-            'processingStatus' => function (ParseNode $n) use ($o) { $o->setProcessingStatus($n->getEnumValue(FileProcessingStatus::class)); },
-            'senderOrAuthors' => function (ParseNode $n) use ($o) { $o->setSenderOrAuthors($n->getCollectionOfPrimitiveValues()); },
-            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
-            'sourceType' => function (ParseNode $n) use ($o) { $o->setSourceType($n->getEnumValue(SourceType::class)); },
-            'subjectTitle' => function (ParseNode $n) use ($o) { $o->setSubjectTitle($n->getStringValue()); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
+            'dateTime' => fn(ParseNode $n) => $o->setDateTime($n->getDateTimeValue()),
+            'extension' => fn(ParseNode $n) => $o->setExtension($n->getStringValue()),
+            'extractedTextContent' => fn(ParseNode $n) => $o->setExtractedTextContent($n->getBinaryContent()),
+            'mediaType' => fn(ParseNode $n) => $o->setMediaType($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'otherProperties' => fn(ParseNode $n) => $o->setOtherProperties($n->getObjectValue([StringValueDictionary::class, 'createFromDiscriminatorValue'])),
+            'processingStatus' => fn(ParseNode $n) => $o->setProcessingStatus($n->getEnumValue(FileProcessingStatus::class)),
+            'senderOrAuthors' => fn(ParseNode $n) => $o->setSenderOrAuthors($n->getCollectionOfPrimitiveValues()),
+            'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
+            'sourceType' => fn(ParseNode $n) => $o->setSourceType($n->getEnumValue(SourceType::class)),
+            'subjectTitle' => fn(ParseNode $n) => $o->setSubjectTitle($n->getStringValue()),
         ]);
     }
 

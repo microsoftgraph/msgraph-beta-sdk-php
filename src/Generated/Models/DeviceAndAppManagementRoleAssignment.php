@@ -42,8 +42,8 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfPrimitiveValues()); },
-            'roleScopeTags' => function (ParseNode $n) use ($o) { $o->setRoleScopeTags($n->getCollectionOfObjectValues(array(RoleScopeTag::class, 'createFromDiscriminatorValue'))); },
+            'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfPrimitiveValues()),
+            'roleScopeTags' => fn(ParseNode $n) => $o->setRoleScopeTags($n->getCollectionOfObjectValues([RoleScopeTag::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

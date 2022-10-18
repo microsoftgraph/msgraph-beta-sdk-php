@@ -74,10 +74,10 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'contentClassifications' => function (ParseNode $n) use ($o) { $o->setContentClassifications($n->getCollectionOfObjectValues(array(ContentClassification::class, 'createFromDiscriminatorValue'))); },
-            'sensitiveTypeIds' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeIds($n->getCollectionOfPrimitiveValues()); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
-            'timeoutInMs' => function (ParseNode $n) use ($o) { $o->setTimeoutInMs($n->getStringValue()); },
+            'contentClassifications' => fn(ParseNode $n) => $o->setContentClassifications($n->getCollectionOfObjectValues([ContentClassification::class, 'createFromDiscriminatorValue'])),
+            'sensitiveTypeIds' => fn(ParseNode $n) => $o->setSensitiveTypeIds($n->getCollectionOfPrimitiveValues()),
+            'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
+            'timeoutInMs' => fn(ParseNode $n) => $o->setTimeoutInMs($n->getStringValue()),
         ];
     }
 

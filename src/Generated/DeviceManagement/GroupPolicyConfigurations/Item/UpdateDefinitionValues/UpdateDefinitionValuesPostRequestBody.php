@@ -77,9 +77,9 @@ class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'added' => function (ParseNode $n) use ($o) { $o->setAdded($n->getCollectionOfObjectValues(array(GroupPolicyDefinitionValue::class, 'createFromDiscriminatorValue'))); },
-            'deletedIds' => function (ParseNode $n) use ($o) { $o->setDeletedIds($n->getCollectionOfPrimitiveValues()); },
-            'updated' => function (ParseNode $n) use ($o) { $o->setUpdated($n->getCollectionOfObjectValues(array(GroupPolicyDefinitionValue::class, 'createFromDiscriminatorValue'))); },
+            'added' => fn(ParseNode $n) => $o->setAdded($n->getCollectionOfObjectValues([GroupPolicyDefinitionValue::class, 'createFromDiscriminatorValue'])),
+            'deletedIds' => fn(ParseNode $n) => $o->setDeletedIds($n->getCollectionOfPrimitiveValues()),
+            'updated' => fn(ParseNode $n) => $o->setUpdated($n->getCollectionOfObjectValues([GroupPolicyDefinitionValue::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

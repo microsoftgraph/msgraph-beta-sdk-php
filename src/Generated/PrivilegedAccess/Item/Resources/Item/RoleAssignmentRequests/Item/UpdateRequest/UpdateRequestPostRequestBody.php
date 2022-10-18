@@ -82,10 +82,10 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assignmentState' => function (ParseNode $n) use ($o) { $o->setAssignmentState($n->getStringValue()); },
-            'decision' => function (ParseNode $n) use ($o) { $o->setDecision($n->getStringValue()); },
-            'reason' => function (ParseNode $n) use ($o) { $o->setReason($n->getStringValue()); },
-            'schedule' => function (ParseNode $n) use ($o) { $o->setSchedule($n->getObjectValue(array(GovernanceSchedule::class, 'createFromDiscriminatorValue'))); },
+            'assignmentState' => fn(ParseNode $n) => $o->setAssignmentState($n->getStringValue()),
+            'decision' => fn(ParseNode $n) => $o->setDecision($n->getStringValue()),
+            'reason' => fn(ParseNode $n) => $o->setReason($n->getStringValue()),
+            'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([GovernanceSchedule::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

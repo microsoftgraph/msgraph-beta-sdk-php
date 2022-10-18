@@ -36,7 +36,7 @@ class SkypeUserConversationMemberCollectionResponse extends BaseCollectionPagina
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(SkypeUserConversationMember::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([SkypeUserConversationMember::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

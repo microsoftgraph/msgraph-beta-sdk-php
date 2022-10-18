@@ -77,9 +77,9 @@ class CloudPcLaunchInfo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'cloudPcId' => function (ParseNode $n) use ($o) { $o->setCloudPcId($n->getStringValue()); },
-            'cloudPcLaunchUrl' => function (ParseNode $n) use ($o) { $o->setCloudPcLaunchUrl($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'cloudPcId' => fn(ParseNode $n) => $o->setCloudPcId($n->getStringValue()),
+            'cloudPcLaunchUrl' => fn(ParseNode $n) => $o->setCloudPcLaunchUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

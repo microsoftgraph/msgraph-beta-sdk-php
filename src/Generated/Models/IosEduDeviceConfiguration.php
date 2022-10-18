@@ -55,9 +55,9 @@ class IosEduDeviceConfiguration extends DeviceConfiguration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceCertificateSettings' => function (ParseNode $n) use ($o) { $o->setDeviceCertificateSettings($n->getObjectValue(array(IosEduCertificateSettings::class, 'createFromDiscriminatorValue'))); },
-            'studentCertificateSettings' => function (ParseNode $n) use ($o) { $o->setStudentCertificateSettings($n->getObjectValue(array(IosEduCertificateSettings::class, 'createFromDiscriminatorValue'))); },
-            'teacherCertificateSettings' => function (ParseNode $n) use ($o) { $o->setTeacherCertificateSettings($n->getObjectValue(array(IosEduCertificateSettings::class, 'createFromDiscriminatorValue'))); },
+            'deviceCertificateSettings' => fn(ParseNode $n) => $o->setDeviceCertificateSettings($n->getObjectValue([IosEduCertificateSettings::class, 'createFromDiscriminatorValue'])),
+            'studentCertificateSettings' => fn(ParseNode $n) => $o->setStudentCertificateSettings($n->getObjectValue([IosEduCertificateSettings::class, 'createFromDiscriminatorValue'])),
+            'teacherCertificateSettings' => fn(ParseNode $n) => $o->setTeacherCertificateSettings($n->getObjectValue([IosEduCertificateSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

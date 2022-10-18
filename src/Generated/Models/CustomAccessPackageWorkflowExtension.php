@@ -20,7 +20,7 @@ class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension implem
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * Instantiates a new CustomAccessPackageWorkflowExtension and sets the default values.
+     * Instantiates a new customAccessPackageWorkflowExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -51,8 +51,8 @@ class CustomAccessPackageWorkflowExtension extends CustomCalloutExtension implem
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
         ]);
     }
 

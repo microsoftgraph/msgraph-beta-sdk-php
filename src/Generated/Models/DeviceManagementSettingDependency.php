@@ -77,9 +77,9 @@ class DeviceManagementSettingDependency implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'constraints' => function (ParseNode $n) use ($o) { $o->setConstraints($n->getCollectionOfObjectValues(array(DeviceManagementConstraint::class, 'createFromDiscriminatorValue'))); },
-            'definitionId' => function (ParseNode $n) use ($o) { $o->setDefinitionId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'constraints' => fn(ParseNode $n) => $o->setConstraints($n->getCollectionOfObjectValues([DeviceManagementConstraint::class, 'createFromDiscriminatorValue'])),
+            'definitionId' => fn(ParseNode $n) => $o->setDefinitionId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

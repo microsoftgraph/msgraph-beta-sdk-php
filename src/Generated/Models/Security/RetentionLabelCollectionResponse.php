@@ -37,7 +37,7 @@ class RetentionLabelCollectionResponse extends BaseCollectionPaginationCountResp
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(RetentionLabel::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([RetentionLabel::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

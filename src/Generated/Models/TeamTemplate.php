@@ -45,7 +45,7 @@ class TeamTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'definitions' => function (ParseNode $n) use ($o) { $o->setDefinitions($n->getCollectionOfObjectValues(array(TeamTemplateDefinition::class, 'createFromDiscriminatorValue'))); },
+            'definitions' => fn(ParseNode $n) => $o->setDefinitions($n->getCollectionOfObjectValues([TeamTemplateDefinition::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

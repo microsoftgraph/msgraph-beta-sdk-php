@@ -87,11 +87,11 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'customExtensionId' => function (ParseNode $n) use ($o) { $o->setCustomExtensionId($n->getStringValue()); },
-            'externalCorrelationId' => function (ParseNode $n) use ($o) { $o->setExternalCorrelationId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'stage' => function (ParseNode $n) use ($o) { $o->setStage($n->getEnumValue(AccessPackageCustomExtensionStage::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(AccessPackageCustomExtensionHandlerStatus::class)); },
+            'customExtensionId' => fn(ParseNode $n) => $o->setCustomExtensionId($n->getStringValue()),
+            'externalCorrelationId' => fn(ParseNode $n) => $o->setExternalCorrelationId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'stage' => fn(ParseNode $n) => $o->setStage($n->getEnumValue(AccessPackageCustomExtensionStage::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AccessPackageCustomExtensionHandlerStatus::class)),
         ];
     }
 

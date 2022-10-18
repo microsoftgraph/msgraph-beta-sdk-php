@@ -103,11 +103,11 @@ class OemWarranty implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'additionalWarranties' => function (ParseNode $n) use ($o) { $o->setAdditionalWarranties($n->getCollectionOfObjectValues(array(WarrantyOffer::class, 'createFromDiscriminatorValue'))); },
-            'baseWarranties' => function (ParseNode $n) use ($o) { $o->setBaseWarranties($n->getCollectionOfObjectValues(array(WarrantyOffer::class, 'createFromDiscriminatorValue'))); },
-            'deviceConfigurationUrl' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationUrl($n->getStringValue()); },
-            'deviceWarrantyUrl' => function (ParseNode $n) use ($o) { $o->setDeviceWarrantyUrl($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'additionalWarranties' => fn(ParseNode $n) => $o->setAdditionalWarranties($n->getCollectionOfObjectValues([WarrantyOffer::class, 'createFromDiscriminatorValue'])),
+            'baseWarranties' => fn(ParseNode $n) => $o->setBaseWarranties($n->getCollectionOfObjectValues([WarrantyOffer::class, 'createFromDiscriminatorValue'])),
+            'deviceConfigurationUrl' => fn(ParseNode $n) => $o->setDeviceConfigurationUrl($n->getStringValue()),
+            'deviceWarrantyUrl' => fn(ParseNode $n) => $o->setDeviceWarrantyUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -69,9 +69,9 @@ class InformationalUrls implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appSignUpUrl' => function (ParseNode $n) use ($o) { $o->setAppSignUpUrl($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'singleSignOnDocumentationUrl' => function (ParseNode $n) use ($o) { $o->setSingleSignOnDocumentationUrl($n->getStringValue()); },
+            'appSignUpUrl' => fn(ParseNode $n) => $o->setAppSignUpUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'singleSignOnDocumentationUrl' => fn(ParseNode $n) => $o->setSingleSignOnDocumentationUrl($n->getStringValue()),
         ];
     }
 

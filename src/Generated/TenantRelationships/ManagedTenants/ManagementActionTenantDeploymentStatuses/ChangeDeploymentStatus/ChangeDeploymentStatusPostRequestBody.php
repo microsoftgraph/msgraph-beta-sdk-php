@@ -75,12 +75,12 @@ class ChangeDeploymentStatusPostRequestBody implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'managementActionId' => function (ParseNode $n) use ($o) { $o->setManagementActionId($n->getStringValue()); },
-            'managementTemplateId' => function (ParseNode $n) use ($o) { $o->setManagementTemplateId($n->getStringValue()); },
-            'managementTemplateVersion' => function (ParseNode $n) use ($o) { $o->setManagementTemplateVersion($n->getIntegerValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'tenantGroupId' => function (ParseNode $n) use ($o) { $o->setTenantGroupId($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'managementActionId' => fn(ParseNode $n) => $o->setManagementActionId($n->getStringValue()),
+            'managementTemplateId' => fn(ParseNode $n) => $o->setManagementTemplateId($n->getStringValue()),
+            'managementTemplateVersion' => fn(ParseNode $n) => $o->setManagementTemplateVersion($n->getIntegerValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
+            'tenantGroupId' => fn(ParseNode $n) => $o->setTenantGroupId($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ];
     }
 

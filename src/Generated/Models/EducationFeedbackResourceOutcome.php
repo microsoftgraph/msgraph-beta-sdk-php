@@ -50,8 +50,8 @@ class EducationFeedbackResourceOutcome extends EducationOutcome implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'feedbackResource' => function (ParseNode $n) use ($o) { $o->setFeedbackResource($n->getObjectValue(array(EducationResource::class, 'createFromDiscriminatorValue'))); },
-            'resourceStatus' => function (ParseNode $n) use ($o) { $o->setResourceStatus($n->getEnumValue(EducationFeedbackResourceOutcomeStatus::class)); },
+            'feedbackResource' => fn(ParseNode $n) => $o->setFeedbackResource($n->getObjectValue([EducationResource::class, 'createFromDiscriminatorValue'])),
+            'resourceStatus' => fn(ParseNode $n) => $o->setResourceStatus($n->getEnumValue(EducationFeedbackResourceOutcomeStatus::class)),
         ]);
     }
 

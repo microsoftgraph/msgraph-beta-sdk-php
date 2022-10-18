@@ -37,7 +37,7 @@ class RemoveWatermarkAction extends InformationProtectionAction implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'uiElementNames' => function (ParseNode $n) use ($o) { $o->setUiElementNames($n->getCollectionOfPrimitiveValues()); },
+            'uiElementNames' => fn(ParseNode $n) => $o->setUiElementNames($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

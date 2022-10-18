@@ -64,8 +64,8 @@ class SafeguardProfile implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(SafeguardCategory::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(SafeguardCategory::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

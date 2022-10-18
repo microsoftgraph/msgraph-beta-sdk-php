@@ -69,9 +69,9 @@ class MacOSSystemExtensionTypeMapping implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedTypes' => function (ParseNode $n) use ($o) { $o->setAllowedTypes($n->getEnumValue(MacOSSystemExtensionType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'teamIdentifier' => function (ParseNode $n) use ($o) { $o->setTeamIdentifier($n->getStringValue()); },
+            'allowedTypes' => fn(ParseNode $n) => $o->setAllowedTypes($n->getEnumValue(MacOSSystemExtensionType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'teamIdentifier' => fn(ParseNode $n) => $o->setTeamIdentifier($n->getStringValue()),
         ];
     }
 

@@ -61,9 +61,9 @@ class TranslationLanguageOverride implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'languageTag' => function (ParseNode $n) use ($o) { $o->setLanguageTag($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'translationBehavior' => function (ParseNode $n) use ($o) { $o->setTranslationBehavior($n->getEnumValue(TranslationBehavior::class)); },
+            'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'translationBehavior' => fn(ParseNode $n) => $o->setTranslationBehavior($n->getEnumValue(TranslationBehavior::class)),
         ];
     }
 

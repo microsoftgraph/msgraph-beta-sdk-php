@@ -30,6 +30,16 @@ class SignIn extends Entity implements Parsable
     private ?array $appliedEventListeners = null;
     
     /**
+     * @var AuthenticationAppDeviceDetails|null $authenticationAppDeviceDetails The authenticationAppDeviceDetails property
+    */
+    private ?AuthenticationAppDeviceDetails $authenticationAppDeviceDetails = null;
+    
+    /**
+     * @var array<AuthenticationAppPolicyDetails>|null $authenticationAppPolicyEvaluationDetails The authenticationAppPolicyEvaluationDetails property
+    */
+    private ?array $authenticationAppPolicyEvaluationDetails = null;
+    
+    /**
      * @var array<AuthenticationContext>|null $authenticationContextClassReferences Contains a collection of values that represent the conditional access authentication contexts applied to the sign-in.
     */
     private ?array $authenticationContextClassReferences = null;
@@ -364,6 +374,22 @@ class SignIn extends Entity implements Parsable
     }
 
     /**
+     * Gets the authenticationAppDeviceDetails property value. The authenticationAppDeviceDetails property
+     * @return AuthenticationAppDeviceDetails|null
+    */
+    public function getAuthenticationAppDeviceDetails(): ?AuthenticationAppDeviceDetails {
+        return $this->authenticationAppDeviceDetails;
+    }
+
+    /**
+     * Gets the authenticationAppPolicyEvaluationDetails property value. The authenticationAppPolicyEvaluationDetails property
+     * @return array<AuthenticationAppPolicyDetails>|null
+    */
+    public function getAuthenticationAppPolicyEvaluationDetails(): ?array {
+        return $this->authenticationAppPolicyEvaluationDetails;
+    }
+
+    /**
      * Gets the authenticationContextClassReferences property value. Contains a collection of values that represent the conditional access authentication contexts applied to the sign-in.
      * @return array<AuthenticationContext>|null
     */
@@ -506,67 +532,69 @@ class SignIn extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'appliedConditionalAccessPolicies' => function (ParseNode $n) use ($o) { $o->setAppliedConditionalAccessPolicies($n->getCollectionOfObjectValues(array(AppliedConditionalAccessPolicy::class, 'createFromDiscriminatorValue'))); },
-            'appliedEventListeners' => function (ParseNode $n) use ($o) { $o->setAppliedEventListeners($n->getCollectionOfObjectValues(array(AppliedAuthenticationEventListener::class, 'createFromDiscriminatorValue'))); },
-            'authenticationContextClassReferences' => function (ParseNode $n) use ($o) { $o->setAuthenticationContextClassReferences($n->getCollectionOfObjectValues(array(AuthenticationContext::class, 'createFromDiscriminatorValue'))); },
-            'authenticationDetails' => function (ParseNode $n) use ($o) { $o->setAuthenticationDetails($n->getCollectionOfObjectValues(array(AuthenticationDetail::class, 'createFromDiscriminatorValue'))); },
-            'authenticationMethodsUsed' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethodsUsed($n->getCollectionOfPrimitiveValues()); },
-            'authenticationProcessingDetails' => function (ParseNode $n) use ($o) { $o->setAuthenticationProcessingDetails($n->getCollectionOfObjectValues(array(KeyValue::class, 'createFromDiscriminatorValue'))); },
-            'authenticationProtocol' => function (ParseNode $n) use ($o) { $o->setAuthenticationProtocol($n->getEnumValue(ProtocolType::class)); },
-            'authenticationRequirement' => function (ParseNode $n) use ($o) { $o->setAuthenticationRequirement($n->getStringValue()); },
-            'authenticationRequirementPolicies' => function (ParseNode $n) use ($o) { $o->setAuthenticationRequirementPolicies($n->getCollectionOfObjectValues(array(AuthenticationRequirementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'autonomousSystemNumber' => function (ParseNode $n) use ($o) { $o->setAutonomousSystemNumber($n->getIntegerValue()); },
-            'azureResourceId' => function (ParseNode $n) use ($o) { $o->setAzureResourceId($n->getStringValue()); },
-            'clientAppUsed' => function (ParseNode $n) use ($o) { $o->setClientAppUsed($n->getStringValue()); },
-            'clientCredentialType' => function (ParseNode $n) use ($o) { $o->setClientCredentialType($n->getEnumValue(ClientCredentialType::class)); },
-            'conditionalAccessStatus' => function (ParseNode $n) use ($o) { $o->setConditionalAccessStatus($n->getEnumValue(ConditionalAccessStatus::class)); },
-            'correlationId' => function (ParseNode $n) use ($o) { $o->setCorrelationId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'crossTenantAccessType' => function (ParseNode $n) use ($o) { $o->setCrossTenantAccessType($n->getEnumValue(SignInAccessType::class)); },
-            'deviceDetail' => function (ParseNode $n) use ($o) { $o->setDeviceDetail($n->getObjectValue(array(DeviceDetail::class, 'createFromDiscriminatorValue'))); },
-            'federatedCredentialId' => function (ParseNode $n) use ($o) { $o->setFederatedCredentialId($n->getStringValue()); },
-            'flaggedForReview' => function (ParseNode $n) use ($o) { $o->setFlaggedForReview($n->getBooleanValue()); },
-            'homeTenantId' => function (ParseNode $n) use ($o) { $o->setHomeTenantId($n->getStringValue()); },
-            'homeTenantName' => function (ParseNode $n) use ($o) { $o->setHomeTenantName($n->getStringValue()); },
-            'incomingTokenType' => function (ParseNode $n) use ($o) { $o->setIncomingTokenType($n->getEnumValue(IncomingTokenType::class)); },
-            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
-            'ipAddressFromResourceProvider' => function (ParseNode $n) use ($o) { $o->setIpAddressFromResourceProvider($n->getStringValue()); },
-            'isInteractive' => function (ParseNode $n) use ($o) { $o->setIsInteractive($n->getBooleanValue()); },
-            'isTenantRestricted' => function (ParseNode $n) use ($o) { $o->setIsTenantRestricted($n->getBooleanValue()); },
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getObjectValue(array(SignInLocation::class, 'createFromDiscriminatorValue'))); },
-            'mfaDetail' => function (ParseNode $n) use ($o) { $o->setMfaDetail($n->getObjectValue(array(MfaDetail::class, 'createFromDiscriminatorValue'))); },
-            'networkLocationDetails' => function (ParseNode $n) use ($o) { $o->setNetworkLocationDetails($n->getCollectionOfObjectValues(array(NetworkLocationDetail::class, 'createFromDiscriminatorValue'))); },
-            'originalRequestId' => function (ParseNode $n) use ($o) { $o->setOriginalRequestId($n->getStringValue()); },
-            'privateLinkDetails' => function (ParseNode $n) use ($o) { $o->setPrivateLinkDetails($n->getObjectValue(array(PrivateLinkDetails::class, 'createFromDiscriminatorValue'))); },
-            'processingTimeInMilliseconds' => function (ParseNode $n) use ($o) { $o->setProcessingTimeInMilliseconds($n->getIntegerValue()); },
-            'resourceDisplayName' => function (ParseNode $n) use ($o) { $o->setResourceDisplayName($n->getStringValue()); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'resourceServicePrincipalId' => function (ParseNode $n) use ($o) { $o->setResourceServicePrincipalId($n->getStringValue()); },
-            'resourceTenantId' => function (ParseNode $n) use ($o) { $o->setResourceTenantId($n->getStringValue()); },
-            'riskDetail' => function (ParseNode $n) use ($o) { $o->setRiskDetail($n->getEnumValue(RiskDetail::class)); },
-            'riskEventTypes_v2' => function (ParseNode $n) use ($o) { $o->setRiskEventTypes_v2($n->getCollectionOfPrimitiveValues()); },
-            'riskLevelAggregated' => function (ParseNode $n) use ($o) { $o->setRiskLevelAggregated($n->getEnumValue(RiskLevel::class)); },
-            'riskLevelDuringSignIn' => function (ParseNode $n) use ($o) { $o->setRiskLevelDuringSignIn($n->getEnumValue(RiskLevel::class)); },
-            'riskState' => function (ParseNode $n) use ($o) { $o->setRiskState($n->getEnumValue(RiskState::class)); },
-            'servicePrincipalCredentialKeyId' => function (ParseNode $n) use ($o) { $o->setServicePrincipalCredentialKeyId($n->getStringValue()); },
-            'servicePrincipalCredentialThumbprint' => function (ParseNode $n) use ($o) { $o->setServicePrincipalCredentialThumbprint($n->getStringValue()); },
-            'servicePrincipalId' => function (ParseNode $n) use ($o) { $o->setServicePrincipalId($n->getStringValue()); },
-            'servicePrincipalName' => function (ParseNode $n) use ($o) { $o->setServicePrincipalName($n->getStringValue()); },
-            'sessionLifetimePolicies' => function (ParseNode $n) use ($o) { $o->setSessionLifetimePolicies($n->getCollectionOfObjectValues(array(SessionLifetimePolicy::class, 'createFromDiscriminatorValue'))); },
-            'signInEventTypes' => function (ParseNode $n) use ($o) { $o->setSignInEventTypes($n->getCollectionOfPrimitiveValues()); },
-            'signInIdentifier' => function (ParseNode $n) use ($o) { $o->setSignInIdentifier($n->getStringValue()); },
-            'signInIdentifierType' => function (ParseNode $n) use ($o) { $o->setSignInIdentifierType($n->getEnumValue(SignInIdentifierType::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getObjectValue(array(SignInStatus::class, 'createFromDiscriminatorValue'))); },
-            'tokenIssuerName' => function (ParseNode $n) use ($o) { $o->setTokenIssuerName($n->getStringValue()); },
-            'tokenIssuerType' => function (ParseNode $n) use ($o) { $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)); },
-            'uniqueTokenIdentifier' => function (ParseNode $n) use ($o) { $o->setUniqueTokenIdentifier($n->getStringValue()); },
-            'userAgent' => function (ParseNode $n) use ($o) { $o->setUserAgent($n->getStringValue()); },
-            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
-            'userType' => function (ParseNode $n) use ($o) { $o->setUserType($n->getEnumValue(SignInUserType::class)); },
+            'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'appliedConditionalAccessPolicies' => fn(ParseNode $n) => $o->setAppliedConditionalAccessPolicies($n->getCollectionOfObjectValues([AppliedConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
+            'appliedEventListeners' => fn(ParseNode $n) => $o->setAppliedEventListeners($n->getCollectionOfObjectValues([AppliedAuthenticationEventListener::class, 'createFromDiscriminatorValue'])),
+            'authenticationAppDeviceDetails' => fn(ParseNode $n) => $o->setAuthenticationAppDeviceDetails($n->getObjectValue([AuthenticationAppDeviceDetails::class, 'createFromDiscriminatorValue'])),
+            'authenticationAppPolicyEvaluationDetails' => fn(ParseNode $n) => $o->setAuthenticationAppPolicyEvaluationDetails($n->getCollectionOfObjectValues([AuthenticationAppPolicyDetails::class, 'createFromDiscriminatorValue'])),
+            'authenticationContextClassReferences' => fn(ParseNode $n) => $o->setAuthenticationContextClassReferences($n->getCollectionOfObjectValues([AuthenticationContext::class, 'createFromDiscriminatorValue'])),
+            'authenticationDetails' => fn(ParseNode $n) => $o->setAuthenticationDetails($n->getCollectionOfObjectValues([AuthenticationDetail::class, 'createFromDiscriminatorValue'])),
+            'authenticationMethodsUsed' => fn(ParseNode $n) => $o->setAuthenticationMethodsUsed($n->getCollectionOfPrimitiveValues()),
+            'authenticationProcessingDetails' => fn(ParseNode $n) => $o->setAuthenticationProcessingDetails($n->getCollectionOfObjectValues([KeyValue::class, 'createFromDiscriminatorValue'])),
+            'authenticationProtocol' => fn(ParseNode $n) => $o->setAuthenticationProtocol($n->getEnumValue(ProtocolType::class)),
+            'authenticationRequirement' => fn(ParseNode $n) => $o->setAuthenticationRequirement($n->getStringValue()),
+            'authenticationRequirementPolicies' => fn(ParseNode $n) => $o->setAuthenticationRequirementPolicies($n->getCollectionOfObjectValues([AuthenticationRequirementPolicy::class, 'createFromDiscriminatorValue'])),
+            'autonomousSystemNumber' => fn(ParseNode $n) => $o->setAutonomousSystemNumber($n->getIntegerValue()),
+            'azureResourceId' => fn(ParseNode $n) => $o->setAzureResourceId($n->getStringValue()),
+            'clientAppUsed' => fn(ParseNode $n) => $o->setClientAppUsed($n->getStringValue()),
+            'clientCredentialType' => fn(ParseNode $n) => $o->setClientCredentialType($n->getEnumValue(ClientCredentialType::class)),
+            'conditionalAccessStatus' => fn(ParseNode $n) => $o->setConditionalAccessStatus($n->getEnumValue(ConditionalAccessStatus::class)),
+            'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'crossTenantAccessType' => fn(ParseNode $n) => $o->setCrossTenantAccessType($n->getEnumValue(SignInAccessType::class)),
+            'deviceDetail' => fn(ParseNode $n) => $o->setDeviceDetail($n->getObjectValue([DeviceDetail::class, 'createFromDiscriminatorValue'])),
+            'federatedCredentialId' => fn(ParseNode $n) => $o->setFederatedCredentialId($n->getStringValue()),
+            'flaggedForReview' => fn(ParseNode $n) => $o->setFlaggedForReview($n->getBooleanValue()),
+            'homeTenantId' => fn(ParseNode $n) => $o->setHomeTenantId($n->getStringValue()),
+            'homeTenantName' => fn(ParseNode $n) => $o->setHomeTenantName($n->getStringValue()),
+            'incomingTokenType' => fn(ParseNode $n) => $o->setIncomingTokenType($n->getEnumValue(IncomingTokenType::class)),
+            'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
+            'ipAddressFromResourceProvider' => fn(ParseNode $n) => $o->setIpAddressFromResourceProvider($n->getStringValue()),
+            'isInteractive' => fn(ParseNode $n) => $o->setIsInteractive($n->getBooleanValue()),
+            'isTenantRestricted' => fn(ParseNode $n) => $o->setIsTenantRestricted($n->getBooleanValue()),
+            'location' => fn(ParseNode $n) => $o->setLocation($n->getObjectValue([SignInLocation::class, 'createFromDiscriminatorValue'])),
+            'mfaDetail' => fn(ParseNode $n) => $o->setMfaDetail($n->getObjectValue([MfaDetail::class, 'createFromDiscriminatorValue'])),
+            'networkLocationDetails' => fn(ParseNode $n) => $o->setNetworkLocationDetails($n->getCollectionOfObjectValues([NetworkLocationDetail::class, 'createFromDiscriminatorValue'])),
+            'originalRequestId' => fn(ParseNode $n) => $o->setOriginalRequestId($n->getStringValue()),
+            'privateLinkDetails' => fn(ParseNode $n) => $o->setPrivateLinkDetails($n->getObjectValue([PrivateLinkDetails::class, 'createFromDiscriminatorValue'])),
+            'processingTimeInMilliseconds' => fn(ParseNode $n) => $o->setProcessingTimeInMilliseconds($n->getIntegerValue()),
+            'resourceDisplayName' => fn(ParseNode $n) => $o->setResourceDisplayName($n->getStringValue()),
+            'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
+            'resourceServicePrincipalId' => fn(ParseNode $n) => $o->setResourceServicePrincipalId($n->getStringValue()),
+            'resourceTenantId' => fn(ParseNode $n) => $o->setResourceTenantId($n->getStringValue()),
+            'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
+            'riskEventTypes_v2' => fn(ParseNode $n) => $o->setRiskEventTypes_v2($n->getCollectionOfPrimitiveValues()),
+            'riskLevelAggregated' => fn(ParseNode $n) => $o->setRiskLevelAggregated($n->getEnumValue(RiskLevel::class)),
+            'riskLevelDuringSignIn' => fn(ParseNode $n) => $o->setRiskLevelDuringSignIn($n->getEnumValue(RiskLevel::class)),
+            'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskState::class)),
+            'servicePrincipalCredentialKeyId' => fn(ParseNode $n) => $o->setServicePrincipalCredentialKeyId($n->getStringValue()),
+            'servicePrincipalCredentialThumbprint' => fn(ParseNode $n) => $o->setServicePrincipalCredentialThumbprint($n->getStringValue()),
+            'servicePrincipalId' => fn(ParseNode $n) => $o->setServicePrincipalId($n->getStringValue()),
+            'servicePrincipalName' => fn(ParseNode $n) => $o->setServicePrincipalName($n->getStringValue()),
+            'sessionLifetimePolicies' => fn(ParseNode $n) => $o->setSessionLifetimePolicies($n->getCollectionOfObjectValues([SessionLifetimePolicy::class, 'createFromDiscriminatorValue'])),
+            'signInEventTypes' => fn(ParseNode $n) => $o->setSignInEventTypes($n->getCollectionOfPrimitiveValues()),
+            'signInIdentifier' => fn(ParseNode $n) => $o->setSignInIdentifier($n->getStringValue()),
+            'signInIdentifierType' => fn(ParseNode $n) => $o->setSignInIdentifierType($n->getEnumValue(SignInIdentifierType::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SignInStatus::class, 'createFromDiscriminatorValue'])),
+            'tokenIssuerName' => fn(ParseNode $n) => $o->setTokenIssuerName($n->getStringValue()),
+            'tokenIssuerType' => fn(ParseNode $n) => $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)),
+            'uniqueTokenIdentifier' => fn(ParseNode $n) => $o->setUniqueTokenIdentifier($n->getStringValue()),
+            'userAgent' => fn(ParseNode $n) => $o->setUserAgent($n->getStringValue()),
+            'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
+            'userType' => fn(ParseNode $n) => $o->setUserType($n->getEnumValue(SignInUserType::class)),
         ]);
     }
 
@@ -900,6 +928,8 @@ class SignIn extends Entity implements Parsable
         $writer->writeStringValue('appId', $this->appId);
         $writer->writeCollectionOfObjectValues('appliedConditionalAccessPolicies', $this->appliedConditionalAccessPolicies);
         $writer->writeCollectionOfObjectValues('appliedEventListeners', $this->appliedEventListeners);
+        $writer->writeObjectValue('authenticationAppDeviceDetails', $this->authenticationAppDeviceDetails);
+        $writer->writeCollectionOfObjectValues('authenticationAppPolicyEvaluationDetails', $this->authenticationAppPolicyEvaluationDetails);
         $writer->writeCollectionOfObjectValues('authenticationContextClassReferences', $this->authenticationContextClassReferences);
         $writer->writeCollectionOfObjectValues('authenticationDetails', $this->authenticationDetails);
         $writer->writeCollectionOfPrimitiveValues('authenticationMethodsUsed', $this->authenticationMethodsUsed);
@@ -989,6 +1019,22 @@ class SignIn extends Entity implements Parsable
     */
     public function setAppliedEventListeners(?array $value ): void {
         $this->appliedEventListeners = $value;
+    }
+
+    /**
+     * Sets the authenticationAppDeviceDetails property value. The authenticationAppDeviceDetails property
+     *  @param AuthenticationAppDeviceDetails|null $value Value to set for the authenticationAppDeviceDetails property.
+    */
+    public function setAuthenticationAppDeviceDetails(?AuthenticationAppDeviceDetails $value ): void {
+        $this->authenticationAppDeviceDetails = $value;
+    }
+
+    /**
+     * Sets the authenticationAppPolicyEvaluationDetails property value. The authenticationAppPolicyEvaluationDetails property
+     *  @param array<AuthenticationAppPolicyDetails>|null $value Value to set for the authenticationAppPolicyEvaluationDetails property.
+    */
+    public function setAuthenticationAppPolicyEvaluationDetails(?array $value ): void {
+        $this->authenticationAppPolicyEvaluationDetails = $value;
     }
 
     /**

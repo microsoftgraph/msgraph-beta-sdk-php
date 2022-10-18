@@ -100,12 +100,12 @@ class UserAccount implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accountName' => function (ParseNode $n) use ($o) { $o->setAccountName($n->getStringValue()); },
-            'azureAdUserId' => function (ParseNode $n) use ($o) { $o->setAzureAdUserId($n->getStringValue()); },
-            'domainName' => function (ParseNode $n) use ($o) { $o->setDomainName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
-            'userSid' => function (ParseNode $n) use ($o) { $o->setUserSid($n->getStringValue()); },
+            'accountName' => fn(ParseNode $n) => $o->setAccountName($n->getStringValue()),
+            'azureAdUserId' => fn(ParseNode $n) => $o->setAzureAdUserId($n->getStringValue()),
+            'domainName' => fn(ParseNode $n) => $o->setDomainName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
+            'userSid' => fn(ParseNode $n) => $o->setUserSid($n->getStringValue()),
         ];
     }
 

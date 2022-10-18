@@ -59,7 +59,7 @@ class RemoveMembersPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assets' => function (ParseNode $n) use ($o) { $o->setAssets($n->getCollectionOfObjectValues(array(UpdatableAsset::class, 'createFromDiscriminatorValue'))); },
+            'assets' => fn(ParseNode $n) => $o->setAssets($n->getCollectionOfObjectValues([UpdatableAsset::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

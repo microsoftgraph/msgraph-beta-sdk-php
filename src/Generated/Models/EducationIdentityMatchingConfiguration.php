@@ -37,7 +37,7 @@ class EducationIdentityMatchingConfiguration extends EducationIdentitySynchroniz
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'matchingOptions' => function (ParseNode $n) use ($o) { $o->setMatchingOptions($n->getCollectionOfObjectValues(array(EducationIdentityMatchingOptions::class, 'createFromDiscriminatorValue'))); },
+            'matchingOptions' => fn(ParseNode $n) => $o->setMatchingOptions($n->getCollectionOfObjectValues([EducationIdentityMatchingOptions::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

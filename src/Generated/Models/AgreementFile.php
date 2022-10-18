@@ -37,7 +37,7 @@ class AgreementFile extends AgreementFileProperties implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'localizations' => function (ParseNode $n) use ($o) { $o->setLocalizations($n->getCollectionOfObjectValues(array(AgreementFileLocalization::class, 'createFromDiscriminatorValue'))); },
+            'localizations' => fn(ParseNode $n) => $o->setLocalizations($n->getCollectionOfObjectValues([AgreementFileLocalization::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

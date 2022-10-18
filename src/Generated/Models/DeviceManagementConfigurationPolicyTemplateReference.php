@@ -71,11 +71,11 @@ class DeviceManagementConfigurationPolicyTemplateReference implements Additional
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'templateDisplayName' => function (ParseNode $n) use ($o) { $o->setTemplateDisplayName($n->getStringValue()); },
-            'templateDisplayVersion' => function (ParseNode $n) use ($o) { $o->setTemplateDisplayVersion($n->getStringValue()); },
-            'templateFamily' => function (ParseNode $n) use ($o) { $o->setTemplateFamily($n->getEnumValue(DeviceManagementConfigurationTemplateFamily::class)); },
-            'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'templateDisplayName' => fn(ParseNode $n) => $o->setTemplateDisplayName($n->getStringValue()),
+            'templateDisplayVersion' => fn(ParseNode $n) => $o->setTemplateDisplayVersion($n->getStringValue()),
+            'templateFamily' => fn(ParseNode $n) => $o->setTemplateFamily($n->getEnumValue(DeviceManagementConfigurationTemplateFamily::class)),
+            'templateId' => fn(ParseNode $n) => $o->setTemplateId($n->getStringValue()),
         ];
     }
 

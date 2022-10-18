@@ -64,9 +64,9 @@ class TenantRelationship extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'delegatedAdminCustomers' => function (ParseNode $n) use ($o) { $o->setDelegatedAdminCustomers($n->getCollectionOfObjectValues(array(DelegatedAdminCustomer::class, 'createFromDiscriminatorValue'))); },
-            'delegatedAdminRelationships' => function (ParseNode $n) use ($o) { $o->setDelegatedAdminRelationships($n->getCollectionOfObjectValues(array(DelegatedAdminRelationship::class, 'createFromDiscriminatorValue'))); },
-            'managedTenants' => function (ParseNode $n) use ($o) { $o->setManagedTenants($n->getObjectValue(array(ManagedTenant::class, 'createFromDiscriminatorValue'))); },
+            'delegatedAdminCustomers' => fn(ParseNode $n) => $o->setDelegatedAdminCustomers($n->getCollectionOfObjectValues([DelegatedAdminCustomer::class, 'createFromDiscriminatorValue'])),
+            'delegatedAdminRelationships' => fn(ParseNode $n) => $o->setDelegatedAdminRelationships($n->getCollectionOfObjectValues([DelegatedAdminRelationship::class, 'createFromDiscriminatorValue'])),
+            'managedTenants' => fn(ParseNode $n) => $o->setManagedTenants($n->getObjectValue([ManagedTenant::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

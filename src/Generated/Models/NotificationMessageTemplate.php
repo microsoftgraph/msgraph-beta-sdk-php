@@ -87,12 +87,12 @@ class NotificationMessageTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'brandingOptions' => function (ParseNode $n) use ($o) { $o->setBrandingOptions($n->getEnumValue(NotificationTemplateBrandingOptions::class)); },
-            'defaultLocale' => function (ParseNode $n) use ($o) { $o->setDefaultLocale($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'localizedNotificationMessages' => function (ParseNode $n) use ($o) { $o->setLocalizedNotificationMessages($n->getCollectionOfObjectValues(array(LocalizedNotificationMessage::class, 'createFromDiscriminatorValue'))); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'brandingOptions' => fn(ParseNode $n) => $o->setBrandingOptions($n->getEnumValue(NotificationTemplateBrandingOptions::class)),
+            'defaultLocale' => fn(ParseNode $n) => $o->setDefaultLocale($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'localizedNotificationMessages' => fn(ParseNode $n) => $o->setLocalizedNotificationMessages($n->getCollectionOfObjectValues([LocalizedNotificationMessage::class, 'createFromDiscriminatorValue'])),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

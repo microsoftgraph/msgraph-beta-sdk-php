@@ -138,21 +138,21 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'cancelRequested' => function (ParseNode $n) use ($o) { $o->setCancelRequested($n->getBooleanValue()); },
-            'completeOrCanceledDateTime' => function (ParseNode $n) use ($o) { $o->setCompleteOrCanceledDateTime($n->getDateTimeValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ZebraFotaDeploymentState::class)); },
-            'totalAwaitingInstall' => function (ParseNode $n) use ($o) { $o->setTotalAwaitingInstall($n->getIntegerValue()); },
-            'totalCanceled' => function (ParseNode $n) use ($o) { $o->setTotalCanceled($n->getIntegerValue()); },
-            'totalCreated' => function (ParseNode $n) use ($o) { $o->setTotalCreated($n->getIntegerValue()); },
-            'totalDevices' => function (ParseNode $n) use ($o) { $o->setTotalDevices($n->getIntegerValue()); },
-            'totalDownloading' => function (ParseNode $n) use ($o) { $o->setTotalDownloading($n->getIntegerValue()); },
-            'totalFailedDownload' => function (ParseNode $n) use ($o) { $o->setTotalFailedDownload($n->getIntegerValue()); },
-            'totalFailedInstall' => function (ParseNode $n) use ($o) { $o->setTotalFailedInstall($n->getIntegerValue()); },
-            'totalScheduled' => function (ParseNode $n) use ($o) { $o->setTotalScheduled($n->getIntegerValue()); },
-            'totalSucceededInstall' => function (ParseNode $n) use ($o) { $o->setTotalSucceededInstall($n->getIntegerValue()); },
-            'totalUnknown' => function (ParseNode $n) use ($o) { $o->setTotalUnknown($n->getIntegerValue()); },
+            'cancelRequested' => fn(ParseNode $n) => $o->setCancelRequested($n->getBooleanValue()),
+            'completeOrCanceledDateTime' => fn(ParseNode $n) => $o->setCompleteOrCanceledDateTime($n->getDateTimeValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ZebraFotaDeploymentState::class)),
+            'totalAwaitingInstall' => fn(ParseNode $n) => $o->setTotalAwaitingInstall($n->getIntegerValue()),
+            'totalCanceled' => fn(ParseNode $n) => $o->setTotalCanceled($n->getIntegerValue()),
+            'totalCreated' => fn(ParseNode $n) => $o->setTotalCreated($n->getIntegerValue()),
+            'totalDevices' => fn(ParseNode $n) => $o->setTotalDevices($n->getIntegerValue()),
+            'totalDownloading' => fn(ParseNode $n) => $o->setTotalDownloading($n->getIntegerValue()),
+            'totalFailedDownload' => fn(ParseNode $n) => $o->setTotalFailedDownload($n->getIntegerValue()),
+            'totalFailedInstall' => fn(ParseNode $n) => $o->setTotalFailedInstall($n->getIntegerValue()),
+            'totalScheduled' => fn(ParseNode $n) => $o->setTotalScheduled($n->getIntegerValue()),
+            'totalSucceededInstall' => fn(ParseNode $n) => $o->setTotalSucceededInstall($n->getIntegerValue()),
+            'totalUnknown' => fn(ParseNode $n) => $o->setTotalUnknown($n->getIntegerValue()),
         ];
     }
 

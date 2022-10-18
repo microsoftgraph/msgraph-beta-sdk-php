@@ -194,21 +194,21 @@ class ArchivedPrintJob implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'acquiredByPrinter' => function (ParseNode $n) use ($o) { $o->setAcquiredByPrinter($n->getBooleanValue()); },
-            'acquiredDateTime' => function (ParseNode $n) use ($o) { $o->setAcquiredDateTime($n->getDateTimeValue()); },
-            'blackAndWhitePageCount' => function (ParseNode $n) use ($o) { $o->setBlackAndWhitePageCount($n->getIntegerValue()); },
-            'colorPageCount' => function (ParseNode $n) use ($o) { $o->setColorPageCount($n->getIntegerValue()); },
-            'completionDateTime' => function (ParseNode $n) use ($o) { $o->setCompletionDateTime($n->getDateTimeValue()); },
-            'copiesPrinted' => function (ParseNode $n) use ($o) { $o->setCopiesPrinted($n->getIntegerValue()); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'duplexPageCount' => function (ParseNode $n) use ($o) { $o->setDuplexPageCount($n->getIntegerValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'pageCount' => function (ParseNode $n) use ($o) { $o->setPageCount($n->getIntegerValue()); },
-            'printerId' => function (ParseNode $n) use ($o) { $o->setPrinterId($n->getStringValue()); },
-            'processingState' => function (ParseNode $n) use ($o) { $o->setProcessingState($n->getEnumValue(PrintJobProcessingState::class)); },
-            'simplexPageCount' => function (ParseNode $n) use ($o) { $o->setSimplexPageCount($n->getIntegerValue()); },
+            'acquiredByPrinter' => fn(ParseNode $n) => $o->setAcquiredByPrinter($n->getBooleanValue()),
+            'acquiredDateTime' => fn(ParseNode $n) => $o->setAcquiredDateTime($n->getDateTimeValue()),
+            'blackAndWhitePageCount' => fn(ParseNode $n) => $o->setBlackAndWhitePageCount($n->getIntegerValue()),
+            'colorPageCount' => fn(ParseNode $n) => $o->setColorPageCount($n->getIntegerValue()),
+            'completionDateTime' => fn(ParseNode $n) => $o->setCompletionDateTime($n->getDateTimeValue()),
+            'copiesPrinted' => fn(ParseNode $n) => $o->setCopiesPrinted($n->getIntegerValue()),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([UserIdentity::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'duplexPageCount' => fn(ParseNode $n) => $o->setDuplexPageCount($n->getIntegerValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'pageCount' => fn(ParseNode $n) => $o->setPageCount($n->getIntegerValue()),
+            'printerId' => fn(ParseNode $n) => $o->setPrinterId($n->getStringValue()),
+            'processingState' => fn(ParseNode $n) => $o->setProcessingState($n->getEnumValue(PrintJobProcessingState::class)),
+            'simplexPageCount' => fn(ParseNode $n) => $o->setSimplexPageCount($n->getIntegerValue()),
         ];
     }
 

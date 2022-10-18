@@ -45,7 +45,7 @@ class DeviceManagementConfigurationChoiceSettingInstance extends DeviceManagemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'choiceSettingValue' => function (ParseNode $n) use ($o) { $o->setChoiceSettingValue($n->getObjectValue(array(DeviceManagementConfigurationChoiceSettingValue::class, 'createFromDiscriminatorValue'))); },
+            'choiceSettingValue' => fn(ParseNode $n) => $o->setChoiceSettingValue($n->getObjectValue([DeviceManagementConfigurationChoiceSettingValue::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

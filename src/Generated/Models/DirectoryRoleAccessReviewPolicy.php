@@ -37,7 +37,7 @@ class DirectoryRoleAccessReviewPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(AccessReviewScheduleSettings::class, 'createFromDiscriminatorValue'))); },
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([AccessReviewScheduleSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

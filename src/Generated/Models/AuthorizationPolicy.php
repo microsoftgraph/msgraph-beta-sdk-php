@@ -24,17 +24,17 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     private ?bool $allowEmailVerifiedUsersToJoinOrganization = null;
     
     /**
-     * @var AllowInvitesFrom|null $allowInvitesFrom Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below.
+     * @var AllowInvitesFrom|null $allowInvitesFrom Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone. everyone is the default setting for all cloud environments except US Government. See more in the table below.
     */
     private ?AllowInvitesFrom $allowInvitesFrom = null;
     
     /**
-     * @var bool|null $allowUserConsentForRiskyApps The allowUserConsentForRiskyApps property
+     * @var bool|null $allowUserConsentForRiskyApps Indicates whether user consent for risky apps is allowed. We recommend to keep this as false.
     */
     private ?bool $allowUserConsentForRiskyApps = null;
     
     /**
-     * @var bool|null $blockMsolPowerShell To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.
+     * @var bool|null $blockMsolPowerShell To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This does not affect Azure AD Connect or Microsoft Graph.
     */
     private ?bool $blockMsolPowerShell = null;
     
@@ -105,7 +105,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the allowInvitesFrom property value. Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below.
+     * Gets the allowInvitesFrom property value. Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone. everyone is the default setting for all cloud environments except US Government. See more in the table below.
      * @return AllowInvitesFrom|null
     */
     public function getAllowInvitesFrom(): ?AllowInvitesFrom {
@@ -113,7 +113,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the allowUserConsentForRiskyApps property value. The allowUserConsentForRiskyApps property
+     * Gets the allowUserConsentForRiskyApps property value. Indicates whether user consent for risky apps is allowed. We recommend to keep this as false.
      * @return bool|null
     */
     public function getAllowUserConsentForRiskyApps(): ?bool {
@@ -121,7 +121,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the blockMsolPowerShell property value. To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.
+     * Gets the blockMsolPowerShell property value. To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This does not affect Azure AD Connect or Microsoft Graph.
      * @return bool|null
     */
     public function getBlockMsolPowerShell(): ?bool {
@@ -159,17 +159,17 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedToSignUpEmailBasedSubscriptions' => function (ParseNode $n) use ($o) { $o->setAllowedToSignUpEmailBasedSubscriptions($n->getBooleanValue()); },
-            'allowedToUseSSPR' => function (ParseNode $n) use ($o) { $o->setAllowedToUseSSPR($n->getBooleanValue()); },
-            'allowEmailVerifiedUsersToJoinOrganization' => function (ParseNode $n) use ($o) { $o->setAllowEmailVerifiedUsersToJoinOrganization($n->getBooleanValue()); },
-            'allowInvitesFrom' => function (ParseNode $n) use ($o) { $o->setAllowInvitesFrom($n->getEnumValue(AllowInvitesFrom::class)); },
-            'allowUserConsentForRiskyApps' => function (ParseNode $n) use ($o) { $o->setAllowUserConsentForRiskyApps($n->getBooleanValue()); },
-            'blockMsolPowerShell' => function (ParseNode $n) use ($o) { $o->setBlockMsolPowerShell($n->getBooleanValue()); },
-            'defaultUserRoleOverrides' => function (ParseNode $n) use ($o) { $o->setDefaultUserRoleOverrides($n->getCollectionOfObjectValues(array(DefaultUserRoleOverride::class, 'createFromDiscriminatorValue'))); },
-            'defaultUserRolePermissions' => function (ParseNode $n) use ($o) { $o->setDefaultUserRolePermissions($n->getObjectValue(array(DefaultUserRolePermissions::class, 'createFromDiscriminatorValue'))); },
-            'enabledPreviewFeatures' => function (ParseNode $n) use ($o) { $o->setEnabledPreviewFeatures($n->getCollectionOfPrimitiveValues()); },
-            'guestUserRoleId' => function (ParseNode $n) use ($o) { $o->setGuestUserRoleId($n->getStringValue()); },
-            'permissionGrantPolicyIdsAssignedToDefaultUserRole' => function (ParseNode $n) use ($o) { $o->setPermissionGrantPolicyIdsAssignedToDefaultUserRole($n->getCollectionOfPrimitiveValues()); },
+            'allowedToSignUpEmailBasedSubscriptions' => fn(ParseNode $n) => $o->setAllowedToSignUpEmailBasedSubscriptions($n->getBooleanValue()),
+            'allowedToUseSSPR' => fn(ParseNode $n) => $o->setAllowedToUseSSPR($n->getBooleanValue()),
+            'allowEmailVerifiedUsersToJoinOrganization' => fn(ParseNode $n) => $o->setAllowEmailVerifiedUsersToJoinOrganization($n->getBooleanValue()),
+            'allowInvitesFrom' => fn(ParseNode $n) => $o->setAllowInvitesFrom($n->getEnumValue(AllowInvitesFrom::class)),
+            'allowUserConsentForRiskyApps' => fn(ParseNode $n) => $o->setAllowUserConsentForRiskyApps($n->getBooleanValue()),
+            'blockMsolPowerShell' => fn(ParseNode $n) => $o->setBlockMsolPowerShell($n->getBooleanValue()),
+            'defaultUserRoleOverrides' => fn(ParseNode $n) => $o->setDefaultUserRoleOverrides($n->getCollectionOfObjectValues([DefaultUserRoleOverride::class, 'createFromDiscriminatorValue'])),
+            'defaultUserRolePermissions' => fn(ParseNode $n) => $o->setDefaultUserRolePermissions($n->getObjectValue([DefaultUserRolePermissions::class, 'createFromDiscriminatorValue'])),
+            'enabledPreviewFeatures' => fn(ParseNode $n) => $o->setEnabledPreviewFeatures($n->getCollectionOfPrimitiveValues()),
+            'guestUserRoleId' => fn(ParseNode $n) => $o->setGuestUserRoleId($n->getStringValue()),
+            'permissionGrantPolicyIdsAssignedToDefaultUserRole' => fn(ParseNode $n) => $o->setPermissionGrantPolicyIdsAssignedToDefaultUserRole($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 
@@ -233,7 +233,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the allowInvitesFrom property value. Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below.
+     * Sets the allowInvitesFrom property value. Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone. everyone is the default setting for all cloud environments except US Government. See more in the table below.
      *  @param AllowInvitesFrom|null $value Value to set for the allowInvitesFrom property.
     */
     public function setAllowInvitesFrom(?AllowInvitesFrom $value ): void {
@@ -241,7 +241,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the allowUserConsentForRiskyApps property value. The allowUserConsentForRiskyApps property
+     * Sets the allowUserConsentForRiskyApps property value. Indicates whether user consent for risky apps is allowed. We recommend to keep this as false.
      *  @param bool|null $value Value to set for the allowUserConsentForRiskyApps property.
     */
     public function setAllowUserConsentForRiskyApps(?bool $value ): void {
@@ -249,7 +249,7 @@ class AuthorizationPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the blockMsolPowerShell property value. To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.
+     * Sets the blockMsolPowerShell property value. To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This does not affect Azure AD Connect or Microsoft Graph.
      *  @param bool|null $value Value to set for the blockMsolPowerShell property.
     */
     public function setBlockMsolPowerShell(?bool $value ): void {

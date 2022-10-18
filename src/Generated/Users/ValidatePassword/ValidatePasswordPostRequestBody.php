@@ -50,7 +50,7 @@ class ValidatePasswordPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'password' => function (ParseNode $n) use ($o) { $o->setPassword($n->getStringValue()); },
+            'password' => fn(ParseNode $n) => $o->setPassword($n->getStringValue()),
         ];
     }
 

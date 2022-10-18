@@ -61,9 +61,9 @@ class AndroidManagedStoreAppTrack implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'trackAlias' => function (ParseNode $n) use ($o) { $o->setTrackAlias($n->getStringValue()); },
-            'trackId' => function (ParseNode $n) use ($o) { $o->setTrackId($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'trackAlias' => fn(ParseNode $n) => $o->setTrackAlias($n->getStringValue()),
+            'trackId' => fn(ParseNode $n) => $o->setTrackId($n->getStringValue()),
         ];
     }
 

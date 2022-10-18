@@ -68,9 +68,9 @@ class AssignResourceAccountToDevicePostRequestBody implements AdditionalDataHold
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'addressableUserName' => function (ParseNode $n) use ($o) { $o->setAddressableUserName($n->getStringValue()); },
-            'resourceAccountName' => function (ParseNode $n) use ($o) { $o->setResourceAccountName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'addressableUserName' => fn(ParseNode $n) => $o->setAddressableUserName($n->getStringValue()),
+            'resourceAccountName' => fn(ParseNode $n) => $o->setResourceAccountName($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ];
     }
 

@@ -14,7 +14,7 @@ class AuthenticationMethodModeDetail extends Entity implements Parsable
     private ?BaseAuthenticationMethod $authenticationMethod = null;
     
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName The display name of this mode
     */
     private ?string $displayName = null;
     
@@ -44,7 +44,7 @@ class AuthenticationMethodModeDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of this mode
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -58,8 +58,8 @@ class AuthenticationMethodModeDetail extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationMethod' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethod($n->getEnumValue(BaseAuthenticationMethod::class)); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(BaseAuthenticationMethod::class)),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
         ]);
     }
 
@@ -82,7 +82,7 @@ class AuthenticationMethodModeDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of this mode
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {

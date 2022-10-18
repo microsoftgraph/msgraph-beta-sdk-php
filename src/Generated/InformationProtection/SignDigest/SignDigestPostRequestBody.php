@@ -59,7 +59,7 @@ class SignDigestPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'digest' => function (ParseNode $n) use ($o) { $o->setDigest($n->getBinaryContent()); },
+            'digest' => fn(ParseNode $n) => $o->setDigest($n->getBinaryContent()),
         ];
     }
 

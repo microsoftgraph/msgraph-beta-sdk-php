@@ -73,8 +73,8 @@ class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHold
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'classificationResults' => function (ParseNode $n) use ($o) { $o->setClassificationResults($n->getCollectionOfObjectValues(array(ClassificationResult::class, 'createFromDiscriminatorValue'))); },
-            'contentInfo' => function (ParseNode $n) use ($o) { $o->setContentInfo($n->getObjectValue(array(ContentInfo::class, 'createFromDiscriminatorValue'))); },
+            'classificationResults' => fn(ParseNode $n) => $o->setClassificationResults($n->getCollectionOfObjectValues([ClassificationResult::class, 'createFromDiscriminatorValue'])),
+            'contentInfo' => fn(ParseNode $n) => $o->setContentInfo($n->getObjectValue([ContentInfo::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

@@ -55,9 +55,9 @@ class FileEvidence extends AlertEvidence implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'detectionStatus' => function (ParseNode $n) use ($o) { $o->setDetectionStatus($n->getEnumValue(DetectionStatus::class)); },
-            'fileDetails' => function (ParseNode $n) use ($o) { $o->setFileDetails($n->getObjectValue(array(FileDetails::class, 'createFromDiscriminatorValue'))); },
-            'mdeDeviceId' => function (ParseNode $n) use ($o) { $o->setMdeDeviceId($n->getStringValue()); },
+            'detectionStatus' => fn(ParseNode $n) => $o->setDetectionStatus($n->getEnumValue(DetectionStatus::class)),
+            'fileDetails' => fn(ParseNode $n) => $o->setFileDetails($n->getObjectValue([FileDetails::class, 'createFromDiscriminatorValue'])),
+            'mdeDeviceId' => fn(ParseNode $n) => $o->setMdeDeviceId($n->getStringValue()),
         ]);
     }
 

@@ -36,7 +36,7 @@ class ImportedDeviceIdentityResultCollectionResponse extends BaseCollectionPagin
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(ImportedDeviceIdentityResult::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([ImportedDeviceIdentityResult::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -113,13 +113,13 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'comparisonResult' => function (ParseNode $n) use ($o) { $o->setComparisonResult($n->getEnumValue(DeviceManagementComparisonResult::class)); },
-            'currentValueJson' => function (ParseNode $n) use ($o) { $o->setCurrentValueJson($n->getStringValue()); },
-            'definitionId' => function (ParseNode $n) use ($o) { $o->setDefinitionId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'newValueJson' => function (ParseNode $n) use ($o) { $o->setNewValueJson($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'comparisonResult' => fn(ParseNode $n) => $o->setComparisonResult($n->getEnumValue(DeviceManagementComparisonResult::class)),
+            'currentValueJson' => fn(ParseNode $n) => $o->setCurrentValueJson($n->getStringValue()),
+            'definitionId' => fn(ParseNode $n) => $o->setDefinitionId($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'newValueJson' => fn(ParseNode $n) => $o->setNewValueJson($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

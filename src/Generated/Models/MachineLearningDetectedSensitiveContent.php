@@ -42,8 +42,8 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'matchTolerance' => function (ParseNode $n) use ($o) { $o->setMatchTolerance($n->getEnumValue(MlClassificationMatchTolerance::class)); },
-            'modelVersion' => function (ParseNode $n) use ($o) { $o->setModelVersion($n->getStringValue()); },
+            'matchTolerance' => fn(ParseNode $n) => $o->setMatchTolerance($n->getEnumValue(MlClassificationMatchTolerance::class)),
+            'modelVersion' => fn(ParseNode $n) => $o->setModelVersion($n->getStringValue()),
         ]);
     }
 

@@ -58,8 +58,8 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deployedDeviceCount' => function (ParseNode $n) use ($o) { $o->setDeployedDeviceCount($n->getIntegerValue()); },
-            'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
+            'deployedDeviceCount' => fn(ParseNode $n) => $o->setDeployedDeviceCount($n->getIntegerValue()),
+            'failedDeviceCount' => fn(ParseNode $n) => $o->setFailedDeviceCount($n->getIntegerValue()),
         ]);
     }
 

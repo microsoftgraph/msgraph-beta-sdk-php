@@ -91,13 +91,13 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'compliantUserCount' => function (ParseNode $n) use ($o) { $o->setCompliantUserCount($n->getIntegerValue()); },
-            'conflictUserCount' => function (ParseNode $n) use ($o) { $o->setConflictUserCount($n->getIntegerValue()); },
-            'errorUserCount' => function (ParseNode $n) use ($o) { $o->setErrorUserCount($n->getIntegerValue()); },
-            'nonCompliantUserCount' => function (ParseNode $n) use ($o) { $o->setNonCompliantUserCount($n->getIntegerValue()); },
-            'notApplicableUserCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableUserCount($n->getIntegerValue()); },
-            'remediatedUserCount' => function (ParseNode $n) use ($o) { $o->setRemediatedUserCount($n->getIntegerValue()); },
-            'unknownUserCount' => function (ParseNode $n) use ($o) { $o->setUnknownUserCount($n->getIntegerValue()); },
+            'compliantUserCount' => fn(ParseNode $n) => $o->setCompliantUserCount($n->getIntegerValue()),
+            'conflictUserCount' => fn(ParseNode $n) => $o->setConflictUserCount($n->getIntegerValue()),
+            'errorUserCount' => fn(ParseNode $n) => $o->setErrorUserCount($n->getIntegerValue()),
+            'nonCompliantUserCount' => fn(ParseNode $n) => $o->setNonCompliantUserCount($n->getIntegerValue()),
+            'notApplicableUserCount' => fn(ParseNode $n) => $o->setNotApplicableUserCount($n->getIntegerValue()),
+            'remediatedUserCount' => fn(ParseNode $n) => $o->setRemediatedUserCount($n->getIntegerValue()),
+            'unknownUserCount' => fn(ParseNode $n) => $o->setUnknownUserCount($n->getIntegerValue()),
         ]);
     }
 

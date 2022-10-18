@@ -56,8 +56,8 @@ class ContinuousAccessEvaluationSessionControl implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'mode' => function (ParseNode $n) use ($o) { $o->setMode($n->getEnumValue(ContinuousAccessEvaluationMode::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'mode' => fn(ParseNode $n) => $o->setMode($n->getEnumValue(ContinuousAccessEvaluationMode::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

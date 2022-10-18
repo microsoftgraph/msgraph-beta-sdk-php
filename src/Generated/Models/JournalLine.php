@@ -158,18 +158,18 @@ class JournalLine extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'account' => function (ParseNode $n) use ($o) { $o->setAccount($n->getObjectValue(array(Account::class, 'createFromDiscriminatorValue'))); },
-            'accountId' => function (ParseNode $n) use ($o) { $o->setAccountId($n->getStringValue()); },
-            'accountNumber' => function (ParseNode $n) use ($o) { $o->setAccountNumber($n->getStringValue()); },
-            'amount' => function (ParseNode $n) use ($o) { $o->setAmount($n->getStringValue()); },
-            'comment' => function (ParseNode $n) use ($o) { $o->setComment($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'documentNumber' => function (ParseNode $n) use ($o) { $o->setDocumentNumber($n->getStringValue()); },
-            'externalDocumentNumber' => function (ParseNode $n) use ($o) { $o->setExternalDocumentNumber($n->getStringValue()); },
-            'journalDisplayName' => function (ParseNode $n) use ($o) { $o->setJournalDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'lineNumber' => function (ParseNode $n) use ($o) { $o->setLineNumber($n->getIntegerValue()); },
-            'postingDate' => function (ParseNode $n) use ($o) { $o->setPostingDate($n->getDateValue()); },
+            'account' => fn(ParseNode $n) => $o->setAccount($n->getObjectValue([Account::class, 'createFromDiscriminatorValue'])),
+            'accountId' => fn(ParseNode $n) => $o->setAccountId($n->getStringValue()),
+            'accountNumber' => fn(ParseNode $n) => $o->setAccountNumber($n->getStringValue()),
+            'amount' => fn(ParseNode $n) => $o->setAmount($n->getStringValue()),
+            'comment' => fn(ParseNode $n) => $o->setComment($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'documentNumber' => fn(ParseNode $n) => $o->setDocumentNumber($n->getStringValue()),
+            'externalDocumentNumber' => fn(ParseNode $n) => $o->setExternalDocumentNumber($n->getStringValue()),
+            'journalDisplayName' => fn(ParseNode $n) => $o->setJournalDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'lineNumber' => fn(ParseNode $n) => $o->setLineNumber($n->getIntegerValue()),
+            'postingDate' => fn(ParseNode $n) => $o->setPostingDate($n->getDateValue()),
         ]);
     }
 

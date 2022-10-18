@@ -63,9 +63,9 @@ class X509CertificateAuthenticationMethodConfiguration extends AuthenticationMet
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationModeConfiguration' => function (ParseNode $n) use ($o) { $o->setAuthenticationModeConfiguration($n->getObjectValue(array(X509CertificateAuthenticationModeConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'certificateUserBindings' => function (ParseNode $n) use ($o) { $o->setCertificateUserBindings($n->getCollectionOfObjectValues(array(X509CertificateUserBinding::class, 'createFromDiscriminatorValue'))); },
-            'includeTargets' => function (ParseNode $n) use ($o) { $o->setIncludeTargets($n->getCollectionOfObjectValues(array(AuthenticationMethodTarget::class, 'createFromDiscriminatorValue'))); },
+            'authenticationModeConfiguration' => fn(ParseNode $n) => $o->setAuthenticationModeConfiguration($n->getObjectValue([X509CertificateAuthenticationModeConfiguration::class, 'createFromDiscriminatorValue'])),
+            'certificateUserBindings' => fn(ParseNode $n) => $o->setCertificateUserBindings($n->getCollectionOfObjectValues([X509CertificateUserBinding::class, 'createFromDiscriminatorValue'])),
+            'includeTargets' => fn(ParseNode $n) => $o->setIncludeTargets($n->getCollectionOfObjectValues([AuthenticationMethodTarget::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

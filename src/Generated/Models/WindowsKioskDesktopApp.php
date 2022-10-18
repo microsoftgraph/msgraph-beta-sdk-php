@@ -63,9 +63,9 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'desktopApplicationId' => function (ParseNode $n) use ($o) { $o->setDesktopApplicationId($n->getStringValue()); },
-            'desktopApplicationLinkPath' => function (ParseNode $n) use ($o) { $o->setDesktopApplicationLinkPath($n->getStringValue()); },
-            'path' => function (ParseNode $n) use ($o) { $o->setPath($n->getStringValue()); },
+            'desktopApplicationId' => fn(ParseNode $n) => $o->setDesktopApplicationId($n->getStringValue()),
+            'desktopApplicationLinkPath' => fn(ParseNode $n) => $o->setDesktopApplicationLinkPath($n->getStringValue()),
+            'path' => fn(ParseNode $n) => $o->setPath($n->getStringValue()),
         ]);
     }
 

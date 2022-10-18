@@ -58,8 +58,8 @@ class WindowsMicrosoftEdgeApp extends MobileApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'channel' => function (ParseNode $n) use ($o) { $o->setChannel($n->getEnumValue(MicrosoftEdgeChannel::class)); },
-            'displayLanguageLocale' => function (ParseNode $n) use ($o) { $o->setDisplayLanguageLocale($n->getStringValue()); },
+            'channel' => fn(ParseNode $n) => $o->setChannel($n->getEnumValue(MicrosoftEdgeChannel::class)),
+            'displayLanguageLocale' => fn(ParseNode $n) => $o->setDisplayLanguageLocale($n->getStringValue()),
         ]);
     }
 

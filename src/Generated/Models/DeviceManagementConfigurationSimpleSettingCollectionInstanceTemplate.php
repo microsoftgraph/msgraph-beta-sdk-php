@@ -50,8 +50,8 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate exten
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowUnmanagedValues' => function (ParseNode $n) use ($o) { $o->setAllowUnmanagedValues($n->getBooleanValue()); },
-            'simpleSettingCollectionValueTemplate' => function (ParseNode $n) use ($o) { $o->setSimpleSettingCollectionValueTemplate($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSimpleSettingValueTemplate::class, 'createFromDiscriminatorValue'))); },
+            'allowUnmanagedValues' => fn(ParseNode $n) => $o->setAllowUnmanagedValues($n->getBooleanValue()),
+            'simpleSettingCollectionValueTemplate' => fn(ParseNode $n) => $o->setSimpleSettingCollectionValueTemplate($n->getCollectionOfObjectValues([DeviceManagementConfigurationSimpleSettingValueTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

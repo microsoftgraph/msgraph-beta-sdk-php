@@ -124,18 +124,18 @@ class DeviceManagementTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfObjectValues(array(DeviceManagementTemplateSettingCategory::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'intentCount' => function (ParseNode $n) use ($o) { $o->setIntentCount($n->getIntegerValue()); },
-            'isDeprecated' => function (ParseNode $n) use ($o) { $o->setIsDeprecated($n->getBooleanValue()); },
-            'migratableTo' => function (ParseNode $n) use ($o) { $o->setMigratableTo($n->getCollectionOfObjectValues(array(DeviceManagementTemplate::class, 'createFromDiscriminatorValue'))); },
-            'platformType' => function (ParseNode $n) use ($o) { $o->setPlatformType($n->getEnumValue(PolicyPlatformType::class)); },
-            'publishedDateTime' => function (ParseNode $n) use ($o) { $o->setPublishedDateTime($n->getDateTimeValue()); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'))); },
-            'templateSubtype' => function (ParseNode $n) use ($o) { $o->setTemplateSubtype($n->getEnumValue(DeviceManagementTemplateSubtype::class)); },
-            'templateType' => function (ParseNode $n) use ($o) { $o->setTemplateType($n->getEnumValue(DeviceManagementTemplateType::class)); },
-            'versionInfo' => function (ParseNode $n) use ($o) { $o->setVersionInfo($n->getStringValue()); },
+            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfObjectValues([DeviceManagementTemplateSettingCategory::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'intentCount' => fn(ParseNode $n) => $o->setIntentCount($n->getIntegerValue()),
+            'isDeprecated' => fn(ParseNode $n) => $o->setIsDeprecated($n->getBooleanValue()),
+            'migratableTo' => fn(ParseNode $n) => $o->setMigratableTo($n->getCollectionOfObjectValues([DeviceManagementTemplate::class, 'createFromDiscriminatorValue'])),
+            'platformType' => fn(ParseNode $n) => $o->setPlatformType($n->getEnumValue(PolicyPlatformType::class)),
+            'publishedDateTime' => fn(ParseNode $n) => $o->setPublishedDateTime($n->getDateTimeValue()),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getCollectionOfObjectValues([DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'])),
+            'templateSubtype' => fn(ParseNode $n) => $o->setTemplateSubtype($n->getEnumValue(DeviceManagementTemplateSubtype::class)),
+            'templateType' => fn(ParseNode $n) => $o->setTemplateType($n->getEnumValue(DeviceManagementTemplateType::class)),
+            'versionInfo' => fn(ParseNode $n) => $o->setVersionInfo($n->getStringValue()),
         ]);
     }
 

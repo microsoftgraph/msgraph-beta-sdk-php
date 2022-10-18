@@ -42,8 +42,8 @@ class TimeBasedAttributeTrigger extends WorkflowExecutionTrigger implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'offsetInDays' => function (ParseNode $n) use ($o) { $o->setOffsetInDays($n->getIntegerValue()); },
-            'timeBasedAttribute' => function (ParseNode $n) use ($o) { $o->setTimeBasedAttribute($n->getEnumValue(WorkflowTriggerTimeBasedAttribute::class)); },
+            'offsetInDays' => fn(ParseNode $n) => $o->setOffsetInDays($n->getIntegerValue()),
+            'timeBasedAttribute' => fn(ParseNode $n) => $o->setTimeBasedAttribute($n->getEnumValue(WorkflowTriggerTimeBasedAttribute::class)),
         ]);
     }
 

@@ -56,8 +56,8 @@ class SupportedClaimConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'nameIdPolicyFormat' => function (ParseNode $n) use ($o) { $o->setNameIdPolicyFormat($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'nameIdPolicyFormat' => fn(ParseNode $n) => $o->setNameIdPolicyFormat($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

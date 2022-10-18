@@ -75,7 +75,7 @@ class IpSecurityProfile extends Entity implements Parsable
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
-     * Instantiates a new IpSecurityProfile and sets the default values.
+     * Instantiates a new ipSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -146,19 +146,19 @@ class IpSecurityProfile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activityGroupNames' => function (ParseNode $n) use ($o) { $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()); },
-            'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getStringValue()); },
-            'azureSubscriptionId' => function (ParseNode $n) use ($o) { $o->setAzureSubscriptionId($n->getStringValue()); },
-            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
-            'countHits' => function (ParseNode $n) use ($o) { $o->setCountHits($n->getIntegerValue()); },
-            'countHosts' => function (ParseNode $n) use ($o) { $o->setCountHosts($n->getIntegerValue()); },
-            'firstSeenDateTime' => function (ParseNode $n) use ($o) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
-            'ipCategories' => function (ParseNode $n) use ($o) { $o->setIpCategories($n->getCollectionOfObjectValues(array(IpCategory::class, 'createFromDiscriminatorValue'))); },
-            'ipReferenceData' => function (ParseNode $n) use ($o) { $o->setIpReferenceData($n->getCollectionOfObjectValues(array(IpReferenceData::class, 'createFromDiscriminatorValue'))); },
-            'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
-            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getStringValue()); },
-            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'vendorInformation' => function (ParseNode $n) use ($o) { $o->setVendorInformation($n->getObjectValue(array(SecurityVendorInformation::class, 'createFromDiscriminatorValue'))); },
+            'activityGroupNames' => fn(ParseNode $n) => $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()),
+            'address' => fn(ParseNode $n) => $o->setAddress($n->getStringValue()),
+            'azureSubscriptionId' => fn(ParseNode $n) => $o->setAzureSubscriptionId($n->getStringValue()),
+            'azureTenantId' => fn(ParseNode $n) => $o->setAzureTenantId($n->getStringValue()),
+            'countHits' => fn(ParseNode $n) => $o->setCountHits($n->getIntegerValue()),
+            'countHosts' => fn(ParseNode $n) => $o->setCountHosts($n->getIntegerValue()),
+            'firstSeenDateTime' => fn(ParseNode $n) => $o->setFirstSeenDateTime($n->getDateTimeValue()),
+            'ipCategories' => fn(ParseNode $n) => $o->setIpCategories($n->getCollectionOfObjectValues([IpCategory::class, 'createFromDiscriminatorValue'])),
+            'ipReferenceData' => fn(ParseNode $n) => $o->setIpReferenceData($n->getCollectionOfObjectValues([IpReferenceData::class, 'createFromDiscriminatorValue'])),
+            'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
+            'riskScore' => fn(ParseNode $n) => $o->setRiskScore($n->getStringValue()),
+            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
+            'vendorInformation' => fn(ParseNode $n) => $o->setVendorInformation($n->getObjectValue([SecurityVendorInformation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

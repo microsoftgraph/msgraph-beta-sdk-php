@@ -153,19 +153,19 @@ class ReportRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationSignInDetailedSummary' => function (ParseNode $n) use ($o) { $o->setApplicationSignInDetailedSummary($n->getCollectionOfObjectValues(array(ApplicationSignInDetailedSummary::class, 'createFromDiscriminatorValue'))); },
-            'authenticationMethods' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethods($n->getObjectValue(array(AuthenticationMethodsRoot::class, 'createFromDiscriminatorValue'))); },
-            'credentialUserRegistrationDetails' => function (ParseNode $n) use ($o) { $o->setCredentialUserRegistrationDetails($n->getCollectionOfObjectValues(array(CredentialUserRegistrationDetails::class, 'createFromDiscriminatorValue'))); },
-            'dailyPrintUsageByPrinter' => function (ParseNode $n) use ($o) { $o->setDailyPrintUsageByPrinter($n->getCollectionOfObjectValues(array(PrintUsageByPrinter::class, 'createFromDiscriminatorValue'))); },
-            'dailyPrintUsageByUser' => function (ParseNode $n) use ($o) { $o->setDailyPrintUsageByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
-            'dailyPrintUsageSummariesByPrinter' => function (ParseNode $n) use ($o) { $o->setDailyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues(array(PrintUsageByPrinter::class, 'createFromDiscriminatorValue'))); },
-            'dailyPrintUsageSummariesByUser' => function (ParseNode $n) use ($o) { $o->setDailyPrintUsageSummariesByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
-            'monthlyPrintUsageByPrinter' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageByPrinter($n->getCollectionOfObjectValues(array(PrintUsageByPrinter::class, 'createFromDiscriminatorValue'))); },
-            'monthlyPrintUsageByUser' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
-            'monthlyPrintUsageSummariesByPrinter' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues(array(PrintUsageByPrinter::class, 'createFromDiscriminatorValue'))); },
-            'monthlyPrintUsageSummariesByUser' => function (ParseNode $n) use ($o) { $o->setMonthlyPrintUsageSummariesByUser($n->getCollectionOfObjectValues(array(PrintUsageByUser::class, 'createFromDiscriminatorValue'))); },
-            'security' => function (ParseNode $n) use ($o) { $o->setSecurity($n->getObjectValue(array(SecurityReportsRoot::class, 'createFromDiscriminatorValue'))); },
-            'userCredentialUsageDetails' => function (ParseNode $n) use ($o) { $o->setUserCredentialUsageDetails($n->getCollectionOfObjectValues(array(UserCredentialUsageDetails::class, 'createFromDiscriminatorValue'))); },
+            'applicationSignInDetailedSummary' => fn(ParseNode $n) => $o->setApplicationSignInDetailedSummary($n->getCollectionOfObjectValues([ApplicationSignInDetailedSummary::class, 'createFromDiscriminatorValue'])),
+            'authenticationMethods' => fn(ParseNode $n) => $o->setAuthenticationMethods($n->getObjectValue([AuthenticationMethodsRoot::class, 'createFromDiscriminatorValue'])),
+            'credentialUserRegistrationDetails' => fn(ParseNode $n) => $o->setCredentialUserRegistrationDetails($n->getCollectionOfObjectValues([CredentialUserRegistrationDetails::class, 'createFromDiscriminatorValue'])),
+            'dailyPrintUsageByPrinter' => fn(ParseNode $n) => $o->setDailyPrintUsageByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
+            'dailyPrintUsageByUser' => fn(ParseNode $n) => $o->setDailyPrintUsageByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
+            'dailyPrintUsageSummariesByPrinter' => fn(ParseNode $n) => $o->setDailyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
+            'dailyPrintUsageSummariesByUser' => fn(ParseNode $n) => $o->setDailyPrintUsageSummariesByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
+            'monthlyPrintUsageByPrinter' => fn(ParseNode $n) => $o->setMonthlyPrintUsageByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
+            'monthlyPrintUsageByUser' => fn(ParseNode $n) => $o->setMonthlyPrintUsageByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
+            'monthlyPrintUsageSummariesByPrinter' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
+            'monthlyPrintUsageSummariesByUser' => fn(ParseNode $n) => $o->setMonthlyPrintUsageSummariesByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
+            'security' => fn(ParseNode $n) => $o->setSecurity($n->getObjectValue([SecurityReportsRoot::class, 'createFromDiscriminatorValue'])),
+            'userCredentialUsageDetails' => fn(ParseNode $n) => $o->setUserCredentialUsageDetails($n->getCollectionOfObjectValues([UserCredentialUsageDetails::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

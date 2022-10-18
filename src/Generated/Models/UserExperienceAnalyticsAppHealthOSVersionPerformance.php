@@ -70,12 +70,12 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeDeviceCount' => function (ParseNode $n) use ($o) { $o->setActiveDeviceCount($n->getIntegerValue()); },
-            'meanTimeToFailureInMinutes' => function (ParseNode $n) use ($o) { $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()); },
-            'osBuildNumber' => function (ParseNode $n) use ($o) { $o->setOsBuildNumber($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'osVersionAppHealthScore' => function (ParseNode $n) use ($o) { $o->setOsVersionAppHealthScore($n->getFloatValue()); },
-            'osVersionAppHealthStatus' => function (ParseNode $n) use ($o) { $o->setOsVersionAppHealthStatus($n->getStringValue()); },
+            'activeDeviceCount' => fn(ParseNode $n) => $o->setActiveDeviceCount($n->getIntegerValue()),
+            'meanTimeToFailureInMinutes' => fn(ParseNode $n) => $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()),
+            'osBuildNumber' => fn(ParseNode $n) => $o->setOsBuildNumber($n->getStringValue()),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
+            'osVersionAppHealthScore' => fn(ParseNode $n) => $o->setOsVersionAppHealthScore($n->getFloatValue()),
+            'osVersionAppHealthStatus' => fn(ParseNode $n) => $o->setOsVersionAppHealthStatus($n->getStringValue()),
         ]);
     }
 

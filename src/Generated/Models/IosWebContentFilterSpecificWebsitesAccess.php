@@ -42,8 +42,8 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'specificWebsitesOnly' => function (ParseNode $n) use ($o) { $o->setSpecificWebsitesOnly($n->getCollectionOfObjectValues(array(IosBookmark::class, 'createFromDiscriminatorValue'))); },
-            'websiteList' => function (ParseNode $n) use ($o) { $o->setWebsiteList($n->getCollectionOfObjectValues(array(IosBookmark::class, 'createFromDiscriminatorValue'))); },
+            'specificWebsitesOnly' => fn(ParseNode $n) => $o->setSpecificWebsitesOnly($n->getCollectionOfObjectValues([IosBookmark::class, 'createFromDiscriminatorValue'])),
+            'websiteList' => fn(ParseNode $n) => $o->setWebsiteList($n->getCollectionOfObjectValues([IosBookmark::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

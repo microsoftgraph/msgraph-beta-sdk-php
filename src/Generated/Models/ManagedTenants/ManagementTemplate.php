@@ -155,22 +155,22 @@ class ManagementTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(ManagementCategory::class)); },
-            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'informationLinks' => function (ParseNode $n) use ($o) { $o->setInformationLinks($n->getCollectionOfObjectValues(array(ActionUrl::class, 'createFromDiscriminatorValue'))); },
-            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'managementTemplateCollections' => function (ParseNode $n) use ($o) { $o->setManagementTemplateCollections($n->getCollectionOfObjectValues(array(ManagementTemplateCollection::class, 'createFromDiscriminatorValue'))); },
-            'managementTemplateSteps' => function (ParseNode $n) use ($o) { $o->setManagementTemplateSteps($n->getCollectionOfObjectValues(array(ManagementTemplateStep::class, 'createFromDiscriminatorValue'))); },
-            'parameters' => function (ParseNode $n) use ($o) { $o->setParameters($n->getCollectionOfObjectValues(array(TemplateParameter::class, 'createFromDiscriminatorValue'))); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'provider' => function (ParseNode $n) use ($o) { $o->setProvider($n->getEnumValue(ManagementProvider::class)); },
-            'userImpact' => function (ParseNode $n) use ($o) { $o->setUserImpact($n->getStringValue()); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
-            'workloadActions' => function (ParseNode $n) use ($o) { $o->setWorkloadActions($n->getCollectionOfObjectValues(array(WorkloadAction::class, 'createFromDiscriminatorValue'))); },
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(ManagementCategory::class)),
+            'createdByUserId' => fn(ParseNode $n) => $o->setCreatedByUserId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'informationLinks' => fn(ParseNode $n) => $o->setInformationLinks($n->getCollectionOfObjectValues([ActionUrl::class, 'createFromDiscriminatorValue'])),
+            'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
+            'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
+            'managementTemplateCollections' => fn(ParseNode $n) => $o->setManagementTemplateCollections($n->getCollectionOfObjectValues([ManagementTemplateCollection::class, 'createFromDiscriminatorValue'])),
+            'managementTemplateSteps' => fn(ParseNode $n) => $o->setManagementTemplateSteps($n->getCollectionOfObjectValues([ManagementTemplateStep::class, 'createFromDiscriminatorValue'])),
+            'parameters' => fn(ParseNode $n) => $o->setParameters($n->getCollectionOfObjectValues([TemplateParameter::class, 'createFromDiscriminatorValue'])),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'provider' => fn(ParseNode $n) => $o->setProvider($n->getEnumValue(ManagementProvider::class)),
+            'userImpact' => fn(ParseNode $n) => $o->setUserImpact($n->getStringValue()),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
+            'workloadActions' => fn(ParseNode $n) => $o->setWorkloadActions($n->getCollectionOfObjectValues([WorkloadAction::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

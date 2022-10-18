@@ -76,10 +76,10 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appGroupType' => function (ParseNode $n) use ($o) { $o->setAppGroupType($n->getEnumValue(TargetedManagedAppGroupType::class)); },
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(TargetedManagedAppPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
-            'isAssigned' => function (ParseNode $n) use ($o) { $o->setIsAssigned($n->getBooleanValue()); },
-            'targetedAppManagementLevels' => function (ParseNode $n) use ($o) { $o->setTargetedAppManagementLevels($n->getEnumValue(AppManagementLevel::class)); },
+            'appGroupType' => fn(ParseNode $n) => $o->setAppGroupType($n->getEnumValue(TargetedManagedAppGroupType::class)),
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([TargetedManagedAppPolicyAssignment::class, 'createFromDiscriminatorValue'])),
+            'isAssigned' => fn(ParseNode $n) => $o->setIsAssigned($n->getBooleanValue()),
+            'targetedAppManagementLevels' => fn(ParseNode $n) => $o->setTargetedAppManagementLevels($n->getEnumValue(AppManagementLevel::class)),
         ]);
     }
 

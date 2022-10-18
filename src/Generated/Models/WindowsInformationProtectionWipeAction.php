@@ -63,12 +63,12 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastCheckInDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckInDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ActionState::class)); },
-            'targetedDeviceMacAddress' => function (ParseNode $n) use ($o) { $o->setTargetedDeviceMacAddress($n->getStringValue()); },
-            'targetedDeviceName' => function (ParseNode $n) use ($o) { $o->setTargetedDeviceName($n->getStringValue()); },
-            'targetedDeviceRegistrationId' => function (ParseNode $n) use ($o) { $o->setTargetedDeviceRegistrationId($n->getStringValue()); },
-            'targetedUserId' => function (ParseNode $n) use ($o) { $o->setTargetedUserId($n->getStringValue()); },
+            'lastCheckInDateTime' => fn(ParseNode $n) => $o->setLastCheckInDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ActionState::class)),
+            'targetedDeviceMacAddress' => fn(ParseNode $n) => $o->setTargetedDeviceMacAddress($n->getStringValue()),
+            'targetedDeviceName' => fn(ParseNode $n) => $o->setTargetedDeviceName($n->getStringValue()),
+            'targetedDeviceRegistrationId' => fn(ParseNode $n) => $o->setTargetedDeviceRegistrationId($n->getStringValue()),
+            'targetedUserId' => fn(ParseNode $n) => $o->setTargetedUserId($n->getStringValue()),
         ]);
     }
 

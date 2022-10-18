@@ -90,14 +90,14 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'issuer' => function (ParseNode $n) use ($o) { $o->setIssuer($n->getStringValue()); },
-            'issuerName' => function (ParseNode $n) use ($o) { $o->setIssuerName($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CertificateStatus::class)); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
-            'subjectName' => function (ParseNode $n) use ($o) { $o->setSubjectName($n->getStringValue()); },
-            'uploadDateTime' => function (ParseNode $n) use ($o) { $o->setUploadDateTime($n->getDateTimeValue()); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'issuer' => fn(ParseNode $n) => $o->setIssuer($n->getStringValue()),
+            'issuerName' => fn(ParseNode $n) => $o->setIssuerName($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CertificateStatus::class)),
+            'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
+            'subjectName' => fn(ParseNode $n) => $o->setSubjectName($n->getStringValue()),
+            'uploadDateTime' => fn(ParseNode $n) => $o->setUploadDateTime($n->getDateTimeValue()),
         ]);
     }
 

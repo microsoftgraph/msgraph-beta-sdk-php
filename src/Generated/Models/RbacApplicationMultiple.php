@@ -47,9 +47,9 @@ class RbacApplicationMultiple extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'resourceNamespaces' => function (ParseNode $n) use ($o) { $o->setResourceNamespaces($n->getCollectionOfObjectValues(array(UnifiedRbacResourceNamespace::class, 'createFromDiscriminatorValue'))); },
-            'roleAssignments' => function (ParseNode $n) use ($o) { $o->setRoleAssignments($n->getCollectionOfObjectValues(array(UnifiedRoleAssignmentMultiple::class, 'createFromDiscriminatorValue'))); },
-            'roleDefinitions' => function (ParseNode $n) use ($o) { $o->setRoleDefinitions($n->getCollectionOfObjectValues(array(UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'))); },
+            'resourceNamespaces' => fn(ParseNode $n) => $o->setResourceNamespaces($n->getCollectionOfObjectValues([UnifiedRbacResourceNamespace::class, 'createFromDiscriminatorValue'])),
+            'roleAssignments' => fn(ParseNode $n) => $o->setRoleAssignments($n->getCollectionOfObjectValues([UnifiedRoleAssignmentMultiple::class, 'createFromDiscriminatorValue'])),
+            'roleDefinitions' => fn(ParseNode $n) => $o->setRoleDefinitions($n->getCollectionOfObjectValues([UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

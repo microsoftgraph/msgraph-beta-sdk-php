@@ -83,10 +83,10 @@ class CertificateConnectorHealthMetricValue implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dateTime' => function (ParseNode $n) use ($o) { $o->setDateTime($n->getDateTimeValue()); },
-            'failureCount' => function (ParseNode $n) use ($o) { $o->setFailureCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'successCount' => function (ParseNode $n) use ($o) { $o->setSuccessCount($n->getIntegerValue()); },
+            'dateTime' => fn(ParseNode $n) => $o->setDateTime($n->getDateTimeValue()),
+            'failureCount' => fn(ParseNode $n) => $o->setFailureCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'successCount' => fn(ParseNode $n) => $o->setSuccessCount($n->getIntegerValue()),
         ];
     }
 

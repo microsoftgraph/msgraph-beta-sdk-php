@@ -50,8 +50,8 @@ class ActiveDirectoryWindowsAutopilotDeploymentProfile extends WindowsAutopilotD
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'domainJoinConfiguration' => function (ParseNode $n) use ($o) { $o->setDomainJoinConfiguration($n->getObjectValue(array(WindowsDomainJoinConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'hybridAzureADJoinSkipConnectivityCheck' => function (ParseNode $n) use ($o) { $o->setHybridAzureADJoinSkipConnectivityCheck($n->getBooleanValue()); },
+            'domainJoinConfiguration' => fn(ParseNode $n) => $o->setDomainJoinConfiguration($n->getObjectValue([WindowsDomainJoinConfiguration::class, 'createFromDiscriminatorValue'])),
+            'hybridAzureADJoinSkipConnectivityCheck' => fn(ParseNode $n) => $o->setHybridAzureADJoinSkipConnectivityCheck($n->getBooleanValue()),
         ]);
     }
 

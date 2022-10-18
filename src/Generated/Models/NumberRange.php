@@ -61,9 +61,9 @@ class NumberRange implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'lowerNumber' => function (ParseNode $n) use ($o) { $o->setLowerNumber($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'upperNumber' => function (ParseNode $n) use ($o) { $o->setUpperNumber($n->getIntegerValue()); },
+            'lowerNumber' => fn(ParseNode $n) => $o->setLowerNumber($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'upperNumber' => fn(ParseNode $n) => $o->setUpperNumber($n->getIntegerValue()),
         ];
     }
 

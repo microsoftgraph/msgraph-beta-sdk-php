@@ -84,12 +84,12 @@ class OathTokenMetadata implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'manufacturerProperties' => function (ParseNode $n) use ($o) { $o->setManufacturerProperties($n->getCollectionOfObjectValues(array(KeyValue::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
-            'tokenType' => function (ParseNode $n) use ($o) { $o->setTokenType($n->getStringValue()); },
+            'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'manufacturerProperties' => fn(ParseNode $n) => $o->setManufacturerProperties($n->getCollectionOfObjectValues([KeyValue::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'serialNumber' => fn(ParseNode $n) => $o->setSerialNumber($n->getStringValue()),
+            'tokenType' => fn(ParseNode $n) => $o->setTokenType($n->getStringValue()),
         ];
     }
 

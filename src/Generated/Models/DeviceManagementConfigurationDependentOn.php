@@ -69,9 +69,9 @@ class DeviceManagementConfigurationDependentOn implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dependentOn' => function (ParseNode $n) use ($o) { $o->setDependentOn($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'parentSettingId' => function (ParseNode $n) use ($o) { $o->setParentSettingId($n->getStringValue()); },
+            'dependentOn' => fn(ParseNode $n) => $o->setDependentOn($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'parentSettingId' => fn(ParseNode $n) => $o->setParentSettingId($n->getStringValue()),
         ];
     }
 

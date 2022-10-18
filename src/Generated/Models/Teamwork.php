@@ -73,11 +73,11 @@ class Teamwork extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deletedTeams' => function (ParseNode $n) use ($o) { $o->setDeletedTeams($n->getCollectionOfObjectValues(array(DeletedTeam::class, 'createFromDiscriminatorValue'))); },
-            'devices' => function (ParseNode $n) use ($o) { $o->setDevices($n->getCollectionOfObjectValues(array(TeamworkDevice::class, 'createFromDiscriminatorValue'))); },
-            'teamsAppSettings' => function (ParseNode $n) use ($o) { $o->setTeamsAppSettings($n->getObjectValue(array(TeamsAppSettings::class, 'createFromDiscriminatorValue'))); },
-            'teamTemplates' => function (ParseNode $n) use ($o) { $o->setTeamTemplates($n->getCollectionOfObjectValues(array(TeamTemplate::class, 'createFromDiscriminatorValue'))); },
-            'workforceIntegrations' => function (ParseNode $n) use ($o) { $o->setWorkforceIntegrations($n->getCollectionOfObjectValues(array(WorkforceIntegration::class, 'createFromDiscriminatorValue'))); },
+            'deletedTeams' => fn(ParseNode $n) => $o->setDeletedTeams($n->getCollectionOfObjectValues([DeletedTeam::class, 'createFromDiscriminatorValue'])),
+            'devices' => fn(ParseNode $n) => $o->setDevices($n->getCollectionOfObjectValues([TeamworkDevice::class, 'createFromDiscriminatorValue'])),
+            'teamsAppSettings' => fn(ParseNode $n) => $o->setTeamsAppSettings($n->getObjectValue([TeamsAppSettings::class, 'createFromDiscriminatorValue'])),
+            'teamTemplates' => fn(ParseNode $n) => $o->setTeamTemplates($n->getCollectionOfObjectValues([TeamTemplate::class, 'createFromDiscriminatorValue'])),
+            'workforceIntegrations' => fn(ParseNode $n) => $o->setWorkforceIntegrations($n->getCollectionOfObjectValues([WorkforceIntegration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

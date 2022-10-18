@@ -79,12 +79,12 @@ class DirectoryDefinition extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'discoverabilities' => function (ParseNode $n) use ($o) { $o->setDiscoverabilities($n->getEnumValue(DirectoryDefinitionDiscoverabilities::class)); },
-            'discoveryDateTime' => function (ParseNode $n) use ($o) { $o->setDiscoveryDateTime($n->getDateTimeValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'objects' => function (ParseNode $n) use ($o) { $o->setObjects($n->getCollectionOfObjectValues(array(ObjectDefinition::class, 'createFromDiscriminatorValue'))); },
-            'readOnly' => function (ParseNode $n) use ($o) { $o->setReadOnly($n->getBooleanValue()); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'discoverabilities' => fn(ParseNode $n) => $o->setDiscoverabilities($n->getEnumValue(DirectoryDefinitionDiscoverabilities::class)),
+            'discoveryDateTime' => fn(ParseNode $n) => $o->setDiscoveryDateTime($n->getDateTimeValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'objects' => fn(ParseNode $n) => $o->setObjects($n->getCollectionOfObjectValues([ObjectDefinition::class, 'createFromDiscriminatorValue'])),
+            'readOnly' => fn(ParseNode $n) => $o->setReadOnly($n->getBooleanValue()),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
 

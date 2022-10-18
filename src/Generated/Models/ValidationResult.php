@@ -66,10 +66,10 @@ class ValidationResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'ruleName' => function (ParseNode $n) use ($o) { $o->setRuleName($n->getStringValue()); },
-            'validationPassed' => function (ParseNode $n) use ($o) { $o->setValidationPassed($n->getBooleanValue()); },
+            'message' => fn(ParseNode $n) => $o->setMessage($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'ruleName' => fn(ParseNode $n) => $o->setRuleName($n->getStringValue()),
+            'validationPassed' => fn(ParseNode $n) => $o->setValidationPassed($n->getBooleanValue()),
         ];
     }
 

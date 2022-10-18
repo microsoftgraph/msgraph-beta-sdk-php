@@ -91,10 +91,10 @@ class UpdatePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'addedPolicySetItems' => function (ParseNode $n) use ($o) { $o->setAddedPolicySetItems($n->getCollectionOfObjectValues(array(PolicySetItem::class, 'createFromDiscriminatorValue'))); },
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(PolicySetAssignment::class, 'createFromDiscriminatorValue'))); },
-            'deletedPolicySetItems' => function (ParseNode $n) use ($o) { $o->setDeletedPolicySetItems($n->getCollectionOfPrimitiveValues()); },
-            'updatedPolicySetItems' => function (ParseNode $n) use ($o) { $o->setUpdatedPolicySetItems($n->getCollectionOfObjectValues(array(PolicySetItem::class, 'createFromDiscriminatorValue'))); },
+            'addedPolicySetItems' => fn(ParseNode $n) => $o->setAddedPolicySetItems($n->getCollectionOfObjectValues([PolicySetItem::class, 'createFromDiscriminatorValue'])),
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([PolicySetAssignment::class, 'createFromDiscriminatorValue'])),
+            'deletedPolicySetItems' => fn(ParseNode $n) => $o->setDeletedPolicySetItems($n->getCollectionOfPrimitiveValues()),
+            'updatedPolicySetItems' => fn(ParseNode $n) => $o->setUpdatedPolicySetItems($n->getCollectionOfObjectValues([PolicySetItem::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

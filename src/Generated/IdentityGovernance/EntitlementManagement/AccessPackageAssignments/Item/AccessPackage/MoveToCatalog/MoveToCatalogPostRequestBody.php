@@ -58,7 +58,7 @@ class MoveToCatalogPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'catalogId' => function (ParseNode $n) use ($o) { $o->setCatalogId($n->getStringValue()); },
+            'catalogId' => fn(ParseNode $n) => $o->setCatalogId($n->getStringValue()),
         ];
     }
 

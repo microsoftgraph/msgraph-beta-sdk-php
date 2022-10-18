@@ -15,7 +15,7 @@ class KeyValue implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $key Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
+     * @var string|null $key Key.
     */
     private ?string $key = null;
     
@@ -25,7 +25,7 @@ class KeyValue implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var string|null $value Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
+     * @var string|null $value Value.
     */
     private ?string $value = null;
     
@@ -61,14 +61,14 @@ class KeyValue implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'key' => fn(ParseNode $n) => $o->setKey($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
         ];
     }
 
     /**
-     * Gets the key property value. Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
+     * Gets the key property value. Key.
      * @return string|null
     */
     public function getKey(): ?string {
@@ -84,7 +84,7 @@ class KeyValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the value property value. Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
+     * Gets the value property value. Value.
      * @return string|null
     */
     public function getValue(): ?string {
@@ -111,7 +111,7 @@ class KeyValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the key property value. Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
+     * Sets the key property value. Key.
      *  @param string|null $value Value to set for the key property.
     */
     public function setKey(?string $value ): void {
@@ -127,7 +127,7 @@ class KeyValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the value property value. Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
+     * Sets the value property value. Value.
      *  @param string|null $value Value to set for the value property.
     */
     public function setValue(?string $value ): void {

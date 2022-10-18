@@ -95,12 +95,12 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResourceRole' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRole($n->getObjectValue(array(AccessPackageResourceRole::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceScope' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceScope($n->getObjectValue(array(AccessPackageResourceScope::class, 'createFromDiscriminatorValue'))); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'modifiedBy' => function (ParseNode $n) use ($o) { $o->setModifiedBy($n->getStringValue()); },
-            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
+            'accessPackageResourceRole' => fn(ParseNode $n) => $o->setAccessPackageResourceRole($n->getObjectValue([AccessPackageResourceRole::class, 'createFromDiscriminatorValue'])),
+            'accessPackageResourceScope' => fn(ParseNode $n) => $o->setAccessPackageResourceScope($n->getObjectValue([AccessPackageResourceScope::class, 'createFromDiscriminatorValue'])),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'modifiedBy' => fn(ParseNode $n) => $o->setModifiedBy($n->getStringValue()),
+            'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
         ]);
     }
 

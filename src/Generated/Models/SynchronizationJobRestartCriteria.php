@@ -56,8 +56,8 @@ class SynchronizationJobRestartCriteria implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'resetScope' => function (ParseNode $n) use ($o) { $o->setResetScope($n->getEnumValue(SynchronizationJobRestartScope::class)); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'resetScope' => fn(ParseNode $n) => $o->setResetScope($n->getEnumValue(SynchronizationJobRestartScope::class)),
         ];
     }
 

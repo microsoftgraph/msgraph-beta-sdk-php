@@ -61,9 +61,9 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'maxValue' => function (ParseNode $n) use ($o) { $o->setMaxValue($n->getIntegerValue()); },
-            'minValue' => function (ParseNode $n) use ($o) { $o->setMinValue($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'maxValue' => fn(ParseNode $n) => $o->setMaxValue($n->getIntegerValue()),
+            'minValue' => fn(ParseNode $n) => $o->setMinValue($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

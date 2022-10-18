@@ -63,9 +63,9 @@ class ItemEmail extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(EmailType::class)); },
+            'address' => fn(ParseNode $n) => $o->setAddress($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(EmailType::class)),
         ]);
     }
 

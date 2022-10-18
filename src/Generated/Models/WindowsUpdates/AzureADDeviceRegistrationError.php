@@ -37,7 +37,7 @@ class AzureADDeviceRegistrationError extends UpdatableAssetError implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'reason' => function (ParseNode $n) use ($o) { $o->setReason($n->getEnumValue(AzureADDeviceRegistrationErrorReason::class)); },
+            'reason' => fn(ParseNode $n) => $o->setReason($n->getEnumValue(AzureADDeviceRegistrationErrorReason::class)),
         ]);
     }
 

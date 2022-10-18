@@ -56,8 +56,8 @@ class AppCatalogs implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'teamsApps' => function (ParseNode $n) use ($o) { $o->setTeamsApps($n->getCollectionOfObjectValues(array(TeamsApp::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'teamsApps' => fn(ParseNode $n) => $o->setTeamsApps($n->getCollectionOfObjectValues([TeamsApp::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

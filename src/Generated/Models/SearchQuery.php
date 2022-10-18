@@ -66,10 +66,10 @@ class SearchQuery implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'query_string' => function (ParseNode $n) use ($o) { $o->setQuery_string($n->getObjectValue(array(SearchQueryString::class, 'createFromDiscriminatorValue'))); },
-            'queryString' => function (ParseNode $n) use ($o) { $o->setQueryString($n->getStringValue()); },
-            'queryTemplate' => function (ParseNode $n) use ($o) { $o->setQueryTemplate($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'query_string' => fn(ParseNode $n) => $o->setQuery_string($n->getObjectValue([SearchQueryString::class, 'createFromDiscriminatorValue'])),
+            'queryString' => fn(ParseNode $n) => $o->setQueryString($n->getStringValue()),
+            'queryTemplate' => fn(ParseNode $n) => $o->setQueryTemplate($n->getStringValue()),
         ];
     }
 

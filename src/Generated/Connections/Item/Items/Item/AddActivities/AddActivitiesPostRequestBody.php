@@ -59,7 +59,7 @@ class AddActivitiesPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'activities' => function (ParseNode $n) use ($o) { $o->setActivities($n->getCollectionOfObjectValues(array(ExternalActivity::class, 'createFromDiscriminatorValue'))); },
+            'activities' => fn(ParseNode $n) => $o->setActivities($n->getCollectionOfObjectValues([ExternalActivity::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

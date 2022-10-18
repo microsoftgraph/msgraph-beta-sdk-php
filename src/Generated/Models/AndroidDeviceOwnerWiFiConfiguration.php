@@ -115,18 +115,18 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'connectAutomatically' => function (ParseNode $n) use ($o) { $o->setConnectAutomatically($n->getBooleanValue()); },
-            'connectWhenNetworkNameIsHidden' => function (ParseNode $n) use ($o) { $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()); },
-            'networkName' => function (ParseNode $n) use ($o) { $o->setNetworkName($n->getStringValue()); },
-            'preSharedKey' => function (ParseNode $n) use ($o) { $o->setPreSharedKey($n->getStringValue()); },
-            'preSharedKeyIsSet' => function (ParseNode $n) use ($o) { $o->setPreSharedKeyIsSet($n->getBooleanValue()); },
-            'proxyAutomaticConfigurationUrl' => function (ParseNode $n) use ($o) { $o->setProxyAutomaticConfigurationUrl($n->getStringValue()); },
-            'proxyExclusionList' => function (ParseNode $n) use ($o) { $o->setProxyExclusionList($n->getStringValue()); },
-            'proxyManualAddress' => function (ParseNode $n) use ($o) { $o->setProxyManualAddress($n->getStringValue()); },
-            'proxyManualPort' => function (ParseNode $n) use ($o) { $o->setProxyManualPort($n->getIntegerValue()); },
-            'proxySettings' => function (ParseNode $n) use ($o) { $o->setProxySettings($n->getEnumValue(WiFiProxySetting::class)); },
-            'ssid' => function (ParseNode $n) use ($o) { $o->setSsid($n->getStringValue()); },
-            'wiFiSecurityType' => function (ParseNode $n) use ($o) { $o->setWiFiSecurityType($n->getEnumValue(AndroidDeviceOwnerWiFiSecurityType::class)); },
+            'connectAutomatically' => fn(ParseNode $n) => $o->setConnectAutomatically($n->getBooleanValue()),
+            'connectWhenNetworkNameIsHidden' => fn(ParseNode $n) => $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()),
+            'networkName' => fn(ParseNode $n) => $o->setNetworkName($n->getStringValue()),
+            'preSharedKey' => fn(ParseNode $n) => $o->setPreSharedKey($n->getStringValue()),
+            'preSharedKeyIsSet' => fn(ParseNode $n) => $o->setPreSharedKeyIsSet($n->getBooleanValue()),
+            'proxyAutomaticConfigurationUrl' => fn(ParseNode $n) => $o->setProxyAutomaticConfigurationUrl($n->getStringValue()),
+            'proxyExclusionList' => fn(ParseNode $n) => $o->setProxyExclusionList($n->getStringValue()),
+            'proxyManualAddress' => fn(ParseNode $n) => $o->setProxyManualAddress($n->getStringValue()),
+            'proxyManualPort' => fn(ParseNode $n) => $o->setProxyManualPort($n->getIntegerValue()),
+            'proxySettings' => fn(ParseNode $n) => $o->setProxySettings($n->getEnumValue(WiFiProxySetting::class)),
+            'ssid' => fn(ParseNode $n) => $o->setSsid($n->getStringValue()),
+            'wiFiSecurityType' => fn(ParseNode $n) => $o->setWiFiSecurityType($n->getEnumValue(AndroidDeviceOwnerWiFiSecurityType::class)),
         ]);
     }
 

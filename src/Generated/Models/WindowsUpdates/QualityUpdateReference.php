@@ -58,8 +58,8 @@ class QualityUpdateReference extends WindowsUpdateReference implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classification' => function (ParseNode $n) use ($o) { $o->setClassification($n->getEnumValue(QualityUpdateClassification::class)); },
-            'releaseDateTime' => function (ParseNode $n) use ($o) { $o->setReleaseDateTime($n->getDateTimeValue()); },
+            'classification' => fn(ParseNode $n) => $o->setClassification($n->getEnumValue(QualityUpdateClassification::class)),
+            'releaseDateTime' => fn(ParseNode $n) => $o->setReleaseDateTime($n->getDateTimeValue()),
         ]);
     }
 

@@ -37,7 +37,7 @@ class AddWatermark extends MarkContent implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'orientation' => function (ParseNode $n) use ($o) { $o->setOrientation($n->getEnumValue(PageOrientation::class)); },
+            'orientation' => fn(ParseNode $n) => $o->setOrientation($n->getEnumValue(PageOrientation::class)),
         ]);
     }
 

@@ -72,11 +72,11 @@ class DisplayTemplate implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'layout' => function (ParseNode $n) use ($o) { $o->setLayout($n->getObjectValue(array(Json::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'rules' => function (ParseNode $n) use ($o) { $o->setRules($n->getCollectionOfObjectValues(array(PropertyRule::class, 'createFromDiscriminatorValue'))); },
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'layout' => fn(ParseNode $n) => $o->setLayout($n->getObjectValue([Json::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'rules' => fn(ParseNode $n) => $o->setRules($n->getCollectionOfObjectValues([PropertyRule::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

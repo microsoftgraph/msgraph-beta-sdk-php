@@ -51,8 +51,8 @@ class MacOSTrustedRootCertificate extends DeviceConfiguration implements Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certFileName' => function (ParseNode $n) use ($o) { $o->setCertFileName($n->getStringValue()); },
-            'trustedRootCertificate' => function (ParseNode $n) use ($o) { $o->setTrustedRootCertificate($n->getBinaryContent()); },
+            'certFileName' => fn(ParseNode $n) => $o->setCertFileName($n->getStringValue()),
+            'trustedRootCertificate' => fn(ParseNode $n) => $o->setTrustedRootCertificate($n->getBinaryContent()),
         ]);
     }
 

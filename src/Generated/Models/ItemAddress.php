@@ -63,9 +63,9 @@ class ItemAddress extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getObjectValue(array(PhysicalAddress::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'geoCoordinates' => function (ParseNode $n) use ($o) { $o->setGeoCoordinates($n->getObjectValue(array(GeoCoordinates::class, 'createFromDiscriminatorValue'))); },
+            'detail' => fn(ParseNode $n) => $o->setDetail($n->getObjectValue([PhysicalAddress::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'geoCoordinates' => fn(ParseNode $n) => $o->setGeoCoordinates($n->getObjectValue([GeoCoordinates::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

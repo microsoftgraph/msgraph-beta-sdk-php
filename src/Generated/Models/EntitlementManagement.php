@@ -198,20 +198,20 @@ class EntitlementManagement extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageAssignmentApprovals' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentApprovals($n->getCollectionOfObjectValues(array(Approval::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageAssignmentPolicies' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentPolicies($n->getCollectionOfObjectValues(array(AccessPackageAssignmentPolicy::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageAssignmentRequests' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentRequests($n->getCollectionOfObjectValues(array(AccessPackageAssignmentRequest::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageAssignmentResourceRoles' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentResourceRoles($n->getCollectionOfObjectValues(array(AccessPackageAssignmentResourceRole::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageAssignments' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignments($n->getCollectionOfObjectValues(array(AccessPackageAssignment::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageCatalogs' => function (ParseNode $n) use ($o) { $o->setAccessPackageCatalogs($n->getCollectionOfObjectValues(array(AccessPackageCatalog::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceEnvironments' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceEnvironments($n->getCollectionOfObjectValues(array(AccessPackageResourceEnvironment::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceRequests' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRequests($n->getCollectionOfObjectValues(array(AccessPackageResourceRequest::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceRoleScopes' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRoleScopes($n->getCollectionOfObjectValues(array(AccessPackageResourceRoleScope::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResources' => function (ParseNode $n) use ($o) { $o->setAccessPackageResources($n->getCollectionOfObjectValues(array(AccessPackageResource::class, 'createFromDiscriminatorValue'))); },
-            'accessPackages' => function (ParseNode $n) use ($o) { $o->setAccessPackages($n->getCollectionOfObjectValues(array(AccessPackage::class, 'createFromDiscriminatorValue'))); },
-            'connectedOrganizations' => function (ParseNode $n) use ($o) { $o->setConnectedOrganizations($n->getCollectionOfObjectValues(array(ConnectedOrganization::class, 'createFromDiscriminatorValue'))); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(EntitlementManagementSettings::class, 'createFromDiscriminatorValue'))); },
-            'subjects' => function (ParseNode $n) use ($o) { $o->setSubjects($n->getCollectionOfObjectValues(array(AccessPackageSubject::class, 'createFromDiscriminatorValue'))); },
+            'accessPackageAssignmentApprovals' => fn(ParseNode $n) => $o->setAccessPackageAssignmentApprovals($n->getCollectionOfObjectValues([Approval::class, 'createFromDiscriminatorValue'])),
+            'accessPackageAssignmentPolicies' => fn(ParseNode $n) => $o->setAccessPackageAssignmentPolicies($n->getCollectionOfObjectValues([AccessPackageAssignmentPolicy::class, 'createFromDiscriminatorValue'])),
+            'accessPackageAssignmentRequests' => fn(ParseNode $n) => $o->setAccessPackageAssignmentRequests($n->getCollectionOfObjectValues([AccessPackageAssignmentRequest::class, 'createFromDiscriminatorValue'])),
+            'accessPackageAssignmentResourceRoles' => fn(ParseNode $n) => $o->setAccessPackageAssignmentResourceRoles($n->getCollectionOfObjectValues([AccessPackageAssignmentResourceRole::class, 'createFromDiscriminatorValue'])),
+            'accessPackageAssignments' => fn(ParseNode $n) => $o->setAccessPackageAssignments($n->getCollectionOfObjectValues([AccessPackageAssignment::class, 'createFromDiscriminatorValue'])),
+            'accessPackageCatalogs' => fn(ParseNode $n) => $o->setAccessPackageCatalogs($n->getCollectionOfObjectValues([AccessPackageCatalog::class, 'createFromDiscriminatorValue'])),
+            'accessPackageResourceEnvironments' => fn(ParseNode $n) => $o->setAccessPackageResourceEnvironments($n->getCollectionOfObjectValues([AccessPackageResourceEnvironment::class, 'createFromDiscriminatorValue'])),
+            'accessPackageResourceRequests' => fn(ParseNode $n) => $o->setAccessPackageResourceRequests($n->getCollectionOfObjectValues([AccessPackageResourceRequest::class, 'createFromDiscriminatorValue'])),
+            'accessPackageResourceRoleScopes' => fn(ParseNode $n) => $o->setAccessPackageResourceRoleScopes($n->getCollectionOfObjectValues([AccessPackageResourceRoleScope::class, 'createFromDiscriminatorValue'])),
+            'accessPackageResources' => fn(ParseNode $n) => $o->setAccessPackageResources($n->getCollectionOfObjectValues([AccessPackageResource::class, 'createFromDiscriminatorValue'])),
+            'accessPackages' => fn(ParseNode $n) => $o->setAccessPackages($n->getCollectionOfObjectValues([AccessPackage::class, 'createFromDiscriminatorValue'])),
+            'connectedOrganizations' => fn(ParseNode $n) => $o->setConnectedOrganizations($n->getCollectionOfObjectValues([ConnectedOrganization::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([EntitlementManagementSettings::class, 'createFromDiscriminatorValue'])),
+            'subjects' => fn(ParseNode $n) => $o->setSubjects($n->getCollectionOfObjectValues([AccessPackageSubject::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

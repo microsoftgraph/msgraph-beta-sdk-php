@@ -87,14 +87,14 @@ class WindowsPhone81AppX extends MobileLobApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicableArchitectures' => function (ParseNode $n) use ($o) { $o->setApplicableArchitectures($n->getEnumValue(WindowsArchitecture::class)); },
-            'identityName' => function (ParseNode $n) use ($o) { $o->setIdentityName($n->getStringValue()); },
-            'identityPublisherHash' => function (ParseNode $n) use ($o) { $o->setIdentityPublisherHash($n->getStringValue()); },
-            'identityResourceIdentifier' => function (ParseNode $n) use ($o) { $o->setIdentityResourceIdentifier($n->getStringValue()); },
-            'identityVersion' => function (ParseNode $n) use ($o) { $o->setIdentityVersion($n->getStringValue()); },
-            'minimumSupportedOperatingSystem' => function (ParseNode $n) use ($o) { $o->setMinimumSupportedOperatingSystem($n->getObjectValue(array(WindowsMinimumOperatingSystem::class, 'createFromDiscriminatorValue'))); },
-            'phoneProductIdentifier' => function (ParseNode $n) use ($o) { $o->setPhoneProductIdentifier($n->getStringValue()); },
-            'phonePublisherId' => function (ParseNode $n) use ($o) { $o->setPhonePublisherId($n->getStringValue()); },
+            'applicableArchitectures' => fn(ParseNode $n) => $o->setApplicableArchitectures($n->getEnumValue(WindowsArchitecture::class)),
+            'identityName' => fn(ParseNode $n) => $o->setIdentityName($n->getStringValue()),
+            'identityPublisherHash' => fn(ParseNode $n) => $o->setIdentityPublisherHash($n->getStringValue()),
+            'identityResourceIdentifier' => fn(ParseNode $n) => $o->setIdentityResourceIdentifier($n->getStringValue()),
+            'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
+            'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([WindowsMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
+            'phoneProductIdentifier' => fn(ParseNode $n) => $o->setPhoneProductIdentifier($n->getStringValue()),
+            'phonePublisherId' => fn(ParseNode $n) => $o->setPhonePublisherId($n->getStringValue()),
         ]);
     }
 

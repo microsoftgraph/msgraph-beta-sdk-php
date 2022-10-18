@@ -112,14 +112,14 @@ class MobilityManagementPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appliesTo' => function (ParseNode $n) use ($o) { $o->setAppliesTo($n->getEnumValue(PolicyScope::class)); },
-            'complianceUrl' => function (ParseNode $n) use ($o) { $o->setComplianceUrl($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'discoveryUrl' => function (ParseNode $n) use ($o) { $o->setDiscoveryUrl($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'includedGroups' => function (ParseNode $n) use ($o) { $o->setIncludedGroups($n->getCollectionOfObjectValues(array(Group::class, 'createFromDiscriminatorValue'))); },
-            'isValid' => function (ParseNode $n) use ($o) { $o->setIsValid($n->getBooleanValue()); },
-            'termsOfUseUrl' => function (ParseNode $n) use ($o) { $o->setTermsOfUseUrl($n->getStringValue()); },
+            'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getEnumValue(PolicyScope::class)),
+            'complianceUrl' => fn(ParseNode $n) => $o->setComplianceUrl($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'discoveryUrl' => fn(ParseNode $n) => $o->setDiscoveryUrl($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'includedGroups' => fn(ParseNode $n) => $o->setIncludedGroups($n->getCollectionOfObjectValues([Group::class, 'createFromDiscriminatorValue'])),
+            'isValid' => fn(ParseNode $n) => $o->setIsValid($n->getBooleanValue()),
+            'termsOfUseUrl' => fn(ParseNode $n) => $o->setTermsOfUseUrl($n->getStringValue()),
         ]);
     }
 

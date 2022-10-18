@@ -91,16 +91,16 @@ class Office365ActiveUserCounts extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exchange' => function (ParseNode $n) use ($o) { $o->setExchange($n->getIntegerValue()); },
-            'office365' => function (ParseNode $n) use ($o) { $o->setOffice365($n->getIntegerValue()); },
-            'oneDrive' => function (ParseNode $n) use ($o) { $o->setOneDrive($n->getIntegerValue()); },
-            'reportDate' => function (ParseNode $n) use ($o) { $o->setReportDate($n->getDateValue()); },
-            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
-            'sharePoint' => function (ParseNode $n) use ($o) { $o->setSharePoint($n->getIntegerValue()); },
-            'skypeForBusiness' => function (ParseNode $n) use ($o) { $o->setSkypeForBusiness($n->getIntegerValue()); },
-            'teams' => function (ParseNode $n) use ($o) { $o->setTeams($n->getIntegerValue()); },
-            'yammer' => function (ParseNode $n) use ($o) { $o->setYammer($n->getIntegerValue()); },
+            'exchange' => fn(ParseNode $n) => $o->setExchange($n->getIntegerValue()),
+            'office365' => fn(ParseNode $n) => $o->setOffice365($n->getIntegerValue()),
+            'oneDrive' => fn(ParseNode $n) => $o->setOneDrive($n->getIntegerValue()),
+            'reportDate' => fn(ParseNode $n) => $o->setReportDate($n->getDateValue()),
+            'reportPeriod' => fn(ParseNode $n) => $o->setReportPeriod($n->getStringValue()),
+            'reportRefreshDate' => fn(ParseNode $n) => $o->setReportRefreshDate($n->getDateValue()),
+            'sharePoint' => fn(ParseNode $n) => $o->setSharePoint($n->getIntegerValue()),
+            'skypeForBusiness' => fn(ParseNode $n) => $o->setSkypeForBusiness($n->getIntegerValue()),
+            'teams' => fn(ParseNode $n) => $o->setTeams($n->getIntegerValue()),
+            'yammer' => fn(ParseNode $n) => $o->setYammer($n->getIntegerValue()),
         ]);
     }
 

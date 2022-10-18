@@ -76,10 +76,10 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'answerInputType' => function (ParseNode $n) use ($o) { $o->setAnswerInputType($n->getEnumValue(AnswerInputType::class)); },
-            'answerOptions' => function (ParseNode $n) use ($o) { $o->setAnswerOptions($n->getCollectionOfPrimitiveValues()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
+            'answerInputType' => fn(ParseNode $n) => $o->setAnswerInputType($n->getEnumValue(AnswerInputType::class)),
+            'answerOptions' => fn(ParseNode $n) => $o->setAnswerOptions($n->getCollectionOfPrimitiveValues()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isRequired' => fn(ParseNode $n) => $o->setIsRequired($n->getBooleanValue()),
         ]);
     }
 

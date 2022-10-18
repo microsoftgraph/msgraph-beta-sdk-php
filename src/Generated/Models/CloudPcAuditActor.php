@@ -122,18 +122,18 @@ class CloudPcAuditActor implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'applicationDisplayName' => function (ParseNode $n) use ($o) { $o->setApplicationDisplayName($n->getStringValue()); },
-            'applicationId' => function (ParseNode $n) use ($o) { $o->setApplicationId($n->getStringValue()); },
-            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'remoteTenantId' => function (ParseNode $n) use ($o) { $o->setRemoteTenantId($n->getStringValue()); },
-            'remoteUserId' => function (ParseNode $n) use ($o) { $o->setRemoteUserId($n->getStringValue()); },
-            'servicePrincipalName' => function (ParseNode $n) use ($o) { $o->setServicePrincipalName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(CloudPcAuditActorType::class)); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userPermissions' => function (ParseNode $n) use ($o) { $o->setUserPermissions($n->getCollectionOfPrimitiveValues()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
-            'userRoleScopeTags' => function (ParseNode $n) use ($o) { $o->setUserRoleScopeTags($n->getCollectionOfObjectValues(array(CloudPcUserRoleScopeTagInfo::class, 'createFromDiscriminatorValue'))); },
+            'applicationDisplayName' => fn(ParseNode $n) => $o->setApplicationDisplayName($n->getStringValue()),
+            'applicationId' => fn(ParseNode $n) => $o->setApplicationId($n->getStringValue()),
+            'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'remoteTenantId' => fn(ParseNode $n) => $o->setRemoteTenantId($n->getStringValue()),
+            'remoteUserId' => fn(ParseNode $n) => $o->setRemoteUserId($n->getStringValue()),
+            'servicePrincipalName' => fn(ParseNode $n) => $o->setServicePrincipalName($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcAuditActorType::class)),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userPermissions' => fn(ParseNode $n) => $o->setUserPermissions($n->getCollectionOfPrimitiveValues()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
+            'userRoleScopeTags' => fn(ParseNode $n) => $o->setUserRoleScopeTags($n->getCollectionOfObjectValues([CloudPcUserRoleScopeTagInfo::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

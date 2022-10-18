@@ -55,9 +55,9 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getObjectValue(array(DeviceManagementConfigurationIntegerSettingValueDefaultTemplate::class, 'createFromDiscriminatorValue'))); },
-            'recommendedValueDefinition' => function (ParseNode $n) use ($o) { $o->setRecommendedValueDefinition($n->getObjectValue(array(DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'))); },
-            'requiredValueDefinition' => function (ParseNode $n) use ($o) { $o->setRequiredValueDefinition($n->getObjectValue(array(DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'))); },
+            'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getObjectValue([DeviceManagementConfigurationIntegerSettingValueDefaultTemplate::class, 'createFromDiscriminatorValue'])),
+            'recommendedValueDefinition' => fn(ParseNode $n) => $o->setRecommendedValueDefinition($n->getObjectValue([DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'])),
+            'requiredValueDefinition' => fn(ParseNode $n) => $o->setRequiredValueDefinition($n->getObjectValue([DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

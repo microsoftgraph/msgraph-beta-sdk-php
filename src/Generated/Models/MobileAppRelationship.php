@@ -65,11 +65,11 @@ class MobileAppRelationship extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'targetDisplayName' => function (ParseNode $n) use ($o) { $o->setTargetDisplayName($n->getStringValue()); },
-            'targetDisplayVersion' => function (ParseNode $n) use ($o) { $o->setTargetDisplayVersion($n->getStringValue()); },
-            'targetId' => function (ParseNode $n) use ($o) { $o->setTargetId($n->getStringValue()); },
-            'targetPublisher' => function (ParseNode $n) use ($o) { $o->setTargetPublisher($n->getStringValue()); },
-            'targetType' => function (ParseNode $n) use ($o) { $o->setTargetType($n->getEnumValue(MobileAppRelationshipType::class)); },
+            'targetDisplayName' => fn(ParseNode $n) => $o->setTargetDisplayName($n->getStringValue()),
+            'targetDisplayVersion' => fn(ParseNode $n) => $o->setTargetDisplayVersion($n->getStringValue()),
+            'targetId' => fn(ParseNode $n) => $o->setTargetId($n->getStringValue()),
+            'targetPublisher' => fn(ParseNode $n) => $o->setTargetPublisher($n->getStringValue()),
+            'targetType' => fn(ParseNode $n) => $o->setTargetType($n->getEnumValue(MobileAppRelationshipType::class)),
         ]);
     }
 

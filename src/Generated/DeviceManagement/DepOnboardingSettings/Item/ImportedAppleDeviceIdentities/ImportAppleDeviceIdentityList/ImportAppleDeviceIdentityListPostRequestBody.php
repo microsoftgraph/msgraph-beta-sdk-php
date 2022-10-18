@@ -56,8 +56,8 @@ class ImportAppleDeviceIdentityListPostRequestBody implements AdditionalDataHold
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'importedAppleDeviceIdentities' => function (ParseNode $n) use ($o) { $o->setImportedAppleDeviceIdentities($n->getCollectionOfObjectValues(array(ImportedAppleDeviceIdentity::class, 'createFromDiscriminatorValue'))); },
-            'overwriteImportedDeviceIdentities' => function (ParseNode $n) use ($o) { $o->setOverwriteImportedDeviceIdentities($n->getBooleanValue()); },
+            'importedAppleDeviceIdentities' => fn(ParseNode $n) => $o->setImportedAppleDeviceIdentities($n->getCollectionOfObjectValues([ImportedAppleDeviceIdentity::class, 'createFromDiscriminatorValue'])),
+            'overwriteImportedDeviceIdentities' => fn(ParseNode $n) => $o->setOverwriteImportedDeviceIdentities($n->getBooleanValue()),
         ];
     }
 

@@ -36,7 +36,7 @@ class ComanagementEligibleDeviceCollectionResponse extends BaseCollectionPaginat
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(ComanagementEligibleDevice::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([ComanagementEligibleDevice::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

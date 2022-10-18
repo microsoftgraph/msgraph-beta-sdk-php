@@ -61,9 +61,9 @@ class SubmissionDetectedFile implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'fileHash' => function (ParseNode $n) use ($o) { $o->setFileHash($n->getStringValue()); },
-            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'fileHash' => fn(ParseNode $n) => $o->setFileHash($n->getStringValue()),
+            'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

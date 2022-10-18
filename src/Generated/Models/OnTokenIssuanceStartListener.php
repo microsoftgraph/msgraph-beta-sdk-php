@@ -37,7 +37,7 @@ class OnTokenIssuanceStartListener extends AuthenticationEventListener implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'handler' => function (ParseNode $n) use ($o) { $o->setHandler($n->getObjectValue(array(OnTokenIssuanceStartHandler::class, 'createFromDiscriminatorValue'))); },
+            'handler' => fn(ParseNode $n) => $o->setHandler($n->getObjectValue([OnTokenIssuanceStartHandler::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

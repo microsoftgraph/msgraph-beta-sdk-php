@@ -88,11 +88,11 @@ class CustomUpdateTimeWindow implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'endDay' => function (ParseNode $n) use ($o) { $o->setEndDay($n->getEnumValue(DayOfWeek::class)); },
-            'endTime' => function (ParseNode $n) use ($o) { $o->setEndTime($n->getTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'startDay' => function (ParseNode $n) use ($o) { $o->setStartDay($n->getEnumValue(DayOfWeek::class)); },
-            'startTime' => function (ParseNode $n) use ($o) { $o->setStartTime($n->getTimeValue()); },
+            'endDay' => fn(ParseNode $n) => $o->setEndDay($n->getEnumValue(DayOfWeek::class)),
+            'endTime' => fn(ParseNode $n) => $o->setEndTime($n->getTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'startDay' => fn(ParseNode $n) => $o->setStartDay($n->getEnumValue(DayOfWeek::class)),
+            'startTime' => fn(ParseNode $n) => $o->setStartTime($n->getTimeValue()),
         ];
     }
 

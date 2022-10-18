@@ -84,12 +84,12 @@ class TeamworkDeviceSoftwareVersions implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'adminAgentSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setAdminAgentSoftwareVersion($n->getStringValue()); },
-            'firmwareSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setFirmwareSoftwareVersion($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'operatingSystemSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setOperatingSystemSoftwareVersion($n->getStringValue()); },
-            'partnerAgentSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setPartnerAgentSoftwareVersion($n->getStringValue()); },
-            'teamsClientSoftwareVersion' => function (ParseNode $n) use ($o) { $o->setTeamsClientSoftwareVersion($n->getStringValue()); },
+            'adminAgentSoftwareVersion' => fn(ParseNode $n) => $o->setAdminAgentSoftwareVersion($n->getStringValue()),
+            'firmwareSoftwareVersion' => fn(ParseNode $n) => $o->setFirmwareSoftwareVersion($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'operatingSystemSoftwareVersion' => fn(ParseNode $n) => $o->setOperatingSystemSoftwareVersion($n->getStringValue()),
+            'partnerAgentSoftwareVersion' => fn(ParseNode $n) => $o->setPartnerAgentSoftwareVersion($n->getStringValue()),
+            'teamsClientSoftwareVersion' => fn(ParseNode $n) => $o->setTeamsClientSoftwareVersion($n->getStringValue()),
         ];
     }
 

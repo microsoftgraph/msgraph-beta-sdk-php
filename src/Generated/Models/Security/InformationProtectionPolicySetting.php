@@ -61,10 +61,10 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultLabelId' => function (ParseNode $n) use ($o) { $o->setDefaultLabelId($n->getStringValue()); },
-            'isDowngradeJustificationRequired' => function (ParseNode $n) use ($o) { $o->setIsDowngradeJustificationRequired($n->getBooleanValue()); },
-            'isMandatory' => function (ParseNode $n) use ($o) { $o->setIsMandatory($n->getBooleanValue()); },
-            'moreInfoUrl' => function (ParseNode $n) use ($o) { $o->setMoreInfoUrl($n->getStringValue()); },
+            'defaultLabelId' => fn(ParseNode $n) => $o->setDefaultLabelId($n->getStringValue()),
+            'isDowngradeJustificationRequired' => fn(ParseNode $n) => $o->setIsDowngradeJustificationRequired($n->getBooleanValue()),
+            'isMandatory' => fn(ParseNode $n) => $o->setIsMandatory($n->getBooleanValue()),
+            'moreInfoUrl' => fn(ParseNode $n) => $o->setMoreInfoUrl($n->getStringValue()),
         ]);
     }
 

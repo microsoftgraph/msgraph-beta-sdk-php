@@ -73,10 +73,10 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'monitoring' => function (ParseNode $n) use ($o) { $o->setMonitoring($n->getObjectValue(array(MonitoringSettings::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'rollout' => function (ParseNode $n) use ($o) { $o->setRollout($n->getObjectValue(array(RolloutSettings::class, 'createFromDiscriminatorValue'))); },
-            'safeguard' => function (ParseNode $n) use ($o) { $o->setSafeguard($n->getObjectValue(array(SafeguardSettings::class, 'createFromDiscriminatorValue'))); },
+            'monitoring' => fn(ParseNode $n) => $o->setMonitoring($n->getObjectValue([MonitoringSettings::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'rollout' => fn(ParseNode $n) => $o->setRollout($n->getObjectValue([RolloutSettings::class, 'createFromDiscriminatorValue'])),
+            'safeguard' => fn(ParseNode $n) => $o->setSafeguard($n->getObjectValue([SafeguardSettings::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

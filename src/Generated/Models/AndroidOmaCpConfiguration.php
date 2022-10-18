@@ -46,7 +46,7 @@ class AndroidOmaCpConfiguration extends DeviceConfiguration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurationXml' => function (ParseNode $n) use ($o) { $o->setConfigurationXml($n->getBinaryContent()); },
+            'configurationXml' => fn(ParseNode $n) => $o->setConfigurationXml($n->getBinaryContent()),
         ]);
     }
 

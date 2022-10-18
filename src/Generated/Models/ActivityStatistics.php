@@ -94,11 +94,11 @@ class ActivityStatistics extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getEnumValue(AnalyticsActivityType::class)); },
-            'duration' => function (ParseNode $n) use ($o) { $o->setDuration($n->getDateIntervalValue()); },
-            'endDate' => function (ParseNode $n) use ($o) { $o->setEndDate($n->getDateValue()); },
-            'startDate' => function (ParseNode $n) use ($o) { $o->setStartDate($n->getDateValue()); },
-            'timeZoneUsed' => function (ParseNode $n) use ($o) { $o->setTimeZoneUsed($n->getStringValue()); },
+            'activity' => fn(ParseNode $n) => $o->setActivity($n->getEnumValue(AnalyticsActivityType::class)),
+            'duration' => fn(ParseNode $n) => $o->setDuration($n->getDateIntervalValue()),
+            'endDate' => fn(ParseNode $n) => $o->setEndDate($n->getDateValue()),
+            'startDate' => fn(ParseNode $n) => $o->setStartDate($n->getDateValue()),
+            'timeZoneUsed' => fn(ParseNode $n) => $o->setTimeZoneUsed($n->getStringValue()),
         ]);
     }
 

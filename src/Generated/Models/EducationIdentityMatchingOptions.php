@@ -79,11 +79,11 @@ class EducationIdentityMatchingOptions implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appliesTo' => function (ParseNode $n) use ($o) { $o->setAppliesTo($n->getEnumValue(EducationUserRole::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'sourcePropertyName' => function (ParseNode $n) use ($o) { $o->setSourcePropertyName($n->getStringValue()); },
-            'targetDomain' => function (ParseNode $n) use ($o) { $o->setTargetDomain($n->getStringValue()); },
-            'targetPropertyName' => function (ParseNode $n) use ($o) { $o->setTargetPropertyName($n->getStringValue()); },
+            'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getEnumValue(EducationUserRole::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'sourcePropertyName' => fn(ParseNode $n) => $o->setSourcePropertyName($n->getStringValue()),
+            'targetDomain' => fn(ParseNode $n) => $o->setTargetDomain($n->getStringValue()),
+            'targetPropertyName' => fn(ParseNode $n) => $o->setTargetPropertyName($n->getStringValue()),
         ];
     }
 

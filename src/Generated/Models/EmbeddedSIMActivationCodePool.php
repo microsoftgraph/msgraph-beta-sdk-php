@@ -116,13 +116,13 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activationCodeCount' => function (ParseNode $n) use ($o) { $o->setActivationCodeCount($n->getIntegerValue()); },
-            'activationCodes' => function (ParseNode $n) use ($o) { $o->setActivationCodes($n->getCollectionOfObjectValues(array(EmbeddedSIMActivationCode::class, 'createFromDiscriminatorValue'))); },
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(EmbeddedSIMActivationCodePoolAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deviceStates' => function (ParseNode $n) use ($o) { $o->setDeviceStates($n->getCollectionOfObjectValues(array(EmbeddedSIMDeviceState::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
+            'activationCodeCount' => fn(ParseNode $n) => $o->setActivationCodeCount($n->getIntegerValue()),
+            'activationCodes' => fn(ParseNode $n) => $o->setActivationCodes($n->getCollectionOfObjectValues([EmbeddedSIMActivationCode::class, 'createFromDiscriminatorValue'])),
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([EmbeddedSIMActivationCodePoolAssignment::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'deviceStates' => fn(ParseNode $n) => $o->setDeviceStates($n->getCollectionOfObjectValues([EmbeddedSIMDeviceState::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
         ]);
     }
 

@@ -70,12 +70,12 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurationServiceProviderVersion' => function (ParseNode $n) use ($o) { $o->setConfigurationServiceProviderVersion($n->getStringValue()); },
-            'maximumSupportedVersion' => function (ParseNode $n) use ($o) { $o->setMaximumSupportedVersion($n->getStringValue()); },
-            'minimumSupportedVersion' => function (ParseNode $n) use ($o) { $o->setMinimumSupportedVersion($n->getStringValue()); },
-            'requiredAzureAdTrustType' => function (ParseNode $n) use ($o) { $o->setRequiredAzureAdTrustType($n->getEnumValue(DeviceManagementConfigurationAzureAdTrustType::class)); },
-            'requiresAzureAd' => function (ParseNode $n) use ($o) { $o->setRequiresAzureAd($n->getBooleanValue()); },
-            'windowsSkus' => function (ParseNode $n) use ($o) { $o->setWindowsSkus($n->getCollectionOfEnumValues(DeviceManagementConfigurationWindowsSkus::class)); },
+            'configurationServiceProviderVersion' => fn(ParseNode $n) => $o->setConfigurationServiceProviderVersion($n->getStringValue()),
+            'maximumSupportedVersion' => fn(ParseNode $n) => $o->setMaximumSupportedVersion($n->getStringValue()),
+            'minimumSupportedVersion' => fn(ParseNode $n) => $o->setMinimumSupportedVersion($n->getStringValue()),
+            'requiredAzureAdTrustType' => fn(ParseNode $n) => $o->setRequiredAzureAdTrustType($n->getEnumValue(DeviceManagementConfigurationAzureAdTrustType::class)),
+            'requiresAzureAd' => fn(ParseNode $n) => $o->setRequiresAzureAd($n->getBooleanValue()),
+            'windowsSkus' => fn(ParseNode $n) => $o->setWindowsSkus($n->getCollectionOfEnumValues(DeviceManagementConfigurationWindowsSkus::class)),
         ]);
     }
 

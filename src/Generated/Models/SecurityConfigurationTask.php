@@ -91,13 +91,13 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicablePlatform' => function (ParseNode $n) use ($o) { $o->setApplicablePlatform($n->getEnumValue(EndpointSecurityConfigurationApplicablePlatform::class)); },
-            'endpointSecurityPolicy' => function (ParseNode $n) use ($o) { $o->setEndpointSecurityPolicy($n->getEnumValue(EndpointSecurityConfigurationType::class)); },
-            'endpointSecurityPolicyProfile' => function (ParseNode $n) use ($o) { $o->setEndpointSecurityPolicyProfile($n->getEnumValue(EndpointSecurityConfigurationProfileType::class)); },
-            'insights' => function (ParseNode $n) use ($o) { $o->setInsights($n->getStringValue()); },
-            'intendedSettings' => function (ParseNode $n) use ($o) { $o->setIntendedSettings($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'managedDeviceCount' => function (ParseNode $n) use ($o) { $o->setManagedDeviceCount($n->getIntegerValue()); },
-            'managedDevices' => function (ParseNode $n) use ($o) { $o->setManagedDevices($n->getCollectionOfObjectValues(array(VulnerableManagedDevice::class, 'createFromDiscriminatorValue'))); },
+            'applicablePlatform' => fn(ParseNode $n) => $o->setApplicablePlatform($n->getEnumValue(EndpointSecurityConfigurationApplicablePlatform::class)),
+            'endpointSecurityPolicy' => fn(ParseNode $n) => $o->setEndpointSecurityPolicy($n->getEnumValue(EndpointSecurityConfigurationType::class)),
+            'endpointSecurityPolicyProfile' => fn(ParseNode $n) => $o->setEndpointSecurityPolicyProfile($n->getEnumValue(EndpointSecurityConfigurationProfileType::class)),
+            'insights' => fn(ParseNode $n) => $o->setInsights($n->getStringValue()),
+            'intendedSettings' => fn(ParseNode $n) => $o->setIntendedSettings($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'managedDeviceCount' => fn(ParseNode $n) => $o->setManagedDeviceCount($n->getIntegerValue()),
+            'managedDevices' => fn(ParseNode $n) => $o->setManagedDevices($n->getCollectionOfObjectValues([VulnerableManagedDevice::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

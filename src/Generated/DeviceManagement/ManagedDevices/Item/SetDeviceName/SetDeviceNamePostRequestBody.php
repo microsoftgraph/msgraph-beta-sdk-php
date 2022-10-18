@@ -58,7 +58,7 @@ class SetDeviceNamePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
         ];
     }
 

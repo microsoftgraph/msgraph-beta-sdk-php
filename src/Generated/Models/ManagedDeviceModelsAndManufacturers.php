@@ -77,9 +77,9 @@ class ManagedDeviceModelsAndManufacturers implements AdditionalDataHolder, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceManufacturers' => function (ParseNode $n) use ($o) { $o->setDeviceManufacturers($n->getCollectionOfPrimitiveValues()); },
-            'deviceModels' => function (ParseNode $n) use ($o) { $o->setDeviceModels($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'deviceManufacturers' => fn(ParseNode $n) => $o->setDeviceManufacturers($n->getCollectionOfPrimitiveValues()),
+            'deviceModels' => fn(ParseNode $n) => $o->setDeviceModels($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

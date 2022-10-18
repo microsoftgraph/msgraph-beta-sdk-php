@@ -99,13 +99,13 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allOtherUpdateBehavior' => function (ParseNode $n) use ($o) { $o->setAllOtherUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)); },
-            'configDataUpdateBehavior' => function (ParseNode $n) use ($o) { $o->setConfigDataUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)); },
-            'criticalUpdateBehavior' => function (ParseNode $n) use ($o) { $o->setCriticalUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)); },
-            'customUpdateTimeWindows' => function (ParseNode $n) use ($o) { $o->setCustomUpdateTimeWindows($n->getCollectionOfObjectValues(array(CustomUpdateTimeWindow::class, 'createFromDiscriminatorValue'))); },
-            'firmwareUpdateBehavior' => function (ParseNode $n) use ($o) { $o->setFirmwareUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)); },
-            'updateScheduleType' => function (ParseNode $n) use ($o) { $o->setUpdateScheduleType($n->getEnumValue(MacOSSoftwareUpdateScheduleType::class)); },
-            'updateTimeWindowUtcOffsetInMinutes' => function (ParseNode $n) use ($o) { $o->setUpdateTimeWindowUtcOffsetInMinutes($n->getIntegerValue()); },
+            'allOtherUpdateBehavior' => fn(ParseNode $n) => $o->setAllOtherUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)),
+            'configDataUpdateBehavior' => fn(ParseNode $n) => $o->setConfigDataUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)),
+            'criticalUpdateBehavior' => fn(ParseNode $n) => $o->setCriticalUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)),
+            'customUpdateTimeWindows' => fn(ParseNode $n) => $o->setCustomUpdateTimeWindows($n->getCollectionOfObjectValues([CustomUpdateTimeWindow::class, 'createFromDiscriminatorValue'])),
+            'firmwareUpdateBehavior' => fn(ParseNode $n) => $o->setFirmwareUpdateBehavior($n->getEnumValue(MacOSSoftwareUpdateBehavior::class)),
+            'updateScheduleType' => fn(ParseNode $n) => $o->setUpdateScheduleType($n->getEnumValue(MacOSSoftwareUpdateScheduleType::class)),
+            'updateTimeWindowUtcOffsetInMinutes' => fn(ParseNode $n) => $o->setUpdateTimeWindowUtcOffsetInMinutes($n->getIntegerValue()),
         ]);
     }
 

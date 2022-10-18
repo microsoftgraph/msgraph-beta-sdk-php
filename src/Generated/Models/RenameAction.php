@@ -61,9 +61,9 @@ class RenameAction implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'newName' => function (ParseNode $n) use ($o) { $o->setNewName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'oldName' => function (ParseNode $n) use ($o) { $o->setOldName($n->getStringValue()); },
+            'newName' => fn(ParseNode $n) => $o->setNewName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'oldName' => fn(ParseNode $n) => $o->setOldName($n->getStringValue()),
         ];
     }
 

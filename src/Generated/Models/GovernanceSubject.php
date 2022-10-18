@@ -68,10 +68,10 @@ class GovernanceSubject extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
-            'principalName' => function (ParseNode $n) use ($o) { $o->setPrincipalName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
+            'principalName' => fn(ParseNode $n) => $o->setPrincipalName($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ]);
     }
 

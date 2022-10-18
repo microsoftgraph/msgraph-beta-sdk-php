@@ -79,11 +79,11 @@ class PayloadByFilter implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assignmentFilterType' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
-            'groupId' => function (ParseNode $n) use ($o) { $o->setGroupId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'payloadId' => function (ParseNode $n) use ($o) { $o->setPayloadId($n->getStringValue()); },
-            'payloadType' => function (ParseNode $n) use ($o) { $o->setPayloadType($n->getEnumValue(AssociatedAssignmentPayloadType::class)); },
+            'assignmentFilterType' => fn(ParseNode $n) => $o->setAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)),
+            'groupId' => fn(ParseNode $n) => $o->setGroupId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'payloadId' => fn(ParseNode $n) => $o->setPayloadId($n->getStringValue()),
+            'payloadType' => fn(ParseNode $n) => $o->setPayloadType($n->getEnumValue(AssociatedAssignmentPayloadType::class)),
         ];
     }
 

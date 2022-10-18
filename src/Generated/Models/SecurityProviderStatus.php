@@ -92,12 +92,12 @@ class SecurityProviderStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
-            'endpoint' => function (ParseNode $n) use ($o) { $o->setEndpoint($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'provider' => function (ParseNode $n) use ($o) { $o->setProvider($n->getStringValue()); },
-            'region' => function (ParseNode $n) use ($o) { $o->setRegion($n->getStringValue()); },
-            'vendor' => function (ParseNode $n) use ($o) { $o->setVendor($n->getStringValue()); },
+            'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
+            'endpoint' => fn(ParseNode $n) => $o->setEndpoint($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'provider' => fn(ParseNode $n) => $o->setProvider($n->getStringValue()),
+            'region' => fn(ParseNode $n) => $o->setRegion($n->getStringValue()),
+            'vendor' => fn(ParseNode $n) => $o->setVendor($n->getStringValue()),
         ];
     }
 

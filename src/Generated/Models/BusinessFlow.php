@@ -109,15 +109,15 @@ class BusinessFlow extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'customData' => function (ParseNode $n) use ($o) { $o->setCustomData($n->getStringValue()); },
-            'deDuplicationId' => function (ParseNode $n) use ($o) { $o->setDeDuplicationId($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'policy' => function (ParseNode $n) use ($o) { $o->setPolicy($n->getObjectValue(array(GovernancePolicy::class, 'createFromDiscriminatorValue'))); },
-            'policyTemplateId' => function (ParseNode $n) use ($o) { $o->setPolicyTemplateId($n->getStringValue()); },
-            'recordVersion' => function (ParseNode $n) use ($o) { $o->setRecordVersion($n->getStringValue()); },
-            'schemaId' => function (ParseNode $n) use ($o) { $o->setSchemaId($n->getStringValue()); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(BusinessFlowSettings::class, 'createFromDiscriminatorValue'))); },
+            'customData' => fn(ParseNode $n) => $o->setCustomData($n->getStringValue()),
+            'deDuplicationId' => fn(ParseNode $n) => $o->setDeDuplicationId($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([GovernancePolicy::class, 'createFromDiscriminatorValue'])),
+            'policyTemplateId' => fn(ParseNode $n) => $o->setPolicyTemplateId($n->getStringValue()),
+            'recordVersion' => fn(ParseNode $n) => $o->setRecordVersion($n->getStringValue()),
+            'schemaId' => fn(ParseNode $n) => $o->setSchemaId($n->getStringValue()),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([BusinessFlowSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -122,19 +122,19 @@ class MicrosoftTunnelSite extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enableCertificatePinning' => function (ParseNode $n) use ($o) { $o->setEnableCertificatePinning($n->getBooleanValue()); },
-            'internalNetworkProbeUrl' => function (ParseNode $n) use ($o) { $o->setInternalNetworkProbeUrl($n->getStringValue()); },
-            'microsoftTunnelConfiguration' => function (ParseNode $n) use ($o) { $o->setMicrosoftTunnelConfiguration($n->getObjectValue(array(MicrosoftTunnelConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'microsoftTunnelServers' => function (ParseNode $n) use ($o) { $o->setMicrosoftTunnelServers($n->getCollectionOfObjectValues(array(MicrosoftTunnelServer::class, 'createFromDiscriminatorValue'))); },
-            'publicAddress' => function (ParseNode $n) use ($o) { $o->setPublicAddress($n->getStringValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'upgradeAutomatically' => function (ParseNode $n) use ($o) { $o->setUpgradeAutomatically($n->getBooleanValue()); },
-            'upgradeAvailable' => function (ParseNode $n) use ($o) { $o->setUpgradeAvailable($n->getBooleanValue()); },
-            'upgradeWindowEndTime' => function (ParseNode $n) use ($o) { $o->setUpgradeWindowEndTime($n->getTimeValue()); },
-            'upgradeWindowStartTime' => function (ParseNode $n) use ($o) { $o->setUpgradeWindowStartTime($n->getTimeValue()); },
-            'upgradeWindowUtcOffsetInMinutes' => function (ParseNode $n) use ($o) { $o->setUpgradeWindowUtcOffsetInMinutes($n->getIntegerValue()); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'enableCertificatePinning' => fn(ParseNode $n) => $o->setEnableCertificatePinning($n->getBooleanValue()),
+            'internalNetworkProbeUrl' => fn(ParseNode $n) => $o->setInternalNetworkProbeUrl($n->getStringValue()),
+            'microsoftTunnelConfiguration' => fn(ParseNode $n) => $o->setMicrosoftTunnelConfiguration($n->getObjectValue([MicrosoftTunnelConfiguration::class, 'createFromDiscriminatorValue'])),
+            'microsoftTunnelServers' => fn(ParseNode $n) => $o->setMicrosoftTunnelServers($n->getCollectionOfObjectValues([MicrosoftTunnelServer::class, 'createFromDiscriminatorValue'])),
+            'publicAddress' => fn(ParseNode $n) => $o->setPublicAddress($n->getStringValue()),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'upgradeAutomatically' => fn(ParseNode $n) => $o->setUpgradeAutomatically($n->getBooleanValue()),
+            'upgradeAvailable' => fn(ParseNode $n) => $o->setUpgradeAvailable($n->getBooleanValue()),
+            'upgradeWindowEndTime' => fn(ParseNode $n) => $o->setUpgradeWindowEndTime($n->getTimeValue()),
+            'upgradeWindowStartTime' => fn(ParseNode $n) => $o->setUpgradeWindowStartTime($n->getTimeValue()),
+            'upgradeWindowUtcOffsetInMinutes' => fn(ParseNode $n) => $o->setUpgradeWindowUtcOffsetInMinutes($n->getIntegerValue()),
         ]);
     }
 

@@ -42,8 +42,8 @@ class TeamsAppIcon extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'hostedContent' => function (ParseNode $n) use ($o) { $o->setHostedContent($n->getObjectValue(array(TeamworkHostedContent::class, 'createFromDiscriminatorValue'))); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'hostedContent' => fn(ParseNode $n) => $o->setHostedContent($n->getObjectValue([TeamworkHostedContent::class, 'createFromDiscriminatorValue'])),
+            'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
     }
 

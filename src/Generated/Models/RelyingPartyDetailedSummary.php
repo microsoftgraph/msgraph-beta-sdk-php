@@ -95,17 +95,17 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'failedSignInCount' => function (ParseNode $n) use ($o) { $o->setFailedSignInCount($n->getIntegerValue()); },
-            'migrationStatus' => function (ParseNode $n) use ($o) { $o->setMigrationStatus($n->getEnumValue(MigrationStatus::class)); },
-            'migrationValidationDetails' => function (ParseNode $n) use ($o) { $o->setMigrationValidationDetails($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'relyingPartyId' => function (ParseNode $n) use ($o) { $o->setRelyingPartyId($n->getStringValue()); },
-            'relyingPartyName' => function (ParseNode $n) use ($o) { $o->setRelyingPartyName($n->getStringValue()); },
-            'replyUrls' => function (ParseNode $n) use ($o) { $o->setReplyUrls($n->getCollectionOfPrimitiveValues()); },
-            'serviceId' => function (ParseNode $n) use ($o) { $o->setServiceId($n->getStringValue()); },
-            'signInSuccessRate' => function (ParseNode $n) use ($o) { $o->setSignInSuccessRate($n->getFloatValue()); },
-            'successfulSignInCount' => function (ParseNode $n) use ($o) { $o->setSuccessfulSignInCount($n->getIntegerValue()); },
-            'totalSignInCount' => function (ParseNode $n) use ($o) { $o->setTotalSignInCount($n->getIntegerValue()); },
-            'uniqueUserCount' => function (ParseNode $n) use ($o) { $o->setUniqueUserCount($n->getIntegerValue()); },
+            'failedSignInCount' => fn(ParseNode $n) => $o->setFailedSignInCount($n->getIntegerValue()),
+            'migrationStatus' => fn(ParseNode $n) => $o->setMigrationStatus($n->getEnumValue(MigrationStatus::class)),
+            'migrationValidationDetails' => fn(ParseNode $n) => $o->setMigrationValidationDetails($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'relyingPartyId' => fn(ParseNode $n) => $o->setRelyingPartyId($n->getStringValue()),
+            'relyingPartyName' => fn(ParseNode $n) => $o->setRelyingPartyName($n->getStringValue()),
+            'replyUrls' => fn(ParseNode $n) => $o->setReplyUrls($n->getCollectionOfPrimitiveValues()),
+            'serviceId' => fn(ParseNode $n) => $o->setServiceId($n->getStringValue()),
+            'signInSuccessRate' => fn(ParseNode $n) => $o->setSignInSuccessRate($n->getFloatValue()),
+            'successfulSignInCount' => fn(ParseNode $n) => $o->setSuccessfulSignInCount($n->getIntegerValue()),
+            'totalSignInCount' => fn(ParseNode $n) => $o->setTotalSignInCount($n->getIntegerValue()),
+            'uniqueUserCount' => fn(ParseNode $n) => $o->setUniqueUserCount($n->getIntegerValue()),
         ]);
     }
 

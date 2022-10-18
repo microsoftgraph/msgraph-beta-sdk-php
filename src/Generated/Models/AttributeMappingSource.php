@@ -79,11 +79,11 @@ class AttributeMappingSource implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'expression' => function (ParseNode $n) use ($o) { $o->setExpression($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'parameters' => function (ParseNode $n) use ($o) { $o->setParameters($n->getCollectionOfObjectValues(array(StringKeyAttributeMappingSourceValuePair::class, 'createFromDiscriminatorValue'))); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(AttributeMappingSourceType::class)); },
+            'expression' => fn(ParseNode $n) => $o->setExpression($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'parameters' => fn(ParseNode $n) => $o->setParameters($n->getCollectionOfObjectValues([StringKeyAttributeMappingSourceValuePair::class, 'createFromDiscriminatorValue'])),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(AttributeMappingSourceType::class)),
         ];
     }
 

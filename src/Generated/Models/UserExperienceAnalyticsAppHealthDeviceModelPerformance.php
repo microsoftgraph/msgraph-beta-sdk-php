@@ -91,13 +91,13 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeDeviceCount' => function (ParseNode $n) use ($o) { $o->setActiveDeviceCount($n->getIntegerValue()); },
-            'deviceManufacturer' => function (ParseNode $n) use ($o) { $o->setDeviceManufacturer($n->getStringValue()); },
-            'deviceModel' => function (ParseNode $n) use ($o) { $o->setDeviceModel($n->getStringValue()); },
-            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
-            'meanTimeToFailureInMinutes' => function (ParseNode $n) use ($o) { $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()); },
-            'modelAppHealthScore' => function (ParseNode $n) use ($o) { $o->setModelAppHealthScore($n->getFloatValue()); },
-            'modelAppHealthStatus' => function (ParseNode $n) use ($o) { $o->setModelAppHealthStatus($n->getStringValue()); },
+            'activeDeviceCount' => fn(ParseNode $n) => $o->setActiveDeviceCount($n->getIntegerValue()),
+            'deviceManufacturer' => fn(ParseNode $n) => $o->setDeviceManufacturer($n->getStringValue()),
+            'deviceModel' => fn(ParseNode $n) => $o->setDeviceModel($n->getStringValue()),
+            'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)),
+            'meanTimeToFailureInMinutes' => fn(ParseNode $n) => $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()),
+            'modelAppHealthScore' => fn(ParseNode $n) => $o->setModelAppHealthScore($n->getFloatValue()),
+            'modelAppHealthStatus' => fn(ParseNode $n) => $o->setModelAppHealthStatus($n->getStringValue()),
         ]);
     }
 

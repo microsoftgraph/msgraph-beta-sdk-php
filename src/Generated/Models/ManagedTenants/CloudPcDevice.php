@@ -118,18 +118,18 @@ class CloudPcDevice extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cloudPcStatus' => function (ParseNode $n) use ($o) { $o->setCloudPcStatus($n->getStringValue()); },
-            'deviceSpecification' => function (ParseNode $n) use ($o) { $o->setDeviceSpecification($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'managedDeviceName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceName($n->getStringValue()); },
-            'provisioningPolicyId' => function (ParseNode $n) use ($o) { $o->setProvisioningPolicyId($n->getStringValue()); },
-            'servicePlanName' => function (ParseNode $n) use ($o) { $o->setServicePlanName($n->getStringValue()); },
-            'servicePlanType' => function (ParseNode $n) use ($o) { $o->setServicePlanType($n->getStringValue()); },
-            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'cloudPcStatus' => fn(ParseNode $n) => $o->setCloudPcStatus($n->getStringValue()),
+            'deviceSpecification' => fn(ParseNode $n) => $o->setDeviceSpecification($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            'managedDeviceName' => fn(ParseNode $n) => $o->setManagedDeviceName($n->getStringValue()),
+            'provisioningPolicyId' => fn(ParseNode $n) => $o->setProvisioningPolicyId($n->getStringValue()),
+            'servicePlanName' => fn(ParseNode $n) => $o->setServicePlanName($n->getStringValue()),
+            'servicePlanType' => fn(ParseNode $n) => $o->setServicePlanType($n->getStringValue()),
+            'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

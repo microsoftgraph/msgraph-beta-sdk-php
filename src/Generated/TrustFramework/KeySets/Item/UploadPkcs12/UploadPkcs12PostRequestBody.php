@@ -55,8 +55,8 @@ class UploadPkcs12PostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getStringValue()); },
-            'password' => function (ParseNode $n) use ($o) { $o->setPassword($n->getStringValue()); },
+            'key' => fn(ParseNode $n) => $o->setKey($n->getStringValue()),
+            'password' => fn(ParseNode $n) => $o->setPassword($n->getStringValue()),
         ];
     }
 

@@ -55,9 +55,9 @@ class ServicePrincipalCreationPolicy extends PolicyBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'excludes' => function (ParseNode $n) use ($o) { $o->setExcludes($n->getCollectionOfObjectValues(array(ServicePrincipalCreationConditionSet::class, 'createFromDiscriminatorValue'))); },
-            'includes' => function (ParseNode $n) use ($o) { $o->setIncludes($n->getCollectionOfObjectValues(array(ServicePrincipalCreationConditionSet::class, 'createFromDiscriminatorValue'))); },
-            'isBuiltIn' => function (ParseNode $n) use ($o) { $o->setIsBuiltIn($n->getBooleanValue()); },
+            'excludes' => fn(ParseNode $n) => $o->setExcludes($n->getCollectionOfObjectValues([ServicePrincipalCreationConditionSet::class, 'createFromDiscriminatorValue'])),
+            'includes' => fn(ParseNode $n) => $o->setIncludes($n->getCollectionOfObjectValues([ServicePrincipalCreationConditionSet::class, 'createFromDiscriminatorValue'])),
+            'isBuiltIn' => fn(ParseNode $n) => $o->setIsBuiltIn($n->getBooleanValue()),
         ]);
     }
 

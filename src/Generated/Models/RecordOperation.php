@@ -55,9 +55,9 @@ class RecordOperation extends CommsOperation implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completionReason' => function (ParseNode $n) use ($o) { $o->setCompletionReason($n->getEnumValue(RecordCompletionReason::class)); },
-            'recordingAccessToken' => function (ParseNode $n) use ($o) { $o->setRecordingAccessToken($n->getStringValue()); },
-            'recordingLocation' => function (ParseNode $n) use ($o) { $o->setRecordingLocation($n->getStringValue()); },
+            'completionReason' => fn(ParseNode $n) => $o->setCompletionReason($n->getEnumValue(RecordCompletionReason::class)),
+            'recordingAccessToken' => fn(ParseNode $n) => $o->setRecordingAccessToken($n->getStringValue()),
+            'recordingLocation' => fn(ParseNode $n) => $o->setRecordingLocation($n->getStringValue()),
         ]);
     }
 

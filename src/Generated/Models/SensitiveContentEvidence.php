@@ -66,10 +66,10 @@ class SensitiveContentEvidence implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'length' => function (ParseNode $n) use ($o) { $o->setLength($n->getIntegerValue()); },
-            'match' => function (ParseNode $n) use ($o) { $o->setMatch($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'offset' => function (ParseNode $n) use ($o) { $o->setOffset($n->getIntegerValue()); },
+            'length' => fn(ParseNode $n) => $o->setLength($n->getIntegerValue()),
+            'match' => fn(ParseNode $n) => $o->setMatch($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'offset' => fn(ParseNode $n) => $o->setOffset($n->getIntegerValue()),
         ];
     }
 

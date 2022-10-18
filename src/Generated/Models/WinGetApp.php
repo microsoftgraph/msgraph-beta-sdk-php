@@ -42,8 +42,8 @@ class WinGetApp extends MobileApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'installExperience' => function (ParseNode $n) use ($o) { $o->setInstallExperience($n->getObjectValue(array(WinGetAppInstallExperience::class, 'createFromDiscriminatorValue'))); },
-            'packageIdentifier' => function (ParseNode $n) use ($o) { $o->setPackageIdentifier($n->getStringValue()); },
+            'installExperience' => fn(ParseNode $n) => $o->setInstallExperience($n->getObjectValue([WinGetAppInstallExperience::class, 'createFromDiscriminatorValue'])),
+            'packageIdentifier' => fn(ParseNode $n) => $o->setPackageIdentifier($n->getStringValue()),
         ]);
     }
 

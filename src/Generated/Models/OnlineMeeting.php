@@ -171,7 +171,7 @@ class OnlineMeeting extends Entity implements Parsable
     private ?VirtualAppointment $virtualAppointment = null;
     
     /**
-     * Instantiates a new OnlineMeeting and sets the default values.
+     * Instantiates a new onlineMeeting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -314,38 +314,38 @@ class OnlineMeeting extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowAttendeeToEnableCamera' => function (ParseNode $n) use ($o) { $o->setAllowAttendeeToEnableCamera($n->getBooleanValue()); },
-            'allowAttendeeToEnableMic' => function (ParseNode $n) use ($o) { $o->setAllowAttendeeToEnableMic($n->getBooleanValue()); },
-            'allowedPresenters' => function (ParseNode $n) use ($o) { $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)); },
-            'allowTeamworkReactions' => function (ParseNode $n) use ($o) { $o->setAllowTeamworkReactions($n->getBooleanValue()); },
-            'alternativeRecording' => function (ParseNode $n) use ($o) { $o->setAlternativeRecording($n->getBinaryContent()); },
-            'anonymizeIdentityForRoles' => function (ParseNode $n) use ($o) { $o->setAnonymizeIdentityForRoles($n->getCollectionOfEnumValues(OnlineMeetingRole::class)); },
-            'attendanceReports' => function (ParseNode $n) use ($o) { $o->setAttendanceReports($n->getCollectionOfObjectValues(array(MeetingAttendanceReport::class, 'createFromDiscriminatorValue'))); },
-            'attendeeReport' => function (ParseNode $n) use ($o) { $o->setAttendeeReport($n->getBinaryContent()); },
-            'audioConferencing' => function (ParseNode $n) use ($o) { $o->setAudioConferencing($n->getObjectValue(array(AudioConferencing::class, 'createFromDiscriminatorValue'))); },
-            'broadcastSettings' => function (ParseNode $n) use ($o) { $o->setBroadcastSettings($n->getObjectValue(array(BroadcastMeetingSettings::class, 'createFromDiscriminatorValue'))); },
-            'capabilities' => function (ParseNode $n) use ($o) { $o->setCapabilities($n->getCollectionOfEnumValues(MeetingCapabilities::class)); },
-            'chatInfo' => function (ParseNode $n) use ($o) { $o->setChatInfo($n->getObjectValue(array(ChatInfo::class, 'createFromDiscriminatorValue'))); },
-            'creationDateTime' => function (ParseNode $n) use ($o) { $o->setCreationDateTime($n->getDateTimeValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
-            'isBroadcast' => function (ParseNode $n) use ($o) { $o->setIsBroadcast($n->getBooleanValue()); },
-            'isEntryExitAnnounced' => function (ParseNode $n) use ($o) { $o->setIsEntryExitAnnounced($n->getBooleanValue()); },
-            'joinInformation' => function (ParseNode $n) use ($o) { $o->setJoinInformation($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
-            'joinMeetingIdSettings' => function (ParseNode $n) use ($o) { $o->setJoinMeetingIdSettings($n->getObjectValue(array(JoinMeetingIdSettings::class, 'createFromDiscriminatorValue'))); },
-            'joinUrl' => function (ParseNode $n) use ($o) { $o->setJoinUrl($n->getStringValue()); },
-            'joinWebUrl' => function (ParseNode $n) use ($o) { $o->setJoinWebUrl($n->getStringValue()); },
-            'lobbyBypassSettings' => function (ParseNode $n) use ($o) { $o->setLobbyBypassSettings($n->getObjectValue(array(LobbyBypassSettings::class, 'createFromDiscriminatorValue'))); },
-            'meetingAttendanceReport' => function (ParseNode $n) use ($o) { $o->setMeetingAttendanceReport($n->getObjectValue(array(MeetingAttendanceReport::class, 'createFromDiscriminatorValue'))); },
-            'participants' => function (ParseNode $n) use ($o) { $o->setParticipants($n->getObjectValue(array(MeetingParticipants::class, 'createFromDiscriminatorValue'))); },
-            'recordAutomatically' => function (ParseNode $n) use ($o) { $o->setRecordAutomatically($n->getBooleanValue()); },
-            'recording' => function (ParseNode $n) use ($o) { $o->setRecording($n->getBinaryContent()); },
-            'registration' => function (ParseNode $n) use ($o) { $o->setRegistration($n->getObjectValue(array(MeetingRegistration::class, 'createFromDiscriminatorValue'))); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
-            'transcripts' => function (ParseNode $n) use ($o) { $o->setTranscripts($n->getCollectionOfObjectValues(array(CallTranscript::class, 'createFromDiscriminatorValue'))); },
-            'videoTeleconferenceId' => function (ParseNode $n) use ($o) { $o->setVideoTeleconferenceId($n->getStringValue()); },
-            'virtualAppointment' => function (ParseNode $n) use ($o) { $o->setVirtualAppointment($n->getObjectValue(array(VirtualAppointment::class, 'createFromDiscriminatorValue'))); },
+            'allowAttendeeToEnableCamera' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableCamera($n->getBooleanValue()),
+            'allowAttendeeToEnableMic' => fn(ParseNode $n) => $o->setAllowAttendeeToEnableMic($n->getBooleanValue()),
+            'allowedPresenters' => fn(ParseNode $n) => $o->setAllowedPresenters($n->getEnumValue(OnlineMeetingPresenters::class)),
+            'allowTeamworkReactions' => fn(ParseNode $n) => $o->setAllowTeamworkReactions($n->getBooleanValue()),
+            'alternativeRecording' => fn(ParseNode $n) => $o->setAlternativeRecording($n->getBinaryContent()),
+            'anonymizeIdentityForRoles' => fn(ParseNode $n) => $o->setAnonymizeIdentityForRoles($n->getCollectionOfEnumValues(OnlineMeetingRole::class)),
+            'attendanceReports' => fn(ParseNode $n) => $o->setAttendanceReports($n->getCollectionOfObjectValues([MeetingAttendanceReport::class, 'createFromDiscriminatorValue'])),
+            'attendeeReport' => fn(ParseNode $n) => $o->setAttendeeReport($n->getBinaryContent()),
+            'audioConferencing' => fn(ParseNode $n) => $o->setAudioConferencing($n->getObjectValue([AudioConferencing::class, 'createFromDiscriminatorValue'])),
+            'broadcastSettings' => fn(ParseNode $n) => $o->setBroadcastSettings($n->getObjectValue([BroadcastMeetingSettings::class, 'createFromDiscriminatorValue'])),
+            'capabilities' => fn(ParseNode $n) => $o->setCapabilities($n->getCollectionOfEnumValues(MeetingCapabilities::class)),
+            'chatInfo' => fn(ParseNode $n) => $o->setChatInfo($n->getObjectValue([ChatInfo::class, 'createFromDiscriminatorValue'])),
+            'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
+            'isBroadcast' => fn(ParseNode $n) => $o->setIsBroadcast($n->getBooleanValue()),
+            'isEntryExitAnnounced' => fn(ParseNode $n) => $o->setIsEntryExitAnnounced($n->getBooleanValue()),
+            'joinInformation' => fn(ParseNode $n) => $o->setJoinInformation($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            'joinMeetingIdSettings' => fn(ParseNode $n) => $o->setJoinMeetingIdSettings($n->getObjectValue([JoinMeetingIdSettings::class, 'createFromDiscriminatorValue'])),
+            'joinUrl' => fn(ParseNode $n) => $o->setJoinUrl($n->getStringValue()),
+            'joinWebUrl' => fn(ParseNode $n) => $o->setJoinWebUrl($n->getStringValue()),
+            'lobbyBypassSettings' => fn(ParseNode $n) => $o->setLobbyBypassSettings($n->getObjectValue([LobbyBypassSettings::class, 'createFromDiscriminatorValue'])),
+            'meetingAttendanceReport' => fn(ParseNode $n) => $o->setMeetingAttendanceReport($n->getObjectValue([MeetingAttendanceReport::class, 'createFromDiscriminatorValue'])),
+            'participants' => fn(ParseNode $n) => $o->setParticipants($n->getObjectValue([MeetingParticipants::class, 'createFromDiscriminatorValue'])),
+            'recordAutomatically' => fn(ParseNode $n) => $o->setRecordAutomatically($n->getBooleanValue()),
+            'recording' => fn(ParseNode $n) => $o->setRecording($n->getBinaryContent()),
+            'registration' => fn(ParseNode $n) => $o->setRegistration($n->getObjectValue([MeetingRegistration::class, 'createFromDiscriminatorValue'])),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
+            'transcripts' => fn(ParseNode $n) => $o->setTranscripts($n->getCollectionOfObjectValues([CallTranscript::class, 'createFromDiscriminatorValue'])),
+            'videoTeleconferenceId' => fn(ParseNode $n) => $o->setVideoTeleconferenceId($n->getStringValue()),
+            'virtualAppointment' => fn(ParseNode $n) => $o->setVirtualAppointment($n->getObjectValue([VirtualAppointment::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

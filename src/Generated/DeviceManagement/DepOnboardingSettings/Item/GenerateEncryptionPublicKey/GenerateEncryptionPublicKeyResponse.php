@@ -50,7 +50,7 @@ class GenerateEncryptionPublicKeyResponse implements AdditionalDataHolder, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
         ];
     }
 

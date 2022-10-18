@@ -66,10 +66,10 @@ class SynchronizationJobSubject implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'links' => function (ParseNode $n) use ($o) { $o->setLinks($n->getObjectValue(array(SynchronizationLinkedObjects::class, 'createFromDiscriminatorValue'))); },
-            'objectId' => function (ParseNode $n) use ($o) { $o->setObjectId($n->getStringValue()); },
-            'objectTypeName' => function (ParseNode $n) use ($o) { $o->setObjectTypeName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'links' => fn(ParseNode $n) => $o->setLinks($n->getObjectValue([SynchronizationLinkedObjects::class, 'createFromDiscriminatorValue'])),
+            'objectId' => fn(ParseNode $n) => $o->setObjectId($n->getStringValue()),
+            'objectTypeName' => fn(ParseNode $n) => $o->setObjectTypeName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -55,9 +55,9 @@ class SynchronizationSchema extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'directories' => function (ParseNode $n) use ($o) { $o->setDirectories($n->getCollectionOfObjectValues(array(DirectoryDefinition::class, 'createFromDiscriminatorValue'))); },
-            'synchronizationRules' => function (ParseNode $n) use ($o) { $o->setSynchronizationRules($n->getCollectionOfObjectValues(array(SynchronizationRule::class, 'createFromDiscriminatorValue'))); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'directories' => fn(ParseNode $n) => $o->setDirectories($n->getCollectionOfObjectValues([DirectoryDefinition::class, 'createFromDiscriminatorValue'])),
+            'synchronizationRules' => fn(ParseNode $n) => $o->setSynchronizationRules($n->getCollectionOfObjectValues([SynchronizationRule::class, 'createFromDiscriminatorValue'])),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
 

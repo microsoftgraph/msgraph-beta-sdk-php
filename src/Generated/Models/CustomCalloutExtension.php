@@ -107,11 +107,11 @@ class CustomCalloutExtension extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationConfiguration' => function (ParseNode $n) use ($o) { $o->setAuthenticationConfiguration($n->getObjectValue(array(CustomExtensionAuthenticationConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'clientConfiguration' => function (ParseNode $n) use ($o) { $o->setClientConfiguration($n->getObjectValue(array(CustomExtensionClientConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'endpointConfiguration' => function (ParseNode $n) use ($o) { $o->setEndpointConfiguration($n->getObjectValue(array(CustomExtensionEndpointConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'authenticationConfiguration' => fn(ParseNode $n) => $o->setAuthenticationConfiguration($n->getObjectValue([CustomExtensionAuthenticationConfiguration::class, 'createFromDiscriminatorValue'])),
+            'clientConfiguration' => fn(ParseNode $n) => $o->setClientConfiguration($n->getObjectValue([CustomExtensionClientConfiguration::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'endpointConfiguration' => fn(ParseNode $n) => $o->setEndpointConfiguration($n->getObjectValue([CustomExtensionEndpointConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

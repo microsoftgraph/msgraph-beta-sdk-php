@@ -92,10 +92,10 @@ class ExactMatchDataStoreBase extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'columns' => function (ParseNode $n) use ($o) { $o->setColumns($n->getCollectionOfObjectValues(array(ExactDataMatchStoreColumn::class, 'createFromDiscriminatorValue'))); },
-            'dataLastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setDataLastUpdatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'columns' => fn(ParseNode $n) => $o->setColumns($n->getCollectionOfObjectValues([ExactDataMatchStoreColumn::class, 'createFromDiscriminatorValue'])),
+            'dataLastUpdatedDateTime' => fn(ParseNode $n) => $o->setDataLastUpdatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
         ]);
     }
 

@@ -66,10 +66,10 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'pubSubEncryption' => function (ParseNode $n) use ($o) { $o->setPubSubEncryption($n->getStringValue()); },
-            'pubSubEncryptionKey' => function (ParseNode $n) use ($o) { $o->setPubSubEncryptionKey($n->getStringValue()); },
-            'sessionKey' => function (ParseNode $n) use ($o) { $o->setSessionKey($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'pubSubEncryption' => fn(ParseNode $n) => $o->setPubSubEncryption($n->getStringValue()),
+            'pubSubEncryptionKey' => fn(ParseNode $n) => $o->setPubSubEncryptionKey($n->getStringValue()),
+            'sessionKey' => fn(ParseNode $n) => $o->setSessionKey($n->getStringValue()),
         ];
     }
 

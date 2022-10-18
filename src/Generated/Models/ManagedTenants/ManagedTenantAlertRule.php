@@ -165,21 +165,21 @@ class ManagedTenantAlertRule extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alertDisplayName' => function (ParseNode $n) use ($o) { $o->setAlertDisplayName($n->getStringValue()); },
-            'alerts' => function (ParseNode $n) use ($o) { $o->setAlerts($n->getCollectionOfObjectValues(array(ManagedTenantAlert::class, 'createFromDiscriminatorValue'))); },
-            'alertTTL' => function (ParseNode $n) use ($o) { $o->setAlertTTL($n->getIntegerValue()); },
-            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'lastRunDateTime' => function (ParseNode $n) use ($o) { $o->setLastRunDateTime($n->getDateTimeValue()); },
-            'notificationFinalDestinations' => function (ParseNode $n) use ($o) { $o->setNotificationFinalDestinations($n->getEnumValue(NotificationDestination::class)); },
-            'ruleDefinition' => function (ParseNode $n) use ($o) { $o->setRuleDefinition($n->getObjectValue(array(ManagedTenantAlertRuleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'severity' => function (ParseNode $n) use ($o) { $o->setSeverity($n->getEnumValue(AlertSeverity::class)); },
-            'targets' => function (ParseNode $n) use ($o) { $o->setTargets($n->getCollectionOfObjectValues(array(NotificationTarget::class, 'createFromDiscriminatorValue'))); },
-            'tenantIds' => function (ParseNode $n) use ($o) { $o->setTenantIds($n->getCollectionOfObjectValues(array(TenantInfo::class, 'createFromDiscriminatorValue'))); },
+            'alertDisplayName' => fn(ParseNode $n) => $o->setAlertDisplayName($n->getStringValue()),
+            'alerts' => fn(ParseNode $n) => $o->setAlerts($n->getCollectionOfObjectValues([ManagedTenantAlert::class, 'createFromDiscriminatorValue'])),
+            'alertTTL' => fn(ParseNode $n) => $o->setAlertTTL($n->getIntegerValue()),
+            'createdByUserId' => fn(ParseNode $n) => $o->setCreatedByUserId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
+            'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
+            'lastRunDateTime' => fn(ParseNode $n) => $o->setLastRunDateTime($n->getDateTimeValue()),
+            'notificationFinalDestinations' => fn(ParseNode $n) => $o->setNotificationFinalDestinations($n->getEnumValue(NotificationDestination::class)),
+            'ruleDefinition' => fn(ParseNode $n) => $o->setRuleDefinition($n->getObjectValue([ManagedTenantAlertRuleDefinition::class, 'createFromDiscriminatorValue'])),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
+            'targets' => fn(ParseNode $n) => $o->setTargets($n->getCollectionOfObjectValues([NotificationTarget::class, 'createFromDiscriminatorValue'])),
+            'tenantIds' => fn(ParseNode $n) => $o->setTenantIds($n->getCollectionOfObjectValues([TenantInfo::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

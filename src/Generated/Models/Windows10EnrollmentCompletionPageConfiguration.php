@@ -143,17 +143,17 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowDeviceResetOnInstallFailure' => function (ParseNode $n) use ($o) { $o->setAllowDeviceResetOnInstallFailure($n->getBooleanValue()); },
-            'allowDeviceUseOnInstallFailure' => function (ParseNode $n) use ($o) { $o->setAllowDeviceUseOnInstallFailure($n->getBooleanValue()); },
-            'allowLogCollectionOnInstallFailure' => function (ParseNode $n) use ($o) { $o->setAllowLogCollectionOnInstallFailure($n->getBooleanValue()); },
-            'allowNonBlockingAppInstallation' => function (ParseNode $n) use ($o) { $o->setAllowNonBlockingAppInstallation($n->getBooleanValue()); },
-            'blockDeviceSetupRetryByUser' => function (ParseNode $n) use ($o) { $o->setBlockDeviceSetupRetryByUser($n->getBooleanValue()); },
-            'customErrorMessage' => function (ParseNode $n) use ($o) { $o->setCustomErrorMessage($n->getStringValue()); },
-            'disableUserStatusTrackingAfterFirstUser' => function (ParseNode $n) use ($o) { $o->setDisableUserStatusTrackingAfterFirstUser($n->getBooleanValue()); },
-            'installProgressTimeoutInMinutes' => function (ParseNode $n) use ($o) { $o->setInstallProgressTimeoutInMinutes($n->getIntegerValue()); },
-            'selectedMobileAppIds' => function (ParseNode $n) use ($o) { $o->setSelectedMobileAppIds($n->getCollectionOfPrimitiveValues()); },
-            'showInstallationProgress' => function (ParseNode $n) use ($o) { $o->setShowInstallationProgress($n->getBooleanValue()); },
-            'trackInstallProgressForAutopilotOnly' => function (ParseNode $n) use ($o) { $o->setTrackInstallProgressForAutopilotOnly($n->getBooleanValue()); },
+            'allowDeviceResetOnInstallFailure' => fn(ParseNode $n) => $o->setAllowDeviceResetOnInstallFailure($n->getBooleanValue()),
+            'allowDeviceUseOnInstallFailure' => fn(ParseNode $n) => $o->setAllowDeviceUseOnInstallFailure($n->getBooleanValue()),
+            'allowLogCollectionOnInstallFailure' => fn(ParseNode $n) => $o->setAllowLogCollectionOnInstallFailure($n->getBooleanValue()),
+            'allowNonBlockingAppInstallation' => fn(ParseNode $n) => $o->setAllowNonBlockingAppInstallation($n->getBooleanValue()),
+            'blockDeviceSetupRetryByUser' => fn(ParseNode $n) => $o->setBlockDeviceSetupRetryByUser($n->getBooleanValue()),
+            'customErrorMessage' => fn(ParseNode $n) => $o->setCustomErrorMessage($n->getStringValue()),
+            'disableUserStatusTrackingAfterFirstUser' => fn(ParseNode $n) => $o->setDisableUserStatusTrackingAfterFirstUser($n->getBooleanValue()),
+            'installProgressTimeoutInMinutes' => fn(ParseNode $n) => $o->setInstallProgressTimeoutInMinutes($n->getIntegerValue()),
+            'selectedMobileAppIds' => fn(ParseNode $n) => $o->setSelectedMobileAppIds($n->getCollectionOfPrimitiveValues()),
+            'showInstallationProgress' => fn(ParseNode $n) => $o->setShowInstallationProgress($n->getBooleanValue()),
+            'trackInstallProgressForAutopilotOnly' => fn(ParseNode $n) => $o->setTrackInstallProgressForAutopilotOnly($n->getBooleanValue()),
         ]);
     }
 

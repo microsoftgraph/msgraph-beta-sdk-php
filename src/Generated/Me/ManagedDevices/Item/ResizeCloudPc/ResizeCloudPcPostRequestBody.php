@@ -50,7 +50,7 @@ class ResizeCloudPcPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'targetServicePlanId' => function (ParseNode $n) use ($o) { $o->setTargetServicePlanId($n->getStringValue()); },
+            'targetServicePlanId' => fn(ParseNode $n) => $o->setTargetServicePlanId($n->getStringValue()),
         ];
     }
 

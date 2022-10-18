@@ -63,8 +63,8 @@ class ApproveAppsPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'approveAllPermissions' => function (ParseNode $n) use ($o) { $o->setApproveAllPermissions($n->getBooleanValue()); },
-            'packageIds' => function (ParseNode $n) use ($o) { $o->setPackageIds($n->getCollectionOfPrimitiveValues()); },
+            'approveAllPermissions' => fn(ParseNode $n) => $o->setApproveAllPermissions($n->getBooleanValue()),
+            'packageIds' => fn(ParseNode $n) => $o->setPackageIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

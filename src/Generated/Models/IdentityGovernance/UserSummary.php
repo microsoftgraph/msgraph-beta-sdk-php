@@ -92,12 +92,12 @@ class UserSummary implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'failedTasks' => function (ParseNode $n) use ($o) { $o->setFailedTasks($n->getIntegerValue()); },
-            'failedUsers' => function (ParseNode $n) use ($o) { $o->setFailedUsers($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'successfulUsers' => function (ParseNode $n) use ($o) { $o->setSuccessfulUsers($n->getIntegerValue()); },
-            'totalTasks' => function (ParseNode $n) use ($o) { $o->setTotalTasks($n->getIntegerValue()); },
-            'totalUsers' => function (ParseNode $n) use ($o) { $o->setTotalUsers($n->getIntegerValue()); },
+            'failedTasks' => fn(ParseNode $n) => $o->setFailedTasks($n->getIntegerValue()),
+            'failedUsers' => fn(ParseNode $n) => $o->setFailedUsers($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'successfulUsers' => fn(ParseNode $n) => $o->setSuccessfulUsers($n->getIntegerValue()),
+            'totalTasks' => fn(ParseNode $n) => $o->setTotalTasks($n->getIntegerValue()),
+            'totalUsers' => fn(ParseNode $n) => $o->setTotalUsers($n->getIntegerValue()),
         ];
     }
 

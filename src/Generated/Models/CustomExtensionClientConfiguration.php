@@ -56,8 +56,8 @@ class CustomExtensionClientConfiguration implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'timeoutInMilliseconds' => function (ParseNode $n) use ($o) { $o->setTimeoutInMilliseconds($n->getIntegerValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'timeoutInMilliseconds' => fn(ParseNode $n) => $o->setTimeoutInMilliseconds($n->getIntegerValue()),
         ];
     }
 

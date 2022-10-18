@@ -143,16 +143,16 @@ class AccessReviewSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accessRecommendationsEnabled' => function (ParseNode $n) use ($o) { $o->setAccessRecommendationsEnabled($n->getBooleanValue()); },
-            'activityDurationInDays' => function (ParseNode $n) use ($o) { $o->setActivityDurationInDays($n->getIntegerValue()); },
-            'autoApplyReviewResultsEnabled' => function (ParseNode $n) use ($o) { $o->setAutoApplyReviewResultsEnabled($n->getBooleanValue()); },
-            'autoReviewEnabled' => function (ParseNode $n) use ($o) { $o->setAutoReviewEnabled($n->getBooleanValue()); },
-            'autoReviewSettings' => function (ParseNode $n) use ($o) { $o->setAutoReviewSettings($n->getObjectValue(array(AutoReviewSettings::class, 'createFromDiscriminatorValue'))); },
-            'justificationRequiredOnApproval' => function (ParseNode $n) use ($o) { $o->setJustificationRequiredOnApproval($n->getBooleanValue()); },
-            'mailNotificationsEnabled' => function (ParseNode $n) use ($o) { $o->setMailNotificationsEnabled($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recurrenceSettings' => function (ParseNode $n) use ($o) { $o->setRecurrenceSettings($n->getObjectValue(array(AccessReviewRecurrenceSettings::class, 'createFromDiscriminatorValue'))); },
-            'remindersEnabled' => function (ParseNode $n) use ($o) { $o->setRemindersEnabled($n->getBooleanValue()); },
+            'accessRecommendationsEnabled' => fn(ParseNode $n) => $o->setAccessRecommendationsEnabled($n->getBooleanValue()),
+            'activityDurationInDays' => fn(ParseNode $n) => $o->setActivityDurationInDays($n->getIntegerValue()),
+            'autoApplyReviewResultsEnabled' => fn(ParseNode $n) => $o->setAutoApplyReviewResultsEnabled($n->getBooleanValue()),
+            'autoReviewEnabled' => fn(ParseNode $n) => $o->setAutoReviewEnabled($n->getBooleanValue()),
+            'autoReviewSettings' => fn(ParseNode $n) => $o->setAutoReviewSettings($n->getObjectValue([AutoReviewSettings::class, 'createFromDiscriminatorValue'])),
+            'justificationRequiredOnApproval' => fn(ParseNode $n) => $o->setJustificationRequiredOnApproval($n->getBooleanValue()),
+            'mailNotificationsEnabled' => fn(ParseNode $n) => $o->setMailNotificationsEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recurrenceSettings' => fn(ParseNode $n) => $o->setRecurrenceSettings($n->getObjectValue([AccessReviewRecurrenceSettings::class, 'createFromDiscriminatorValue'])),
+            'remindersEnabled' => fn(ParseNode $n) => $o->setRemindersEnabled($n->getBooleanValue()),
         ];
     }
 

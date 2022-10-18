@@ -58,8 +58,8 @@ class ConfigurationManagerActionResult extends DeviceActionResult implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionDeliveryStatus' => function (ParseNode $n) use ($o) { $o->setActionDeliveryStatus($n->getEnumValue(ConfigurationManagerActionDeliveryStatus::class)); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
+            'actionDeliveryStatus' => fn(ParseNode $n) => $o->setActionDeliveryStatus($n->getEnumValue(ConfigurationManagerActionDeliveryStatus::class)),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
         ]);
     }
 

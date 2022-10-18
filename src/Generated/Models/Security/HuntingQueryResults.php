@@ -20,12 +20,12 @@ class HuntingQueryResults implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var array<HuntingRowResult>|null $results The results property
+     * @var array<HuntingRowResult>|null $results The results of the hunting query.
     */
     private ?array $results = null;
     
     /**
-     * @var array<SinglePropertySchema>|null $schema The schema property
+     * @var array<SinglePropertySchema>|null $schema The schema for the response.
     */
     private ?array $schema = null;
     
@@ -61,9 +61,9 @@ class HuntingQueryResults implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'results' => function (ParseNode $n) use ($o) { $o->setResults($n->getCollectionOfObjectValues(array(HuntingRowResult::class, 'createFromDiscriminatorValue'))); },
-            'schema' => function (ParseNode $n) use ($o) { $o->setSchema($n->getCollectionOfObjectValues(array(SinglePropertySchema::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'results' => fn(ParseNode $n) => $o->setResults($n->getCollectionOfObjectValues([HuntingRowResult::class, 'createFromDiscriminatorValue'])),
+            'schema' => fn(ParseNode $n) => $o->setSchema($n->getCollectionOfObjectValues([SinglePropertySchema::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -76,7 +76,7 @@ class HuntingQueryResults implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the results property value. The results property
+     * Gets the results property value. The results of the hunting query.
      * @return array<HuntingRowResult>|null
     */
     public function getResults(): ?array {
@@ -84,7 +84,7 @@ class HuntingQueryResults implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the schema property value. The schema property
+     * Gets the schema property value. The schema for the response.
      * @return array<SinglePropertySchema>|null
     */
     public function getSchema(): ?array {
@@ -119,7 +119,7 @@ class HuntingQueryResults implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the results property value. The results property
+     * Sets the results property value. The results of the hunting query.
      *  @param array<HuntingRowResult>|null $value Value to set for the results property.
     */
     public function setResults(?array $value ): void {
@@ -127,7 +127,7 @@ class HuntingQueryResults implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the schema property value. The schema property
+     * Sets the schema property value. The schema for the response.
      *  @param array<SinglePropertySchema>|null $value Value to set for the schema property.
     */
     public function setSchema(?array $value ): void {

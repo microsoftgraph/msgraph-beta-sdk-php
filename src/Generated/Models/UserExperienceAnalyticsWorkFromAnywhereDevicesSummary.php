@@ -177,21 +177,21 @@ class UserExperienceAnalyticsWorkFromAnywhereDevicesSummary implements Additiona
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'autopilotDevicesSummary' => function (ParseNode $n) use ($o) { $o->setAutopilotDevicesSummary($n->getObjectValue(array(UserExperienceAnalyticsAutopilotDevicesSummary::class, 'createFromDiscriminatorValue'))); },
-            'cloudIdentityDevicesSummary' => function (ParseNode $n) use ($o) { $o->setCloudIdentityDevicesSummary($n->getObjectValue(array(UserExperienceAnalyticsCloudIdentityDevicesSummary::class, 'createFromDiscriminatorValue'))); },
-            'cloudManagementDevicesSummary' => function (ParseNode $n) use ($o) { $o->setCloudManagementDevicesSummary($n->getObjectValue(array(UserExperienceAnalyticsCloudManagementDevicesSummary::class, 'createFromDiscriminatorValue'))); },
-            'coManagedDevices' => function (ParseNode $n) use ($o) { $o->setCoManagedDevices($n->getIntegerValue()); },
-            'devicesNotAutopilotRegistered' => function (ParseNode $n) use ($o) { $o->setDevicesNotAutopilotRegistered($n->getIntegerValue()); },
-            'devicesWithoutAutopilotProfileAssigned' => function (ParseNode $n) use ($o) { $o->setDevicesWithoutAutopilotProfileAssigned($n->getIntegerValue()); },
-            'devicesWithoutCloudIdentity' => function (ParseNode $n) use ($o) { $o->setDevicesWithoutCloudIdentity($n->getIntegerValue()); },
-            'intuneDevices' => function (ParseNode $n) use ($o) { $o->setIntuneDevices($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'tenantAttachDevices' => function (ParseNode $n) use ($o) { $o->setTenantAttachDevices($n->getIntegerValue()); },
-            'totalDevices' => function (ParseNode $n) use ($o) { $o->setTotalDevices($n->getIntegerValue()); },
-            'unsupportedOSversionDevices' => function (ParseNode $n) use ($o) { $o->setUnsupportedOSversionDevices($n->getIntegerValue()); },
-            'windows10Devices' => function (ParseNode $n) use ($o) { $o->setWindows10Devices($n->getIntegerValue()); },
-            'windows10DevicesSummary' => function (ParseNode $n) use ($o) { $o->setWindows10DevicesSummary($n->getObjectValue(array(UserExperienceAnalyticsWindows10DevicesSummary::class, 'createFromDiscriminatorValue'))); },
-            'windows10DevicesWithoutTenantAttach' => function (ParseNode $n) use ($o) { $o->setWindows10DevicesWithoutTenantAttach($n->getIntegerValue()); },
+            'autopilotDevicesSummary' => fn(ParseNode $n) => $o->setAutopilotDevicesSummary($n->getObjectValue([UserExperienceAnalyticsAutopilotDevicesSummary::class, 'createFromDiscriminatorValue'])),
+            'cloudIdentityDevicesSummary' => fn(ParseNode $n) => $o->setCloudIdentityDevicesSummary($n->getObjectValue([UserExperienceAnalyticsCloudIdentityDevicesSummary::class, 'createFromDiscriminatorValue'])),
+            'cloudManagementDevicesSummary' => fn(ParseNode $n) => $o->setCloudManagementDevicesSummary($n->getObjectValue([UserExperienceAnalyticsCloudManagementDevicesSummary::class, 'createFromDiscriminatorValue'])),
+            'coManagedDevices' => fn(ParseNode $n) => $o->setCoManagedDevices($n->getIntegerValue()),
+            'devicesNotAutopilotRegistered' => fn(ParseNode $n) => $o->setDevicesNotAutopilotRegistered($n->getIntegerValue()),
+            'devicesWithoutAutopilotProfileAssigned' => fn(ParseNode $n) => $o->setDevicesWithoutAutopilotProfileAssigned($n->getIntegerValue()),
+            'devicesWithoutCloudIdentity' => fn(ParseNode $n) => $o->setDevicesWithoutCloudIdentity($n->getIntegerValue()),
+            'intuneDevices' => fn(ParseNode $n) => $o->setIntuneDevices($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'tenantAttachDevices' => fn(ParseNode $n) => $o->setTenantAttachDevices($n->getIntegerValue()),
+            'totalDevices' => fn(ParseNode $n) => $o->setTotalDevices($n->getIntegerValue()),
+            'unsupportedOSversionDevices' => fn(ParseNode $n) => $o->setUnsupportedOSversionDevices($n->getIntegerValue()),
+            'windows10Devices' => fn(ParseNode $n) => $o->setWindows10Devices($n->getIntegerValue()),
+            'windows10DevicesSummary' => fn(ParseNode $n) => $o->setWindows10DevicesSummary($n->getObjectValue([UserExperienceAnalyticsWindows10DevicesSummary::class, 'createFromDiscriminatorValue'])),
+            'windows10DevicesWithoutTenantAttach' => fn(ParseNode $n) => $o->setWindows10DevicesWithoutTenantAttach($n->getIntegerValue()),
         ];
     }
 

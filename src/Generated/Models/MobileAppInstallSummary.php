@@ -98,16 +98,16 @@ class MobileAppInstallSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
-            'failedUserCount' => function (ParseNode $n) use ($o) { $o->setFailedUserCount($n->getIntegerValue()); },
-            'installedDeviceCount' => function (ParseNode $n) use ($o) { $o->setInstalledDeviceCount($n->getIntegerValue()); },
-            'installedUserCount' => function (ParseNode $n) use ($o) { $o->setInstalledUserCount($n->getIntegerValue()); },
-            'notApplicableDeviceCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableDeviceCount($n->getIntegerValue()); },
-            'notApplicableUserCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableUserCount($n->getIntegerValue()); },
-            'notInstalledDeviceCount' => function (ParseNode $n) use ($o) { $o->setNotInstalledDeviceCount($n->getIntegerValue()); },
-            'notInstalledUserCount' => function (ParseNode $n) use ($o) { $o->setNotInstalledUserCount($n->getIntegerValue()); },
-            'pendingInstallDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingInstallDeviceCount($n->getIntegerValue()); },
-            'pendingInstallUserCount' => function (ParseNode $n) use ($o) { $o->setPendingInstallUserCount($n->getIntegerValue()); },
+            'failedDeviceCount' => fn(ParseNode $n) => $o->setFailedDeviceCount($n->getIntegerValue()),
+            'failedUserCount' => fn(ParseNode $n) => $o->setFailedUserCount($n->getIntegerValue()),
+            'installedDeviceCount' => fn(ParseNode $n) => $o->setInstalledDeviceCount($n->getIntegerValue()),
+            'installedUserCount' => fn(ParseNode $n) => $o->setInstalledUserCount($n->getIntegerValue()),
+            'notApplicableDeviceCount' => fn(ParseNode $n) => $o->setNotApplicableDeviceCount($n->getIntegerValue()),
+            'notApplicableUserCount' => fn(ParseNode $n) => $o->setNotApplicableUserCount($n->getIntegerValue()),
+            'notInstalledDeviceCount' => fn(ParseNode $n) => $o->setNotInstalledDeviceCount($n->getIntegerValue()),
+            'notInstalledUserCount' => fn(ParseNode $n) => $o->setNotInstalledUserCount($n->getIntegerValue()),
+            'pendingInstallDeviceCount' => fn(ParseNode $n) => $o->setPendingInstallDeviceCount($n->getIntegerValue()),
+            'pendingInstallUserCount' => fn(ParseNode $n) => $o->setPendingInstallUserCount($n->getIntegerValue()),
         ]);
     }
 

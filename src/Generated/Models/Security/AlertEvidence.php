@@ -110,13 +110,13 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'remediationStatus' => function (ParseNode $n) use ($o) { $o->setRemediationStatus($n->getEnumValue(EvidenceRemediationStatus::class)); },
-            'remediationStatusDetails' => function (ParseNode $n) use ($o) { $o->setRemediationStatusDetails($n->getStringValue()); },
-            'roles' => function (ParseNode $n) use ($o) { $o->setRoles($n->getCollectionOfEnumValues(EvidenceRole::class)); },
-            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'verdict' => function (ParseNode $n) use ($o) { $o->setVerdict($n->getEnumValue(EvidenceVerdict::class)); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'remediationStatus' => fn(ParseNode $n) => $o->setRemediationStatus($n->getEnumValue(EvidenceRemediationStatus::class)),
+            'remediationStatusDetails' => fn(ParseNode $n) => $o->setRemediationStatusDetails($n->getStringValue()),
+            'roles' => fn(ParseNode $n) => $o->setRoles($n->getCollectionOfEnumValues(EvidenceRole::class)),
+            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
+            'verdict' => fn(ParseNode $n) => $o->setVerdict($n->getEnumValue(EvidenceVerdict::class)),
         ];
     }
 

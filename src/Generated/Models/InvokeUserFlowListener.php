@@ -37,7 +37,7 @@ class InvokeUserFlowListener extends AuthenticationListener implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userFlow' => function (ParseNode $n) use ($o) { $o->setUserFlow($n->getObjectValue(array(B2xIdentityUserFlow::class, 'createFromDiscriminatorValue'))); },
+            'userFlow' => fn(ParseNode $n) => $o->setUserFlow($n->getObjectValue([B2xIdentityUserFlow::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

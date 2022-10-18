@@ -64,9 +64,9 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'date' => function (ParseNode $n) use ($o) { $o->setDate($n->getDateValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(PersonAnnualEventType::class)); },
+            'date' => fn(ParseNode $n) => $o->setDate($n->getDateValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(PersonAnnualEventType::class)),
         ]);
     }
 

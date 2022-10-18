@@ -42,8 +42,8 @@ class ItemIdResolver extends UrlToItemResolverBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'itemId' => function (ParseNode $n) use ($o) { $o->setItemId($n->getStringValue()); },
-            'urlMatchInfo' => function (ParseNode $n) use ($o) { $o->setUrlMatchInfo($n->getObjectValue(array(UrlMatchInfo::class, 'createFromDiscriminatorValue'))); },
+            'itemId' => fn(ParseNode $n) => $o->setItemId($n->getStringValue()),
+            'urlMatchInfo' => fn(ParseNode $n) => $o->setUrlMatchInfo($n->getObjectValue([UrlMatchInfo::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

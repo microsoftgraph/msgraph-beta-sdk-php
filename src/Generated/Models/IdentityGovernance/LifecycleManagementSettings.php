@@ -15,7 +15,7 @@ class LifecycleManagementSettings extends Entity implements Parsable
     private ?int $workflowScheduleIntervalInHours = null;
     
     /**
-     * Instantiates a new LifecycleManagementSettings and sets the default values.
+     * Instantiates a new lifecycleManagementSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,7 +38,7 @@ class LifecycleManagementSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'workflowScheduleIntervalInHours' => function (ParseNode $n) use ($o) { $o->setWorkflowScheduleIntervalInHours($n->getIntegerValue()); },
+            'workflowScheduleIntervalInHours' => fn(ParseNode $n) => $o->setWorkflowScheduleIntervalInHours($n->getIntegerValue()),
         ]);
     }
 

@@ -120,14 +120,14 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails extends 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appCrashCount' => function (ParseNode $n) use ($o) { $o->setAppCrashCount($n->getIntegerValue()); },
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appName' => function (ParseNode $n) use ($o) { $o->setAppName($n->getStringValue()); },
-            'appPublisher' => function (ParseNode $n) use ($o) { $o->setAppPublisher($n->getStringValue()); },
-            'appVersion' => function (ParseNode $n) use ($o) { $o->setAppVersion($n->getStringValue()); },
-            'deviceCountWithCrashes' => function (ParseNode $n) use ($o) { $o->setDeviceCountWithCrashes($n->getIntegerValue()); },
-            'isLatestUsedVersion' => function (ParseNode $n) use ($o) { $o->setIsLatestUsedVersion($n->getBooleanValue()); },
-            'isMostUsedVersion' => function (ParseNode $n) use ($o) { $o->setIsMostUsedVersion($n->getBooleanValue()); },
+            'appCrashCount' => fn(ParseNode $n) => $o->setAppCrashCount($n->getIntegerValue()),
+            'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
+            'appName' => fn(ParseNode $n) => $o->setAppName($n->getStringValue()),
+            'appPublisher' => fn(ParseNode $n) => $o->setAppPublisher($n->getStringValue()),
+            'appVersion' => fn(ParseNode $n) => $o->setAppVersion($n->getStringValue()),
+            'deviceCountWithCrashes' => fn(ParseNode $n) => $o->setDeviceCountWithCrashes($n->getIntegerValue()),
+            'isLatestUsedVersion' => fn(ParseNode $n) => $o->setIsLatestUsedVersion($n->getBooleanValue()),
+            'isMostUsedVersion' => fn(ParseNode $n) => $o->setIsMostUsedVersion($n->getBooleanValue()),
         ]);
     }
 

@@ -65,8 +65,8 @@ class AddToReviewSetPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'additionalDataOptions' => function (ParseNode $n) use ($o) { $o->setAdditionalDataOptions($n->getEnumValue(AdditionalDataOptions::class)); },
-            'sourceCollection' => function (ParseNode $n) use ($o) { $o->setSourceCollection($n->getObjectValue(array(SourceCollection::class, 'createFromDiscriminatorValue'))); },
+            'additionalDataOptions' => fn(ParseNode $n) => $o->setAdditionalDataOptions($n->getEnumValue(AdditionalDataOptions::class)),
+            'sourceCollection' => fn(ParseNode $n) => $o->setSourceCollection($n->getObjectValue([SourceCollection::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

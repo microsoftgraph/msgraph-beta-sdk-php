@@ -55,7 +55,7 @@ class AndroidForWorkSettings extends Entity implements Parsable
     private ?array $targetGroupIds = null;
     
     /**
-     * Instantiates a new AndroidForWorkSettings and sets the default values.
+     * Instantiates a new androidForWorkSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -102,15 +102,15 @@ class AndroidForWorkSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bindStatus' => function (ParseNode $n) use ($o) { $o->setBindStatus($n->getEnumValue(AndroidForWorkBindStatus::class)); },
-            'deviceOwnerManagementEnabled' => function (ParseNode $n) use ($o) { $o->setDeviceOwnerManagementEnabled($n->getBooleanValue()); },
-            'enrollmentTarget' => function (ParseNode $n) use ($o) { $o->setEnrollmentTarget($n->getEnumValue(AndroidForWorkEnrollmentTarget::class)); },
-            'lastAppSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastAppSyncDateTime($n->getDateTimeValue()); },
-            'lastAppSyncStatus' => function (ParseNode $n) use ($o) { $o->setLastAppSyncStatus($n->getEnumValue(AndroidForWorkSyncStatus::class)); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'ownerOrganizationName' => function (ParseNode $n) use ($o) { $o->setOwnerOrganizationName($n->getStringValue()); },
-            'ownerUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setOwnerUserPrincipalName($n->getStringValue()); },
-            'targetGroupIds' => function (ParseNode $n) use ($o) { $o->setTargetGroupIds($n->getCollectionOfPrimitiveValues()); },
+            'bindStatus' => fn(ParseNode $n) => $o->setBindStatus($n->getEnumValue(AndroidForWorkBindStatus::class)),
+            'deviceOwnerManagementEnabled' => fn(ParseNode $n) => $o->setDeviceOwnerManagementEnabled($n->getBooleanValue()),
+            'enrollmentTarget' => fn(ParseNode $n) => $o->setEnrollmentTarget($n->getEnumValue(AndroidForWorkEnrollmentTarget::class)),
+            'lastAppSyncDateTime' => fn(ParseNode $n) => $o->setLastAppSyncDateTime($n->getDateTimeValue()),
+            'lastAppSyncStatus' => fn(ParseNode $n) => $o->setLastAppSyncStatus($n->getEnumValue(AndroidForWorkSyncStatus::class)),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'ownerOrganizationName' => fn(ParseNode $n) => $o->setOwnerOrganizationName($n->getStringValue()),
+            'ownerUserPrincipalName' => fn(ParseNode $n) => $o->setOwnerUserPrincipalName($n->getStringValue()),
+            'targetGroupIds' => fn(ParseNode $n) => $o->setTargetGroupIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

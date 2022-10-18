@@ -50,7 +50,7 @@ class HasPayloadLinksPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'payloadIds' => function (ParseNode $n) use ($o) { $o->setPayloadIds($n->getCollectionOfPrimitiveValues()); },
+            'payloadIds' => fn(ParseNode $n) => $o->setPayloadIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

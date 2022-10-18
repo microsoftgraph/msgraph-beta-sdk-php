@@ -141,17 +141,17 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'actionName' => function (ParseNode $n) use ($o) { $o->setActionName($n->getEnumValue(ManagedDeviceRemoteAction::class)); },
-            'carrierUrl' => function (ParseNode $n) use ($o) { $o->setCarrierUrl($n->getStringValue()); },
-            'deprovisionReason' => function (ParseNode $n) use ($o) { $o->setDeprovisionReason($n->getStringValue()); },
-            'deviceIds' => function (ParseNode $n) use ($o) { $o->setDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'keepEnrollmentData' => function (ParseNode $n) use ($o) { $o->setKeepEnrollmentData($n->getBooleanValue()); },
-            'keepUserData' => function (ParseNode $n) use ($o) { $o->setKeepUserData($n->getBooleanValue()); },
-            'notificationBody' => function (ParseNode $n) use ($o) { $o->setNotificationBody($n->getStringValue()); },
-            'notificationTitle' => function (ParseNode $n) use ($o) { $o->setNotificationTitle($n->getStringValue()); },
-            'organizationalUnitPath' => function (ParseNode $n) use ($o) { $o->setOrganizationalUnitPath($n->getStringValue()); },
-            'persistEsimDataPlan' => function (ParseNode $n) use ($o) { $o->setPersistEsimDataPlan($n->getBooleanValue()); },
+            'actionName' => fn(ParseNode $n) => $o->setActionName($n->getEnumValue(ManagedDeviceRemoteAction::class)),
+            'carrierUrl' => fn(ParseNode $n) => $o->setCarrierUrl($n->getStringValue()),
+            'deprovisionReason' => fn(ParseNode $n) => $o->setDeprovisionReason($n->getStringValue()),
+            'deviceIds' => fn(ParseNode $n) => $o->setDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'keepEnrollmentData' => fn(ParseNode $n) => $o->setKeepEnrollmentData($n->getBooleanValue()),
+            'keepUserData' => fn(ParseNode $n) => $o->setKeepUserData($n->getBooleanValue()),
+            'notificationBody' => fn(ParseNode $n) => $o->setNotificationBody($n->getStringValue()),
+            'notificationTitle' => fn(ParseNode $n) => $o->setNotificationTitle($n->getStringValue()),
+            'organizationalUnitPath' => fn(ParseNode $n) => $o->setOrganizationalUnitPath($n->getStringValue()),
+            'persistEsimDataPlan' => fn(ParseNode $n) => $o->setPersistEsimDataPlan($n->getBooleanValue()),
         ];
     }
 

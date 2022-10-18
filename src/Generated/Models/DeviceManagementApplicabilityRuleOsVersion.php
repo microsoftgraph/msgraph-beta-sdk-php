@@ -71,11 +71,11 @@ class DeviceManagementApplicabilityRuleOsVersion implements AdditionalDataHolder
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'maxOSVersion' => function (ParseNode $n) use ($o) { $o->setMaxOSVersion($n->getStringValue()); },
-            'minOSVersion' => function (ParseNode $n) use ($o) { $o->setMinOSVersion($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'ruleType' => function (ParseNode $n) use ($o) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
+            'maxOSVersion' => fn(ParseNode $n) => $o->setMaxOSVersion($n->getStringValue()),
+            'minOSVersion' => fn(ParseNode $n) => $o->setMinOSVersion($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'ruleType' => fn(ParseNode $n) => $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)),
         ];
     }
 

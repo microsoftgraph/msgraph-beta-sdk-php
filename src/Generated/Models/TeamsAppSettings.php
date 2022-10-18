@@ -37,7 +37,7 @@ class TeamsAppSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isChatResourceSpecificConsentEnabled' => function (ParseNode $n) use ($o) { $o->setIsChatResourceSpecificConsentEnabled($n->getBooleanValue()); },
+            'isChatResourceSpecificConsentEnabled' => fn(ParseNode $n) => $o->setIsChatResourceSpecificConsentEnabled($n->getBooleanValue()),
         ]);
     }
 

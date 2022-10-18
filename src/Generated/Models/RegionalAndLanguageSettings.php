@@ -107,13 +107,13 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authoringLanguages' => function (ParseNode $n) use ($o) { $o->setAuthoringLanguages($n->getCollectionOfObjectValues(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
-            'defaultDisplayLanguage' => function (ParseNode $n) use ($o) { $o->setDefaultDisplayLanguage($n->getObjectValue(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
-            'defaultRegionalFormat' => function (ParseNode $n) use ($o) { $o->setDefaultRegionalFormat($n->getObjectValue(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
-            'defaultSpeechInputLanguage' => function (ParseNode $n) use ($o) { $o->setDefaultSpeechInputLanguage($n->getObjectValue(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
-            'defaultTranslationLanguage' => function (ParseNode $n) use ($o) { $o->setDefaultTranslationLanguage($n->getObjectValue(array(LocaleInfo::class, 'createFromDiscriminatorValue'))); },
-            'regionalFormatOverrides' => function (ParseNode $n) use ($o) { $o->setRegionalFormatOverrides($n->getObjectValue(array(RegionalFormatOverrides::class, 'createFromDiscriminatorValue'))); },
-            'translationPreferences' => function (ParseNode $n) use ($o) { $o->setTranslationPreferences($n->getObjectValue(array(TranslationPreferences::class, 'createFromDiscriminatorValue'))); },
+            'authoringLanguages' => fn(ParseNode $n) => $o->setAuthoringLanguages($n->getCollectionOfObjectValues([LocaleInfo::class, 'createFromDiscriminatorValue'])),
+            'defaultDisplayLanguage' => fn(ParseNode $n) => $o->setDefaultDisplayLanguage($n->getObjectValue([LocaleInfo::class, 'createFromDiscriminatorValue'])),
+            'defaultRegionalFormat' => fn(ParseNode $n) => $o->setDefaultRegionalFormat($n->getObjectValue([LocaleInfo::class, 'createFromDiscriminatorValue'])),
+            'defaultSpeechInputLanguage' => fn(ParseNode $n) => $o->setDefaultSpeechInputLanguage($n->getObjectValue([LocaleInfo::class, 'createFromDiscriminatorValue'])),
+            'defaultTranslationLanguage' => fn(ParseNode $n) => $o->setDefaultTranslationLanguage($n->getObjectValue([LocaleInfo::class, 'createFromDiscriminatorValue'])),
+            'regionalFormatOverrides' => fn(ParseNode $n) => $o->setRegionalFormatOverrides($n->getObjectValue([RegionalFormatOverrides::class, 'createFromDiscriminatorValue'])),
+            'translationPreferences' => fn(ParseNode $n) => $o->setTranslationPreferences($n->getObjectValue([TranslationPreferences::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

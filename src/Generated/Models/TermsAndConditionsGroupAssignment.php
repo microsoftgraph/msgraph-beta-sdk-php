@@ -42,8 +42,8 @@ class TermsAndConditionsGroupAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'targetGroupId' => function (ParseNode $n) use ($o) { $o->setTargetGroupId($n->getStringValue()); },
-            'termsAndConditions' => function (ParseNode $n) use ($o) { $o->setTermsAndConditions($n->getObjectValue(array(TermsAndConditions::class, 'createFromDiscriminatorValue'))); },
+            'targetGroupId' => fn(ParseNode $n) => $o->setTargetGroupId($n->getStringValue()),
+            'termsAndConditions' => fn(ParseNode $n) => $o->setTermsAndConditions($n->getObjectValue([TermsAndConditions::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

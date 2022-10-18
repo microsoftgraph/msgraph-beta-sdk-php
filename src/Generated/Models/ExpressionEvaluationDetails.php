@@ -95,11 +95,11 @@ class ExpressionEvaluationDetails implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'expression' => function (ParseNode $n) use ($o) { $o->setExpression($n->getStringValue()); },
-            'expressionEvaluationDetails' => function (ParseNode $n) use ($o) { $o->setExpressionEvaluationDetails($n->getCollectionOfObjectValues(array(ExpressionEvaluationDetails::class, 'createFromDiscriminatorValue'))); },
-            'expressionResult' => function (ParseNode $n) use ($o) { $o->setExpressionResult($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'propertyToEvaluate' => function (ParseNode $n) use ($o) { $o->setPropertyToEvaluate($n->getObjectValue(array(PropertyToEvaluate::class, 'createFromDiscriminatorValue'))); },
+            'expression' => fn(ParseNode $n) => $o->setExpression($n->getStringValue()),
+            'expressionEvaluationDetails' => fn(ParseNode $n) => $o->setExpressionEvaluationDetails($n->getCollectionOfObjectValues([ExpressionEvaluationDetails::class, 'createFromDiscriminatorValue'])),
+            'expressionResult' => fn(ParseNode $n) => $o->setExpressionResult($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'propertyToEvaluate' => fn(ParseNode $n) => $o->setPropertyToEvaluate($n->getObjectValue([PropertyToEvaluate::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

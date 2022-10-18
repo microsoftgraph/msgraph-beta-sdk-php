@@ -63,9 +63,9 @@ class AccessReviewPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isGroupOwnerManagementEnabled' => function (ParseNode $n) use ($o) { $o->setIsGroupOwnerManagementEnabled($n->getBooleanValue()); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isGroupOwnerManagementEnabled' => fn(ParseNode $n) => $o->setIsGroupOwnerManagementEnabled($n->getBooleanValue()),
         ]);
     }
 

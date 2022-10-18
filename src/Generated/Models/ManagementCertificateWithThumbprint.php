@@ -69,9 +69,9 @@ class ManagementCertificateWithThumbprint implements AdditionalDataHolder, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'certificate' => function (ParseNode $n) use ($o) { $o->setCertificate($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'thumbprint' => function (ParseNode $n) use ($o) { $o->setThumbprint($n->getStringValue()); },
+            'certificate' => fn(ParseNode $n) => $o->setCertificate($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'thumbprint' => fn(ParseNode $n) => $o->setThumbprint($n->getStringValue()),
         ];
     }
 

@@ -48,9 +48,9 @@ class WindowsAutopilotSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastManualSyncTriggerDateTime' => function (ParseNode $n) use ($o) { $o->setLastManualSyncTriggerDateTime($n->getDateTimeValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'syncStatus' => function (ParseNode $n) use ($o) { $o->setSyncStatus($n->getEnumValue(WindowsAutopilotSyncStatus::class)); },
+            'lastManualSyncTriggerDateTime' => fn(ParseNode $n) => $o->setLastManualSyncTriggerDateTime($n->getDateTimeValue()),
+            'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            'syncStatus' => fn(ParseNode $n) => $o->setSyncStatus($n->getEnumValue(WindowsAutopilotSyncStatus::class)),
         ]);
     }
 

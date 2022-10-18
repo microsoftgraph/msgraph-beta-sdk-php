@@ -50,8 +50,8 @@ class EdiscoveryFile extends File implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'custodian' => function (ParseNode $n) use ($o) { $o->setCustodian($n->getObjectValue(array(EdiscoveryCustodian::class, 'createFromDiscriminatorValue'))); },
-            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfObjectValues(array(EdiscoveryReviewTag::class, 'createFromDiscriminatorValue'))); },
+            'custodian' => fn(ParseNode $n) => $o->setCustodian($n->getObjectValue([EdiscoveryCustodian::class, 'createFromDiscriminatorValue'])),
+            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfObjectValues([EdiscoveryReviewTag::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

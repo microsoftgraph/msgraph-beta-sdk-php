@@ -69,9 +69,9 @@ class ExpressionInputObject implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'definition' => function (ParseNode $n) use ($o) { $o->setDefinition($n->getObjectValue(array(ObjectDefinition::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'properties' => function (ParseNode $n) use ($o) { $o->setProperties($n->getCollectionOfObjectValues(array(StringKeyObjectValuePair::class, 'createFromDiscriminatorValue'))); },
+            'definition' => fn(ParseNode $n) => $o->setDefinition($n->getObjectValue([ObjectDefinition::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'properties' => fn(ParseNode $n) => $o->setProperties($n->getCollectionOfObjectValues([StringKeyObjectValuePair::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

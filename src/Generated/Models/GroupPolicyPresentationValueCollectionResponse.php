@@ -36,7 +36,7 @@ class GroupPolicyPresentationValueCollectionResponse extends BaseCollectionPagin
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(GroupPolicyPresentationValue::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([GroupPolicyPresentationValue::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -81,11 +81,11 @@ class ResourceOperation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionName' => function (ParseNode $n) use ($o) { $o->setActionName($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'enabledForScopeValidation' => function (ParseNode $n) use ($o) { $o->setEnabledForScopeValidation($n->getBooleanValue()); },
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getStringValue()); },
-            'resourceName' => function (ParseNode $n) use ($o) { $o->setResourceName($n->getStringValue()); },
+            'actionName' => fn(ParseNode $n) => $o->setActionName($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'enabledForScopeValidation' => fn(ParseNode $n) => $o->setEnabledForScopeValidation($n->getBooleanValue()),
+            'resource' => fn(ParseNode $n) => $o->setResource($n->getStringValue()),
+            'resourceName' => fn(ParseNode $n) => $o->setResourceName($n->getStringValue()),
         ]);
     }
 

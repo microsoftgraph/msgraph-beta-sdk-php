@@ -100,12 +100,12 @@ class ParseExpressionResponse implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(PublicError::class, 'createFromDiscriminatorValue'))); },
-            'evaluationResult' => function (ParseNode $n) use ($o) { $o->setEvaluationResult($n->getCollectionOfPrimitiveValues()); },
-            'evaluationSucceeded' => function (ParseNode $n) use ($o) { $o->setEvaluationSucceeded($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'parsedExpression' => function (ParseNode $n) use ($o) { $o->setParsedExpression($n->getObjectValue(array(AttributeMappingSource::class, 'createFromDiscriminatorValue'))); },
-            'parsingSucceeded' => function (ParseNode $n) use ($o) { $o->setParsingSucceeded($n->getBooleanValue()); },
+            'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([PublicError::class, 'createFromDiscriminatorValue'])),
+            'evaluationResult' => fn(ParseNode $n) => $o->setEvaluationResult($n->getCollectionOfPrimitiveValues()),
+            'evaluationSucceeded' => fn(ParseNode $n) => $o->setEvaluationSucceeded($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'parsedExpression' => fn(ParseNode $n) => $o->setParsedExpression($n->getObjectValue([AttributeMappingSource::class, 'createFromDiscriminatorValue'])),
+            'parsingSucceeded' => fn(ParseNode $n) => $o->setParsingSucceeded($n->getBooleanValue()),
         ];
     }
 

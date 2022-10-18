@@ -102,15 +102,15 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'referencingConfigurationPolicies' => function (ParseNode $n) use ($o) { $o->setReferencingConfigurationPolicies($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationPolicy::class, 'createFromDiscriminatorValue'))); },
-            'referencingConfigurationPolicyCount' => function (ParseNode $n) use ($o) { $o->setReferencingConfigurationPolicyCount($n->getIntegerValue()); },
-            'settingDefinitionId' => function (ParseNode $n) use ($o) { $o->setSettingDefinitionId($n->getStringValue()); },
-            'settingInstance' => function (ParseNode $n) use ($o) { $o->setSettingInstance($n->getObjectValue(array(DeviceManagementConfigurationSettingInstance::class, 'createFromDiscriminatorValue'))); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'referencingConfigurationPolicies' => fn(ParseNode $n) => $o->setReferencingConfigurationPolicies($n->getCollectionOfObjectValues([DeviceManagementConfigurationPolicy::class, 'createFromDiscriminatorValue'])),
+            'referencingConfigurationPolicyCount' => fn(ParseNode $n) => $o->setReferencingConfigurationPolicyCount($n->getIntegerValue()),
+            'settingDefinitionId' => fn(ParseNode $n) => $o->setSettingDefinitionId($n->getStringValue()),
+            'settingInstance' => fn(ParseNode $n) => $o->setSettingInstance($n->getObjectValue([DeviceManagementConfigurationSettingInstance::class, 'createFromDiscriminatorValue'])),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
         ]);
     }
 

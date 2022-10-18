@@ -82,10 +82,10 @@ class ValidateCredentialsPostRequestBody implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'applicationIdentifier' => function (ParseNode $n) use ($o) { $o->setApplicationIdentifier($n->getStringValue()); },
-            'credentials' => function (ParseNode $n) use ($o) { $o->setCredentials($n->getCollectionOfObjectValues(array(SynchronizationSecretKeyStringValuePair::class, 'createFromDiscriminatorValue'))); },
-            'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
-            'useSavedCredentials' => function (ParseNode $n) use ($o) { $o->setUseSavedCredentials($n->getBooleanValue()); },
+            'applicationIdentifier' => fn(ParseNode $n) => $o->setApplicationIdentifier($n->getStringValue()),
+            'credentials' => fn(ParseNode $n) => $o->setCredentials($n->getCollectionOfObjectValues([SynchronizationSecretKeyStringValuePair::class, 'createFromDiscriminatorValue'])),
+            'templateId' => fn(ParseNode $n) => $o->setTemplateId($n->getStringValue()),
+            'useSavedCredentials' => fn(ParseNode $n) => $o->setUseSavedCredentials($n->getBooleanValue()),
         ];
     }
 

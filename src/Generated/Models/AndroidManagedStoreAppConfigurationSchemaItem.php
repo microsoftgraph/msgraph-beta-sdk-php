@@ -162,18 +162,18 @@ class AndroidManagedStoreAppConfigurationSchemaItem implements AdditionalDataHol
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dataType' => function (ParseNode $n) use ($o) { $o->setDataType($n->getEnumValue(AndroidManagedStoreAppConfigurationSchemaItemDataType::class)); },
-            'defaultBoolValue' => function (ParseNode $n) use ($o) { $o->setDefaultBoolValue($n->getBooleanValue()); },
-            'defaultIntValue' => function (ParseNode $n) use ($o) { $o->setDefaultIntValue($n->getIntegerValue()); },
-            'defaultStringArrayValue' => function (ParseNode $n) use ($o) { $o->setDefaultStringArrayValue($n->getCollectionOfPrimitiveValues()); },
-            'defaultStringValue' => function (ParseNode $n) use ($o) { $o->setDefaultStringValue($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'index' => function (ParseNode $n) use ($o) { $o->setIndex($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'parentIndex' => function (ParseNode $n) use ($o) { $o->setParentIndex($n->getIntegerValue()); },
-            'schemaItemKey' => function (ParseNode $n) use ($o) { $o->setSchemaItemKey($n->getStringValue()); },
-            'selections' => function (ParseNode $n) use ($o) { $o->setSelections($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'dataType' => fn(ParseNode $n) => $o->setDataType($n->getEnumValue(AndroidManagedStoreAppConfigurationSchemaItemDataType::class)),
+            'defaultBoolValue' => fn(ParseNode $n) => $o->setDefaultBoolValue($n->getBooleanValue()),
+            'defaultIntValue' => fn(ParseNode $n) => $o->setDefaultIntValue($n->getIntegerValue()),
+            'defaultStringArrayValue' => fn(ParseNode $n) => $o->setDefaultStringArrayValue($n->getCollectionOfPrimitiveValues()),
+            'defaultStringValue' => fn(ParseNode $n) => $o->setDefaultStringValue($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'index' => fn(ParseNode $n) => $o->setIndex($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'parentIndex' => fn(ParseNode $n) => $o->setParentIndex($n->getIntegerValue()),
+            'schemaItemKey' => fn(ParseNode $n) => $o->setSchemaItemKey($n->getStringValue()),
+            'selections' => fn(ParseNode $n) => $o->setSelections($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

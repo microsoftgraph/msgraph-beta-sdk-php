@@ -66,10 +66,10 @@ class CloudPcDomainJoinConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'onPremisesConnectionId' => function (ParseNode $n) use ($o) { $o->setOnPremisesConnectionId($n->getStringValue()); },
-            'regionName' => function (ParseNode $n) use ($o) { $o->setRegionName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(CloudPcDomainJoinType::class)); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'onPremisesConnectionId' => fn(ParseNode $n) => $o->setOnPremisesConnectionId($n->getStringValue()),
+            'regionName' => fn(ParseNode $n) => $o->setRegionName($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcDomainJoinType::class)),
         ];
     }
 

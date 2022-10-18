@@ -96,14 +96,14 @@ class AccessPackageResourceScope extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResource' => function (ParseNode $n) use ($o) { $o->setAccessPackageResource($n->getObjectValue(array(AccessPackageResource::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isRootScope' => function (ParseNode $n) use ($o) { $o->setIsRootScope($n->getBooleanValue()); },
-            'originId' => function (ParseNode $n) use ($o) { $o->setOriginId($n->getStringValue()); },
-            'originSystem' => function (ParseNode $n) use ($o) { $o->setOriginSystem($n->getStringValue()); },
-            'roleOriginId' => function (ParseNode $n) use ($o) { $o->setRoleOriginId($n->getStringValue()); },
-            'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
+            'accessPackageResource' => fn(ParseNode $n) => $o->setAccessPackageResource($n->getObjectValue([AccessPackageResource::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isRootScope' => fn(ParseNode $n) => $o->setIsRootScope($n->getBooleanValue()),
+            'originId' => fn(ParseNode $n) => $o->setOriginId($n->getStringValue()),
+            'originSystem' => fn(ParseNode $n) => $o->setOriginSystem($n->getStringValue()),
+            'roleOriginId' => fn(ParseNode $n) => $o->setRoleOriginId($n->getStringValue()),
+            'url' => fn(ParseNode $n) => $o->setUrl($n->getStringValue()),
         ]);
     }
 

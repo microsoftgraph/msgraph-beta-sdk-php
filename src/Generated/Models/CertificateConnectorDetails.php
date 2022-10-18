@@ -82,11 +82,11 @@ class CertificateConnectorDetails extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'connectorName' => function (ParseNode $n) use ($o) { $o->setConnectorName($n->getStringValue()); },
-            'connectorVersion' => function (ParseNode $n) use ($o) { $o->setConnectorVersion($n->getStringValue()); },
-            'enrollmentDateTime' => function (ParseNode $n) use ($o) { $o->setEnrollmentDateTime($n->getDateTimeValue()); },
-            'lastCheckinDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckinDateTime($n->getDateTimeValue()); },
-            'machineName' => function (ParseNode $n) use ($o) { $o->setMachineName($n->getStringValue()); },
+            'connectorName' => fn(ParseNode $n) => $o->setConnectorName($n->getStringValue()),
+            'connectorVersion' => fn(ParseNode $n) => $o->setConnectorVersion($n->getStringValue()),
+            'enrollmentDateTime' => fn(ParseNode $n) => $o->setEnrollmentDateTime($n->getDateTimeValue()),
+            'lastCheckinDateTime' => fn(ParseNode $n) => $o->setLastCheckinDateTime($n->getDateTimeValue()),
+            'machineName' => fn(ParseNode $n) => $o->setMachineName($n->getStringValue()),
         ]);
     }
 

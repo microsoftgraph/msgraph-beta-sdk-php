@@ -92,12 +92,12 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'defaultCommunicationSpeaker' => function (ParseNode $n) use ($o) { $o->setDefaultCommunicationSpeaker($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'defaultSpeaker' => function (ParseNode $n) use ($o) { $o->setDefaultSpeaker($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'isCommunicationSpeakerOptional' => function (ParseNode $n) use ($o) { $o->setIsCommunicationSpeakerOptional($n->getBooleanValue()); },
-            'isSpeakerOptional' => function (ParseNode $n) use ($o) { $o->setIsSpeakerOptional($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'speakers' => function (ParseNode $n) use ($o) { $o->setSpeakers($n->getCollectionOfObjectValues(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            'defaultCommunicationSpeaker' => fn(ParseNode $n) => $o->setDefaultCommunicationSpeaker($n->getObjectValue([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
+            'defaultSpeaker' => fn(ParseNode $n) => $o->setDefaultSpeaker($n->getObjectValue([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
+            'isCommunicationSpeakerOptional' => fn(ParseNode $n) => $o->setIsCommunicationSpeakerOptional($n->getBooleanValue()),
+            'isSpeakerOptional' => fn(ParseNode $n) => $o->setIsSpeakerOptional($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'speakers' => fn(ParseNode $n) => $o->setSpeakers($n->getCollectionOfObjectValues([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

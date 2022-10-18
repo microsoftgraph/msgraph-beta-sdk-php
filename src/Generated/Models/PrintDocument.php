@@ -76,10 +76,10 @@ class PrintDocument extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configuration' => function (ParseNode $n) use ($o) { $o->setConfiguration($n->getObjectValue(array(PrinterDocumentConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
+            'configuration' => fn(ParseNode $n) => $o->setConfiguration($n->getObjectValue([PrinterDocumentConfiguration::class, 'createFromDiscriminatorValue'])),
+            'contentType' => fn(ParseNode $n) => $o->setContentType($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
         ]);
     }
 

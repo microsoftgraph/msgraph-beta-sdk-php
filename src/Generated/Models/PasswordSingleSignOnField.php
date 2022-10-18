@@ -87,11 +87,11 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'customizedLabel' => function (ParseNode $n) use ($o) { $o->setCustomizedLabel($n->getStringValue()); },
-            'defaultLabel' => function (ParseNode $n) use ($o) { $o->setDefaultLabel($n->getStringValue()); },
-            'fieldId' => function (ParseNode $n) use ($o) { $o->setFieldId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'customizedLabel' => fn(ParseNode $n) => $o->setCustomizedLabel($n->getStringValue()),
+            'defaultLabel' => fn(ParseNode $n) => $o->setDefaultLabel($n->getStringValue()),
+            'fieldId' => fn(ParseNode $n) => $o->setFieldId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ];
     }
 

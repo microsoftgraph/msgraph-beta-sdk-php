@@ -64,8 +64,8 @@ class MediaConfig implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'removeFromDefaultAudioGroup' => function (ParseNode $n) use ($o) { $o->setRemoveFromDefaultAudioGroup($n->getBooleanValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'removeFromDefaultAudioGroup' => fn(ParseNode $n) => $o->setRemoveFromDefaultAudioGroup($n->getBooleanValue()),
         ];
     }
 

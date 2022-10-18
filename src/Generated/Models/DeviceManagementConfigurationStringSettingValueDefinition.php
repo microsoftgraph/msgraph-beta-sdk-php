@@ -29,12 +29,12 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     private ?bool $isSecret = null;
     
     /**
-     * @var int|null $maximumLength Maximum length of string. Valid values 0 to 87516
+     * @var int|null $maximumLength Maximum length of string
     */
     private ?int $maximumLength = null;
     
     /**
-     * @var int|null $minimumLength Minimum length of string. Valid values 0 to 87516
+     * @var int|null $minimumLength Minimum length of string
     */
     private ?int $minimumLength = null;
     
@@ -62,12 +62,12 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'fileTypes' => function (ParseNode $n) use ($o) { $o->setFileTypes($n->getCollectionOfPrimitiveValues()); },
-            'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getEnumValue(DeviceManagementConfigurationStringFormat::class)); },
-            'inputValidationSchema' => function (ParseNode $n) use ($o) { $o->setInputValidationSchema($n->getStringValue()); },
-            'isSecret' => function (ParseNode $n) use ($o) { $o->setIsSecret($n->getBooleanValue()); },
-            'maximumLength' => function (ParseNode $n) use ($o) { $o->setMaximumLength($n->getIntegerValue()); },
-            'minimumLength' => function (ParseNode $n) use ($o) { $o->setMinimumLength($n->getIntegerValue()); },
+            'fileTypes' => fn(ParseNode $n) => $o->setFileTypes($n->getCollectionOfPrimitiveValues()),
+            'format' => fn(ParseNode $n) => $o->setFormat($n->getEnumValue(DeviceManagementConfigurationStringFormat::class)),
+            'inputValidationSchema' => fn(ParseNode $n) => $o->setInputValidationSchema($n->getStringValue()),
+            'isSecret' => fn(ParseNode $n) => $o->setIsSecret($n->getBooleanValue()),
+            'maximumLength' => fn(ParseNode $n) => $o->setMaximumLength($n->getIntegerValue()),
+            'minimumLength' => fn(ParseNode $n) => $o->setMinimumLength($n->getIntegerValue()),
         ]);
     }
 
@@ -104,7 +104,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
+     * Gets the maximumLength property value. Maximum length of string
      * @return int|null
     */
     public function getMaximumLength(): ?int {
@@ -112,7 +112,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Gets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
+     * Gets the minimumLength property value. Minimum length of string
      * @return int|null
     */
     public function getMinimumLength(): ?int {
@@ -166,7 +166,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the maximumLength property value. Maximum length of string. Valid values 0 to 87516
+     * Sets the maximumLength property value. Maximum length of string
      *  @param int|null $value Value to set for the maximumLength property.
     */
     public function setMaximumLength(?int $value ): void {
@@ -174,7 +174,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     }
 
     /**
-     * Sets the minimumLength property value. Minimum length of string. Valid values 0 to 87516
+     * Sets the minimumLength property value. Minimum length of string
      *  @param int|null $value Value to set for the minimumLength property.
     */
     public function setMinimumLength(?int $value ): void {

@@ -86,12 +86,12 @@ class MailClusterEvidence extends AlertEvidence implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'clusterBy' => function (ParseNode $n) use ($o) { $o->setClusterBy($n->getStringValue()); },
-            'clusterByValue' => function (ParseNode $n) use ($o) { $o->setClusterByValue($n->getStringValue()); },
-            'emailCount' => function (ParseNode $n) use ($o) { $o->setEmailCount($n->getIntegerValue()); },
-            'networkMessageIds' => function (ParseNode $n) use ($o) { $o->setNetworkMessageIds($n->getCollectionOfPrimitiveValues()); },
-            'query' => function (ParseNode $n) use ($o) { $o->setQuery($n->getStringValue()); },
-            'urn' => function (ParseNode $n) use ($o) { $o->setUrn($n->getStringValue()); },
+            'clusterBy' => fn(ParseNode $n) => $o->setClusterBy($n->getStringValue()),
+            'clusterByValue' => fn(ParseNode $n) => $o->setClusterByValue($n->getStringValue()),
+            'emailCount' => fn(ParseNode $n) => $o->setEmailCount($n->getIntegerValue()),
+            'networkMessageIds' => fn(ParseNode $n) => $o->setNetworkMessageIds($n->getCollectionOfPrimitiveValues()),
+            'query' => fn(ParseNode $n) => $o->setQuery($n->getStringValue()),
+            'urn' => fn(ParseNode $n) => $o->setUrn($n->getStringValue()),
         ]);
     }
 

@@ -100,13 +100,13 @@ class ManagedDeviceOverview extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceExchangeAccessStateSummary' => function (ParseNode $n) use ($o) { $o->setDeviceExchangeAccessStateSummary($n->getObjectValue(array(DeviceExchangeAccessStateSummary::class, 'createFromDiscriminatorValue'))); },
-            'deviceOperatingSystemSummary' => function (ParseNode $n) use ($o) { $o->setDeviceOperatingSystemSummary($n->getObjectValue(array(DeviceOperatingSystemSummary::class, 'createFromDiscriminatorValue'))); },
-            'dualEnrolledDeviceCount' => function (ParseNode $n) use ($o) { $o->setDualEnrolledDeviceCount($n->getIntegerValue()); },
-            'enrolledDeviceCount' => function (ParseNode $n) use ($o) { $o->setEnrolledDeviceCount($n->getIntegerValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'managedDeviceModelsAndManufacturers' => function (ParseNode $n) use ($o) { $o->setManagedDeviceModelsAndManufacturers($n->getObjectValue(array(ManagedDeviceModelsAndManufacturers::class, 'createFromDiscriminatorValue'))); },
-            'mdmEnrolledCount' => function (ParseNode $n) use ($o) { $o->setMdmEnrolledCount($n->getIntegerValue()); },
+            'deviceExchangeAccessStateSummary' => fn(ParseNode $n) => $o->setDeviceExchangeAccessStateSummary($n->getObjectValue([DeviceExchangeAccessStateSummary::class, 'createFromDiscriminatorValue'])),
+            'deviceOperatingSystemSummary' => fn(ParseNode $n) => $o->setDeviceOperatingSystemSummary($n->getObjectValue([DeviceOperatingSystemSummary::class, 'createFromDiscriminatorValue'])),
+            'dualEnrolledDeviceCount' => fn(ParseNode $n) => $o->setDualEnrolledDeviceCount($n->getIntegerValue()),
+            'enrolledDeviceCount' => fn(ParseNode $n) => $o->setEnrolledDeviceCount($n->getIntegerValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'managedDeviceModelsAndManufacturers' => fn(ParseNode $n) => $o->setManagedDeviceModelsAndManufacturers($n->getObjectValue([ManagedDeviceModelsAndManufacturers::class, 'createFromDiscriminatorValue'])),
+            'mdmEnrolledCount' => fn(ParseNode $n) => $o->setMdmEnrolledCount($n->getIntegerValue()),
         ]);
     }
 

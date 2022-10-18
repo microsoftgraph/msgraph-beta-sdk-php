@@ -58,8 +58,8 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate exten
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowUnmanagedValues' => function (ParseNode $n) use ($o) { $o->setAllowUnmanagedValues($n->getBooleanValue()); },
-            'choiceSettingCollectionValueTemplate' => function (ParseNode $n) use ($o) { $o->setChoiceSettingCollectionValueTemplate($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationChoiceSettingValueTemplate::class, 'createFromDiscriminatorValue'))); },
+            'allowUnmanagedValues' => fn(ParseNode $n) => $o->setAllowUnmanagedValues($n->getBooleanValue()),
+            'choiceSettingCollectionValueTemplate' => fn(ParseNode $n) => $o->setChoiceSettingCollectionValueTemplate($n->getCollectionOfObjectValues([DeviceManagementConfigurationChoiceSettingValueTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

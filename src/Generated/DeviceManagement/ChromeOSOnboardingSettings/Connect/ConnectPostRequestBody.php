@@ -55,8 +55,8 @@ class ConnectPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'ownerAccessToken' => function (ParseNode $n) use ($o) { $o->setOwnerAccessToken($n->getStringValue()); },
-            'ownerUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setOwnerUserPrincipalName($n->getStringValue()); },
+            'ownerAccessToken' => fn(ParseNode $n) => $o->setOwnerAccessToken($n->getStringValue()),
+            'ownerUserPrincipalName' => fn(ParseNode $n) => $o->setOwnerUserPrincipalName($n->getStringValue()),
         ];
     }
 

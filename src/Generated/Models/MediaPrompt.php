@@ -42,8 +42,8 @@ class MediaPrompt extends Prompt implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'loop' => function (ParseNode $n) use ($o) { $o->setLoop($n->getIntegerValue()); },
-            'mediaInfo' => function (ParseNode $n) use ($o) { $o->setMediaInfo($n->getObjectValue(array(MediaInfo::class, 'createFromDiscriminatorValue'))); },
+            'loop' => fn(ParseNode $n) => $o->setLoop($n->getIntegerValue()),
+            'mediaInfo' => fn(ParseNode $n) => $o->setMediaInfo($n->getObjectValue([MediaInfo::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

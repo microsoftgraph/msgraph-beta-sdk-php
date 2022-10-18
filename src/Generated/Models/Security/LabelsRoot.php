@@ -38,7 +38,7 @@ class LabelsRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'retentionLabels' => function (ParseNode $n) use ($o) { $o->setRetentionLabels($n->getCollectionOfObjectValues(array(RetentionLabel::class, 'createFromDiscriminatorValue'))); },
+            'retentionLabels' => fn(ParseNode $n) => $o->setRetentionLabels($n->getCollectionOfObjectValues([RetentionLabel::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

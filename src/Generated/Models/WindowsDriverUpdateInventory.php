@@ -118,15 +118,15 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicableDeviceCount' => function (ParseNode $n) use ($o) { $o->setApplicableDeviceCount($n->getIntegerValue()); },
-            'approvalStatus' => function (ParseNode $n) use ($o) { $o->setApprovalStatus($n->getEnumValue(DriverApprovalStatus::class)); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(DriverCategory::class)); },
-            'deployDateTime' => function (ParseNode $n) use ($o) { $o->setDeployDateTime($n->getDateTimeValue()); },
-            'driverClass' => function (ParseNode $n) use ($o) { $o->setDriverClass($n->getStringValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'releaseDateTime' => function (ParseNode $n) use ($o) { $o->setReleaseDateTime($n->getDateTimeValue()); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'applicableDeviceCount' => fn(ParseNode $n) => $o->setApplicableDeviceCount($n->getIntegerValue()),
+            'approvalStatus' => fn(ParseNode $n) => $o->setApprovalStatus($n->getEnumValue(DriverApprovalStatus::class)),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(DriverCategory::class)),
+            'deployDateTime' => fn(ParseNode $n) => $o->setDeployDateTime($n->getDateTimeValue()),
+            'driverClass' => fn(ParseNode $n) => $o->setDriverClass($n->getStringValue()),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'releaseDateTime' => fn(ParseNode $n) => $o->setReleaseDateTime($n->getDateTimeValue()),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
 

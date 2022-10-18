@@ -73,8 +73,8 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'authenticationConfiguration' => function (ParseNode $n) use ($o) { $o->setAuthenticationConfiguration($n->getObjectValue(array(CustomExtensionAuthenticationConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'endpointConfiguration' => function (ParseNode $n) use ($o) { $o->setEndpointConfiguration($n->getObjectValue(array(CustomExtensionEndpointConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'authenticationConfiguration' => fn(ParseNode $n) => $o->setAuthenticationConfiguration($n->getObjectValue([CustomExtensionAuthenticationConfiguration::class, 'createFromDiscriminatorValue'])),
+            'endpointConfiguration' => fn(ParseNode $n) => $o->setEndpointConfiguration($n->getObjectValue([CustomExtensionEndpointConfiguration::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

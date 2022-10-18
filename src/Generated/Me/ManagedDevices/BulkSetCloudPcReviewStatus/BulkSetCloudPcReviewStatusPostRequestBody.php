@@ -56,8 +56,8 @@ class BulkSetCloudPcReviewStatusPostRequestBody implements AdditionalDataHolder,
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'managedDeviceIds' => function (ParseNode $n) use ($o) { $o->setManagedDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'reviewStatus' => function (ParseNode $n) use ($o) { $o->setReviewStatus($n->getObjectValue(array(CloudPcReviewStatus::class, 'createFromDiscriminatorValue'))); },
+            'managedDeviceIds' => fn(ParseNode $n) => $o->setManagedDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'reviewStatus' => fn(ParseNode $n) => $o->setReviewStatus($n->getObjectValue([CloudPcReviewStatus::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

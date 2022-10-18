@@ -65,11 +65,11 @@ class SitePage extends BaseItem implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getObjectValue(array(ContentTypeInfo::class, 'createFromDiscriminatorValue'))); },
-            'pageLayoutType' => function (ParseNode $n) use ($o) { $o->setPageLayoutType($n->getStringValue()); },
-            'publishingState' => function (ParseNode $n) use ($o) { $o->setPublishingState($n->getObjectValue(array(PublicationFacet::class, 'createFromDiscriminatorValue'))); },
-            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
-            'webParts' => function (ParseNode $n) use ($o) { $o->setWebParts($n->getCollectionOfObjectValues(array(WebPart::class, 'createFromDiscriminatorValue'))); },
+            'contentType' => fn(ParseNode $n) => $o->setContentType($n->getObjectValue([ContentTypeInfo::class, 'createFromDiscriminatorValue'])),
+            'pageLayoutType' => fn(ParseNode $n) => $o->setPageLayoutType($n->getStringValue()),
+            'publishingState' => fn(ParseNode $n) => $o->setPublishingState($n->getObjectValue([PublicationFacet::class, 'createFromDiscriminatorValue'])),
+            'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
+            'webParts' => fn(ParseNode $n) => $o->setWebParts($n->getCollectionOfObjectValues([WebPart::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

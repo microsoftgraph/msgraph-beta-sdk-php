@@ -67,13 +67,13 @@ class Participant extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'info' => function (ParseNode $n) use ($o) { $o->setInfo($n->getObjectValue(array(ParticipantInfo::class, 'createFromDiscriminatorValue'))); },
-            'isIdentityAnonymized' => function (ParseNode $n) use ($o) { $o->setIsIdentityAnonymized($n->getBooleanValue()); },
-            'isInLobby' => function (ParseNode $n) use ($o) { $o->setIsInLobby($n->getBooleanValue()); },
-            'isMuted' => function (ParseNode $n) use ($o) { $o->setIsMuted($n->getBooleanValue()); },
-            'mediaStreams' => function (ParseNode $n) use ($o) { $o->setMediaStreams($n->getCollectionOfObjectValues(array(MediaStream::class, 'createFromDiscriminatorValue'))); },
-            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getStringValue()); },
-            'recordingInfo' => function (ParseNode $n) use ($o) { $o->setRecordingInfo($n->getObjectValue(array(RecordingInfo::class, 'createFromDiscriminatorValue'))); },
+            'info' => fn(ParseNode $n) => $o->setInfo($n->getObjectValue([ParticipantInfo::class, 'createFromDiscriminatorValue'])),
+            'isIdentityAnonymized' => fn(ParseNode $n) => $o->setIsIdentityAnonymized($n->getBooleanValue()),
+            'isInLobby' => fn(ParseNode $n) => $o->setIsInLobby($n->getBooleanValue()),
+            'isMuted' => fn(ParseNode $n) => $o->setIsMuted($n->getBooleanValue()),
+            'mediaStreams' => fn(ParseNode $n) => $o->setMediaStreams($n->getCollectionOfObjectValues([MediaStream::class, 'createFromDiscriminatorValue'])),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getStringValue()),
+            'recordingInfo' => fn(ParseNode $n) => $o->setRecordingInfo($n->getObjectValue([RecordingInfo::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

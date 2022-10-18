@@ -59,7 +59,7 @@ class CreateEnrollmentNotificationConfigurationPostRequestBody implements Additi
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceEnrollmentNotificationConfigurations' => function (ParseNode $n) use ($o) { $o->setDeviceEnrollmentNotificationConfigurations($n->getCollectionOfObjectValues(array(DeviceEnrollmentConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'deviceEnrollmentNotificationConfigurations' => fn(ParseNode $n) => $o->setDeviceEnrollmentNotificationConfigurations($n->getCollectionOfObjectValues([DeviceEnrollmentConfiguration::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

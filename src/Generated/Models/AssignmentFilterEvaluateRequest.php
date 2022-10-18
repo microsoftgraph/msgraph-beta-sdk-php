@@ -81,13 +81,13 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'orderBy' => function (ParseNode $n) use ($o) { $o->setOrderBy($n->getCollectionOfPrimitiveValues()); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
-            'rule' => function (ParseNode $n) use ($o) { $o->setRule($n->getStringValue()); },
-            'search' => function (ParseNode $n) use ($o) { $o->setSearch($n->getStringValue()); },
-            'skip' => function (ParseNode $n) use ($o) { $o->setSkip($n->getIntegerValue()); },
-            'top' => function (ParseNode $n) use ($o) { $o->setTop($n->getIntegerValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'orderBy' => fn(ParseNode $n) => $o->setOrderBy($n->getCollectionOfPrimitiveValues()),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(DevicePlatformType::class)),
+            'rule' => fn(ParseNode $n) => $o->setRule($n->getStringValue()),
+            'search' => fn(ParseNode $n) => $o->setSearch($n->getStringValue()),
+            'skip' => fn(ParseNode $n) => $o->setSkip($n->getIntegerValue()),
+            'top' => fn(ParseNode $n) => $o->setTop($n->getIntegerValue()),
         ];
     }
 

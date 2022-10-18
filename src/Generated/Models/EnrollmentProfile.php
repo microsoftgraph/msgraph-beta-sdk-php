@@ -104,12 +104,12 @@ class EnrollmentProfile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurationEndpointUrl' => function (ParseNode $n) use ($o) { $o->setConfigurationEndpointUrl($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enableAuthenticationViaCompanyPortal' => function (ParseNode $n) use ($o) { $o->setEnableAuthenticationViaCompanyPortal($n->getBooleanValue()); },
-            'requireCompanyPortalOnSetupAssistantEnrolledDevices' => function (ParseNode $n) use ($o) { $o->setRequireCompanyPortalOnSetupAssistantEnrolledDevices($n->getBooleanValue()); },
-            'requiresUserAuthentication' => function (ParseNode $n) use ($o) { $o->setRequiresUserAuthentication($n->getBooleanValue()); },
+            'configurationEndpointUrl' => fn(ParseNode $n) => $o->setConfigurationEndpointUrl($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'enableAuthenticationViaCompanyPortal' => fn(ParseNode $n) => $o->setEnableAuthenticationViaCompanyPortal($n->getBooleanValue()),
+            'requireCompanyPortalOnSetupAssistantEnrolledDevices' => fn(ParseNode $n) => $o->setRequireCompanyPortalOnSetupAssistantEnrolledDevices($n->getBooleanValue()),
+            'requiresUserAuthentication' => fn(ParseNode $n) => $o->setRequiresUserAuthentication($n->getBooleanValue()),
         ]);
     }
 

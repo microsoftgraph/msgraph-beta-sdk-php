@@ -115,16 +115,16 @@ class RecommendationResource extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'addedDateTime' => function (ParseNode $n) use ($o) { $o->setAddedDateTime($n->getDateTimeValue()); },
-            'additionalDetails' => function (ParseNode $n) use ($o) { $o->setAdditionalDetails($n->getCollectionOfObjectValues(array(KeyValue::class, 'createFromDiscriminatorValue'))); },
-            'apiUrl' => function (ParseNode $n) use ($o) { $o->setApiUrl($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'owner' => function (ParseNode $n) use ($o) { $o->setOwner($n->getStringValue()); },
-            'portalUrl' => function (ParseNode $n) use ($o) { $o->setPortalUrl($n->getStringValue()); },
-            'rank' => function (ParseNode $n) use ($o) { $o->setRank($n->getIntegerValue()); },
-            'recommendationId' => function (ParseNode $n) use ($o) { $o->setRecommendationId($n->getStringValue()); },
-            'resourceType' => function (ParseNode $n) use ($o) { $o->setResourceType($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(RecommendationStatus::class)); },
+            'addedDateTime' => fn(ParseNode $n) => $o->setAddedDateTime($n->getDateTimeValue()),
+            'additionalDetails' => fn(ParseNode $n) => $o->setAdditionalDetails($n->getCollectionOfObjectValues([KeyValue::class, 'createFromDiscriminatorValue'])),
+            'apiUrl' => fn(ParseNode $n) => $o->setApiUrl($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'owner' => fn(ParseNode $n) => $o->setOwner($n->getStringValue()),
+            'portalUrl' => fn(ParseNode $n) => $o->setPortalUrl($n->getStringValue()),
+            'rank' => fn(ParseNode $n) => $o->setRank($n->getIntegerValue()),
+            'recommendationId' => fn(ParseNode $n) => $o->setRecommendationId($n->getStringValue()),
+            'resourceType' => fn(ParseNode $n) => $o->setResourceType($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RecommendationStatus::class)),
         ]);
     }
 

@@ -60,10 +60,10 @@ class WindowsManagementApp extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'availableVersion' => function (ParseNode $n) use ($o) { $o->setAvailableVersion($n->getStringValue()); },
-            'healthStates' => function (ParseNode $n) use ($o) { $o->setHealthStates($n->getCollectionOfObjectValues(array(WindowsManagementAppHealthState::class, 'createFromDiscriminatorValue'))); },
-            'managedInstaller' => function (ParseNode $n) use ($o) { $o->setManagedInstaller($n->getEnumValue(ManagedInstallerStatus::class)); },
-            'managedInstallerConfiguredDateTime' => function (ParseNode $n) use ($o) { $o->setManagedInstallerConfiguredDateTime($n->getStringValue()); },
+            'availableVersion' => fn(ParseNode $n) => $o->setAvailableVersion($n->getStringValue()),
+            'healthStates' => fn(ParseNode $n) => $o->setHealthStates($n->getCollectionOfObjectValues([WindowsManagementAppHealthState::class, 'createFromDiscriminatorValue'])),
+            'managedInstaller' => fn(ParseNode $n) => $o->setManagedInstaller($n->getEnumValue(ManagedInstallerStatus::class)),
+            'managedInstallerConfiguredDateTime' => fn(ParseNode $n) => $o->setManagedInstallerConfiguredDateTime($n->getStringValue()),
         ]);
     }
 

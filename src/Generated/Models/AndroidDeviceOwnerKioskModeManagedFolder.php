@@ -66,10 +66,10 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'folderIdentifier' => function (ParseNode $n) use ($o) { $o->setFolderIdentifier($n->getStringValue()); },
-            'folderName' => function (ParseNode $n) use ($o) { $o->setFolderName($n->getStringValue()); },
-            'items' => function (ParseNode $n) use ($o) { $o->setItems($n->getCollectionOfObjectValues(array(AndroidDeviceOwnerKioskModeFolderItem::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'folderIdentifier' => fn(ParseNode $n) => $o->setFolderIdentifier($n->getStringValue()),
+            'folderName' => fn(ParseNode $n) => $o->setFolderName($n->getStringValue()),
+            'items' => fn(ParseNode $n) => $o->setItems($n->getCollectionOfObjectValues([AndroidDeviceOwnerKioskModeFolderItem::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

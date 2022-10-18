@@ -96,11 +96,11 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'devicesPerOffer' => function (ParseNode $n) use ($o) { $o->setDevicesPerOffer($n->getIntegerValue()); },
-            'durationBetweenOffers' => function (ParseNode $n) use ($o) { $o->setDurationBetweenOffers($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'devicesPerOffer' => fn(ParseNode $n) => $o->setDevicesPerOffer($n->getIntegerValue()),
+            'durationBetweenOffers' => fn(ParseNode $n) => $o->setDurationBetweenOffers($n->getStringValue()),
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
         ];
     }
 

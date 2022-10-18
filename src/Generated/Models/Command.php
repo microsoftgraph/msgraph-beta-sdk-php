@@ -93,15 +93,15 @@ class Command extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appServiceName' => function (ParseNode $n) use ($o) { $o->setAppServiceName($n->getStringValue()); },
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getStringValue()); },
-            'packageFamilyName' => function (ParseNode $n) use ($o) { $o->setPackageFamilyName($n->getStringValue()); },
-            'payload' => function (ParseNode $n) use ($o) { $o->setPayload($n->getObjectValue(array(PayloadRequest::class, 'createFromDiscriminatorValue'))); },
-            'permissionTicket' => function (ParseNode $n) use ($o) { $o->setPermissionTicket($n->getStringValue()); },
-            'postBackUri' => function (ParseNode $n) use ($o) { $o->setPostBackUri($n->getStringValue()); },
-            'responsepayload' => function (ParseNode $n) use ($o) { $o->setResponsepayload($n->getObjectValue(array(PayloadResponse::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'appServiceName' => fn(ParseNode $n) => $o->setAppServiceName($n->getStringValue()),
+            'error' => fn(ParseNode $n) => $o->setError($n->getStringValue()),
+            'packageFamilyName' => fn(ParseNode $n) => $o->setPackageFamilyName($n->getStringValue()),
+            'payload' => fn(ParseNode $n) => $o->setPayload($n->getObjectValue([PayloadRequest::class, 'createFromDiscriminatorValue'])),
+            'permissionTicket' => fn(ParseNode $n) => $o->setPermissionTicket($n->getStringValue()),
+            'postBackUri' => fn(ParseNode $n) => $o->setPostBackUri($n->getStringValue()),
+            'responsepayload' => fn(ParseNode $n) => $o->setResponsepayload($n->getObjectValue([PayloadResponse::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ]);
     }
 

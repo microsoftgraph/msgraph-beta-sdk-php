@@ -48,9 +48,9 @@ class DispositionReviewStage extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'reviewersEmailAddresses' => function (ParseNode $n) use ($o) { $o->setReviewersEmailAddresses($n->getCollectionOfPrimitiveValues()); },
-            'stageNumber' => function (ParseNode $n) use ($o) { $o->setStageNumber($n->getIntegerValue()); },
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'reviewersEmailAddresses' => fn(ParseNode $n) => $o->setReviewersEmailAddresses($n->getCollectionOfPrimitiveValues()),
+            'stageNumber' => fn(ParseNode $n) => $o->setStageNumber($n->getIntegerValue()),
         ]);
     }
 

@@ -66,10 +66,10 @@ class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'postAttributeCollection' => function (ParseNode $n) use ($o) { $o->setPostAttributeCollection($n->getObjectValue(array(IdentityApiConnector::class, 'createFromDiscriminatorValue'))); },
-            'postFederationSignup' => function (ParseNode $n) use ($o) { $o->setPostFederationSignup($n->getObjectValue(array(IdentityApiConnector::class, 'createFromDiscriminatorValue'))); },
-            'preTokenIssuance' => function (ParseNode $n) use ($o) { $o->setPreTokenIssuance($n->getObjectValue(array(IdentityApiConnector::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'postAttributeCollection' => fn(ParseNode $n) => $o->setPostAttributeCollection($n->getObjectValue([IdentityApiConnector::class, 'createFromDiscriminatorValue'])),
+            'postFederationSignup' => fn(ParseNode $n) => $o->setPostFederationSignup($n->getObjectValue([IdentityApiConnector::class, 'createFromDiscriminatorValue'])),
+            'preTokenIssuance' => fn(ParseNode $n) => $o->setPreTokenIssuance($n->getObjectValue([IdentityApiConnector::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

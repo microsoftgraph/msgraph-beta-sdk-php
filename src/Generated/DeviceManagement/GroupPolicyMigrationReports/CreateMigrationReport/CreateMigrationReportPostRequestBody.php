@@ -51,7 +51,7 @@ class CreateMigrationReportPostRequestBody implements AdditionalDataHolder, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'groupPolicyObjectFile' => function (ParseNode $n) use ($o) { $o->setGroupPolicyObjectFile($n->getObjectValue(array(GroupPolicyObjectFile::class, 'createFromDiscriminatorValue'))); },
+            'groupPolicyObjectFile' => fn(ParseNode $n) => $o->setGroupPolicyObjectFile($n->getObjectValue([GroupPolicyObjectFile::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

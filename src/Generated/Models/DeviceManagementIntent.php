@@ -80,7 +80,7 @@ class DeviceManagementIntent extends Entity implements Parsable
     private ?DeviceManagementIntentUserStateSummary $userStateSummary = null;
     
     /**
-     * Instantiates a new DeviceManagementIntent and sets the default values.
+     * Instantiates a new deviceManagementIntent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -159,20 +159,20 @@ class DeviceManagementIntent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceManagementIntentAssignment::class, 'createFromDiscriminatorValue'))); },
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfObjectValues(array(DeviceManagementIntentSettingCategory::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'deviceSettingStateSummaries' => function (ParseNode $n) use ($o) { $o->setDeviceSettingStateSummaries($n->getCollectionOfObjectValues(array(DeviceManagementIntentDeviceSettingStateSummary::class, 'createFromDiscriminatorValue'))); },
-            'deviceStates' => function (ParseNode $n) use ($o) { $o->setDeviceStates($n->getCollectionOfObjectValues(array(DeviceManagementIntentDeviceState::class, 'createFromDiscriminatorValue'))); },
-            'deviceStateSummary' => function (ParseNode $n) use ($o) { $o->setDeviceStateSummary($n->getObjectValue(array(DeviceManagementIntentDeviceStateSummary::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isAssigned' => function (ParseNode $n) use ($o) { $o->setIsAssigned($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'))); },
-            'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
-            'userStates' => function (ParseNode $n) use ($o) { $o->setUserStates($n->getCollectionOfObjectValues(array(DeviceManagementIntentUserState::class, 'createFromDiscriminatorValue'))); },
-            'userStateSummary' => function (ParseNode $n) use ($o) { $o->setUserStateSummary($n->getObjectValue(array(DeviceManagementIntentUserStateSummary::class, 'createFromDiscriminatorValue'))); },
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([DeviceManagementIntentAssignment::class, 'createFromDiscriminatorValue'])),
+            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfObjectValues([DeviceManagementIntentSettingCategory::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'deviceSettingStateSummaries' => fn(ParseNode $n) => $o->setDeviceSettingStateSummaries($n->getCollectionOfObjectValues([DeviceManagementIntentDeviceSettingStateSummary::class, 'createFromDiscriminatorValue'])),
+            'deviceStates' => fn(ParseNode $n) => $o->setDeviceStates($n->getCollectionOfObjectValues([DeviceManagementIntentDeviceState::class, 'createFromDiscriminatorValue'])),
+            'deviceStateSummary' => fn(ParseNode $n) => $o->setDeviceStateSummary($n->getObjectValue([DeviceManagementIntentDeviceStateSummary::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isAssigned' => fn(ParseNode $n) => $o->setIsAssigned($n->getBooleanValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getCollectionOfObjectValues([DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'])),
+            'templateId' => fn(ParseNode $n) => $o->setTemplateId($n->getStringValue()),
+            'userStates' => fn(ParseNode $n) => $o->setUserStates($n->getCollectionOfObjectValues([DeviceManagementIntentUserState::class, 'createFromDiscriminatorValue'])),
+            'userStateSummary' => fn(ParseNode $n) => $o->setUserStateSummary($n->getObjectValue([DeviceManagementIntentUserStateSummary::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

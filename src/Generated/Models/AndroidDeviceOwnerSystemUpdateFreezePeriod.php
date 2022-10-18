@@ -87,11 +87,11 @@ class AndroidDeviceOwnerSystemUpdateFreezePeriod implements AdditionalDataHolder
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'endDay' => function (ParseNode $n) use ($o) { $o->setEndDay($n->getIntegerValue()); },
-            'endMonth' => function (ParseNode $n) use ($o) { $o->setEndMonth($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'startDay' => function (ParseNode $n) use ($o) { $o->setStartDay($n->getIntegerValue()); },
-            'startMonth' => function (ParseNode $n) use ($o) { $o->setStartMonth($n->getIntegerValue()); },
+            'endDay' => fn(ParseNode $n) => $o->setEndDay($n->getIntegerValue()),
+            'endMonth' => fn(ParseNode $n) => $o->setEndMonth($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'startDay' => fn(ParseNode $n) => $o->setStartDay($n->getIntegerValue()),
+            'startMonth' => fn(ParseNode $n) => $o->setStartMonth($n->getIntegerValue()),
         ];
     }
 

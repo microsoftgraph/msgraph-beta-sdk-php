@@ -122,19 +122,19 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getObjectValue(array(OrganizationalMessageContent::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'frequency' => function (ParseNode $n) use ($o) { $o->setFrequency($n->getEnumValue(OrganizationalMessageFrequency::class)); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'scenario' => function (ParseNode $n) use ($o) { $o->setScenario($n->getEnumValue(OrganizationalMessageScenario::class)); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(OrganizationalMessageStatus::class)); },
-            'surface' => function (ParseNode $n) use ($o) { $o->setSurface($n->getEnumValue(OrganizationalMessageSurface::class)); },
-            'targeting' => function (ParseNode $n) use ($o) { $o->setTargeting($n->getObjectValue(array(OrganizationalMessageTargeting::class, 'createFromDiscriminatorValue'))); },
-            'theme' => function (ParseNode $n) use ($o) { $o->setTheme($n->getEnumValue(OrganizationalMessageTheme::class)); },
-            'userEngagementStatistics' => function (ParseNode $n) use ($o) { $o->setUserEngagementStatistics($n->getObjectValue(array(OrganizationalMessageInsights::class, 'createFromDiscriminatorValue'))); },
-            'variant' => function (ParseNode $n) use ($o) { $o->setVariant($n->getStringValue()); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getObjectValue([OrganizationalMessageContent::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'frequency' => fn(ParseNode $n) => $o->setFrequency($n->getEnumValue(OrganizationalMessageFrequency::class)),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'scenario' => fn(ParseNode $n) => $o->setScenario($n->getEnumValue(OrganizationalMessageScenario::class)),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(OrganizationalMessageStatus::class)),
+            'surface' => fn(ParseNode $n) => $o->setSurface($n->getEnumValue(OrganizationalMessageSurface::class)),
+            'targeting' => fn(ParseNode $n) => $o->setTargeting($n->getObjectValue([OrganizationalMessageTargeting::class, 'createFromDiscriminatorValue'])),
+            'theme' => fn(ParseNode $n) => $o->setTheme($n->getEnumValue(OrganizationalMessageTheme::class)),
+            'userEngagementStatistics' => fn(ParseNode $n) => $o->setUserEngagementStatistics($n->getObjectValue([OrganizationalMessageInsights::class, 'createFromDiscriminatorValue'])),
+            'variant' => fn(ParseNode $n) => $o->setVariant($n->getStringValue()),
         ]);
     }
 

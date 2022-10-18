@@ -45,7 +45,7 @@ class DeviceHealthScriptBooleanParameter extends DeviceHealthScriptParameter imp
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getBooleanValue()); },
+            'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getBooleanValue()),
         ]);
     }
 

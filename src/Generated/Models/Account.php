@@ -40,7 +40,7 @@ class Account extends Entity implements Parsable
     private ?string $subCategory = null;
     
     /**
-     * Instantiates a new Account and sets the default values.
+     * Instantiates a new account and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -87,12 +87,12 @@ class Account extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'blocked' => function (ParseNode $n) use ($o) { $o->setBlocked($n->getBooleanValue()); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'number' => function (ParseNode $n) use ($o) { $o->setNumber($n->getStringValue()); },
-            'subCategory' => function (ParseNode $n) use ($o) { $o->setSubCategory($n->getStringValue()); },
+            'blocked' => fn(ParseNode $n) => $o->setBlocked($n->getBooleanValue()),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'number' => fn(ParseNode $n) => $o->setNumber($n->getStringValue()),
+            'subCategory' => fn(ParseNode $n) => $o->setSubCategory($n->getStringValue()),
         ]);
     }
 

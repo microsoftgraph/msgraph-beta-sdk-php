@@ -61,9 +61,9 @@ class OnPremisesPublishingSingleSignOn implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'kerberosSignOnSettings' => function (ParseNode $n) use ($o) { $o->setKerberosSignOnSettings($n->getObjectValue(array(KerberosSignOnSettings::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'singleSignOnMode' => function (ParseNode $n) use ($o) { $o->setSingleSignOnMode($n->getEnumValue(SingleSignOnMode::class)); },
+            'kerberosSignOnSettings' => fn(ParseNode $n) => $o->setKerberosSignOnSettings($n->getObjectValue([KerberosSignOnSettings::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'singleSignOnMode' => fn(ParseNode $n) => $o->setSingleSignOnMode($n->getEnumValue(SingleSignOnMode::class)),
         ];
     }
 

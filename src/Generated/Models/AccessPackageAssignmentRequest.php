@@ -159,20 +159,20 @@ class AccessPackageAssignmentRequest extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackage' => function (ParseNode $n) use ($o) { $o->setAccessPackage($n->getObjectValue(array(AccessPackage::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageAssignment' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignment($n->getObjectValue(array(AccessPackageAssignment::class, 'createFromDiscriminatorValue'))); },
-            'answers' => function (ParseNode $n) use ($o) { $o->setAnswers($n->getCollectionOfObjectValues(array(AccessPackageAnswer::class, 'createFromDiscriminatorValue'))); },
-            'completedDate' => function (ParseNode $n) use ($o) { $o->setCompletedDate($n->getDateTimeValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'customExtensionHandlerInstances' => function (ParseNode $n) use ($o) { $o->setCustomExtensionHandlerInstances($n->getCollectionOfObjectValues(array(CustomExtensionHandlerInstance::class, 'createFromDiscriminatorValue'))); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'isValidationOnly' => function (ParseNode $n) use ($o) { $o->setIsValidationOnly($n->getBooleanValue()); },
-            'justification' => function (ParseNode $n) use ($o) { $o->setJustification($n->getStringValue()); },
-            'requestor' => function (ParseNode $n) use ($o) { $o->setRequestor($n->getObjectValue(array(AccessPackageSubject::class, 'createFromDiscriminatorValue'))); },
-            'requestState' => function (ParseNode $n) use ($o) { $o->setRequestState($n->getStringValue()); },
-            'requestStatus' => function (ParseNode $n) use ($o) { $o->setRequestStatus($n->getStringValue()); },
-            'requestType' => function (ParseNode $n) use ($o) { $o->setRequestType($n->getStringValue()); },
-            'schedule' => function (ParseNode $n) use ($o) { $o->setSchedule($n->getObjectValue(array(RequestSchedule::class, 'createFromDiscriminatorValue'))); },
+            'accessPackage' => fn(ParseNode $n) => $o->setAccessPackage($n->getObjectValue([AccessPackage::class, 'createFromDiscriminatorValue'])),
+            'accessPackageAssignment' => fn(ParseNode $n) => $o->setAccessPackageAssignment($n->getObjectValue([AccessPackageAssignment::class, 'createFromDiscriminatorValue'])),
+            'answers' => fn(ParseNode $n) => $o->setAnswers($n->getCollectionOfObjectValues([AccessPackageAnswer::class, 'createFromDiscriminatorValue'])),
+            'completedDate' => fn(ParseNode $n) => $o->setCompletedDate($n->getDateTimeValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'customExtensionHandlerInstances' => fn(ParseNode $n) => $o->setCustomExtensionHandlerInstances($n->getCollectionOfObjectValues([CustomExtensionHandlerInstance::class, 'createFromDiscriminatorValue'])),
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'isValidationOnly' => fn(ParseNode $n) => $o->setIsValidationOnly($n->getBooleanValue()),
+            'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
+            'requestor' => fn(ParseNode $n) => $o->setRequestor($n->getObjectValue([AccessPackageSubject::class, 'createFromDiscriminatorValue'])),
+            'requestState' => fn(ParseNode $n) => $o->setRequestState($n->getStringValue()),
+            'requestStatus' => fn(ParseNode $n) => $o->setRequestStatus($n->getStringValue()),
+            'requestType' => fn(ParseNode $n) => $o->setRequestType($n->getStringValue()),
+            'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([RequestSchedule::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

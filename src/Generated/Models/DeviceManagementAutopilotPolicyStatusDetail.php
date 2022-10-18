@@ -87,12 +87,12 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'complianceStatus' => function (ParseNode $n) use ($o) { $o->setComplianceStatus($n->getEnumValue(DeviceManagementAutopilotPolicyComplianceStatus::class)); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
-            'lastReportedDateTime' => function (ParseNode $n) use ($o) { $o->setLastReportedDateTime($n->getDateTimeValue()); },
-            'policyType' => function (ParseNode $n) use ($o) { $o->setPolicyType($n->getEnumValue(DeviceManagementAutopilotPolicyType::class)); },
-            'trackedOnEnrollmentStatus' => function (ParseNode $n) use ($o) { $o->setTrackedOnEnrollmentStatus($n->getBooleanValue()); },
+            'complianceStatus' => fn(ParseNode $n) => $o->setComplianceStatus($n->getEnumValue(DeviceManagementAutopilotPolicyComplianceStatus::class)),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
+            'lastReportedDateTime' => fn(ParseNode $n) => $o->setLastReportedDateTime($n->getDateTimeValue()),
+            'policyType' => fn(ParseNode $n) => $o->setPolicyType($n->getEnumValue(DeviceManagementAutopilotPolicyType::class)),
+            'trackedOnEnrollmentStatus' => fn(ParseNode $n) => $o->setTrackedOnEnrollmentStatus($n->getBooleanValue()),
         ]);
     }
 

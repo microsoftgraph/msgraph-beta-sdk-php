@@ -108,12 +108,12 @@ class SubmissionResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(SubmissionResultCategory::class)); },
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getEnumValue(SubmissionResultDetail::class)); },
-            'detectedFiles' => function (ParseNode $n) use ($o) { $o->setDetectedFiles($n->getCollectionOfObjectValues(array(SubmissionDetectedFile::class, 'createFromDiscriminatorValue'))); },
-            'detectedUrls' => function (ParseNode $n) use ($o) { $o->setDetectedUrls($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'userMailboxSetting' => function (ParseNode $n) use ($o) { $o->setUserMailboxSetting($n->getEnumValue(UserMailboxSetting::class)); },
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(SubmissionResultCategory::class)),
+            'detail' => fn(ParseNode $n) => $o->setDetail($n->getEnumValue(SubmissionResultDetail::class)),
+            'detectedFiles' => fn(ParseNode $n) => $o->setDetectedFiles($n->getCollectionOfObjectValues([SubmissionDetectedFile::class, 'createFromDiscriminatorValue'])),
+            'detectedUrls' => fn(ParseNode $n) => $o->setDetectedUrls($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'userMailboxSetting' => fn(ParseNode $n) => $o->setUserMailboxSetting($n->getEnumValue(UserMailboxSetting::class)),
         ];
     }
 

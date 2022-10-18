@@ -45,7 +45,7 @@ class OnTokenIssuanceStartCustomExtension extends CustomAuthenticationExtension 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'claimsForTokenConfiguration' => function (ParseNode $n) use ($o) { $o->setClaimsForTokenConfiguration($n->getCollectionOfObjectValues(array(OnTokenIssuanceStartReturnClaim::class, 'createFromDiscriminatorValue'))); },
+            'claimsForTokenConfiguration' => fn(ParseNode $n) => $o->setClaimsForTokenConfiguration($n->getCollectionOfObjectValues([OnTokenIssuanceStartReturnClaim::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

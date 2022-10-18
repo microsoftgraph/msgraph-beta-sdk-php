@@ -58,11 +58,11 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'mailboxStorageUsedInBytes' => function (ParseNode $n) use ($o) { $o->setMailboxStorageUsedInBytes($n->getIntegerValue()); },
-            'reportDate' => function (ParseNode $n) use ($o) { $o->setReportDate($n->getDateValue()); },
-            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
-            'siteStorageUsedInBytes' => function (ParseNode $n) use ($o) { $o->setSiteStorageUsedInBytes($n->getIntegerValue()); },
+            'mailboxStorageUsedInBytes' => fn(ParseNode $n) => $o->setMailboxStorageUsedInBytes($n->getIntegerValue()),
+            'reportDate' => fn(ParseNode $n) => $o->setReportDate($n->getDateValue()),
+            'reportPeriod' => fn(ParseNode $n) => $o->setReportPeriod($n->getStringValue()),
+            'reportRefreshDate' => fn(ParseNode $n) => $o->setReportRefreshDate($n->getDateValue()),
+            'siteStorageUsedInBytes' => fn(ParseNode $n) => $o->setSiteStorageUsedInBytes($n->getIntegerValue()),
         ]);
     }
 

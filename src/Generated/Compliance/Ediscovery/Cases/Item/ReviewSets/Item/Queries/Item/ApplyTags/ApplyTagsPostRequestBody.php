@@ -56,8 +56,8 @@ class ApplyTagsPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'tagsToAdd' => function (ParseNode $n) use ($o) { $o->setTagsToAdd($n->getCollectionOfObjectValues(array(Tag::class, 'createFromDiscriminatorValue'))); },
-            'tagsToRemove' => function (ParseNode $n) use ($o) { $o->setTagsToRemove($n->getCollectionOfObjectValues(array(Tag::class, 'createFromDiscriminatorValue'))); },
+            'tagsToAdd' => fn(ParseNode $n) => $o->setTagsToAdd($n->getCollectionOfObjectValues([Tag::class, 'createFromDiscriminatorValue'])),
+            'tagsToRemove' => fn(ParseNode $n) => $o->setTagsToRemove($n->getCollectionOfObjectValues([Tag::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

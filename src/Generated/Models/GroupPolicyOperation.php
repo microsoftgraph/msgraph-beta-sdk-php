@@ -53,10 +53,10 @@ class GroupPolicyOperation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'operationStatus' => function (ParseNode $n) use ($o) { $o->setOperationStatus($n->getEnumValue(GroupPolicyOperationStatus::class)); },
-            'operationType' => function (ParseNode $n) use ($o) { $o->setOperationType($n->getEnumValue(GroupPolicyOperationType::class)); },
-            'statusDetails' => function (ParseNode $n) use ($o) { $o->setStatusDetails($n->getStringValue()); },
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'operationStatus' => fn(ParseNode $n) => $o->setOperationStatus($n->getEnumValue(GroupPolicyOperationStatus::class)),
+            'operationType' => fn(ParseNode $n) => $o->setOperationType($n->getEnumValue(GroupPolicyOperationType::class)),
+            'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getStringValue()),
         ]);
     }
 

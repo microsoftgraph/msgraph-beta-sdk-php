@@ -72,11 +72,11 @@ class ClassifyTextPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'fileExtension' => function (ParseNode $n) use ($o) { $o->setFileExtension($n->getStringValue()); },
-            'matchTolerancesToInclude' => function (ParseNode $n) use ($o) { $o->setMatchTolerancesToInclude($n->getEnumValue(MlClassificationMatchTolerance::class)); },
-            'scopesToRun' => function (ParseNode $n) use ($o) { $o->setScopesToRun($n->getEnumValue(SensitiveTypeScope::class)); },
-            'sensitiveTypeIds' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeIds($n->getCollectionOfPrimitiveValues()); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
+            'fileExtension' => fn(ParseNode $n) => $o->setFileExtension($n->getStringValue()),
+            'matchTolerancesToInclude' => fn(ParseNode $n) => $o->setMatchTolerancesToInclude($n->getEnumValue(MlClassificationMatchTolerance::class)),
+            'scopesToRun' => fn(ParseNode $n) => $o->setScopesToRun($n->getEnumValue(SensitiveTypeScope::class)),
+            'sensitiveTypeIds' => fn(ParseNode $n) => $o->setSensitiveTypeIds($n->getCollectionOfPrimitiveValues()),
+            'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
         ];
     }
 

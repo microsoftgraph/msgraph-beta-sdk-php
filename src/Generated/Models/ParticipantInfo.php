@@ -107,15 +107,15 @@ class ParticipantInfo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'countryCode' => function (ParseNode $n) use ($o) { $o->setCountryCode($n->getStringValue()); },
-            'endpointType' => function (ParseNode $n) use ($o) { $o->setEndpointType($n->getEnumValue(EndpointType::class)); },
-            'identity' => function (ParseNode $n) use ($o) { $o->setIdentity($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'languageId' => function (ParseNode $n) use ($o) { $o->setLanguageId($n->getStringValue()); },
-            'nonAnonymizedIdentity' => function (ParseNode $n) use ($o) { $o->setNonAnonymizedIdentity($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'participantId' => function (ParseNode $n) use ($o) { $o->setParticipantId($n->getStringValue()); },
-            'platformId' => function (ParseNode $n) use ($o) { $o->setPlatformId($n->getStringValue()); },
-            'region' => function (ParseNode $n) use ($o) { $o->setRegion($n->getStringValue()); },
+            'countryCode' => fn(ParseNode $n) => $o->setCountryCode($n->getStringValue()),
+            'endpointType' => fn(ParseNode $n) => $o->setEndpointType($n->getEnumValue(EndpointType::class)),
+            'identity' => fn(ParseNode $n) => $o->setIdentity($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'languageId' => fn(ParseNode $n) => $o->setLanguageId($n->getStringValue()),
+            'nonAnonymizedIdentity' => fn(ParseNode $n) => $o->setNonAnonymizedIdentity($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'participantId' => fn(ParseNode $n) => $o->setParticipantId($n->getStringValue()),
+            'platformId' => fn(ParseNode $n) => $o->setPlatformId($n->getStringValue()),
+            'region' => fn(ParseNode $n) => $o->setRegion($n->getStringValue()),
         ];
     }
 

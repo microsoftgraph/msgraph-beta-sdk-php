@@ -74,10 +74,10 @@ class ConditionalAccessPolicyDetail implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'conditions' => function (ParseNode $n) use ($o) { $o->setConditions($n->getObjectValue(array(ConditionalAccessConditionSet::class, 'createFromDiscriminatorValue'))); },
-            'grantControls' => function (ParseNode $n) use ($o) { $o->setGrantControls($n->getObjectValue(array(ConditionalAccessGrantControls::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'sessionControls' => function (ParseNode $n) use ($o) { $o->setSessionControls($n->getObjectValue(array(ConditionalAccessSessionControls::class, 'createFromDiscriminatorValue'))); },
+            'conditions' => fn(ParseNode $n) => $o->setConditions($n->getObjectValue([ConditionalAccessConditionSet::class, 'createFromDiscriminatorValue'])),
+            'grantControls' => fn(ParseNode $n) => $o->setGrantControls($n->getObjectValue([ConditionalAccessGrantControls::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'sessionControls' => fn(ParseNode $n) => $o->setSessionControls($n->getObjectValue([ConditionalAccessSessionControls::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

@@ -42,8 +42,8 @@ class DeviceManagementSettingIntegerConstraint extends DeviceManagementConstrain
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'maximumValue' => function (ParseNode $n) use ($o) { $o->setMaximumValue($n->getIntegerValue()); },
-            'minimumValue' => function (ParseNode $n) use ($o) { $o->setMinimumValue($n->getIntegerValue()); },
+            'maximumValue' => fn(ParseNode $n) => $o->setMaximumValue($n->getIntegerValue()),
+            'minimumValue' => fn(ParseNode $n) => $o->setMinimumValue($n->getIntegerValue()),
         ]);
     }
 

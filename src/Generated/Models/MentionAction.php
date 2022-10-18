@@ -56,8 +56,8 @@ class MentionAction implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'mentionees' => function (ParseNode $n) use ($o) { $o->setMentionees($n->getCollectionOfObjectValues(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'mentionees' => fn(ParseNode $n) => $o->setMentionees($n->getCollectionOfObjectValues([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

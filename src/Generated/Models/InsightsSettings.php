@@ -50,8 +50,8 @@ class InsightsSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'disabledForGroup' => function (ParseNode $n) use ($o) { $o->setDisabledForGroup($n->getStringValue()); },
-            'isEnabledInOrganization' => function (ParseNode $n) use ($o) { $o->setIsEnabledInOrganization($n->getBooleanValue()); },
+            'disabledForGroup' => fn(ParseNode $n) => $o->setDisabledForGroup($n->getStringValue()),
+            'isEnabledInOrganization' => fn(ParseNode $n) => $o->setIsEnabledInOrganization($n->getBooleanValue()),
         ]);
     }
 
