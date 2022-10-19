@@ -122,13 +122,13 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'authenticationMethod' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethod($n->getStringValue()); },
-            'authenticationMethodDetail' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethodDetail($n->getStringValue()); },
-            'authenticationStepDateTime' => function (ParseNode $n) use ($o) { $o->setAuthenticationStepDateTime($n->getDateTimeValue()); },
-            'authenticationStepRequirement' => function (ParseNode $n) use ($o) { $o->setAuthenticationStepRequirement($n->getStringValue()); },
-            'authenticationStepResultDetail' => function (ParseNode $n) use ($o) { $o->setAuthenticationStepResultDetail($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'succeeded' => function (ParseNode $n) use ($o) { $o->setSucceeded($n->getBooleanValue()); },
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getStringValue()),
+            'authenticationMethodDetail' => fn(ParseNode $n) => $o->setAuthenticationMethodDetail($n->getStringValue()),
+            'authenticationStepDateTime' => fn(ParseNode $n) => $o->setAuthenticationStepDateTime($n->getDateTimeValue()),
+            'authenticationStepRequirement' => fn(ParseNode $n) => $o->setAuthenticationStepRequirement($n->getStringValue()),
+            'authenticationStepResultDetail' => fn(ParseNode $n) => $o->setAuthenticationStepResultDetail($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'succeeded' => fn(ParseNode $n) => $o->setSucceeded($n->getBooleanValue()),
         ];
     }
 

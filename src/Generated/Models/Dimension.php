@@ -77,10 +77,10 @@ class Dimension extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
-            'dimensionValues' => function (ParseNode $n) use ($o) { $o->setDimensionValues($n->getCollectionOfObjectValues(array(DimensionValue::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
+            'dimensionValues' => fn(ParseNode $n) => $o->setDimensionValues($n->getCollectionOfObjectValues([DimensionValue::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
         ]);
     }
 

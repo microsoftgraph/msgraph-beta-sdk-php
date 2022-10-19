@@ -58,8 +58,8 @@ class ProtectSite extends LabelActionBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessType' => function (ParseNode $n) use ($o) { $o->setAccessType($n->getEnumValue(SiteAccessType::class)); },
-            'conditionalAccessProtectionLevelId' => function (ParseNode $n) use ($o) { $o->setConditionalAccessProtectionLevelId($n->getStringValue()); },
+            'accessType' => fn(ParseNode $n) => $o->setAccessType($n->getEnumValue(SiteAccessType::class)),
+            'conditionalAccessProtectionLevelId' => fn(ParseNode $n) => $o->setConditionalAccessProtectionLevelId($n->getStringValue()),
         ]);
     }
 

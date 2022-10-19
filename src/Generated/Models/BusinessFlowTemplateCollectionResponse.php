@@ -36,7 +36,7 @@ class BusinessFlowTemplateCollectionResponse extends BaseCollectionPaginationCou
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(BusinessFlowTemplate::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([BusinessFlowTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

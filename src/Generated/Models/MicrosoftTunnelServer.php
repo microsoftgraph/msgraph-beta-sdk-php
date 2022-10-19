@@ -74,11 +74,11 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agentImageDigest' => function (ParseNode $n) use ($o) { $o->setAgentImageDigest($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastCheckinDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckinDateTime($n->getDateTimeValue()); },
-            'serverImageDigest' => function (ParseNode $n) use ($o) { $o->setServerImageDigest($n->getStringValue()); },
-            'tunnelServerHealthStatus' => function (ParseNode $n) use ($o) { $o->setTunnelServerHealthStatus($n->getEnumValue(MicrosoftTunnelServerHealthStatus::class)); },
+            'agentImageDigest' => fn(ParseNode $n) => $o->setAgentImageDigest($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastCheckinDateTime' => fn(ParseNode $n) => $o->setLastCheckinDateTime($n->getDateTimeValue()),
+            'serverImageDigest' => fn(ParseNode $n) => $o->setServerImageDigest($n->getStringValue()),
+            'tunnelServerHealthStatus' => fn(ParseNode $n) => $o->setTunnelServerHealthStatus($n->getEnumValue(MicrosoftTunnelServerHealthStatus::class)),
         ]);
     }
 

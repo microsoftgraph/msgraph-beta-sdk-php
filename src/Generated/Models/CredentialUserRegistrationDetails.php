@@ -75,13 +75,13 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authMethods' => function (ParseNode $n) use ($o) { $o->setAuthMethods($n->getCollectionOfEnumValues(RegistrationAuthMethod::class)); },
-            'isCapable' => function (ParseNode $n) use ($o) { $o->setIsCapable($n->getBooleanValue()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'isMfaRegistered' => function (ParseNode $n) use ($o) { $o->setIsMfaRegistered($n->getBooleanValue()); },
-            'isRegistered' => function (ParseNode $n) use ($o) { $o->setIsRegistered($n->getBooleanValue()); },
-            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'authMethods' => fn(ParseNode $n) => $o->setAuthMethods($n->getCollectionOfEnumValues(RegistrationAuthMethod::class)),
+            'isCapable' => fn(ParseNode $n) => $o->setIsCapable($n->getBooleanValue()),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            'isMfaRegistered' => fn(ParseNode $n) => $o->setIsMfaRegistered($n->getBooleanValue()),
+            'isRegistered' => fn(ParseNode $n) => $o->setIsRegistered($n->getBooleanValue()),
+            'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

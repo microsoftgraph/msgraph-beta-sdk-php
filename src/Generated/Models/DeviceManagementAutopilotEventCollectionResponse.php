@@ -36,7 +36,7 @@ class DeviceManagementAutopilotEventCollectionResponse extends BaseCollectionPag
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(DeviceManagementAutopilotEvent::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([DeviceManagementAutopilotEvent::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

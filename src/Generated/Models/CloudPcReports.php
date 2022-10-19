@@ -45,7 +45,7 @@ class CloudPcReports extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exportJobs' => function (ParseNode $n) use ($o) { $o->setExportJobs($n->getCollectionOfObjectValues(array(CloudPcExportJob::class, 'createFromDiscriminatorValue'))); },
+            'exportJobs' => fn(ParseNode $n) => $o->setExportJobs($n->getCollectionOfObjectValues([CloudPcExportJob::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

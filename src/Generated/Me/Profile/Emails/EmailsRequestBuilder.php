@@ -111,10 +111,10 @@ class EmailsRequestBuilder
         $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(ItemEmailCollectionResponse::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ItemEmailCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -131,10 +131,10 @@ class EmailsRequestBuilder
         $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(ItemEmail::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ItemEmail::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

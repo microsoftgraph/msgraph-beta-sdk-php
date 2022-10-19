@@ -84,12 +84,12 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'isAnswerEditable' => function (ParseNode $n) use ($o) { $o->setIsAnswerEditable($n->getBooleanValue()); },
-            'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'sequence' => function (ParseNode $n) use ($o) { $o->setSequence($n->getIntegerValue()); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getObjectValue(array(AccessPackageLocalizedContent::class, 'createFromDiscriminatorValue'))); },
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'isAnswerEditable' => fn(ParseNode $n) => $o->setIsAnswerEditable($n->getBooleanValue()),
+            'isRequired' => fn(ParseNode $n) => $o->setIsRequired($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'sequence' => fn(ParseNode $n) => $o->setSequence($n->getIntegerValue()),
+            'text' => fn(ParseNode $n) => $o->setText($n->getObjectValue([AccessPackageLocalizedContent::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

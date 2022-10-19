@@ -88,11 +88,11 @@ class TenantAllowOrBlockListAction implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(TenantAllowBlockListAction::class)); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'note' => function (ParseNode $n) use ($o) { $o->setNote($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'results' => function (ParseNode $n) use ($o) { $o->setResults($n->getCollectionOfObjectValues(array(TenantAllowBlockListEntryResult::class, 'createFromDiscriminatorValue'))); },
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(TenantAllowBlockListAction::class)),
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'note' => fn(ParseNode $n) => $o->setNote($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'results' => fn(ParseNode $n) => $o->setResults($n->getCollectionOfObjectValues([TenantAllowBlockListEntryResult::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

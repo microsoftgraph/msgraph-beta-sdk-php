@@ -77,9 +77,9 @@ class AssignmentFilterTypeAndEvaluationResult implements AdditionalDataHolder, P
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assignmentFilterType' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
-            'evaluationResult' => function (ParseNode $n) use ($o) { $o->setEvaluationResult($n->getEnumValue(AssignmentFilterEvaluationResult::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'assignmentFilterType' => fn(ParseNode $n) => $o->setAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)),
+            'evaluationResult' => fn(ParseNode $n) => $o->setEvaluationResult($n->getEnumValue(AssignmentFilterEvaluationResult::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

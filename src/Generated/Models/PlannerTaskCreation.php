@@ -56,8 +56,8 @@ class PlannerTaskCreation implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'teamsPublicationInfo' => function (ParseNode $n) use ($o) { $o->setTeamsPublicationInfo($n->getObjectValue(array(PlannerTeamsPublicationInfo::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'teamsPublicationInfo' => fn(ParseNode $n) => $o->setTeamsPublicationInfo($n->getObjectValue([PlannerTeamsPublicationInfo::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

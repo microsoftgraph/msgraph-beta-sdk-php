@@ -46,7 +46,7 @@ class Catalog extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'entries' => function (ParseNode $n) use ($o) { $o->setEntries($n->getCollectionOfObjectValues(array(CatalogEntry::class, 'createFromDiscriminatorValue'))); },
+            'entries' => fn(ParseNode $n) => $o->setEntries($n->getCollectionOfObjectValues([CatalogEntry::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

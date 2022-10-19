@@ -37,7 +37,7 @@ class AttributeMappingFunctionSchema extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'parameters' => function (ParseNode $n) use ($o) { $o->setParameters($n->getCollectionOfObjectValues(array(AttributeMappingParameterSchema::class, 'createFromDiscriminatorValue'))); },
+            'parameters' => fn(ParseNode $n) => $o->setParameters($n->getCollectionOfObjectValues([AttributeMappingParameterSchema::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

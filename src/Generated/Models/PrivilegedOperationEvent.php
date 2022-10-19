@@ -127,20 +127,20 @@ class PrivilegedOperationEvent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'additionalInformation' => function (ParseNode $n) use ($o) { $o->setAdditionalInformation($n->getStringValue()); },
-            'creationDateTime' => function (ParseNode $n) use ($o) { $o->setCreationDateTime($n->getDateTimeValue()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'referenceKey' => function (ParseNode $n) use ($o) { $o->setReferenceKey($n->getStringValue()); },
-            'referenceSystem' => function (ParseNode $n) use ($o) { $o->setReferenceSystem($n->getStringValue()); },
-            'requestorId' => function (ParseNode $n) use ($o) { $o->setRequestorId($n->getStringValue()); },
-            'requestorName' => function (ParseNode $n) use ($o) { $o->setRequestorName($n->getStringValue()); },
-            'requestType' => function (ParseNode $n) use ($o) { $o->setRequestType($n->getStringValue()); },
-            'roleId' => function (ParseNode $n) use ($o) { $o->setRoleId($n->getStringValue()); },
-            'roleName' => function (ParseNode $n) use ($o) { $o->setRoleName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userMail' => function (ParseNode $n) use ($o) { $o->setUserMail($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'additionalInformation' => fn(ParseNode $n) => $o->setAdditionalInformation($n->getStringValue()),
+            'creationDateTime' => fn(ParseNode $n) => $o->setCreationDateTime($n->getDateTimeValue()),
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'referenceKey' => fn(ParseNode $n) => $o->setReferenceKey($n->getStringValue()),
+            'referenceSystem' => fn(ParseNode $n) => $o->setReferenceSystem($n->getStringValue()),
+            'requestorId' => fn(ParseNode $n) => $o->setRequestorId($n->getStringValue()),
+            'requestorName' => fn(ParseNode $n) => $o->setRequestorName($n->getStringValue()),
+            'requestType' => fn(ParseNode $n) => $o->setRequestType($n->getStringValue()),
+            'roleId' => fn(ParseNode $n) => $o->setRoleId($n->getStringValue()),
+            'roleName' => fn(ParseNode $n) => $o->setRoleName($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userMail' => fn(ParseNode $n) => $o->setUserMail($n->getStringValue()),
+            'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
         ]);
     }
 

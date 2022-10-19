@@ -122,16 +122,16 @@ class AccessPackageSubject extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'altSecId' => function (ParseNode $n) use ($o) { $o->setAltSecId($n->getStringValue()); },
-            'connectedOrganization' => function (ParseNode $n) use ($o) { $o->setConnectedOrganization($n->getObjectValue(array(ConnectedOrganization::class, 'createFromDiscriminatorValue'))); },
-            'connectedOrganizationId' => function (ParseNode $n) use ($o) { $o->setConnectedOrganizationId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
-            'objectId' => function (ParseNode $n) use ($o) { $o->setObjectId($n->getStringValue()); },
-            'onPremisesSecurityIdentifier' => function (ParseNode $n) use ($o) { $o->setOnPremisesSecurityIdentifier($n->getStringValue()); },
-            'principalName' => function (ParseNode $n) use ($o) { $o->setPrincipalName($n->getStringValue()); },
-            'subjectLifecycle' => function (ParseNode $n) use ($o) { $o->setSubjectLifecycle($n->getEnumValue(AccessPackageSubjectLifecycle::class)); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'altSecId' => fn(ParseNode $n) => $o->setAltSecId($n->getStringValue()),
+            'connectedOrganization' => fn(ParseNode $n) => $o->setConnectedOrganization($n->getObjectValue([ConnectedOrganization::class, 'createFromDiscriminatorValue'])),
+            'connectedOrganizationId' => fn(ParseNode $n) => $o->setConnectedOrganizationId($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
+            'objectId' => fn(ParseNode $n) => $o->setObjectId($n->getStringValue()),
+            'onPremisesSecurityIdentifier' => fn(ParseNode $n) => $o->setOnPremisesSecurityIdentifier($n->getStringValue()),
+            'principalName' => fn(ParseNode $n) => $o->setPrincipalName($n->getStringValue()),
+            'subjectLifecycle' => fn(ParseNode $n) => $o->setSubjectLifecycle($n->getEnumValue(AccessPackageSubjectLifecycle::class)),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ]);
     }
 

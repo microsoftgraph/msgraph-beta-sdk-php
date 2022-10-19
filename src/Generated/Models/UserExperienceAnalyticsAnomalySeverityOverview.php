@@ -76,12 +76,12 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'highSeverityAnomalyCount' => function (ParseNode $n) use ($o) { $o->setHighSeverityAnomalyCount($n->getIntegerValue()); },
-            'informationalSeverityAnomalyCount' => function (ParseNode $n) use ($o) { $o->setInformationalSeverityAnomalyCount($n->getIntegerValue()); },
-            'lowSeverityAnomalyCount' => function (ParseNode $n) use ($o) { $o->setLowSeverityAnomalyCount($n->getIntegerValue()); },
-            'mediumSeverityAnomalyCount' => function (ParseNode $n) use ($o) { $o->setMediumSeverityAnomalyCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'otherSeverityAnomalyCount' => function (ParseNode $n) use ($o) { $o->setOtherSeverityAnomalyCount($n->getIntegerValue()); },
+            'highSeverityAnomalyCount' => fn(ParseNode $n) => $o->setHighSeverityAnomalyCount($n->getIntegerValue()),
+            'informationalSeverityAnomalyCount' => fn(ParseNode $n) => $o->setInformationalSeverityAnomalyCount($n->getIntegerValue()),
+            'lowSeverityAnomalyCount' => fn(ParseNode $n) => $o->setLowSeverityAnomalyCount($n->getIntegerValue()),
+            'mediumSeverityAnomalyCount' => fn(ParseNode $n) => $o->setMediumSeverityAnomalyCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'otherSeverityAnomalyCount' => fn(ParseNode $n) => $o->setOtherSeverityAnomalyCount($n->getIntegerValue()),
         ];
     }
 

@@ -98,13 +98,13 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'currentBegan' => function (ParseNode $n) use ($o) { $o->setCurrentBegan($n->getDateTimeValue()); },
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(SynchronizationError::class, 'createFromDiscriminatorValue'))); },
-            'nextAttempt' => function (ParseNode $n) use ($o) { $o->setNextAttempt($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'reason' => function (ParseNode $n) use ($o) { $o->setReason($n->getEnumValue(QuarantineReason::class)); },
-            'seriesBegan' => function (ParseNode $n) use ($o) { $o->setSeriesBegan($n->getDateTimeValue()); },
-            'seriesCount' => function (ParseNode $n) use ($o) { $o->setSeriesCount($n->getIntegerValue()); },
+            'currentBegan' => fn(ParseNode $n) => $o->setCurrentBegan($n->getDateTimeValue()),
+            'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([SynchronizationError::class, 'createFromDiscriminatorValue'])),
+            'nextAttempt' => fn(ParseNode $n) => $o->setNextAttempt($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'reason' => fn(ParseNode $n) => $o->setReason($n->getEnumValue(QuarantineReason::class)),
+            'seriesBegan' => fn(ParseNode $n) => $o->setSeriesBegan($n->getDateTimeValue()),
+            'seriesCount' => fn(ParseNode $n) => $o->setSeriesCount($n->getIntegerValue()),
         ];
     }
 

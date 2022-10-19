@@ -99,15 +99,15 @@ class SynchronizationRule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'editable' => function (ParseNode $n) use ($o) { $o->setEditable($n->getBooleanValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(StringKeyStringValuePair::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'objectMappings' => function (ParseNode $n) use ($o) { $o->setObjectMappings($n->getCollectionOfObjectValues(array(ObjectMapping::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'sourceDirectoryName' => function (ParseNode $n) use ($o) { $o->setSourceDirectoryName($n->getStringValue()); },
-            'targetDirectoryName' => function (ParseNode $n) use ($o) { $o->setTargetDirectoryName($n->getStringValue()); },
+            'editable' => fn(ParseNode $n) => $o->setEditable($n->getBooleanValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([StringKeyStringValuePair::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'objectMappings' => fn(ParseNode $n) => $o->setObjectMappings($n->getCollectionOfObjectValues([ObjectMapping::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'sourceDirectoryName' => fn(ParseNode $n) => $o->setSourceDirectoryName($n->getStringValue()),
+            'targetDirectoryName' => fn(ParseNode $n) => $o->setTargetDirectoryName($n->getStringValue()),
         ];
     }
 

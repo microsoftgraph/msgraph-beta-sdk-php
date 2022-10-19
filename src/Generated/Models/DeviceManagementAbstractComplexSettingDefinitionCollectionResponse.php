@@ -36,7 +36,7 @@ class DeviceManagementAbstractComplexSettingDefinitionCollectionResponse extends
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(DeviceManagementAbstractComplexSettingDefinition::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([DeviceManagementAbstractComplexSettingDefinition::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

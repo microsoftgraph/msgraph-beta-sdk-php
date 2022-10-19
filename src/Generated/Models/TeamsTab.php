@@ -83,13 +83,13 @@ class TeamsTab extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configuration' => function (ParseNode $n) use ($o) { $o->setConfiguration($n->getObjectValue(array(TeamsTabConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'messageId' => function (ParseNode $n) use ($o) { $o->setMessageId($n->getStringValue()); },
-            'sortOrderIndex' => function (ParseNode $n) use ($o) { $o->setSortOrderIndex($n->getStringValue()); },
-            'teamsApp' => function (ParseNode $n) use ($o) { $o->setTeamsApp($n->getObjectValue(array(TeamsApp::class, 'createFromDiscriminatorValue'))); },
-            'teamsAppId' => function (ParseNode $n) use ($o) { $o->setTeamsAppId($n->getStringValue()); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'configuration' => fn(ParseNode $n) => $o->setConfiguration($n->getObjectValue([TeamsTabConfiguration::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'messageId' => fn(ParseNode $n) => $o->setMessageId($n->getStringValue()),
+            'sortOrderIndex' => fn(ParseNode $n) => $o->setSortOrderIndex($n->getStringValue()),
+            'teamsApp' => fn(ParseNode $n) => $o->setTeamsApp($n->getObjectValue([TeamsApp::class, 'createFromDiscriminatorValue'])),
+            'teamsAppId' => fn(ParseNode $n) => $o->setTeamsAppId($n->getStringValue()),
+            'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
     }
 

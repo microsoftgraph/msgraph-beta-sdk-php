@@ -55,9 +55,9 @@ class FilterOperatorSchema extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'arity' => function (ParseNode $n) use ($o) { $o->setArity($n->getEnumValue(ScopeOperatorType::class)); },
-            'multivaluedComparisonType' => function (ParseNode $n) use ($o) { $o->setMultivaluedComparisonType($n->getEnumValue(ScopeOperatorMultiValuedComparisonType::class)); },
-            'supportedAttributeTypes' => function (ParseNode $n) use ($o) { $o->setSupportedAttributeTypes($n->getCollectionOfEnumValues(AttributeType::class)); },
+            'arity' => fn(ParseNode $n) => $o->setArity($n->getEnumValue(ScopeOperatorType::class)),
+            'multivaluedComparisonType' => fn(ParseNode $n) => $o->setMultivaluedComparisonType($n->getEnumValue(ScopeOperatorMultiValuedComparisonType::class)),
+            'supportedAttributeTypes' => fn(ParseNode $n) => $o->setSupportedAttributeTypes($n->getCollectionOfEnumValues(AttributeType::class)),
         ]);
     }
 

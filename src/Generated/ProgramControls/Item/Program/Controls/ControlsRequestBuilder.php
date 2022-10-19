@@ -111,10 +111,10 @@ class ControlsRequestBuilder
         $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(ProgramControlCollectionResponse::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ProgramControlCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -131,10 +131,10 @@ class ControlsRequestBuilder
         $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(ProgramControl::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ProgramControl::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

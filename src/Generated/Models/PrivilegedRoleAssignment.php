@@ -71,12 +71,12 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'isElevated' => function (ParseNode $n) use ($o) { $o->setIsElevated($n->getBooleanValue()); },
-            'resultMessage' => function (ParseNode $n) use ($o) { $o->setResultMessage($n->getStringValue()); },
-            'roleId' => function (ParseNode $n) use ($o) { $o->setRoleId($n->getStringValue()); },
-            'roleInfo' => function (ParseNode $n) use ($o) { $o->setRoleInfo($n->getObjectValue(array(PrivilegedRole::class, 'createFromDiscriminatorValue'))); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'isElevated' => fn(ParseNode $n) => $o->setIsElevated($n->getBooleanValue()),
+            'resultMessage' => fn(ParseNode $n) => $o->setResultMessage($n->getStringValue()),
+            'roleId' => fn(ParseNode $n) => $o->setRoleId($n->getStringValue()),
+            'roleInfo' => fn(ParseNode $n) => $o->setRoleInfo($n->getObjectValue([PrivilegedRole::class, 'createFromDiscriminatorValue'])),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 

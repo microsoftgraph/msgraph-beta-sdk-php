@@ -84,12 +84,12 @@ class PersonNamePronounciation implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'first' => function (ParseNode $n) use ($o) { $o->setFirst($n->getStringValue()); },
-            'last' => function (ParseNode $n) use ($o) { $o->setLast($n->getStringValue()); },
-            'maiden' => function (ParseNode $n) use ($o) { $o->setMaiden($n->getStringValue()); },
-            'middle' => function (ParseNode $n) use ($o) { $o->setMiddle($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'first' => fn(ParseNode $n) => $o->setFirst($n->getStringValue()),
+            'last' => fn(ParseNode $n) => $o->setLast($n->getStringValue()),
+            'maiden' => fn(ParseNode $n) => $o->setMaiden($n->getStringValue()),
+            'middle' => fn(ParseNode $n) => $o->setMiddle($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

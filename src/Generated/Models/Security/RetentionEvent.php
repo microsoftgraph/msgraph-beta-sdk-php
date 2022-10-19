@@ -159,18 +159,18 @@ class RetentionEvent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'eventPropagationResults' => function (ParseNode $n) use ($o) { $o->setEventPropagationResults($n->getCollectionOfObjectValues(array(EventPropagationResult::class, 'createFromDiscriminatorValue'))); },
-            'eventQueries' => function (ParseNode $n) use ($o) { $o->setEventQueries($n->getCollectionOfObjectValues(array(EventQuery::class, 'createFromDiscriminatorValue'))); },
-            'eventStatus' => function (ParseNode $n) use ($o) { $o->setEventStatus($n->getObjectValue(array(RetentionEventStatus::class, 'createFromDiscriminatorValue'))); },
-            'eventTriggerDateTime' => function (ParseNode $n) use ($o) { $o->setEventTriggerDateTime($n->getDateTimeValue()); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'lastStatusUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastStatusUpdateDateTime($n->getDateTimeValue()); },
-            'retentionEventType' => function (ParseNode $n) use ($o) { $o->setRetentionEventType($n->getObjectValue(array(RetentionEventType::class, 'createFromDiscriminatorValue'))); },
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'eventPropagationResults' => fn(ParseNode $n) => $o->setEventPropagationResults($n->getCollectionOfObjectValues([EventPropagationResult::class, 'createFromDiscriminatorValue'])),
+            'eventQueries' => fn(ParseNode $n) => $o->setEventQueries($n->getCollectionOfObjectValues([EventQuery::class, 'createFromDiscriminatorValue'])),
+            'eventStatus' => fn(ParseNode $n) => $o->setEventStatus($n->getObjectValue([RetentionEventStatus::class, 'createFromDiscriminatorValue'])),
+            'eventTriggerDateTime' => fn(ParseNode $n) => $o->setEventTriggerDateTime($n->getDateTimeValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'lastStatusUpdateDateTime' => fn(ParseNode $n) => $o->setLastStatusUpdateDateTime($n->getDateTimeValue()),
+            'retentionEventType' => fn(ParseNode $n) => $o->setRetentionEventType($n->getObjectValue([RetentionEventType::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

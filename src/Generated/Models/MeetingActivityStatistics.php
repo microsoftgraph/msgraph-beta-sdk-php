@@ -79,12 +79,12 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'afterHours' => function (ParseNode $n) use ($o) { $o->setAfterHours($n->getDateIntervalValue()); },
-            'conflicting' => function (ParseNode $n) use ($o) { $o->setConflicting($n->getDateIntervalValue()); },
-            'long' => function (ParseNode $n) use ($o) { $o->setLong($n->getDateIntervalValue()); },
-            'multitasking' => function (ParseNode $n) use ($o) { $o->setMultitasking($n->getDateIntervalValue()); },
-            'organized' => function (ParseNode $n) use ($o) { $o->setOrganized($n->getDateIntervalValue()); },
-            'recurring' => function (ParseNode $n) use ($o) { $o->setRecurring($n->getDateIntervalValue()); },
+            'afterHours' => fn(ParseNode $n) => $o->setAfterHours($n->getDateIntervalValue()),
+            'conflicting' => fn(ParseNode $n) => $o->setConflicting($n->getDateIntervalValue()),
+            'long' => fn(ParseNode $n) => $o->setLong($n->getDateIntervalValue()),
+            'multitasking' => fn(ParseNode $n) => $o->setMultitasking($n->getDateIntervalValue()),
+            'organized' => fn(ParseNode $n) => $o->setOrganized($n->getDateIntervalValue()),
+            'recurring' => fn(ParseNode $n) => $o->setRecurring($n->getDateIntervalValue()),
         ]);
     }
 

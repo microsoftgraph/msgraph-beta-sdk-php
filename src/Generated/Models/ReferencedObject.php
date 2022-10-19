@@ -61,9 +61,9 @@ class ReferencedObject implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'referencedObjectName' => function (ParseNode $n) use ($o) { $o->setReferencedObjectName($n->getStringValue()); },
-            'referencedProperty' => function (ParseNode $n) use ($o) { $o->setReferencedProperty($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'referencedObjectName' => fn(ParseNode $n) => $o->setReferencedObjectName($n->getStringValue()),
+            'referencedProperty' => fn(ParseNode $n) => $o->setReferencedProperty($n->getStringValue()),
         ];
     }
 

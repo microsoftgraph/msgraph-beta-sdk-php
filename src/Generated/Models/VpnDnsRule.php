@@ -84,12 +84,12 @@ class VpnDnsRule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'autoTrigger' => function (ParseNode $n) use ($o) { $o->setAutoTrigger($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'persistent' => function (ParseNode $n) use ($o) { $o->setPersistent($n->getBooleanValue()); },
-            'proxyServerUri' => function (ParseNode $n) use ($o) { $o->setProxyServerUri($n->getStringValue()); },
-            'servers' => function (ParseNode $n) use ($o) { $o->setServers($n->getCollectionOfPrimitiveValues()); },
+            'autoTrigger' => fn(ParseNode $n) => $o->setAutoTrigger($n->getBooleanValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'persistent' => fn(ParseNode $n) => $o->setPersistent($n->getBooleanValue()),
+            'proxyServerUri' => fn(ParseNode $n) => $o->setProxyServerUri($n->getStringValue()),
+            'servers' => fn(ParseNode $n) => $o->setServers($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

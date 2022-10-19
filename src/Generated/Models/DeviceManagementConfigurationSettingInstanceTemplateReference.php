@@ -56,8 +56,8 @@ class DeviceManagementConfigurationSettingInstanceTemplateReference implements A
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'settingInstanceTemplateId' => function (ParseNode $n) use ($o) { $o->setSettingInstanceTemplateId($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'settingInstanceTemplateId' => fn(ParseNode $n) => $o->setSettingInstanceTemplateId($n->getStringValue()),
         ];
     }
 

@@ -62,9 +62,9 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'managedDeviceIds' => function (ParseNode $n) use ($o) { $o->setManagedDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'restorePointDateTime' => function (ParseNode $n) use ($o) { $o->setRestorePointDateTime($n->getDateTimeValue()); },
-            'timeRange' => function (ParseNode $n) use ($o) { $o->setTimeRange($n->getEnumValue(RestoreTimeRange::class)); },
+            'managedDeviceIds' => fn(ParseNode $n) => $o->setManagedDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'restorePointDateTime' => fn(ParseNode $n) => $o->setRestorePointDateTime($n->getDateTimeValue()),
+            'timeRange' => fn(ParseNode $n) => $o->setTimeRange($n->getEnumValue(RestoreTimeRange::class)),
         ];
     }
 

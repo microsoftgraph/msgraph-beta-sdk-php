@@ -14,7 +14,7 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
     private ?CloudPcManagementAssignmentTarget $target = null;
     
     /**
-     * Instantiates a new CloudPcProvisioningPolicyAssignment and sets the default values.
+     * Instantiates a new cloudPcProvisioningPolicyAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -37,7 +37,7 @@ class CloudPcProvisioningPolicyAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(CloudPcManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
+            'target' => fn(ParseNode $n) => $o->setTarget($n->getObjectValue([CloudPcManagementAssignmentTarget::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

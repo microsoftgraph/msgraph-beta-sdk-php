@@ -80,14 +80,14 @@ class LearningProvider extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'learningContents' => function (ParseNode $n) use ($o) { $o->setLearningContents($n->getCollectionOfObjectValues(array(LearningContent::class, 'createFromDiscriminatorValue'))); },
-            'loginWebUrl' => function (ParseNode $n) use ($o) { $o->setLoginWebUrl($n->getStringValue()); },
-            'longLogoWebUrlForDarkTheme' => function (ParseNode $n) use ($o) { $o->setLongLogoWebUrlForDarkTheme($n->getStringValue()); },
-            'longLogoWebUrlForLightTheme' => function (ParseNode $n) use ($o) { $o->setLongLogoWebUrlForLightTheme($n->getStringValue()); },
-            'squareLogoWebUrlForDarkTheme' => function (ParseNode $n) use ($o) { $o->setSquareLogoWebUrlForDarkTheme($n->getStringValue()); },
-            'squareLogoWebUrlForLightTheme' => function (ParseNode $n) use ($o) { $o->setSquareLogoWebUrlForLightTheme($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            'learningContents' => fn(ParseNode $n) => $o->setLearningContents($n->getCollectionOfObjectValues([LearningContent::class, 'createFromDiscriminatorValue'])),
+            'loginWebUrl' => fn(ParseNode $n) => $o->setLoginWebUrl($n->getStringValue()),
+            'longLogoWebUrlForDarkTheme' => fn(ParseNode $n) => $o->setLongLogoWebUrlForDarkTheme($n->getStringValue()),
+            'longLogoWebUrlForLightTheme' => fn(ParseNode $n) => $o->setLongLogoWebUrlForLightTheme($n->getStringValue()),
+            'squareLogoWebUrlForDarkTheme' => fn(ParseNode $n) => $o->setSquareLogoWebUrlForDarkTheme($n->getStringValue()),
+            'squareLogoWebUrlForLightTheme' => fn(ParseNode $n) => $o->setSquareLogoWebUrlForLightTheme($n->getStringValue()),
         ]);
     }
 

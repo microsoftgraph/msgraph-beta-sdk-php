@@ -168,22 +168,22 @@ class AndroidWorkProfileVpnConfiguration extends DeviceConfiguration implements 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alwaysOn' => function (ParseNode $n) use ($o) { $o->setAlwaysOn($n->getBooleanValue()); },
-            'alwaysOnLockdown' => function (ParseNode $n) use ($o) { $o->setAlwaysOnLockdown($n->getBooleanValue()); },
-            'authenticationMethod' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethod($n->getEnumValue(VpnAuthenticationMethod::class)); },
-            'connectionName' => function (ParseNode $n) use ($o) { $o->setConnectionName($n->getStringValue()); },
-            'connectionType' => function (ParseNode $n) use ($o) { $o->setConnectionType($n->getEnumValue(AndroidWorkProfileVpnConnectionType::class)); },
-            'customData' => function (ParseNode $n) use ($o) { $o->setCustomData($n->getCollectionOfObjectValues(array(KeyValue::class, 'createFromDiscriminatorValue'))); },
-            'customKeyValueData' => function (ParseNode $n) use ($o) { $o->setCustomKeyValueData($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'fingerprint' => function (ParseNode $n) use ($o) { $o->setFingerprint($n->getStringValue()); },
-            'identityCertificate' => function (ParseNode $n) use ($o) { $o->setIdentityCertificate($n->getObjectValue(array(AndroidWorkProfileCertificateProfileBase::class, 'createFromDiscriminatorValue'))); },
-            'microsoftTunnelSiteId' => function (ParseNode $n) use ($o) { $o->setMicrosoftTunnelSiteId($n->getStringValue()); },
-            'proxyServer' => function (ParseNode $n) use ($o) { $o->setProxyServer($n->getObjectValue(array(VpnProxyServer::class, 'createFromDiscriminatorValue'))); },
-            'realm' => function (ParseNode $n) use ($o) { $o->setRealm($n->getStringValue()); },
-            'role' => function (ParseNode $n) use ($o) { $o->setRole($n->getStringValue()); },
-            'servers' => function (ParseNode $n) use ($o) { $o->setServers($n->getCollectionOfObjectValues(array(VpnServer::class, 'createFromDiscriminatorValue'))); },
-            'targetedMobileApps' => function (ParseNode $n) use ($o) { $o->setTargetedMobileApps($n->getCollectionOfObjectValues(array(AppListItem::class, 'createFromDiscriminatorValue'))); },
-            'targetedPackageIds' => function (ParseNode $n) use ($o) { $o->setTargetedPackageIds($n->getCollectionOfPrimitiveValues()); },
+            'alwaysOn' => fn(ParseNode $n) => $o->setAlwaysOn($n->getBooleanValue()),
+            'alwaysOnLockdown' => fn(ParseNode $n) => $o->setAlwaysOnLockdown($n->getBooleanValue()),
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(VpnAuthenticationMethod::class)),
+            'connectionName' => fn(ParseNode $n) => $o->setConnectionName($n->getStringValue()),
+            'connectionType' => fn(ParseNode $n) => $o->setConnectionType($n->getEnumValue(AndroidWorkProfileVpnConnectionType::class)),
+            'customData' => fn(ParseNode $n) => $o->setCustomData($n->getCollectionOfObjectValues([KeyValue::class, 'createFromDiscriminatorValue'])),
+            'customKeyValueData' => fn(ParseNode $n) => $o->setCustomKeyValueData($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'fingerprint' => fn(ParseNode $n) => $o->setFingerprint($n->getStringValue()),
+            'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([AndroidWorkProfileCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
+            'microsoftTunnelSiteId' => fn(ParseNode $n) => $o->setMicrosoftTunnelSiteId($n->getStringValue()),
+            'proxyServer' => fn(ParseNode $n) => $o->setProxyServer($n->getObjectValue([VpnProxyServer::class, 'createFromDiscriminatorValue'])),
+            'realm' => fn(ParseNode $n) => $o->setRealm($n->getStringValue()),
+            'role' => fn(ParseNode $n) => $o->setRole($n->getStringValue()),
+            'servers' => fn(ParseNode $n) => $o->setServers($n->getCollectionOfObjectValues([VpnServer::class, 'createFromDiscriminatorValue'])),
+            'targetedMobileApps' => fn(ParseNode $n) => $o->setTargetedMobileApps($n->getCollectionOfObjectValues([AppListItem::class, 'createFromDiscriminatorValue'])),
+            'targetedPackageIds' => fn(ParseNode $n) => $o->setTargetedPackageIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

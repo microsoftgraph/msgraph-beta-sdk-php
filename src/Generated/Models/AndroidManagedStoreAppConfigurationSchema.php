@@ -25,7 +25,7 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
     private ?array $schemaItems = null;
     
     /**
-     * Instantiates a new AndroidManagedStoreAppConfigurationSchema and sets the default values.
+     * Instantiates a new androidManagedStoreAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,9 +56,9 @@ class AndroidManagedStoreAppConfigurationSchema extends Entity implements Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exampleJson' => function (ParseNode $n) use ($o) { $o->setExampleJson($n->getBinaryContent()); },
-            'nestedSchemaItems' => function (ParseNode $n) use ($o) { $o->setNestedSchemaItems($n->getCollectionOfObjectValues(array(AndroidManagedStoreAppConfigurationSchemaItem::class, 'createFromDiscriminatorValue'))); },
-            'schemaItems' => function (ParseNode $n) use ($o) { $o->setSchemaItems($n->getCollectionOfObjectValues(array(AndroidManagedStoreAppConfigurationSchemaItem::class, 'createFromDiscriminatorValue'))); },
+            'exampleJson' => fn(ParseNode $n) => $o->setExampleJson($n->getBinaryContent()),
+            'nestedSchemaItems' => fn(ParseNode $n) => $o->setNestedSchemaItems($n->getCollectionOfObjectValues([AndroidManagedStoreAppConfigurationSchemaItem::class, 'createFromDiscriminatorValue'])),
+            'schemaItems' => fn(ParseNode $n) => $o->setSchemaItems($n->getCollectionOfObjectValues([AndroidManagedStoreAppConfigurationSchemaItem::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -86,12 +86,12 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'check32BitOn64System' => function (ParseNode $n) use ($o) { $o->setCheck32BitOn64System($n->getBooleanValue()); },
-            'detectionType' => function (ParseNode $n) use ($o) { $o->setDetectionType($n->getEnumValue(Win32LobAppFileSystemDetectionType::class)); },
-            'detectionValue' => function (ParseNode $n) use ($o) { $o->setDetectionValue($n->getStringValue()); },
-            'fileOrFolderName' => function (ParseNode $n) use ($o) { $o->setFileOrFolderName($n->getStringValue()); },
-            'operator' => function (ParseNode $n) use ($o) { $o->setOperator($n->getEnumValue(Win32LobAppDetectionOperator::class)); },
-            'path' => function (ParseNode $n) use ($o) { $o->setPath($n->getStringValue()); },
+            'check32BitOn64System' => fn(ParseNode $n) => $o->setCheck32BitOn64System($n->getBooleanValue()),
+            'detectionType' => fn(ParseNode $n) => $o->setDetectionType($n->getEnumValue(Win32LobAppFileSystemDetectionType::class)),
+            'detectionValue' => fn(ParseNode $n) => $o->setDetectionValue($n->getStringValue()),
+            'fileOrFolderName' => fn(ParseNode $n) => $o->setFileOrFolderName($n->getStringValue()),
+            'operator' => fn(ParseNode $n) => $o->setOperator($n->getEnumValue(Win32LobAppDetectionOperator::class)),
+            'path' => fn(ParseNode $n) => $o->setPath($n->getStringValue()),
         ]);
     }
 

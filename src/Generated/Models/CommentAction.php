@@ -66,10 +66,10 @@ class CommentAction implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'isReply' => function (ParseNode $n) use ($o) { $o->setIsReply($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'parentAuthor' => function (ParseNode $n) use ($o) { $o->setParentAuthor($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'participants' => function (ParseNode $n) use ($o) { $o->setParticipants($n->getCollectionOfObjectValues(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            'isReply' => fn(ParseNode $n) => $o->setIsReply($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'parentAuthor' => fn(ParseNode $n) => $o->setParentAuthor($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'participants' => fn(ParseNode $n) => $o->setParticipants($n->getCollectionOfObjectValues([IdentitySet::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

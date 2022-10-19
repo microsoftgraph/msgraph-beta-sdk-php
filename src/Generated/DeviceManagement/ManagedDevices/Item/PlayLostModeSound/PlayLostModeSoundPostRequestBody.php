@@ -58,7 +58,7 @@ class PlayLostModeSoundPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'durationInMinutes' => function (ParseNode $n) use ($o) { $o->setDurationInMinutes($n->getStringValue()); },
+            'durationInMinutes' => fn(ParseNode $n) => $o->setDurationInMinutes($n->getStringValue()),
         ];
     }
 

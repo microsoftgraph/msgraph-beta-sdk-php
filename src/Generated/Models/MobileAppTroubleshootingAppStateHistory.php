@@ -63,9 +63,9 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionType' => function (ParseNode $n) use ($o) { $o->setActionType($n->getEnumValue(MobileAppActionType::class)); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getStringValue()); },
-            'runState' => function (ParseNode $n) use ($o) { $o->setRunState($n->getEnumValue(RunState::class)); },
+            'actionType' => fn(ParseNode $n) => $o->setActionType($n->getEnumValue(MobileAppActionType::class)),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getStringValue()),
+            'runState' => fn(ParseNode $n) => $o->setRunState($n->getEnumValue(RunState::class)),
         ]);
     }
 

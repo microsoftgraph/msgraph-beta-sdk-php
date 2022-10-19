@@ -50,7 +50,7 @@ class CreateGooglePlayWebTokenPostRequestBody implements AdditionalDataHolder, P
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'parentUri' => function (ParseNode $n) use ($o) { $o->setParentUri($n->getStringValue()); },
+            'parentUri' => fn(ParseNode $n) => $o->setParentUri($n->getStringValue()),
         ];
     }
 

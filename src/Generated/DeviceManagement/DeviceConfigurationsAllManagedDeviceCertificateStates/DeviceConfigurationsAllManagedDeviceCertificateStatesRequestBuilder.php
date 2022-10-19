@@ -111,10 +111,10 @@ class DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder
         $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(ManagedAllDeviceCertificateStateCollectionResponse::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ManagedAllDeviceCertificateStateCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -131,10 +131,10 @@ class DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder
         $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(ManagedAllDeviceCertificateState::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ManagedAllDeviceCertificateState::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

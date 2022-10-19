@@ -51,7 +51,7 @@ class SearchExistingIdentitiesPostRequestBody implements AdditionalDataHolder, P
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'importedDeviceIdentities' => function (ParseNode $n) use ($o) { $o->setImportedDeviceIdentities($n->getCollectionOfObjectValues(array(ImportedDeviceIdentity::class, 'createFromDiscriminatorValue'))); },
+            'importedDeviceIdentities' => fn(ParseNode $n) => $o->setImportedDeviceIdentities($n->getCollectionOfObjectValues([ImportedDeviceIdentity::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

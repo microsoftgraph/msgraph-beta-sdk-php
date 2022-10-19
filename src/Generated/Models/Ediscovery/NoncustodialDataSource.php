@@ -19,7 +19,7 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
     private ?DataSource $dataSource = null;
     
     /**
-     * Instantiates a new noncustodialDataSource and sets the default values.
+     * Instantiates a new NoncustodialDataSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,8 +58,8 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applyHoldToSource' => function (ParseNode $n) use ($o) { $o->setApplyHoldToSource($n->getBooleanValue()); },
-            'dataSource' => function (ParseNode $n) use ($o) { $o->setDataSource($n->getObjectValue(array(DataSource::class, 'createFromDiscriminatorValue'))); },
+            'applyHoldToSource' => fn(ParseNode $n) => $o->setApplyHoldToSource($n->getBooleanValue()),
+            'dataSource' => fn(ParseNode $n) => $o->setDataSource($n->getObjectValue([DataSource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

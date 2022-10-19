@@ -109,13 +109,13 @@ class ManagedTenantAlertRuleDefinition extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alertRules' => function (ParseNode $n) use ($o) { $o->setAlertRules($n->getCollectionOfObjectValues(array(ManagedTenantAlertRule::class, 'createFromDiscriminatorValue'))); },
-            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'definitionTemplate' => function (ParseNode $n) use ($o) { $o->setDefinitionTemplate($n->getObjectValue(array(AlertRuleDefinitionTemplate::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
+            'alertRules' => fn(ParseNode $n) => $o->setAlertRules($n->getCollectionOfObjectValues([ManagedTenantAlertRule::class, 'createFromDiscriminatorValue'])),
+            'createdByUserId' => fn(ParseNode $n) => $o->setCreatedByUserId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'definitionTemplate' => fn(ParseNode $n) => $o->setDefinitionTemplate($n->getObjectValue([AlertRuleDefinitionTemplate::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
+            'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
         ]);
     }
 

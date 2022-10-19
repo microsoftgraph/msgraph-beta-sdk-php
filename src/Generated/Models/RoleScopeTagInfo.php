@@ -69,9 +69,9 @@ class RoleScopeTagInfo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'roleScopeTagId' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagId($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'roleScopeTagId' => fn(ParseNode $n) => $o->setRoleScopeTagId($n->getStringValue()),
         ];
     }
 

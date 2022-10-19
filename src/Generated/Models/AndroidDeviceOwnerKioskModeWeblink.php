@@ -42,8 +42,8 @@ class AndroidDeviceOwnerKioskModeWeblink extends AndroidDeviceOwnerKioskModeFold
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'label' => function (ParseNode $n) use ($o) { $o->setLabel($n->getStringValue()); },
-            'link' => function (ParseNode $n) use ($o) { $o->setLink($n->getStringValue()); },
+            'label' => fn(ParseNode $n) => $o->setLabel($n->getStringValue()),
+            'link' => fn(ParseNode $n) => $o->setLink($n->getStringValue()),
         ]);
     }
 

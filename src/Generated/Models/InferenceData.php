@@ -69,9 +69,9 @@ class InferenceData implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'confidenceScore' => function (ParseNode $n) use ($o) { $o->setConfidenceScore($n->getFloatValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'userHasVerifiedAccuracy' => function (ParseNode $n) use ($o) { $o->setUserHasVerifiedAccuracy($n->getBooleanValue()); },
+            'confidenceScore' => fn(ParseNode $n) => $o->setConfidenceScore($n->getFloatValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'userHasVerifiedAccuracy' => fn(ParseNode $n) => $o->setUserHasVerifiedAccuracy($n->getBooleanValue()),
         ];
     }
 

@@ -111,10 +111,10 @@ class InsightsRequestBuilder
         $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(GovernanceInsightCollectionResponse::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [GovernanceInsightCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -131,10 +131,10 @@ class InsightsRequestBuilder
         $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(GovernanceInsight::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [GovernanceInsight::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

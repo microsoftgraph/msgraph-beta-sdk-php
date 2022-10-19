@@ -64,8 +64,8 @@ class ManagedDeviceCleanupSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceInactivityBeforeRetirementInDays' => function (ParseNode $n) use ($o) { $o->setDeviceInactivityBeforeRetirementInDays($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'deviceInactivityBeforeRetirementInDays' => fn(ParseNode $n) => $o->setDeviceInactivityBeforeRetirementInDays($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

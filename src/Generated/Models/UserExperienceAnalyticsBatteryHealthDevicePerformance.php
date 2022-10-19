@@ -117,15 +117,15 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'batteryAgeInDays' => function (ParseNode $n) use ($o) { $o->setBatteryAgeInDays($n->getIntegerValue()); },
-            'deviceBatteryHealthScore' => function (ParseNode $n) use ($o) { $o->setDeviceBatteryHealthScore($n->getIntegerValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'estimatedRuntimeInMinutes' => function (ParseNode $n) use ($o) { $o->setEstimatedRuntimeInMinutes($n->getIntegerValue()); },
-            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'maxCapacityPercentage' => function (ParseNode $n) use ($o) { $o->setMaxCapacityPercentage($n->getIntegerValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
+            'batteryAgeInDays' => fn(ParseNode $n) => $o->setBatteryAgeInDays($n->getIntegerValue()),
+            'deviceBatteryHealthScore' => fn(ParseNode $n) => $o->setDeviceBatteryHealthScore($n->getIntegerValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'estimatedRuntimeInMinutes' => fn(ParseNode $n) => $o->setEstimatedRuntimeInMinutes($n->getIntegerValue()),
+            'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'maxCapacityPercentage' => fn(ParseNode $n) => $o->setMaxCapacityPercentage($n->getIntegerValue()),
+            'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
         ]);
     }
 

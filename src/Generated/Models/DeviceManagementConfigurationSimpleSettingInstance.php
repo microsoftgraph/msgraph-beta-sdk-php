@@ -37,7 +37,7 @@ class DeviceManagementConfigurationSimpleSettingInstance extends DeviceManagemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'simpleSettingValue' => function (ParseNode $n) use ($o) { $o->setSimpleSettingValue($n->getObjectValue(array(DeviceManagementConfigurationSimpleSettingValue::class, 'createFromDiscriminatorValue'))); },
+            'simpleSettingValue' => fn(ParseNode $n) => $o->setSimpleSettingValue($n->getObjectValue([DeviceManagementConfigurationSimpleSettingValue::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

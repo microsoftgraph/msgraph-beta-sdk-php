@@ -19,7 +19,7 @@ class ProgramControlType extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * Instantiates a new ProgramControlType and sets the default values.
+     * Instantiates a new programControlType and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -58,8 +58,8 @@ class ProgramControlType extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'controlTypeGroupId' => function (ParseNode $n) use ($o) { $o->setControlTypeGroupId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'controlTypeGroupId' => fn(ParseNode $n) => $o->setControlTypeGroupId($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
         ]);
     }
 

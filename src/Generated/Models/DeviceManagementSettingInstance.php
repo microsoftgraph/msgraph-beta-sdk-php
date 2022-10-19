@@ -62,8 +62,8 @@ class DeviceManagementSettingInstance extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'definitionId' => function (ParseNode $n) use ($o) { $o->setDefinitionId($n->getStringValue()); },
-            'valueJson' => function (ParseNode $n) use ($o) { $o->setValueJson($n->getStringValue()); },
+            'definitionId' => fn(ParseNode $n) => $o->setDefinitionId($n->getStringValue()),
+            'valueJson' => fn(ParseNode $n) => $o->setValueJson($n->getStringValue()),
         ]);
     }
 

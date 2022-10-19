@@ -50,8 +50,8 @@ class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate ext
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'children' => function (ParseNode $n) use ($o) { $o->setChildren($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingInstanceTemplate::class, 'createFromDiscriminatorValue'))); },
-            'settingDefinitionOptionId' => function (ParseNode $n) use ($o) { $o->setSettingDefinitionOptionId($n->getStringValue()); },
+            'children' => fn(ParseNode $n) => $o->setChildren($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingInstanceTemplate::class, 'createFromDiscriminatorValue'])),
+            'settingDefinitionOptionId' => fn(ParseNode $n) => $o->setSettingDefinitionOptionId($n->getStringValue()),
         ]);
     }
 

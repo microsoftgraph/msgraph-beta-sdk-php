@@ -36,7 +36,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpactCollectionResponse exte
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsBatteryHealthDeviceAppImpact::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([UserExperienceAnalyticsBatteryHealthDeviceAppImpact::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

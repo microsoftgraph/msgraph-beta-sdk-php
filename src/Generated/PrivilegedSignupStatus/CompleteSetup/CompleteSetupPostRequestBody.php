@@ -51,7 +51,7 @@ class CompleteSetupPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'tenantSetupInfo' => function (ParseNode $n) use ($o) { $o->setTenantSetupInfo($n->getObjectValue(array(TenantSetupInfo::class, 'createFromDiscriminatorValue'))); },
+            'tenantSetupInfo' => fn(ParseNode $n) => $o->setTenantSetupInfo($n->getObjectValue([TenantSetupInfo::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

@@ -67,10 +67,10 @@ class ItemActivityTimeSet implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'lastRecordedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRecordedDateTime($n->getDateTimeValue()); },
-            'observedDateTime' => function (ParseNode $n) use ($o) { $o->setObservedDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recordedDateTime' => function (ParseNode $n) use ($o) { $o->setRecordedDateTime($n->getDateTimeValue()); },
+            'lastRecordedDateTime' => fn(ParseNode $n) => $o->setLastRecordedDateTime($n->getDateTimeValue()),
+            'observedDateTime' => fn(ParseNode $n) => $o->setObservedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recordedDateTime' => fn(ParseNode $n) => $o->setRecordedDateTime($n->getDateTimeValue()),
         ];
     }
 

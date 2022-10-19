@@ -38,7 +38,7 @@ class TriggerTypesRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'retentionEventTypes' => function (ParseNode $n) use ($o) { $o->setRetentionEventTypes($n->getCollectionOfObjectValues(array(RetentionEventType::class, 'createFromDiscriminatorValue'))); },
+            'retentionEventTypes' => fn(ParseNode $n) => $o->setRetentionEventTypes($n->getCollectionOfObjectValues([RetentionEventType::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

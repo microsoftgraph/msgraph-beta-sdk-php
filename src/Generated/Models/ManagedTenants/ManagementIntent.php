@@ -56,9 +56,9 @@ class ManagementIntent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isGlobal' => function (ParseNode $n) use ($o) { $o->setIsGlobal($n->getBooleanValue()); },
-            'managementTemplates' => function (ParseNode $n) use ($o) { $o->setManagementTemplates($n->getCollectionOfObjectValues(array(ManagementTemplateDetailedInfo::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isGlobal' => fn(ParseNode $n) => $o->setIsGlobal($n->getBooleanValue()),
+            'managementTemplates' => fn(ParseNode $n) => $o->setManagementTemplates($n->getCollectionOfObjectValues([ManagementTemplateDetailedInfo::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

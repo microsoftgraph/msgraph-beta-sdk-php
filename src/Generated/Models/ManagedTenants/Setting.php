@@ -84,12 +84,12 @@ class Setting implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'jsonValue' => function (ParseNode $n) use ($o) { $o->setJsonValue($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'overwriteAllowed' => function (ParseNode $n) use ($o) { $o->setOverwriteAllowed($n->getBooleanValue()); },
-            'settingId' => function (ParseNode $n) use ($o) { $o->setSettingId($n->getStringValue()); },
-            'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getEnumValue(ManagementParameterValueType::class)); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'jsonValue' => fn(ParseNode $n) => $o->setJsonValue($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'overwriteAllowed' => fn(ParseNode $n) => $o->setOverwriteAllowed($n->getBooleanValue()),
+            'settingId' => fn(ParseNode $n) => $o->setSettingId($n->getStringValue()),
+            'valueType' => fn(ParseNode $n) => $o->setValueType($n->getEnumValue(ManagementParameterValueType::class)),
         ];
     }
 

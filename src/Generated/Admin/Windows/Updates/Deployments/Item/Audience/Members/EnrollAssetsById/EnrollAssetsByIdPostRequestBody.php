@@ -61,9 +61,9 @@ class EnrollAssetsByIdPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'ids' => function (ParseNode $n) use ($o) { $o->setIds($n->getCollectionOfPrimitiveValues()); },
-            'memberEntityType' => function (ParseNode $n) use ($o) { $o->setMemberEntityType($n->getStringValue()); },
-            'updateCategory' => function (ParseNode $n) use ($o) { $o->setUpdateCategory($n->getEnumValue(UpdateCategory::class)); },
+            'ids' => fn(ParseNode $n) => $o->setIds($n->getCollectionOfPrimitiveValues()),
+            'memberEntityType' => fn(ParseNode $n) => $o->setMemberEntityType($n->getStringValue()),
+            'updateCategory' => fn(ParseNode $n) => $o->setUpdateCategory($n->getEnumValue(UpdateCategory::class)),
         ];
     }
 

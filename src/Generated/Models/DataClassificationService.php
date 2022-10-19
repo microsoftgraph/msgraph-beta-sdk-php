@@ -125,15 +125,15 @@ class DataClassificationService extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classifyFileJobs' => function (ParseNode $n) use ($o) { $o->setClassifyFileJobs($n->getCollectionOfObjectValues(array(JobResponseBase::class, 'createFromDiscriminatorValue'))); },
-            'classifyTextJobs' => function (ParseNode $n) use ($o) { $o->setClassifyTextJobs($n->getCollectionOfObjectValues(array(JobResponseBase::class, 'createFromDiscriminatorValue'))); },
-            'evaluateDlpPoliciesJobs' => function (ParseNode $n) use ($o) { $o->setEvaluateDlpPoliciesJobs($n->getCollectionOfObjectValues(array(JobResponseBase::class, 'createFromDiscriminatorValue'))); },
-            'evaluateLabelJobs' => function (ParseNode $n) use ($o) { $o->setEvaluateLabelJobs($n->getCollectionOfObjectValues(array(JobResponseBase::class, 'createFromDiscriminatorValue'))); },
-            'exactMatchDataStores' => function (ParseNode $n) use ($o) { $o->setExactMatchDataStores($n->getCollectionOfObjectValues(array(ExactMatchDataStore::class, 'createFromDiscriminatorValue'))); },
-            'exactMatchUploadAgents' => function (ParseNode $n) use ($o) { $o->setExactMatchUploadAgents($n->getCollectionOfObjectValues(array(ExactMatchUploadAgent::class, 'createFromDiscriminatorValue'))); },
-            'jobs' => function (ParseNode $n) use ($o) { $o->setJobs($n->getCollectionOfObjectValues(array(JobResponseBase::class, 'createFromDiscriminatorValue'))); },
-            'sensitiveTypes' => function (ParseNode $n) use ($o) { $o->setSensitiveTypes($n->getCollectionOfObjectValues(array(SensitiveType::class, 'createFromDiscriminatorValue'))); },
-            'sensitivityLabels' => function (ParseNode $n) use ($o) { $o->setSensitivityLabels($n->getCollectionOfObjectValues(array(SensitivityLabel::class, 'createFromDiscriminatorValue'))); },
+            'classifyFileJobs' => fn(ParseNode $n) => $o->setClassifyFileJobs($n->getCollectionOfObjectValues([JobResponseBase::class, 'createFromDiscriminatorValue'])),
+            'classifyTextJobs' => fn(ParseNode $n) => $o->setClassifyTextJobs($n->getCollectionOfObjectValues([JobResponseBase::class, 'createFromDiscriminatorValue'])),
+            'evaluateDlpPoliciesJobs' => fn(ParseNode $n) => $o->setEvaluateDlpPoliciesJobs($n->getCollectionOfObjectValues([JobResponseBase::class, 'createFromDiscriminatorValue'])),
+            'evaluateLabelJobs' => fn(ParseNode $n) => $o->setEvaluateLabelJobs($n->getCollectionOfObjectValues([JobResponseBase::class, 'createFromDiscriminatorValue'])),
+            'exactMatchDataStores' => fn(ParseNode $n) => $o->setExactMatchDataStores($n->getCollectionOfObjectValues([ExactMatchDataStore::class, 'createFromDiscriminatorValue'])),
+            'exactMatchUploadAgents' => fn(ParseNode $n) => $o->setExactMatchUploadAgents($n->getCollectionOfObjectValues([ExactMatchUploadAgent::class, 'createFromDiscriminatorValue'])),
+            'jobs' => fn(ParseNode $n) => $o->setJobs($n->getCollectionOfObjectValues([JobResponseBase::class, 'createFromDiscriminatorValue'])),
+            'sensitiveTypes' => fn(ParseNode $n) => $o->setSensitiveTypes($n->getCollectionOfObjectValues([SensitiveType::class, 'createFromDiscriminatorValue'])),
+            'sensitivityLabels' => fn(ParseNode $n) => $o->setSensitivityLabels($n->getCollectionOfObjectValues([SensitivityLabel::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

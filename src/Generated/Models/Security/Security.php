@@ -38,7 +38,7 @@ class Security extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'informationProtection' => function (ParseNode $n) use ($o) { $o->setInformationProtection($n->getObjectValue(array(InformationProtection::class, 'createFromDiscriminatorValue'))); },
+            'informationProtection' => fn(ParseNode $n) => $o->setInformationProtection($n->getObjectValue([InformationProtection::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

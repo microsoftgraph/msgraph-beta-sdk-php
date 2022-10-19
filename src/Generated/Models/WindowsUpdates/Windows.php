@@ -15,7 +15,7 @@ class Windows extends Entity implements Parsable
     private ?Updates $updates = null;
     
     /**
-     * Instantiates a new windows and sets the default values.
+     * Instantiates a new Windows and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,7 +38,7 @@ class Windows extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'updates' => function (ParseNode $n) use ($o) { $o->setUpdates($n->getObjectValue(array(Updates::class, 'createFromDiscriminatorValue'))); },
+            'updates' => fn(ParseNode $n) => $o->setUpdates($n->getObjectValue([Updates::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

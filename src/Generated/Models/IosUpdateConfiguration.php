@@ -118,15 +118,15 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeHoursEnd' => function (ParseNode $n) use ($o) { $o->setActiveHoursEnd($n->getTimeValue()); },
-            'activeHoursStart' => function (ParseNode $n) use ($o) { $o->setActiveHoursStart($n->getTimeValue()); },
-            'customUpdateTimeWindows' => function (ParseNode $n) use ($o) { $o->setCustomUpdateTimeWindows($n->getCollectionOfObjectValues(array(CustomUpdateTimeWindow::class, 'createFromDiscriminatorValue'))); },
-            'desiredOsVersion' => function (ParseNode $n) use ($o) { $o->setDesiredOsVersion($n->getStringValue()); },
-            'enforcedSoftwareUpdateDelayInDays' => function (ParseNode $n) use ($o) { $o->setEnforcedSoftwareUpdateDelayInDays($n->getIntegerValue()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'scheduledInstallDays' => function (ParseNode $n) use ($o) { $o->setScheduledInstallDays($n->getCollectionOfEnumValues(DayOfWeek::class)); },
-            'updateScheduleType' => function (ParseNode $n) use ($o) { $o->setUpdateScheduleType($n->getEnumValue(IosSoftwareUpdateScheduleType::class)); },
-            'utcTimeOffsetInMinutes' => function (ParseNode $n) use ($o) { $o->setUtcTimeOffsetInMinutes($n->getIntegerValue()); },
+            'activeHoursEnd' => fn(ParseNode $n) => $o->setActiveHoursEnd($n->getTimeValue()),
+            'activeHoursStart' => fn(ParseNode $n) => $o->setActiveHoursStart($n->getTimeValue()),
+            'customUpdateTimeWindows' => fn(ParseNode $n) => $o->setCustomUpdateTimeWindows($n->getCollectionOfObjectValues([CustomUpdateTimeWindow::class, 'createFromDiscriminatorValue'])),
+            'desiredOsVersion' => fn(ParseNode $n) => $o->setDesiredOsVersion($n->getStringValue()),
+            'enforcedSoftwareUpdateDelayInDays' => fn(ParseNode $n) => $o->setEnforcedSoftwareUpdateDelayInDays($n->getIntegerValue()),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            'scheduledInstallDays' => fn(ParseNode $n) => $o->setScheduledInstallDays($n->getCollectionOfEnumValues(DayOfWeek::class)),
+            'updateScheduleType' => fn(ParseNode $n) => $o->setUpdateScheduleType($n->getEnumValue(IosSoftwareUpdateScheduleType::class)),
+            'utcTimeOffsetInMinutes' => fn(ParseNode $n) => $o->setUtcTimeOffsetInMinutes($n->getIntegerValue()),
         ]);
     }
 

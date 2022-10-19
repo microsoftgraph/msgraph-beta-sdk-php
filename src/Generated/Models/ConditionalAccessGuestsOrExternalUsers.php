@@ -69,9 +69,9 @@ class ConditionalAccessGuestsOrExternalUsers implements AdditionalDataHolder, Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'externalTenants' => function (ParseNode $n) use ($o) { $o->setExternalTenants($n->getObjectValue(array(ConditionalAccessExternalTenants::class, 'createFromDiscriminatorValue'))); },
-            'guestOrExternalUserTypes' => function (ParseNode $n) use ($o) { $o->setGuestOrExternalUserTypes($n->getEnumValue(ConditionalAccessGuestOrExternalUserTypes::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'externalTenants' => fn(ParseNode $n) => $o->setExternalTenants($n->getObjectValue([ConditionalAccessExternalTenants::class, 'createFromDiscriminatorValue'])),
+            'guestOrExternalUserTypes' => fn(ParseNode $n) => $o->setGuestOrExternalUserTypes($n->getEnumValue(ConditionalAccessGuestOrExternalUserTypes::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -56,8 +56,8 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'note' => function (ParseNode $n) use ($o) { $o->setNote($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DeviceAppManagementTaskStatus::class)); },
+            'note' => fn(ParseNode $n) => $o->setNote($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(DeviceAppManagementTaskStatus::class)),
         ];
     }
 

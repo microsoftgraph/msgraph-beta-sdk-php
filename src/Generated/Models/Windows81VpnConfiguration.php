@@ -88,11 +88,11 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applyOnlyToWindows81' => function (ParseNode $n) use ($o) { $o->setApplyOnlyToWindows81($n->getBooleanValue()); },
-            'connectionType' => function (ParseNode $n) use ($o) { $o->setConnectionType($n->getEnumValue(WindowsVpnConnectionType::class)); },
-            'enableSplitTunneling' => function (ParseNode $n) use ($o) { $o->setEnableSplitTunneling($n->getBooleanValue()); },
-            'loginGroupOrDomain' => function (ParseNode $n) use ($o) { $o->setLoginGroupOrDomain($n->getStringValue()); },
-            'proxyServer' => function (ParseNode $n) use ($o) { $o->setProxyServer($n->getObjectValue(array(Windows81VpnProxyServer::class, 'createFromDiscriminatorValue'))); },
+            'applyOnlyToWindows81' => fn(ParseNode $n) => $o->setApplyOnlyToWindows81($n->getBooleanValue()),
+            'connectionType' => fn(ParseNode $n) => $o->setConnectionType($n->getEnumValue(WindowsVpnConnectionType::class)),
+            'enableSplitTunneling' => fn(ParseNode $n) => $o->setEnableSplitTunneling($n->getBooleanValue()),
+            'loginGroupOrDomain' => fn(ParseNode $n) => $o->setLoginGroupOrDomain($n->getStringValue()),
+            'proxyServer' => fn(ParseNode $n) => $o->setProxyServer($n->getObjectValue([Windows81VpnProxyServer::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

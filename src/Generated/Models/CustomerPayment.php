@@ -197,21 +197,21 @@ class CustomerPayment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'amount' => function (ParseNode $n) use ($o) { $o->setAmount($n->getStringValue()); },
-            'appliesToInvoiceId' => function (ParseNode $n) use ($o) { $o->setAppliesToInvoiceId($n->getStringValue()); },
-            'appliesToInvoiceNumber' => function (ParseNode $n) use ($o) { $o->setAppliesToInvoiceNumber($n->getStringValue()); },
-            'comment' => function (ParseNode $n) use ($o) { $o->setComment($n->getStringValue()); },
-            'contactId' => function (ParseNode $n) use ($o) { $o->setContactId($n->getStringValue()); },
-            'customer' => function (ParseNode $n) use ($o) { $o->setCustomer($n->getObjectValue(array(Customer::class, 'createFromDiscriminatorValue'))); },
-            'customerId' => function (ParseNode $n) use ($o) { $o->setCustomerId($n->getStringValue()); },
-            'customerNumber' => function (ParseNode $n) use ($o) { $o->setCustomerNumber($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'documentNumber' => function (ParseNode $n) use ($o) { $o->setDocumentNumber($n->getStringValue()); },
-            'externalDocumentNumber' => function (ParseNode $n) use ($o) { $o->setExternalDocumentNumber($n->getStringValue()); },
-            'journalDisplayName' => function (ParseNode $n) use ($o) { $o->setJournalDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'lineNumber' => function (ParseNode $n) use ($o) { $o->setLineNumber($n->getIntegerValue()); },
-            'postingDate' => function (ParseNode $n) use ($o) { $o->setPostingDate($n->getDateValue()); },
+            'amount' => fn(ParseNode $n) => $o->setAmount($n->getStringValue()),
+            'appliesToInvoiceId' => fn(ParseNode $n) => $o->setAppliesToInvoiceId($n->getStringValue()),
+            'appliesToInvoiceNumber' => fn(ParseNode $n) => $o->setAppliesToInvoiceNumber($n->getStringValue()),
+            'comment' => fn(ParseNode $n) => $o->setComment($n->getStringValue()),
+            'contactId' => fn(ParseNode $n) => $o->setContactId($n->getStringValue()),
+            'customer' => fn(ParseNode $n) => $o->setCustomer($n->getObjectValue([Customer::class, 'createFromDiscriminatorValue'])),
+            'customerId' => fn(ParseNode $n) => $o->setCustomerId($n->getStringValue()),
+            'customerNumber' => fn(ParseNode $n) => $o->setCustomerNumber($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'documentNumber' => fn(ParseNode $n) => $o->setDocumentNumber($n->getStringValue()),
+            'externalDocumentNumber' => fn(ParseNode $n) => $o->setExternalDocumentNumber($n->getStringValue()),
+            'journalDisplayName' => fn(ParseNode $n) => $o->setJournalDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'lineNumber' => fn(ParseNode $n) => $o->setLineNumber($n->getIntegerValue()),
+            'postingDate' => fn(ParseNode $n) => $o->setPostingDate($n->getDateValue()),
         ]);
     }
 

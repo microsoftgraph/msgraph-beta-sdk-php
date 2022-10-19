@@ -111,14 +111,14 @@ class PositionDetail implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'company' => function (ParseNode $n) use ($o) { $o->setCompany($n->getObjectValue(array(CompanyDetail::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'endMonthYear' => function (ParseNode $n) use ($o) { $o->setEndMonthYear($n->getDateValue()); },
-            'jobTitle' => function (ParseNode $n) use ($o) { $o->setJobTitle($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'role' => function (ParseNode $n) use ($o) { $o->setRole($n->getStringValue()); },
-            'startMonthYear' => function (ParseNode $n) use ($o) { $o->setStartMonthYear($n->getDateValue()); },
-            'summary' => function (ParseNode $n) use ($o) { $o->setSummary($n->getStringValue()); },
+            'company' => fn(ParseNode $n) => $o->setCompany($n->getObjectValue([CompanyDetail::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'endMonthYear' => fn(ParseNode $n) => $o->setEndMonthYear($n->getDateValue()),
+            'jobTitle' => fn(ParseNode $n) => $o->setJobTitle($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'role' => fn(ParseNode $n) => $o->setRole($n->getStringValue()),
+            'startMonthYear' => fn(ParseNode $n) => $o->setStartMonthYear($n->getDateValue()),
+            'summary' => fn(ParseNode $n) => $o->setSummary($n->getStringValue()),
         ];
     }
 

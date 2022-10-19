@@ -39,7 +39,7 @@ class UserSettings extends Entity implements Parsable
     private ?ShiftPreferences $shiftPreferences = null;
     
     /**
-     * Instantiates a new UserSettings and sets the default values.
+     * Instantiates a new userSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -86,12 +86,12 @@ class UserSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contactMergeSuggestions' => function (ParseNode $n) use ($o) { $o->setContactMergeSuggestions($n->getObjectValue(array(ContactMergeSuggestions::class, 'createFromDiscriminatorValue'))); },
-            'contributionToContentDiscoveryAsOrganizationDisabled' => function (ParseNode $n) use ($o) { $o->setContributionToContentDiscoveryAsOrganizationDisabled($n->getBooleanValue()); },
-            'contributionToContentDiscoveryDisabled' => function (ParseNode $n) use ($o) { $o->setContributionToContentDiscoveryDisabled($n->getBooleanValue()); },
-            'itemInsights' => function (ParseNode $n) use ($o) { $o->setItemInsights($n->getObjectValue(array(UserInsightsSettings::class, 'createFromDiscriminatorValue'))); },
-            'regionalAndLanguageSettings' => function (ParseNode $n) use ($o) { $o->setRegionalAndLanguageSettings($n->getObjectValue(array(RegionalAndLanguageSettings::class, 'createFromDiscriminatorValue'))); },
-            'shiftPreferences' => function (ParseNode $n) use ($o) { $o->setShiftPreferences($n->getObjectValue(array(ShiftPreferences::class, 'createFromDiscriminatorValue'))); },
+            'contactMergeSuggestions' => fn(ParseNode $n) => $o->setContactMergeSuggestions($n->getObjectValue([ContactMergeSuggestions::class, 'createFromDiscriminatorValue'])),
+            'contributionToContentDiscoveryAsOrganizationDisabled' => fn(ParseNode $n) => $o->setContributionToContentDiscoveryAsOrganizationDisabled($n->getBooleanValue()),
+            'contributionToContentDiscoveryDisabled' => fn(ParseNode $n) => $o->setContributionToContentDiscoveryDisabled($n->getBooleanValue()),
+            'itemInsights' => fn(ParseNode $n) => $o->setItemInsights($n->getObjectValue([UserInsightsSettings::class, 'createFromDiscriminatorValue'])),
+            'regionalAndLanguageSettings' => fn(ParseNode $n) => $o->setRegionalAndLanguageSettings($n->getObjectValue([RegionalAndLanguageSettings::class, 'createFromDiscriminatorValue'])),
+            'shiftPreferences' => fn(ParseNode $n) => $o->setShiftPreferences($n->getObjectValue([ShiftPreferences::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

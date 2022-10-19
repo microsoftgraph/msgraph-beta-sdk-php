@@ -117,18 +117,18 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignmentFilterIds' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterIds($n->getCollectionOfPrimitiveValues()); },
-            'detectionState' => function (ParseNode $n) use ($o) { $o->setDetectionState($n->getEnumValue(RunState::class)); },
-            'expectedStateUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setExpectedStateUpdateDateTime($n->getDateTimeValue()); },
-            'lastStateUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastStateUpdateDateTime($n->getDateTimeValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'managedDevice' => function (ParseNode $n) use ($o) { $o->setManagedDevice($n->getObjectValue(array(ManagedDevice::class, 'createFromDiscriminatorValue'))); },
-            'postRemediationDetectionScriptError' => function (ParseNode $n) use ($o) { $o->setPostRemediationDetectionScriptError($n->getStringValue()); },
-            'postRemediationDetectionScriptOutput' => function (ParseNode $n) use ($o) { $o->setPostRemediationDetectionScriptOutput($n->getStringValue()); },
-            'preRemediationDetectionScriptError' => function (ParseNode $n) use ($o) { $o->setPreRemediationDetectionScriptError($n->getStringValue()); },
-            'preRemediationDetectionScriptOutput' => function (ParseNode $n) use ($o) { $o->setPreRemediationDetectionScriptOutput($n->getStringValue()); },
-            'remediationScriptError' => function (ParseNode $n) use ($o) { $o->setRemediationScriptError($n->getStringValue()); },
-            'remediationState' => function (ParseNode $n) use ($o) { $o->setRemediationState($n->getEnumValue(RemediationState::class)); },
+            'assignmentFilterIds' => fn(ParseNode $n) => $o->setAssignmentFilterIds($n->getCollectionOfPrimitiveValues()),
+            'detectionState' => fn(ParseNode $n) => $o->setDetectionState($n->getEnumValue(RunState::class)),
+            'expectedStateUpdateDateTime' => fn(ParseNode $n) => $o->setExpectedStateUpdateDateTime($n->getDateTimeValue()),
+            'lastStateUpdateDateTime' => fn(ParseNode $n) => $o->setLastStateUpdateDateTime($n->getDateTimeValue()),
+            'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            'managedDevice' => fn(ParseNode $n) => $o->setManagedDevice($n->getObjectValue([ManagedDevice::class, 'createFromDiscriminatorValue'])),
+            'postRemediationDetectionScriptError' => fn(ParseNode $n) => $o->setPostRemediationDetectionScriptError($n->getStringValue()),
+            'postRemediationDetectionScriptOutput' => fn(ParseNode $n) => $o->setPostRemediationDetectionScriptOutput($n->getStringValue()),
+            'preRemediationDetectionScriptError' => fn(ParseNode $n) => $o->setPreRemediationDetectionScriptError($n->getStringValue()),
+            'preRemediationDetectionScriptOutput' => fn(ParseNode $n) => $o->setPreRemediationDetectionScriptOutput($n->getStringValue()),
+            'remediationScriptError' => fn(ParseNode $n) => $o->setRemediationScriptError($n->getStringValue()),
+            'remediationState' => fn(ParseNode $n) => $o->setRemediationState($n->getEnumValue(RemediationState::class)),
         ]);
     }
 

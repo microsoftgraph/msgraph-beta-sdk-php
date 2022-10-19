@@ -50,7 +50,7 @@ class GetPolicySetsPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'policySetIds' => function (ParseNode $n) use ($o) { $o->setPolicySetIds($n->getCollectionOfPrimitiveValues()); },
+            'policySetIds' => fn(ParseNode $n) => $o->setPolicySetIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

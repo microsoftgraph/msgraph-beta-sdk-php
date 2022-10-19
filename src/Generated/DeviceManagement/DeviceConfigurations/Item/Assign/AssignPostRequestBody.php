@@ -73,8 +73,8 @@ class AssignPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceConfigurationAssignment::class, 'createFromDiscriminatorValue'))); },
-            'deviceConfigurationGroupAssignments' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationGroupAssignments($n->getCollectionOfObjectValues(array(DeviceConfigurationGroupAssignment::class, 'createFromDiscriminatorValue'))); },
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([DeviceConfigurationAssignment::class, 'createFromDiscriminatorValue'])),
+            'deviceConfigurationGroupAssignments' => fn(ParseNode $n) => $o->setDeviceConfigurationGroupAssignments($n->getCollectionOfObjectValues([DeviceConfigurationGroupAssignment::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

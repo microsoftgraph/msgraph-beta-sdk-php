@@ -56,9 +56,9 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'metricDateTime' => function (ParseNode $n) use ($o) { $o->setMetricDateTime($n->getDateTimeValue()); },
-            'metricType' => function (ParseNode $n) use ($o) { $o->setMetricType($n->getStringValue()); },
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'metricDateTime' => fn(ParseNode $n) => $o->setMetricDateTime($n->getDateTimeValue()),
+            'metricType' => fn(ParseNode $n) => $o->setMetricType($n->getStringValue()),
         ]);
     }
 

@@ -160,20 +160,20 @@ class Incident extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alerts' => function (ParseNode $n) use ($o) { $o->setAlerts($n->getCollectionOfObjectValues(array(Alert::class, 'createFromDiscriminatorValue'))); },
-            'assignedTo' => function (ParseNode $n) use ($o) { $o->setAssignedTo($n->getStringValue()); },
-            'classification' => function (ParseNode $n) use ($o) { $o->setClassification($n->getEnumValue(AlertClassification::class)); },
-            'comments' => function (ParseNode $n) use ($o) { $o->setComments($n->getCollectionOfObjectValues(array(AlertComment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'determination' => function (ParseNode $n) use ($o) { $o->setDetermination($n->getEnumValue(AlertDetermination::class)); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'incidentWebUrl' => function (ParseNode $n) use ($o) { $o->setIncidentWebUrl($n->getStringValue()); },
-            'lastUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdateDateTime($n->getDateTimeValue()); },
-            'redirectIncidentId' => function (ParseNode $n) use ($o) { $o->setRedirectIncidentId($n->getStringValue()); },
-            'severity' => function (ParseNode $n) use ($o) { $o->setSeverity($n->getEnumValue(AlertSeverity::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(IncidentStatus::class)); },
-            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'alerts' => fn(ParseNode $n) => $o->setAlerts($n->getCollectionOfObjectValues([Alert::class, 'createFromDiscriminatorValue'])),
+            'assignedTo' => fn(ParseNode $n) => $o->setAssignedTo($n->getStringValue()),
+            'classification' => fn(ParseNode $n) => $o->setClassification($n->getEnumValue(AlertClassification::class)),
+            'comments' => fn(ParseNode $n) => $o->setComments($n->getCollectionOfObjectValues([AlertComment::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'determination' => fn(ParseNode $n) => $o->setDetermination($n->getEnumValue(AlertDetermination::class)),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'incidentWebUrl' => fn(ParseNode $n) => $o->setIncidentWebUrl($n->getStringValue()),
+            'lastUpdateDateTime' => fn(ParseNode $n) => $o->setLastUpdateDateTime($n->getDateTimeValue()),
+            'redirectIncidentId' => fn(ParseNode $n) => $o->setRedirectIncidentId($n->getStringValue()),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(AlertSeverity::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(IncidentStatus::class)),
+            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
 

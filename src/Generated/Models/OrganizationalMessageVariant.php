@@ -66,10 +66,10 @@ class OrganizationalMessageVariant implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'localizedTexts' => function (ParseNode $n) use ($o) { $o->setLocalizedTexts($n->getCollectionOfObjectValues(array(OrganizationalMessageLocalizedText::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'variantId' => function (ParseNode $n) use ($o) { $o->setVariantId($n->getStringValue()); },
+            'localizedTexts' => fn(ParseNode $n) => $o->setLocalizedTexts($n->getCollectionOfObjectValues([OrganizationalMessageLocalizedText::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'variantId' => fn(ParseNode $n) => $o->setVariantId($n->getStringValue()),
         ];
     }
 

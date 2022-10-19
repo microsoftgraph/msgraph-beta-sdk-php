@@ -73,9 +73,9 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'connectionName' => function (ParseNode $n) use ($o) { $o->setConnectionName($n->getStringValue()); },
-            'customXml' => function (ParseNode $n) use ($o) { $o->setCustomXml($n->getBinaryContent()); },
-            'servers' => function (ParseNode $n) use ($o) { $o->setServers($n->getCollectionOfObjectValues(array(VpnServer::class, 'createFromDiscriminatorValue'))); },
+            'connectionName' => fn(ParseNode $n) => $o->setConnectionName($n->getStringValue()),
+            'customXml' => fn(ParseNode $n) => $o->setCustomXml($n->getBinaryContent()),
+            'servers' => fn(ParseNode $n) => $o->setServers($n->getCollectionOfObjectValues([VpnServer::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

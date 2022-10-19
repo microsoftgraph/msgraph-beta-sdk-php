@@ -100,12 +100,12 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceFilter' => function (ParseNode $n) use ($o) { $o->setDeviceFilter($n->getObjectValue(array(ConditionalAccessFilter::class, 'createFromDiscriminatorValue'))); },
-            'excludeDevices' => function (ParseNode $n) use ($o) { $o->setExcludeDevices($n->getCollectionOfPrimitiveValues()); },
-            'excludeDeviceStates' => function (ParseNode $n) use ($o) { $o->setExcludeDeviceStates($n->getCollectionOfPrimitiveValues()); },
-            'includeDevices' => function (ParseNode $n) use ($o) { $o->setIncludeDevices($n->getCollectionOfPrimitiveValues()); },
-            'includeDeviceStates' => function (ParseNode $n) use ($o) { $o->setIncludeDeviceStates($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'deviceFilter' => fn(ParseNode $n) => $o->setDeviceFilter($n->getObjectValue([ConditionalAccessFilter::class, 'createFromDiscriminatorValue'])),
+            'excludeDevices' => fn(ParseNode $n) => $o->setExcludeDevices($n->getCollectionOfPrimitiveValues()),
+            'excludeDeviceStates' => fn(ParseNode $n) => $o->setExcludeDeviceStates($n->getCollectionOfPrimitiveValues()),
+            'includeDevices' => fn(ParseNode $n) => $o->setIncludeDevices($n->getCollectionOfPrimitiveValues()),
+            'includeDeviceStates' => fn(ParseNode $n) => $o->setIncludeDeviceStates($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -73,10 +73,10 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'use' => function (ParseNode $n) use ($o) { $o->setUse($n->getStringValue()); },
-            'exp' => function (ParseNode $n) use ($o) { $o->setExp($n->getIntegerValue()); },
-            'k' => function (ParseNode $n) use ($o) { $o->setK($n->getStringValue()); },
-            'nbf' => function (ParseNode $n) use ($o) { $o->setNbf($n->getIntegerValue()); },
+            'use' => fn(ParseNode $n) => $o->setUse($n->getStringValue()),
+            'exp' => fn(ParseNode $n) => $o->setExp($n->getIntegerValue()),
+            'k' => fn(ParseNode $n) => $o->setK($n->getStringValue()),
+            'nbf' => fn(ParseNode $n) => $o->setNbf($n->getIntegerValue()),
         ];
     }
 

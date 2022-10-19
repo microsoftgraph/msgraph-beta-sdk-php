@@ -63,8 +63,8 @@ class MuteAllPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'clientContext' => function (ParseNode $n) use ($o) { $o->setClientContext($n->getStringValue()); },
-            'participants' => function (ParseNode $n) use ($o) { $o->setParticipants($n->getCollectionOfPrimitiveValues()); },
+            'clientContext' => fn(ParseNode $n) => $o->setClientContext($n->getStringValue()),
+            'participants' => fn(ParseNode $n) => $o->setParticipants($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

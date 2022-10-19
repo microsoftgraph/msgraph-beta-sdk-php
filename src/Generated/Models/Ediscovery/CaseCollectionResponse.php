@@ -37,7 +37,7 @@ class CaseCollectionResponse extends BaseCollectionPaginationCountResponse imple
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(EscapedCase::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([EscapedCase::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

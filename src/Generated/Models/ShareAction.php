@@ -56,8 +56,8 @@ class ShareAction implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recipients' => function (ParseNode $n) use ($o) { $o->setRecipients($n->getCollectionOfObjectValues(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recipients' => fn(ParseNode $n) => $o->setRecipients($n->getCollectionOfObjectValues([IdentitySet::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

@@ -38,7 +38,7 @@ class GetOffice365GroupsActivityFileCountsWithPeriodResponse extends BaseCollect
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(Office365GroupsActivityFileCounts::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([Office365GroupsActivityFileCounts::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

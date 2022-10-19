@@ -97,10 +97,10 @@ class DlpEvaluationInput implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accessScope' => function (ParseNode $n) use ($o) { $o->setAccessScope($n->getEnumValue(AccessScope::class)); },
-            'currentLabel' => function (ParseNode $n) use ($o) { $o->setCurrentLabel($n->getObjectValue(array(CurrentLabel::class, 'createFromDiscriminatorValue'))); },
-            'discoveredSensitiveTypes' => function (ParseNode $n) use ($o) { $o->setDiscoveredSensitiveTypes($n->getCollectionOfObjectValues(array(DiscoveredSensitiveType::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'accessScope' => fn(ParseNode $n) => $o->setAccessScope($n->getEnumValue(AccessScope::class)),
+            'currentLabel' => fn(ParseNode $n) => $o->setCurrentLabel($n->getObjectValue([CurrentLabel::class, 'createFromDiscriminatorValue'])),
+            'discoveredSensitiveTypes' => fn(ParseNode $n) => $o->setDiscoveredSensitiveTypes($n->getCollectionOfObjectValues([DiscoveredSensitiveType::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

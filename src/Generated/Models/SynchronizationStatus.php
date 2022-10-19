@@ -136,19 +136,19 @@ class SynchronizationStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getEnumValue(SynchronizationStatusCode::class)); },
-            'countSuccessiveCompleteFailures' => function (ParseNode $n) use ($o) { $o->setCountSuccessiveCompleteFailures($n->getIntegerValue()); },
-            'escrowsPruned' => function (ParseNode $n) use ($o) { $o->setEscrowsPruned($n->getBooleanValue()); },
-            'lastExecution' => function (ParseNode $n) use ($o) { $o->setLastExecution($n->getObjectValue(array(SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'))); },
-            'lastSuccessfulExecution' => function (ParseNode $n) use ($o) { $o->setLastSuccessfulExecution($n->getObjectValue(array(SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'))); },
-            'lastSuccessfulExecutionWithExports' => function (ParseNode $n) use ($o) { $o->setLastSuccessfulExecutionWithExports($n->getObjectValue(array(SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'progress' => function (ParseNode $n) use ($o) { $o->setProgress($n->getCollectionOfObjectValues(array(SynchronizationProgress::class, 'createFromDiscriminatorValue'))); },
-            'quarantine' => function (ParseNode $n) use ($o) { $o->setQuarantine($n->getObjectValue(array(SynchronizationQuarantine::class, 'createFromDiscriminatorValue'))); },
-            'steadyStateFirstAchievedTime' => function (ParseNode $n) use ($o) { $o->setSteadyStateFirstAchievedTime($n->getDateTimeValue()); },
-            'steadyStateLastAchievedTime' => function (ParseNode $n) use ($o) { $o->setSteadyStateLastAchievedTime($n->getDateTimeValue()); },
-            'synchronizedEntryCountByType' => function (ParseNode $n) use ($o) { $o->setSynchronizedEntryCountByType($n->getCollectionOfObjectValues(array(StringKeyLongValuePair::class, 'createFromDiscriminatorValue'))); },
-            'troubleshootingUrl' => function (ParseNode $n) use ($o) { $o->setTroubleshootingUrl($n->getStringValue()); },
+            'code' => fn(ParseNode $n) => $o->setCode($n->getEnumValue(SynchronizationStatusCode::class)),
+            'countSuccessiveCompleteFailures' => fn(ParseNode $n) => $o->setCountSuccessiveCompleteFailures($n->getIntegerValue()),
+            'escrowsPruned' => fn(ParseNode $n) => $o->setEscrowsPruned($n->getBooleanValue()),
+            'lastExecution' => fn(ParseNode $n) => $o->setLastExecution($n->getObjectValue([SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'])),
+            'lastSuccessfulExecution' => fn(ParseNode $n) => $o->setLastSuccessfulExecution($n->getObjectValue([SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'])),
+            'lastSuccessfulExecutionWithExports' => fn(ParseNode $n) => $o->setLastSuccessfulExecutionWithExports($n->getObjectValue([SynchronizationTaskExecution::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'progress' => fn(ParseNode $n) => $o->setProgress($n->getCollectionOfObjectValues([SynchronizationProgress::class, 'createFromDiscriminatorValue'])),
+            'quarantine' => fn(ParseNode $n) => $o->setQuarantine($n->getObjectValue([SynchronizationQuarantine::class, 'createFromDiscriminatorValue'])),
+            'steadyStateFirstAchievedTime' => fn(ParseNode $n) => $o->setSteadyStateFirstAchievedTime($n->getDateTimeValue()),
+            'steadyStateLastAchievedTime' => fn(ParseNode $n) => $o->setSteadyStateLastAchievedTime($n->getDateTimeValue()),
+            'synchronizedEntryCountByType' => fn(ParseNode $n) => $o->setSynchronizedEntryCountByType($n->getCollectionOfObjectValues([StringKeyLongValuePair::class, 'createFromDiscriminatorValue'])),
+            'troubleshootingUrl' => fn(ParseNode $n) => $o->setTroubleshootingUrl($n->getStringValue()),
         ];
     }
 

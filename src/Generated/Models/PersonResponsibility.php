@@ -81,11 +81,11 @@ class PersonResponsibility extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'collaborationTags' => function (ParseNode $n) use ($o) { $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'collaborationTags' => fn(ParseNode $n) => $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
+            'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
     }
 

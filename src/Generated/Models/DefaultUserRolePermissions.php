@@ -103,11 +103,11 @@ class DefaultUserRolePermissions implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedToCreateApps' => function (ParseNode $n) use ($o) { $o->setAllowedToCreateApps($n->getBooleanValue()); },
-            'allowedToCreateSecurityGroups' => function (ParseNode $n) use ($o) { $o->setAllowedToCreateSecurityGroups($n->getBooleanValue()); },
-            'allowedToReadBitlockerKeysForOwnedDevice' => function (ParseNode $n) use ($o) { $o->setAllowedToReadBitlockerKeysForOwnedDevice($n->getBooleanValue()); },
-            'allowedToReadOtherUsers' => function (ParseNode $n) use ($o) { $o->setAllowedToReadOtherUsers($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'allowedToCreateApps' => fn(ParseNode $n) => $o->setAllowedToCreateApps($n->getBooleanValue()),
+            'allowedToCreateSecurityGroups' => fn(ParseNode $n) => $o->setAllowedToCreateSecurityGroups($n->getBooleanValue()),
+            'allowedToReadBitlockerKeysForOwnedDevice' => fn(ParseNode $n) => $o->setAllowedToReadBitlockerKeysForOwnedDevice($n->getBooleanValue()),
+            'allowedToReadOtherUsers' => fn(ParseNode $n) => $o->setAllowedToReadOtherUsers($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

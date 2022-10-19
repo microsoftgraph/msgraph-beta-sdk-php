@@ -57,11 +57,11 @@ class RegistryValueEvidence extends AlertEvidence implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'registryHive' => function (ParseNode $n) use ($o) { $o->setRegistryHive($n->getStringValue()); },
-            'registryKey' => function (ParseNode $n) use ($o) { $o->setRegistryKey($n->getStringValue()); },
-            'registryValue' => function (ParseNode $n) use ($o) { $o->setRegistryValue($n->getStringValue()); },
-            'registryValueName' => function (ParseNode $n) use ($o) { $o->setRegistryValueName($n->getStringValue()); },
-            'registryValueType' => function (ParseNode $n) use ($o) { $o->setRegistryValueType($n->getStringValue()); },
+            'registryHive' => fn(ParseNode $n) => $o->setRegistryHive($n->getStringValue()),
+            'registryKey' => fn(ParseNode $n) => $o->setRegistryKey($n->getStringValue()),
+            'registryValue' => fn(ParseNode $n) => $o->setRegistryValue($n->getStringValue()),
+            'registryValueName' => fn(ParseNode $n) => $o->setRegistryValueName($n->getStringValue()),
+            'registryValueType' => fn(ParseNode $n) => $o->setRegistryValueType($n->getStringValue()),
         ]);
     }
 

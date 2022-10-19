@@ -58,8 +58,8 @@ class AzureADDevice extends UpdatableAsset implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'enrollments' => function (ParseNode $n) use ($o) { $o->setEnrollments($n->getCollectionOfObjectValues(array(UpdatableAssetEnrollment::class, 'createFromDiscriminatorValue'))); },
-            'errors' => function (ParseNode $n) use ($o) { $o->setErrors($n->getCollectionOfObjectValues(array(UpdatableAssetError::class, 'createFromDiscriminatorValue'))); },
+            'enrollments' => fn(ParseNode $n) => $o->setEnrollments($n->getCollectionOfObjectValues([UpdatableAssetEnrollment::class, 'createFromDiscriminatorValue'])),
+            'errors' => fn(ParseNode $n) => $o->setErrors($n->getCollectionOfObjectValues([UpdatableAssetError::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

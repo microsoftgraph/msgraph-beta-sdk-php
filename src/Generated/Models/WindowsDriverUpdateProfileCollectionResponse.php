@@ -36,7 +36,7 @@ class WindowsDriverUpdateProfileCollectionResponse extends BaseCollectionPaginat
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(WindowsDriverUpdateProfile::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([WindowsDriverUpdateProfile::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

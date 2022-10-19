@@ -37,7 +37,7 @@ class SharedEmailDomain extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'provisioningStatus' => function (ParseNode $n) use ($o) { $o->setProvisioningStatus($n->getStringValue()); },
+            'provisioningStatus' => fn(ParseNode $n) => $o->setProvisioningStatus($n->getStringValue()),
         ]);
     }
 

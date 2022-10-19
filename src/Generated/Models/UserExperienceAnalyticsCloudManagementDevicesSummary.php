@@ -74,10 +74,10 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary implements Additional
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'coManagedDeviceCount' => function (ParseNode $n) use ($o) { $o->setCoManagedDeviceCount($n->getIntegerValue()); },
-            'intuneDeviceCount' => function (ParseNode $n) use ($o) { $o->setIntuneDeviceCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'tenantAttachDeviceCount' => function (ParseNode $n) use ($o) { $o->setTenantAttachDeviceCount($n->getIntegerValue()); },
+            'coManagedDeviceCount' => fn(ParseNode $n) => $o->setCoManagedDeviceCount($n->getIntegerValue()),
+            'intuneDeviceCount' => fn(ParseNode $n) => $o->setIntuneDeviceCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'tenantAttachDeviceCount' => fn(ParseNode $n) => $o->setTenantAttachDeviceCount($n->getIntegerValue()),
         ];
     }
 

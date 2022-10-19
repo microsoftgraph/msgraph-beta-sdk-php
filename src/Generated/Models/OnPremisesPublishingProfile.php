@@ -99,13 +99,13 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agentGroups' => function (ParseNode $n) use ($o) { $o->setAgentGroups($n->getCollectionOfObjectValues(array(OnPremisesAgentGroup::class, 'createFromDiscriminatorValue'))); },
-            'agents' => function (ParseNode $n) use ($o) { $o->setAgents($n->getCollectionOfObjectValues(array(OnPremisesAgent::class, 'createFromDiscriminatorValue'))); },
-            'connectorGroups' => function (ParseNode $n) use ($o) { $o->setConnectorGroups($n->getCollectionOfObjectValues(array(ConnectorGroup::class, 'createFromDiscriminatorValue'))); },
-            'connectors' => function (ParseNode $n) use ($o) { $o->setConnectors($n->getCollectionOfObjectValues(array(Connector::class, 'createFromDiscriminatorValue'))); },
-            'hybridAgentUpdaterConfiguration' => function (ParseNode $n) use ($o) { $o->setHybridAgentUpdaterConfiguration($n->getObjectValue(array(HybridAgentUpdaterConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'publishedResources' => function (ParseNode $n) use ($o) { $o->setPublishedResources($n->getCollectionOfObjectValues(array(PublishedResource::class, 'createFromDiscriminatorValue'))); },
+            'agentGroups' => fn(ParseNode $n) => $o->setAgentGroups($n->getCollectionOfObjectValues([OnPremisesAgentGroup::class, 'createFromDiscriminatorValue'])),
+            'agents' => fn(ParseNode $n) => $o->setAgents($n->getCollectionOfObjectValues([OnPremisesAgent::class, 'createFromDiscriminatorValue'])),
+            'connectorGroups' => fn(ParseNode $n) => $o->setConnectorGroups($n->getCollectionOfObjectValues([ConnectorGroup::class, 'createFromDiscriminatorValue'])),
+            'connectors' => fn(ParseNode $n) => $o->setConnectors($n->getCollectionOfObjectValues([Connector::class, 'createFromDiscriminatorValue'])),
+            'hybridAgentUpdaterConfiguration' => fn(ParseNode $n) => $o->setHybridAgentUpdaterConfiguration($n->getObjectValue([HybridAgentUpdaterConfiguration::class, 'createFromDiscriminatorValue'])),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            'publishedResources' => fn(ParseNode $n) => $o->setPublishedResources($n->getCollectionOfObjectValues([PublishedResource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

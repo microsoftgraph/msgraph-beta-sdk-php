@@ -58,8 +58,8 @@ class Windows81VpnProxyServer extends VpnProxyServer implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'automaticallyDetectProxySettings' => function (ParseNode $n) use ($o) { $o->setAutomaticallyDetectProxySettings($n->getBooleanValue()); },
-            'bypassProxyServerForLocalAddress' => function (ParseNode $n) use ($o) { $o->setBypassProxyServerForLocalAddress($n->getBooleanValue()); },
+            'automaticallyDetectProxySettings' => fn(ParseNode $n) => $o->setAutomaticallyDetectProxySettings($n->getBooleanValue()),
+            'bypassProxyServerForLocalAddress' => fn(ParseNode $n) => $o->setBypassProxyServerForLocalAddress($n->getBooleanValue()),
         ]);
     }
 

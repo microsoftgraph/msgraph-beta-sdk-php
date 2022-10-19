@@ -73,11 +73,11 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionVerb' => function (ParseNode $n) use ($o) { $o->setActionVerb($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'resourceScope' => function (ParseNode $n) use ($o) { $o->setResourceScope($n->getObjectValue(array(UnifiedRbacResourceScope::class, 'createFromDiscriminatorValue'))); },
-            'resourceScopeId' => function (ParseNode $n) use ($o) { $o->setResourceScopeId($n->getStringValue()); },
+            'actionVerb' => fn(ParseNode $n) => $o->setActionVerb($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'resourceScope' => fn(ParseNode $n) => $o->setResourceScope($n->getObjectValue([UnifiedRbacResourceScope::class, 'createFromDiscriminatorValue'])),
+            'resourceScopeId' => fn(ParseNode $n) => $o->setResourceScopeId($n->getStringValue()),
         ]);
     }
 

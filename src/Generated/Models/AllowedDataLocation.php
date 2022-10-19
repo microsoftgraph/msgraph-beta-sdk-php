@@ -29,7 +29,7 @@ class AllowedDataLocation extends Entity implements Parsable
     private ?string $location = null;
     
     /**
-     * Instantiates a new allowedDataLocation and sets the default values.
+     * Instantiates a new AllowedDataLocation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,10 +68,10 @@ class AllowedDataLocation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'domain' => function (ParseNode $n) use ($o) { $o->setDomain($n->getStringValue()); },
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getStringValue()); },
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'domain' => fn(ParseNode $n) => $o->setDomain($n->getStringValue()),
+            'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
+            'location' => fn(ParseNode $n) => $o->setLocation($n->getStringValue()),
         ]);
     }
 

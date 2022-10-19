@@ -271,6 +271,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.cloudPC': return new CloudPC();
                 case '#microsoft.graph.cloudPcAuditEvent': return new CloudPcAuditEvent();
                 case '#microsoft.graph.cloudPCConnectivityIssue': return new CloudPCConnectivityIssue();
+                case '#microsoft.graph.cloudPcCrossCloudGovernmentOrganizationMapping': return new CloudPcCrossCloudGovernmentOrganizationMapping();
                 case '#microsoft.graph.cloudPcDeviceImage': return new CloudPcDeviceImage();
                 case '#microsoft.graph.cloudPcExportJob': return new CloudPcExportJob();
                 case '#microsoft.graph.cloudPcExternalPartnerSetting': return new CloudPcExternalPartnerSetting();
@@ -1564,8 +1565,8 @@ class Entity implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

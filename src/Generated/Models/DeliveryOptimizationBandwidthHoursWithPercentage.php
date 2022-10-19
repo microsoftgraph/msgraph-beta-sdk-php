@@ -58,8 +58,8 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bandwidthBackgroundPercentageHours' => function (ParseNode $n) use ($o) { $o->setBandwidthBackgroundPercentageHours($n->getObjectValue(array(DeliveryOptimizationBandwidthBusinessHoursLimit::class, 'createFromDiscriminatorValue'))); },
-            'bandwidthForegroundPercentageHours' => function (ParseNode $n) use ($o) { $o->setBandwidthForegroundPercentageHours($n->getObjectValue(array(DeliveryOptimizationBandwidthBusinessHoursLimit::class, 'createFromDiscriminatorValue'))); },
+            'bandwidthBackgroundPercentageHours' => fn(ParseNode $n) => $o->setBandwidthBackgroundPercentageHours($n->getObjectValue([DeliveryOptimizationBandwidthBusinessHoursLimit::class, 'createFromDiscriminatorValue'])),
+            'bandwidthForegroundPercentageHours' => fn(ParseNode $n) => $o->setBandwidthForegroundPercentageHours($n->getObjectValue([DeliveryOptimizationBandwidthBusinessHoursLimit::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

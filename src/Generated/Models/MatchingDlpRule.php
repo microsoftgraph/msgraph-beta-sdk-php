@@ -99,15 +99,15 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'actions' => function (ParseNode $n) use ($o) { $o->setActions($n->getCollectionOfObjectValues(array(DlpActionInfo::class, 'createFromDiscriminatorValue'))); },
-            'isMostRestrictive' => function (ParseNode $n) use ($o) { $o->setIsMostRestrictive($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'policyId' => function (ParseNode $n) use ($o) { $o->setPolicyId($n->getStringValue()); },
-            'policyName' => function (ParseNode $n) use ($o) { $o->setPolicyName($n->getStringValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'ruleId' => function (ParseNode $n) use ($o) { $o->setRuleId($n->getStringValue()); },
-            'ruleMode' => function (ParseNode $n) use ($o) { $o->setRuleMode($n->getEnumValue(RuleMode::class)); },
-            'ruleName' => function (ParseNode $n) use ($o) { $o->setRuleName($n->getStringValue()); },
+            'actions' => fn(ParseNode $n) => $o->setActions($n->getCollectionOfObjectValues([DlpActionInfo::class, 'createFromDiscriminatorValue'])),
+            'isMostRestrictive' => fn(ParseNode $n) => $o->setIsMostRestrictive($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
+            'policyName' => fn(ParseNode $n) => $o->setPolicyName($n->getStringValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'ruleId' => fn(ParseNode $n) => $o->setRuleId($n->getStringValue()),
+            'ruleMode' => fn(ParseNode $n) => $o->setRuleMode($n->getEnumValue(RuleMode::class)),
+            'ruleName' => fn(ParseNode $n) => $o->setRuleName($n->getStringValue()),
         ];
     }
 

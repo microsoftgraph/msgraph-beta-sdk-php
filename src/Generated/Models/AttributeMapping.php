@@ -102,14 +102,14 @@ class AttributeMapping implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getStringValue()); },
-            'exportMissingReferences' => function (ParseNode $n) use ($o) { $o->setExportMissingReferences($n->getBooleanValue()); },
-            'flowBehavior' => function (ParseNode $n) use ($o) { $o->setFlowBehavior($n->getEnumValue(AttributeFlowBehavior::class)); },
-            'flowType' => function (ParseNode $n) use ($o) { $o->setFlowType($n->getEnumValue(AttributeFlowType::class)); },
-            'matchingPriority' => function (ParseNode $n) use ($o) { $o->setMatchingPriority($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getObjectValue(array(AttributeMappingSource::class, 'createFromDiscriminatorValue'))); },
-            'targetAttributeName' => function (ParseNode $n) use ($o) { $o->setTargetAttributeName($n->getStringValue()); },
+            'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getStringValue()),
+            'exportMissingReferences' => fn(ParseNode $n) => $o->setExportMissingReferences($n->getBooleanValue()),
+            'flowBehavior' => fn(ParseNode $n) => $o->setFlowBehavior($n->getEnumValue(AttributeFlowBehavior::class)),
+            'flowType' => fn(ParseNode $n) => $o->setFlowType($n->getEnumValue(AttributeFlowType::class)),
+            'matchingPriority' => fn(ParseNode $n) => $o->setMatchingPriority($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'source' => fn(ParseNode $n) => $o->setSource($n->getObjectValue([AttributeMappingSource::class, 'createFromDiscriminatorValue'])),
+            'targetAttributeName' => fn(ParseNode $n) => $o->setTargetAttributeName($n->getStringValue()),
         ];
     }
 

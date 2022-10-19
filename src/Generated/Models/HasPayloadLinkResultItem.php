@@ -79,11 +79,11 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getStringValue()); },
-            'hasLink' => function (ParseNode $n) use ($o) { $o->setHasLink($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'payloadId' => function (ParseNode $n) use ($o) { $o->setPayloadId($n->getStringValue()); },
-            'sources' => function (ParseNode $n) use ($o) { $o->setSources($n->getCollectionOfEnumValues(DeviceAndAppManagementAssignmentSource::class)); },
+            'error' => fn(ParseNode $n) => $o->setError($n->getStringValue()),
+            'hasLink' => fn(ParseNode $n) => $o->setHasLink($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'payloadId' => fn(ParseNode $n) => $o->setPayloadId($n->getStringValue()),
+            'sources' => fn(ParseNode $n) => $o->setSources($n->getCollectionOfEnumValues(DeviceAndAppManagementAssignmentSource::class)),
         ];
     }
 

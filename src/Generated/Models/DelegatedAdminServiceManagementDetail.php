@@ -42,8 +42,8 @@ class DelegatedAdminServiceManagementDetail extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'serviceManagementUrl' => function (ParseNode $n) use ($o) { $o->setServiceManagementUrl($n->getStringValue()); },
-            'serviceName' => function (ParseNode $n) use ($o) { $o->setServiceName($n->getStringValue()); },
+            'serviceManagementUrl' => fn(ParseNode $n) => $o->setServiceManagementUrl($n->getStringValue()),
+            'serviceName' => fn(ParseNode $n) => $o->setServiceName($n->getStringValue()),
         ]);
     }
 

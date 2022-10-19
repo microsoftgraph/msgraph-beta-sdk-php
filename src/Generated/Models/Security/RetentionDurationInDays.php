@@ -45,7 +45,7 @@ class RetentionDurationInDays extends RetentionDuration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'days' => function (ParseNode $n) use ($o) { $o->setDays($n->getIntegerValue()); },
+            'days' => fn(ParseNode $n) => $o->setDays($n->getIntegerValue()),
         ]);
     }
 

@@ -107,15 +107,15 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'attributeMappings' => function (ParseNode $n) use ($o) { $o->setAttributeMappings($n->getCollectionOfObjectValues(array(AttributeMapping::class, 'createFromDiscriminatorValue'))); },
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
-            'flowTypes' => function (ParseNode $n) use ($o) { $o->setFlowTypes($n->getEnumValue(ObjectFlowTypes::class)); },
-            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(MetadataEntry::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getObjectValue(array(Filter::class, 'createFromDiscriminatorValue'))); },
-            'sourceObjectName' => function (ParseNode $n) use ($o) { $o->setSourceObjectName($n->getStringValue()); },
-            'targetObjectName' => function (ParseNode $n) use ($o) { $o->setTargetObjectName($n->getStringValue()); },
+            'attributeMappings' => fn(ParseNode $n) => $o->setAttributeMappings($n->getCollectionOfObjectValues([AttributeMapping::class, 'createFromDiscriminatorValue'])),
+            'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
+            'flowTypes' => fn(ParseNode $n) => $o->setFlowTypes($n->getEnumValue(ObjectFlowTypes::class)),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([MetadataEntry::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'scope' => fn(ParseNode $n) => $o->setScope($n->getObjectValue([Filter::class, 'createFromDiscriminatorValue'])),
+            'sourceObjectName' => fn(ParseNode $n) => $o->setSourceObjectName($n->getStringValue()),
+            'targetObjectName' => fn(ParseNode $n) => $o->setTargetObjectName($n->getStringValue()),
         ];
     }
 

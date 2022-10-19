@@ -42,8 +42,8 @@ class CloudPcSubscription extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'subscriptionId' => function (ParseNode $n) use ($o) { $o->setSubscriptionId($n->getStringValue()); },
-            'subscriptionName' => function (ParseNode $n) use ($o) { $o->setSubscriptionName($n->getStringValue()); },
+            'subscriptionId' => fn(ParseNode $n) => $o->setSubscriptionId($n->getStringValue()),
+            'subscriptionName' => fn(ParseNode $n) => $o->setSubscriptionName($n->getStringValue()),
         ]);
     }
 

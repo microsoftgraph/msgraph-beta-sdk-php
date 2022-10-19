@@ -42,8 +42,8 @@ class DeliveryOptimizationBandwidthAbsolute extends DeliveryOptimizationBandwidt
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'maximumDownloadBandwidthInKilobytesPerSecond' => function (ParseNode $n) use ($o) { $o->setMaximumDownloadBandwidthInKilobytesPerSecond($n->getIntegerValue()); },
-            'maximumUploadBandwidthInKilobytesPerSecond' => function (ParseNode $n) use ($o) { $o->setMaximumUploadBandwidthInKilobytesPerSecond($n->getIntegerValue()); },
+            'maximumDownloadBandwidthInKilobytesPerSecond' => fn(ParseNode $n) => $o->setMaximumDownloadBandwidthInKilobytesPerSecond($n->getIntegerValue()),
+            'maximumUploadBandwidthInKilobytesPerSecond' => fn(ParseNode $n) => $o->setMaximumUploadBandwidthInKilobytesPerSecond($n->getIntegerValue()),
         ]);
     }
 

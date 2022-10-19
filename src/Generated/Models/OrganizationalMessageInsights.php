@@ -82,10 +82,10 @@ class OrganizationalMessageInsights implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'clicks' => function (ParseNode $n) use ($o) { $o->setClicks($n->getIntegerValue()); },
-            'dismisses' => function (ParseNode $n) use ($o) { $o->setDismisses($n->getIntegerValue()); },
-            'impressions' => function (ParseNode $n) use ($o) { $o->setImpressions($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'clicks' => fn(ParseNode $n) => $o->setClicks($n->getIntegerValue()),
+            'dismisses' => fn(ParseNode $n) => $o->setDismisses($n->getIntegerValue()),
+            'impressions' => fn(ParseNode $n) => $o->setImpressions($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

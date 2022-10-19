@@ -73,10 +73,10 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'duration' => function (ParseNode $n) use ($o) { $o->setDuration($n->getStringValue()); },
-            'reason' => function (ParseNode $n) use ($o) { $o->setReason($n->getStringValue()); },
-            'ticketNumber' => function (ParseNode $n) use ($o) { $o->setTicketNumber($n->getStringValue()); },
-            'ticketSystem' => function (ParseNode $n) use ($o) { $o->setTicketSystem($n->getStringValue()); },
+            'duration' => fn(ParseNode $n) => $o->setDuration($n->getStringValue()),
+            'reason' => fn(ParseNode $n) => $o->setReason($n->getStringValue()),
+            'ticketNumber' => fn(ParseNode $n) => $o->setTicketNumber($n->getStringValue()),
+            'ticketSystem' => fn(ParseNode $n) => $o->setTicketSystem($n->getStringValue()),
         ];
     }
 

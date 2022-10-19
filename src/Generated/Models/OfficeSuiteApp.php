@@ -114,19 +114,19 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'autoAcceptEula' => function (ParseNode $n) use ($o) { $o->setAutoAcceptEula($n->getBooleanValue()); },
-            'excludedApps' => function (ParseNode $n) use ($o) { $o->setExcludedApps($n->getObjectValue(array(ExcludedApps::class, 'createFromDiscriminatorValue'))); },
-            'installProgressDisplayLevel' => function (ParseNode $n) use ($o) { $o->setInstallProgressDisplayLevel($n->getEnumValue(OfficeSuiteInstallProgressDisplayLevel::class)); },
-            'localesToInstall' => function (ParseNode $n) use ($o) { $o->setLocalesToInstall($n->getCollectionOfPrimitiveValues()); },
-            'officeConfigurationXml' => function (ParseNode $n) use ($o) { $o->setOfficeConfigurationXml($n->getBinaryContent()); },
-            'officePlatformArchitecture' => function (ParseNode $n) use ($o) { $o->setOfficePlatformArchitecture($n->getEnumValue(WindowsArchitecture::class)); },
-            'officeSuiteAppDefaultFileFormat' => function (ParseNode $n) use ($o) { $o->setOfficeSuiteAppDefaultFileFormat($n->getEnumValue(OfficeSuiteDefaultFileFormatType::class)); },
-            'productIds' => function (ParseNode $n) use ($o) { $o->setProductIds($n->getCollectionOfEnumValues(OfficeProductId::class)); },
-            'shouldUninstallOlderVersionsOfOffice' => function (ParseNode $n) use ($o) { $o->setShouldUninstallOlderVersionsOfOffice($n->getBooleanValue()); },
-            'targetVersion' => function (ParseNode $n) use ($o) { $o->setTargetVersion($n->getStringValue()); },
-            'updateChannel' => function (ParseNode $n) use ($o) { $o->setUpdateChannel($n->getEnumValue(OfficeUpdateChannel::class)); },
-            'updateVersion' => function (ParseNode $n) use ($o) { $o->setUpdateVersion($n->getStringValue()); },
-            'useSharedComputerActivation' => function (ParseNode $n) use ($o) { $o->setUseSharedComputerActivation($n->getBooleanValue()); },
+            'autoAcceptEula' => fn(ParseNode $n) => $o->setAutoAcceptEula($n->getBooleanValue()),
+            'excludedApps' => fn(ParseNode $n) => $o->setExcludedApps($n->getObjectValue([ExcludedApps::class, 'createFromDiscriminatorValue'])),
+            'installProgressDisplayLevel' => fn(ParseNode $n) => $o->setInstallProgressDisplayLevel($n->getEnumValue(OfficeSuiteInstallProgressDisplayLevel::class)),
+            'localesToInstall' => fn(ParseNode $n) => $o->setLocalesToInstall($n->getCollectionOfPrimitiveValues()),
+            'officeConfigurationXml' => fn(ParseNode $n) => $o->setOfficeConfigurationXml($n->getBinaryContent()),
+            'officePlatformArchitecture' => fn(ParseNode $n) => $o->setOfficePlatformArchitecture($n->getEnumValue(WindowsArchitecture::class)),
+            'officeSuiteAppDefaultFileFormat' => fn(ParseNode $n) => $o->setOfficeSuiteAppDefaultFileFormat($n->getEnumValue(OfficeSuiteDefaultFileFormatType::class)),
+            'productIds' => fn(ParseNode $n) => $o->setProductIds($n->getCollectionOfEnumValues(OfficeProductId::class)),
+            'shouldUninstallOlderVersionsOfOffice' => fn(ParseNode $n) => $o->setShouldUninstallOlderVersionsOfOffice($n->getBooleanValue()),
+            'targetVersion' => fn(ParseNode $n) => $o->setTargetVersion($n->getStringValue()),
+            'updateChannel' => fn(ParseNode $n) => $o->setUpdateChannel($n->getEnumValue(OfficeUpdateChannel::class)),
+            'updateVersion' => fn(ParseNode $n) => $o->setUpdateVersion($n->getStringValue()),
+            'useSharedComputerActivation' => fn(ParseNode $n) => $o->setUseSharedComputerActivation($n->getBooleanValue()),
         ]);
     }
 

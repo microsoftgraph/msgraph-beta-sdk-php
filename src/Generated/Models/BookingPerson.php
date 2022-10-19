@@ -53,7 +53,7 @@ class BookingPerson extends BookingNamedEntity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'emailAddress' => function (ParseNode $n) use ($o) { $o->setEmailAddress($n->getStringValue()); },
+            'emailAddress' => fn(ParseNode $n) => $o->setEmailAddress($n->getStringValue()),
         ]);
     }
 

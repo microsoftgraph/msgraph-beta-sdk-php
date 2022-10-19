@@ -66,10 +66,10 @@ class AnswerKeyword implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'keywords' => function (ParseNode $n) use ($o) { $o->setKeywords($n->getCollectionOfPrimitiveValues()); },
-            'matchSimilarKeywords' => function (ParseNode $n) use ($o) { $o->setMatchSimilarKeywords($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'reservedKeywords' => function (ParseNode $n) use ($o) { $o->setReservedKeywords($n->getCollectionOfPrimitiveValues()); },
+            'keywords' => fn(ParseNode $n) => $o->setKeywords($n->getCollectionOfPrimitiveValues()),
+            'matchSimilarKeywords' => fn(ParseNode $n) => $o->setMatchSimilarKeywords($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'reservedKeywords' => fn(ParseNode $n) => $o->setReservedKeywords($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

@@ -105,13 +105,13 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'compliantDeviceCount' => function (ParseNode $n) use ($o) { $o->setCompliantDeviceCount($n->getIntegerValue()); },
-            'enforcedDeviceCount' => function (ParseNode $n) use ($o) { $o->setEnforcedDeviceCount($n->getIntegerValue()); },
-            'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
-            'nonCompliantDeviceCount' => function (ParseNode $n) use ($o) { $o->setNonCompliantDeviceCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'pendingDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingDeviceCount($n->getIntegerValue()); },
-            'targetedDeviceCount' => function (ParseNode $n) use ($o) { $o->setTargetedDeviceCount($n->getIntegerValue()); },
+            'compliantDeviceCount' => fn(ParseNode $n) => $o->setCompliantDeviceCount($n->getIntegerValue()),
+            'enforcedDeviceCount' => fn(ParseNode $n) => $o->setEnforcedDeviceCount($n->getIntegerValue()),
+            'failedDeviceCount' => fn(ParseNode $n) => $o->setFailedDeviceCount($n->getIntegerValue()),
+            'nonCompliantDeviceCount' => fn(ParseNode $n) => $o->setNonCompliantDeviceCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'pendingDeviceCount' => fn(ParseNode $n) => $o->setPendingDeviceCount($n->getIntegerValue()),
+            'targetedDeviceCount' => fn(ParseNode $n) => $o->setTargetedDeviceCount($n->getIntegerValue()),
         ];
     }
 

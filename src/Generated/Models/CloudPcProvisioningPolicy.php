@@ -155,21 +155,21 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alternateResourceUrl' => function (ParseNode $n) use ($o) { $o->setAlternateResourceUrl($n->getStringValue()); },
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(CloudPcProvisioningPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
-            'cloudPcGroupDisplayName' => function (ParseNode $n) use ($o) { $o->setCloudPcGroupDisplayName($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'domainJoinConfiguration' => function (ParseNode $n) use ($o) { $o->setDomainJoinConfiguration($n->getObjectValue(array(CloudPcDomainJoinConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'gracePeriodInHours' => function (ParseNode $n) use ($o) { $o->setGracePeriodInHours($n->getIntegerValue()); },
-            'imageDisplayName' => function (ParseNode $n) use ($o) { $o->setImageDisplayName($n->getStringValue()); },
-            'imageId' => function (ParseNode $n) use ($o) { $o->setImageId($n->getStringValue()); },
-            'imageType' => function (ParseNode $n) use ($o) { $o->setImageType($n->getEnumValue(CloudPcProvisioningPolicyImageType::class)); },
-            'localAdminEnabled' => function (ParseNode $n) use ($o) { $o->setLocalAdminEnabled($n->getBooleanValue()); },
-            'managedBy' => function (ParseNode $n) use ($o) { $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)); },
-            'microsoftManagedDesktop' => function (ParseNode $n) use ($o) { $o->setMicrosoftManagedDesktop($n->getObjectValue(array(MicrosoftManagedDesktop::class, 'createFromDiscriminatorValue'))); },
-            'onPremisesConnectionId' => function (ParseNode $n) use ($o) { $o->setOnPremisesConnectionId($n->getStringValue()); },
-            'windowsSettings' => function (ParseNode $n) use ($o) { $o->setWindowsSettings($n->getObjectValue(array(CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'))); },
+            'alternateResourceUrl' => fn(ParseNode $n) => $o->setAlternateResourceUrl($n->getStringValue()),
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([CloudPcProvisioningPolicyAssignment::class, 'createFromDiscriminatorValue'])),
+            'cloudPcGroupDisplayName' => fn(ParseNode $n) => $o->setCloudPcGroupDisplayName($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'domainJoinConfiguration' => fn(ParseNode $n) => $o->setDomainJoinConfiguration($n->getObjectValue([CloudPcDomainJoinConfiguration::class, 'createFromDiscriminatorValue'])),
+            'gracePeriodInHours' => fn(ParseNode $n) => $o->setGracePeriodInHours($n->getIntegerValue()),
+            'imageDisplayName' => fn(ParseNode $n) => $o->setImageDisplayName($n->getStringValue()),
+            'imageId' => fn(ParseNode $n) => $o->setImageId($n->getStringValue()),
+            'imageType' => fn(ParseNode $n) => $o->setImageType($n->getEnumValue(CloudPcProvisioningPolicyImageType::class)),
+            'localAdminEnabled' => fn(ParseNode $n) => $o->setLocalAdminEnabled($n->getBooleanValue()),
+            'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)),
+            'microsoftManagedDesktop' => fn(ParseNode $n) => $o->setMicrosoftManagedDesktop($n->getObjectValue([MicrosoftManagedDesktop::class, 'createFromDiscriminatorValue'])),
+            'onPremisesConnectionId' => fn(ParseNode $n) => $o->setOnPremisesConnectionId($n->getStringValue()),
+            'windowsSettings' => fn(ParseNode $n) => $o->setWindowsSettings($n->getObjectValue([CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

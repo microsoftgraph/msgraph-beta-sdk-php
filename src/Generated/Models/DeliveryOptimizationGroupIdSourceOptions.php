@@ -37,7 +37,7 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'groupIdSourceOption' => function (ParseNode $n) use ($o) { $o->setGroupIdSourceOption($n->getEnumValue(DeliveryOptimizationGroupIdOptionsType::class)); },
+            'groupIdSourceOption' => fn(ParseNode $n) => $o->setGroupIdSourceOption($n->getEnumValue(DeliveryOptimizationGroupIdOptionsType::class)),
         ]);
     }
 

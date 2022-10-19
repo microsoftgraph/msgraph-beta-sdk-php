@@ -71,8 +71,8 @@ class UploadDepTokenPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appleId' => function (ParseNode $n) use ($o) { $o->setAppleId($n->getStringValue()); },
-            'depToken' => function (ParseNode $n) use ($o) { $o->setDepToken($n->getStringValue()); },
+            'appleId' => fn(ParseNode $n) => $o->setAppleId($n->getStringValue()),
+            'depToken' => fn(ParseNode $n) => $o->setDepToken($n->getStringValue()),
         ];
     }
 

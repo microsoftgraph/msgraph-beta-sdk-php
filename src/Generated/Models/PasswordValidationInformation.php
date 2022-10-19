@@ -61,9 +61,9 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'isValid' => function (ParseNode $n) use ($o) { $o->setIsValid($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'validationResults' => function (ParseNode $n) use ($o) { $o->setValidationResults($n->getCollectionOfObjectValues(array(ValidationResult::class, 'createFromDiscriminatorValue'))); },
+            'isValid' => fn(ParseNode $n) => $o->setIsValid($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'validationResults' => fn(ParseNode $n) => $o->setValidationResults($n->getCollectionOfObjectValues([ValidationResult::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

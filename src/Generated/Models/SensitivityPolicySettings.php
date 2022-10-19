@@ -68,10 +68,10 @@ class SensitivityPolicySettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicableTo' => function (ParseNode $n) use ($o) { $o->setApplicableTo($n->getEnumValue(SensitivityLabelTarget::class)); },
-            'downgradeSensitivityRequiresJustification' => function (ParseNode $n) use ($o) { $o->setDowngradeSensitivityRequiresJustification($n->getBooleanValue()); },
-            'helpWebUrl' => function (ParseNode $n) use ($o) { $o->setHelpWebUrl($n->getStringValue()); },
-            'isMandatory' => function (ParseNode $n) use ($o) { $o->setIsMandatory($n->getBooleanValue()); },
+            'applicableTo' => fn(ParseNode $n) => $o->setApplicableTo($n->getEnumValue(SensitivityLabelTarget::class)),
+            'downgradeSensitivityRequiresJustification' => fn(ParseNode $n) => $o->setDowngradeSensitivityRequiresJustification($n->getBooleanValue()),
+            'helpWebUrl' => fn(ParseNode $n) => $o->setHelpWebUrl($n->getStringValue()),
+            'isMandatory' => fn(ParseNode $n) => $o->setIsMandatory($n->getBooleanValue()),
         ]);
     }
 

@@ -118,15 +118,15 @@ class AccessReviewDecision extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessRecommendation' => function (ParseNode $n) use ($o) { $o->setAccessRecommendation($n->getStringValue()); },
-            'accessReviewId' => function (ParseNode $n) use ($o) { $o->setAccessReviewId($n->getStringValue()); },
-            'appliedBy' => function (ParseNode $n) use ($o) { $o->setAppliedBy($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
-            'appliedDateTime' => function (ParseNode $n) use ($o) { $o->setAppliedDateTime($n->getDateTimeValue()); },
-            'applyResult' => function (ParseNode $n) use ($o) { $o->setApplyResult($n->getStringValue()); },
-            'justification' => function (ParseNode $n) use ($o) { $o->setJustification($n->getStringValue()); },
-            'reviewedBy' => function (ParseNode $n) use ($o) { $o->setReviewedBy($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
-            'reviewedDateTime' => function (ParseNode $n) use ($o) { $o->setReviewedDateTime($n->getDateTimeValue()); },
-            'reviewResult' => function (ParseNode $n) use ($o) { $o->setReviewResult($n->getStringValue()); },
+            'accessRecommendation' => fn(ParseNode $n) => $o->setAccessRecommendation($n->getStringValue()),
+            'accessReviewId' => fn(ParseNode $n) => $o->setAccessReviewId($n->getStringValue()),
+            'appliedBy' => fn(ParseNode $n) => $o->setAppliedBy($n->getObjectValue([UserIdentity::class, 'createFromDiscriminatorValue'])),
+            'appliedDateTime' => fn(ParseNode $n) => $o->setAppliedDateTime($n->getDateTimeValue()),
+            'applyResult' => fn(ParseNode $n) => $o->setApplyResult($n->getStringValue()),
+            'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
+            'reviewedBy' => fn(ParseNode $n) => $o->setReviewedBy($n->getObjectValue([UserIdentity::class, 'createFromDiscriminatorValue'])),
+            'reviewedDateTime' => fn(ParseNode $n) => $o->setReviewedDateTime($n->getDateTimeValue()),
+            'reviewResult' => fn(ParseNode $n) => $o->setReviewResult($n->getStringValue()),
         ]);
     }
 

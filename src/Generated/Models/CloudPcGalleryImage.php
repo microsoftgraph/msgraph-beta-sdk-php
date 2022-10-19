@@ -117,18 +117,18 @@ class CloudPcGalleryImage extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'endDate' => function (ParseNode $n) use ($o) { $o->setEndDate($n->getDateValue()); },
-            'expirationDate' => function (ParseNode $n) use ($o) { $o->setExpirationDate($n->getDateValue()); },
-            'offer' => function (ParseNode $n) use ($o) { $o->setOffer($n->getStringValue()); },
-            'offerDisplayName' => function (ParseNode $n) use ($o) { $o->setOfferDisplayName($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'recommendedSku' => function (ParseNode $n) use ($o) { $o->setRecommendedSku($n->getStringValue()); },
-            'sizeInGB' => function (ParseNode $n) use ($o) { $o->setSizeInGB($n->getIntegerValue()); },
-            'sku' => function (ParseNode $n) use ($o) { $o->setSku($n->getStringValue()); },
-            'skuDisplayName' => function (ParseNode $n) use ($o) { $o->setSkuDisplayName($n->getStringValue()); },
-            'startDate' => function (ParseNode $n) use ($o) { $o->setStartDate($n->getDateValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CloudPcGalleryImageStatus::class)); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'endDate' => fn(ParseNode $n) => $o->setEndDate($n->getDateValue()),
+            'expirationDate' => fn(ParseNode $n) => $o->setExpirationDate($n->getDateValue()),
+            'offer' => fn(ParseNode $n) => $o->setOffer($n->getStringValue()),
+            'offerDisplayName' => fn(ParseNode $n) => $o->setOfferDisplayName($n->getStringValue()),
+            'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
+            'recommendedSku' => fn(ParseNode $n) => $o->setRecommendedSku($n->getStringValue()),
+            'sizeInGB' => fn(ParseNode $n) => $o->setSizeInGB($n->getIntegerValue()),
+            'sku' => fn(ParseNode $n) => $o->setSku($n->getStringValue()),
+            'skuDisplayName' => fn(ParseNode $n) => $o->setSkuDisplayName($n->getStringValue()),
+            'startDate' => fn(ParseNode $n) => $o->setStartDate($n->getDateValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcGalleryImageStatus::class)),
         ]);
     }
 

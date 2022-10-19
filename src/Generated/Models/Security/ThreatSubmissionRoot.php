@@ -69,10 +69,10 @@ class ThreatSubmissionRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'emailThreats' => function (ParseNode $n) use ($o) { $o->setEmailThreats($n->getCollectionOfObjectValues(array(EmailThreatSubmission::class, 'createFromDiscriminatorValue'))); },
-            'emailThreatSubmissionPolicies' => function (ParseNode $n) use ($o) { $o->setEmailThreatSubmissionPolicies($n->getCollectionOfObjectValues(array(EmailThreatSubmissionPolicy::class, 'createFromDiscriminatorValue'))); },
-            'fileThreats' => function (ParseNode $n) use ($o) { $o->setFileThreats($n->getCollectionOfObjectValues(array(FileThreatSubmission::class, 'createFromDiscriminatorValue'))); },
-            'urlThreats' => function (ParseNode $n) use ($o) { $o->setUrlThreats($n->getCollectionOfObjectValues(array(UrlThreatSubmission::class, 'createFromDiscriminatorValue'))); },
+            'emailThreats' => fn(ParseNode $n) => $o->setEmailThreats($n->getCollectionOfObjectValues([EmailThreatSubmission::class, 'createFromDiscriminatorValue'])),
+            'emailThreatSubmissionPolicies' => fn(ParseNode $n) => $o->setEmailThreatSubmissionPolicies($n->getCollectionOfObjectValues([EmailThreatSubmissionPolicy::class, 'createFromDiscriminatorValue'])),
+            'fileThreats' => fn(ParseNode $n) => $o->setFileThreats($n->getCollectionOfObjectValues([FileThreatSubmission::class, 'createFromDiscriminatorValue'])),
+            'urlThreats' => fn(ParseNode $n) => $o->setUrlThreats($n->getCollectionOfObjectValues([UrlThreatSubmission::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

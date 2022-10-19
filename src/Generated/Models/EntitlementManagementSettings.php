@@ -58,8 +58,8 @@ class EntitlementManagementSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'daysUntilExternalUserDeletedAfterBlocked' => function (ParseNode $n) use ($o) { $o->setDaysUntilExternalUserDeletedAfterBlocked($n->getIntegerValue()); },
-            'externalUserLifecycleAction' => function (ParseNode $n) use ($o) { $o->setExternalUserLifecycleAction($n->getStringValue()); },
+            'daysUntilExternalUserDeletedAfterBlocked' => fn(ParseNode $n) => $o->setDaysUntilExternalUserDeletedAfterBlocked($n->getIntegerValue()),
+            'externalUserLifecycleAction' => fn(ParseNode $n) => $o->setExternalUserLifecycleAction($n->getStringValue()),
         ]);
     }
 

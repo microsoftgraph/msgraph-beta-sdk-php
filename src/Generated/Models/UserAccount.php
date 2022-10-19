@@ -90,13 +90,13 @@ class UserAccount implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getStringValue()); },
-            'service' => function (ParseNode $n) use ($o) { $o->setService($n->getStringValue()); },
-            'signinName' => function (ParseNode $n) use ($o) { $o->setSigninName($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(AccountStatus::class)); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'riskScore' => fn(ParseNode $n) => $o->setRiskScore($n->getStringValue()),
+            'service' => fn(ParseNode $n) => $o->setService($n->getStringValue()),
+            'signinName' => fn(ParseNode $n) => $o->setSigninName($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AccountStatus::class)),
         ];
     }
 

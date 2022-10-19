@@ -51,7 +51,7 @@ class ValidateXmlPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'officeConfigurationXml' => function (ParseNode $n) use ($o) { $o->setOfficeConfigurationXml($n->getBinaryContent()); },
+            'officeConfigurationXml' => fn(ParseNode $n) => $o->setOfficeConfigurationXml($n->getBinaryContent()),
         ];
     }
 

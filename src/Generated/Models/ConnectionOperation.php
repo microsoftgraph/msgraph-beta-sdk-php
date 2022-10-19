@@ -50,8 +50,8 @@ class ConnectionOperation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(PublicError::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ConnectionOperationStatus::class)); },
+            'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([PublicError::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ConnectionOperationStatus::class)),
         ]);
     }
 

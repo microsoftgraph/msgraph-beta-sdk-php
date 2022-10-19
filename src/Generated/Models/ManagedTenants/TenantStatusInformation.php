@@ -105,16 +105,16 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'delegatedPrivilegeStatus' => function (ParseNode $n) use ($o) { $o->setDelegatedPrivilegeStatus($n->getEnumValue(DelegatedPrivilegeStatus::class)); },
-            'lastDelegatedPrivilegeRefreshDateTime' => function (ParseNode $n) use ($o) { $o->setLastDelegatedPrivilegeRefreshDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'offboardedByUserId' => function (ParseNode $n) use ($o) { $o->setOffboardedByUserId($n->getStringValue()); },
-            'offboardedDateTime' => function (ParseNode $n) use ($o) { $o->setOffboardedDateTime($n->getDateTimeValue()); },
-            'onboardedByUserId' => function (ParseNode $n) use ($o) { $o->setOnboardedByUserId($n->getStringValue()); },
-            'onboardedDateTime' => function (ParseNode $n) use ($o) { $o->setOnboardedDateTime($n->getDateTimeValue()); },
-            'onboardingStatus' => function (ParseNode $n) use ($o) { $o->setOnboardingStatus($n->getEnumValue(TenantOnboardingStatus::class)); },
-            'tenantOnboardingEligibilityReason' => function (ParseNode $n) use ($o) { $o->setTenantOnboardingEligibilityReason($n->getEnumValue(TenantOnboardingEligibilityReason::class)); },
-            'workloadStatuses' => function (ParseNode $n) use ($o) { $o->setWorkloadStatuses($n->getCollectionOfObjectValues(array(WorkloadStatus::class, 'createFromDiscriminatorValue'))); },
+            'delegatedPrivilegeStatus' => fn(ParseNode $n) => $o->setDelegatedPrivilegeStatus($n->getEnumValue(DelegatedPrivilegeStatus::class)),
+            'lastDelegatedPrivilegeRefreshDateTime' => fn(ParseNode $n) => $o->setLastDelegatedPrivilegeRefreshDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'offboardedByUserId' => fn(ParseNode $n) => $o->setOffboardedByUserId($n->getStringValue()),
+            'offboardedDateTime' => fn(ParseNode $n) => $o->setOffboardedDateTime($n->getDateTimeValue()),
+            'onboardedByUserId' => fn(ParseNode $n) => $o->setOnboardedByUserId($n->getStringValue()),
+            'onboardedDateTime' => fn(ParseNode $n) => $o->setOnboardedDateTime($n->getDateTimeValue()),
+            'onboardingStatus' => fn(ParseNode $n) => $o->setOnboardingStatus($n->getEnumValue(TenantOnboardingStatus::class)),
+            'tenantOnboardingEligibilityReason' => fn(ParseNode $n) => $o->setTenantOnboardingEligibilityReason($n->getEnumValue(TenantOnboardingEligibilityReason::class)),
+            'workloadStatuses' => fn(ParseNode $n) => $o->setWorkloadStatuses($n->getCollectionOfObjectValues([WorkloadStatus::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

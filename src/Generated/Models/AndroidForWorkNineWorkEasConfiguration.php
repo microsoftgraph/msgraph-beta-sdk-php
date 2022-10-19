@@ -47,9 +47,9 @@ class AndroidForWorkNineWorkEasConfiguration extends AndroidForWorkEasEmailProfi
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'syncCalendar' => function (ParseNode $n) use ($o) { $o->setSyncCalendar($n->getBooleanValue()); },
-            'syncContacts' => function (ParseNode $n) use ($o) { $o->setSyncContacts($n->getBooleanValue()); },
-            'syncTasks' => function (ParseNode $n) use ($o) { $o->setSyncTasks($n->getBooleanValue()); },
+            'syncCalendar' => fn(ParseNode $n) => $o->setSyncCalendar($n->getBooleanValue()),
+            'syncContacts' => fn(ParseNode $n) => $o->setSyncContacts($n->getBooleanValue()),
+            'syncTasks' => fn(ParseNode $n) => $o->setSyncTasks($n->getBooleanValue()),
         ]);
     }
 

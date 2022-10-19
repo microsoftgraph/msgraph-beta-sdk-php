@@ -37,7 +37,7 @@ class ExactMatchDataStore extends ExactMatchDataStoreBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'sessions' => function (ParseNode $n) use ($o) { $o->setSessions($n->getCollectionOfObjectValues(array(ExactMatchSession::class, 'createFromDiscriminatorValue'))); },
+            'sessions' => fn(ParseNode $n) => $o->setSessions($n->getCollectionOfObjectValues([ExactMatchSession::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -50,8 +50,8 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'children' => function (ParseNode $n) use ($o) { $o->setChildren($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingInstance::class, 'createFromDiscriminatorValue'))); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'children' => fn(ParseNode $n) => $o->setChildren($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingInstance::class, 'createFromDiscriminatorValue'])),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
         ]);
     }
 

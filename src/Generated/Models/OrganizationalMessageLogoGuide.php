@@ -82,10 +82,10 @@ class OrganizationalMessageLogoGuide implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assetName' => function (ParseNode $n) use ($o) { $o->setAssetName($n->getStringValue()); },
-            'dimensions' => function (ParseNode $n) use ($o) { $o->setDimensions($n->getObjectValue(array(OrganizationalMessageLogoDimensions::class, 'createFromDiscriminatorValue'))); },
-            'logoCdnUrl' => function (ParseNode $n) use ($o) { $o->setLogoCdnUrl($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'assetName' => fn(ParseNode $n) => $o->setAssetName($n->getStringValue()),
+            'dimensions' => fn(ParseNode $n) => $o->setDimensions($n->getObjectValue([OrganizationalMessageLogoDimensions::class, 'createFromDiscriminatorValue'])),
+            'logoCdnUrl' => fn(ParseNode $n) => $o->setLogoCdnUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

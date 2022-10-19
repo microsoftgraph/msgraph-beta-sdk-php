@@ -37,7 +37,7 @@ class ProtectByTemplateAction extends InformationProtectionAction implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
+            'templateId' => fn(ParseNode $n) => $o->setTemplateId($n->getStringValue()),
         ]);
     }
 

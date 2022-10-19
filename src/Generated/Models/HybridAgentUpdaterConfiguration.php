@@ -83,10 +83,10 @@ class HybridAgentUpdaterConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowUpdateConfigurationOverride' => function (ParseNode $n) use ($o) { $o->setAllowUpdateConfigurationOverride($n->getBooleanValue()); },
-            'deferUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setDeferUpdateDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'updateWindow' => function (ParseNode $n) use ($o) { $o->setUpdateWindow($n->getObjectValue(array(UpdateWindow::class, 'createFromDiscriminatorValue'))); },
+            'allowUpdateConfigurationOverride' => fn(ParseNode $n) => $o->setAllowUpdateConfigurationOverride($n->getBooleanValue()),
+            'deferUpdateDateTime' => fn(ParseNode $n) => $o->setDeferUpdateDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'updateWindow' => fn(ParseNode $n) => $o->setUpdateWindow($n->getObjectValue([UpdateWindow::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

@@ -58,7 +58,7 @@ class SetAndroidDeviceOwnerFullyManagedEnrollmentStatePostRequestBody implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
+            'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
         ];
     }
 

@@ -110,15 +110,15 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'dataProvider' => function (ParseNode $n) use ($o) { $o->setDataProvider($n->getObjectValue(array(EducationSynchronizationDataProvider::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'errors' => function (ParseNode $n) use ($o) { $o->setErrors($n->getCollectionOfObjectValues(array(EducationSynchronizationError::class, 'createFromDiscriminatorValue'))); },
-            'expirationDate' => function (ParseNode $n) use ($o) { $o->setExpirationDate($n->getDateValue()); },
-            'handleSpecialCharacterConstraint' => function (ParseNode $n) use ($o) { $o->setHandleSpecialCharacterConstraint($n->getBooleanValue()); },
-            'identitySynchronizationConfiguration' => function (ParseNode $n) use ($o) { $o->setIdentitySynchronizationConfiguration($n->getObjectValue(array(EducationIdentitySynchronizationConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'licensesToAssign' => function (ParseNode $n) use ($o) { $o->setLicensesToAssign($n->getCollectionOfObjectValues(array(EducationSynchronizationLicenseAssignment::class, 'createFromDiscriminatorValue'))); },
-            'profileStatus' => function (ParseNode $n) use ($o) { $o->setProfileStatus($n->getObjectValue(array(EducationSynchronizationProfileStatus::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(EducationSynchronizationProfileState::class)); },
+            'dataProvider' => fn(ParseNode $n) => $o->setDataProvider($n->getObjectValue([EducationSynchronizationDataProvider::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'errors' => fn(ParseNode $n) => $o->setErrors($n->getCollectionOfObjectValues([EducationSynchronizationError::class, 'createFromDiscriminatorValue'])),
+            'expirationDate' => fn(ParseNode $n) => $o->setExpirationDate($n->getDateValue()),
+            'handleSpecialCharacterConstraint' => fn(ParseNode $n) => $o->setHandleSpecialCharacterConstraint($n->getBooleanValue()),
+            'identitySynchronizationConfiguration' => fn(ParseNode $n) => $o->setIdentitySynchronizationConfiguration($n->getObjectValue([EducationIdentitySynchronizationConfiguration::class, 'createFromDiscriminatorValue'])),
+            'licensesToAssign' => fn(ParseNode $n) => $o->setLicensesToAssign($n->getCollectionOfObjectValues([EducationSynchronizationLicenseAssignment::class, 'createFromDiscriminatorValue'])),
+            'profileStatus' => fn(ParseNode $n) => $o->setProfileStatus($n->getObjectValue([EducationSynchronizationProfileStatus::class, 'createFromDiscriminatorValue'])),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(EducationSynchronizationProfileState::class)),
         ]);
     }
 

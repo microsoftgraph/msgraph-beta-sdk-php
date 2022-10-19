@@ -42,8 +42,8 @@ class DeviceManagementSettingStringLengthConstraint extends DeviceManagementCons
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'maximumLength' => function (ParseNode $n) use ($o) { $o->setMaximumLength($n->getIntegerValue()); },
-            'minimumLength' => function (ParseNode $n) use ($o) { $o->setMinimumLength($n->getIntegerValue()); },
+            'maximumLength' => fn(ParseNode $n) => $o->setMaximumLength($n->getIntegerValue()),
+            'minimumLength' => fn(ParseNode $n) => $o->setMinimumLength($n->getIntegerValue()),
         ]);
     }
 

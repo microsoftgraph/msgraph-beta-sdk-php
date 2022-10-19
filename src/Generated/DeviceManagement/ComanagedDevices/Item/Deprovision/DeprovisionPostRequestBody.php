@@ -58,7 +58,7 @@ class DeprovisionPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deprovisionReason' => function (ParseNode $n) use ($o) { $o->setDeprovisionReason($n->getStringValue()); },
+            'deprovisionReason' => fn(ParseNode $n) => $o->setDeprovisionReason($n->getStringValue()),
         ];
     }
 

@@ -50,8 +50,8 @@ class MicrosoftApplicationDataAccessSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'disabledForGroup' => function (ParseNode $n) use ($o) { $o->setDisabledForGroup($n->getStringValue()); },
-            'isEnabledForAllMicrosoftApplications' => function (ParseNode $n) use ($o) { $o->setIsEnabledForAllMicrosoftApplications($n->getBooleanValue()); },
+            'disabledForGroup' => fn(ParseNode $n) => $o->setDisabledForGroup($n->getStringValue()),
+            'isEnabledForAllMicrosoftApplications' => fn(ParseNode $n) => $o->setIsEnabledForAllMicrosoftApplications($n->getBooleanValue()),
         ]);
     }
 

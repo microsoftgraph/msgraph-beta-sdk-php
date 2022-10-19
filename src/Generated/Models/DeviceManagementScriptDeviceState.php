@@ -79,12 +79,12 @@ class DeviceManagementScriptDeviceState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
-            'errorDescription' => function (ParseNode $n) use ($o) { $o->setErrorDescription($n->getStringValue()); },
-            'lastStateUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastStateUpdateDateTime($n->getDateTimeValue()); },
-            'managedDevice' => function (ParseNode $n) use ($o) { $o->setManagedDevice($n->getObjectValue(array(ManagedDevice::class, 'createFromDiscriminatorValue'))); },
-            'resultMessage' => function (ParseNode $n) use ($o) { $o->setResultMessage($n->getStringValue()); },
-            'runState' => function (ParseNode $n) use ($o) { $o->setRunState($n->getEnumValue(RunState::class)); },
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
+            'errorDescription' => fn(ParseNode $n) => $o->setErrorDescription($n->getStringValue()),
+            'lastStateUpdateDateTime' => fn(ParseNode $n) => $o->setLastStateUpdateDateTime($n->getDateTimeValue()),
+            'managedDevice' => fn(ParseNode $n) => $o->setManagedDevice($n->getObjectValue([ManagedDevice::class, 'createFromDiscriminatorValue'])),
+            'resultMessage' => fn(ParseNode $n) => $o->setResultMessage($n->getStringValue()),
+            'runState' => fn(ParseNode $n) => $o->setRunState($n->getEnumValue(RunState::class)),
         ]);
     }
 

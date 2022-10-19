@@ -69,10 +69,10 @@ class TenantCustomizedInformation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contacts' => function (ParseNode $n) use ($o) { $o->setContacts($n->getCollectionOfObjectValues(array(TenantContactInformation::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'website' => function (ParseNode $n) use ($o) { $o->setWebsite($n->getStringValue()); },
+            'contacts' => fn(ParseNode $n) => $o->setContacts($n->getCollectionOfObjectValues([TenantContactInformation::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'website' => fn(ParseNode $n) => $o->setWebsite($n->getStringValue()),
         ]);
     }
 

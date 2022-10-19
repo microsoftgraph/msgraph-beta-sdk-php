@@ -71,7 +71,7 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     private ?DelegatedAdminRelationshipStatus $status = null;
     
     /**
-     * Instantiates a new DelegatedAdminRelationship and sets the default values.
+     * Instantiates a new delegatedAdminRelationship and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -158,18 +158,18 @@ class DelegatedAdminRelationship extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessAssignments' => function (ParseNode $n) use ($o) { $o->setAccessAssignments($n->getCollectionOfObjectValues(array(DelegatedAdminAccessAssignment::class, 'createFromDiscriminatorValue'))); },
-            'accessDetails' => function (ParseNode $n) use ($o) { $o->setAccessDetails($n->getObjectValue(array(DelegatedAdminAccessDetails::class, 'createFromDiscriminatorValue'))); },
-            'activatedDateTime' => function (ParseNode $n) use ($o) { $o->setActivatedDateTime($n->getDateTimeValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'customer' => function (ParseNode $n) use ($o) { $o->setCustomer($n->getObjectValue(array(DelegatedAdminRelationshipCustomerParticipant::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'duration' => function (ParseNode $n) use ($o) { $o->setDuration($n->getDateIntervalValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(DelegatedAdminRelationshipOperation::class, 'createFromDiscriminatorValue'))); },
-            'requests' => function (ParseNode $n) use ($o) { $o->setRequests($n->getCollectionOfObjectValues(array(DelegatedAdminRelationshipRequest::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DelegatedAdminRelationshipStatus::class)); },
+            'accessAssignments' => fn(ParseNode $n) => $o->setAccessAssignments($n->getCollectionOfObjectValues([DelegatedAdminAccessAssignment::class, 'createFromDiscriminatorValue'])),
+            'accessDetails' => fn(ParseNode $n) => $o->setAccessDetails($n->getObjectValue([DelegatedAdminAccessDetails::class, 'createFromDiscriminatorValue'])),
+            'activatedDateTime' => fn(ParseNode $n) => $o->setActivatedDateTime($n->getDateTimeValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'customer' => fn(ParseNode $n) => $o->setCustomer($n->getObjectValue([DelegatedAdminRelationshipCustomerParticipant::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'duration' => fn(ParseNode $n) => $o->setDuration($n->getDateIntervalValue()),
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([DelegatedAdminRelationshipOperation::class, 'createFromDiscriminatorValue'])),
+            'requests' => fn(ParseNode $n) => $o->setRequests($n->getCollectionOfObjectValues([DelegatedAdminRelationshipRequest::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(DelegatedAdminRelationshipStatus::class)),
         ]);
     }
 

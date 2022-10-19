@@ -61,9 +61,9 @@ class AuthenticationConditionsApplications implements AdditionalDataHolder, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'includeAllApplications' => function (ParseNode $n) use ($o) { $o->setIncludeAllApplications($n->getBooleanValue()); },
-            'includeApplications' => function (ParseNode $n) use ($o) { $o->setIncludeApplications($n->getCollectionOfObjectValues(array(AuthenticationConditionApplication::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'includeAllApplications' => fn(ParseNode $n) => $o->setIncludeAllApplications($n->getBooleanValue()),
+            'includeApplications' => fn(ParseNode $n) => $o->setIncludeApplications($n->getCollectionOfObjectValues([AuthenticationConditionApplication::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -74,10 +74,10 @@ class Filter implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'categoryFilterGroups' => function (ParseNode $n) use ($o) { $o->setCategoryFilterGroups($n->getCollectionOfObjectValues(array(FilterGroup::class, 'createFromDiscriminatorValue'))); },
-            'groups' => function (ParseNode $n) use ($o) { $o->setGroups($n->getCollectionOfObjectValues(array(FilterGroup::class, 'createFromDiscriminatorValue'))); },
-            'inputFilterGroups' => function (ParseNode $n) use ($o) { $o->setInputFilterGroups($n->getCollectionOfObjectValues(array(FilterGroup::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'categoryFilterGroups' => fn(ParseNode $n) => $o->setCategoryFilterGroups($n->getCollectionOfObjectValues([FilterGroup::class, 'createFromDiscriminatorValue'])),
+            'groups' => fn(ParseNode $n) => $o->setGroups($n->getCollectionOfObjectValues([FilterGroup::class, 'createFromDiscriminatorValue'])),
+            'inputFilterGroups' => fn(ParseNode $n) => $o->setInputFilterGroups($n->getCollectionOfObjectValues([FilterGroup::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

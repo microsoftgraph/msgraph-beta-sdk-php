@@ -77,9 +77,9 @@ class ExactMatchClassificationResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'classification' => function (ParseNode $n) use ($o) { $o->setClassification($n->getCollectionOfObjectValues(array(ExactMatchDetectedSensitiveContent::class, 'createFromDiscriminatorValue'))); },
-            'errors' => function (ParseNode $n) use ($o) { $o->setErrors($n->getCollectionOfObjectValues(array(ClassificationError::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'classification' => fn(ParseNode $n) => $o->setClassification($n->getCollectionOfObjectValues([ExactMatchDetectedSensitiveContent::class, 'createFromDiscriminatorValue'])),
+            'errors' => fn(ParseNode $n) => $o->setErrors($n->getCollectionOfObjectValues([ClassificationError::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

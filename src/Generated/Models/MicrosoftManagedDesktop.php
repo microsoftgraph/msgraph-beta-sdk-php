@@ -61,9 +61,9 @@ class MicrosoftManagedDesktop implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'profile' => function (ParseNode $n) use ($o) { $o->setProfile($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(MicrosoftManagedDesktopType::class)); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'profile' => fn(ParseNode $n) => $o->setProfile($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(MicrosoftManagedDesktopType::class)),
         ];
     }
 

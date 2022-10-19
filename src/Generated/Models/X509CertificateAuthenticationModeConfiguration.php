@@ -61,9 +61,9 @@ class X509CertificateAuthenticationModeConfiguration implements AdditionalDataHo
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'rules' => function (ParseNode $n) use ($o) { $o->setRules($n->getCollectionOfObjectValues(array(X509CertificateRule::class, 'createFromDiscriminatorValue'))); },
-            'x509CertificateAuthenticationDefaultMode' => function (ParseNode $n) use ($o) { $o->setX509CertificateAuthenticationDefaultMode($n->getEnumValue(X509CertificateAuthenticationMode::class)); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'rules' => fn(ParseNode $n) => $o->setRules($n->getCollectionOfObjectValues([X509CertificateRule::class, 'createFromDiscriminatorValue'])),
+            'x509CertificateAuthenticationDefaultMode' => fn(ParseNode $n) => $o->setX509CertificateAuthenticationDefaultMode($n->getEnumValue(X509CertificateAuthenticationMode::class)),
         ];
     }
 

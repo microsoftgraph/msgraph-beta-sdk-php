@@ -37,7 +37,7 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'patchVersion' => function (ParseNode $n) use ($o) { $o->setPatchVersion($n->getStringValue()); },
+            'patchVersion' => fn(ParseNode $n) => $o->setPatchVersion($n->getStringValue()),
         ]);
     }
 

@@ -50,8 +50,8 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
         ]);
     }
 

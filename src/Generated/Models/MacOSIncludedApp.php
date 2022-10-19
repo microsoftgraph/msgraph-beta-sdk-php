@@ -77,9 +77,9 @@ class MacOSIncludedApp implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'bundleId' => function (ParseNode $n) use ($o) { $o->setBundleId($n->getStringValue()); },
-            'bundleVersion' => function (ParseNode $n) use ($o) { $o->setBundleVersion($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'bundleId' => fn(ParseNode $n) => $o->setBundleId($n->getStringValue()),
+            'bundleVersion' => fn(ParseNode $n) => $o->setBundleVersion($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

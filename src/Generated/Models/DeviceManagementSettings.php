@@ -196,20 +196,20 @@ class DeviceManagementSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'androidDeviceAdministratorEnrollmentEnabled' => function (ParseNode $n) use ($o) { $o->setAndroidDeviceAdministratorEnrollmentEnabled($n->getBooleanValue()); },
-            'derivedCredentialProvider' => function (ParseNode $n) use ($o) { $o->setDerivedCredentialProvider($n->getEnumValue(DerivedCredentialProviderType::class)); },
-            'derivedCredentialUrl' => function (ParseNode $n) use ($o) { $o->setDerivedCredentialUrl($n->getStringValue()); },
-            'deviceComplianceCheckinThresholdDays' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceCheckinThresholdDays($n->getIntegerValue()); },
-            'deviceInactivityBeforeRetirementInDay' => function (ParseNode $n) use ($o) { $o->setDeviceInactivityBeforeRetirementInDay($n->getIntegerValue()); },
-            'enableAutopilotDiagnostics' => function (ParseNode $n) use ($o) { $o->setEnableAutopilotDiagnostics($n->getBooleanValue()); },
-            'enableDeviceGroupMembershipReport' => function (ParseNode $n) use ($o) { $o->setEnableDeviceGroupMembershipReport($n->getBooleanValue()); },
-            'enableEnhancedTroubleshootingExperience' => function (ParseNode $n) use ($o) { $o->setEnableEnhancedTroubleshootingExperience($n->getBooleanValue()); },
-            'enableLogCollection' => function (ParseNode $n) use ($o) { $o->setEnableLogCollection($n->getBooleanValue()); },
-            'enhancedJailBreak' => function (ParseNode $n) use ($o) { $o->setEnhancedJailBreak($n->getBooleanValue()); },
-            'ignoreDevicesForUnsupportedSettingsEnabled' => function (ParseNode $n) use ($o) { $o->setIgnoreDevicesForUnsupportedSettingsEnabled($n->getBooleanValue()); },
-            'isScheduledActionEnabled' => function (ParseNode $n) use ($o) { $o->setIsScheduledActionEnabled($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'secureByDefault' => function (ParseNode $n) use ($o) { $o->setSecureByDefault($n->getBooleanValue()); },
+            'androidDeviceAdministratorEnrollmentEnabled' => fn(ParseNode $n) => $o->setAndroidDeviceAdministratorEnrollmentEnabled($n->getBooleanValue()),
+            'derivedCredentialProvider' => fn(ParseNode $n) => $o->setDerivedCredentialProvider($n->getEnumValue(DerivedCredentialProviderType::class)),
+            'derivedCredentialUrl' => fn(ParseNode $n) => $o->setDerivedCredentialUrl($n->getStringValue()),
+            'deviceComplianceCheckinThresholdDays' => fn(ParseNode $n) => $o->setDeviceComplianceCheckinThresholdDays($n->getIntegerValue()),
+            'deviceInactivityBeforeRetirementInDay' => fn(ParseNode $n) => $o->setDeviceInactivityBeforeRetirementInDay($n->getIntegerValue()),
+            'enableAutopilotDiagnostics' => fn(ParseNode $n) => $o->setEnableAutopilotDiagnostics($n->getBooleanValue()),
+            'enableDeviceGroupMembershipReport' => fn(ParseNode $n) => $o->setEnableDeviceGroupMembershipReport($n->getBooleanValue()),
+            'enableEnhancedTroubleshootingExperience' => fn(ParseNode $n) => $o->setEnableEnhancedTroubleshootingExperience($n->getBooleanValue()),
+            'enableLogCollection' => fn(ParseNode $n) => $o->setEnableLogCollection($n->getBooleanValue()),
+            'enhancedJailBreak' => fn(ParseNode $n) => $o->setEnhancedJailBreak($n->getBooleanValue()),
+            'ignoreDevicesForUnsupportedSettingsEnabled' => fn(ParseNode $n) => $o->setIgnoreDevicesForUnsupportedSettingsEnabled($n->getBooleanValue()),
+            'isScheduledActionEnabled' => fn(ParseNode $n) => $o->setIsScheduledActionEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'secureByDefault' => fn(ParseNode $n) => $o->setSecureByDefault($n->getBooleanValue()),
         ];
     }
 

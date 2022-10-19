@@ -99,13 +99,13 @@ class AccessPackageAssignmentResourceRole extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageAssignments' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignments($n->getCollectionOfObjectValues(array(AccessPackageAssignment::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceRole' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRole($n->getObjectValue(array(AccessPackageResourceRole::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceScope' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceScope($n->getObjectValue(array(AccessPackageResourceScope::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageSubject' => function (ParseNode $n) use ($o) { $o->setAccessPackageSubject($n->getObjectValue(array(AccessPackageSubject::class, 'createFromDiscriminatorValue'))); },
-            'originId' => function (ParseNode $n) use ($o) { $o->setOriginId($n->getStringValue()); },
-            'originSystem' => function (ParseNode $n) use ($o) { $o->setOriginSystem($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'accessPackageAssignments' => fn(ParseNode $n) => $o->setAccessPackageAssignments($n->getCollectionOfObjectValues([AccessPackageAssignment::class, 'createFromDiscriminatorValue'])),
+            'accessPackageResourceRole' => fn(ParseNode $n) => $o->setAccessPackageResourceRole($n->getObjectValue([AccessPackageResourceRole::class, 'createFromDiscriminatorValue'])),
+            'accessPackageResourceScope' => fn(ParseNode $n) => $o->setAccessPackageResourceScope($n->getObjectValue([AccessPackageResourceScope::class, 'createFromDiscriminatorValue'])),
+            'accessPackageSubject' => fn(ParseNode $n) => $o->setAccessPackageSubject($n->getObjectValue([AccessPackageSubject::class, 'createFromDiscriminatorValue'])),
+            'originId' => fn(ParseNode $n) => $o->setOriginId($n->getStringValue()),
+            'originSystem' => fn(ParseNode $n) => $o->setOriginSystem($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
         ]);
     }
 

@@ -90,10 +90,10 @@ class VpnProxyServer implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getStringValue()); },
-            'automaticConfigurationScriptUrl' => function (ParseNode $n) use ($o) { $o->setAutomaticConfigurationScriptUrl($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'port' => function (ParseNode $n) use ($o) { $o->setPort($n->getIntegerValue()); },
+            'address' => fn(ParseNode $n) => $o->setAddress($n->getStringValue()),
+            'automaticConfigurationScriptUrl' => fn(ParseNode $n) => $o->setAutomaticConfigurationScriptUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'port' => fn(ParseNode $n) => $o->setPort($n->getIntegerValue()),
         ];
     }
 

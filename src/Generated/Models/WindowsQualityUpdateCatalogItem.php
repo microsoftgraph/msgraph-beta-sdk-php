@@ -55,9 +55,9 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classification' => function (ParseNode $n) use ($o) { $o->setClassification($n->getEnumValue(WindowsQualityUpdateClassification::class)); },
-            'isExpeditable' => function (ParseNode $n) use ($o) { $o->setIsExpeditable($n->getBooleanValue()); },
-            'kbArticleId' => function (ParseNode $n) use ($o) { $o->setKbArticleId($n->getStringValue()); },
+            'classification' => fn(ParseNode $n) => $o->setClassification($n->getEnumValue(WindowsQualityUpdateClassification::class)),
+            'isExpeditable' => fn(ParseNode $n) => $o->setIsExpeditable($n->getBooleanValue()),
+            'kbArticleId' => fn(ParseNode $n) => $o->setKbArticleId($n->getStringValue()),
         ]);
     }
 

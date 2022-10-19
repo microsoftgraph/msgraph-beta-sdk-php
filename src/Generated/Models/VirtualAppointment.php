@@ -89,11 +89,11 @@ class VirtualAppointment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appointmentClientJoinWebUrl' => function (ParseNode $n) use ($o) { $o->setAppointmentClientJoinWebUrl($n->getStringValue()); },
-            'appointmentClients' => function (ParseNode $n) use ($o) { $o->setAppointmentClients($n->getCollectionOfObjectValues(array(VirtualAppointmentUser::class, 'createFromDiscriminatorValue'))); },
-            'externalAppointmentId' => function (ParseNode $n) use ($o) { $o->setExternalAppointmentId($n->getStringValue()); },
-            'externalAppointmentUrl' => function (ParseNode $n) use ($o) { $o->setExternalAppointmentUrl($n->getStringValue()); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(VirtualAppointmentSettings::class, 'createFromDiscriminatorValue'))); },
+            'appointmentClientJoinWebUrl' => fn(ParseNode $n) => $o->setAppointmentClientJoinWebUrl($n->getStringValue()),
+            'appointmentClients' => fn(ParseNode $n) => $o->setAppointmentClients($n->getCollectionOfObjectValues([VirtualAppointmentUser::class, 'createFromDiscriminatorValue'])),
+            'externalAppointmentId' => fn(ParseNode $n) => $o->setExternalAppointmentId($n->getStringValue()),
+            'externalAppointmentUrl' => fn(ParseNode $n) => $o->setExternalAppointmentUrl($n->getStringValue()),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([VirtualAppointmentSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -78,12 +78,12 @@ class ContinuousAccessEvaluationPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'groups' => function (ParseNode $n) use ($o) { $o->setGroups($n->getCollectionOfPrimitiveValues()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'migrate' => function (ParseNode $n) use ($o) { $o->setMigrate($n->getBooleanValue()); },
-            'users' => function (ParseNode $n) use ($o) { $o->setUsers($n->getCollectionOfPrimitiveValues()); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'groups' => fn(ParseNode $n) => $o->setGroups($n->getCollectionOfPrimitiveValues()),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            'migrate' => fn(ParseNode $n) => $o->setMigrate($n->getBooleanValue()),
+            'users' => fn(ParseNode $n) => $o->setUsers($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

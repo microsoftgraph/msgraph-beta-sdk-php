@@ -99,13 +99,13 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeDevices' => function (ParseNode $n) use ($o) { $o->setActiveDevices($n->getIntegerValue()); },
-            'averageBatteryAgeInDays' => function (ParseNode $n) use ($o) { $o->setAverageBatteryAgeInDays($n->getIntegerValue()); },
-            'averageEstimatedRuntimeInMinutes' => function (ParseNode $n) use ($o) { $o->setAverageEstimatedRuntimeInMinutes($n->getIntegerValue()); },
-            'averageMaxCapacityPercentage' => function (ParseNode $n) use ($o) { $o->setAverageMaxCapacityPercentage($n->getIntegerValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'modelBatteryHealthScore' => function (ParseNode $n) use ($o) { $o->setModelBatteryHealthScore($n->getIntegerValue()); },
+            'activeDevices' => fn(ParseNode $n) => $o->setActiveDevices($n->getIntegerValue()),
+            'averageBatteryAgeInDays' => fn(ParseNode $n) => $o->setAverageBatteryAgeInDays($n->getIntegerValue()),
+            'averageEstimatedRuntimeInMinutes' => fn(ParseNode $n) => $o->setAverageEstimatedRuntimeInMinutes($n->getIntegerValue()),
+            'averageMaxCapacityPercentage' => fn(ParseNode $n) => $o->setAverageMaxCapacityPercentage($n->getIntegerValue()),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            'modelBatteryHealthScore' => fn(ParseNode $n) => $o->setModelBatteryHealthScore($n->getIntegerValue()),
         ]);
     }
 

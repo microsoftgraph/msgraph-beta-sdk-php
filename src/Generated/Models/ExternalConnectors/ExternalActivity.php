@@ -56,9 +56,9 @@ class ExternalActivity extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'performedBy' => function (ParseNode $n) use ($o) { $o->setPerformedBy($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(ExternalActivityType::class)); },
+            'performedBy' => fn(ParseNode $n) => $o->setPerformedBy($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(ExternalActivityType::class)),
         ]);
     }
 

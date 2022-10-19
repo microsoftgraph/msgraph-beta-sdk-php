@@ -157,17 +157,17 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'apiConnectors' => function (ParseNode $n) use ($o) { $o->setApiConnectors($n->getCollectionOfObjectValues(array(IdentityApiConnector::class, 'createFromDiscriminatorValue'))); },
-            'authenticationEventListeners' => function (ParseNode $n) use ($o) { $o->setAuthenticationEventListeners($n->getCollectionOfObjectValues(array(AuthenticationEventListener::class, 'createFromDiscriminatorValue'))); },
-            'b2cUserFlows' => function (ParseNode $n) use ($o) { $o->setB2cUserFlows($n->getCollectionOfObjectValues(array(B2cIdentityUserFlow::class, 'createFromDiscriminatorValue'))); },
-            'b2xUserFlows' => function (ParseNode $n) use ($o) { $o->setB2xUserFlows($n->getCollectionOfObjectValues(array(B2xIdentityUserFlow::class, 'createFromDiscriminatorValue'))); },
-            'conditionalAccess' => function (ParseNode $n) use ($o) { $o->setConditionalAccess($n->getObjectValue(array(ConditionalAccessRoot::class, 'createFromDiscriminatorValue'))); },
-            'continuousAccessEvaluationPolicy' => function (ParseNode $n) use ($o) { $o->setContinuousAccessEvaluationPolicy($n->getObjectValue(array(ContinuousAccessEvaluationPolicy::class, 'createFromDiscriminatorValue'))); },
-            'customAuthenticationExtensions' => function (ParseNode $n) use ($o) { $o->setCustomAuthenticationExtensions($n->getCollectionOfObjectValues(array(CustomAuthenticationExtension::class, 'createFromDiscriminatorValue'))); },
-            'identityProviders' => function (ParseNode $n) use ($o) { $o->setIdentityProviders($n->getCollectionOfObjectValues(array(IdentityProviderBase::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'userFlowAttributes' => function (ParseNode $n) use ($o) { $o->setUserFlowAttributes($n->getCollectionOfObjectValues(array(IdentityUserFlowAttribute::class, 'createFromDiscriminatorValue'))); },
-            'userFlows' => function (ParseNode $n) use ($o) { $o->setUserFlows($n->getCollectionOfObjectValues(array(IdentityUserFlow::class, 'createFromDiscriminatorValue'))); },
+            'apiConnectors' => fn(ParseNode $n) => $o->setApiConnectors($n->getCollectionOfObjectValues([IdentityApiConnector::class, 'createFromDiscriminatorValue'])),
+            'authenticationEventListeners' => fn(ParseNode $n) => $o->setAuthenticationEventListeners($n->getCollectionOfObjectValues([AuthenticationEventListener::class, 'createFromDiscriminatorValue'])),
+            'b2cUserFlows' => fn(ParseNode $n) => $o->setB2cUserFlows($n->getCollectionOfObjectValues([B2cIdentityUserFlow::class, 'createFromDiscriminatorValue'])),
+            'b2xUserFlows' => fn(ParseNode $n) => $o->setB2xUserFlows($n->getCollectionOfObjectValues([B2xIdentityUserFlow::class, 'createFromDiscriminatorValue'])),
+            'conditionalAccess' => fn(ParseNode $n) => $o->setConditionalAccess($n->getObjectValue([ConditionalAccessRoot::class, 'createFromDiscriminatorValue'])),
+            'continuousAccessEvaluationPolicy' => fn(ParseNode $n) => $o->setContinuousAccessEvaluationPolicy($n->getObjectValue([ContinuousAccessEvaluationPolicy::class, 'createFromDiscriminatorValue'])),
+            'customAuthenticationExtensions' => fn(ParseNode $n) => $o->setCustomAuthenticationExtensions($n->getCollectionOfObjectValues([CustomAuthenticationExtension::class, 'createFromDiscriminatorValue'])),
+            'identityProviders' => fn(ParseNode $n) => $o->setIdentityProviders($n->getCollectionOfObjectValues([IdentityProviderBase::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'userFlowAttributes' => fn(ParseNode $n) => $o->setUserFlowAttributes($n->getCollectionOfObjectValues([IdentityUserFlowAttribute::class, 'createFromDiscriminatorValue'])),
+            'userFlows' => fn(ParseNode $n) => $o->setUserFlows($n->getCollectionOfObjectValues([IdentityUserFlow::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

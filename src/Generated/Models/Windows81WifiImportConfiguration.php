@@ -48,9 +48,9 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'payload' => function (ParseNode $n) use ($o) { $o->setPayload($n->getBinaryContent()); },
-            'payloadFileName' => function (ParseNode $n) use ($o) { $o->setPayloadFileName($n->getStringValue()); },
-            'profileName' => function (ParseNode $n) use ($o) { $o->setProfileName($n->getStringValue()); },
+            'payload' => fn(ParseNode $n) => $o->setPayload($n->getBinaryContent()),
+            'payloadFileName' => fn(ParseNode $n) => $o->setPayloadFileName($n->getStringValue()),
+            'profileName' => fn(ParseNode $n) => $o->setProfileName($n->getStringValue()),
         ]);
     }
 

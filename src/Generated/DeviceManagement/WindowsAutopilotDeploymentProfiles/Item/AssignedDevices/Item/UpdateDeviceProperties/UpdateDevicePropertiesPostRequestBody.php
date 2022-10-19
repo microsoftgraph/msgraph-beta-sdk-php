@@ -120,13 +120,13 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'addressableUserName' => function (ParseNode $n) use ($o) { $o->setAddressableUserName($n->getStringValue()); },
-            'deviceAccountPassword' => function (ParseNode $n) use ($o) { $o->setDeviceAccountPassword($n->getStringValue()); },
-            'deviceAccountUpn' => function (ParseNode $n) use ($o) { $o->setDeviceAccountUpn($n->getStringValue()); },
-            'deviceFriendlyName' => function (ParseNode $n) use ($o) { $o->setDeviceFriendlyName($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'groupTag' => function (ParseNode $n) use ($o) { $o->setGroupTag($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'addressableUserName' => fn(ParseNode $n) => $o->setAddressableUserName($n->getStringValue()),
+            'deviceAccountPassword' => fn(ParseNode $n) => $o->setDeviceAccountPassword($n->getStringValue()),
+            'deviceAccountUpn' => fn(ParseNode $n) => $o->setDeviceAccountUpn($n->getStringValue()),
+            'deviceFriendlyName' => fn(ParseNode $n) => $o->setDeviceFriendlyName($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'groupTag' => fn(ParseNode $n) => $o->setGroupTag($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ];
     }
 

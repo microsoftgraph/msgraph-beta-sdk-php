@@ -37,7 +37,7 @@ class TeamMembersNotificationRecipient extends TeamworkNotificationRecipient imp
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'teamId' => function (ParseNode $n) use ($o) { $o->setTeamId($n->getStringValue()); },
+            'teamId' => fn(ParseNode $n) => $o->setTeamId($n->getStringValue()),
         ]);
     }
 

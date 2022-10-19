@@ -96,12 +96,12 @@ class ManagedTenantAlertLog extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alert' => function (ParseNode $n) use ($o) { $o->setAlert($n->getObjectValue(array(ManagedTenantAlert::class, 'createFromDiscriminatorValue'))); },
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getObjectValue(array(AlertLogContent::class, 'createFromDiscriminatorValue'))); },
-            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
+            'alert' => fn(ParseNode $n) => $o->setAlert($n->getObjectValue([ManagedTenantAlert::class, 'createFromDiscriminatorValue'])),
+            'content' => fn(ParseNode $n) => $o->setContent($n->getObjectValue([AlertLogContent::class, 'createFromDiscriminatorValue'])),
+            'createdByUserId' => fn(ParseNode $n) => $o->setCreatedByUserId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
+            'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
         ]);
     }
 

@@ -66,10 +66,10 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'statusDetails' => function (ParseNode $n) use ($o) { $o->setStatusDetails($n->getCollectionOfObjectValues(array(KeyValue::class, 'createFromDiscriminatorValue'))); },
-            'subStatus' => function (ParseNode $n) use ($o) { $o->setSubStatus($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
+            'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getCollectionOfObjectValues([KeyValue::class, 'createFromDiscriminatorValue'])),
+            'subStatus' => fn(ParseNode $n) => $o->setSubStatus($n->getStringValue()),
         ];
     }
 

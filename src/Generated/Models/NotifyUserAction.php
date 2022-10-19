@@ -74,11 +74,11 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionLastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setActionLastModifiedDateTime($n->getDateTimeValue()); },
-            'emailText' => function (ParseNode $n) use ($o) { $o->setEmailText($n->getStringValue()); },
-            'overrideOption' => function (ParseNode $n) use ($o) { $o->setOverrideOption($n->getEnumValue(OverrideOption::class)); },
-            'policyTip' => function (ParseNode $n) use ($o) { $o->setPolicyTip($n->getStringValue()); },
-            'recipients' => function (ParseNode $n) use ($o) { $o->setRecipients($n->getCollectionOfPrimitiveValues()); },
+            'actionLastModifiedDateTime' => fn(ParseNode $n) => $o->setActionLastModifiedDateTime($n->getDateTimeValue()),
+            'emailText' => fn(ParseNode $n) => $o->setEmailText($n->getStringValue()),
+            'overrideOption' => fn(ParseNode $n) => $o->setOverrideOption($n->getEnumValue(OverrideOption::class)),
+            'policyTip' => fn(ParseNode $n) => $o->setPolicyTip($n->getStringValue()),
+            'recipients' => fn(ParseNode $n) => $o->setRecipients($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

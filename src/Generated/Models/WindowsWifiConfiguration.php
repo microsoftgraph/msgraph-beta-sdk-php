@@ -128,19 +128,19 @@ class WindowsWifiConfiguration extends DeviceConfiguration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'connectAutomatically' => function (ParseNode $n) use ($o) { $o->setConnectAutomatically($n->getBooleanValue()); },
-            'connectToPreferredNetwork' => function (ParseNode $n) use ($o) { $o->setConnectToPreferredNetwork($n->getBooleanValue()); },
-            'connectWhenNetworkNameIsHidden' => function (ParseNode $n) use ($o) { $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()); },
-            'forceFIPSCompliance' => function (ParseNode $n) use ($o) { $o->setForceFIPSCompliance($n->getBooleanValue()); },
-            'meteredConnectionLimit' => function (ParseNode $n) use ($o) { $o->setMeteredConnectionLimit($n->getEnumValue(MeteredConnectionLimitType::class)); },
-            'networkName' => function (ParseNode $n) use ($o) { $o->setNetworkName($n->getStringValue()); },
-            'preSharedKey' => function (ParseNode $n) use ($o) { $o->setPreSharedKey($n->getStringValue()); },
-            'proxyAutomaticConfigurationUrl' => function (ParseNode $n) use ($o) { $o->setProxyAutomaticConfigurationUrl($n->getStringValue()); },
-            'proxyManualAddress' => function (ParseNode $n) use ($o) { $o->setProxyManualAddress($n->getStringValue()); },
-            'proxyManualPort' => function (ParseNode $n) use ($o) { $o->setProxyManualPort($n->getIntegerValue()); },
-            'proxySetting' => function (ParseNode $n) use ($o) { $o->setProxySetting($n->getEnumValue(WiFiProxySetting::class)); },
-            'ssid' => function (ParseNode $n) use ($o) { $o->setSsid($n->getStringValue()); },
-            'wifiSecurityType' => function (ParseNode $n) use ($o) { $o->setWifiSecurityType($n->getEnumValue(WiFiSecurityType::class)); },
+            'connectAutomatically' => fn(ParseNode $n) => $o->setConnectAutomatically($n->getBooleanValue()),
+            'connectToPreferredNetwork' => fn(ParseNode $n) => $o->setConnectToPreferredNetwork($n->getBooleanValue()),
+            'connectWhenNetworkNameIsHidden' => fn(ParseNode $n) => $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()),
+            'forceFIPSCompliance' => fn(ParseNode $n) => $o->setForceFIPSCompliance($n->getBooleanValue()),
+            'meteredConnectionLimit' => fn(ParseNode $n) => $o->setMeteredConnectionLimit($n->getEnumValue(MeteredConnectionLimitType::class)),
+            'networkName' => fn(ParseNode $n) => $o->setNetworkName($n->getStringValue()),
+            'preSharedKey' => fn(ParseNode $n) => $o->setPreSharedKey($n->getStringValue()),
+            'proxyAutomaticConfigurationUrl' => fn(ParseNode $n) => $o->setProxyAutomaticConfigurationUrl($n->getStringValue()),
+            'proxyManualAddress' => fn(ParseNode $n) => $o->setProxyManualAddress($n->getStringValue()),
+            'proxyManualPort' => fn(ParseNode $n) => $o->setProxyManualPort($n->getIntegerValue()),
+            'proxySetting' => fn(ParseNode $n) => $o->setProxySetting($n->getEnumValue(WiFiProxySetting::class)),
+            'ssid' => fn(ParseNode $n) => $o->setSsid($n->getStringValue()),
+            'wifiSecurityType' => fn(ParseNode $n) => $o->setWifiSecurityType($n->getEnumValue(WiFiSecurityType::class)),
         ]);
     }
 

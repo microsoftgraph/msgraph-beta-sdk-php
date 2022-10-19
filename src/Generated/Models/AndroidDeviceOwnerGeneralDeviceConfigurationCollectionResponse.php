@@ -36,7 +36,7 @@ class AndroidDeviceOwnerGeneralDeviceConfigurationCollectionResponse extends Bas
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(AndroidDeviceOwnerGeneralDeviceConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([AndroidDeviceOwnerGeneralDeviceConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

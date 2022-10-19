@@ -29,7 +29,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     private ?TemplateScenarios $scenarios = null;
     
     /**
-     * Instantiates a new ConditionalAccessTemplate and sets the default values.
+     * Instantiates a new conditionalAccessTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -68,10 +68,10 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getObjectValue(array(ConditionalAccessPolicyDetail::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'scenarios' => function (ParseNode $n) use ($o) { $o->setScenarios($n->getEnumValue(TemplateScenarios::class)); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([ConditionalAccessPolicyDetail::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'scenarios' => fn(ParseNode $n) => $o->setScenarios($n->getEnumValue(TemplateScenarios::class)),
         ]);
     }
 

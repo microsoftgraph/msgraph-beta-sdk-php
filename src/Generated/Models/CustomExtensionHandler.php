@@ -50,8 +50,8 @@ class CustomExtensionHandler extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'customExtension' => function (ParseNode $n) use ($o) { $o->setCustomExtension($n->getObjectValue(array(CustomAccessPackageWorkflowExtension::class, 'createFromDiscriminatorValue'))); },
-            'stage' => function (ParseNode $n) use ($o) { $o->setStage($n->getEnumValue(AccessPackageCustomExtensionStage::class)); },
+            'customExtension' => fn(ParseNode $n) => $o->setCustomExtension($n->getObjectValue([CustomAccessPackageWorkflowExtension::class, 'createFromDiscriminatorValue'])),
+            'stage' => fn(ParseNode $n) => $o->setStage($n->getEnumValue(AccessPackageCustomExtensionStage::class)),
         ]);
     }
 

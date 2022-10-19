@@ -71,9 +71,9 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowAdHocPermissions' => function (ParseNode $n) use ($o) { $o->setAllowAdHocPermissions($n->getBooleanValue()); },
-            'allowMailForwarding' => function (ParseNode $n) use ($o) { $o->setAllowMailForwarding($n->getBooleanValue()); },
-            'decryptionRightsManagementTemplateId' => function (ParseNode $n) use ($o) { $o->setDecryptionRightsManagementTemplateId($n->getStringValue()); },
+            'allowAdHocPermissions' => fn(ParseNode $n) => $o->setAllowAdHocPermissions($n->getBooleanValue()),
+            'allowMailForwarding' => fn(ParseNode $n) => $o->setAllowMailForwarding($n->getBooleanValue()),
+            'decryptionRightsManagementTemplateId' => fn(ParseNode $n) => $o->setDecryptionRightsManagementTemplateId($n->getStringValue()),
         ]);
     }
 

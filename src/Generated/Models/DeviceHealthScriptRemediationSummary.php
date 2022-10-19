@@ -61,9 +61,9 @@ class DeviceHealthScriptRemediationSummary implements AdditionalDataHolder, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'remediatedDeviceCount' => function (ParseNode $n) use ($o) { $o->setRemediatedDeviceCount($n->getIntegerValue()); },
-            'scriptCount' => function (ParseNode $n) use ($o) { $o->setScriptCount($n->getIntegerValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'remediatedDeviceCount' => fn(ParseNode $n) => $o->setRemediatedDeviceCount($n->getIntegerValue()),
+            'scriptCount' => fn(ParseNode $n) => $o->setScriptCount($n->getIntegerValue()),
         ];
     }
 

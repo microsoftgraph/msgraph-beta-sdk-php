@@ -48,9 +48,9 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'statuses' => function (ParseNode $n) use ($o) { $o->setStatuses($n->getCollectionOfObjectValues(array(ManagementActionDeploymentStatus::class, 'createFromDiscriminatorValue'))); },
-            'tenantGroupId' => function (ParseNode $n) use ($o) { $o->setTenantGroupId($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'statuses' => fn(ParseNode $n) => $o->setStatuses($n->getCollectionOfObjectValues([ManagementActionDeploymentStatus::class, 'createFromDiscriminatorValue'])),
+            'tenantGroupId' => fn(ParseNode $n) => $o->setTenantGroupId($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
 

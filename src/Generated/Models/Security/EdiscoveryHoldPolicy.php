@@ -73,11 +73,11 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contentQuery' => function (ParseNode $n) use ($o) { $o->setContentQuery($n->getStringValue()); },
-            'errors' => function (ParseNode $n) use ($o) { $o->setErrors($n->getCollectionOfPrimitiveValues()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'siteSources' => function (ParseNode $n) use ($o) { $o->setSiteSources($n->getCollectionOfObjectValues(array(SiteSource::class, 'createFromDiscriminatorValue'))); },
-            'userSources' => function (ParseNode $n) use ($o) { $o->setUserSources($n->getCollectionOfObjectValues(array(UserSource::class, 'createFromDiscriminatorValue'))); },
+            'contentQuery' => fn(ParseNode $n) => $o->setContentQuery($n->getStringValue()),
+            'errors' => fn(ParseNode $n) => $o->setErrors($n->getCollectionOfPrimitiveValues()),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            'siteSources' => fn(ParseNode $n) => $o->setSiteSources($n->getCollectionOfObjectValues([SiteSource::class, 'createFromDiscriminatorValue'])),
+            'userSources' => fn(ParseNode $n) => $o->setUserSources($n->getCollectionOfObjectValues([UserSource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -73,11 +73,11 @@ class OnPremisesAgentGroup extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agents' => function (ParseNode $n) use ($o) { $o->setAgents($n->getCollectionOfObjectValues(array(OnPremisesAgent::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'publishedResources' => function (ParseNode $n) use ($o) { $o->setPublishedResources($n->getCollectionOfObjectValues(array(PublishedResource::class, 'createFromDiscriminatorValue'))); },
-            'publishingType' => function (ParseNode $n) use ($o) { $o->setPublishingType($n->getEnumValue(OnPremisesPublishingType::class)); },
+            'agents' => fn(ParseNode $n) => $o->setAgents($n->getCollectionOfObjectValues([OnPremisesAgent::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
+            'publishedResources' => fn(ParseNode $n) => $o->setPublishedResources($n->getCollectionOfObjectValues([PublishedResource::class, 'createFromDiscriminatorValue'])),
+            'publishingType' => fn(ParseNode $n) => $o->setPublishingType($n->getEnumValue(OnPremisesPublishingType::class)),
         ]);
     }
 

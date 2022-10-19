@@ -69,9 +69,9 @@ class CurrentLabel implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'applicationMode' => function (ParseNode $n) use ($o) { $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'applicationMode' => fn(ParseNode $n) => $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

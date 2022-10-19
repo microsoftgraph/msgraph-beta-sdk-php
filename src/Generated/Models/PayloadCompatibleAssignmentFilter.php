@@ -37,7 +37,7 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'payloadType' => function (ParseNode $n) use ($o) { $o->setPayloadType($n->getEnumValue(AssignmentFilterPayloadType::class)); },
+            'payloadType' => fn(ParseNode $n) => $o->setPayloadType($n->getEnumValue(AssignmentFilterPayloadType::class)),
         ]);
     }
 

@@ -127,17 +127,17 @@ class UnifiedRoleAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appScope' => function (ParseNode $n) use ($o) { $o->setAppScope($n->getObjectValue(array(AppScope::class, 'createFromDiscriminatorValue'))); },
-            'appScopeId' => function (ParseNode $n) use ($o) { $o->setAppScopeId($n->getStringValue()); },
-            'condition' => function (ParseNode $n) use ($o) { $o->setCondition($n->getStringValue()); },
-            'directoryScope' => function (ParseNode $n) use ($o) { $o->setDirectoryScope($n->getObjectValue(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'directoryScopeId' => function (ParseNode $n) use ($o) { $o->setDirectoryScopeId($n->getStringValue()); },
-            'principal' => function (ParseNode $n) use ($o) { $o->setPrincipal($n->getObjectValue(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'principalId' => function (ParseNode $n) use ($o) { $o->setPrincipalId($n->getStringValue()); },
-            'principalOrganizationId' => function (ParseNode $n) use ($o) { $o->setPrincipalOrganizationId($n->getStringValue()); },
-            'resourceScope' => function (ParseNode $n) use ($o) { $o->setResourceScope($n->getStringValue()); },
-            'roleDefinition' => function (ParseNode $n) use ($o) { $o->setRoleDefinition($n->getObjectValue(array(UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'roleDefinitionId' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionId($n->getStringValue()); },
+            'appScope' => fn(ParseNode $n) => $o->setAppScope($n->getObjectValue([AppScope::class, 'createFromDiscriminatorValue'])),
+            'appScopeId' => fn(ParseNode $n) => $o->setAppScopeId($n->getStringValue()),
+            'condition' => fn(ParseNode $n) => $o->setCondition($n->getStringValue()),
+            'directoryScope' => fn(ParseNode $n) => $o->setDirectoryScope($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'directoryScopeId' => fn(ParseNode $n) => $o->setDirectoryScopeId($n->getStringValue()),
+            'principal' => fn(ParseNode $n) => $o->setPrincipal($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'principalId' => fn(ParseNode $n) => $o->setPrincipalId($n->getStringValue()),
+            'principalOrganizationId' => fn(ParseNode $n) => $o->setPrincipalOrganizationId($n->getStringValue()),
+            'resourceScope' => fn(ParseNode $n) => $o->setResourceScope($n->getStringValue()),
+            'roleDefinition' => fn(ParseNode $n) => $o->setRoleDefinition($n->getObjectValue([UnifiedRoleDefinition::class, 'createFromDiscriminatorValue'])),
+            'roleDefinitionId' => fn(ParseNode $n) => $o->setRoleDefinitionId($n->getStringValue()),
         ]);
     }
 

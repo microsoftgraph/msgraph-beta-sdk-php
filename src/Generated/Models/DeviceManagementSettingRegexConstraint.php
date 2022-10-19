@@ -37,7 +37,7 @@ class DeviceManagementSettingRegexConstraint extends DeviceManagementConstraint 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'regex' => function (ParseNode $n) use ($o) { $o->setRegex($n->getStringValue()); },
+            'regex' => fn(ParseNode $n) => $o->setRegex($n->getStringValue()),
         ]);
     }
 

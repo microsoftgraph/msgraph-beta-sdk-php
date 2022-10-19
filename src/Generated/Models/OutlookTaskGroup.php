@@ -65,11 +65,11 @@ class OutlookTaskGroup extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'changeKey' => function (ParseNode $n) use ($o) { $o->setChangeKey($n->getStringValue()); },
-            'groupKey' => function (ParseNode $n) use ($o) { $o->setGroupKey($n->getStringValue()); },
-            'isDefaultGroup' => function (ParseNode $n) use ($o) { $o->setIsDefaultGroup($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'taskFolders' => function (ParseNode $n) use ($o) { $o->setTaskFolders($n->getCollectionOfObjectValues(array(OutlookTaskFolder::class, 'createFromDiscriminatorValue'))); },
+            'changeKey' => fn(ParseNode $n) => $o->setChangeKey($n->getStringValue()),
+            'groupKey' => fn(ParseNode $n) => $o->setGroupKey($n->getStringValue()),
+            'isDefaultGroup' => fn(ParseNode $n) => $o->setIsDefaultGroup($n->getBooleanValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'taskFolders' => fn(ParseNode $n) => $o->setTaskFolders($n->getCollectionOfObjectValues([OutlookTaskFolder::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -71,9 +71,9 @@ class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bundleIdAccessControlList' => function (ParseNode $n) use ($o) { $o->setBundleIdAccessControlList($n->getCollectionOfPrimitiveValues()); },
-            'configurations' => function (ParseNode $n) use ($o) { $o->setConfigurations($n->getCollectionOfObjectValues(array(KeyTypedValuePair::class, 'createFromDiscriminatorValue'))); },
-            'enableSharedDeviceMode' => function (ParseNode $n) use ($o) { $o->setEnableSharedDeviceMode($n->getBooleanValue()); },
+            'bundleIdAccessControlList' => fn(ParseNode $n) => $o->setBundleIdAccessControlList($n->getCollectionOfPrimitiveValues()),
+            'configurations' => fn(ParseNode $n) => $o->setConfigurations($n->getCollectionOfObjectValues([KeyTypedValuePair::class, 'createFromDiscriminatorValue'])),
+            'enableSharedDeviceMode' => fn(ParseNode $n) => $o->setEnableSharedDeviceMode($n->getBooleanValue()),
         ]);
     }
 

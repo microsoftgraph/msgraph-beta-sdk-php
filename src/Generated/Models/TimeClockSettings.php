@@ -64,8 +64,8 @@ class TimeClockSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'approvedLocation' => function (ParseNode $n) use ($o) { $o->setApprovedLocation($n->getObjectValue(array(GeoCoordinates::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'approvedLocation' => fn(ParseNode $n) => $o->setApprovedLocation($n->getObjectValue([GeoCoordinates::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -60,10 +60,10 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getStringValue()); },
-            'maxLength' => function (ParseNode $n) use ($o) { $o->setMaxLength($n->getIntegerValue()); },
-            'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
-            'suggestions' => function (ParseNode $n) use ($o) { $o->setSuggestions($n->getCollectionOfPrimitiveValues()); },
+            'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getStringValue()),
+            'maxLength' => fn(ParseNode $n) => $o->setMaxLength($n->getIntegerValue()),
+            'required' => fn(ParseNode $n) => $o->setRequired($n->getBooleanValue()),
+            'suggestions' => fn(ParseNode $n) => $o->setSuggestions($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

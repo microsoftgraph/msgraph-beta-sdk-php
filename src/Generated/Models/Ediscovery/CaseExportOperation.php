@@ -112,14 +112,14 @@ class CaseExportOperation extends CaseOperation implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureBlobContainer' => function (ParseNode $n) use ($o) { $o->setAzureBlobContainer($n->getStringValue()); },
-            'azureBlobToken' => function (ParseNode $n) use ($o) { $o->setAzureBlobToken($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'exportOptions' => function (ParseNode $n) use ($o) { $o->setExportOptions($n->getEnumValue(ExportOptions::class)); },
-            'exportStructure' => function (ParseNode $n) use ($o) { $o->setExportStructure($n->getEnumValue(ExportFileStructure::class)); },
-            'outputFolderId' => function (ParseNode $n) use ($o) { $o->setOutputFolderId($n->getStringValue()); },
-            'outputName' => function (ParseNode $n) use ($o) { $o->setOutputName($n->getStringValue()); },
-            'reviewSet' => function (ParseNode $n) use ($o) { $o->setReviewSet($n->getObjectValue(array(ReviewSet::class, 'createFromDiscriminatorValue'))); },
+            'azureBlobContainer' => fn(ParseNode $n) => $o->setAzureBlobContainer($n->getStringValue()),
+            'azureBlobToken' => fn(ParseNode $n) => $o->setAzureBlobToken($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'exportOptions' => fn(ParseNode $n) => $o->setExportOptions($n->getEnumValue(ExportOptions::class)),
+            'exportStructure' => fn(ParseNode $n) => $o->setExportStructure($n->getEnumValue(ExportFileStructure::class)),
+            'outputFolderId' => fn(ParseNode $n) => $o->setOutputFolderId($n->getStringValue()),
+            'outputName' => fn(ParseNode $n) => $o->setOutputName($n->getStringValue()),
+            'reviewSet' => fn(ParseNode $n) => $o->setReviewSet($n->getObjectValue([ReviewSet::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -88,12 +88,12 @@ class Tenant extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contract' => function (ParseNode $n) use ($o) { $o->setContract($n->getObjectValue(array(TenantContract::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'tenantStatusInformation' => function (ParseNode $n) use ($o) { $o->setTenantStatusInformation($n->getObjectValue(array(TenantStatusInformation::class, 'createFromDiscriminatorValue'))); },
+            'contract' => fn(ParseNode $n) => $o->setContract($n->getObjectValue([TenantContract::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'tenantStatusInformation' => fn(ParseNode $n) => $o->setTenantStatusInformation($n->getObjectValue([TenantStatusInformation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

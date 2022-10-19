@@ -94,15 +94,15 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'attackSimulationInfo' => function (ParseNode $n) use ($o) { $o->setAttackSimulationInfo($n->getObjectValue(array(AttackSimulationInfo::class, 'createFromDiscriminatorValue'))); },
-            'internetMessageId' => function (ParseNode $n) use ($o) { $o->setInternetMessageId($n->getStringValue()); },
-            'originalCategory' => function (ParseNode $n) use ($o) { $o->setOriginalCategory($n->getEnumValue(SubmissionCategory::class)); },
-            'receivedDateTime' => function (ParseNode $n) use ($o) { $o->setReceivedDateTime($n->getDateTimeValue()); },
-            'recipientEmailAddress' => function (ParseNode $n) use ($o) { $o->setRecipientEmailAddress($n->getStringValue()); },
-            'sender' => function (ParseNode $n) use ($o) { $o->setSender($n->getStringValue()); },
-            'senderIP' => function (ParseNode $n) use ($o) { $o->setSenderIP($n->getStringValue()); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
-            'tenantAllowOrBlockListAction' => function (ParseNode $n) use ($o) { $o->setTenantAllowOrBlockListAction($n->getObjectValue(array(TenantAllowOrBlockListAction::class, 'createFromDiscriminatorValue'))); },
+            'attackSimulationInfo' => fn(ParseNode $n) => $o->setAttackSimulationInfo($n->getObjectValue([AttackSimulationInfo::class, 'createFromDiscriminatorValue'])),
+            'internetMessageId' => fn(ParseNode $n) => $o->setInternetMessageId($n->getStringValue()),
+            'originalCategory' => fn(ParseNode $n) => $o->setOriginalCategory($n->getEnumValue(SubmissionCategory::class)),
+            'receivedDateTime' => fn(ParseNode $n) => $o->setReceivedDateTime($n->getDateTimeValue()),
+            'recipientEmailAddress' => fn(ParseNode $n) => $o->setRecipientEmailAddress($n->getStringValue()),
+            'sender' => fn(ParseNode $n) => $o->setSender($n->getStringValue()),
+            'senderIP' => fn(ParseNode $n) => $o->setSenderIP($n->getStringValue()),
+            'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
+            'tenantAllowOrBlockListAction' => fn(ParseNode $n) => $o->setTenantAllowOrBlockListAction($n->getObjectValue([TenantAllowOrBlockListAction::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

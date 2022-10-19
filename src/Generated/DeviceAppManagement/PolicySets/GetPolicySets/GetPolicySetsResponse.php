@@ -38,7 +38,7 @@ class GetPolicySetsResponse extends BaseCollectionPaginationCountResponse implem
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(PolicySet::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([PolicySet::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -63,9 +63,9 @@ class MessageRecipient extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deliveryStatus' => function (ParseNode $n) use ($o) { $o->setDeliveryStatus($n->getEnumValue(MessageStatus::class)); },
-            'events' => function (ParseNode $n) use ($o) { $o->setEvents($n->getCollectionOfObjectValues(array(MessageEvent::class, 'createFromDiscriminatorValue'))); },
-            'recipientEmail' => function (ParseNode $n) use ($o) { $o->setRecipientEmail($n->getStringValue()); },
+            'deliveryStatus' => fn(ParseNode $n) => $o->setDeliveryStatus($n->getEnumValue(MessageStatus::class)),
+            'events' => fn(ParseNode $n) => $o->setEvents($n->getCollectionOfObjectValues([MessageEvent::class, 'createFromDiscriminatorValue'])),
+            'recipientEmail' => fn(ParseNode $n) => $o->setRecipientEmail($n->getStringValue()),
         ]);
     }
 

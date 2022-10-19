@@ -78,12 +78,12 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'claimsMapping' => function (ParseNode $n) use ($o) { $o->setClaimsMapping($n->getObjectValue(array(ClaimsMapping::class, 'createFromDiscriminatorValue'))); },
-            'domainHint' => function (ParseNode $n) use ($o) { $o->setDomainHint($n->getStringValue()); },
-            'metadataUrl' => function (ParseNode $n) use ($o) { $o->setMetadataUrl($n->getStringValue()); },
-            'responseMode' => function (ParseNode $n) use ($o) { $o->setResponseMode($n->getEnumValue(OpenIdConnectResponseMode::class)); },
-            'responseType' => function (ParseNode $n) use ($o) { $o->setResponseType($n->getEnumValue(OpenIdConnectResponseTypes::class)); },
-            'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getStringValue()); },
+            'claimsMapping' => fn(ParseNode $n) => $o->setClaimsMapping($n->getObjectValue([ClaimsMapping::class, 'createFromDiscriminatorValue'])),
+            'domainHint' => fn(ParseNode $n) => $o->setDomainHint($n->getStringValue()),
+            'metadataUrl' => fn(ParseNode $n) => $o->setMetadataUrl($n->getStringValue()),
+            'responseMode' => fn(ParseNode $n) => $o->setResponseMode($n->getEnumValue(OpenIdConnectResponseMode::class)),
+            'responseType' => fn(ParseNode $n) => $o->setResponseType($n->getEnumValue(OpenIdConnectResponseTypes::class)),
+            'scope' => fn(ParseNode $n) => $o->setScope($n->getStringValue()),
         ]);
     }
 

@@ -110,14 +110,14 @@ class BitLockerRecoveryOptions implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'blockDataRecoveryAgent' => function (ParseNode $n) use ($o) { $o->setBlockDataRecoveryAgent($n->getBooleanValue()); },
-            'enableBitLockerAfterRecoveryInformationToStore' => function (ParseNode $n) use ($o) { $o->setEnableBitLockerAfterRecoveryInformationToStore($n->getBooleanValue()); },
-            'enableRecoveryInformationSaveToStore' => function (ParseNode $n) use ($o) { $o->setEnableRecoveryInformationSaveToStore($n->getBooleanValue()); },
-            'hideRecoveryOptions' => function (ParseNode $n) use ($o) { $o->setHideRecoveryOptions($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recoveryInformationToStore' => function (ParseNode $n) use ($o) { $o->setRecoveryInformationToStore($n->getEnumValue(BitLockerRecoveryInformationType::class)); },
-            'recoveryKeyUsage' => function (ParseNode $n) use ($o) { $o->setRecoveryKeyUsage($n->getEnumValue(ConfigurationUsage::class)); },
-            'recoveryPasswordUsage' => function (ParseNode $n) use ($o) { $o->setRecoveryPasswordUsage($n->getEnumValue(ConfigurationUsage::class)); },
+            'blockDataRecoveryAgent' => fn(ParseNode $n) => $o->setBlockDataRecoveryAgent($n->getBooleanValue()),
+            'enableBitLockerAfterRecoveryInformationToStore' => fn(ParseNode $n) => $o->setEnableBitLockerAfterRecoveryInformationToStore($n->getBooleanValue()),
+            'enableRecoveryInformationSaveToStore' => fn(ParseNode $n) => $o->setEnableRecoveryInformationSaveToStore($n->getBooleanValue()),
+            'hideRecoveryOptions' => fn(ParseNode $n) => $o->setHideRecoveryOptions($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recoveryInformationToStore' => fn(ParseNode $n) => $o->setRecoveryInformationToStore($n->getEnumValue(BitLockerRecoveryInformationType::class)),
+            'recoveryKeyUsage' => fn(ParseNode $n) => $o->setRecoveryKeyUsage($n->getEnumValue(ConfigurationUsage::class)),
+            'recoveryPasswordUsage' => fn(ParseNode $n) => $o->setRecoveryPasswordUsage($n->getEnumValue(ConfigurationUsage::class)),
         ];
     }
 

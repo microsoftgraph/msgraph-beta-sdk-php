@@ -69,9 +69,9 @@ class DeviceManagementConfigurationSettingDependedOnBy implements AdditionalData
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dependedOnBy' => function (ParseNode $n) use ($o) { $o->setDependedOnBy($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
+            'dependedOnBy' => fn(ParseNode $n) => $o->setDependedOnBy($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'required' => fn(ParseNode $n) => $o->setRequired($n->getBooleanValue()),
         ];
     }
 

@@ -19,7 +19,7 @@ class PrivilegedSignupStatus extends Entity implements Parsable
     private ?SetupStatus $status = null;
     
     /**
-     * Instantiates a new PrivilegedSignupStatus and sets the default values.
+     * Instantiates a new privilegedSignupStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -42,8 +42,8 @@ class PrivilegedSignupStatus extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isRegistered' => function (ParseNode $n) use ($o) { $o->setIsRegistered($n->getBooleanValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(SetupStatus::class)); },
+            'isRegistered' => fn(ParseNode $n) => $o->setIsRegistered($n->getBooleanValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(SetupStatus::class)),
         ]);
     }
 

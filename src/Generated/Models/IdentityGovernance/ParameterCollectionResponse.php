@@ -37,7 +37,7 @@ class ParameterCollectionResponse extends BaseCollectionPaginationCountResponse 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(Parameter::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([Parameter::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

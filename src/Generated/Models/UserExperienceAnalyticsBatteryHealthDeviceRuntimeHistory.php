@@ -63,9 +63,9 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'estimatedRuntimeInMinutes' => function (ParseNode $n) use ($o) { $o->setEstimatedRuntimeInMinutes($n->getIntegerValue()); },
-            'runtimeDateTime' => function (ParseNode $n) use ($o) { $o->setRuntimeDateTime($n->getStringValue()); },
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'estimatedRuntimeInMinutes' => fn(ParseNode $n) => $o->setEstimatedRuntimeInMinutes($n->getIntegerValue()),
+            'runtimeDateTime' => fn(ParseNode $n) => $o->setRuntimeDateTime($n->getStringValue()),
         ]);
     }
 

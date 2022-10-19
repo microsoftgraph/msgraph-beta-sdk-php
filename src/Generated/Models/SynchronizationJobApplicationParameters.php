@@ -61,9 +61,9 @@ class SynchronizationJobApplicationParameters implements AdditionalDataHolder, P
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'ruleId' => function (ParseNode $n) use ($o) { $o->setRuleId($n->getStringValue()); },
-            'subjects' => function (ParseNode $n) use ($o) { $o->setSubjects($n->getCollectionOfObjectValues(array(SynchronizationJobSubject::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'ruleId' => fn(ParseNode $n) => $o->setRuleId($n->getStringValue()),
+            'subjects' => fn(ParseNode $n) => $o->setSubjects($n->getCollectionOfObjectValues([SynchronizationJobSubject::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

@@ -56,8 +56,8 @@ class EmployeeExperience implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'learningProviders' => function (ParseNode $n) use ($o) { $o->setLearningProviders($n->getCollectionOfObjectValues(array(LearningProvider::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'learningProviders' => fn(ParseNode $n) => $o->setLearningProviders($n->getCollectionOfObjectValues([LearningProvider::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

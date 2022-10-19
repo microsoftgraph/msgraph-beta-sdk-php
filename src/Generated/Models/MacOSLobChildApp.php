@@ -82,10 +82,10 @@ class MacOSLobChildApp implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'buildNumber' => function (ParseNode $n) use ($o) { $o->setBuildNumber($n->getStringValue()); },
-            'bundleId' => function (ParseNode $n) use ($o) { $o->setBundleId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'versionNumber' => function (ParseNode $n) use ($o) { $o->setVersionNumber($n->getStringValue()); },
+            'buildNumber' => fn(ParseNode $n) => $o->setBuildNumber($n->getStringValue()),
+            'bundleId' => fn(ParseNode $n) => $o->setBundleId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'versionNumber' => fn(ParseNode $n) => $o->setVersionNumber($n->getStringValue()),
         ];
     }
 

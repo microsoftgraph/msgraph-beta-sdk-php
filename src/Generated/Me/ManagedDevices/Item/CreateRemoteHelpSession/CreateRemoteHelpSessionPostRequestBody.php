@@ -50,7 +50,7 @@ class CreateRemoteHelpSessionPostRequestBody implements AdditionalDataHolder, Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'sessionType' => function (ParseNode $n) use ($o) { $o->setSessionType($n->getStringValue()); },
+            'sessionType' => fn(ParseNode $n) => $o->setSessionType($n->getStringValue()),
         ];
     }
 

@@ -37,7 +37,7 @@ class FileContentThreatSubmission extends FileThreatSubmission implements Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'fileContent' => function (ParseNode $n) use ($o) { $o->setFileContent($n->getStringValue()); },
+            'fileContent' => fn(ParseNode $n) => $o->setFileContent($n->getStringValue()),
         ]);
     }
 

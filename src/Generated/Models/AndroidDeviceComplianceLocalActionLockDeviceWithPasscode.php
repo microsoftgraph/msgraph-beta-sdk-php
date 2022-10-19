@@ -42,8 +42,8 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'passcode' => function (ParseNode $n) use ($o) { $o->setPasscode($n->getStringValue()); },
-            'passcodeSignInFailureCountBeforeWipe' => function (ParseNode $n) use ($o) { $o->setPasscodeSignInFailureCountBeforeWipe($n->getIntegerValue()); },
+            'passcode' => fn(ParseNode $n) => $o->setPasscode($n->getStringValue()),
+            'passcodeSignInFailureCountBeforeWipe' => fn(ParseNode $n) => $o->setPasscodeSignInFailureCountBeforeWipe($n->getIntegerValue()),
         ]);
     }
 

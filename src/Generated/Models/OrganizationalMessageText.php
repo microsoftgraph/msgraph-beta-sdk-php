@@ -87,11 +87,11 @@ class OrganizationalMessageText implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'buttonText' => function (ParseNode $n) use ($o) { $o->setButtonText($n->getStringValue()); },
-            'clickUrl' => function (ParseNode $n) use ($o) { $o->setClickUrl($n->getStringValue()); },
-            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
+            'buttonText' => fn(ParseNode $n) => $o->setButtonText($n->getStringValue()),
+            'clickUrl' => fn(ParseNode $n) => $o->setClickUrl($n->getStringValue()),
+            'message' => fn(ParseNode $n) => $o->setMessage($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ];
     }
 

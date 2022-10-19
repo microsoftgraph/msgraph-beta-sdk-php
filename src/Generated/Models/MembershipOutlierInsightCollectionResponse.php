@@ -36,7 +36,7 @@ class MembershipOutlierInsightCollectionResponse extends BaseCollectionPaginatio
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(MembershipOutlierInsight::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([MembershipOutlierInsight::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -93,12 +93,12 @@ class TenantAllowBlockListEntryResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'entryType' => function (ParseNode $n) use ($o) { $o->setEntryType($n->getEnumValue(TenantAllowBlockListEntryType::class)); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'identity' => function (ParseNode $n) use ($o) { $o->setIdentity($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'entryType' => fn(ParseNode $n) => $o->setEntryType($n->getEnumValue(TenantAllowBlockListEntryType::class)),
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'identity' => fn(ParseNode $n) => $o->setIdentity($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
         ];
     }
 

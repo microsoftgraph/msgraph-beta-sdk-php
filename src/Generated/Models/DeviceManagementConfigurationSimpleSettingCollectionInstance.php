@@ -37,7 +37,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstance extends Devic
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'simpleSettingCollectionValue' => function (ParseNode $n) use ($o) { $o->setSimpleSettingCollectionValue($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSimpleSettingValue::class, 'createFromDiscriminatorValue'))); },
+            'simpleSettingCollectionValue' => fn(ParseNode $n) => $o->setSimpleSettingCollectionValue($n->getCollectionOfObjectValues([DeviceManagementConfigurationSimpleSettingValue::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

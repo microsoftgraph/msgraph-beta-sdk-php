@@ -100,12 +100,12 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'context' => function (ParseNode $n) use ($o) { $o->setContext($n->getStringValue()); },
-            'failure' => function (ParseNode $n) use ($o) { $o->setFailure($n->getStringValue()); },
-            'failureDetails' => function (ParseNode $n) use ($o) { $o->setFailureDetails($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'remediation' => function (ParseNode $n) use ($o) { $o->setRemediation($n->getStringValue()); },
-            'resources' => function (ParseNode $n) use ($o) { $o->setResources($n->getCollectionOfObjectValues(array(DeviceManagementTroubleshootingErrorResource::class, 'createFromDiscriminatorValue'))); },
+            'context' => fn(ParseNode $n) => $o->setContext($n->getStringValue()),
+            'failure' => fn(ParseNode $n) => $o->setFailure($n->getStringValue()),
+            'failureDetails' => fn(ParseNode $n) => $o->setFailureDetails($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'remediation' => fn(ParseNode $n) => $o->setRemediation($n->getStringValue()),
+            'resources' => fn(ParseNode $n) => $o->setResources($n->getCollectionOfObjectValues([DeviceManagementTroubleshootingErrorResource::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

@@ -42,8 +42,8 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isExpeditable' => function (ParseNode $n) use ($o) { $o->setIsExpeditable($n->getBooleanValue()); },
-            'qualityUpdateClassification' => function (ParseNode $n) use ($o) { $o->setQualityUpdateClassification($n->getEnumValue(QualityUpdateClassification::class)); },
+            'isExpeditable' => fn(ParseNode $n) => $o->setIsExpeditable($n->getBooleanValue()),
+            'qualityUpdateClassification' => fn(ParseNode $n) => $o->setQualityUpdateClassification($n->getEnumValue(QualityUpdateClassification::class)),
         ]);
     }
 

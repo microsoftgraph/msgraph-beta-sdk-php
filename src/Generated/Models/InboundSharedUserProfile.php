@@ -79,11 +79,11 @@ class InboundSharedUserProfile implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'homeTenantId' => function (ParseNode $n) use ($o) { $o->setHomeTenantId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'homeTenantId' => fn(ParseNode $n) => $o->setHomeTenantId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ];
     }
 

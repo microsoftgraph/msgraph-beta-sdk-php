@@ -42,8 +42,8 @@ class DeviceManagementConfigurationChoiceSettingCollectionDefinition extends Dev
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'maximumCount' => function (ParseNode $n) use ($o) { $o->setMaximumCount($n->getIntegerValue()); },
-            'minimumCount' => function (ParseNode $n) use ($o) { $o->setMinimumCount($n->getIntegerValue()); },
+            'maximumCount' => fn(ParseNode $n) => $o->setMaximumCount($n->getIntegerValue()),
+            'minimumCount' => fn(ParseNode $n) => $o->setMinimumCount($n->getIntegerValue()),
         ]);
     }
 

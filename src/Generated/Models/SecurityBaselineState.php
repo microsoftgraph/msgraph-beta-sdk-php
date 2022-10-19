@@ -65,11 +65,11 @@ class SecurityBaselineState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'securityBaselineTemplateId' => function (ParseNode $n) use ($o) { $o->setSecurityBaselineTemplateId($n->getStringValue()); },
-            'settingStates' => function (ParseNode $n) use ($o) { $o->setSettingStates($n->getCollectionOfObjectValues(array(SecurityBaselineSettingState::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(SecurityBaselineComplianceState::class)); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'securityBaselineTemplateId' => fn(ParseNode $n) => $o->setSecurityBaselineTemplateId($n->getStringValue()),
+            'settingStates' => fn(ParseNode $n) => $o->setSettingStates($n->getCollectionOfObjectValues([SecurityBaselineSettingState::class, 'createFromDiscriminatorValue'])),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(SecurityBaselineComplianceState::class)),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

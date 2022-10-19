@@ -86,12 +86,12 @@ class ZebraFotaArtifact extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'boardSupportPackageVersion' => function (ParseNode $n) use ($o) { $o->setBoardSupportPackageVersion($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'deviceModel' => function (ParseNode $n) use ($o) { $o->setDeviceModel($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'patchVersion' => function (ParseNode $n) use ($o) { $o->setPatchVersion($n->getStringValue()); },
-            'releaseNotesUrl' => function (ParseNode $n) use ($o) { $o->setReleaseNotesUrl($n->getStringValue()); },
+            'boardSupportPackageVersion' => fn(ParseNode $n) => $o->setBoardSupportPackageVersion($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'deviceModel' => fn(ParseNode $n) => $o->setDeviceModel($n->getStringValue()),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
+            'patchVersion' => fn(ParseNode $n) => $o->setPatchVersion($n->getStringValue()),
+            'releaseNotesUrl' => fn(ParseNode $n) => $o->setReleaseNotesUrl($n->getStringValue()),
         ]);
     }
 

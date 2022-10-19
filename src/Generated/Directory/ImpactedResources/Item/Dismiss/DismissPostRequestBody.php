@@ -58,7 +58,7 @@ class DismissPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dismissReason' => function (ParseNode $n) use ($o) { $o->setDismissReason($n->getStringValue()); },
+            'dismissReason' => fn(ParseNode $n) => $o->setDismissReason($n->getStringValue()),
         ];
     }
 

@@ -114,16 +114,16 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationMethod' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethod($n->getEnumValue(WiFiAuthenticationMethod::class)); },
-            'eapFastConfiguration' => function (ParseNode $n) use ($o) { $o->setEapFastConfiguration($n->getEnumValue(EapFastConfiguration::class)); },
-            'eapType' => function (ParseNode $n) use ($o) { $o->setEapType($n->getEnumValue(EapType::class)); },
-            'enableOuterIdentityPrivacy' => function (ParseNode $n) use ($o) { $o->setEnableOuterIdentityPrivacy($n->getStringValue()); },
-            'identityCertificateForClientAuthentication' => function (ParseNode $n) use ($o) { $o->setIdentityCertificateForClientAuthentication($n->getObjectValue(array(MacOSCertificateProfileBase::class, 'createFromDiscriminatorValue'))); },
-            'networkInterface' => function (ParseNode $n) use ($o) { $o->setNetworkInterface($n->getEnumValue(WiredNetworkInterface::class)); },
-            'networkName' => function (ParseNode $n) use ($o) { $o->setNetworkName($n->getStringValue()); },
-            'nonEapAuthenticationMethodForEapTtls' => function (ParseNode $n) use ($o) { $o->setNonEapAuthenticationMethodForEapTtls($n->getEnumValue(NonEapAuthenticationMethodForEapTtlsType::class)); },
-            'rootCertificateForServerValidation' => function (ParseNode $n) use ($o) { $o->setRootCertificateForServerValidation($n->getObjectValue(array(MacOSTrustedRootCertificate::class, 'createFromDiscriminatorValue'))); },
-            'trustedServerCertificateNames' => function (ParseNode $n) use ($o) { $o->setTrustedServerCertificateNames($n->getCollectionOfPrimitiveValues()); },
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(WiFiAuthenticationMethod::class)),
+            'eapFastConfiguration' => fn(ParseNode $n) => $o->setEapFastConfiguration($n->getEnumValue(EapFastConfiguration::class)),
+            'eapType' => fn(ParseNode $n) => $o->setEapType($n->getEnumValue(EapType::class)),
+            'enableOuterIdentityPrivacy' => fn(ParseNode $n) => $o->setEnableOuterIdentityPrivacy($n->getStringValue()),
+            'identityCertificateForClientAuthentication' => fn(ParseNode $n) => $o->setIdentityCertificateForClientAuthentication($n->getObjectValue([MacOSCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
+            'networkInterface' => fn(ParseNode $n) => $o->setNetworkInterface($n->getEnumValue(WiredNetworkInterface::class)),
+            'networkName' => fn(ParseNode $n) => $o->setNetworkName($n->getStringValue()),
+            'nonEapAuthenticationMethodForEapTtls' => fn(ParseNode $n) => $o->setNonEapAuthenticationMethodForEapTtls($n->getEnumValue(NonEapAuthenticationMethodForEapTtlsType::class)),
+            'rootCertificateForServerValidation' => fn(ParseNode $n) => $o->setRootCertificateForServerValidation($n->getObjectValue([MacOSTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
+            'trustedServerCertificateNames' => fn(ParseNode $n) => $o->setTrustedServerCertificateNames($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

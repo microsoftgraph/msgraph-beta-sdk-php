@@ -50,7 +50,7 @@ class DeleteTiIndicatorsByExternalIdPostRequestBody implements AdditionalDataHol
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfPrimitiveValues()); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

@@ -37,7 +37,7 @@ class DeviceManagementConfigurationReferenceSettingValue extends DeviceManagemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'note' => function (ParseNode $n) use ($o) { $o->setNote($n->getStringValue()); },
+            'note' => fn(ParseNode $n) => $o->setNote($n->getStringValue()),
         ]);
     }
 

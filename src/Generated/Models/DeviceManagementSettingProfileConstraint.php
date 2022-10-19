@@ -42,8 +42,8 @@ class DeviceManagementSettingProfileConstraint extends DeviceManagementConstrain
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getStringValue()); },
-            'types' => function (ParseNode $n) use ($o) { $o->setTypes($n->getCollectionOfPrimitiveValues()); },
+            'source' => fn(ParseNode $n) => $o->setSource($n->getStringValue()),
+            'types' => fn(ParseNode $n) => $o->setTypes($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

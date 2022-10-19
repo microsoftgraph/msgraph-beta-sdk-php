@@ -102,15 +102,15 @@ class WindowsUpdateState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceDisplayName' => function (ParseNode $n) use ($o) { $o->setDeviceDisplayName($n->getStringValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'featureUpdateVersion' => function (ParseNode $n) use ($o) { $o->setFeatureUpdateVersion($n->getStringValue()); },
-            'lastScanDateTime' => function (ParseNode $n) use ($o) { $o->setLastScanDateTime($n->getDateTimeValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'qualityUpdateVersion' => function (ParseNode $n) use ($o) { $o->setQualityUpdateVersion($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(WindowsUpdateStatus::class)); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'deviceDisplayName' => fn(ParseNode $n) => $o->setDeviceDisplayName($n->getStringValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'featureUpdateVersion' => fn(ParseNode $n) => $o->setFeatureUpdateVersion($n->getStringValue()),
+            'lastScanDateTime' => fn(ParseNode $n) => $o->setLastScanDateTime($n->getDateTimeValue()),
+            'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            'qualityUpdateVersion' => fn(ParseNode $n) => $o->setQualityUpdateVersion($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(WindowsUpdateStatus::class)),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

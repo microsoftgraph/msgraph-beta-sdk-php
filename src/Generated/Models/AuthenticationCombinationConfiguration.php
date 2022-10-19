@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationCombinationConfiguration extends Entity implements Parsable 
 {
     /**
-     * @var array<AuthenticationMethodModes>|null $appliesToCombinations The appliesToCombinations property
+     * @var array<AuthenticationMethodModes>|null $appliesToCombinations Which authentication method combinations this configuration applies to. Must be an allowedCombinations object that's defined for the authenticationStrengthPolicy. The only possible value for fido2combinationConfigurations is 'fido2'.
     */
     private ?array $appliesToCombinations = null;
     
@@ -38,7 +38,7 @@ class AuthenticationCombinationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Gets the appliesToCombinations property value. The appliesToCombinations property
+     * Gets the appliesToCombinations property value. Which authentication method combinations this configuration applies to. Must be an allowedCombinations object that's defined for the authenticationStrengthPolicy. The only possible value for fido2combinationConfigurations is 'fido2'.
      * @return array<AuthenticationMethodModes>|null
     */
     public function getAppliesToCombinations(): ?array {
@@ -52,7 +52,7 @@ class AuthenticationCombinationConfiguration extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appliesToCombinations' => function (ParseNode $n) use ($o) { $o->setAppliesToCombinations($n->getCollectionOfEnumValues(AuthenticationMethodModes::class)); },
+            'appliesToCombinations' => fn(ParseNode $n) => $o->setAppliesToCombinations($n->getCollectionOfEnumValues(AuthenticationMethodModes::class)),
         ]);
     }
 
@@ -66,7 +66,7 @@ class AuthenticationCombinationConfiguration extends Entity implements Parsable
     }
 
     /**
-     * Sets the appliesToCombinations property value. The appliesToCombinations property
+     * Sets the appliesToCombinations property value. Which authentication method combinations this configuration applies to. Must be an allowedCombinations object that's defined for the authenticationStrengthPolicy. The only possible value for fido2combinationConfigurations is 'fido2'.
      *  @param array<AuthenticationMethodModes>|null $value Value to set for the appliesToCombinations property.
     */
     public function setAppliesToCombinations(?array $value ): void {

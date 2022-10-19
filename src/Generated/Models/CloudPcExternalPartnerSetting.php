@@ -35,7 +35,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
     private ?string $statusDetails = null;
     
     /**
-     * Instantiates a new CloudPcExternalPartnerSetting and sets the default values.
+     * Instantiates a new cloudPcExternalPartnerSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -66,11 +66,11 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'enableConnection' => function (ParseNode $n) use ($o) { $o->setEnableConnection($n->getBooleanValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'partnerId' => function (ParseNode $n) use ($o) { $o->setPartnerId($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CloudPcExternalPartnerStatus::class)); },
-            'statusDetails' => function (ParseNode $n) use ($o) { $o->setStatusDetails($n->getStringValue()); },
+            'enableConnection' => fn(ParseNode $n) => $o->setEnableConnection($n->getBooleanValue()),
+            'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            'partnerId' => fn(ParseNode $n) => $o->setPartnerId($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcExternalPartnerStatus::class)),
+            'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getStringValue()),
         ]);
     }
 

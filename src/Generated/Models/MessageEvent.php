@@ -72,9 +72,9 @@ class MessageEvent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'dateTime' => function (ParseNode $n) use ($o) { $o->setDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'eventType' => function (ParseNode $n) use ($o) { $o->setEventType($n->getEnumValue(MessageEventType::class)); },
+            'dateTime' => fn(ParseNode $n) => $o->setDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'eventType' => fn(ParseNode $n) => $o->setEventType($n->getEnumValue(MessageEventType::class)),
         ]);
     }
 

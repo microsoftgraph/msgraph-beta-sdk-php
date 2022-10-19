@@ -35,7 +35,7 @@ class ProviderTenantSetting extends Entity implements Parsable
     private ?string $vendor = null;
     
     /**
-     * Instantiates a new ProviderTenantSetting and sets the default values.
+     * Instantiates a new providerTenantSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -74,11 +74,11 @@ class ProviderTenantSetting extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'provider' => function (ParseNode $n) use ($o) { $o->setProvider($n->getStringValue()); },
-            'vendor' => function (ParseNode $n) use ($o) { $o->setVendor($n->getStringValue()); },
+            'azureTenantId' => fn(ParseNode $n) => $o->setAzureTenantId($n->getStringValue()),
+            'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'provider' => fn(ParseNode $n) => $o->setProvider($n->getStringValue()),
+            'vendor' => fn(ParseNode $n) => $o->setVendor($n->getStringValue()),
         ]);
     }
 

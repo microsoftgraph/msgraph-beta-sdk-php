@@ -82,10 +82,10 @@ class UpdateAudiencePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'addExclusions' => function (ParseNode $n) use ($o) { $o->setAddExclusions($n->getCollectionOfObjectValues(array(UpdatableAsset::class, 'createFromDiscriminatorValue'))); },
-            'addMembers' => function (ParseNode $n) use ($o) { $o->setAddMembers($n->getCollectionOfObjectValues(array(UpdatableAsset::class, 'createFromDiscriminatorValue'))); },
-            'removeExclusions' => function (ParseNode $n) use ($o) { $o->setRemoveExclusions($n->getCollectionOfObjectValues(array(UpdatableAsset::class, 'createFromDiscriminatorValue'))); },
-            'removeMembers' => function (ParseNode $n) use ($o) { $o->setRemoveMembers($n->getCollectionOfObjectValues(array(UpdatableAsset::class, 'createFromDiscriminatorValue'))); },
+            'addExclusions' => fn(ParseNode $n) => $o->setAddExclusions($n->getCollectionOfObjectValues([UpdatableAsset::class, 'createFromDiscriminatorValue'])),
+            'addMembers' => fn(ParseNode $n) => $o->setAddMembers($n->getCollectionOfObjectValues([UpdatableAsset::class, 'createFromDiscriminatorValue'])),
+            'removeExclusions' => fn(ParseNode $n) => $o->setRemoveExclusions($n->getCollectionOfObjectValues([UpdatableAsset::class, 'createFromDiscriminatorValue'])),
+            'removeMembers' => fn(ParseNode $n) => $o->setRemoveMembers($n->getCollectionOfObjectValues([UpdatableAsset::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

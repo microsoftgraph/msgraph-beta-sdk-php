@@ -80,11 +80,11 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'completedUnits' => function (ParseNode $n) use ($o) { $o->setCompletedUnits($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'progressObservationDateTime' => function (ParseNode $n) use ($o) { $o->setProgressObservationDateTime($n->getDateTimeValue()); },
-            'totalUnits' => function (ParseNode $n) use ($o) { $o->setTotalUnits($n->getIntegerValue()); },
-            'units' => function (ParseNode $n) use ($o) { $o->setUnits($n->getStringValue()); },
+            'completedUnits' => fn(ParseNode $n) => $o->setCompletedUnits($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'progressObservationDateTime' => fn(ParseNode $n) => $o->setProgressObservationDateTime($n->getDateTimeValue()),
+            'totalUnits' => fn(ParseNode $n) => $o->setTotalUnits($n->getIntegerValue()),
+            'units' => fn(ParseNode $n) => $o->setUnits($n->getStringValue()),
         ];
     }
 

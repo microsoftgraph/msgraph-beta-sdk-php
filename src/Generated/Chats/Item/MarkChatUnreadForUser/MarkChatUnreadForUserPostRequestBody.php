@@ -62,9 +62,9 @@ class MarkChatUnreadForUserPostRequestBody implements AdditionalDataHolder, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'lastMessageReadDateTime' => function (ParseNode $n) use ($o) { $o->setLastMessageReadDateTime($n->getDateTimeValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'user' => function (ParseNode $n) use ($o) { $o->setUser($n->getObjectValue(array(TeamworkUserIdentity::class, 'createFromDiscriminatorValue'))); },
+            'lastMessageReadDateTime' => fn(ParseNode $n) => $o->setLastMessageReadDateTime($n->getDateTimeValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'user' => fn(ParseNode $n) => $o->setUser($n->getObjectValue([TeamworkUserIdentity::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

@@ -79,11 +79,11 @@ class ContentClassification implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
-            'matches' => function (ParseNode $n) use ($o) { $o->setMatches($n->getCollectionOfObjectValues(array(MatchLocation::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'sensitiveTypeId' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeId($n->getStringValue()); },
-            'uniqueCount' => function (ParseNode $n) use ($o) { $o->setUniqueCount($n->getIntegerValue()); },
+            'confidence' => fn(ParseNode $n) => $o->setConfidence($n->getIntegerValue()),
+            'matches' => fn(ParseNode $n) => $o->setMatches($n->getCollectionOfObjectValues([MatchLocation::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'sensitiveTypeId' => fn(ParseNode $n) => $o->setSensitiveTypeId($n->getStringValue()),
+            'uniqueCount' => fn(ParseNode $n) => $o->setUniqueCount($n->getIntegerValue()),
         ];
     }
 

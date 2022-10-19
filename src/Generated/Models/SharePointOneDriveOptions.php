@@ -56,8 +56,8 @@ class SharePointOneDriveOptions implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'includeContent' => function (ParseNode $n) use ($o) { $o->setIncludeContent($n->getEnumValue(SearchContent::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'includeContent' => fn(ParseNode $n) => $o->setIncludeContent($n->getEnumValue(SearchContent::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

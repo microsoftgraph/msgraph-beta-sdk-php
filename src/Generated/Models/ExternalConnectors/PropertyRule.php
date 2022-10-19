@@ -72,11 +72,11 @@ class PropertyRule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'operation' => function (ParseNode $n) use ($o) { $o->setOperation($n->getEnumValue(RuleOperation::class)); },
-            'property' => function (ParseNode $n) use ($o) { $o->setProperty($n->getStringValue()); },
-            'values' => function (ParseNode $n) use ($o) { $o->setValues($n->getCollectionOfPrimitiveValues()); },
-            'valuesJoinedBy' => function (ParseNode $n) use ($o) { $o->setValuesJoinedBy($n->getEnumValue(BinaryOperator::class)); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'operation' => fn(ParseNode $n) => $o->setOperation($n->getEnumValue(RuleOperation::class)),
+            'property' => fn(ParseNode $n) => $o->setProperty($n->getStringValue()),
+            'values' => fn(ParseNode $n) => $o->setValues($n->getCollectionOfPrimitiveValues()),
+            'valuesJoinedBy' => fn(ParseNode $n) => $o->setValuesJoinedBy($n->getEnumValue(BinaryOperator::class)),
         ];
     }
 

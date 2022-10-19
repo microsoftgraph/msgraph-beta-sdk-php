@@ -98,14 +98,14 @@ class ManagementTemplateStepDeployment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(GraphAPIErrorDetails::class, 'createFromDiscriminatorValue'))); },
-            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ManagementTemplateDeploymentStatus::class)); },
-            'templateStepVersion' => function (ParseNode $n) use ($o) { $o->setTemplateStepVersion($n->getObjectValue(array(ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'))); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'createdByUserId' => fn(ParseNode $n) => $o->setCreatedByUserId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([GraphAPIErrorDetails::class, 'createFromDiscriminatorValue'])),
+            'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
+            'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ManagementTemplateDeploymentStatus::class)),
+            'templateStepVersion' => fn(ParseNode $n) => $o->setTemplateStepVersion($n->getObjectValue([ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'])),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
 

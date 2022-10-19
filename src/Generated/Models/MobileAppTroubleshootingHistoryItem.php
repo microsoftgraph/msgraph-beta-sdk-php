@@ -73,9 +73,9 @@ class MobileAppTroubleshootingHistoryItem implements AdditionalDataHolder, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'occurrenceDateTime' => function (ParseNode $n) use ($o) { $o->setOccurrenceDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'troubleshootingErrorDetails' => function (ParseNode $n) use ($o) { $o->setTroubleshootingErrorDetails($n->getObjectValue(array(DeviceManagementTroubleshootingErrorDetails::class, 'createFromDiscriminatorValue'))); },
+            'occurrenceDateTime' => fn(ParseNode $n) => $o->setOccurrenceDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'troubleshootingErrorDetails' => fn(ParseNode $n) => $o->setTroubleshootingErrorDetails($n->getObjectValue([DeviceManagementTroubleshootingErrorDetails::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

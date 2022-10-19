@@ -37,7 +37,7 @@ class MuteParticipantsOperation extends CommsOperation implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'participants' => function (ParseNode $n) use ($o) { $o->setParticipants($n->getCollectionOfPrimitiveValues()); },
+            'participants' => fn(ParseNode $n) => $o->setParticipants($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

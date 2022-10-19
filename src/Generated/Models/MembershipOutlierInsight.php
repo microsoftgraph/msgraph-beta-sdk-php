@@ -78,12 +78,12 @@ class MembershipOutlierInsight extends GovernanceInsight implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'container' => function (ParseNode $n) use ($o) { $o->setContainer($n->getObjectValue(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'containerId' => function (ParseNode $n) use ($o) { $o->setContainerId($n->getStringValue()); },
-            'member' => function (ParseNode $n) use ($o) { $o->setMember($n->getObjectValue(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'memberId' => function (ParseNode $n) use ($o) { $o->setMemberId($n->getStringValue()); },
-            'outlierContainerType' => function (ParseNode $n) use ($o) { $o->setOutlierContainerType($n->getEnumValue(OutlierContainerType::class)); },
-            'outlierMemberType' => function (ParseNode $n) use ($o) { $o->setOutlierMemberType($n->getEnumValue(OutlierMemberType::class)); },
+            'container' => fn(ParseNode $n) => $o->setContainer($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'containerId' => fn(ParseNode $n) => $o->setContainerId($n->getStringValue()),
+            'member' => fn(ParseNode $n) => $o->setMember($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'memberId' => fn(ParseNode $n) => $o->setMemberId($n->getStringValue()),
+            'outlierContainerType' => fn(ParseNode $n) => $o->setOutlierContainerType($n->getEnumValue(OutlierContainerType::class)),
+            'outlierMemberType' => fn(ParseNode $n) => $o->setOutlierMemberType($n->getEnumValue(OutlierMemberType::class)),
         ]);
     }
 

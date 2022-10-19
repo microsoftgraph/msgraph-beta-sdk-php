@@ -50,7 +50,7 @@ class PostOrganizationalMessageTenantConsentPostRequestBody implements Additiona
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'firstPartyMessageAllowed' => function (ParseNode $n) use ($o) { $o->setFirstPartyMessageAllowed($n->getBooleanValue()); },
+            'firstPartyMessageAllowed' => fn(ParseNode $n) => $o->setFirstPartyMessageAllowed($n->getBooleanValue()),
         ];
     }
 

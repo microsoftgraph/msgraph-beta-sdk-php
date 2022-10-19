@@ -95,11 +95,11 @@ class DeviceManagementConfigurationSettingApplicability implements AdditionalDat
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'deviceMode' => function (ParseNode $n) use ($o) { $o->setDeviceMode($n->getEnumValue(DeviceManagementConfigurationDeviceMode::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
-            'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'deviceMode' => fn(ParseNode $n) => $o->setDeviceMode($n->getEnumValue(DeviceManagementConfigurationDeviceMode::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)),
+            'technologies' => fn(ParseNode $n) => $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)),
         ];
     }
 

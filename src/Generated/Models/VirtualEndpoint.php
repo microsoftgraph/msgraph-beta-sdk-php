@@ -19,6 +19,11 @@ class VirtualEndpoint extends Entity implements Parsable
     private ?array $cloudPCs = null;
     
     /**
+     * @var CloudPcCrossCloudGovernmentOrganizationMapping|null $crossCloudGovernmentOrganizationMapping Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
+    */
+    private ?CloudPcCrossCloudGovernmentOrganizationMapping $crossCloudGovernmentOrganizationMapping = null;
+    
+    /**
      * @var array<CloudPcDeviceImage>|null $deviceImages The image resource on Cloud PC.
     */
     private ?array $deviceImages = null;
@@ -74,7 +79,7 @@ class VirtualEndpoint extends Entity implements Parsable
     private ?array $userSettings = null;
     
     /**
-     * Instantiates a new VirtualEndpoint and sets the default values.
+     * Instantiates a new virtualEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -107,6 +112,14 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
+     * Gets the crossCloudGovernmentOrganizationMapping property value. Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
+     * @return CloudPcCrossCloudGovernmentOrganizationMapping|null
+    */
+    public function getCrossCloudGovernmentOrganizationMapping(): ?CloudPcCrossCloudGovernmentOrganizationMapping {
+        return $this->crossCloudGovernmentOrganizationMapping;
+    }
+
+    /**
      * Gets the deviceImages property value. The image resource on Cloud PC.
      * @return array<CloudPcDeviceImage>|null
     */
@@ -129,19 +142,20 @@ class VirtualEndpoint extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'auditEvents' => function (ParseNode $n) use ($o) { $o->setAuditEvents($n->getCollectionOfObjectValues(array(CloudPcAuditEvent::class, 'createFromDiscriminatorValue'))); },
-            'cloudPCs' => function (ParseNode $n) use ($o) { $o->setCloudPCs($n->getCollectionOfObjectValues(array(CloudPC::class, 'createFromDiscriminatorValue'))); },
-            'deviceImages' => function (ParseNode $n) use ($o) { $o->setDeviceImages($n->getCollectionOfObjectValues(array(CloudPcDeviceImage::class, 'createFromDiscriminatorValue'))); },
-            'externalPartnerSettings' => function (ParseNode $n) use ($o) { $o->setExternalPartnerSettings($n->getCollectionOfObjectValues(array(CloudPcExternalPartnerSetting::class, 'createFromDiscriminatorValue'))); },
-            'galleryImages' => function (ParseNode $n) use ($o) { $o->setGalleryImages($n->getCollectionOfObjectValues(array(CloudPcGalleryImage::class, 'createFromDiscriminatorValue'))); },
-            'onPremisesConnections' => function (ParseNode $n) use ($o) { $o->setOnPremisesConnections($n->getCollectionOfObjectValues(array(CloudPcOnPremisesConnection::class, 'createFromDiscriminatorValue'))); },
-            'organizationSettings' => function (ParseNode $n) use ($o) { $o->setOrganizationSettings($n->getObjectValue(array(CloudPcOrganizationSettings::class, 'createFromDiscriminatorValue'))); },
-            'provisioningPolicies' => function (ParseNode $n) use ($o) { $o->setProvisioningPolicies($n->getCollectionOfObjectValues(array(CloudPcProvisioningPolicy::class, 'createFromDiscriminatorValue'))); },
-            'reports' => function (ParseNode $n) use ($o) { $o->setReports($n->getObjectValue(array(CloudPcReports::class, 'createFromDiscriminatorValue'))); },
-            'servicePlans' => function (ParseNode $n) use ($o) { $o->setServicePlans($n->getCollectionOfObjectValues(array(CloudPcServicePlan::class, 'createFromDiscriminatorValue'))); },
-            'snapshots' => function (ParseNode $n) use ($o) { $o->setSnapshots($n->getCollectionOfObjectValues(array(CloudPcSnapshot::class, 'createFromDiscriminatorValue'))); },
-            'supportedRegions' => function (ParseNode $n) use ($o) { $o->setSupportedRegions($n->getCollectionOfObjectValues(array(CloudPcSupportedRegion::class, 'createFromDiscriminatorValue'))); },
-            'userSettings' => function (ParseNode $n) use ($o) { $o->setUserSettings($n->getCollectionOfObjectValues(array(CloudPcUserSetting::class, 'createFromDiscriminatorValue'))); },
+            'auditEvents' => fn(ParseNode $n) => $o->setAuditEvents($n->getCollectionOfObjectValues([CloudPcAuditEvent::class, 'createFromDiscriminatorValue'])),
+            'cloudPCs' => fn(ParseNode $n) => $o->setCloudPCs($n->getCollectionOfObjectValues([CloudPC::class, 'createFromDiscriminatorValue'])),
+            'crossCloudGovernmentOrganizationMapping' => fn(ParseNode $n) => $o->setCrossCloudGovernmentOrganizationMapping($n->getObjectValue([CloudPcCrossCloudGovernmentOrganizationMapping::class, 'createFromDiscriminatorValue'])),
+            'deviceImages' => fn(ParseNode $n) => $o->setDeviceImages($n->getCollectionOfObjectValues([CloudPcDeviceImage::class, 'createFromDiscriminatorValue'])),
+            'externalPartnerSettings' => fn(ParseNode $n) => $o->setExternalPartnerSettings($n->getCollectionOfObjectValues([CloudPcExternalPartnerSetting::class, 'createFromDiscriminatorValue'])),
+            'galleryImages' => fn(ParseNode $n) => $o->setGalleryImages($n->getCollectionOfObjectValues([CloudPcGalleryImage::class, 'createFromDiscriminatorValue'])),
+            'onPremisesConnections' => fn(ParseNode $n) => $o->setOnPremisesConnections($n->getCollectionOfObjectValues([CloudPcOnPremisesConnection::class, 'createFromDiscriminatorValue'])),
+            'organizationSettings' => fn(ParseNode $n) => $o->setOrganizationSettings($n->getObjectValue([CloudPcOrganizationSettings::class, 'createFromDiscriminatorValue'])),
+            'provisioningPolicies' => fn(ParseNode $n) => $o->setProvisioningPolicies($n->getCollectionOfObjectValues([CloudPcProvisioningPolicy::class, 'createFromDiscriminatorValue'])),
+            'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([CloudPcReports::class, 'createFromDiscriminatorValue'])),
+            'servicePlans' => fn(ParseNode $n) => $o->setServicePlans($n->getCollectionOfObjectValues([CloudPcServicePlan::class, 'createFromDiscriminatorValue'])),
+            'snapshots' => fn(ParseNode $n) => $o->setSnapshots($n->getCollectionOfObjectValues([CloudPcSnapshot::class, 'createFromDiscriminatorValue'])),
+            'supportedRegions' => fn(ParseNode $n) => $o->setSupportedRegions($n->getCollectionOfObjectValues([CloudPcSupportedRegion::class, 'createFromDiscriminatorValue'])),
+            'userSettings' => fn(ParseNode $n) => $o->setUserSettings($n->getCollectionOfObjectValues([CloudPcUserSetting::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -225,6 +239,7 @@ class VirtualEndpoint extends Entity implements Parsable
         parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('auditEvents', $this->auditEvents);
         $writer->writeCollectionOfObjectValues('cloudPCs', $this->cloudPCs);
+        $writer->writeObjectValue('crossCloudGovernmentOrganizationMapping', $this->crossCloudGovernmentOrganizationMapping);
         $writer->writeCollectionOfObjectValues('deviceImages', $this->deviceImages);
         $writer->writeCollectionOfObjectValues('externalPartnerSettings', $this->externalPartnerSettings);
         $writer->writeCollectionOfObjectValues('galleryImages', $this->galleryImages);
@@ -252,6 +267,14 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function setCloudPCs(?array $value ): void {
         $this->cloudPCs = $value;
+    }
+
+    /**
+     * Sets the crossCloudGovernmentOrganizationMapping property value. Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
+     *  @param CloudPcCrossCloudGovernmentOrganizationMapping|null $value Value to set for the crossCloudGovernmentOrganizationMapping property.
+    */
+    public function setCrossCloudGovernmentOrganizationMapping(?CloudPcCrossCloudGovernmentOrganizationMapping $value ): void {
+        $this->crossCloudGovernmentOrganizationMapping = $value;
     }
 
     /**

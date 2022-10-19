@@ -114,19 +114,19 @@ class EmailThreatSubmissionPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'customizedNotificationSenderEmailAddress' => function (ParseNode $n) use ($o) { $o->setCustomizedNotificationSenderEmailAddress($n->getStringValue()); },
-            'customizedReportRecipientEmailAddress' => function (ParseNode $n) use ($o) { $o->setCustomizedReportRecipientEmailAddress($n->getStringValue()); },
-            'isAlwaysReportEnabledForUsers' => function (ParseNode $n) use ($o) { $o->setIsAlwaysReportEnabledForUsers($n->getBooleanValue()); },
-            'isAskMeEnabledForUsers' => function (ParseNode $n) use ($o) { $o->setIsAskMeEnabledForUsers($n->getBooleanValue()); },
-            'isCustomizedMessageEnabled' => function (ParseNode $n) use ($o) { $o->setIsCustomizedMessageEnabled($n->getBooleanValue()); },
-            'isCustomizedMessageEnabledForPhishing' => function (ParseNode $n) use ($o) { $o->setIsCustomizedMessageEnabledForPhishing($n->getBooleanValue()); },
-            'isCustomizedNotificationSenderEnabled' => function (ParseNode $n) use ($o) { $o->setIsCustomizedNotificationSenderEnabled($n->getBooleanValue()); },
-            'isNeverReportEnabledForUsers' => function (ParseNode $n) use ($o) { $o->setIsNeverReportEnabledForUsers($n->getBooleanValue()); },
-            'isOrganizationBrandingEnabled' => function (ParseNode $n) use ($o) { $o->setIsOrganizationBrandingEnabled($n->getBooleanValue()); },
-            'isReportFromQuarantineEnabled' => function (ParseNode $n) use ($o) { $o->setIsReportFromQuarantineEnabled($n->getBooleanValue()); },
-            'isReportToCustomizedEmailAddressEnabled' => function (ParseNode $n) use ($o) { $o->setIsReportToCustomizedEmailAddressEnabled($n->getBooleanValue()); },
-            'isReportToMicrosoftEnabled' => function (ParseNode $n) use ($o) { $o->setIsReportToMicrosoftEnabled($n->getBooleanValue()); },
-            'isReviewEmailNotificationEnabled' => function (ParseNode $n) use ($o) { $o->setIsReviewEmailNotificationEnabled($n->getBooleanValue()); },
+            'customizedNotificationSenderEmailAddress' => fn(ParseNode $n) => $o->setCustomizedNotificationSenderEmailAddress($n->getStringValue()),
+            'customizedReportRecipientEmailAddress' => fn(ParseNode $n) => $o->setCustomizedReportRecipientEmailAddress($n->getStringValue()),
+            'isAlwaysReportEnabledForUsers' => fn(ParseNode $n) => $o->setIsAlwaysReportEnabledForUsers($n->getBooleanValue()),
+            'isAskMeEnabledForUsers' => fn(ParseNode $n) => $o->setIsAskMeEnabledForUsers($n->getBooleanValue()),
+            'isCustomizedMessageEnabled' => fn(ParseNode $n) => $o->setIsCustomizedMessageEnabled($n->getBooleanValue()),
+            'isCustomizedMessageEnabledForPhishing' => fn(ParseNode $n) => $o->setIsCustomizedMessageEnabledForPhishing($n->getBooleanValue()),
+            'isCustomizedNotificationSenderEnabled' => fn(ParseNode $n) => $o->setIsCustomizedNotificationSenderEnabled($n->getBooleanValue()),
+            'isNeverReportEnabledForUsers' => fn(ParseNode $n) => $o->setIsNeverReportEnabledForUsers($n->getBooleanValue()),
+            'isOrganizationBrandingEnabled' => fn(ParseNode $n) => $o->setIsOrganizationBrandingEnabled($n->getBooleanValue()),
+            'isReportFromQuarantineEnabled' => fn(ParseNode $n) => $o->setIsReportFromQuarantineEnabled($n->getBooleanValue()),
+            'isReportToCustomizedEmailAddressEnabled' => fn(ParseNode $n) => $o->setIsReportToCustomizedEmailAddressEnabled($n->getBooleanValue()),
+            'isReportToMicrosoftEnabled' => fn(ParseNode $n) => $o->setIsReportToMicrosoftEnabled($n->getBooleanValue()),
+            'isReviewEmailNotificationEnabled' => fn(ParseNode $n) => $o->setIsReviewEmailNotificationEnabled($n->getBooleanValue()),
         ]);
     }
 

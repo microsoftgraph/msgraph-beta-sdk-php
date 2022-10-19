@@ -136,17 +136,17 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'constraints' => function (ParseNode $n) use ($o) { $o->setConstraints($n->getCollectionOfObjectValues(array(DeviceManagementConstraint::class, 'createFromDiscriminatorValue'))); },
-            'dependencies' => function (ParseNode $n) use ($o) { $o->setDependencies($n->getCollectionOfObjectValues(array(DeviceManagementSettingDependency::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'documentationUrl' => function (ParseNode $n) use ($o) { $o->setDocumentationUrl($n->getStringValue()); },
-            'headerSubtitle' => function (ParseNode $n) use ($o) { $o->setHeaderSubtitle($n->getStringValue()); },
-            'headerTitle' => function (ParseNode $n) use ($o) { $o->setHeaderTitle($n->getStringValue()); },
-            'isTopLevel' => function (ParseNode $n) use ($o) { $o->setIsTopLevel($n->getBooleanValue()); },
-            'keywords' => function (ParseNode $n) use ($o) { $o->setKeywords($n->getCollectionOfPrimitiveValues()); },
-            'placeholderText' => function (ParseNode $n) use ($o) { $o->setPlaceholderText($n->getStringValue()); },
-            'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getEnumValue(DeviceManangementIntentValueType::class)); },
+            'constraints' => fn(ParseNode $n) => $o->setConstraints($n->getCollectionOfObjectValues([DeviceManagementConstraint::class, 'createFromDiscriminatorValue'])),
+            'dependencies' => fn(ParseNode $n) => $o->setDependencies($n->getCollectionOfObjectValues([DeviceManagementSettingDependency::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'documentationUrl' => fn(ParseNode $n) => $o->setDocumentationUrl($n->getStringValue()),
+            'headerSubtitle' => fn(ParseNode $n) => $o->setHeaderSubtitle($n->getStringValue()),
+            'headerTitle' => fn(ParseNode $n) => $o->setHeaderTitle($n->getStringValue()),
+            'isTopLevel' => fn(ParseNode $n) => $o->setIsTopLevel($n->getBooleanValue()),
+            'keywords' => fn(ParseNode $n) => $o->setKeywords($n->getCollectionOfPrimitiveValues()),
+            'placeholderText' => fn(ParseNode $n) => $o->setPlaceholderText($n->getStringValue()),
+            'valueType' => fn(ParseNode $n) => $o->setValueType($n->getEnumValue(DeviceManangementIntentValueType::class)),
         ]);
     }
 

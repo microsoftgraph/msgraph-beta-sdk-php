@@ -50,8 +50,8 @@ class AddFooter extends MarkContent implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alignment' => function (ParseNode $n) use ($o) { $o->setAlignment($n->getEnumValue(Alignment::class)); },
-            'margin' => function (ParseNode $n) use ($o) { $o->setMargin($n->getIntegerValue()); },
+            'alignment' => fn(ParseNode $n) => $o->setAlignment($n->getEnumValue(Alignment::class)),
+            'margin' => fn(ParseNode $n) => $o->setMargin($n->getIntegerValue()),
         ]);
     }
 

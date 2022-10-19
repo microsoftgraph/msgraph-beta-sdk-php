@@ -165,18 +165,18 @@ class UserExperienceAnalyticsAppHealthDevicePerformance extends Entity implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appCrashCount' => function (ParseNode $n) use ($o) { $o->setAppCrashCount($n->getIntegerValue()); },
-            'appHangCount' => function (ParseNode $n) use ($o) { $o->setAppHangCount($n->getIntegerValue()); },
-            'crashedAppCount' => function (ParseNode $n) use ($o) { $o->setCrashedAppCount($n->getIntegerValue()); },
-            'deviceAppHealthScore' => function (ParseNode $n) use ($o) { $o->setDeviceAppHealthScore($n->getFloatValue()); },
-            'deviceAppHealthStatus' => function (ParseNode $n) use ($o) { $o->setDeviceAppHealthStatus($n->getStringValue()); },
-            'deviceDisplayName' => function (ParseNode $n) use ($o) { $o->setDeviceDisplayName($n->getStringValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceManufacturer' => function (ParseNode $n) use ($o) { $o->setDeviceManufacturer($n->getStringValue()); },
-            'deviceModel' => function (ParseNode $n) use ($o) { $o->setDeviceModel($n->getStringValue()); },
-            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
-            'meanTimeToFailureInMinutes' => function (ParseNode $n) use ($o) { $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()); },
-            'processedDateTime' => function (ParseNode $n) use ($o) { $o->setProcessedDateTime($n->getDateTimeValue()); },
+            'appCrashCount' => fn(ParseNode $n) => $o->setAppCrashCount($n->getIntegerValue()),
+            'appHangCount' => fn(ParseNode $n) => $o->setAppHangCount($n->getIntegerValue()),
+            'crashedAppCount' => fn(ParseNode $n) => $o->setCrashedAppCount($n->getIntegerValue()),
+            'deviceAppHealthScore' => fn(ParseNode $n) => $o->setDeviceAppHealthScore($n->getFloatValue()),
+            'deviceAppHealthStatus' => fn(ParseNode $n) => $o->setDeviceAppHealthStatus($n->getStringValue()),
+            'deviceDisplayName' => fn(ParseNode $n) => $o->setDeviceDisplayName($n->getStringValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceManufacturer' => fn(ParseNode $n) => $o->setDeviceManufacturer($n->getStringValue()),
+            'deviceModel' => fn(ParseNode $n) => $o->setDeviceModel($n->getStringValue()),
+            'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)),
+            'meanTimeToFailureInMinutes' => fn(ParseNode $n) => $o->setMeanTimeToFailureInMinutes($n->getIntegerValue()),
+            'processedDateTime' => fn(ParseNode $n) => $o->setProcessedDateTime($n->getDateTimeValue()),
         ]);
     }
 

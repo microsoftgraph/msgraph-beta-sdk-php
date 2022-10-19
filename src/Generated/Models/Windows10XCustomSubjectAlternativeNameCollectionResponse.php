@@ -36,7 +36,7 @@ class Windows10XCustomSubjectAlternativeNameCollectionResponse extends BaseColle
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(Windows10XCustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([Windows10XCustomSubjectAlternativeName::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

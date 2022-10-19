@@ -37,7 +37,7 @@ class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'updateCategory' => function (ParseNode $n) use ($o) { $o->setUpdateCategory($n->getEnumValue(UpdateCategory::class)); },
+            'updateCategory' => fn(ParseNode $n) => $o->setUpdateCategory($n->getEnumValue(UpdateCategory::class)),
         ]);
     }
 

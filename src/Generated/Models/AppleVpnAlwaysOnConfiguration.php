@@ -141,17 +141,17 @@ class AppleVpnAlwaysOnConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'airPrintExceptionAction' => function (ParseNode $n) use ($o) { $o->setAirPrintExceptionAction($n->getEnumValue(VpnServiceExceptionAction::class)); },
-            'allowAllCaptiveNetworkPlugins' => function (ParseNode $n) use ($o) { $o->setAllowAllCaptiveNetworkPlugins($n->getBooleanValue()); },
-            'allowCaptiveWebSheet' => function (ParseNode $n) use ($o) { $o->setAllowCaptiveWebSheet($n->getBooleanValue()); },
-            'allowedCaptiveNetworkPlugins' => function (ParseNode $n) use ($o) { $o->setAllowedCaptiveNetworkPlugins($n->getObjectValue(array(SpecifiedCaptiveNetworkPlugins::class, 'createFromDiscriminatorValue'))); },
-            'cellularExceptionAction' => function (ParseNode $n) use ($o) { $o->setCellularExceptionAction($n->getEnumValue(VpnServiceExceptionAction::class)); },
-            'natKeepAliveIntervalInSeconds' => function (ParseNode $n) use ($o) { $o->setNatKeepAliveIntervalInSeconds($n->getIntegerValue()); },
-            'natKeepAliveOffloadEnable' => function (ParseNode $n) use ($o) { $o->setNatKeepAliveOffloadEnable($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'tunnelConfiguration' => function (ParseNode $n) use ($o) { $o->setTunnelConfiguration($n->getEnumValue(VpnTunnelConfigurationType::class)); },
-            'userToggleEnabled' => function (ParseNode $n) use ($o) { $o->setUserToggleEnabled($n->getBooleanValue()); },
-            'voicemailExceptionAction' => function (ParseNode $n) use ($o) { $o->setVoicemailExceptionAction($n->getEnumValue(VpnServiceExceptionAction::class)); },
+            'airPrintExceptionAction' => fn(ParseNode $n) => $o->setAirPrintExceptionAction($n->getEnumValue(VpnServiceExceptionAction::class)),
+            'allowAllCaptiveNetworkPlugins' => fn(ParseNode $n) => $o->setAllowAllCaptiveNetworkPlugins($n->getBooleanValue()),
+            'allowCaptiveWebSheet' => fn(ParseNode $n) => $o->setAllowCaptiveWebSheet($n->getBooleanValue()),
+            'allowedCaptiveNetworkPlugins' => fn(ParseNode $n) => $o->setAllowedCaptiveNetworkPlugins($n->getObjectValue([SpecifiedCaptiveNetworkPlugins::class, 'createFromDiscriminatorValue'])),
+            'cellularExceptionAction' => fn(ParseNode $n) => $o->setCellularExceptionAction($n->getEnumValue(VpnServiceExceptionAction::class)),
+            'natKeepAliveIntervalInSeconds' => fn(ParseNode $n) => $o->setNatKeepAliveIntervalInSeconds($n->getIntegerValue()),
+            'natKeepAliveOffloadEnable' => fn(ParseNode $n) => $o->setNatKeepAliveOffloadEnable($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'tunnelConfiguration' => fn(ParseNode $n) => $o->setTunnelConfiguration($n->getEnumValue(VpnTunnelConfigurationType::class)),
+            'userToggleEnabled' => fn(ParseNode $n) => $o->setUserToggleEnabled($n->getBooleanValue()),
+            'voicemailExceptionAction' => fn(ParseNode $n) => $o->setVoicemailExceptionAction($n->getEnumValue(VpnServiceExceptionAction::class)),
         ];
     }
 

@@ -61,9 +61,9 @@ class NetworkLocationDetail implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'networkNames' => function (ParseNode $n) use ($o) { $o->setNetworkNames($n->getCollectionOfPrimitiveValues()); },
-            'networkType' => function (ParseNode $n) use ($o) { $o->setNetworkType($n->getEnumValue(NetworkType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'networkNames' => fn(ParseNode $n) => $o->setNetworkNames($n->getCollectionOfPrimitiveValues()),
+            'networkType' => fn(ParseNode $n) => $o->setNetworkType($n->getEnumValue(NetworkType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -87,11 +87,11 @@ class AuditLogRoot implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'directoryAudits' => function (ParseNode $n) use ($o) { $o->setDirectoryAudits($n->getCollectionOfObjectValues(array(DirectoryAudit::class, 'createFromDiscriminatorValue'))); },
-            'directoryProvisioning' => function (ParseNode $n) use ($o) { $o->setDirectoryProvisioning($n->getCollectionOfObjectValues(array(ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'provisioning' => function (ParseNode $n) use ($o) { $o->setProvisioning($n->getCollectionOfObjectValues(array(ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'))); },
-            'signIns' => function (ParseNode $n) use ($o) { $o->setSignIns($n->getCollectionOfObjectValues(array(SignIn::class, 'createFromDiscriminatorValue'))); },
+            'directoryAudits' => fn(ParseNode $n) => $o->setDirectoryAudits($n->getCollectionOfObjectValues([DirectoryAudit::class, 'createFromDiscriminatorValue'])),
+            'directoryProvisioning' => fn(ParseNode $n) => $o->setDirectoryProvisioning($n->getCollectionOfObjectValues([ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'provisioning' => fn(ParseNode $n) => $o->setProvisioning($n->getCollectionOfObjectValues([ProvisioningObjectSummary::class, 'createFromDiscriminatorValue'])),
+            'signIns' => fn(ParseNode $n) => $o->setSignIns($n->getCollectionOfObjectValues([SignIn::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

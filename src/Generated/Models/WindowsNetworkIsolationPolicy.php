@@ -147,15 +147,15 @@ class WindowsNetworkIsolationPolicy implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'enterpriseCloudResources' => function (ParseNode $n) use ($o) { $o->setEnterpriseCloudResources($n->getCollectionOfObjectValues(array(ProxiedDomain::class, 'createFromDiscriminatorValue'))); },
-            'enterpriseInternalProxyServers' => function (ParseNode $n) use ($o) { $o->setEnterpriseInternalProxyServers($n->getCollectionOfPrimitiveValues()); },
-            'enterpriseIPRanges' => function (ParseNode $n) use ($o) { $o->setEnterpriseIPRanges($n->getCollectionOfObjectValues(array(IpRange::class, 'createFromDiscriminatorValue'))); },
-            'enterpriseIPRangesAreAuthoritative' => function (ParseNode $n) use ($o) { $o->setEnterpriseIPRangesAreAuthoritative($n->getBooleanValue()); },
-            'enterpriseNetworkDomainNames' => function (ParseNode $n) use ($o) { $o->setEnterpriseNetworkDomainNames($n->getCollectionOfPrimitiveValues()); },
-            'enterpriseProxyServers' => function (ParseNode $n) use ($o) { $o->setEnterpriseProxyServers($n->getCollectionOfPrimitiveValues()); },
-            'enterpriseProxyServersAreAuthoritative' => function (ParseNode $n) use ($o) { $o->setEnterpriseProxyServersAreAuthoritative($n->getBooleanValue()); },
-            'neutralDomainResources' => function (ParseNode $n) use ($o) { $o->setNeutralDomainResources($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'enterpriseCloudResources' => fn(ParseNode $n) => $o->setEnterpriseCloudResources($n->getCollectionOfObjectValues([ProxiedDomain::class, 'createFromDiscriminatorValue'])),
+            'enterpriseInternalProxyServers' => fn(ParseNode $n) => $o->setEnterpriseInternalProxyServers($n->getCollectionOfPrimitiveValues()),
+            'enterpriseIPRanges' => fn(ParseNode $n) => $o->setEnterpriseIPRanges($n->getCollectionOfObjectValues([IpRange::class, 'createFromDiscriminatorValue'])),
+            'enterpriseIPRangesAreAuthoritative' => fn(ParseNode $n) => $o->setEnterpriseIPRangesAreAuthoritative($n->getBooleanValue()),
+            'enterpriseNetworkDomainNames' => fn(ParseNode $n) => $o->setEnterpriseNetworkDomainNames($n->getCollectionOfPrimitiveValues()),
+            'enterpriseProxyServers' => fn(ParseNode $n) => $o->setEnterpriseProxyServers($n->getCollectionOfPrimitiveValues()),
+            'enterpriseProxyServersAreAuthoritative' => fn(ParseNode $n) => $o->setEnterpriseProxyServersAreAuthoritative($n->getBooleanValue()),
+            'neutralDomainResources' => fn(ParseNode $n) => $o->setNeutralDomainResources($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

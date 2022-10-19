@@ -93,15 +93,15 @@ class SensitiveType extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classificationMethod' => function (ParseNode $n) use ($o) { $o->setClassificationMethod($n->getEnumValue(ClassificationMethod::class)); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'publisherName' => function (ParseNode $n) use ($o) { $o->setPublisherName($n->getStringValue()); },
-            'rulePackageId' => function (ParseNode $n) use ($o) { $o->setRulePackageId($n->getStringValue()); },
-            'rulePackageType' => function (ParseNode $n) use ($o) { $o->setRulePackageType($n->getStringValue()); },
-            'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getEnumValue(SensitiveTypeScope::class)); },
-            'sensitiveTypeSource' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeSource($n->getEnumValue(SensitiveTypeSource::class)); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
+            'classificationMethod' => fn(ParseNode $n) => $o->setClassificationMethod($n->getEnumValue(ClassificationMethod::class)),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'publisherName' => fn(ParseNode $n) => $o->setPublisherName($n->getStringValue()),
+            'rulePackageId' => fn(ParseNode $n) => $o->setRulePackageId($n->getStringValue()),
+            'rulePackageType' => fn(ParseNode $n) => $o->setRulePackageType($n->getStringValue()),
+            'scope' => fn(ParseNode $n) => $o->setScope($n->getEnumValue(SensitiveTypeScope::class)),
+            'sensitiveTypeSource' => fn(ParseNode $n) => $o->setSensitiveTypeSource($n->getEnumValue(SensitiveTypeSource::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getStringValue()),
         ]);
     }
 

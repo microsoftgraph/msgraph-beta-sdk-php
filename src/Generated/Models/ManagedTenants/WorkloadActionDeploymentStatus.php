@@ -125,15 +125,15 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'actionId' => function (ParseNode $n) use ($o) { $o->setActionId($n->getStringValue()); },
-            'deployedPolicyId' => function (ParseNode $n) use ($o) { $o->setDeployedPolicyId($n->getStringValue()); },
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(GenericError::class, 'createFromDiscriminatorValue'))); },
-            'excludeGroups' => function (ParseNode $n) use ($o) { $o->setExcludeGroups($n->getCollectionOfPrimitiveValues()); },
-            'includeAllUsers' => function (ParseNode $n) use ($o) { $o->setIncludeAllUsers($n->getBooleanValue()); },
-            'includeGroups' => function (ParseNode $n) use ($o) { $o->setIncludeGroups($n->getCollectionOfPrimitiveValues()); },
-            'lastDeploymentDateTime' => function (ParseNode $n) use ($o) { $o->setLastDeploymentDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(WorkloadActionStatus::class)); },
+            'actionId' => fn(ParseNode $n) => $o->setActionId($n->getStringValue()),
+            'deployedPolicyId' => fn(ParseNode $n) => $o->setDeployedPolicyId($n->getStringValue()),
+            'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([GenericError::class, 'createFromDiscriminatorValue'])),
+            'excludeGroups' => fn(ParseNode $n) => $o->setExcludeGroups($n->getCollectionOfPrimitiveValues()),
+            'includeAllUsers' => fn(ParseNode $n) => $o->setIncludeAllUsers($n->getBooleanValue()),
+            'includeGroups' => fn(ParseNode $n) => $o->setIncludeGroups($n->getCollectionOfPrimitiveValues()),
+            'lastDeploymentDateTime' => fn(ParseNode $n) => $o->setLastDeploymentDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(WorkloadActionStatus::class)),
         ];
     }
 

@@ -58,8 +58,8 @@ class ProfileCardProperty extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'annotations' => function (ParseNode $n) use ($o) { $o->setAnnotations($n->getCollectionOfObjectValues(array(ProfileCardAnnotation::class, 'createFromDiscriminatorValue'))); },
-            'directoryPropertyName' => function (ParseNode $n) use ($o) { $o->setDirectoryPropertyName($n->getStringValue()); },
+            'annotations' => fn(ParseNode $n) => $o->setAnnotations($n->getCollectionOfObjectValues([ProfileCardAnnotation::class, 'createFromDiscriminatorValue'])),
+            'directoryPropertyName' => fn(ParseNode $n) => $o->setDirectoryPropertyName($n->getStringValue()),
         ]);
     }
 

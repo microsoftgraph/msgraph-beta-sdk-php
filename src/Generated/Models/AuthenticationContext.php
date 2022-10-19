@@ -69,9 +69,9 @@ class AuthenticationContext implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getEnumValue(AuthenticationContextDetail::class)); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'detail' => fn(ParseNode $n) => $o->setDetail($n->getEnumValue(AuthenticationContextDetail::class)),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -78,12 +78,12 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'brandingOptions' => function (ParseNode $n) use ($o) { $o->setBrandingOptions($n->getEnumValue(EnrollmentNotificationBrandingOptions::class)); },
-            'defaultLocale' => function (ParseNode $n) use ($o) { $o->setDefaultLocale($n->getStringValue()); },
-            'notificationMessageTemplateId' => function (ParseNode $n) use ($o) { $o->setNotificationMessageTemplateId($n->getStringValue()); },
-            'notificationTemplates' => function (ParseNode $n) use ($o) { $o->setNotificationTemplates($n->getCollectionOfPrimitiveValues()); },
-            'platformType' => function (ParseNode $n) use ($o) { $o->setPlatformType($n->getEnumValue(EnrollmentRestrictionPlatformType::class)); },
-            'templateType' => function (ParseNode $n) use ($o) { $o->setTemplateType($n->getEnumValue(EnrollmentNotificationTemplateType::class)); },
+            'brandingOptions' => fn(ParseNode $n) => $o->setBrandingOptions($n->getEnumValue(EnrollmentNotificationBrandingOptions::class)),
+            'defaultLocale' => fn(ParseNode $n) => $o->setDefaultLocale($n->getStringValue()),
+            'notificationMessageTemplateId' => fn(ParseNode $n) => $o->setNotificationMessageTemplateId($n->getStringValue()),
+            'notificationTemplates' => fn(ParseNode $n) => $o->setNotificationTemplates($n->getCollectionOfPrimitiveValues()),
+            'platformType' => fn(ParseNode $n) => $o->setPlatformType($n->getEnumValue(EnrollmentRestrictionPlatformType::class)),
+            'templateType' => fn(ParseNode $n) => $o->setTemplateType($n->getEnumValue(EnrollmentNotificationTemplateType::class)),
         ]);
     }
 

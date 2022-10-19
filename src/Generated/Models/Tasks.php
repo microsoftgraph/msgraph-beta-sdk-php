@@ -50,8 +50,8 @@ class Tasks extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alltasks' => function (ParseNode $n) use ($o) { $o->setAlltasks($n->getCollectionOfObjectValues(array(BaseTask::class, 'createFromDiscriminatorValue'))); },
-            'lists' => function (ParseNode $n) use ($o) { $o->setLists($n->getCollectionOfObjectValues(array(BaseTaskList::class, 'createFromDiscriminatorValue'))); },
+            'alltasks' => fn(ParseNode $n) => $o->setAlltasks($n->getCollectionOfObjectValues([BaseTask::class, 'createFromDiscriminatorValue'])),
+            'lists' => fn(ParseNode $n) => $o->setLists($n->getCollectionOfObjectValues([BaseTaskList::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

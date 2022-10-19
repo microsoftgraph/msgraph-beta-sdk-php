@@ -91,10 +91,10 @@ class AlertComment implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'comment' => function (ParseNode $n) use ($o) { $o->setComment($n->getStringValue()); },
-            'createdByDisplayName' => function (ParseNode $n) use ($o) { $o->setCreatedByDisplayName($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'comment' => fn(ParseNode $n) => $o->setComment($n->getStringValue()),
+            'createdByDisplayName' => fn(ParseNode $n) => $o->setCreatedByDisplayName($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

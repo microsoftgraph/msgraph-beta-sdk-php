@@ -79,11 +79,11 @@ class VmMetadata implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'cloudProvider' => function (ParseNode $n) use ($o) { $o->setCloudProvider($n->getEnumValue(VmCloudProvider::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'subscriptionId' => function (ParseNode $n) use ($o) { $o->setSubscriptionId($n->getStringValue()); },
-            'vmId' => function (ParseNode $n) use ($o) { $o->setVmId($n->getStringValue()); },
+            'cloudProvider' => fn(ParseNode $n) => $o->setCloudProvider($n->getEnumValue(VmCloudProvider::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
+            'subscriptionId' => fn(ParseNode $n) => $o->setSubscriptionId($n->getStringValue()),
+            'vmId' => fn(ParseNode $n) => $o->setVmId($n->getStringValue()),
         ];
     }
 

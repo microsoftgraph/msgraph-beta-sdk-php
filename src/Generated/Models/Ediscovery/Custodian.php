@@ -87,12 +87,12 @@ class Custodian extends DataSourceContainer implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'acknowledgedDateTime' => function (ParseNode $n) use ($o) { $o->setAcknowledgedDateTime($n->getDateTimeValue()); },
-            'applyHoldToSources' => function (ParseNode $n) use ($o) { $o->setApplyHoldToSources($n->getBooleanValue()); },
-            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
-            'siteSources' => function (ParseNode $n) use ($o) { $o->setSiteSources($n->getCollectionOfObjectValues(array(SiteSource::class, 'createFromDiscriminatorValue'))); },
-            'unifiedGroupSources' => function (ParseNode $n) use ($o) { $o->setUnifiedGroupSources($n->getCollectionOfObjectValues(array(UnifiedGroupSource::class, 'createFromDiscriminatorValue'))); },
-            'userSources' => function (ParseNode $n) use ($o) { $o->setUserSources($n->getCollectionOfObjectValues(array(UserSource::class, 'createFromDiscriminatorValue'))); },
+            'acknowledgedDateTime' => fn(ParseNode $n) => $o->setAcknowledgedDateTime($n->getDateTimeValue()),
+            'applyHoldToSources' => fn(ParseNode $n) => $o->setApplyHoldToSources($n->getBooleanValue()),
+            'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
+            'siteSources' => fn(ParseNode $n) => $o->setSiteSources($n->getCollectionOfObjectValues([SiteSource::class, 'createFromDiscriminatorValue'])),
+            'unifiedGroupSources' => fn(ParseNode $n) => $o->setUnifiedGroupSources($n->getCollectionOfObjectValues([UnifiedGroupSource::class, 'createFromDiscriminatorValue'])),
+            'userSources' => fn(ParseNode $n) => $o->setUserSources($n->getCollectionOfObjectValues([UserSource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

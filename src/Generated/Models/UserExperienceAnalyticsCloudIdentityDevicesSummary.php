@@ -64,8 +64,8 @@ class UserExperienceAnalyticsCloudIdentityDevicesSummary implements AdditionalDa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceWithoutCloudIdentityCount' => function (ParseNode $n) use ($o) { $o->setDeviceWithoutCloudIdentityCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'deviceWithoutCloudIdentityCount' => fn(ParseNode $n) => $o->setDeviceWithoutCloudIdentityCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

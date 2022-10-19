@@ -71,11 +71,11 @@ class OrganizationalMessageLogoDimensions implements AdditionalDataHolder, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'maxHeight' => function (ParseNode $n) use ($o) { $o->setMaxHeight($n->getIntegerValue()); },
-            'maxWidth' => function (ParseNode $n) use ($o) { $o->setMaxWidth($n->getIntegerValue()); },
-            'minHeight' => function (ParseNode $n) use ($o) { $o->setMinHeight($n->getIntegerValue()); },
-            'minWidth' => function (ParseNode $n) use ($o) { $o->setMinWidth($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'maxHeight' => fn(ParseNode $n) => $o->setMaxHeight($n->getIntegerValue()),
+            'maxWidth' => fn(ParseNode $n) => $o->setMaxWidth($n->getIntegerValue()),
+            'minHeight' => fn(ParseNode $n) => $o->setMinHeight($n->getIntegerValue()),
+            'minWidth' => fn(ParseNode $n) => $o->setMinWidth($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -42,8 +42,8 @@ class Acronym extends SearchAnswer implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'standsFor' => function (ParseNode $n) use ($o) { $o->setStandsFor($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(AnswerState::class)); },
+            'standsFor' => fn(ParseNode $n) => $o->setStandsFor($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(AnswerState::class)),
         ]);
     }
 

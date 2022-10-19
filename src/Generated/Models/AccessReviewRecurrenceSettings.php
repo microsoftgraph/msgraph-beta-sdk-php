@@ -79,11 +79,11 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'durationInDays' => function (ParseNode $n) use ($o) { $o->setDurationInDays($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recurrenceCount' => function (ParseNode $n) use ($o) { $o->setRecurrenceCount($n->getIntegerValue()); },
-            'recurrenceEndType' => function (ParseNode $n) use ($o) { $o->setRecurrenceEndType($n->getStringValue()); },
-            'recurrenceType' => function (ParseNode $n) use ($o) { $o->setRecurrenceType($n->getStringValue()); },
+            'durationInDays' => fn(ParseNode $n) => $o->setDurationInDays($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recurrenceCount' => fn(ParseNode $n) => $o->setRecurrenceCount($n->getIntegerValue()),
+            'recurrenceEndType' => fn(ParseNode $n) => $o->setRecurrenceEndType($n->getStringValue()),
+            'recurrenceType' => fn(ParseNode $n) => $o->setRecurrenceType($n->getStringValue()),
         ];
     }
 

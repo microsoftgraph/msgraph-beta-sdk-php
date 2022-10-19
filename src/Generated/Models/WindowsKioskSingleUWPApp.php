@@ -37,7 +37,7 @@ class WindowsKioskSingleUWPApp extends WindowsKioskAppConfiguration implements P
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'uwpApp' => function (ParseNode $n) use ($o) { $o->setUwpApp($n->getObjectValue(array(WindowsKioskUWPApp::class, 'createFromDiscriminatorValue'))); },
+            'uwpApp' => fn(ParseNode $n) => $o->setUwpApp($n->getObjectValue([WindowsKioskUWPApp::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

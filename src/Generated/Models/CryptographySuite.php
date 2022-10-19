@@ -113,13 +113,13 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'authenticationTransformConstants' => function (ParseNode $n) use ($o) { $o->setAuthenticationTransformConstants($n->getEnumValue(AuthenticationTransformConstant::class)); },
-            'cipherTransformConstants' => function (ParseNode $n) use ($o) { $o->setCipherTransformConstants($n->getEnumValue(VpnEncryptionAlgorithmType::class)); },
-            'dhGroup' => function (ParseNode $n) use ($o) { $o->setDhGroup($n->getEnumValue(DiffieHellmanGroup::class)); },
-            'encryptionMethod' => function (ParseNode $n) use ($o) { $o->setEncryptionMethod($n->getEnumValue(VpnEncryptionAlgorithmType::class)); },
-            'integrityCheckMethod' => function (ParseNode $n) use ($o) { $o->setIntegrityCheckMethod($n->getEnumValue(VpnIntegrityAlgorithmType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'pfsGroup' => function (ParseNode $n) use ($o) { $o->setPfsGroup($n->getEnumValue(PerfectForwardSecrecyGroup::class)); },
+            'authenticationTransformConstants' => fn(ParseNode $n) => $o->setAuthenticationTransformConstants($n->getEnumValue(AuthenticationTransformConstant::class)),
+            'cipherTransformConstants' => fn(ParseNode $n) => $o->setCipherTransformConstants($n->getEnumValue(VpnEncryptionAlgorithmType::class)),
+            'dhGroup' => fn(ParseNode $n) => $o->setDhGroup($n->getEnumValue(DiffieHellmanGroup::class)),
+            'encryptionMethod' => fn(ParseNode $n) => $o->setEncryptionMethod($n->getEnumValue(VpnEncryptionAlgorithmType::class)),
+            'integrityCheckMethod' => fn(ParseNode $n) => $o->setIntegrityCheckMethod($n->getEnumValue(VpnIntegrityAlgorithmType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'pfsGroup' => fn(ParseNode $n) => $o->setPfsGroup($n->getEnumValue(PerfectForwardSecrecyGroup::class)),
         ];
     }
 

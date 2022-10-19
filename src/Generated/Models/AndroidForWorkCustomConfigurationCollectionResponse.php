@@ -36,7 +36,7 @@ class AndroidForWorkCustomConfigurationCollectionResponse extends BaseCollection
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(AndroidForWorkCustomConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([AndroidForWorkCustomConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

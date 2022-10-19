@@ -59,7 +59,7 @@ class ValidateComplianceScriptPostRequestBody implements AdditionalDataHolder, P
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceCompliancePolicyScript' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicyScript($n->getObjectValue(array(DeviceCompliancePolicyScript::class, 'createFromDiscriminatorValue'))); },
+            'deviceCompliancePolicyScript' => fn(ParseNode $n) => $o->setDeviceCompliancePolicyScript($n->getObjectValue([DeviceCompliancePolicyScript::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

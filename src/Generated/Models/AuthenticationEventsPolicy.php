@@ -37,7 +37,7 @@ class AuthenticationEventsPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'onSignupStart' => function (ParseNode $n) use ($o) { $o->setOnSignupStart($n->getCollectionOfObjectValues(array(AuthenticationListener::class, 'createFromDiscriminatorValue'))); },
+            'onSignupStart' => fn(ParseNode $n) => $o->setOnSignupStart($n->getCollectionOfObjectValues([AuthenticationListener::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

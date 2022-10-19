@@ -69,9 +69,9 @@ class OfficeUserCheckinSummary implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'failedUserCount' => function (ParseNode $n) use ($o) { $o->setFailedUserCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'succeededUserCount' => function (ParseNode $n) use ($o) { $o->setSucceededUserCount($n->getIntegerValue()); },
+            'failedUserCount' => fn(ParseNode $n) => $o->setFailedUserCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'succeededUserCount' => fn(ParseNode $n) => $o->setSucceededUserCount($n->getIntegerValue()),
         ];
     }
 

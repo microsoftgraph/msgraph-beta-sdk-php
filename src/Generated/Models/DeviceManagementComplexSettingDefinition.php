@@ -37,7 +37,7 @@ class DeviceManagementComplexSettingDefinition extends DeviceManagementSettingDe
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'propertyDefinitionIds' => function (ParseNode $n) use ($o) { $o->setPropertyDefinitionIds($n->getCollectionOfPrimitiveValues()); },
+            'propertyDefinitionIds' => fn(ParseNode $n) => $o->setPropertyDefinitionIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

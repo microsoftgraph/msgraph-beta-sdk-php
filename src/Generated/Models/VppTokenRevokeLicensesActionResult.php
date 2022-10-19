@@ -63,9 +63,9 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionFailureReason' => function (ParseNode $n) use ($o) { $o->setActionFailureReason($n->getEnumValue(VppTokenActionFailureReason::class)); },
-            'failedLicensesCount' => function (ParseNode $n) use ($o) { $o->setFailedLicensesCount($n->getIntegerValue()); },
-            'totalLicensesCount' => function (ParseNode $n) use ($o) { $o->setTotalLicensesCount($n->getIntegerValue()); },
+            'actionFailureReason' => fn(ParseNode $n) => $o->setActionFailureReason($n->getEnumValue(VppTokenActionFailureReason::class)),
+            'failedLicensesCount' => fn(ParseNode $n) => $o->setFailedLicensesCount($n->getIntegerValue()),
+            'totalLicensesCount' => fn(ParseNode $n) => $o->setTotalLicensesCount($n->getIntegerValue()),
         ]);
     }
 

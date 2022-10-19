@@ -55,9 +55,9 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurationManagerAgentCommandLineArgument' => function (ParseNode $n) use ($o) { $o->setConfigurationManagerAgentCommandLineArgument($n->getStringValue()); },
-            'installConfigurationManagerAgent' => function (ParseNode $n) use ($o) { $o->setInstallConfigurationManagerAgent($n->getBooleanValue()); },
-            'managedDeviceAuthority' => function (ParseNode $n) use ($o) { $o->setManagedDeviceAuthority($n->getIntegerValue()); },
+            'configurationManagerAgentCommandLineArgument' => fn(ParseNode $n) => $o->setConfigurationManagerAgentCommandLineArgument($n->getStringValue()),
+            'installConfigurationManagerAgent' => fn(ParseNode $n) => $o->setInstallConfigurationManagerAgent($n->getBooleanValue()),
+            'managedDeviceAuthority' => fn(ParseNode $n) => $o->setManagedDeviceAuthority($n->getIntegerValue()),
         ]);
     }
 

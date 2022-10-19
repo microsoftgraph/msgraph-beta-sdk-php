@@ -66,10 +66,10 @@ class Settings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'hasGraphMailbox' => function (ParseNode $n) use ($o) { $o->setHasGraphMailbox($n->getBooleanValue()); },
-            'hasLicense' => function (ParseNode $n) use ($o) { $o->setHasLicense($n->getBooleanValue()); },
-            'hasOptedOut' => function (ParseNode $n) use ($o) { $o->setHasOptedOut($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'hasGraphMailbox' => fn(ParseNode $n) => $o->setHasGraphMailbox($n->getBooleanValue()),
+            'hasLicense' => fn(ParseNode $n) => $o->setHasLicense($n->getBooleanValue()),
+            'hasOptedOut' => fn(ParseNode $n) => $o->setHasOptedOut($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

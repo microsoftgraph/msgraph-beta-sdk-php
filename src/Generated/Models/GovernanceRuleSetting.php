@@ -61,9 +61,9 @@ class GovernanceRuleSetting implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'ruleIdentifier' => function (ParseNode $n) use ($o) { $o->setRuleIdentifier($n->getStringValue()); },
-            'setting' => function (ParseNode $n) use ($o) { $o->setSetting($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'ruleIdentifier' => fn(ParseNode $n) => $o->setRuleIdentifier($n->getStringValue()),
+            'setting' => fn(ParseNode $n) => $o->setSetting($n->getStringValue()),
         ];
     }
 

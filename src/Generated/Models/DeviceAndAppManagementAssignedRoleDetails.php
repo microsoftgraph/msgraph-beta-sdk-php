@@ -61,9 +61,9 @@ class DeviceAndAppManagementAssignedRoleDetails implements AdditionalDataHolder,
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'roleAssignmentIds' => function (ParseNode $n) use ($o) { $o->setRoleAssignmentIds($n->getCollectionOfPrimitiveValues()); },
-            'roleDefinitionIds' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionIds($n->getCollectionOfPrimitiveValues()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'roleAssignmentIds' => fn(ParseNode $n) => $o->setRoleAssignmentIds($n->getCollectionOfPrimitiveValues()),
+            'roleDefinitionIds' => fn(ParseNode $n) => $o->setRoleDefinitionIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

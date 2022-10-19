@@ -109,17 +109,17 @@ class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'existingAnswers' => function (ParseNode $n) use ($o) { $o->setExistingAnswers($n->getCollectionOfObjectValues(array(AccessPackageAnswer::class, 'createFromDiscriminatorValue'))); },
-            'isApprovalRequired' => function (ParseNode $n) use ($o) { $o->setIsApprovalRequired($n->getBooleanValue()); },
-            'isApprovalRequiredForExtension' => function (ParseNode $n) use ($o) { $o->setIsApprovalRequiredForExtension($n->getBooleanValue()); },
-            'isCustomAssignmentScheduleAllowed' => function (ParseNode $n) use ($o) { $o->setIsCustomAssignmentScheduleAllowed($n->getBooleanValue()); },
-            'isRequestorJustificationRequired' => function (ParseNode $n) use ($o) { $o->setIsRequestorJustificationRequired($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'policyDescription' => function (ParseNode $n) use ($o) { $o->setPolicyDescription($n->getStringValue()); },
-            'policyDisplayName' => function (ParseNode $n) use ($o) { $o->setPolicyDisplayName($n->getStringValue()); },
-            'policyId' => function (ParseNode $n) use ($o) { $o->setPolicyId($n->getStringValue()); },
-            'questions' => function (ParseNode $n) use ($o) { $o->setQuestions($n->getCollectionOfObjectValues(array(AccessPackageQuestion::class, 'createFromDiscriminatorValue'))); },
-            'schedule' => function (ParseNode $n) use ($o) { $o->setSchedule($n->getObjectValue(array(RequestSchedule::class, 'createFromDiscriminatorValue'))); },
+            'existingAnswers' => fn(ParseNode $n) => $o->setExistingAnswers($n->getCollectionOfObjectValues([AccessPackageAnswer::class, 'createFromDiscriminatorValue'])),
+            'isApprovalRequired' => fn(ParseNode $n) => $o->setIsApprovalRequired($n->getBooleanValue()),
+            'isApprovalRequiredForExtension' => fn(ParseNode $n) => $o->setIsApprovalRequiredForExtension($n->getBooleanValue()),
+            'isCustomAssignmentScheduleAllowed' => fn(ParseNode $n) => $o->setIsCustomAssignmentScheduleAllowed($n->getBooleanValue()),
+            'isRequestorJustificationRequired' => fn(ParseNode $n) => $o->setIsRequestorJustificationRequired($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'policyDescription' => fn(ParseNode $n) => $o->setPolicyDescription($n->getStringValue()),
+            'policyDisplayName' => fn(ParseNode $n) => $o->setPolicyDisplayName($n->getStringValue()),
+            'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
+            'questions' => fn(ParseNode $n) => $o->setQuestions($n->getCollectionOfObjectValues([AccessPackageQuestion::class, 'createFromDiscriminatorValue'])),
+            'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([RequestSchedule::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

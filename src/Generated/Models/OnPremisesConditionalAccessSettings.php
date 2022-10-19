@@ -68,10 +68,10 @@ class OnPremisesConditionalAccessSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
-            'excludedGroups' => function (ParseNode $n) use ($o) { $o->setExcludedGroups($n->getCollectionOfPrimitiveValues()); },
-            'includedGroups' => function (ParseNode $n) use ($o) { $o->setIncludedGroups($n->getCollectionOfPrimitiveValues()); },
-            'overrideDefaultRule' => function (ParseNode $n) use ($o) { $o->setOverrideDefaultRule($n->getBooleanValue()); },
+            'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
+            'excludedGroups' => fn(ParseNode $n) => $o->setExcludedGroups($n->getCollectionOfPrimitiveValues()),
+            'includedGroups' => fn(ParseNode $n) => $o->setIncludedGroups($n->getCollectionOfPrimitiveValues()),
+            'overrideDefaultRule' => fn(ParseNode $n) => $o->setOverrideDefaultRule($n->getBooleanValue()),
         ]);
     }
 

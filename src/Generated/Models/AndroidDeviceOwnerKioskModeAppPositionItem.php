@@ -61,9 +61,9 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'item' => function (ParseNode $n) use ($o) { $o->setItem($n->getObjectValue(array(AndroidDeviceOwnerKioskModeHomeScreenItem::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'position' => function (ParseNode $n) use ($o) { $o->setPosition($n->getIntegerValue()); },
+            'item' => fn(ParseNode $n) => $o->setItem($n->getObjectValue([AndroidDeviceOwnerKioskModeHomeScreenItem::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'position' => fn(ParseNode $n) => $o->setPosition($n->getIntegerValue()),
         ];
     }
 

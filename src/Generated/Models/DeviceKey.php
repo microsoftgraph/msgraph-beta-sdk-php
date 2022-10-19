@@ -75,10 +75,10 @@ class DeviceKey implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'keyMaterial' => function (ParseNode $n) use ($o) { $o->setKeyMaterial($n->getBinaryContent()); },
-            'keyType' => function (ParseNode $n) use ($o) { $o->setKeyType($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'keyMaterial' => fn(ParseNode $n) => $o->setKeyMaterial($n->getBinaryContent()),
+            'keyType' => fn(ParseNode $n) => $o->setKeyType($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

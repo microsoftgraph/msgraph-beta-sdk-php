@@ -75,13 +75,13 @@ class OutlookTaskFolder extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'changeKey' => function (ParseNode $n) use ($o) { $o->setChangeKey($n->getStringValue()); },
-            'isDefaultFolder' => function (ParseNode $n) use ($o) { $o->setIsDefaultFolder($n->getBooleanValue()); },
-            'multiValueExtendedProperties' => function (ParseNode $n) use ($o) { $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues(array(MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'parentGroupKey' => function (ParseNode $n) use ($o) { $o->setParentGroupKey($n->getStringValue()); },
-            'singleValueExtendedProperties' => function (ParseNode $n) use ($o) { $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues(array(SingleValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'))); },
-            'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(OutlookTask::class, 'createFromDiscriminatorValue'))); },
+            'changeKey' => fn(ParseNode $n) => $o->setChangeKey($n->getStringValue()),
+            'isDefaultFolder' => fn(ParseNode $n) => $o->setIsDefaultFolder($n->getBooleanValue()),
+            'multiValueExtendedProperties' => fn(ParseNode $n) => $o->setMultiValueExtendedProperties($n->getCollectionOfObjectValues([MultiValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'parentGroupKey' => fn(ParseNode $n) => $o->setParentGroupKey($n->getStringValue()),
+            'singleValueExtendedProperties' => fn(ParseNode $n) => $o->setSingleValueExtendedProperties($n->getCollectionOfObjectValues([SingleValueLegacyExtendedProperty::class, 'createFromDiscriminatorValue'])),
+            'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([OutlookTask::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

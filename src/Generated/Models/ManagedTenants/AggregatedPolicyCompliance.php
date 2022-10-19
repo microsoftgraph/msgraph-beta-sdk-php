@@ -121,17 +121,17 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'compliancePolicyId' => function (ParseNode $n) use ($o) { $o->setCompliancePolicyId($n->getStringValue()); },
-            'compliancePolicyName' => function (ParseNode $n) use ($o) { $o->setCompliancePolicyName($n->getStringValue()); },
-            'compliancePolicyPlatform' => function (ParseNode $n) use ($o) { $o->setCompliancePolicyPlatform($n->getStringValue()); },
-            'compliancePolicyType' => function (ParseNode $n) use ($o) { $o->setCompliancePolicyType($n->getStringValue()); },
-            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'numberOfCompliantDevices' => function (ParseNode $n) use ($o) { $o->setNumberOfCompliantDevices($n->getIntegerValue()); },
-            'numberOfErrorDevices' => function (ParseNode $n) use ($o) { $o->setNumberOfErrorDevices($n->getIntegerValue()); },
-            'numberOfNonCompliantDevices' => function (ParseNode $n) use ($o) { $o->setNumberOfNonCompliantDevices($n->getIntegerValue()); },
-            'policyModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setPolicyModifiedDateTime($n->getDateTimeValue()); },
-            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'compliancePolicyId' => fn(ParseNode $n) => $o->setCompliancePolicyId($n->getStringValue()),
+            'compliancePolicyName' => fn(ParseNode $n) => $o->setCompliancePolicyName($n->getStringValue()),
+            'compliancePolicyPlatform' => fn(ParseNode $n) => $o->setCompliancePolicyPlatform($n->getStringValue()),
+            'compliancePolicyType' => fn(ParseNode $n) => $o->setCompliancePolicyType($n->getStringValue()),
+            'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
+            'numberOfCompliantDevices' => fn(ParseNode $n) => $o->setNumberOfCompliantDevices($n->getIntegerValue()),
+            'numberOfErrorDevices' => fn(ParseNode $n) => $o->setNumberOfErrorDevices($n->getIntegerValue()),
+            'numberOfNonCompliantDevices' => fn(ParseNode $n) => $o->setNumberOfNonCompliantDevices($n->getIntegerValue()),
+            'policyModifiedDateTime' => fn(ParseNode $n) => $o->setPolicyModifiedDateTime($n->getDateTimeValue()),
+            'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
 

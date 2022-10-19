@@ -45,7 +45,7 @@ class Notification extends Entity implements Parsable
     private ?TargetPolicyEndpoints $targetPolicy = null;
     
     /**
-     * Instantiates a new Notification and sets the default values.
+     * Instantiates a new notification and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -84,13 +84,13 @@ class Notification extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayTimeToLive' => function (ParseNode $n) use ($o) { $o->setDisplayTimeToLive($n->getIntegerValue()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'groupName' => function (ParseNode $n) use ($o) { $o->setGroupName($n->getStringValue()); },
-            'payload' => function (ParseNode $n) use ($o) { $o->setPayload($n->getObjectValue(array(PayloadTypes::class, 'createFromDiscriminatorValue'))); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getEnumValue(Priority::class)); },
-            'targetHostName' => function (ParseNode $n) use ($o) { $o->setTargetHostName($n->getStringValue()); },
-            'targetPolicy' => function (ParseNode $n) use ($o) { $o->setTargetPolicy($n->getObjectValue(array(TargetPolicyEndpoints::class, 'createFromDiscriminatorValue'))); },
+            'displayTimeToLive' => fn(ParseNode $n) => $o->setDisplayTimeToLive($n->getIntegerValue()),
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'groupName' => fn(ParseNode $n) => $o->setGroupName($n->getStringValue()),
+            'payload' => fn(ParseNode $n) => $o->setPayload($n->getObjectValue([PayloadTypes::class, 'createFromDiscriminatorValue'])),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(Priority::class)),
+            'targetHostName' => fn(ParseNode $n) => $o->setTargetHostName($n->getStringValue()),
+            'targetPolicy' => fn(ParseNode $n) => $o->setTargetPolicy($n->getObjectValue([TargetPolicyEndpoints::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

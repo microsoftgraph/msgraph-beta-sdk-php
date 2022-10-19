@@ -55,8 +55,8 @@ class RequestRemoteHelpSessionAccessPostRequestBody implements AdditionalDataHol
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'pubSubConnectionId' => function (ParseNode $n) use ($o) { $o->setPubSubConnectionId($n->getStringValue()); },
-            'sessionKey' => function (ParseNode $n) use ($o) { $o->setSessionKey($n->getStringValue()); },
+            'pubSubConnectionId' => fn(ParseNode $n) => $o->setPubSubConnectionId($n->getStringValue()),
+            'sessionKey' => fn(ParseNode $n) => $o->setSessionKey($n->getStringValue()),
         ];
     }
 

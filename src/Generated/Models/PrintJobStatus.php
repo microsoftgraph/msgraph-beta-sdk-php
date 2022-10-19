@@ -110,14 +110,14 @@ class PrintJobStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'acquiredByPrinter' => function (ParseNode $n) use ($o) { $o->setAcquiredByPrinter($n->getBooleanValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getCollectionOfEnumValues(PrintJobStateDetail::class)); },
-            'isAcquiredByPrinter' => function (ParseNode $n) use ($o) { $o->setIsAcquiredByPrinter($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'processingState' => function (ParseNode $n) use ($o) { $o->setProcessingState($n->getEnumValue(PrintJobProcessingState::class)); },
-            'processingStateDescription' => function (ParseNode $n) use ($o) { $o->setProcessingStateDescription($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(PrintJobProcessingState::class)); },
+            'acquiredByPrinter' => fn(ParseNode $n) => $o->setAcquiredByPrinter($n->getBooleanValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'details' => fn(ParseNode $n) => $o->setDetails($n->getCollectionOfEnumValues(PrintJobStateDetail::class)),
+            'isAcquiredByPrinter' => fn(ParseNode $n) => $o->setIsAcquiredByPrinter($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'processingState' => fn(ParseNode $n) => $o->setProcessingState($n->getEnumValue(PrintJobProcessingState::class)),
+            'processingStateDescription' => fn(ParseNode $n) => $o->setProcessingStateDescription($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(PrintJobProcessingState::class)),
         ];
     }
 

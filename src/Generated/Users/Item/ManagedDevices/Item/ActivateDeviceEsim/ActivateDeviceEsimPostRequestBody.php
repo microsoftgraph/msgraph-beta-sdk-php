@@ -58,7 +58,7 @@ class ActivateDeviceEsimPostRequestBody implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'carrierUrl' => function (ParseNode $n) use ($o) { $o->setCarrierUrl($n->getStringValue()); },
+            'carrierUrl' => fn(ParseNode $n) => $o->setCarrierUrl($n->getStringValue()),
         ];
     }
 

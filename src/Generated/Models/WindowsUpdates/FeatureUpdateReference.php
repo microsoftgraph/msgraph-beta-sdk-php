@@ -37,7 +37,7 @@ class FeatureUpdateReference extends WindowsUpdateReference implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
 

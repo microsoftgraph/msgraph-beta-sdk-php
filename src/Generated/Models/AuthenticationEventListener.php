@@ -75,10 +75,10 @@ class AuthenticationEventListener extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationEventsFlowId' => function (ParseNode $n) use ($o) { $o->setAuthenticationEventsFlowId($n->getStringValue()); },
-            'conditions' => function (ParseNode $n) use ($o) { $o->setConditions($n->getObjectValue(array(AuthenticationConditions::class, 'createFromDiscriminatorValue'))); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'authenticationEventsFlowId' => fn(ParseNode $n) => $o->setAuthenticationEventsFlowId($n->getStringValue()),
+            'conditions' => fn(ParseNode $n) => $o->setConditions($n->getObjectValue([AuthenticationConditions::class, 'createFromDiscriminatorValue'])),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

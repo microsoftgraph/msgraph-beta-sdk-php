@@ -58,7 +58,7 @@ class RegisterPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
+            'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
         ];
     }
 

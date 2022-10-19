@@ -15,12 +15,12 @@ class NotificationReceiver implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $contactInformation The contactInformation property
+     * @var string|null $contactInformation The contact information about the notification receivers, such as an email address. Currently, only email and portal notifications are supported. For portal notifications, contactInformation can be left blank. For email notifications, contactInformation consists of an email address such as serena.davis@contoso.com.
     */
     private ?string $contactInformation = null;
     
     /**
-     * @var string|null $locale The locale property
+     * @var string|null $locale Defines the language and format in which the notification will be sent. Supported locale values are: en-us, cs-cz, de-de, es-es, fr-fr, hu-hu, it-it, ja-jp, ko-kr, nl-nl, pl-pl, pt-br, pt-pt, ru-ru, sv-se, tr-tr, zh-cn, zh-tw.
     */
     private ?string $locale = null;
     
@@ -55,7 +55,7 @@ class NotificationReceiver implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the contactInformation property value. The contactInformation property
+     * Gets the contactInformation property value. The contact information about the notification receivers, such as an email address. Currently, only email and portal notifications are supported. For portal notifications, contactInformation can be left blank. For email notifications, contactInformation consists of an email address such as serena.davis@contoso.com.
      * @return string|null
     */
     public function getContactInformation(): ?string {
@@ -69,14 +69,14 @@ class NotificationReceiver implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'contactInformation' => function (ParseNode $n) use ($o) { $o->setContactInformation($n->getStringValue()); },
-            'locale' => function (ParseNode $n) use ($o) { $o->setLocale($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'contactInformation' => fn(ParseNode $n) => $o->setContactInformation($n->getStringValue()),
+            'locale' => fn(ParseNode $n) => $o->setLocale($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 
     /**
-     * Gets the locale property value. The locale property
+     * Gets the locale property value. Defines the language and format in which the notification will be sent. Supported locale values are: en-us, cs-cz, de-de, es-es, fr-fr, hu-hu, it-it, ja-jp, ko-kr, nl-nl, pl-pl, pt-br, pt-pt, ru-ru, sv-se, tr-tr, zh-cn, zh-tw.
      * @return string|null
     */
     public function getLocale(): ?string {
@@ -111,7 +111,7 @@ class NotificationReceiver implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the contactInformation property value. The contactInformation property
+     * Sets the contactInformation property value. The contact information about the notification receivers, such as an email address. Currently, only email and portal notifications are supported. For portal notifications, contactInformation can be left blank. For email notifications, contactInformation consists of an email address such as serena.davis@contoso.com.
      *  @param string|null $value Value to set for the contactInformation property.
     */
     public function setContactInformation(?string $value ): void {
@@ -119,7 +119,7 @@ class NotificationReceiver implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the locale property value. The locale property
+     * Sets the locale property value. Defines the language and format in which the notification will be sent. Supported locale values are: en-us, cs-cz, de-de, es-es, fr-fr, hu-hu, it-it, ja-jp, ko-kr, nl-nl, pl-pl, pt-br, pt-pt, ru-ru, sv-se, tr-tr, zh-cn, zh-tw.
      *  @param string|null $value Value to set for the locale property.
     */
     public function setLocale(?string $value ): void {

@@ -69,9 +69,9 @@ class RolePermission implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'actions' => function (ParseNode $n) use ($o) { $o->setActions($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'resourceActions' => function (ParseNode $n) use ($o) { $o->setResourceActions($n->getCollectionOfObjectValues(array(ResourceAction::class, 'createFromDiscriminatorValue'))); },
+            'actions' => fn(ParseNode $n) => $o->setActions($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'resourceActions' => fn(ParseNode $n) => $o->setResourceActions($n->getCollectionOfObjectValues([ResourceAction::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

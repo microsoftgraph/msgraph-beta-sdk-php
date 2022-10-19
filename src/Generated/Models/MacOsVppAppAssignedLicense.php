@@ -52,10 +52,10 @@ class MacOsVppAppAssignedLicense extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userEmailAddress' => function (ParseNode $n) use ($o) { $o->setUserEmailAddress($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'userEmailAddress' => fn(ParseNode $n) => $o->setUserEmailAddress($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

@@ -50,7 +50,7 @@ class UpdateGlobalScriptPostRequestBody implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ];
     }
 

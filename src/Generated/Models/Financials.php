@@ -64,8 +64,8 @@ class Financials implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'companies' => function (ParseNode $n) use ($o) { $o->setCompanies($n->getCollectionOfObjectValues(array(Company::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'companies' => fn(ParseNode $n) => $o->setCompanies($n->getCollectionOfObjectValues([Company::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

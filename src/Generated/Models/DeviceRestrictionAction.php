@@ -47,9 +47,9 @@ class DeviceRestrictionAction extends DlpActionInfo implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
-            'restrictionAction' => function (ParseNode $n) use ($o) { $o->setRestrictionAction($n->getEnumValue(RestrictionAction::class)); },
-            'triggers' => function (ParseNode $n) use ($o) { $o->setTriggers($n->getCollectionOfEnumValues(RestrictionTrigger::class)); },
+            'message' => fn(ParseNode $n) => $o->setMessage($n->getStringValue()),
+            'restrictionAction' => fn(ParseNode $n) => $o->setRestrictionAction($n->getEnumValue(RestrictionAction::class)),
+            'triggers' => fn(ParseNode $n) => $o->setTriggers($n->getCollectionOfEnumValues(RestrictionTrigger::class)),
         ]);
     }
 

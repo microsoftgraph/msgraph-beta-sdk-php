@@ -51,7 +51,7 @@ class DownloadAppDiagnosticsPostRequestBody implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'request' => function (ParseNode $n) use ($o) { $o->setRequest($n->getObjectValue(array(PowerliftDownloadRequest::class, 'createFromDiscriminatorValue'))); },
+            'request' => fn(ParseNode $n) => $o->setRequest($n->getObjectValue([PowerliftDownloadRequest::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

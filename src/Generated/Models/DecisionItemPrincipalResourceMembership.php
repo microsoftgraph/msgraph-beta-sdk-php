@@ -56,8 +56,8 @@ class DecisionItemPrincipalResourceMembership implements AdditionalDataHolder, P
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'membershipType' => function (ParseNode $n) use ($o) { $o->setMembershipType($n->getEnumValue(DecisionItemPrincipalResourceMembershipType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'membershipType' => fn(ParseNode $n) => $o->setMembershipType($n->getEnumValue(DecisionItemPrincipalResourceMembershipType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

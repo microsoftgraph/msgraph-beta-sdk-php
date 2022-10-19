@@ -74,10 +74,10 @@ class OfficeConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'clientConfigurations' => function (ParseNode $n) use ($o) { $o->setClientConfigurations($n->getCollectionOfObjectValues(array(OfficeClientConfiguration::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'tenantCheckinStatuses' => function (ParseNode $n) use ($o) { $o->setTenantCheckinStatuses($n->getCollectionOfObjectValues(array(OfficeClientCheckinStatus::class, 'createFromDiscriminatorValue'))); },
-            'tenantUserCheckinSummary' => function (ParseNode $n) use ($o) { $o->setTenantUserCheckinSummary($n->getObjectValue(array(OfficeUserCheckinSummary::class, 'createFromDiscriminatorValue'))); },
+            'clientConfigurations' => fn(ParseNode $n) => $o->setClientConfigurations($n->getCollectionOfObjectValues([OfficeClientConfiguration::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'tenantCheckinStatuses' => fn(ParseNode $n) => $o->setTenantCheckinStatuses($n->getCollectionOfObjectValues([OfficeClientCheckinStatus::class, 'createFromDiscriminatorValue'])),
+            'tenantUserCheckinSummary' => fn(ParseNode $n) => $o->setTenantUserCheckinSummary($n->getObjectValue([OfficeUserCheckinSummary::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

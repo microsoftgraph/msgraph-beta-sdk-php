@@ -138,19 +138,19 @@ class MobileAppInstallStatus extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'app' => function (ParseNode $n) use ($o) { $o->setApp($n->getObjectValue(array(MobileApp::class, 'createFromDiscriminatorValue'))); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'displayVersion' => function (ParseNode $n) use ($o) { $o->setDisplayVersion($n->getStringValue()); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
-            'installState' => function (ParseNode $n) use ($o) { $o->setInstallState($n->getEnumValue(ResultantAppState::class)); },
-            'installStateDetail' => function (ParseNode $n) use ($o) { $o->setInstallStateDetail($n->getEnumValue(ResultantAppStateDetail::class)); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'mobileAppInstallStatusValue' => function (ParseNode $n) use ($o) { $o->setMobileAppInstallStatusValue($n->getEnumValue(ResultantAppState::class)); },
-            'osDescription' => function (ParseNode $n) use ($o) { $o->setOsDescription($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'app' => fn(ParseNode $n) => $o->setApp($n->getObjectValue([MobileApp::class, 'createFromDiscriminatorValue'])),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'displayVersion' => fn(ParseNode $n) => $o->setDisplayVersion($n->getStringValue()),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
+            'installState' => fn(ParseNode $n) => $o->setInstallState($n->getEnumValue(ResultantAppState::class)),
+            'installStateDetail' => fn(ParseNode $n) => $o->setInstallStateDetail($n->getEnumValue(ResultantAppStateDetail::class)),
+            'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            'mobileAppInstallStatusValue' => fn(ParseNode $n) => $o->setMobileAppInstallStatusValue($n->getEnumValue(ResultantAppState::class)),
+            'osDescription' => fn(ParseNode $n) => $o->setOsDescription($n->getStringValue()),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
+            'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

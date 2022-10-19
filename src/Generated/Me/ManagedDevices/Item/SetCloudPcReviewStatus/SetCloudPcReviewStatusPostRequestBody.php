@@ -51,7 +51,7 @@ class SetCloudPcReviewStatusPostRequestBody implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'reviewStatus' => function (ParseNode $n) use ($o) { $o->setReviewStatus($n->getObjectValue(array(CloudPcReviewStatus::class, 'createFromDiscriminatorValue'))); },
+            'reviewStatus' => fn(ParseNode $n) => $o->setReviewStatus($n->getObjectValue([CloudPcReviewStatus::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

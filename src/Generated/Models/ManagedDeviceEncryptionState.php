@@ -135,17 +135,17 @@ class ManagedDeviceEncryptionState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'advancedBitLockerStates' => function (ParseNode $n) use ($o) { $o->setAdvancedBitLockerStates($n->getEnumValue(AdvancedBitLockerState::class)); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getEnumValue(DeviceTypes::class)); },
-            'encryptionPolicySettingState' => function (ParseNode $n) use ($o) { $o->setEncryptionPolicySettingState($n->getEnumValue(ComplianceStatus::class)); },
-            'encryptionReadinessState' => function (ParseNode $n) use ($o) { $o->setEncryptionReadinessState($n->getEnumValue(EncryptionReadinessState::class)); },
-            'encryptionState' => function (ParseNode $n) use ($o) { $o->setEncryptionState($n->getEnumValue(EncryptionState::class)); },
-            'fileVaultStates' => function (ParseNode $n) use ($o) { $o->setFileVaultStates($n->getEnumValue(FileVaultState::class)); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'policyDetails' => function (ParseNode $n) use ($o) { $o->setPolicyDetails($n->getCollectionOfObjectValues(array(EncryptionReportPolicyDetails::class, 'createFromDiscriminatorValue'))); },
-            'tpmSpecificationVersion' => function (ParseNode $n) use ($o) { $o->setTpmSpecificationVersion($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'advancedBitLockerStates' => fn(ParseNode $n) => $o->setAdvancedBitLockerStates($n->getEnumValue(AdvancedBitLockerState::class)),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'deviceType' => fn(ParseNode $n) => $o->setDeviceType($n->getEnumValue(DeviceTypes::class)),
+            'encryptionPolicySettingState' => fn(ParseNode $n) => $o->setEncryptionPolicySettingState($n->getEnumValue(ComplianceStatus::class)),
+            'encryptionReadinessState' => fn(ParseNode $n) => $o->setEncryptionReadinessState($n->getEnumValue(EncryptionReadinessState::class)),
+            'encryptionState' => fn(ParseNode $n) => $o->setEncryptionState($n->getEnumValue(EncryptionState::class)),
+            'fileVaultStates' => fn(ParseNode $n) => $o->setFileVaultStates($n->getEnumValue(FileVaultState::class)),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
+            'policyDetails' => fn(ParseNode $n) => $o->setPolicyDetails($n->getCollectionOfObjectValues([EncryptionReportPolicyDetails::class, 'createFromDiscriminatorValue'])),
+            'tpmSpecificationVersion' => fn(ParseNode $n) => $o->setTpmSpecificationVersion($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

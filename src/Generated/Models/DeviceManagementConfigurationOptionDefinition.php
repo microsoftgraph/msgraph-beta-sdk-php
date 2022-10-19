@@ -123,15 +123,15 @@ class DeviceManagementConfigurationOptionDefinition implements AdditionalDataHol
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dependedOnBy' => function (ParseNode $n) use ($o) { $o->setDependedOnBy($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingDependedOnBy::class, 'createFromDiscriminatorValue'))); },
-            'dependentOn' => function (ParseNode $n) use ($o) { $o->setDependentOn($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationDependentOn::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'helpText' => function (ParseNode $n) use ($o) { $o->setHelpText($n->getStringValue()); },
-            'itemId' => function (ParseNode $n) use ($o) { $o->setItemId($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'optionValue' => function (ParseNode $n) use ($o) { $o->setOptionValue($n->getObjectValue(array(DeviceManagementConfigurationSettingValue::class, 'createFromDiscriminatorValue'))); },
+            'dependedOnBy' => fn(ParseNode $n) => $o->setDependedOnBy($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingDependedOnBy::class, 'createFromDiscriminatorValue'])),
+            'dependentOn' => fn(ParseNode $n) => $o->setDependentOn($n->getCollectionOfObjectValues([DeviceManagementConfigurationDependentOn::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'helpText' => fn(ParseNode $n) => $o->setHelpText($n->getStringValue()),
+            'itemId' => fn(ParseNode $n) => $o->setItemId($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'optionValue' => fn(ParseNode $n) => $o->setOptionValue($n->getObjectValue([DeviceManagementConfigurationSettingValue::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

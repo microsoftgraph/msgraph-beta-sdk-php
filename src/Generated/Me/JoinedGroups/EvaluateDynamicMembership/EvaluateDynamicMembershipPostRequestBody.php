@@ -55,8 +55,8 @@ class EvaluateDynamicMembershipPostRequestBody implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'memberId' => function (ParseNode $n) use ($o) { $o->setMemberId($n->getStringValue()); },
-            'membershipRule' => function (ParseNode $n) use ($o) { $o->setMembershipRule($n->getStringValue()); },
+            'memberId' => fn(ParseNode $n) => $o->setMemberId($n->getStringValue()),
+            'membershipRule' => fn(ParseNode $n) => $o->setMembershipRule($n->getStringValue()),
         ];
     }
 

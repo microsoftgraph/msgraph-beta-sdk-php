@@ -95,11 +95,11 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceScopeAction' => function (ParseNode $n) use ($o) { $o->setDeviceScopeAction($n->getStringValue()); },
-            'deviceScopeId' => function (ParseNode $n) use ($o) { $o->setDeviceScopeId($n->getStringValue()); },
-            'failedMessage' => function (ParseNode $n) use ($o) { $o->setFailedMessage($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DeviceScopeActionStatus::class)); },
+            'deviceScopeAction' => fn(ParseNode $n) => $o->setDeviceScopeAction($n->getStringValue()),
+            'deviceScopeId' => fn(ParseNode $n) => $o->setDeviceScopeId($n->getStringValue()),
+            'failedMessage' => fn(ParseNode $n) => $o->setFailedMessage($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(DeviceScopeActionStatus::class)),
         ];
     }
 

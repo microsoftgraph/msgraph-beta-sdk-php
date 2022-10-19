@@ -87,11 +87,11 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'breakId' => function (ParseNode $n) use ($o) { $o->setBreakId($n->getStringValue()); },
-            'end' => function (ParseNode $n) use ($o) { $o->setEnd($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'start' => function (ParseNode $n) use ($o) { $o->setStart($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
+            'breakId' => fn(ParseNode $n) => $o->setBreakId($n->getStringValue()),
+            'end' => fn(ParseNode $n) => $o->setEnd($n->getObjectValue([TimeCardEvent::class, 'createFromDiscriminatorValue'])),
+            'notes' => fn(ParseNode $n) => $o->setNotes($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'start' => fn(ParseNode $n) => $o->setStart($n->getObjectValue([TimeCardEvent::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

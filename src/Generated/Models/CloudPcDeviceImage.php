@@ -100,16 +100,16 @@ class CloudPcDeviceImage extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'expirationDate' => function (ParseNode $n) use ($o) { $o->setExpirationDate($n->getDateValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'operatingSystem' => function (ParseNode $n) use ($o) { $o->setOperatingSystem($n->getStringValue()); },
-            'osBuildNumber' => function (ParseNode $n) use ($o) { $o->setOsBuildNumber($n->getStringValue()); },
-            'osStatus' => function (ParseNode $n) use ($o) { $o->setOsStatus($n->getEnumValue(CloudPcDeviceImageOsStatus::class)); },
-            'sourceImageResourceId' => function (ParseNode $n) use ($o) { $o->setSourceImageResourceId($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CloudPcDeviceImageStatus::class)); },
-            'statusDetails' => function (ParseNode $n) use ($o) { $o->setStatusDetails($n->getEnumValue(CloudPcDeviceImageStatusDetails::class)); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'expirationDate' => fn(ParseNode $n) => $o->setExpirationDate($n->getDateValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'operatingSystem' => fn(ParseNode $n) => $o->setOperatingSystem($n->getStringValue()),
+            'osBuildNumber' => fn(ParseNode $n) => $o->setOsBuildNumber($n->getStringValue()),
+            'osStatus' => fn(ParseNode $n) => $o->setOsStatus($n->getEnumValue(CloudPcDeviceImageOsStatus::class)),
+            'sourceImageResourceId' => fn(ParseNode $n) => $o->setSourceImageResourceId($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcDeviceImageStatus::class)),
+            'statusDetails' => fn(ParseNode $n) => $o->setStatusDetails($n->getEnumValue(CloudPcDeviceImageStatusDetails::class)),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
 

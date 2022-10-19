@@ -68,10 +68,10 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultHealthyThreshold' => function (ParseNode $n) use ($o) { $o->setDefaultHealthyThreshold($n->getIntegerValue()); },
-            'defaultUnhealthyThreshold' => function (ParseNode $n) use ($o) { $o->setDefaultUnhealthyThreshold($n->getIntegerValue()); },
-            'healthyThreshold' => function (ParseNode $n) use ($o) { $o->setHealthyThreshold($n->getIntegerValue()); },
-            'unhealthyThreshold' => function (ParseNode $n) use ($o) { $o->setUnhealthyThreshold($n->getIntegerValue()); },
+            'defaultHealthyThreshold' => fn(ParseNode $n) => $o->setDefaultHealthyThreshold($n->getIntegerValue()),
+            'defaultUnhealthyThreshold' => fn(ParseNode $n) => $o->setDefaultUnhealthyThreshold($n->getIntegerValue()),
+            'healthyThreshold' => fn(ParseNode $n) => $o->setHealthyThreshold($n->getIntegerValue()),
+            'unhealthyThreshold' => fn(ParseNode $n) => $o->setUnhealthyThreshold($n->getIntegerValue()),
         ]);
     }
 

@@ -101,15 +101,15 @@ class UserExperienceAnalyticsModelScores extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appReliabilityScore' => function (ParseNode $n) use ($o) { $o->setAppReliabilityScore($n->getFloatValue()); },
-            'batteryHealthScore' => function (ParseNode $n) use ($o) { $o->setBatteryHealthScore($n->getFloatValue()); },
-            'endpointAnalyticsScore' => function (ParseNode $n) use ($o) { $o->setEndpointAnalyticsScore($n->getFloatValue()); },
-            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'modelDeviceCount' => function (ParseNode $n) use ($o) { $o->setModelDeviceCount($n->getIntegerValue()); },
-            'startupPerformanceScore' => function (ParseNode $n) use ($o) { $o->setStartupPerformanceScore($n->getFloatValue()); },
-            'workFromAnywhereScore' => function (ParseNode $n) use ($o) { $o->setWorkFromAnywhereScore($n->getFloatValue()); },
+            'appReliabilityScore' => fn(ParseNode $n) => $o->setAppReliabilityScore($n->getFloatValue()),
+            'batteryHealthScore' => fn(ParseNode $n) => $o->setBatteryHealthScore($n->getFloatValue()),
+            'endpointAnalyticsScore' => fn(ParseNode $n) => $o->setEndpointAnalyticsScore($n->getFloatValue()),
+            'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            'modelDeviceCount' => fn(ParseNode $n) => $o->setModelDeviceCount($n->getIntegerValue()),
+            'startupPerformanceScore' => fn(ParseNode $n) => $o->setStartupPerformanceScore($n->getFloatValue()),
+            'workFromAnywhereScore' => fn(ParseNode $n) => $o->setWorkFromAnywhereScore($n->getFloatValue()),
         ]);
     }
 

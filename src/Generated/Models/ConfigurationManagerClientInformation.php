@@ -82,10 +82,10 @@ class ConfigurationManagerClientInformation implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'clientIdentifier' => function (ParseNode $n) use ($o) { $o->setClientIdentifier($n->getStringValue()); },
-            'clientVersion' => function (ParseNode $n) use ($o) { $o->setClientVersion($n->getStringValue()); },
-            'isBlocked' => function (ParseNode $n) use ($o) { $o->setIsBlocked($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'clientIdentifier' => fn(ParseNode $n) => $o->setClientIdentifier($n->getStringValue()),
+            'clientVersion' => fn(ParseNode $n) => $o->setClientVersion($n->getStringValue()),
+            'isBlocked' => fn(ParseNode $n) => $o->setIsBlocked($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

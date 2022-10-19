@@ -85,9 +85,9 @@ class EducationSynchronizationConnectionSettings implements AdditionalDataHolder
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'clientId' => function (ParseNode $n) use ($o) { $o->setClientId($n->getStringValue()); },
-            'clientSecret' => function (ParseNode $n) use ($o) { $o->setClientSecret($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'clientId' => fn(ParseNode $n) => $o->setClientId($n->getStringValue()),
+            'clientSecret' => fn(ParseNode $n) => $o->setClientSecret($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

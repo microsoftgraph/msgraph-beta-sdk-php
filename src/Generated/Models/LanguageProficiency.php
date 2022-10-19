@@ -75,13 +75,13 @@ class LanguageProficiency extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'proficiency' => function (ParseNode $n) use ($o) { $o->setProficiency($n->getEnumValue(LanguageProficiencyLevel::class)); },
-            'reading' => function (ParseNode $n) use ($o) { $o->setReading($n->getEnumValue(LanguageProficiencyLevel::class)); },
-            'spoken' => function (ParseNode $n) use ($o) { $o->setSpoken($n->getEnumValue(LanguageProficiencyLevel::class)); },
-            'tag' => function (ParseNode $n) use ($o) { $o->setTag($n->getStringValue()); },
-            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
-            'written' => function (ParseNode $n) use ($o) { $o->setWritten($n->getEnumValue(LanguageProficiencyLevel::class)); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'proficiency' => fn(ParseNode $n) => $o->setProficiency($n->getEnumValue(LanguageProficiencyLevel::class)),
+            'reading' => fn(ParseNode $n) => $o->setReading($n->getEnumValue(LanguageProficiencyLevel::class)),
+            'spoken' => fn(ParseNode $n) => $o->setSpoken($n->getEnumValue(LanguageProficiencyLevel::class)),
+            'tag' => fn(ParseNode $n) => $o->setTag($n->getStringValue()),
+            'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
+            'written' => fn(ParseNode $n) => $o->setWritten($n->getEnumValue(LanguageProficiencyLevel::class)),
         ]);
     }
 

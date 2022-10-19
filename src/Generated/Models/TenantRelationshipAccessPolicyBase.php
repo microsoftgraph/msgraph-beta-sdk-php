@@ -52,7 +52,7 @@ class TenantRelationshipAccessPolicyBase extends PolicyBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'definition' => function (ParseNode $n) use ($o) { $o->setDefinition($n->getCollectionOfPrimitiveValues()); },
+            'definition' => fn(ParseNode $n) => $o->setDefinition($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

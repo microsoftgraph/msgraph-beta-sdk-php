@@ -66,9 +66,9 @@ class SearchEntity extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'acronyms' => function (ParseNode $n) use ($o) { $o->setAcronyms($n->getCollectionOfObjectValues(array(Acronym::class, 'createFromDiscriminatorValue'))); },
-            'bookmarks' => function (ParseNode $n) use ($o) { $o->setBookmarks($n->getCollectionOfObjectValues(array(Bookmark::class, 'createFromDiscriminatorValue'))); },
-            'qnas' => function (ParseNode $n) use ($o) { $o->setQnas($n->getCollectionOfObjectValues(array(Qna::class, 'createFromDiscriminatorValue'))); },
+            'acronyms' => fn(ParseNode $n) => $o->setAcronyms($n->getCollectionOfObjectValues([Acronym::class, 'createFromDiscriminatorValue'])),
+            'bookmarks' => fn(ParseNode $n) => $o->setBookmarks($n->getCollectionOfObjectValues([Bookmark::class, 'createFromDiscriminatorValue'])),
+            'qnas' => fn(ParseNode $n) => $o->setQnas($n->getCollectionOfObjectValues([Qna::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

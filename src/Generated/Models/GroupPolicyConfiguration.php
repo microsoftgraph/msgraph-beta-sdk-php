@@ -113,14 +113,14 @@ class GroupPolicyConfiguration extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(GroupPolicyConfigurationAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'definitionValues' => function (ParseNode $n) use ($o) { $o->setDefinitionValues($n->getCollectionOfObjectValues(array(GroupPolicyDefinitionValue::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'policyConfigurationIngestionType' => function (ParseNode $n) use ($o) { $o->setPolicyConfigurationIngestionType($n->getEnumValue(GroupPolicyConfigurationIngestionType::class)); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([GroupPolicyConfigurationAssignment::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'definitionValues' => fn(ParseNode $n) => $o->setDefinitionValues($n->getCollectionOfObjectValues([GroupPolicyDefinitionValue::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'policyConfigurationIngestionType' => fn(ParseNode $n) => $o->setPolicyConfigurationIngestionType($n->getEnumValue(GroupPolicyConfigurationIngestionType::class)),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

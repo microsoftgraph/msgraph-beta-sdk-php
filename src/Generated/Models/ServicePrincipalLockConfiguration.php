@@ -100,12 +100,12 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allProperties' => function (ParseNode $n) use ($o) { $o->setAllProperties($n->getBooleanValue()); },
-            'credentialsWithUsageSign' => function (ParseNode $n) use ($o) { $o->setCredentialsWithUsageSign($n->getBooleanValue()); },
-            'credentialsWithUsageVerify' => function (ParseNode $n) use ($o) { $o->setCredentialsWithUsageVerify($n->getBooleanValue()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'tokenEncryptionKeyId' => function (ParseNode $n) use ($o) { $o->setTokenEncryptionKeyId($n->getBooleanValue()); },
+            'allProperties' => fn(ParseNode $n) => $o->setAllProperties($n->getBooleanValue()),
+            'credentialsWithUsageSign' => fn(ParseNode $n) => $o->setCredentialsWithUsageSign($n->getBooleanValue()),
+            'credentialsWithUsageVerify' => fn(ParseNode $n) => $o->setCredentialsWithUsageVerify($n->getBooleanValue()),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'tokenEncryptionKeyId' => fn(ParseNode $n) => $o->setTokenEncryptionKeyId($n->getBooleanValue()),
         ];
     }
 

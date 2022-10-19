@@ -70,9 +70,9 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'evaluationInput' => function (ParseNode $n) use ($o) { $o->setEvaluationInput($n->getObjectValue(array(DlpEvaluationInput::class, 'createFromDiscriminatorValue'))); },
-            'notificationInfo' => function (ParseNode $n) use ($o) { $o->setNotificationInfo($n->getObjectValue(array(DlpNotification::class, 'createFromDiscriminatorValue'))); },
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getStringValue()); },
+            'evaluationInput' => fn(ParseNode $n) => $o->setEvaluationInput($n->getObjectValue([DlpEvaluationInput::class, 'createFromDiscriminatorValue'])),
+            'notificationInfo' => fn(ParseNode $n) => $o->setNotificationInfo($n->getObjectValue([DlpNotification::class, 'createFromDiscriminatorValue'])),
+            'target' => fn(ParseNode $n) => $o->setTarget($n->getStringValue()),
         ];
     }
 

@@ -104,17 +104,17 @@ class GovernanceRoleSetting extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'adminEligibleSettings' => function (ParseNode $n) use ($o) { $o->setAdminEligibleSettings($n->getCollectionOfObjectValues(array(GovernanceRuleSetting::class, 'createFromDiscriminatorValue'))); },
-            'adminMemberSettings' => function (ParseNode $n) use ($o) { $o->setAdminMemberSettings($n->getCollectionOfObjectValues(array(GovernanceRuleSetting::class, 'createFromDiscriminatorValue'))); },
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'lastUpdatedBy' => function (ParseNode $n) use ($o) { $o->setLastUpdatedBy($n->getStringValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(GovernanceResource::class, 'createFromDiscriminatorValue'))); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'roleDefinition' => function (ParseNode $n) use ($o) { $o->setRoleDefinition($n->getObjectValue(array(GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'roleDefinitionId' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionId($n->getStringValue()); },
-            'userEligibleSettings' => function (ParseNode $n) use ($o) { $o->setUserEligibleSettings($n->getCollectionOfObjectValues(array(GovernanceRuleSetting::class, 'createFromDiscriminatorValue'))); },
-            'userMemberSettings' => function (ParseNode $n) use ($o) { $o->setUserMemberSettings($n->getCollectionOfObjectValues(array(GovernanceRuleSetting::class, 'createFromDiscriminatorValue'))); },
+            'adminEligibleSettings' => fn(ParseNode $n) => $o->setAdminEligibleSettings($n->getCollectionOfObjectValues([GovernanceRuleSetting::class, 'createFromDiscriminatorValue'])),
+            'adminMemberSettings' => fn(ParseNode $n) => $o->setAdminMemberSettings($n->getCollectionOfObjectValues([GovernanceRuleSetting::class, 'createFromDiscriminatorValue'])),
+            'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
+            'lastUpdatedBy' => fn(ParseNode $n) => $o->setLastUpdatedBy($n->getStringValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([GovernanceResource::class, 'createFromDiscriminatorValue'])),
+            'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
+            'roleDefinition' => fn(ParseNode $n) => $o->setRoleDefinition($n->getObjectValue([GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'])),
+            'roleDefinitionId' => fn(ParseNode $n) => $o->setRoleDefinitionId($n->getStringValue()),
+            'userEligibleSettings' => fn(ParseNode $n) => $o->setUserEligibleSettings($n->getCollectionOfObjectValues([GovernanceRuleSetting::class, 'createFromDiscriminatorValue'])),
+            'userMemberSettings' => fn(ParseNode $n) => $o->setUserMemberSettings($n->getCollectionOfObjectValues([GovernanceRuleSetting::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

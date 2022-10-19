@@ -66,10 +66,10 @@ class EmbeddedSIMActivationCode implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'integratedCircuitCardIdentifier' => function (ParseNode $n) use ($o) { $o->setIntegratedCircuitCardIdentifier($n->getStringValue()); },
-            'matchingIdentifier' => function (ParseNode $n) use ($o) { $o->setMatchingIdentifier($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'smdpPlusServerAddress' => function (ParseNode $n) use ($o) { $o->setSmdpPlusServerAddress($n->getStringValue()); },
+            'integratedCircuitCardIdentifier' => fn(ParseNode $n) => $o->setIntegratedCircuitCardIdentifier($n->getStringValue()),
+            'matchingIdentifier' => fn(ParseNode $n) => $o->setMatchingIdentifier($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'smdpPlusServerAddress' => fn(ParseNode $n) => $o->setSmdpPlusServerAddress($n->getStringValue()),
         ];
     }
 

@@ -37,7 +37,7 @@ class EvaluateLabelJobResponse extends JobResponseBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'result' => function (ParseNode $n) use ($o) { $o->setResult($n->getObjectValue(array(EvaluateLabelJobResultGroup::class, 'createFromDiscriminatorValue'))); },
+            'result' => fn(ParseNode $n) => $o->setResult($n->getObjectValue([EvaluateLabelJobResultGroup::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

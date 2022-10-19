@@ -58,7 +58,7 @@ class AssignPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceIds' => function (ParseNode $n) use ($o) { $o->setDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            'deviceIds' => fn(ParseNode $n) => $o->setDeviceIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

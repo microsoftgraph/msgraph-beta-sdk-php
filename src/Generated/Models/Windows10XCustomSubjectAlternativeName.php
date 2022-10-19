@@ -61,9 +61,9 @@ class Windows10XCustomSubjectAlternativeName implements AdditionalDataHolder, Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'sanType' => function (ParseNode $n) use ($o) { $o->setSanType($n->getEnumValue(SubjectAlternativeNameType::class)); },
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'sanType' => fn(ParseNode $n) => $o->setSanType($n->getEnumValue(SubjectAlternativeNameType::class)),
         ];
     }
 

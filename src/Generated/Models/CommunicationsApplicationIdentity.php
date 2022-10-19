@@ -50,8 +50,8 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationType' => function (ParseNode $n) use ($o) { $o->setApplicationType($n->getStringValue()); },
-            'hidden' => function (ParseNode $n) use ($o) { $o->setHidden($n->getBooleanValue()); },
+            'applicationType' => fn(ParseNode $n) => $o->setApplicationType($n->getStringValue()),
+            'hidden' => fn(ParseNode $n) => $o->setHidden($n->getBooleanValue()),
         ]);
     }
 

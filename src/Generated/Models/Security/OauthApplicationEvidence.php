@@ -68,10 +68,10 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'objectId' => function (ParseNode $n) use ($o) { $o->setObjectId($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'objectId' => fn(ParseNode $n) => $o->setObjectId($n->getStringValue()),
+            'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
         ]);
     }
 

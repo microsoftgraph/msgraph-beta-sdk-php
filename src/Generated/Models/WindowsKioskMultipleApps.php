@@ -82,11 +82,11 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowAccessToDownloadsFolder' => function (ParseNode $n) use ($o) { $o->setAllowAccessToDownloadsFolder($n->getBooleanValue()); },
-            'apps' => function (ParseNode $n) use ($o) { $o->setApps($n->getCollectionOfObjectValues(array(WindowsKioskAppBase::class, 'createFromDiscriminatorValue'))); },
-            'disallowDesktopApps' => function (ParseNode $n) use ($o) { $o->setDisallowDesktopApps($n->getBooleanValue()); },
-            'showTaskBar' => function (ParseNode $n) use ($o) { $o->setShowTaskBar($n->getBooleanValue()); },
-            'startMenuLayoutXml' => function (ParseNode $n) use ($o) { $o->setStartMenuLayoutXml($n->getBinaryContent()); },
+            'allowAccessToDownloadsFolder' => fn(ParseNode $n) => $o->setAllowAccessToDownloadsFolder($n->getBooleanValue()),
+            'apps' => fn(ParseNode $n) => $o->setApps($n->getCollectionOfObjectValues([WindowsKioskAppBase::class, 'createFromDiscriminatorValue'])),
+            'disallowDesktopApps' => fn(ParseNode $n) => $o->setDisallowDesktopApps($n->getBooleanValue()),
+            'showTaskBar' => fn(ParseNode $n) => $o->setShowTaskBar($n->getBooleanValue()),
+            'startMenuLayoutXml' => fn(ParseNode $n) => $o->setStartMenuLayoutXml($n->getBinaryContent()),
         ]);
     }
 

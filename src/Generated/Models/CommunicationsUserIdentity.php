@@ -37,7 +37,7 @@ class CommunicationsUserIdentity extends Identity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
 

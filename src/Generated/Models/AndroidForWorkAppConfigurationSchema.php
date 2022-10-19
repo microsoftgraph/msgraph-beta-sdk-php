@@ -20,7 +20,7 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
     private ?array $schemaItems = null;
     
     /**
-     * Instantiates a new AndroidForWorkAppConfigurationSchema and sets the default values.
+     * Instantiates a new androidForWorkAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -51,8 +51,8 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exampleJson' => function (ParseNode $n) use ($o) { $o->setExampleJson($n->getBinaryContent()); },
-            'schemaItems' => function (ParseNode $n) use ($o) { $o->setSchemaItems($n->getCollectionOfObjectValues(array(AndroidForWorkAppConfigurationSchemaItem::class, 'createFromDiscriminatorValue'))); },
+            'exampleJson' => fn(ParseNode $n) => $o->setExampleJson($n->getBinaryContent()),
+            'schemaItems' => fn(ParseNode $n) => $o->setSchemaItems($n->getCollectionOfObjectValues([AndroidForWorkAppConfigurationSchemaItem::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

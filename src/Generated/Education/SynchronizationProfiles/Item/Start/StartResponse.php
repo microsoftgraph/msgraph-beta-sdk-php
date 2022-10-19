@@ -38,7 +38,7 @@ class StartResponse extends BaseCollectionPaginationCountResponse implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(EducationFileSynchronizationVerificationMessage::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([EducationFileSynchronizationVerificationMessage::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -129,17 +129,17 @@ class PrivilegedApproval extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'approvalDuration' => function (ParseNode $n) use ($o) { $o->setApprovalDuration($n->getDateIntervalValue()); },
-            'approvalState' => function (ParseNode $n) use ($o) { $o->setApprovalState($n->getEnumValue(ApprovalState::class)); },
-            'approvalType' => function (ParseNode $n) use ($o) { $o->setApprovalType($n->getStringValue()); },
-            'approverReason' => function (ParseNode $n) use ($o) { $o->setApproverReason($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'request' => function (ParseNode $n) use ($o) { $o->setRequest($n->getObjectValue(array(PrivilegedRoleAssignmentRequest::class, 'createFromDiscriminatorValue'))); },
-            'requestorReason' => function (ParseNode $n) use ($o) { $o->setRequestorReason($n->getStringValue()); },
-            'roleId' => function (ParseNode $n) use ($o) { $o->setRoleId($n->getStringValue()); },
-            'roleInfo' => function (ParseNode $n) use ($o) { $o->setRoleInfo($n->getObjectValue(array(PrivilegedRole::class, 'createFromDiscriminatorValue'))); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'approvalDuration' => fn(ParseNode $n) => $o->setApprovalDuration($n->getDateIntervalValue()),
+            'approvalState' => fn(ParseNode $n) => $o->setApprovalState($n->getEnumValue(ApprovalState::class)),
+            'approvalType' => fn(ParseNode $n) => $o->setApprovalType($n->getStringValue()),
+            'approverReason' => fn(ParseNode $n) => $o->setApproverReason($n->getStringValue()),
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'request' => fn(ParseNode $n) => $o->setRequest($n->getObjectValue([PrivilegedRoleAssignmentRequest::class, 'createFromDiscriminatorValue'])),
+            'requestorReason' => fn(ParseNode $n) => $o->setRequestorReason($n->getStringValue()),
+            'roleId' => fn(ParseNode $n) => $o->setRoleId($n->getStringValue()),
+            'roleInfo' => fn(ParseNode $n) => $o->setRoleInfo($n->getObjectValue([PrivilegedRole::class, 'createFromDiscriminatorValue'])),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 

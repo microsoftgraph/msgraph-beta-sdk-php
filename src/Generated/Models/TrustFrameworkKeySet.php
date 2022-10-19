@@ -37,7 +37,7 @@ class TrustFrameworkKeySet extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'keys' => function (ParseNode $n) use ($o) { $o->setKeys($n->getCollectionOfObjectValues(array(TrustFrameworkKey::class, 'createFromDiscriminatorValue'))); },
+            'keys' => fn(ParseNode $n) => $o->setKeys($n->getCollectionOfObjectValues([TrustFrameworkKey::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

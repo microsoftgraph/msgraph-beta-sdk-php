@@ -50,8 +50,8 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getCollectionOfObjectValues(array(UnsupportedDeviceConfigurationDetail::class, 'createFromDiscriminatorValue'))); },
-            'originalEntityTypeName' => function (ParseNode $n) use ($o) { $o->setOriginalEntityTypeName($n->getStringValue()); },
+            'details' => fn(ParseNode $n) => $o->setDetails($n->getCollectionOfObjectValues([UnsupportedDeviceConfigurationDetail::class, 'createFromDiscriminatorValue'])),
+            'originalEntityTypeName' => fn(ParseNode $n) => $o->setOriginalEntityTypeName($n->getStringValue()),
         ]);
     }
 

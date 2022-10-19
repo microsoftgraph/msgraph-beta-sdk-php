@@ -38,7 +38,7 @@ class CustomTaskExtensionCallbackData extends CustomExtensionData implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'operationStatus' => function (ParseNode $n) use ($o) { $o->setOperationStatus($n->getEnumValue(CustomTaskExtensionOperationStatus::class)); },
+            'operationStatus' => fn(ParseNode $n) => $o->setOperationStatus($n->getEnumValue(CustomTaskExtensionOperationStatus::class)),
         ]);
     }
 

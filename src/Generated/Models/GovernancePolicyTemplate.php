@@ -55,9 +55,9 @@ class GovernancePolicyTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'policy' => function (ParseNode $n) use ($o) { $o->setPolicy($n->getObjectValue(array(GovernancePolicy::class, 'createFromDiscriminatorValue'))); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(BusinessFlowSettings::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([GovernancePolicy::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([BusinessFlowSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -110,15 +110,15 @@ class ManagedDeviceComplianceTrend extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'compliantDeviceCount' => function (ParseNode $n) use ($o) { $o->setCompliantDeviceCount($n->getIntegerValue()); },
-            'configManagerDeviceCount' => function (ParseNode $n) use ($o) { $o->setConfigManagerDeviceCount($n->getIntegerValue()); },
-            'countDateTime' => function (ParseNode $n) use ($o) { $o->setCountDateTime($n->getStringValue()); },
-            'errorDeviceCount' => function (ParseNode $n) use ($o) { $o->setErrorDeviceCount($n->getIntegerValue()); },
-            'inGracePeriodDeviceCount' => function (ParseNode $n) use ($o) { $o->setInGracePeriodDeviceCount($n->getIntegerValue()); },
-            'noncompliantDeviceCount' => function (ParseNode $n) use ($o) { $o->setNoncompliantDeviceCount($n->getIntegerValue()); },
-            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'unknownDeviceCount' => function (ParseNode $n) use ($o) { $o->setUnknownDeviceCount($n->getIntegerValue()); },
+            'compliantDeviceCount' => fn(ParseNode $n) => $o->setCompliantDeviceCount($n->getIntegerValue()),
+            'configManagerDeviceCount' => fn(ParseNode $n) => $o->setConfigManagerDeviceCount($n->getIntegerValue()),
+            'countDateTime' => fn(ParseNode $n) => $o->setCountDateTime($n->getStringValue()),
+            'errorDeviceCount' => fn(ParseNode $n) => $o->setErrorDeviceCount($n->getIntegerValue()),
+            'inGracePeriodDeviceCount' => fn(ParseNode $n) => $o->setInGracePeriodDeviceCount($n->getIntegerValue()),
+            'noncompliantDeviceCount' => fn(ParseNode $n) => $o->setNoncompliantDeviceCount($n->getIntegerValue()),
+            'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'unknownDeviceCount' => fn(ParseNode $n) => $o->setUnknownDeviceCount($n->getIntegerValue()),
         ]);
     }
 

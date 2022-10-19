@@ -62,12 +62,12 @@ class ReferenceAttachment extends Attachment implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isFolder' => function (ParseNode $n) use ($o) { $o->setIsFolder($n->getBooleanValue()); },
-            'permission' => function (ParseNode $n) use ($o) { $o->setPermission($n->getEnumValue(ReferenceAttachmentPermission::class)); },
-            'previewUrl' => function (ParseNode $n) use ($o) { $o->setPreviewUrl($n->getStringValue()); },
-            'providerType' => function (ParseNode $n) use ($o) { $o->setProviderType($n->getEnumValue(ReferenceAttachmentProvider::class)); },
-            'sourceUrl' => function (ParseNode $n) use ($o) { $o->setSourceUrl($n->getStringValue()); },
-            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
+            'isFolder' => fn(ParseNode $n) => $o->setIsFolder($n->getBooleanValue()),
+            'permission' => fn(ParseNode $n) => $o->setPermission($n->getEnumValue(ReferenceAttachmentPermission::class)),
+            'previewUrl' => fn(ParseNode $n) => $o->setPreviewUrl($n->getStringValue()),
+            'providerType' => fn(ParseNode $n) => $o->setProviderType($n->getEnumValue(ReferenceAttachmentProvider::class)),
+            'sourceUrl' => fn(ParseNode $n) => $o->setSourceUrl($n->getStringValue()),
+            'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
         ]);
     }
 

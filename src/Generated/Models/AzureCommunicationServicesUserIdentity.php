@@ -45,7 +45,7 @@ class AzureCommunicationServicesUserIdentity extends Identity implements Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureCommunicationServicesResourceId' => function (ParseNode $n) use ($o) { $o->setAzureCommunicationServicesResourceId($n->getStringValue()); },
+            'azureCommunicationServicesResourceId' => fn(ParseNode $n) => $o->setAzureCommunicationServicesResourceId($n->getStringValue()),
         ]);
     }
 

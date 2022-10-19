@@ -74,11 +74,11 @@ class ZebraFotaConnector extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'enrollmentAuthorizationUrl' => function (ParseNode $n) use ($o) { $o->setEnrollmentAuthorizationUrl($n->getStringValue()); },
-            'enrollmentToken' => function (ParseNode $n) use ($o) { $o->setEnrollmentToken($n->getStringValue()); },
-            'fotaAppsApproved' => function (ParseNode $n) use ($o) { $o->setFotaAppsApproved($n->getBooleanValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ZebraFotaConnectorState::class)); },
+            'enrollmentAuthorizationUrl' => fn(ParseNode $n) => $o->setEnrollmentAuthorizationUrl($n->getStringValue()),
+            'enrollmentToken' => fn(ParseNode $n) => $o->setEnrollmentToken($n->getStringValue()),
+            'fotaAppsApproved' => fn(ParseNode $n) => $o->setFotaAppsApproved($n->getBooleanValue()),
+            'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ZebraFotaConnectorState::class)),
         ]);
     }
 

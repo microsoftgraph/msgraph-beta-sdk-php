@@ -97,11 +97,11 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationIds' => function (ParseNode $n) use ($o) { $o->setApplicationIds($n->getCollectionOfPrimitiveValues()); },
-            'applicationPublisherIds' => function (ParseNode $n) use ($o) { $o->setApplicationPublisherIds($n->getCollectionOfPrimitiveValues()); },
-            'applicationsFromVerifiedPublisherOnly' => function (ParseNode $n) use ($o) { $o->setApplicationsFromVerifiedPublisherOnly($n->getBooleanValue()); },
-            'applicationTenantIds' => function (ParseNode $n) use ($o) { $o->setApplicationTenantIds($n->getCollectionOfPrimitiveValues()); },
-            'certifiedApplicationsOnly' => function (ParseNode $n) use ($o) { $o->setCertifiedApplicationsOnly($n->getBooleanValue()); },
+            'applicationIds' => fn(ParseNode $n) => $o->setApplicationIds($n->getCollectionOfPrimitiveValues()),
+            'applicationPublisherIds' => fn(ParseNode $n) => $o->setApplicationPublisherIds($n->getCollectionOfPrimitiveValues()),
+            'applicationsFromVerifiedPublisherOnly' => fn(ParseNode $n) => $o->setApplicationsFromVerifiedPublisherOnly($n->getBooleanValue()),
+            'applicationTenantIds' => fn(ParseNode $n) => $o->setApplicationTenantIds($n->getCollectionOfPrimitiveValues()),
+            'certifiedApplicationsOnly' => fn(ParseNode $n) => $o->setCertifiedApplicationsOnly($n->getBooleanValue()),
         ]);
     }
 

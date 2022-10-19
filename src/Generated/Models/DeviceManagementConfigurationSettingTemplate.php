@@ -42,8 +42,8 @@ class DeviceManagementConfigurationSettingTemplate extends Entity implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'settingDefinitions' => function (ParseNode $n) use ($o) { $o->setSettingDefinitions($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingDefinition::class, 'createFromDiscriminatorValue'))); },
-            'settingInstanceTemplate' => function (ParseNode $n) use ($o) { $o->setSettingInstanceTemplate($n->getObjectValue(array(DeviceManagementConfigurationSettingInstanceTemplate::class, 'createFromDiscriminatorValue'))); },
+            'settingDefinitions' => fn(ParseNode $n) => $o->setSettingDefinitions($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingDefinition::class, 'createFromDiscriminatorValue'])),
+            'settingInstanceTemplate' => fn(ParseNode $n) => $o->setSettingInstanceTemplate($n->getObjectValue([DeviceManagementConfigurationSettingInstanceTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

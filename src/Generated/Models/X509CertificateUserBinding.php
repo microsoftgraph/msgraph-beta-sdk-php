@@ -66,10 +66,10 @@ class X509CertificateUserBinding implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'userProperty' => function (ParseNode $n) use ($o) { $o->setUserProperty($n->getStringValue()); },
-            'x509CertificateField' => function (ParseNode $n) use ($o) { $o->setX509CertificateField($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'userProperty' => fn(ParseNode $n) => $o->setUserProperty($n->getStringValue()),
+            'x509CertificateField' => fn(ParseNode $n) => $o->setX509CertificateField($n->getStringValue()),
         ];
     }
 

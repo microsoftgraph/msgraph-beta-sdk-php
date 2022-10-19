@@ -71,9 +71,9 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowDeviceHealthMonitoring' => function (ParseNode $n) use ($o) { $o->setAllowDeviceHealthMonitoring($n->getEnumValue(Enablement::class)); },
-            'configDeviceHealthMonitoringCustomScope' => function (ParseNode $n) use ($o) { $o->setConfigDeviceHealthMonitoringCustomScope($n->getStringValue()); },
-            'configDeviceHealthMonitoringScope' => function (ParseNode $n) use ($o) { $o->setConfigDeviceHealthMonitoringScope($n->getEnumValue(WindowsHealthMonitoringScope::class)); },
+            'allowDeviceHealthMonitoring' => fn(ParseNode $n) => $o->setAllowDeviceHealthMonitoring($n->getEnumValue(Enablement::class)),
+            'configDeviceHealthMonitoringCustomScope' => fn(ParseNode $n) => $o->setConfigDeviceHealthMonitoringCustomScope($n->getStringValue()),
+            'configDeviceHealthMonitoringScope' => fn(ParseNode $n) => $o->setConfigDeviceHealthMonitoringScope($n->getEnumValue(WindowsHealthMonitoringScope::class)),
         ]);
     }
 

@@ -110,7 +110,7 @@ class ServicePrincipalRiskDetection extends Entity implements Parsable
     private ?TokenIssuerType $tokenIssuerType = null;
     
     /**
-     * Instantiates a new ServicePrincipalRiskDetection and sets the default values.
+     * Instantiates a new servicePrincipalRiskDetection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -189,26 +189,26 @@ class ServicePrincipalRiskDetection extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getEnumValue(ActivityType::class)); },
-            'activityDateTime' => function (ParseNode $n) use ($o) { $o->setActivityDateTime($n->getDateTimeValue()); },
-            'additionalInfo' => function (ParseNode $n) use ($o) { $o->setAdditionalInfo($n->getStringValue()); },
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'correlationId' => function (ParseNode $n) use ($o) { $o->setCorrelationId($n->getStringValue()); },
-            'detectedDateTime' => function (ParseNode $n) use ($o) { $o->setDetectedDateTime($n->getDateTimeValue()); },
-            'detectionTimingType' => function (ParseNode $n) use ($o) { $o->setDetectionTimingType($n->getEnumValue(RiskDetectionTimingType::class)); },
-            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
-            'keyIds' => function (ParseNode $n) use ($o) { $o->setKeyIds($n->getCollectionOfPrimitiveValues()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getObjectValue(array(SignInLocation::class, 'createFromDiscriminatorValue'))); },
-            'requestId' => function (ParseNode $n) use ($o) { $o->setRequestId($n->getStringValue()); },
-            'riskDetail' => function (ParseNode $n) use ($o) { $o->setRiskDetail($n->getEnumValue(RiskDetail::class)); },
-            'riskEventType' => function (ParseNode $n) use ($o) { $o->setRiskEventType($n->getStringValue()); },
-            'riskLevel' => function (ParseNode $n) use ($o) { $o->setRiskLevel($n->getEnumValue(RiskLevel::class)); },
-            'riskState' => function (ParseNode $n) use ($o) { $o->setRiskState($n->getEnumValue(RiskState::class)); },
-            'servicePrincipalDisplayName' => function (ParseNode $n) use ($o) { $o->setServicePrincipalDisplayName($n->getStringValue()); },
-            'servicePrincipalId' => function (ParseNode $n) use ($o) { $o->setServicePrincipalId($n->getStringValue()); },
-            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getStringValue()); },
-            'tokenIssuerType' => function (ParseNode $n) use ($o) { $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)); },
+            'activity' => fn(ParseNode $n) => $o->setActivity($n->getEnumValue(ActivityType::class)),
+            'activityDateTime' => fn(ParseNode $n) => $o->setActivityDateTime($n->getDateTimeValue()),
+            'additionalInfo' => fn(ParseNode $n) => $o->setAdditionalInfo($n->getStringValue()),
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
+            'detectedDateTime' => fn(ParseNode $n) => $o->setDetectedDateTime($n->getDateTimeValue()),
+            'detectionTimingType' => fn(ParseNode $n) => $o->setDetectionTimingType($n->getEnumValue(RiskDetectionTimingType::class)),
+            'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
+            'keyIds' => fn(ParseNode $n) => $o->setKeyIds($n->getCollectionOfPrimitiveValues()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            'location' => fn(ParseNode $n) => $o->setLocation($n->getObjectValue([SignInLocation::class, 'createFromDiscriminatorValue'])),
+            'requestId' => fn(ParseNode $n) => $o->setRequestId($n->getStringValue()),
+            'riskDetail' => fn(ParseNode $n) => $o->setRiskDetail($n->getEnumValue(RiskDetail::class)),
+            'riskEventType' => fn(ParseNode $n) => $o->setRiskEventType($n->getStringValue()),
+            'riskLevel' => fn(ParseNode $n) => $o->setRiskLevel($n->getEnumValue(RiskLevel::class)),
+            'riskState' => fn(ParseNode $n) => $o->setRiskState($n->getEnumValue(RiskState::class)),
+            'servicePrincipalDisplayName' => fn(ParseNode $n) => $o->setServicePrincipalDisplayName($n->getStringValue()),
+            'servicePrincipalId' => fn(ParseNode $n) => $o->setServicePrincipalId($n->getStringValue()),
+            'source' => fn(ParseNode $n) => $o->setSource($n->getStringValue()),
+            'tokenIssuerType' => fn(ParseNode $n) => $o->setTokenIssuerType($n->getEnumValue(TokenIssuerType::class)),
         ]);
     }
 

@@ -50,8 +50,8 @@ class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends Authentica
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'featureSettings' => function (ParseNode $n) use ($o) { $o->setFeatureSettings($n->getObjectValue(array(MicrosoftAuthenticatorFeatureSettings::class, 'createFromDiscriminatorValue'))); },
-            'includeTargets' => function (ParseNode $n) use ($o) { $o->setIncludeTargets($n->getCollectionOfObjectValues(array(MicrosoftAuthenticatorAuthenticationMethodTarget::class, 'createFromDiscriminatorValue'))); },
+            'featureSettings' => fn(ParseNode $n) => $o->setFeatureSettings($n->getObjectValue([MicrosoftAuthenticatorFeatureSettings::class, 'createFromDiscriminatorValue'])),
+            'includeTargets' => fn(ParseNode $n) => $o->setIncludeTargets($n->getCollectionOfObjectValues([MicrosoftAuthenticatorAuthenticationMethodTarget::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

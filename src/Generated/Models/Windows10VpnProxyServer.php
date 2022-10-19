@@ -45,7 +45,7 @@ class Windows10VpnProxyServer extends VpnProxyServer implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bypassProxyServerForLocalAddress' => function (ParseNode $n) use ($o) { $o->setBypassProxyServerForLocalAddress($n->getBooleanValue()); },
+            'bypassProxyServerForLocalAddress' => fn(ParseNode $n) => $o->setBypassProxyServerForLocalAddress($n->getBooleanValue()),
         ]);
     }
 

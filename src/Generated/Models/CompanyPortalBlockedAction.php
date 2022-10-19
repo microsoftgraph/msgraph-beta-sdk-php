@@ -74,10 +74,10 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(CompanyPortalAction::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getEnumValue(OwnerType::class)); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(CompanyPortalAction::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'ownerType' => fn(ParseNode $n) => $o->setOwnerType($n->getEnumValue(OwnerType::class)),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(DevicePlatformType::class)),
         ];
     }
 

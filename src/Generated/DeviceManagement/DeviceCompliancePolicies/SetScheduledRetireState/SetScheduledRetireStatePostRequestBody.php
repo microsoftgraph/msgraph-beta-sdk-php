@@ -56,8 +56,8 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'managedDeviceIds' => function (ParseNode $n) use ($o) { $o->setManagedDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ScheduledRetireState::class)); },
+            'managedDeviceIds' => fn(ParseNode $n) => $o->setManagedDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ScheduledRetireState::class)),
         ];
     }
 

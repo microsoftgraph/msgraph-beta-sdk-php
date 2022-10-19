@@ -72,11 +72,11 @@ class SignInActivity implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'lastNonInteractiveSignInDateTime' => function (ParseNode $n) use ($o) { $o->setLastNonInteractiveSignInDateTime($n->getDateTimeValue()); },
-            'lastNonInteractiveSignInRequestId' => function (ParseNode $n) use ($o) { $o->setLastNonInteractiveSignInRequestId($n->getStringValue()); },
-            'lastSignInDateTime' => function (ParseNode $n) use ($o) { $o->setLastSignInDateTime($n->getDateTimeValue()); },
-            'lastSignInRequestId' => function (ParseNode $n) use ($o) { $o->setLastSignInRequestId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'lastNonInteractiveSignInDateTime' => fn(ParseNode $n) => $o->setLastNonInteractiveSignInDateTime($n->getDateTimeValue()),
+            'lastNonInteractiveSignInRequestId' => fn(ParseNode $n) => $o->setLastNonInteractiveSignInRequestId($n->getStringValue()),
+            'lastSignInDateTime' => fn(ParseNode $n) => $o->setLastSignInDateTime($n->getDateTimeValue()),
+            'lastSignInRequestId' => fn(ParseNode $n) => $o->setLastSignInRequestId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

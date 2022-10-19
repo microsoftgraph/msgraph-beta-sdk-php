@@ -86,11 +86,11 @@ class UpdateAudienceByIdPostRequestBody implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'addExclusions' => function (ParseNode $n) use ($o) { $o->setAddExclusions($n->getCollectionOfPrimitiveValues()); },
-            'addMembers' => function (ParseNode $n) use ($o) { $o->setAddMembers($n->getCollectionOfPrimitiveValues()); },
-            'memberEntityType' => function (ParseNode $n) use ($o) { $o->setMemberEntityType($n->getStringValue()); },
-            'removeExclusions' => function (ParseNode $n) use ($o) { $o->setRemoveExclusions($n->getCollectionOfPrimitiveValues()); },
-            'removeMembers' => function (ParseNode $n) use ($o) { $o->setRemoveMembers($n->getCollectionOfPrimitiveValues()); },
+            'addExclusions' => fn(ParseNode $n) => $o->setAddExclusions($n->getCollectionOfPrimitiveValues()),
+            'addMembers' => fn(ParseNode $n) => $o->setAddMembers($n->getCollectionOfPrimitiveValues()),
+            'memberEntityType' => fn(ParseNode $n) => $o->setMemberEntityType($n->getStringValue()),
+            'removeExclusions' => fn(ParseNode $n) => $o->setRemoveExclusions($n->getCollectionOfPrimitiveValues()),
+            'removeMembers' => fn(ParseNode $n) => $o->setRemoveMembers($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

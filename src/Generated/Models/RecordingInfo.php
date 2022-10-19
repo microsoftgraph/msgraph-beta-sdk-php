@@ -66,10 +66,10 @@ class RecordingInfo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'initiatedBy' => function (ParseNode $n) use ($o) { $o->setInitiatedBy($n->getObjectValue(array(ParticipantInfo::class, 'createFromDiscriminatorValue'))); },
-            'initiator' => function (ParseNode $n) use ($o) { $o->setInitiator($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recordingStatus' => function (ParseNode $n) use ($o) { $o->setRecordingStatus($n->getEnumValue(RecordingStatus::class)); },
+            'initiatedBy' => fn(ParseNode $n) => $o->setInitiatedBy($n->getObjectValue([ParticipantInfo::class, 'createFromDiscriminatorValue'])),
+            'initiator' => fn(ParseNode $n) => $o->setInitiator($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recordingStatus' => fn(ParseNode $n) => $o->setRecordingStatus($n->getEnumValue(RecordingStatus::class)),
         ];
     }
 

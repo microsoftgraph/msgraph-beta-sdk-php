@@ -58,7 +58,7 @@ class MovePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'destinationTaskListId' => function (ParseNode $n) use ($o) { $o->setDestinationTaskListId($n->getStringValue()); },
+            'destinationTaskListId' => fn(ParseNode $n) => $o->setDestinationTaskListId($n->getStringValue()),
         ];
     }
 

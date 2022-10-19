@@ -51,7 +51,7 @@ class WindowsPrivacyAccessControlsPostRequestBody implements AdditionalDataHolde
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'windowsPrivacyAccessControls' => function (ParseNode $n) use ($o) { $o->setWindowsPrivacyAccessControls($n->getCollectionOfObjectValues(array(WindowsPrivacyDataAccessControlItem::class, 'createFromDiscriminatorValue'))); },
+            'windowsPrivacyAccessControls' => fn(ParseNode $n) => $o->setWindowsPrivacyAccessControls($n->getCollectionOfObjectValues([WindowsPrivacyDataAccessControlItem::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

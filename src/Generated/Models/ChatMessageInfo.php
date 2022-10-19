@@ -87,12 +87,12 @@ class ChatMessageInfo extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'body' => function (ParseNode $n) use ($o) { $o->setBody($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'eventDetail' => function (ParseNode $n) use ($o) { $o->setEventDetail($n->getObjectValue(array(EventMessageDetail::class, 'createFromDiscriminatorValue'))); },
-            'from' => function (ParseNode $n) use ($o) { $o->setFrom($n->getObjectValue(array(ChatMessageFromIdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'isDeleted' => function (ParseNode $n) use ($o) { $o->setIsDeleted($n->getBooleanValue()); },
-            'messageType' => function (ParseNode $n) use ($o) { $o->setMessageType($n->getEnumValue(ChatMessageType::class)); },
+            'body' => fn(ParseNode $n) => $o->setBody($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'eventDetail' => fn(ParseNode $n) => $o->setEventDetail($n->getObjectValue([EventMessageDetail::class, 'createFromDiscriminatorValue'])),
+            'from' => fn(ParseNode $n) => $o->setFrom($n->getObjectValue([ChatMessageFromIdentitySet::class, 'createFromDiscriminatorValue'])),
+            'isDeleted' => fn(ParseNode $n) => $o->setIsDeleted($n->getBooleanValue()),
+            'messageType' => fn(ParseNode $n) => $o->setMessageType($n->getEnumValue(ChatMessageType::class)),
         ]);
     }
 

@@ -55,8 +55,8 @@ class RevokeLicensesPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'notifyManagedDevices' => function (ParseNode $n) use ($o) { $o->setNotifyManagedDevices($n->getBooleanValue()); },
-            'revokeUntrackedLicenses' => function (ParseNode $n) use ($o) { $o->setRevokeUntrackedLicenses($n->getBooleanValue()); },
+            'notifyManagedDevices' => fn(ParseNode $n) => $o->setNotifyManagedDevices($n->getBooleanValue()),
+            'revokeUntrackedLicenses' => fn(ParseNode $n) => $o->setRevokeUntrackedLicenses($n->getBooleanValue()),
         ];
     }
 

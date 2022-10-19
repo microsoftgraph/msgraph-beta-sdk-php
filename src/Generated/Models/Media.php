@@ -61,9 +61,9 @@ class Media implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'isTranscriptionShown' => function (ParseNode $n) use ($o) { $o->setIsTranscriptionShown($n->getBooleanValue()); },
-            'mediaSource' => function (ParseNode $n) use ($o) { $o->setMediaSource($n->getObjectValue(array(MediaSource::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'isTranscriptionShown' => fn(ParseNode $n) => $o->setIsTranscriptionShown($n->getBooleanValue()),
+            'mediaSource' => fn(ParseNode $n) => $o->setMediaSource($n->getObjectValue([MediaSource::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

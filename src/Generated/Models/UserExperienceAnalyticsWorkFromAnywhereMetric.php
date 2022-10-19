@@ -37,7 +37,7 @@ class UserExperienceAnalyticsWorkFromAnywhereMetric extends Entity implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'metricDevices' => function (ParseNode $n) use ($o) { $o->setMetricDevices($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsWorkFromAnywhereDevice::class, 'createFromDiscriminatorValue'))); },
+            'metricDevices' => fn(ParseNode $n) => $o->setMetricDevices($n->getCollectionOfObjectValues([UserExperienceAnalyticsWorkFromAnywhereDevice::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

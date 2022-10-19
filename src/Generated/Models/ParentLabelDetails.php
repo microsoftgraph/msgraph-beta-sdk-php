@@ -114,15 +114,15 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'color' => function (ParseNode $n) use ($o) { $o->setColor($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(ParentLabelDetails::class, 'createFromDiscriminatorValue'))); },
-            'sensitivity' => function (ParseNode $n) use ($o) { $o->setSensitivity($n->getIntegerValue()); },
-            'tooltip' => function (ParseNode $n) use ($o) { $o->setTooltip($n->getStringValue()); },
+            'color' => fn(ParseNode $n) => $o->setColor($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'parent' => fn(ParseNode $n) => $o->setParent($n->getObjectValue([ParentLabelDetails::class, 'createFromDiscriminatorValue'])),
+            'sensitivity' => fn(ParseNode $n) => $o->setSensitivity($n->getIntegerValue()),
+            'tooltip' => fn(ParseNode $n) => $o->setTooltip($n->getStringValue()),
         ];
     }
 

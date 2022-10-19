@@ -63,9 +63,9 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'hasRequiredSetting' => function (ParseNode $n) use ($o) { $o->setHasRequiredSetting($n->getBooleanValue()); },
-            'settingDefinitions' => function (ParseNode $n) use ($o) { $o->setSettingDefinitions($n->getCollectionOfObjectValues(array(DeviceManagementSettingDefinition::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'hasRequiredSetting' => fn(ParseNode $n) => $o->setHasRequiredSetting($n->getBooleanValue()),
+            'settingDefinitions' => fn(ParseNode $n) => $o->setSettingDefinitions($n->getCollectionOfObjectValues([DeviceManagementSettingDefinition::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

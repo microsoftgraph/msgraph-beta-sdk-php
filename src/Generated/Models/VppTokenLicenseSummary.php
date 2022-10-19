@@ -92,12 +92,12 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appleId' => function (ParseNode $n) use ($o) { $o->setAppleId($n->getStringValue()); },
-            'availableLicenseCount' => function (ParseNode $n) use ($o) { $o->setAvailableLicenseCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'organizationName' => function (ParseNode $n) use ($o) { $o->setOrganizationName($n->getStringValue()); },
-            'usedLicenseCount' => function (ParseNode $n) use ($o) { $o->setUsedLicenseCount($n->getIntegerValue()); },
-            'vppTokenId' => function (ParseNode $n) use ($o) { $o->setVppTokenId($n->getStringValue()); },
+            'appleId' => fn(ParseNode $n) => $o->setAppleId($n->getStringValue()),
+            'availableLicenseCount' => fn(ParseNode $n) => $o->setAvailableLicenseCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'organizationName' => fn(ParseNode $n) => $o->setOrganizationName($n->getStringValue()),
+            'usedLicenseCount' => fn(ParseNode $n) => $o->setUsedLicenseCount($n->getIntegerValue()),
+            'vppTokenId' => fn(ParseNode $n) => $o->setVppTokenId($n->getStringValue()),
         ];
     }
 

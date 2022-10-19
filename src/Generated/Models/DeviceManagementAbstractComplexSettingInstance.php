@@ -42,8 +42,8 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'implementationId' => function (ParseNode $n) use ($o) { $o->setImplementationId($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'))); },
+            'implementationId' => fn(ParseNode $n) => $o->setImplementationId($n->getStringValue()),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([DeviceManagementSettingInstance::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

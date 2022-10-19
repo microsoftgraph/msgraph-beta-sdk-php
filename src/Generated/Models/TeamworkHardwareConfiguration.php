@@ -74,10 +74,10 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'compute' => function (ParseNode $n) use ($o) { $o->setCompute($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'hdmiIngest' => function (ParseNode $n) use ($o) { $o->setHdmiIngest($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'processorModel' => function (ParseNode $n) use ($o) { $o->setProcessorModel($n->getStringValue()); },
+            'compute' => fn(ParseNode $n) => $o->setCompute($n->getObjectValue([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
+            'hdmiIngest' => fn(ParseNode $n) => $o->setHdmiIngest($n->getObjectValue([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'processorModel' => fn(ParseNode $n) => $o->setProcessorModel($n->getStringValue()),
         ];
     }
 

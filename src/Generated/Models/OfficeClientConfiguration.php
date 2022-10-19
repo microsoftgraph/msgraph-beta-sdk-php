@@ -50,7 +50,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     private ?StreamInterface $userPreferencePayload = null;
     
     /**
-     * Instantiates a new OfficeClientConfiguration and sets the default values.
+     * Instantiates a new officeClientConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -113,14 +113,14 @@ class OfficeClientConfiguration extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(OfficeClientConfigurationAssignment::class, 'createFromDiscriminatorValue'))); },
-            'checkinStatuses' => function (ParseNode $n) use ($o) { $o->setCheckinStatuses($n->getCollectionOfObjectValues(array(OfficeClientCheckinStatus::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'policyPayload' => function (ParseNode $n) use ($o) { $o->setPolicyPayload($n->getBinaryContent()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'userCheckinSummary' => function (ParseNode $n) use ($o) { $o->setUserCheckinSummary($n->getObjectValue(array(OfficeUserCheckinSummary::class, 'createFromDiscriminatorValue'))); },
-            'userPreferencePayload' => function (ParseNode $n) use ($o) { $o->setUserPreferencePayload($n->getBinaryContent()); },
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([OfficeClientConfigurationAssignment::class, 'createFromDiscriminatorValue'])),
+            'checkinStatuses' => fn(ParseNode $n) => $o->setCheckinStatuses($n->getCollectionOfObjectValues([OfficeClientCheckinStatus::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'policyPayload' => fn(ParseNode $n) => $o->setPolicyPayload($n->getBinaryContent()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'userCheckinSummary' => fn(ParseNode $n) => $o->setUserCheckinSummary($n->getObjectValue([OfficeUserCheckinSummary::class, 'createFromDiscriminatorValue'])),
+            'userPreferencePayload' => fn(ParseNode $n) => $o->setUserPreferencePayload($n->getBinaryContent()),
         ]);
     }
 

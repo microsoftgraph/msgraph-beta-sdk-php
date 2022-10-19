@@ -95,7 +95,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
     private ?SecurityVendorInformation $vendorInformation = null;
     
     /**
-     * Instantiates a new CloudAppSecurityProfile and sets the default values.
+     * Instantiates a new cloudAppSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -158,23 +158,23 @@ class CloudAppSecurityProfile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureSubscriptionId' => function (ParseNode $n) use ($o) { $o->setAzureSubscriptionId($n->getStringValue()); },
-            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deploymentPackageUrl' => function (ParseNode $n) use ($o) { $o->setDeploymentPackageUrl($n->getStringValue()); },
-            'destinationServiceName' => function (ParseNode $n) use ($o) { $o->setDestinationServiceName($n->getStringValue()); },
-            'isSigned' => function (ParseNode $n) use ($o) { $o->setIsSigned($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'manifest' => function (ParseNode $n) use ($o) { $o->setManifest($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'permissionsRequired' => function (ParseNode $n) use ($o) { $o->setPermissionsRequired($n->getEnumValue(ApplicationPermissionsRequired::class)); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getStringValue()); },
-            'policyName' => function (ParseNode $n) use ($o) { $o->setPolicyName($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getStringValue()); },
-            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
-            'vendorInformation' => function (ParseNode $n) use ($o) { $o->setVendorInformation($n->getObjectValue(array(SecurityVendorInformation::class, 'createFromDiscriminatorValue'))); },
+            'azureSubscriptionId' => fn(ParseNode $n) => $o->setAzureSubscriptionId($n->getStringValue()),
+            'azureTenantId' => fn(ParseNode $n) => $o->setAzureTenantId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'deploymentPackageUrl' => fn(ParseNode $n) => $o->setDeploymentPackageUrl($n->getStringValue()),
+            'destinationServiceName' => fn(ParseNode $n) => $o->setDestinationServiceName($n->getStringValue()),
+            'isSigned' => fn(ParseNode $n) => $o->setIsSigned($n->getBooleanValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'manifest' => fn(ParseNode $n) => $o->setManifest($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'permissionsRequired' => fn(ParseNode $n) => $o->setPermissionsRequired($n->getEnumValue(ApplicationPermissionsRequired::class)),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getStringValue()),
+            'policyName' => fn(ParseNode $n) => $o->setPolicyName($n->getStringValue()),
+            'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
+            'riskScore' => fn(ParseNode $n) => $o->setRiskScore($n->getStringValue()),
+            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
+            'vendorInformation' => fn(ParseNode $n) => $o->setVendorInformation($n->getObjectValue([SecurityVendorInformation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

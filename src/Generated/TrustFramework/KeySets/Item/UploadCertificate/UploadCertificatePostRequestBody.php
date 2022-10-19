@@ -50,7 +50,7 @@ class UploadCertificatePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getStringValue()); },
+            'key' => fn(ParseNode $n) => $o->setKey($n->getStringValue()),
         ];
     }
 

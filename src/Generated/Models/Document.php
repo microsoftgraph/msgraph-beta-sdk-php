@@ -45,7 +45,7 @@ class Document extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'comments' => function (ParseNode $n) use ($o) { $o->setComments($n->getCollectionOfObjectValues(array(DocumentComment::class, 'createFromDiscriminatorValue'))); },
+            'comments' => fn(ParseNode $n) => $o->setComments($n->getCollectionOfObjectValues([DocumentComment::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

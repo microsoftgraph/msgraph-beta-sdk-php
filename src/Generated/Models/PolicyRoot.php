@@ -45,7 +45,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     private ?AuthenticationMethodsPolicy $authenticationMethodsPolicy = null;
     
     /**
-     * @var array<AuthenticationStrengthPolicy>|null $authenticationStrengthPolicies The authenticationStrengthPolicies property
+     * @var array<AuthenticationStrengthPolicy>|null $authenticationStrengthPolicies The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
     */
     private ?array $authenticationStrengthPolicies = null;
     
@@ -228,7 +228,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the authenticationStrengthPolicies property value. The authenticationStrengthPolicies property
+     * Gets the authenticationStrengthPolicies property value. The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
      * @return array<AuthenticationStrengthPolicy>|null
     */
     public function getAuthenticationStrengthPolicies(): ?array {
@@ -322,34 +322,34 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accessReviewPolicy' => function (ParseNode $n) use ($o) { $o->setAccessReviewPolicy($n->getObjectValue(array(AccessReviewPolicy::class, 'createFromDiscriminatorValue'))); },
-            'activityBasedTimeoutPolicies' => function (ParseNode $n) use ($o) { $o->setActivityBasedTimeoutPolicies($n->getCollectionOfObjectValues(array(ActivityBasedTimeoutPolicy::class, 'createFromDiscriminatorValue'))); },
-            'adminConsentRequestPolicy' => function (ParseNode $n) use ($o) { $o->setAdminConsentRequestPolicy($n->getObjectValue(array(AdminConsentRequestPolicy::class, 'createFromDiscriminatorValue'))); },
-            'appManagementPolicies' => function (ParseNode $n) use ($o) { $o->setAppManagementPolicies($n->getCollectionOfObjectValues(array(AppManagementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'authenticationFlowsPolicy' => function (ParseNode $n) use ($o) { $o->setAuthenticationFlowsPolicy($n->getObjectValue(array(AuthenticationFlowsPolicy::class, 'createFromDiscriminatorValue'))); },
-            'authenticationMethodsPolicy' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethodsPolicy($n->getObjectValue(array(AuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'))); },
-            'authenticationStrengthPolicies' => function (ParseNode $n) use ($o) { $o->setAuthenticationStrengthPolicies($n->getCollectionOfObjectValues(array(AuthenticationStrengthPolicy::class, 'createFromDiscriminatorValue'))); },
-            'authorizationPolicy' => function (ParseNode $n) use ($o) { $o->setAuthorizationPolicy($n->getCollectionOfObjectValues(array(AuthorizationPolicy::class, 'createFromDiscriminatorValue'))); },
-            'b2cAuthenticationMethodsPolicy' => function (ParseNode $n) use ($o) { $o->setB2cAuthenticationMethodsPolicy($n->getObjectValue(array(B2cAuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'))); },
-            'claimsMappingPolicies' => function (ParseNode $n) use ($o) { $o->setClaimsMappingPolicies($n->getCollectionOfObjectValues(array(ClaimsMappingPolicy::class, 'createFromDiscriminatorValue'))); },
-            'conditionalAccessPolicies' => function (ParseNode $n) use ($o) { $o->setConditionalAccessPolicies($n->getCollectionOfObjectValues(array(ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'))); },
-            'crossTenantAccessPolicy' => function (ParseNode $n) use ($o) { $o->setCrossTenantAccessPolicy($n->getObjectValue(array(CrossTenantAccessPolicy::class, 'createFromDiscriminatorValue'))); },
-            'defaultAppManagementPolicy' => function (ParseNode $n) use ($o) { $o->setDefaultAppManagementPolicy($n->getObjectValue(array(TenantAppManagementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'deviceRegistrationPolicy' => function (ParseNode $n) use ($o) { $o->setDeviceRegistrationPolicy($n->getObjectValue(array(DeviceRegistrationPolicy::class, 'createFromDiscriminatorValue'))); },
-            'directoryRoleAccessReviewPolicy' => function (ParseNode $n) use ($o) { $o->setDirectoryRoleAccessReviewPolicy($n->getObjectValue(array(DirectoryRoleAccessReviewPolicy::class, 'createFromDiscriminatorValue'))); },
-            'externalIdentitiesPolicy' => function (ParseNode $n) use ($o) { $o->setExternalIdentitiesPolicy($n->getObjectValue(array(ExternalIdentitiesPolicy::class, 'createFromDiscriminatorValue'))); },
-            'featureRolloutPolicies' => function (ParseNode $n) use ($o) { $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues(array(FeatureRolloutPolicy::class, 'createFromDiscriminatorValue'))); },
-            'homeRealmDiscoveryPolicies' => function (ParseNode $n) use ($o) { $o->setHomeRealmDiscoveryPolicies($n->getCollectionOfObjectValues(array(HomeRealmDiscoveryPolicy::class, 'createFromDiscriminatorValue'))); },
-            'identitySecurityDefaultsEnforcementPolicy' => function (ParseNode $n) use ($o) { $o->setIdentitySecurityDefaultsEnforcementPolicy($n->getObjectValue(array(IdentitySecurityDefaultsEnforcementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'mobileAppManagementPolicies' => function (ParseNode $n) use ($o) { $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues(array(MobilityManagementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'mobileDeviceManagementPolicies' => function (ParseNode $n) use ($o) { $o->setMobileDeviceManagementPolicies($n->getCollectionOfObjectValues(array(MobilityManagementPolicy::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'permissionGrantPolicies' => function (ParseNode $n) use ($o) { $o->setPermissionGrantPolicies($n->getCollectionOfObjectValues(array(PermissionGrantPolicy::class, 'createFromDiscriminatorValue'))); },
-            'roleManagementPolicies' => function (ParseNode $n) use ($o) { $o->setRoleManagementPolicies($n->getCollectionOfObjectValues(array(UnifiedRoleManagementPolicy::class, 'createFromDiscriminatorValue'))); },
-            'roleManagementPolicyAssignments' => function (ParseNode $n) use ($o) { $o->setRoleManagementPolicyAssignments($n->getCollectionOfObjectValues(array(UnifiedRoleManagementPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
-            'servicePrincipalCreationPolicies' => function (ParseNode $n) use ($o) { $o->setServicePrincipalCreationPolicies($n->getCollectionOfObjectValues(array(ServicePrincipalCreationPolicy::class, 'createFromDiscriminatorValue'))); },
-            'tokenIssuancePolicies' => function (ParseNode $n) use ($o) { $o->setTokenIssuancePolicies($n->getCollectionOfObjectValues(array(TokenIssuancePolicy::class, 'createFromDiscriminatorValue'))); },
-            'tokenLifetimePolicies' => function (ParseNode $n) use ($o) { $o->setTokenLifetimePolicies($n->getCollectionOfObjectValues(array(TokenLifetimePolicy::class, 'createFromDiscriminatorValue'))); },
+            'accessReviewPolicy' => fn(ParseNode $n) => $o->setAccessReviewPolicy($n->getObjectValue([AccessReviewPolicy::class, 'createFromDiscriminatorValue'])),
+            'activityBasedTimeoutPolicies' => fn(ParseNode $n) => $o->setActivityBasedTimeoutPolicies($n->getCollectionOfObjectValues([ActivityBasedTimeoutPolicy::class, 'createFromDiscriminatorValue'])),
+            'adminConsentRequestPolicy' => fn(ParseNode $n) => $o->setAdminConsentRequestPolicy($n->getObjectValue([AdminConsentRequestPolicy::class, 'createFromDiscriminatorValue'])),
+            'appManagementPolicies' => fn(ParseNode $n) => $o->setAppManagementPolicies($n->getCollectionOfObjectValues([AppManagementPolicy::class, 'createFromDiscriminatorValue'])),
+            'authenticationFlowsPolicy' => fn(ParseNode $n) => $o->setAuthenticationFlowsPolicy($n->getObjectValue([AuthenticationFlowsPolicy::class, 'createFromDiscriminatorValue'])),
+            'authenticationMethodsPolicy' => fn(ParseNode $n) => $o->setAuthenticationMethodsPolicy($n->getObjectValue([AuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'])),
+            'authenticationStrengthPolicies' => fn(ParseNode $n) => $o->setAuthenticationStrengthPolicies($n->getCollectionOfObjectValues([AuthenticationStrengthPolicy::class, 'createFromDiscriminatorValue'])),
+            'authorizationPolicy' => fn(ParseNode $n) => $o->setAuthorizationPolicy($n->getCollectionOfObjectValues([AuthorizationPolicy::class, 'createFromDiscriminatorValue'])),
+            'b2cAuthenticationMethodsPolicy' => fn(ParseNode $n) => $o->setB2cAuthenticationMethodsPolicy($n->getObjectValue([B2cAuthenticationMethodsPolicy::class, 'createFromDiscriminatorValue'])),
+            'claimsMappingPolicies' => fn(ParseNode $n) => $o->setClaimsMappingPolicies($n->getCollectionOfObjectValues([ClaimsMappingPolicy::class, 'createFromDiscriminatorValue'])),
+            'conditionalAccessPolicies' => fn(ParseNode $n) => $o->setConditionalAccessPolicies($n->getCollectionOfObjectValues([ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
+            'crossTenantAccessPolicy' => fn(ParseNode $n) => $o->setCrossTenantAccessPolicy($n->getObjectValue([CrossTenantAccessPolicy::class, 'createFromDiscriminatorValue'])),
+            'defaultAppManagementPolicy' => fn(ParseNode $n) => $o->setDefaultAppManagementPolicy($n->getObjectValue([TenantAppManagementPolicy::class, 'createFromDiscriminatorValue'])),
+            'deviceRegistrationPolicy' => fn(ParseNode $n) => $o->setDeviceRegistrationPolicy($n->getObjectValue([DeviceRegistrationPolicy::class, 'createFromDiscriminatorValue'])),
+            'directoryRoleAccessReviewPolicy' => fn(ParseNode $n) => $o->setDirectoryRoleAccessReviewPolicy($n->getObjectValue([DirectoryRoleAccessReviewPolicy::class, 'createFromDiscriminatorValue'])),
+            'externalIdentitiesPolicy' => fn(ParseNode $n) => $o->setExternalIdentitiesPolicy($n->getObjectValue([ExternalIdentitiesPolicy::class, 'createFromDiscriminatorValue'])),
+            'featureRolloutPolicies' => fn(ParseNode $n) => $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues([FeatureRolloutPolicy::class, 'createFromDiscriminatorValue'])),
+            'homeRealmDiscoveryPolicies' => fn(ParseNode $n) => $o->setHomeRealmDiscoveryPolicies($n->getCollectionOfObjectValues([HomeRealmDiscoveryPolicy::class, 'createFromDiscriminatorValue'])),
+            'identitySecurityDefaultsEnforcementPolicy' => fn(ParseNode $n) => $o->setIdentitySecurityDefaultsEnforcementPolicy($n->getObjectValue([IdentitySecurityDefaultsEnforcementPolicy::class, 'createFromDiscriminatorValue'])),
+            'mobileAppManagementPolicies' => fn(ParseNode $n) => $o->setMobileAppManagementPolicies($n->getCollectionOfObjectValues([MobilityManagementPolicy::class, 'createFromDiscriminatorValue'])),
+            'mobileDeviceManagementPolicies' => fn(ParseNode $n) => $o->setMobileDeviceManagementPolicies($n->getCollectionOfObjectValues([MobilityManagementPolicy::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'permissionGrantPolicies' => fn(ParseNode $n) => $o->setPermissionGrantPolicies($n->getCollectionOfObjectValues([PermissionGrantPolicy::class, 'createFromDiscriminatorValue'])),
+            'roleManagementPolicies' => fn(ParseNode $n) => $o->setRoleManagementPolicies($n->getCollectionOfObjectValues([UnifiedRoleManagementPolicy::class, 'createFromDiscriminatorValue'])),
+            'roleManagementPolicyAssignments' => fn(ParseNode $n) => $o->setRoleManagementPolicyAssignments($n->getCollectionOfObjectValues([UnifiedRoleManagementPolicyAssignment::class, 'createFromDiscriminatorValue'])),
+            'servicePrincipalCreationPolicies' => fn(ParseNode $n) => $o->setServicePrincipalCreationPolicies($n->getCollectionOfObjectValues([ServicePrincipalCreationPolicy::class, 'createFromDiscriminatorValue'])),
+            'tokenIssuancePolicies' => fn(ParseNode $n) => $o->setTokenIssuancePolicies($n->getCollectionOfObjectValues([TokenIssuancePolicy::class, 'createFromDiscriminatorValue'])),
+            'tokenLifetimePolicies' => fn(ParseNode $n) => $o->setTokenLifetimePolicies($n->getCollectionOfObjectValues([TokenLifetimePolicy::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
@@ -534,7 +534,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the authenticationStrengthPolicies property value. The authenticationStrengthPolicies property
+     * Sets the authenticationStrengthPolicies property value. The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
      *  @param array<AuthenticationStrengthPolicy>|null $value Value to set for the authenticationStrengthPolicies property.
     */
     public function setAuthenticationStrengthPolicies(?array $value ): void {

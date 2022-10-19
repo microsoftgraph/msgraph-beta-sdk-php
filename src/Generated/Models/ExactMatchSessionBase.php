@@ -88,14 +88,14 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'dataStoreId' => function (ParseNode $n) use ($o) { $o->setDataStoreId($n->getStringValue()); },
-            'processingCompletionDateTime' => function (ParseNode $n) use ($o) { $o->setProcessingCompletionDateTime($n->getDateTimeValue()); },
-            'remainingBlockCount' => function (ParseNode $n) use ($o) { $o->setRemainingBlockCount($n->getIntegerValue()); },
-            'remainingJobCount' => function (ParseNode $n) use ($o) { $o->setRemainingJobCount($n->getIntegerValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
-            'totalBlockCount' => function (ParseNode $n) use ($o) { $o->setTotalBlockCount($n->getIntegerValue()); },
-            'totalJobCount' => function (ParseNode $n) use ($o) { $o->setTotalJobCount($n->getIntegerValue()); },
-            'uploadCompletionDateTime' => function (ParseNode $n) use ($o) { $o->setUploadCompletionDateTime($n->getDateTimeValue()); },
+            'dataStoreId' => fn(ParseNode $n) => $o->setDataStoreId($n->getStringValue()),
+            'processingCompletionDateTime' => fn(ParseNode $n) => $o->setProcessingCompletionDateTime($n->getDateTimeValue()),
+            'remainingBlockCount' => fn(ParseNode $n) => $o->setRemainingBlockCount($n->getIntegerValue()),
+            'remainingJobCount' => fn(ParseNode $n) => $o->setRemainingJobCount($n->getIntegerValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getStringValue()),
+            'totalBlockCount' => fn(ParseNode $n) => $o->setTotalBlockCount($n->getIntegerValue()),
+            'totalJobCount' => fn(ParseNode $n) => $o->setTotalJobCount($n->getIntegerValue()),
+            'uploadCompletionDateTime' => fn(ParseNode $n) => $o->setUploadCompletionDateTime($n->getDateTimeValue()),
         ]);
     }
 

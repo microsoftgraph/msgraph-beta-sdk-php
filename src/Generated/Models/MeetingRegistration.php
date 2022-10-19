@@ -97,14 +97,14 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'customQuestions' => function (ParseNode $n) use ($o) { $o->setCustomQuestions($n->getCollectionOfObjectValues(array(MeetingRegistrationQuestion::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'registrationPageViewCount' => function (ParseNode $n) use ($o) { $o->setRegistrationPageViewCount($n->getIntegerValue()); },
-            'registrationPageWebUrl' => function (ParseNode $n) use ($o) { $o->setRegistrationPageWebUrl($n->getStringValue()); },
-            'speakers' => function (ParseNode $n) use ($o) { $o->setSpeakers($n->getCollectionOfObjectValues(array(MeetingSpeaker::class, 'createFromDiscriminatorValue'))); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
+            'customQuestions' => fn(ParseNode $n) => $o->setCustomQuestions($n->getCollectionOfObjectValues([MeetingRegistrationQuestion::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'registrationPageViewCount' => fn(ParseNode $n) => $o->setRegistrationPageViewCount($n->getIntegerValue()),
+            'registrationPageWebUrl' => fn(ParseNode $n) => $o->setRegistrationPageWebUrl($n->getStringValue()),
+            'speakers' => fn(ParseNode $n) => $o->setSpeakers($n->getCollectionOfObjectValues([MeetingSpeaker::class, 'createFromDiscriminatorValue'])),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
         ]);
     }
 

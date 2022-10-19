@@ -105,13 +105,13 @@ class MobileAppIntentAndStateDetail implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'applicationId' => function (ParseNode $n) use ($o) { $o->setApplicationId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'displayVersion' => function (ParseNode $n) use ($o) { $o->setDisplayVersion($n->getStringValue()); },
-            'installState' => function (ParseNode $n) use ($o) { $o->setInstallState($n->getEnumValue(ResultantAppState::class)); },
-            'mobileAppIntent' => function (ParseNode $n) use ($o) { $o->setMobileAppIntent($n->getEnumValue(MobileAppIntent::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'supportedDeviceTypes' => function (ParseNode $n) use ($o) { $o->setSupportedDeviceTypes($n->getCollectionOfObjectValues(array(MobileAppSupportedDeviceType::class, 'createFromDiscriminatorValue'))); },
+            'applicationId' => fn(ParseNode $n) => $o->setApplicationId($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'displayVersion' => fn(ParseNode $n) => $o->setDisplayVersion($n->getStringValue()),
+            'installState' => fn(ParseNode $n) => $o->setInstallState($n->getEnumValue(ResultantAppState::class)),
+            'mobileAppIntent' => fn(ParseNode $n) => $o->setMobileAppIntent($n->getEnumValue(MobileAppIntent::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'supportedDeviceTypes' => fn(ParseNode $n) => $o->setSupportedDeviceTypes($n->getCollectionOfObjectValues([MobileAppSupportedDeviceType::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

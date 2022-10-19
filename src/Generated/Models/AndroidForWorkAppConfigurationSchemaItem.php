@@ -152,16 +152,16 @@ class AndroidForWorkAppConfigurationSchemaItem implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dataType' => function (ParseNode $n) use ($o) { $o->setDataType($n->getEnumValue(AndroidForWorkAppConfigurationSchemaItemDataType::class)); },
-            'defaultBoolValue' => function (ParseNode $n) use ($o) { $o->setDefaultBoolValue($n->getBooleanValue()); },
-            'defaultIntValue' => function (ParseNode $n) use ($o) { $o->setDefaultIntValue($n->getIntegerValue()); },
-            'defaultStringArrayValue' => function (ParseNode $n) use ($o) { $o->setDefaultStringArrayValue($n->getCollectionOfPrimitiveValues()); },
-            'defaultStringValue' => function (ParseNode $n) use ($o) { $o->setDefaultStringValue($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'schemaItemKey' => function (ParseNode $n) use ($o) { $o->setSchemaItemKey($n->getStringValue()); },
-            'selections' => function (ParseNode $n) use ($o) { $o->setSelections($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'dataType' => fn(ParseNode $n) => $o->setDataType($n->getEnumValue(AndroidForWorkAppConfigurationSchemaItemDataType::class)),
+            'defaultBoolValue' => fn(ParseNode $n) => $o->setDefaultBoolValue($n->getBooleanValue()),
+            'defaultIntValue' => fn(ParseNode $n) => $o->setDefaultIntValue($n->getIntegerValue()),
+            'defaultStringArrayValue' => fn(ParseNode $n) => $o->setDefaultStringArrayValue($n->getCollectionOfPrimitiveValues()),
+            'defaultStringValue' => fn(ParseNode $n) => $o->setDefaultStringValue($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'schemaItemKey' => fn(ParseNode $n) => $o->setSchemaItemKey($n->getStringValue()),
+            'selections' => fn(ParseNode $n) => $o->setSelections($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

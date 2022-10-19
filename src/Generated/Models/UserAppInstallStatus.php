@@ -91,13 +91,13 @@ class UserAppInstallStatus extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'app' => function (ParseNode $n) use ($o) { $o->setApp($n->getObjectValue(array(MobileApp::class, 'createFromDiscriminatorValue'))); },
-            'deviceStatuses' => function (ParseNode $n) use ($o) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(array(MobileAppInstallStatus::class, 'createFromDiscriminatorValue'))); },
-            'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
-            'installedDeviceCount' => function (ParseNode $n) use ($o) { $o->setInstalledDeviceCount($n->getIntegerValue()); },
-            'notInstalledDeviceCount' => function (ParseNode $n) use ($o) { $o->setNotInstalledDeviceCount($n->getIntegerValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'app' => fn(ParseNode $n) => $o->setApp($n->getObjectValue([MobileApp::class, 'createFromDiscriminatorValue'])),
+            'deviceStatuses' => fn(ParseNode $n) => $o->setDeviceStatuses($n->getCollectionOfObjectValues([MobileAppInstallStatus::class, 'createFromDiscriminatorValue'])),
+            'failedDeviceCount' => fn(ParseNode $n) => $o->setFailedDeviceCount($n->getIntegerValue()),
+            'installedDeviceCount' => fn(ParseNode $n) => $o->setInstalledDeviceCount($n->getIntegerValue()),
+            'notInstalledDeviceCount' => fn(ParseNode $n) => $o->setNotInstalledDeviceCount($n->getIntegerValue()),
+            'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

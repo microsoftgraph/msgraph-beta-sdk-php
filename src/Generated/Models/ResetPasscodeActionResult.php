@@ -50,8 +50,8 @@ class ResetPasscodeActionResult extends DeviceActionResult implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
-            'passcode' => function (ParseNode $n) use ($o) { $o->setPasscode($n->getStringValue()); },
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
+            'passcode' => fn(ParseNode $n) => $o->setPasscode($n->getStringValue()),
         ]);
     }
 

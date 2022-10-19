@@ -79,12 +79,12 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appUserModelIds' => function (ParseNode $n) use ($o) { $o->setAppUserModelIds($n->getCollectionOfPrimitiveValues()); },
-            'desktopAppPaths' => function (ParseNode $n) use ($o) { $o->setDesktopAppPaths($n->getCollectionOfPrimitiveValues()); },
-            'profileName' => function (ParseNode $n) use ($o) { $o->setProfileName($n->getStringValue()); },
-            'showTaskBar' => function (ParseNode $n) use ($o) { $o->setShowTaskBar($n->getBooleanValue()); },
-            'startMenuLayoutXml' => function (ParseNode $n) use ($o) { $o->setStartMenuLayoutXml($n->getBinaryContent()); },
-            'userAccounts' => function (ParseNode $n) use ($o) { $o->setUserAccounts($n->getCollectionOfPrimitiveValues()); },
+            'appUserModelIds' => fn(ParseNode $n) => $o->setAppUserModelIds($n->getCollectionOfPrimitiveValues()),
+            'desktopAppPaths' => fn(ParseNode $n) => $o->setDesktopAppPaths($n->getCollectionOfPrimitiveValues()),
+            'profileName' => fn(ParseNode $n) => $o->setProfileName($n->getStringValue()),
+            'showTaskBar' => fn(ParseNode $n) => $o->setShowTaskBar($n->getBooleanValue()),
+            'startMenuLayoutXml' => fn(ParseNode $n) => $o->setStartMenuLayoutXml($n->getBinaryContent()),
+            'userAccounts' => fn(ParseNode $n) => $o->setUserAccounts($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

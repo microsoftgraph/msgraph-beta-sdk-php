@@ -68,10 +68,10 @@ class ApplicationSignInSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'failedSignInCount' => function (ParseNode $n) use ($o) { $o->setFailedSignInCount($n->getIntegerValue()); },
-            'successfulSignInCount' => function (ParseNode $n) use ($o) { $o->setSuccessfulSignInCount($n->getIntegerValue()); },
-            'successPercentage' => function (ParseNode $n) use ($o) { $o->setSuccessPercentage($n->getFloatValue()); },
+            'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
+            'failedSignInCount' => fn(ParseNode $n) => $o->setFailedSignInCount($n->getIntegerValue()),
+            'successfulSignInCount' => fn(ParseNode $n) => $o->setSuccessfulSignInCount($n->getIntegerValue()),
+            'successPercentage' => fn(ParseNode $n) => $o->setSuccessPercentage($n->getFloatValue()),
         ]);
     }
 

@@ -37,7 +37,7 @@ class UserEvidence extends AlertEvidence implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userAccount' => function (ParseNode $n) use ($o) { $o->setUserAccount($n->getObjectValue(array(UserAccount::class, 'createFromDiscriminatorValue'))); },
+            'userAccount' => fn(ParseNode $n) => $o->setUserAccount($n->getObjectValue([UserAccount::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

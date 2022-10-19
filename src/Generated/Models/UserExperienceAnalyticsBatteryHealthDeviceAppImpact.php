@@ -102,12 +102,12 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appName' => function (ParseNode $n) use ($o) { $o->setAppName($n->getStringValue()); },
-            'appPublisher' => function (ParseNode $n) use ($o) { $o->setAppPublisher($n->getStringValue()); },
-            'batteryUsagePercentage' => function (ParseNode $n) use ($o) { $o->setBatteryUsagePercentage($n->getFloatValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'isForegroundApp' => function (ParseNode $n) use ($o) { $o->setIsForegroundApp($n->getBooleanValue()); },
+            'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
+            'appName' => fn(ParseNode $n) => $o->setAppName($n->getStringValue()),
+            'appPublisher' => fn(ParseNode $n) => $o->setAppPublisher($n->getStringValue()),
+            'batteryUsagePercentage' => fn(ParseNode $n) => $o->setBatteryUsagePercentage($n->getFloatValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'isForegroundApp' => fn(ParseNode $n) => $o->setIsForegroundApp($n->getBooleanValue()),
         ]);
     }
 

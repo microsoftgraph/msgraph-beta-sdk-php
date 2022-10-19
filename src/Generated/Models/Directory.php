@@ -135,17 +135,17 @@ class Directory extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'administrativeUnits' => function (ParseNode $n) use ($o) { $o->setAdministrativeUnits($n->getCollectionOfObjectValues(array(AdministrativeUnit::class, 'createFromDiscriminatorValue'))); },
-            'attributeSets' => function (ParseNode $n) use ($o) { $o->setAttributeSets($n->getCollectionOfObjectValues(array(AttributeSet::class, 'createFromDiscriminatorValue'))); },
-            'customSecurityAttributeDefinitions' => function (ParseNode $n) use ($o) { $o->setCustomSecurityAttributeDefinitions($n->getCollectionOfObjectValues(array(CustomSecurityAttributeDefinition::class, 'createFromDiscriminatorValue'))); },
-            'deletedItems' => function (ParseNode $n) use ($o) { $o->setDeletedItems($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'featureRolloutPolicies' => function (ParseNode $n) use ($o) { $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues(array(FeatureRolloutPolicy::class, 'createFromDiscriminatorValue'))); },
-            'federationConfigurations' => function (ParseNode $n) use ($o) { $o->setFederationConfigurations($n->getCollectionOfObjectValues(array(IdentityProviderBase::class, 'createFromDiscriminatorValue'))); },
-            'impactedResources' => function (ParseNode $n) use ($o) { $o->setImpactedResources($n->getCollectionOfObjectValues(array(RecommendationResource::class, 'createFromDiscriminatorValue'))); },
-            'inboundSharedUserProfiles' => function (ParseNode $n) use ($o) { $o->setInboundSharedUserProfiles($n->getCollectionOfObjectValues(array(InboundSharedUserProfile::class, 'createFromDiscriminatorValue'))); },
-            'outboundSharedUserProfiles' => function (ParseNode $n) use ($o) { $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues(array(OutboundSharedUserProfile::class, 'createFromDiscriminatorValue'))); },
-            'recommendations' => function (ParseNode $n) use ($o) { $o->setRecommendations($n->getCollectionOfObjectValues(array(Recommendation::class, 'createFromDiscriminatorValue'))); },
-            'sharedEmailDomains' => function (ParseNode $n) use ($o) { $o->setSharedEmailDomains($n->getCollectionOfObjectValues(array(SharedEmailDomain::class, 'createFromDiscriminatorValue'))); },
+            'administrativeUnits' => fn(ParseNode $n) => $o->setAdministrativeUnits($n->getCollectionOfObjectValues([AdministrativeUnit::class, 'createFromDiscriminatorValue'])),
+            'attributeSets' => fn(ParseNode $n) => $o->setAttributeSets($n->getCollectionOfObjectValues([AttributeSet::class, 'createFromDiscriminatorValue'])),
+            'customSecurityAttributeDefinitions' => fn(ParseNode $n) => $o->setCustomSecurityAttributeDefinitions($n->getCollectionOfObjectValues([CustomSecurityAttributeDefinition::class, 'createFromDiscriminatorValue'])),
+            'deletedItems' => fn(ParseNode $n) => $o->setDeletedItems($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'featureRolloutPolicies' => fn(ParseNode $n) => $o->setFeatureRolloutPolicies($n->getCollectionOfObjectValues([FeatureRolloutPolicy::class, 'createFromDiscriminatorValue'])),
+            'federationConfigurations' => fn(ParseNode $n) => $o->setFederationConfigurations($n->getCollectionOfObjectValues([IdentityProviderBase::class, 'createFromDiscriminatorValue'])),
+            'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([RecommendationResource::class, 'createFromDiscriminatorValue'])),
+            'inboundSharedUserProfiles' => fn(ParseNode $n) => $o->setInboundSharedUserProfiles($n->getCollectionOfObjectValues([InboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
+            'outboundSharedUserProfiles' => fn(ParseNode $n) => $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues([OutboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
+            'recommendations' => fn(ParseNode $n) => $o->setRecommendations($n->getCollectionOfObjectValues([Recommendation::class, 'createFromDiscriminatorValue'])),
+            'sharedEmailDomains' => fn(ParseNode $n) => $o->setSharedEmailDomains($n->getCollectionOfObjectValues([SharedEmailDomain::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

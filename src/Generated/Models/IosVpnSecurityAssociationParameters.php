@@ -71,11 +71,11 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'lifetimeInMinutes' => function (ParseNode $n) use ($o) { $o->setLifetimeInMinutes($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'securityDiffieHellmanGroup' => function (ParseNode $n) use ($o) { $o->setSecurityDiffieHellmanGroup($n->getIntegerValue()); },
-            'securityEncryptionAlgorithm' => function (ParseNode $n) use ($o) { $o->setSecurityEncryptionAlgorithm($n->getEnumValue(VpnEncryptionAlgorithmType::class)); },
-            'securityIntegrityAlgorithm' => function (ParseNode $n) use ($o) { $o->setSecurityIntegrityAlgorithm($n->getEnumValue(VpnIntegrityAlgorithmType::class)); },
+            'lifetimeInMinutes' => fn(ParseNode $n) => $o->setLifetimeInMinutes($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'securityDiffieHellmanGroup' => fn(ParseNode $n) => $o->setSecurityDiffieHellmanGroup($n->getIntegerValue()),
+            'securityEncryptionAlgorithm' => fn(ParseNode $n) => $o->setSecurityEncryptionAlgorithm($n->getEnumValue(VpnEncryptionAlgorithmType::class)),
+            'securityIntegrityAlgorithm' => fn(ParseNode $n) => $o->setSecurityIntegrityAlgorithm($n->getEnumValue(VpnIntegrityAlgorithmType::class)),
         ];
     }
 

@@ -63,12 +63,12 @@ class DataSharingConsent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'grantDateTime' => function (ParseNode $n) use ($o) { $o->setGrantDateTime($n->getDateTimeValue()); },
-            'granted' => function (ParseNode $n) use ($o) { $o->setGranted($n->getBooleanValue()); },
-            'grantedByUpn' => function (ParseNode $n) use ($o) { $o->setGrantedByUpn($n->getStringValue()); },
-            'grantedByUserId' => function (ParseNode $n) use ($o) { $o->setGrantedByUserId($n->getStringValue()); },
-            'serviceDisplayName' => function (ParseNode $n) use ($o) { $o->setServiceDisplayName($n->getStringValue()); },
-            'termsUrl' => function (ParseNode $n) use ($o) { $o->setTermsUrl($n->getStringValue()); },
+            'grantDateTime' => fn(ParseNode $n) => $o->setGrantDateTime($n->getDateTimeValue()),
+            'granted' => fn(ParseNode $n) => $o->setGranted($n->getBooleanValue()),
+            'grantedByUpn' => fn(ParseNode $n) => $o->setGrantedByUpn($n->getStringValue()),
+            'grantedByUserId' => fn(ParseNode $n) => $o->setGrantedByUserId($n->getStringValue()),
+            'serviceDisplayName' => fn(ParseNode $n) => $o->setServiceDisplayName($n->getStringValue()),
+            'termsUrl' => fn(ParseNode $n) => $o->setTermsUrl($n->getStringValue()),
         ]);
     }
 

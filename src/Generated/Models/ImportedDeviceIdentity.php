@@ -104,14 +104,14 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'enrollmentState' => function (ParseNode $n) use ($o) { $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)); },
-            'importedDeviceIdentifier' => function (ParseNode $n) use ($o) { $o->setImportedDeviceIdentifier($n->getStringValue()); },
-            'importedDeviceIdentityType' => function (ParseNode $n) use ($o) { $o->setImportedDeviceIdentityType($n->getEnumValue(ImportedDeviceIdentityType::class)); },
-            'lastContactedDateTime' => function (ParseNode $n) use ($o) { $o->setLastContactedDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(Platform::class)); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'enrollmentState' => fn(ParseNode $n) => $o->setEnrollmentState($n->getEnumValue(EnrollmentState::class)),
+            'importedDeviceIdentifier' => fn(ParseNode $n) => $o->setImportedDeviceIdentifier($n->getStringValue()),
+            'importedDeviceIdentityType' => fn(ParseNode $n) => $o->setImportedDeviceIdentityType($n->getEnumValue(ImportedDeviceIdentityType::class)),
+            'lastContactedDateTime' => fn(ParseNode $n) => $o->setLastContactedDateTime($n->getDateTimeValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(Platform::class)),
         ]);
     }
 

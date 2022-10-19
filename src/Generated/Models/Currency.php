@@ -95,12 +95,12 @@ class Currency extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'amountDecimalPlaces' => function (ParseNode $n) use ($o) { $o->setAmountDecimalPlaces($n->getStringValue()); },
-            'amountRoundingPrecision' => function (ParseNode $n) use ($o) { $o->setAmountRoundingPrecision($n->getStringValue()); },
-            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'symbol' => function (ParseNode $n) use ($o) { $o->setSymbol($n->getStringValue()); },
+            'amountDecimalPlaces' => fn(ParseNode $n) => $o->setAmountDecimalPlaces($n->getStringValue()),
+            'amountRoundingPrecision' => fn(ParseNode $n) => $o->setAmountRoundingPrecision($n->getStringValue()),
+            'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'symbol' => fn(ParseNode $n) => $o->setSymbol($n->getStringValue()),
         ]);
     }
 

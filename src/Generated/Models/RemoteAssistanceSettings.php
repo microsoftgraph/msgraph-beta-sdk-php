@@ -63,9 +63,9 @@ class RemoteAssistanceSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowSessionsToUnenrolledDevices' => function (ParseNode $n) use ($o) { $o->setAllowSessionsToUnenrolledDevices($n->getBooleanValue()); },
-            'blockChat' => function (ParseNode $n) use ($o) { $o->setBlockChat($n->getBooleanValue()); },
-            'remoteAssistanceState' => function (ParseNode $n) use ($o) { $o->setRemoteAssistanceState($n->getEnumValue(RemoteAssistanceState::class)); },
+            'allowSessionsToUnenrolledDevices' => fn(ParseNode $n) => $o->setAllowSessionsToUnenrolledDevices($n->getBooleanValue()),
+            'blockChat' => fn(ParseNode $n) => $o->setBlockChat($n->getBooleanValue()),
+            'remoteAssistanceState' => fn(ParseNode $n) => $o->setRemoteAssistanceState($n->getEnumValue(RemoteAssistanceState::class)),
         ]);
     }
 

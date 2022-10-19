@@ -128,17 +128,17 @@ class MacOSSoftwareUpdateAccountSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categorySummaries' => function (ParseNode $n) use ($o) { $o->setCategorySummaries($n->getCollectionOfObjectValues(array(MacOSSoftwareUpdateCategorySummary::class, 'createFromDiscriminatorValue'))); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'failedUpdateCount' => function (ParseNode $n) use ($o) { $o->setFailedUpdateCount($n->getIntegerValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'successfulUpdateCount' => function (ParseNode $n) use ($o) { $o->setSuccessfulUpdateCount($n->getIntegerValue()); },
-            'totalUpdateCount' => function (ParseNode $n) use ($o) { $o->setTotalUpdateCount($n->getIntegerValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'categorySummaries' => fn(ParseNode $n) => $o->setCategorySummaries($n->getCollectionOfObjectValues([MacOSSoftwareUpdateCategorySummary::class, 'createFromDiscriminatorValue'])),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'failedUpdateCount' => fn(ParseNode $n) => $o->setFailedUpdateCount($n->getIntegerValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
+            'successfulUpdateCount' => fn(ParseNode $n) => $o->setSuccessfulUpdateCount($n->getIntegerValue()),
+            'totalUpdateCount' => fn(ParseNode $n) => $o->setTotalUpdateCount($n->getIntegerValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

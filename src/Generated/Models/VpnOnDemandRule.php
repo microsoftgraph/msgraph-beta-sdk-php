@@ -136,16 +136,16 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(VpnOnDemandRuleConnectionAction::class)); },
-            'dnsSearchDomains' => function (ParseNode $n) use ($o) { $o->setDnsSearchDomains($n->getCollectionOfPrimitiveValues()); },
-            'dnsServerAddressMatch' => function (ParseNode $n) use ($o) { $o->setDnsServerAddressMatch($n->getCollectionOfPrimitiveValues()); },
-            'domainAction' => function (ParseNode $n) use ($o) { $o->setDomainAction($n->getEnumValue(VpnOnDemandRuleConnectionDomainAction::class)); },
-            'domains' => function (ParseNode $n) use ($o) { $o->setDomains($n->getCollectionOfPrimitiveValues()); },
-            'interfaceTypeMatch' => function (ParseNode $n) use ($o) { $o->setInterfaceTypeMatch($n->getEnumValue(VpnOnDemandRuleInterfaceTypeMatch::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'probeRequiredUrl' => function (ParseNode $n) use ($o) { $o->setProbeRequiredUrl($n->getStringValue()); },
-            'probeUrl' => function (ParseNode $n) use ($o) { $o->setProbeUrl($n->getStringValue()); },
-            'ssids' => function (ParseNode $n) use ($o) { $o->setSsids($n->getCollectionOfPrimitiveValues()); },
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(VpnOnDemandRuleConnectionAction::class)),
+            'dnsSearchDomains' => fn(ParseNode $n) => $o->setDnsSearchDomains($n->getCollectionOfPrimitiveValues()),
+            'dnsServerAddressMatch' => fn(ParseNode $n) => $o->setDnsServerAddressMatch($n->getCollectionOfPrimitiveValues()),
+            'domainAction' => fn(ParseNode $n) => $o->setDomainAction($n->getEnumValue(VpnOnDemandRuleConnectionDomainAction::class)),
+            'domains' => fn(ParseNode $n) => $o->setDomains($n->getCollectionOfPrimitiveValues()),
+            'interfaceTypeMatch' => fn(ParseNode $n) => $o->setInterfaceTypeMatch($n->getEnumValue(VpnOnDemandRuleInterfaceTypeMatch::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'probeRequiredUrl' => fn(ParseNode $n) => $o->setProbeRequiredUrl($n->getStringValue()),
+            'probeUrl' => fn(ParseNode $n) => $o->setProbeUrl($n->getStringValue()),
+            'ssids' => fn(ParseNode $n) => $o->setSsids($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

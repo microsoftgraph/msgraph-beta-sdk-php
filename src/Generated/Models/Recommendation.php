@@ -148,21 +148,21 @@ class Recommendation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionSteps' => function (ParseNode $n) use ($o) { $o->setActionSteps($n->getCollectionOfObjectValues(array(ActionStep::class, 'createFromDiscriminatorValue'))); },
-            'benefits' => function (ParseNode $n) use ($o) { $o->setBenefits($n->getStringValue()); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(RecommendationCategory::class)); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'impactedResources' => function (ParseNode $n) use ($o) { $o->setImpactedResources($n->getCollectionOfObjectValues(array(RecommendationResource::class, 'createFromDiscriminatorValue'))); },
-            'impactStartDateTime' => function (ParseNode $n) use ($o) { $o->setImpactStartDateTime($n->getDateTimeValue()); },
-            'impactType' => function (ParseNode $n) use ($o) { $o->setImpactType($n->getStringValue()); },
-            'insights' => function (ParseNode $n) use ($o) { $o->setInsights($n->getStringValue()); },
-            'lastCheckedDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckedDateTime($n->getDateTimeValue()); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'postponeUntilDateTime' => function (ParseNode $n) use ($o) { $o->setPostponeUntilDateTime($n->getDateTimeValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getEnumValue(RecommendationPriority::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(RecommendationStatus::class)); },
+            'actionSteps' => fn(ParseNode $n) => $o->setActionSteps($n->getCollectionOfObjectValues([ActionStep::class, 'createFromDiscriminatorValue'])),
+            'benefits' => fn(ParseNode $n) => $o->setBenefits($n->getStringValue()),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(RecommendationCategory::class)),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([RecommendationResource::class, 'createFromDiscriminatorValue'])),
+            'impactStartDateTime' => fn(ParseNode $n) => $o->setImpactStartDateTime($n->getDateTimeValue()),
+            'impactType' => fn(ParseNode $n) => $o->setImpactType($n->getStringValue()),
+            'insights' => fn(ParseNode $n) => $o->setInsights($n->getStringValue()),
+            'lastCheckedDateTime' => fn(ParseNode $n) => $o->setLastCheckedDateTime($n->getDateTimeValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'postponeUntilDateTime' => fn(ParseNode $n) => $o->setPostponeUntilDateTime($n->getDateTimeValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(RecommendationPriority::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RecommendationStatus::class)),
         ]);
     }
 

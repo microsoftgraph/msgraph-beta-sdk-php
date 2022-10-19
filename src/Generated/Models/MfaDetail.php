@@ -77,9 +77,9 @@ class MfaDetail implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'authDetail' => function (ParseNode $n) use ($o) { $o->setAuthDetail($n->getStringValue()); },
-            'authMethod' => function (ParseNode $n) use ($o) { $o->setAuthMethod($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'authDetail' => fn(ParseNode $n) => $o->setAuthDetail($n->getStringValue()),
+            'authMethod' => fn(ParseNode $n) => $o->setAuthMethod($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

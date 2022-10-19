@@ -39,7 +39,7 @@ class CloudPcServicePlan extends Entity implements Parsable
     private ?int $vCpuCount = null;
     
     /**
-     * Instantiates a new CloudPcServicePlan and sets the default values.
+     * Instantiates a new cloudPcServicePlan and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -70,12 +70,12 @@ class CloudPcServicePlan extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'ramInGB' => function (ParseNode $n) use ($o) { $o->setRamInGB($n->getIntegerValue()); },
-            'storageInGB' => function (ParseNode $n) use ($o) { $o->setStorageInGB($n->getIntegerValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(CloudPcServicePlanType::class)); },
-            'userProfileInGB' => function (ParseNode $n) use ($o) { $o->setUserProfileInGB($n->getIntegerValue()); },
-            'vCpuCount' => function (ParseNode $n) use ($o) { $o->setVCpuCount($n->getIntegerValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'ramInGB' => fn(ParseNode $n) => $o->setRamInGB($n->getIntegerValue()),
+            'storageInGB' => fn(ParseNode $n) => $o->setStorageInGB($n->getIntegerValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcServicePlanType::class)),
+            'userProfileInGB' => fn(ParseNode $n) => $o->setUserProfileInGB($n->getIntegerValue()),
+            'vCpuCount' => fn(ParseNode $n) => $o->setVCpuCount($n->getIntegerValue()),
         ]);
     }
 

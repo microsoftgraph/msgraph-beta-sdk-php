@@ -110,7 +110,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     private ?string $wifiSsid = null;
     
     /**
-     * Instantiates a new AndroidDeviceOwnerEnrollmentProfile and sets the default values.
+     * Instantiates a new androidDeviceOwnerEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -205,26 +205,26 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accountId' => function (ParseNode $n) use ($o) { $o->setAccountId($n->getStringValue()); },
-            'configureWifi' => function (ParseNode $n) use ($o) { $o->setConfigureWifi($n->getBooleanValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enrolledDeviceCount' => function (ParseNode $n) use ($o) { $o->setEnrolledDeviceCount($n->getIntegerValue()); },
-            'enrollmentMode' => function (ParseNode $n) use ($o) { $o->setEnrollmentMode($n->getEnumValue(AndroidDeviceOwnerEnrollmentMode::class)); },
-            'enrollmentTokenType' => function (ParseNode $n) use ($o) { $o->setEnrollmentTokenType($n->getEnumValue(AndroidDeviceOwnerEnrollmentTokenType::class)); },
-            'enrollmentTokenUsageCount' => function (ParseNode $n) use ($o) { $o->setEnrollmentTokenUsageCount($n->getIntegerValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'qrCodeContent' => function (ParseNode $n) use ($o) { $o->setQrCodeContent($n->getStringValue()); },
-            'qrCodeImage' => function (ParseNode $n) use ($o) { $o->setQrCodeImage($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'tokenCreationDateTime' => function (ParseNode $n) use ($o) { $o->setTokenCreationDateTime($n->getDateTimeValue()); },
-            'tokenExpirationDateTime' => function (ParseNode $n) use ($o) { $o->setTokenExpirationDateTime($n->getDateTimeValue()); },
-            'tokenValue' => function (ParseNode $n) use ($o) { $o->setTokenValue($n->getStringValue()); },
-            'wifiHidden' => function (ParseNode $n) use ($o) { $o->setWifiHidden($n->getBooleanValue()); },
-            'wifiPassword' => function (ParseNode $n) use ($o) { $o->setWifiPassword($n->getStringValue()); },
-            'wifiSecurityType' => function (ParseNode $n) use ($o) { $o->setWifiSecurityType($n->getEnumValue(AospWifiSecurityType::class)); },
-            'wifiSsid' => function (ParseNode $n) use ($o) { $o->setWifiSsid($n->getStringValue()); },
+            'accountId' => fn(ParseNode $n) => $o->setAccountId($n->getStringValue()),
+            'configureWifi' => fn(ParseNode $n) => $o->setConfigureWifi($n->getBooleanValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'enrolledDeviceCount' => fn(ParseNode $n) => $o->setEnrolledDeviceCount($n->getIntegerValue()),
+            'enrollmentMode' => fn(ParseNode $n) => $o->setEnrollmentMode($n->getEnumValue(AndroidDeviceOwnerEnrollmentMode::class)),
+            'enrollmentTokenType' => fn(ParseNode $n) => $o->setEnrollmentTokenType($n->getEnumValue(AndroidDeviceOwnerEnrollmentTokenType::class)),
+            'enrollmentTokenUsageCount' => fn(ParseNode $n) => $o->setEnrollmentTokenUsageCount($n->getIntegerValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'qrCodeContent' => fn(ParseNode $n) => $o->setQrCodeContent($n->getStringValue()),
+            'qrCodeImage' => fn(ParseNode $n) => $o->setQrCodeImage($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'tokenCreationDateTime' => fn(ParseNode $n) => $o->setTokenCreationDateTime($n->getDateTimeValue()),
+            'tokenExpirationDateTime' => fn(ParseNode $n) => $o->setTokenExpirationDateTime($n->getDateTimeValue()),
+            'tokenValue' => fn(ParseNode $n) => $o->setTokenValue($n->getStringValue()),
+            'wifiHidden' => fn(ParseNode $n) => $o->setWifiHidden($n->getBooleanValue()),
+            'wifiPassword' => fn(ParseNode $n) => $o->setWifiPassword($n->getStringValue()),
+            'wifiSecurityType' => fn(ParseNode $n) => $o->setWifiSecurityType($n->getEnumValue(AospWifiSecurityType::class)),
+            'wifiSsid' => fn(ParseNode $n) => $o->setWifiSsid($n->getStringValue()),
         ]);
     }
 

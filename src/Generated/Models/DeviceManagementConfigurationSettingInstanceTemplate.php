@@ -78,10 +78,10 @@ class DeviceManagementConfigurationSettingInstanceTemplate implements Additional
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'settingDefinitionId' => function (ParseNode $n) use ($o) { $o->setSettingDefinitionId($n->getStringValue()); },
-            'settingInstanceTemplateId' => function (ParseNode $n) use ($o) { $o->setSettingInstanceTemplateId($n->getStringValue()); },
+            'isRequired' => fn(ParseNode $n) => $o->setIsRequired($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'settingDefinitionId' => fn(ParseNode $n) => $o->setSettingDefinitionId($n->getStringValue()),
+            'settingInstanceTemplateId' => fn(ParseNode $n) => $o->setSettingInstanceTemplateId($n->getStringValue()),
         ];
     }
 

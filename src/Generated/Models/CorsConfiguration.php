@@ -100,12 +100,12 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedHeaders' => function (ParseNode $n) use ($o) { $o->setAllowedHeaders($n->getCollectionOfPrimitiveValues()); },
-            'allowedMethods' => function (ParseNode $n) use ($o) { $o->setAllowedMethods($n->getCollectionOfPrimitiveValues()); },
-            'allowedOrigins' => function (ParseNode $n) use ($o) { $o->setAllowedOrigins($n->getCollectionOfPrimitiveValues()); },
-            'maxAgeInSeconds' => function (ParseNode $n) use ($o) { $o->setMaxAgeInSeconds($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getStringValue()); },
+            'allowedHeaders' => fn(ParseNode $n) => $o->setAllowedHeaders($n->getCollectionOfPrimitiveValues()),
+            'allowedMethods' => fn(ParseNode $n) => $o->setAllowedMethods($n->getCollectionOfPrimitiveValues()),
+            'allowedOrigins' => fn(ParseNode $n) => $o->setAllowedOrigins($n->getCollectionOfPrimitiveValues()),
+            'maxAgeInSeconds' => fn(ParseNode $n) => $o->setMaxAgeInSeconds($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'resource' => fn(ParseNode $n) => $o->setResource($n->getStringValue()),
         ];
     }
 

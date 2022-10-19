@@ -45,7 +45,7 @@ class DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate ext
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'constantValue' => function (ParseNode $n) use ($o) { $o->setConstantValue($n->getStringValue()); },
+            'constantValue' => fn(ParseNode $n) => $o->setConstantValue($n->getStringValue()),
         ]);
     }
 

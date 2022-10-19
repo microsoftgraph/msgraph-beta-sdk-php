@@ -75,10 +75,10 @@ class CloudPcOnPremisesConnectionStatusDetails implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'healthChecks' => function (ParseNode $n) use ($o) { $o->setHealthChecks($n->getCollectionOfObjectValues(array(CloudPcOnPremisesConnectionHealthCheck::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'healthChecks' => fn(ParseNode $n) => $o->setHealthChecks($n->getCollectionOfObjectValues([CloudPcOnPremisesConnectionHealthCheck::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
         ];
     }
 

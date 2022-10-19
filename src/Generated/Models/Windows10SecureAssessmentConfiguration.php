@@ -120,14 +120,14 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration impleme
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowPrinting' => function (ParseNode $n) use ($o) { $o->setAllowPrinting($n->getBooleanValue()); },
-            'allowScreenCapture' => function (ParseNode $n) use ($o) { $o->setAllowScreenCapture($n->getBooleanValue()); },
-            'allowTextSuggestion' => function (ParseNode $n) use ($o) { $o->setAllowTextSuggestion($n->getBooleanValue()); },
-            'assessmentAppUserModelId' => function (ParseNode $n) use ($o) { $o->setAssessmentAppUserModelId($n->getStringValue()); },
-            'configurationAccount' => function (ParseNode $n) use ($o) { $o->setConfigurationAccount($n->getStringValue()); },
-            'configurationAccountType' => function (ParseNode $n) use ($o) { $o->setConfigurationAccountType($n->getEnumValue(SecureAssessmentAccountType::class)); },
-            'launchUri' => function (ParseNode $n) use ($o) { $o->setLaunchUri($n->getStringValue()); },
-            'localGuestAccountName' => function (ParseNode $n) use ($o) { $o->setLocalGuestAccountName($n->getStringValue()); },
+            'allowPrinting' => fn(ParseNode $n) => $o->setAllowPrinting($n->getBooleanValue()),
+            'allowScreenCapture' => fn(ParseNode $n) => $o->setAllowScreenCapture($n->getBooleanValue()),
+            'allowTextSuggestion' => fn(ParseNode $n) => $o->setAllowTextSuggestion($n->getBooleanValue()),
+            'assessmentAppUserModelId' => fn(ParseNode $n) => $o->setAssessmentAppUserModelId($n->getStringValue()),
+            'configurationAccount' => fn(ParseNode $n) => $o->setConfigurationAccount($n->getStringValue()),
+            'configurationAccountType' => fn(ParseNode $n) => $o->setConfigurationAccountType($n->getEnumValue(SecureAssessmentAccountType::class)),
+            'launchUri' => fn(ParseNode $n) => $o->setLaunchUri($n->getStringValue()),
+            'localGuestAccountName' => fn(ParseNode $n) => $o->setLocalGuestAccountName($n->getStringValue()),
         ]);
     }
 

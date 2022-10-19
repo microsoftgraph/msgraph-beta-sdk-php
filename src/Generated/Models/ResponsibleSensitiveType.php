@@ -89,13 +89,13 @@ class ResponsibleSensitiveType implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'publisherName' => function (ParseNode $n) use ($o) { $o->setPublisherName($n->getStringValue()); },
-            'rulePackageId' => function (ParseNode $n) use ($o) { $o->setRulePackageId($n->getStringValue()); },
-            'rulePackageType' => function (ParseNode $n) use ($o) { $o->setRulePackageType($n->getStringValue()); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'publisherName' => fn(ParseNode $n) => $o->setPublisherName($n->getStringValue()),
+            'rulePackageId' => fn(ParseNode $n) => $o->setRulePackageId($n->getStringValue()),
+            'rulePackageType' => fn(ParseNode $n) => $o->setRulePackageType($n->getStringValue()),
         ];
     }
 

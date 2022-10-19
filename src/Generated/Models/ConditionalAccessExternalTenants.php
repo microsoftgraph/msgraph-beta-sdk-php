@@ -64,8 +64,8 @@ class ConditionalAccessExternalTenants implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'membershipKind' => function (ParseNode $n) use ($o) { $o->setMembershipKind($n->getEnumValue(ConditionalAccessExternalTenantsMembershipKind::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'membershipKind' => fn(ParseNode $n) => $o->setMembershipKind($n->getEnumValue(ConditionalAccessExternalTenantsMembershipKind::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

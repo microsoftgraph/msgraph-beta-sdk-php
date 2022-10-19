@@ -69,9 +69,9 @@ class FilterGroup implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'clauses' => function (ParseNode $n) use ($o) { $o->setClauses($n->getCollectionOfObjectValues(array(FilterClause::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'clauses' => fn(ParseNode $n) => $o->setClauses($n->getCollectionOfObjectValues([FilterClause::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

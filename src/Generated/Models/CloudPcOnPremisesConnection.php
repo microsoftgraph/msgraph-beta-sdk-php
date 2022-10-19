@@ -152,22 +152,22 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'adDomainName' => function (ParseNode $n) use ($o) { $o->setAdDomainName($n->getStringValue()); },
-            'adDomainPassword' => function (ParseNode $n) use ($o) { $o->setAdDomainPassword($n->getStringValue()); },
-            'adDomainUsername' => function (ParseNode $n) use ($o) { $o->setAdDomainUsername($n->getStringValue()); },
-            'alternateResourceUrl' => function (ParseNode $n) use ($o) { $o->setAlternateResourceUrl($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'healthCheckStatus' => function (ParseNode $n) use ($o) { $o->setHealthCheckStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)); },
-            'healthCheckStatusDetails' => function (ParseNode $n) use ($o) { $o->setHealthCheckStatusDetails($n->getObjectValue(array(CloudPcOnPremisesConnectionStatusDetails::class, 'createFromDiscriminatorValue'))); },
-            'inUse' => function (ParseNode $n) use ($o) { $o->setInUse($n->getBooleanValue()); },
-            'managedBy' => function (ParseNode $n) use ($o) { $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)); },
-            'organizationalUnit' => function (ParseNode $n) use ($o) { $o->setOrganizationalUnit($n->getStringValue()); },
-            'resourceGroupId' => function (ParseNode $n) use ($o) { $o->setResourceGroupId($n->getStringValue()); },
-            'subnetId' => function (ParseNode $n) use ($o) { $o->setSubnetId($n->getStringValue()); },
-            'subscriptionId' => function (ParseNode $n) use ($o) { $o->setSubscriptionId($n->getStringValue()); },
-            'subscriptionName' => function (ParseNode $n) use ($o) { $o->setSubscriptionName($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(CloudPcOnPremisesConnectionType::class)); },
-            'virtualNetworkId' => function (ParseNode $n) use ($o) { $o->setVirtualNetworkId($n->getStringValue()); },
+            'adDomainName' => fn(ParseNode $n) => $o->setAdDomainName($n->getStringValue()),
+            'adDomainPassword' => fn(ParseNode $n) => $o->setAdDomainPassword($n->getStringValue()),
+            'adDomainUsername' => fn(ParseNode $n) => $o->setAdDomainUsername($n->getStringValue()),
+            'alternateResourceUrl' => fn(ParseNode $n) => $o->setAlternateResourceUrl($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'healthCheckStatus' => fn(ParseNode $n) => $o->setHealthCheckStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)),
+            'healthCheckStatusDetails' => fn(ParseNode $n) => $o->setHealthCheckStatusDetails($n->getObjectValue([CloudPcOnPremisesConnectionStatusDetails::class, 'createFromDiscriminatorValue'])),
+            'inUse' => fn(ParseNode $n) => $o->setInUse($n->getBooleanValue()),
+            'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)),
+            'organizationalUnit' => fn(ParseNode $n) => $o->setOrganizationalUnit($n->getStringValue()),
+            'resourceGroupId' => fn(ParseNode $n) => $o->setResourceGroupId($n->getStringValue()),
+            'subnetId' => fn(ParseNode $n) => $o->setSubnetId($n->getStringValue()),
+            'subscriptionId' => fn(ParseNode $n) => $o->setSubscriptionId($n->getStringValue()),
+            'subscriptionName' => fn(ParseNode $n) => $o->setSubscriptionName($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(CloudPcOnPremisesConnectionType::class)),
+            'virtualNetworkId' => fn(ParseNode $n) => $o->setVirtualNetworkId($n->getStringValue()),
         ]);
     }
 

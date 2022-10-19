@@ -54,10 +54,10 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getObjectValue(array(User::class, 'createFromDiscriminatorValue'))); },
-            'task' => function (ParseNode $n) use ($o) { $o->setTask($n->getObjectValue(array(Task::class, 'createFromDiscriminatorValue'))); },
-            'taskProcessingresult' => function (ParseNode $n) use ($o) { $o->setTaskProcessingresult($n->getObjectValue(array(TaskProcessingResult::class, 'createFromDiscriminatorValue'))); },
-            'workflow' => function (ParseNode $n) use ($o) { $o->setWorkflow($n->getObjectValue(array(Workflow::class, 'createFromDiscriminatorValue'))); },
+            'subject' => fn(ParseNode $n) => $o->setSubject($n->getObjectValue([User::class, 'createFromDiscriminatorValue'])),
+            'task' => fn(ParseNode $n) => $o->setTask($n->getObjectValue([Task::class, 'createFromDiscriminatorValue'])),
+            'taskProcessingresult' => fn(ParseNode $n) => $o->setTaskProcessingresult($n->getObjectValue([TaskProcessingResult::class, 'createFromDiscriminatorValue'])),
+            'workflow' => fn(ParseNode $n) => $o->setWorkflow($n->getObjectValue([Workflow::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

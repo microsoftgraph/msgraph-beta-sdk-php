@@ -85,12 +85,12 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dateFormat' => function (ParseNode $n) use ($o) { $o->setDateFormat($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'officeHoursEndTime' => function (ParseNode $n) use ($o) { $o->setOfficeHoursEndTime($n->getTimeValue()); },
-            'officeHoursStartTime' => function (ParseNode $n) use ($o) { $o->setOfficeHoursStartTime($n->getTimeValue()); },
-            'timeFormat' => function (ParseNode $n) use ($o) { $o->setTimeFormat($n->getStringValue()); },
-            'timeZone' => function (ParseNode $n) use ($o) { $o->setTimeZone($n->getStringValue()); },
+            'dateFormat' => fn(ParseNode $n) => $o->setDateFormat($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'officeHoursEndTime' => fn(ParseNode $n) => $o->setOfficeHoursEndTime($n->getTimeValue()),
+            'officeHoursStartTime' => fn(ParseNode $n) => $o->setOfficeHoursStartTime($n->getTimeValue()),
+            'timeFormat' => fn(ParseNode $n) => $o->setTimeFormat($n->getStringValue()),
+            'timeZone' => fn(ParseNode $n) => $o->setTimeZone($n->getStringValue()),
         ];
     }
 

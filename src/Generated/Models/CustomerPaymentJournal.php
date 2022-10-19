@@ -116,13 +116,13 @@ class CustomerPaymentJournal extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'account' => function (ParseNode $n) use ($o) { $o->setAccount($n->getObjectValue(array(Account::class, 'createFromDiscriminatorValue'))); },
-            'balancingAccountId' => function (ParseNode $n) use ($o) { $o->setBalancingAccountId($n->getStringValue()); },
-            'balancingAccountNumber' => function (ParseNode $n) use ($o) { $o->setBalancingAccountNumber($n->getStringValue()); },
-            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
-            'customerPayments' => function (ParseNode $n) use ($o) { $o->setCustomerPayments($n->getCollectionOfObjectValues(array(CustomerPayment::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'account' => fn(ParseNode $n) => $o->setAccount($n->getObjectValue([Account::class, 'createFromDiscriminatorValue'])),
+            'balancingAccountId' => fn(ParseNode $n) => $o->setBalancingAccountId($n->getStringValue()),
+            'balancingAccountNumber' => fn(ParseNode $n) => $o->setBalancingAccountNumber($n->getStringValue()),
+            'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
+            'customerPayments' => fn(ParseNode $n) => $o->setCustomerPayments($n->getCollectionOfObjectValues([CustomerPayment::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
         ]);
     }
 

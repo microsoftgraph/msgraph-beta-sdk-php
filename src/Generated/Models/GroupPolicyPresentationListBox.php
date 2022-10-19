@@ -50,8 +50,8 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation imp
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'explicitValue' => function (ParseNode $n) use ($o) { $o->setExplicitValue($n->getBooleanValue()); },
-            'valuePrefix' => function (ParseNode $n) use ($o) { $o->setValuePrefix($n->getStringValue()); },
+            'explicitValue' => fn(ParseNode $n) => $o->setExplicitValue($n->getBooleanValue()),
+            'valuePrefix' => fn(ParseNode $n) => $o->setValuePrefix($n->getStringValue()),
         ]);
     }
 

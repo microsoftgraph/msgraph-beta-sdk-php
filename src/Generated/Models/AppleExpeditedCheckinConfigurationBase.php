@@ -52,7 +52,7 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration impleme
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'enableExpeditedCheckin' => function (ParseNode $n) use ($o) { $o->setEnableExpeditedCheckin($n->getBooleanValue()); },
+            'enableExpeditedCheckin' => fn(ParseNode $n) => $o->setEnableExpeditedCheckin($n->getBooleanValue()),
         ]);
     }
 

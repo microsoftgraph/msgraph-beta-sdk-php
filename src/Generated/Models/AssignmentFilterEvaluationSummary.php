@@ -156,15 +156,15 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assignmentFilterDisplayName' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterDisplayName($n->getStringValue()); },
-            'assignmentFilterId' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterId($n->getStringValue()); },
-            'assignmentFilterLastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterLastModifiedDateTime($n->getDateTimeValue()); },
-            'assignmentFilterPlatform' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterPlatform($n->getEnumValue(DevicePlatformType::class)); },
-            'assignmentFilterType' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
-            'assignmentFilterTypeAndEvaluationResults' => function (ParseNode $n) use ($o) { $o->setAssignmentFilterTypeAndEvaluationResults($n->getCollectionOfObjectValues(array(AssignmentFilterTypeAndEvaluationResult::class, 'createFromDiscriminatorValue'))); },
-            'evaluationDateTime' => function (ParseNode $n) use ($o) { $o->setEvaluationDateTime($n->getDateTimeValue()); },
-            'evaluationResult' => function (ParseNode $n) use ($o) { $o->setEvaluationResult($n->getEnumValue(AssignmentFilterEvaluationResult::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'assignmentFilterDisplayName' => fn(ParseNode $n) => $o->setAssignmentFilterDisplayName($n->getStringValue()),
+            'assignmentFilterId' => fn(ParseNode $n) => $o->setAssignmentFilterId($n->getStringValue()),
+            'assignmentFilterLastModifiedDateTime' => fn(ParseNode $n) => $o->setAssignmentFilterLastModifiedDateTime($n->getDateTimeValue()),
+            'assignmentFilterPlatform' => fn(ParseNode $n) => $o->setAssignmentFilterPlatform($n->getEnumValue(DevicePlatformType::class)),
+            'assignmentFilterType' => fn(ParseNode $n) => $o->setAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)),
+            'assignmentFilterTypeAndEvaluationResults' => fn(ParseNode $n) => $o->setAssignmentFilterTypeAndEvaluationResults($n->getCollectionOfObjectValues([AssignmentFilterTypeAndEvaluationResult::class, 'createFromDiscriminatorValue'])),
+            'evaluationDateTime' => fn(ParseNode $n) => $o->setEvaluationDateTime($n->getDateTimeValue()),
+            'evaluationResult' => fn(ParseNode $n) => $o->setEvaluationResult($n->getEnumValue(AssignmentFilterEvaluationResult::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

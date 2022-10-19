@@ -56,8 +56,8 @@ class ClassifyFilePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'file' => function (ParseNode $n) use ($o) { $o->setFile($n->getBinaryContent()); },
-            'sensitiveTypeIds' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeIds($n->getCollectionOfPrimitiveValues()); },
+            'file' => fn(ParseNode $n) => $o->setFile($n->getBinaryContent()),
+            'sensitiveTypeIds' => fn(ParseNode $n) => $o->setSensitiveTypeIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

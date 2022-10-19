@@ -114,14 +114,14 @@ class ManagedTenantEmailNotification extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alert' => function (ParseNode $n) use ($o) { $o->setAlert($n->getObjectValue(array(ManagedTenantAlert::class, 'createFromDiscriminatorValue'))); },
-            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'emailAddresses' => function (ParseNode $n) use ($o) { $o->setEmailAddresses($n->getCollectionOfObjectValues(array(Email::class, 'createFromDiscriminatorValue'))); },
-            'emailBody' => function (ParseNode $n) use ($o) { $o->setEmailBody($n->getStringValue()); },
-            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getStringValue()); },
+            'alert' => fn(ParseNode $n) => $o->setAlert($n->getObjectValue([ManagedTenantAlert::class, 'createFromDiscriminatorValue'])),
+            'createdByUserId' => fn(ParseNode $n) => $o->setCreatedByUserId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'emailAddresses' => fn(ParseNode $n) => $o->setEmailAddresses($n->getCollectionOfObjectValues([Email::class, 'createFromDiscriminatorValue'])),
+            'emailBody' => fn(ParseNode $n) => $o->setEmailBody($n->getStringValue()),
+            'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
+            'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
+            'subject' => fn(ParseNode $n) => $o->setSubject($n->getStringValue()),
         ]);
     }
 

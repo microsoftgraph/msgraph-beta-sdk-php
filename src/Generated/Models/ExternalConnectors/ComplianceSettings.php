@@ -64,8 +64,8 @@ class ComplianceSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'eDiscoveryResultTemplates' => function (ParseNode $n) use ($o) { $o->setEDiscoveryResultTemplates($n->getCollectionOfObjectValues(array(DisplayTemplate::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'eDiscoveryResultTemplates' => fn(ParseNode $n) => $o->setEDiscoveryResultTemplates($n->getCollectionOfObjectValues([DisplayTemplate::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -69,9 +69,9 @@ class ConditionalAccessDeviceStates implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'excludeStates' => function (ParseNode $n) use ($o) { $o->setExcludeStates($n->getCollectionOfPrimitiveValues()); },
-            'includeStates' => function (ParseNode $n) use ($o) { $o->setIncludeStates($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'excludeStates' => fn(ParseNode $n) => $o->setExcludeStates($n->getCollectionOfPrimitiveValues()),
+            'includeStates' => fn(ParseNode $n) => $o->setIncludeStates($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

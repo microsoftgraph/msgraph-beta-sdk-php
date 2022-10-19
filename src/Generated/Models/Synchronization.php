@@ -47,9 +47,9 @@ class Synchronization extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'jobs' => function (ParseNode $n) use ($o) { $o->setJobs($n->getCollectionOfObjectValues(array(SynchronizationJob::class, 'createFromDiscriminatorValue'))); },
-            'secrets' => function (ParseNode $n) use ($o) { $o->setSecrets($n->getCollectionOfObjectValues(array(SynchronizationSecretKeyStringValuePair::class, 'createFromDiscriminatorValue'))); },
-            'templates' => function (ParseNode $n) use ($o) { $o->setTemplates($n->getCollectionOfObjectValues(array(SynchronizationTemplate::class, 'createFromDiscriminatorValue'))); },
+            'jobs' => fn(ParseNode $n) => $o->setJobs($n->getCollectionOfObjectValues([SynchronizationJob::class, 'createFromDiscriminatorValue'])),
+            'secrets' => fn(ParseNode $n) => $o->setSecrets($n->getCollectionOfObjectValues([SynchronizationSecretKeyStringValuePair::class, 'createFromDiscriminatorValue'])),
+            'templates' => fn(ParseNode $n) => $o->setTemplates($n->getCollectionOfObjectValues([SynchronizationTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -79,11 +79,11 @@ class DeviceManagementConfigurationChoiceSettingValueTemplate implements Additio
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getObjectValue(array(DeviceManagementConfigurationChoiceSettingValueDefaultTemplate::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recommendedValueDefinition' => function (ParseNode $n) use ($o) { $o->setRecommendedValueDefinition($n->getObjectValue(array(DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'))); },
-            'requiredValueDefinition' => function (ParseNode $n) use ($o) { $o->setRequiredValueDefinition($n->getObjectValue(array(DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'))); },
-            'settingValueTemplateId' => function (ParseNode $n) use ($o) { $o->setSettingValueTemplateId($n->getStringValue()); },
+            'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getObjectValue([DeviceManagementConfigurationChoiceSettingValueDefaultTemplate::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recommendedValueDefinition' => fn(ParseNode $n) => $o->setRecommendedValueDefinition($n->getObjectValue([DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'])),
+            'requiredValueDefinition' => fn(ParseNode $n) => $o->setRequiredValueDefinition($n->getObjectValue([DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate::class, 'createFromDiscriminatorValue'])),
+            'settingValueTemplateId' => fn(ParseNode $n) => $o->setSettingValueTemplateId($n->getStringValue()),
         ];
     }
 

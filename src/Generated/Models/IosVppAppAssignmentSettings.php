@@ -52,10 +52,10 @@ class IosVppAppAssignmentSettings extends MobileAppAssignmentSettings implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isRemovable' => function (ParseNode $n) use ($o) { $o->setIsRemovable($n->getBooleanValue()); },
-            'uninstallOnDeviceRemoval' => function (ParseNode $n) use ($o) { $o->setUninstallOnDeviceRemoval($n->getBooleanValue()); },
-            'useDeviceLicensing' => function (ParseNode $n) use ($o) { $o->setUseDeviceLicensing($n->getBooleanValue()); },
-            'vpnConfigurationId' => function (ParseNode $n) use ($o) { $o->setVpnConfigurationId($n->getStringValue()); },
+            'isRemovable' => fn(ParseNode $n) => $o->setIsRemovable($n->getBooleanValue()),
+            'uninstallOnDeviceRemoval' => fn(ParseNode $n) => $o->setUninstallOnDeviceRemoval($n->getBooleanValue()),
+            'useDeviceLicensing' => fn(ParseNode $n) => $o->setUseDeviceLicensing($n->getBooleanValue()),
+            'vpnConfigurationId' => fn(ParseNode $n) => $o->setVpnConfigurationId($n->getStringValue()),
         ]);
     }
 

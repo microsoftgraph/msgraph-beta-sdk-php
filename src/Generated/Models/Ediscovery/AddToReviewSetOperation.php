@@ -42,8 +42,8 @@ class AddToReviewSetOperation extends CaseOperation implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'reviewSet' => function (ParseNode $n) use ($o) { $o->setReviewSet($n->getObjectValue(array(ReviewSet::class, 'createFromDiscriminatorValue'))); },
-            'sourceCollection' => function (ParseNode $n) use ($o) { $o->setSourceCollection($n->getObjectValue(array(SourceCollection::class, 'createFromDiscriminatorValue'))); },
+            'reviewSet' => fn(ParseNode $n) => $o->setReviewSet($n->getObjectValue([ReviewSet::class, 'createFromDiscriminatorValue'])),
+            'sourceCollection' => fn(ParseNode $n) => $o->setSourceCollection($n->getObjectValue([SourceCollection::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

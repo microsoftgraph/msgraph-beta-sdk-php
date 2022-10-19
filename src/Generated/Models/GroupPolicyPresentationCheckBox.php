@@ -45,7 +45,7 @@ class GroupPolicyPresentationCheckBox extends GroupPolicyUploadedPresentation im
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultChecked' => function (ParseNode $n) use ($o) { $o->setDefaultChecked($n->getBooleanValue()); },
+            'defaultChecked' => fn(ParseNode $n) => $o->setDefaultChecked($n->getBooleanValue()),
         ]);
     }
 

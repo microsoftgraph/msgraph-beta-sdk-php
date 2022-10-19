@@ -91,15 +91,15 @@ class FileDetails implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
-            'filePath' => function (ParseNode $n) use ($o) { $o->setFilePath($n->getStringValue()); },
-            'filePublisher' => function (ParseNode $n) use ($o) { $o->setFilePublisher($n->getStringValue()); },
-            'fileSize' => function (ParseNode $n) use ($o) { $o->setFileSize($n->getIntegerValue()); },
-            'issuer' => function (ParseNode $n) use ($o) { $o->setIssuer($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'sha1' => function (ParseNode $n) use ($o) { $o->setSha1($n->getStringValue()); },
-            'sha256' => function (ParseNode $n) use ($o) { $o->setSha256($n->getStringValue()); },
-            'signer' => function (ParseNode $n) use ($o) { $o->setSigner($n->getStringValue()); },
+            'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
+            'filePath' => fn(ParseNode $n) => $o->setFilePath($n->getStringValue()),
+            'filePublisher' => fn(ParseNode $n) => $o->setFilePublisher($n->getStringValue()),
+            'fileSize' => fn(ParseNode $n) => $o->setFileSize($n->getIntegerValue()),
+            'issuer' => fn(ParseNode $n) => $o->setIssuer($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'sha1' => fn(ParseNode $n) => $o->setSha1($n->getStringValue()),
+            'sha256' => fn(ParseNode $n) => $o->setSha256($n->getStringValue()),
+            'signer' => fn(ParseNode $n) => $o->setSigner($n->getStringValue()),
         ];
     }
 

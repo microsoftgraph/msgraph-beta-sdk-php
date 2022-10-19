@@ -42,8 +42,8 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'storageAccountId' => function (ParseNode $n) use ($o) { $o->setStorageAccountId($n->getStringValue()); },
-            'storageAccountName' => function (ParseNode $n) use ($o) { $o->setStorageAccountName($n->getStringValue()); },
+            'storageAccountId' => fn(ParseNode $n) => $o->setStorageAccountId($n->getStringValue()),
+            'storageAccountName' => fn(ParseNode $n) => $o->setStorageAccountName($n->getStringValue()),
         ]);
     }
 

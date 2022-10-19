@@ -37,7 +37,7 @@ class AzureAdTokenAuthentication extends CustomExtensionAuthenticationConfigurat
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
+            'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
         ]);
     }
 

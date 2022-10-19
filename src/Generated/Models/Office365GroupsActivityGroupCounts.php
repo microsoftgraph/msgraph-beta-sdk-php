@@ -66,11 +66,11 @@ class Office365GroupsActivityGroupCounts extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'active' => function (ParseNode $n) use ($o) { $o->setActive($n->getIntegerValue()); },
-            'reportDate' => function (ParseNode $n) use ($o) { $o->setReportDate($n->getDateValue()); },
-            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
-            'total' => function (ParseNode $n) use ($o) { $o->setTotal($n->getIntegerValue()); },
+            'active' => fn(ParseNode $n) => $o->setActive($n->getIntegerValue()),
+            'reportDate' => fn(ParseNode $n) => $o->setReportDate($n->getDateValue()),
+            'reportPeriod' => fn(ParseNode $n) => $o->setReportPeriod($n->getStringValue()),
+            'reportRefreshDate' => fn(ParseNode $n) => $o->setReportRefreshDate($n->getDateValue()),
+            'total' => fn(ParseNode $n) => $o->setTotal($n->getIntegerValue()),
         ]);
     }
 

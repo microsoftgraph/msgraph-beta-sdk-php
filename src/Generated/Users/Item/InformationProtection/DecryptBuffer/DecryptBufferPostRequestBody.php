@@ -64,8 +64,8 @@ class DecryptBufferPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'encryptedBuffer' => function (ParseNode $n) use ($o) { $o->setEncryptedBuffer($n->getBinaryContent()); },
-            'publishingLicense' => function (ParseNode $n) use ($o) { $o->setPublishingLicense($n->getBinaryContent()); },
+            'encryptedBuffer' => fn(ParseNode $n) => $o->setEncryptedBuffer($n->getBinaryContent()),
+            'publishingLicense' => fn(ParseNode $n) => $o->setPublishingLicense($n->getBinaryContent()),
         ];
     }
 

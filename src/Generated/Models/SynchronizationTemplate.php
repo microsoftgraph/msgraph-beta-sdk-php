@@ -107,13 +107,13 @@ class SynchronizationTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationId' => function (ParseNode $n) use ($o) { $o->setApplicationId($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'discoverable' => function (ParseNode $n) use ($o) { $o->setDiscoverable($n->getBooleanValue()); },
-            'default' => function (ParseNode $n) use ($o) { $o->setDefault($n->getBooleanValue()); },
-            'factoryTag' => function (ParseNode $n) use ($o) { $o->setFactoryTag($n->getStringValue()); },
-            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(MetadataEntry::class, 'createFromDiscriminatorValue'))); },
-            'schema' => function (ParseNode $n) use ($o) { $o->setSchema($n->getObjectValue(array(SynchronizationSchema::class, 'createFromDiscriminatorValue'))); },
+            'applicationId' => fn(ParseNode $n) => $o->setApplicationId($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'discoverable' => fn(ParseNode $n) => $o->setDiscoverable($n->getBooleanValue()),
+            'default' => fn(ParseNode $n) => $o->setDefault($n->getBooleanValue()),
+            'factoryTag' => fn(ParseNode $n) => $o->setFactoryTag($n->getStringValue()),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([MetadataEntry::class, 'createFromDiscriminatorValue'])),
+            'schema' => fn(ParseNode $n) => $o->setSchema($n->getObjectValue([SynchronizationSchema::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

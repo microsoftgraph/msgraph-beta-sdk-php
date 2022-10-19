@@ -88,14 +88,14 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'checksum' => function (ParseNode $n) use ($o) { $o->setChecksum($n->getStringValue()); },
-            'dataUploadURI' => function (ParseNode $n) use ($o) { $o->setDataUploadURI($n->getStringValue()); },
-            'fields' => function (ParseNode $n) use ($o) { $o->setFields($n->getCollectionOfPrimitiveValues()); },
-            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
-            'rowsPerBlock' => function (ParseNode $n) use ($o) { $o->setRowsPerBlock($n->getIntegerValue()); },
-            'salt' => function (ParseNode $n) use ($o) { $o->setSalt($n->getStringValue()); },
-            'uploadAgent' => function (ParseNode $n) use ($o) { $o->setUploadAgent($n->getObjectValue(array(ExactMatchUploadAgent::class, 'createFromDiscriminatorValue'))); },
-            'uploadAgentId' => function (ParseNode $n) use ($o) { $o->setUploadAgentId($n->getStringValue()); },
+            'checksum' => fn(ParseNode $n) => $o->setChecksum($n->getStringValue()),
+            'dataUploadURI' => fn(ParseNode $n) => $o->setDataUploadURI($n->getStringValue()),
+            'fields' => fn(ParseNode $n) => $o->setFields($n->getCollectionOfPrimitiveValues()),
+            'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
+            'rowsPerBlock' => fn(ParseNode $n) => $o->setRowsPerBlock($n->getIntegerValue()),
+            'salt' => fn(ParseNode $n) => $o->setSalt($n->getStringValue()),
+            'uploadAgent' => fn(ParseNode $n) => $o->setUploadAgent($n->getObjectValue([ExactMatchUploadAgent::class, 'createFromDiscriminatorValue'])),
+            'uploadAgentId' => fn(ParseNode $n) => $o->setUploadAgentId($n->getStringValue()),
         ]);
     }
 

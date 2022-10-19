@@ -110,15 +110,15 @@ class DeviceComplianceDeviceOverview extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurationVersion' => function (ParseNode $n) use ($o) { $o->setConfigurationVersion($n->getIntegerValue()); },
-            'conflictCount' => function (ParseNode $n) use ($o) { $o->setConflictCount($n->getIntegerValue()); },
-            'errorCount' => function (ParseNode $n) use ($o) { $o->setErrorCount($n->getIntegerValue()); },
-            'failedCount' => function (ParseNode $n) use ($o) { $o->setFailedCount($n->getIntegerValue()); },
-            'lastUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdateDateTime($n->getDateTimeValue()); },
-            'notApplicableCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableCount($n->getIntegerValue()); },
-            'notApplicablePlatformCount' => function (ParseNode $n) use ($o) { $o->setNotApplicablePlatformCount($n->getIntegerValue()); },
-            'pendingCount' => function (ParseNode $n) use ($o) { $o->setPendingCount($n->getIntegerValue()); },
-            'successCount' => function (ParseNode $n) use ($o) { $o->setSuccessCount($n->getIntegerValue()); },
+            'configurationVersion' => fn(ParseNode $n) => $o->setConfigurationVersion($n->getIntegerValue()),
+            'conflictCount' => fn(ParseNode $n) => $o->setConflictCount($n->getIntegerValue()),
+            'errorCount' => fn(ParseNode $n) => $o->setErrorCount($n->getIntegerValue()),
+            'failedCount' => fn(ParseNode $n) => $o->setFailedCount($n->getIntegerValue()),
+            'lastUpdateDateTime' => fn(ParseNode $n) => $o->setLastUpdateDateTime($n->getDateTimeValue()),
+            'notApplicableCount' => fn(ParseNode $n) => $o->setNotApplicableCount($n->getIntegerValue()),
+            'notApplicablePlatformCount' => fn(ParseNode $n) => $o->setNotApplicablePlatformCount($n->getIntegerValue()),
+            'pendingCount' => fn(ParseNode $n) => $o->setPendingCount($n->getIntegerValue()),
+            'successCount' => fn(ParseNode $n) => $o->setSuccessCount($n->getIntegerValue()),
         ]);
     }
 

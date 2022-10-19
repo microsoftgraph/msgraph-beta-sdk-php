@@ -46,7 +46,7 @@ class ChatActivityStatistics extends ActivityStatistics implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'afterHours' => function (ParseNode $n) use ($o) { $o->setAfterHours($n->getDateIntervalValue()); },
+            'afterHours' => fn(ParseNode $n) => $o->setAfterHours($n->getDateIntervalValue()),
         ]);
     }
 

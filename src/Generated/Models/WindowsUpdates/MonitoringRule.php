@@ -74,10 +74,10 @@ class MonitoringRule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(MonitoringAction::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'signal' => function (ParseNode $n) use ($o) { $o->setSignal($n->getEnumValue(MonitoringSignal::class)); },
-            'threshold' => function (ParseNode $n) use ($o) { $o->setThreshold($n->getIntegerValue()); },
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(MonitoringAction::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'signal' => fn(ParseNode $n) => $o->setSignal($n->getEnumValue(MonitoringSignal::class)),
+            'threshold' => fn(ParseNode $n) => $o->setThreshold($n->getIntegerValue()),
         ];
     }
 

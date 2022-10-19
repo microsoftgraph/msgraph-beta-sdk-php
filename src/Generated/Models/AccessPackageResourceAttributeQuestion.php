@@ -37,7 +37,7 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'question' => function (ParseNode $n) use ($o) { $o->setQuestion($n->getObjectValue(array(AccessPackageQuestion::class, 'createFromDiscriminatorValue'))); },
+            'question' => fn(ParseNode $n) => $o->setQuestion($n->getObjectValue([AccessPackageQuestion::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

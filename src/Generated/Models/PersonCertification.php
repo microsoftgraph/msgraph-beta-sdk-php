@@ -115,16 +115,16 @@ class PersonCertification extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certificationId' => function (ParseNode $n) use ($o) { $o->setCertificationId($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'endDate' => function (ParseNode $n) use ($o) { $o->setEndDate($n->getDateValue()); },
-            'issuedDate' => function (ParseNode $n) use ($o) { $o->setIssuedDate($n->getDateValue()); },
-            'issuingAuthority' => function (ParseNode $n) use ($o) { $o->setIssuingAuthority($n->getStringValue()); },
-            'issuingCompany' => function (ParseNode $n) use ($o) { $o->setIssuingCompany($n->getStringValue()); },
-            'startDate' => function (ParseNode $n) use ($o) { $o->setStartDate($n->getDateValue()); },
-            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'certificationId' => fn(ParseNode $n) => $o->setCertificationId($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'endDate' => fn(ParseNode $n) => $o->setEndDate($n->getDateValue()),
+            'issuedDate' => fn(ParseNode $n) => $o->setIssuedDate($n->getDateValue()),
+            'issuingAuthority' => fn(ParseNode $n) => $o->setIssuingAuthority($n->getStringValue()),
+            'issuingCompany' => fn(ParseNode $n) => $o->setIssuingCompany($n->getStringValue()),
+            'startDate' => fn(ParseNode $n) => $o->setStartDate($n->getDateValue()),
+            'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
+            'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
     }
 

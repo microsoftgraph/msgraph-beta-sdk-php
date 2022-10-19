@@ -172,21 +172,21 @@ class TeamworkDevice extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getObjectValue(array(TeamworkDeviceActivity::class, 'createFromDiscriminatorValue'))); },
-            'activityState' => function (ParseNode $n) use ($o) { $o->setActivityState($n->getEnumValue(TeamworkDeviceActivityState::class)); },
-            'companyAssetTag' => function (ParseNode $n) use ($o) { $o->setCompanyAssetTag($n->getStringValue()); },
-            'configuration' => function (ParseNode $n) use ($o) { $o->setConfiguration($n->getObjectValue(array(TeamworkDeviceConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'currentUser' => function (ParseNode $n) use ($o) { $o->setCurrentUser($n->getObjectValue(array(TeamworkUserIdentity::class, 'createFromDiscriminatorValue'))); },
-            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getEnumValue(TeamworkDeviceType::class)); },
-            'hardwareDetail' => function (ParseNode $n) use ($o) { $o->setHardwareDetail($n->getObjectValue(array(TeamworkHardwareDetail::class, 'createFromDiscriminatorValue'))); },
-            'health' => function (ParseNode $n) use ($o) { $o->setHealth($n->getObjectValue(array(TeamworkDeviceHealth::class, 'createFromDiscriminatorValue'))); },
-            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(TeamworkDeviceHealthStatus::class)); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getStringValue()); },
-            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(TeamworkDeviceOperation::class, 'createFromDiscriminatorValue'))); },
+            'activity' => fn(ParseNode $n) => $o->setActivity($n->getObjectValue([TeamworkDeviceActivity::class, 'createFromDiscriminatorValue'])),
+            'activityState' => fn(ParseNode $n) => $o->setActivityState($n->getEnumValue(TeamworkDeviceActivityState::class)),
+            'companyAssetTag' => fn(ParseNode $n) => $o->setCompanyAssetTag($n->getStringValue()),
+            'configuration' => fn(ParseNode $n) => $o->setConfiguration($n->getObjectValue([TeamworkDeviceConfiguration::class, 'createFromDiscriminatorValue'])),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'currentUser' => fn(ParseNode $n) => $o->setCurrentUser($n->getObjectValue([TeamworkUserIdentity::class, 'createFromDiscriminatorValue'])),
+            'deviceType' => fn(ParseNode $n) => $o->setDeviceType($n->getEnumValue(TeamworkDeviceType::class)),
+            'hardwareDetail' => fn(ParseNode $n) => $o->setHardwareDetail($n->getObjectValue([TeamworkHardwareDetail::class, 'createFromDiscriminatorValue'])),
+            'health' => fn(ParseNode $n) => $o->setHealth($n->getObjectValue([TeamworkDeviceHealth::class, 'createFromDiscriminatorValue'])),
+            'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(TeamworkDeviceHealthStatus::class)),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'notes' => fn(ParseNode $n) => $o->setNotes($n->getStringValue()),
+            'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([TeamworkDeviceOperation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

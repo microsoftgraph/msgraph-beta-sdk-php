@@ -187,22 +187,22 @@ class RetentionLabel extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'actionAfterRetentionPeriod' => function (ParseNode $n) use ($o) { $o->setActionAfterRetentionPeriod($n->getEnumValue(ActionAfterRetentionPeriod::class)); },
-            'behaviorDuringRetentionPeriod' => function (ParseNode $n) use ($o) { $o->setBehaviorDuringRetentionPeriod($n->getEnumValue(BehaviorDuringRetentionPeriod::class)); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'defaultRecordBehavior' => function (ParseNode $n) use ($o) { $o->setDefaultRecordBehavior($n->getEnumValue(DefaultRecordBehavior::class)); },
-            'descriptionForAdmins' => function (ParseNode $n) use ($o) { $o->setDescriptionForAdmins($n->getStringValue()); },
-            'descriptionForUsers' => function (ParseNode $n) use ($o) { $o->setDescriptionForUsers($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'dispositionReviewStages' => function (ParseNode $n) use ($o) { $o->setDispositionReviewStages($n->getCollectionOfObjectValues(array(DispositionReviewStage::class, 'createFromDiscriminatorValue'))); },
-            'isInUse' => function (ParseNode $n) use ($o) { $o->setIsInUse($n->getBooleanValue()); },
-            'labelToBeApplied' => function (ParseNode $n) use ($o) { $o->setLabelToBeApplied($n->getStringValue()); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'retentionDuration' => function (ParseNode $n) use ($o) { $o->setRetentionDuration($n->getObjectValue(array(RetentionDuration::class, 'createFromDiscriminatorValue'))); },
-            'retentionEventType' => function (ParseNode $n) use ($o) { $o->setRetentionEventType($n->getObjectValue(array(RetentionEventType::class, 'createFromDiscriminatorValue'))); },
-            'retentionTrigger' => function (ParseNode $n) use ($o) { $o->setRetentionTrigger($n->getEnumValue(RetentionTrigger::class)); },
+            'actionAfterRetentionPeriod' => fn(ParseNode $n) => $o->setActionAfterRetentionPeriod($n->getEnumValue(ActionAfterRetentionPeriod::class)),
+            'behaviorDuringRetentionPeriod' => fn(ParseNode $n) => $o->setBehaviorDuringRetentionPeriod($n->getEnumValue(BehaviorDuringRetentionPeriod::class)),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'defaultRecordBehavior' => fn(ParseNode $n) => $o->setDefaultRecordBehavior($n->getEnumValue(DefaultRecordBehavior::class)),
+            'descriptionForAdmins' => fn(ParseNode $n) => $o->setDescriptionForAdmins($n->getStringValue()),
+            'descriptionForUsers' => fn(ParseNode $n) => $o->setDescriptionForUsers($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'dispositionReviewStages' => fn(ParseNode $n) => $o->setDispositionReviewStages($n->getCollectionOfObjectValues([DispositionReviewStage::class, 'createFromDiscriminatorValue'])),
+            'isInUse' => fn(ParseNode $n) => $o->setIsInUse($n->getBooleanValue()),
+            'labelToBeApplied' => fn(ParseNode $n) => $o->setLabelToBeApplied($n->getStringValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'retentionDuration' => fn(ParseNode $n) => $o->setRetentionDuration($n->getObjectValue([RetentionDuration::class, 'createFromDiscriminatorValue'])),
+            'retentionEventType' => fn(ParseNode $n) => $o->setRetentionEventType($n->getObjectValue([RetentionEventType::class, 'createFromDiscriminatorValue'])),
+            'retentionTrigger' => fn(ParseNode $n) => $o->setRetentionTrigger($n->getEnumValue(RetentionTrigger::class)),
         ]);
     }
 

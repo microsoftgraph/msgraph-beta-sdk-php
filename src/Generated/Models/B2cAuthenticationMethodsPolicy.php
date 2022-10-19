@@ -47,9 +47,9 @@ class B2cAuthenticationMethodsPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isEmailPasswordAuthenticationEnabled' => function (ParseNode $n) use ($o) { $o->setIsEmailPasswordAuthenticationEnabled($n->getBooleanValue()); },
-            'isPhoneOneTimePasswordAuthenticationEnabled' => function (ParseNode $n) use ($o) { $o->setIsPhoneOneTimePasswordAuthenticationEnabled($n->getBooleanValue()); },
-            'isUserNameAuthenticationEnabled' => function (ParseNode $n) use ($o) { $o->setIsUserNameAuthenticationEnabled($n->getBooleanValue()); },
+            'isEmailPasswordAuthenticationEnabled' => fn(ParseNode $n) => $o->setIsEmailPasswordAuthenticationEnabled($n->getBooleanValue()),
+            'isPhoneOneTimePasswordAuthenticationEnabled' => fn(ParseNode $n) => $o->setIsPhoneOneTimePasswordAuthenticationEnabled($n->getBooleanValue()),
+            'isUserNameAuthenticationEnabled' => fn(ParseNode $n) => $o->setIsUserNameAuthenticationEnabled($n->getBooleanValue()),
         ]);
     }
 

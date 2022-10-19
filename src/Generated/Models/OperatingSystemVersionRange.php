@@ -74,10 +74,10 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'highestVersion' => function (ParseNode $n) use ($o) { $o->setHighestVersion($n->getStringValue()); },
-            'lowestVersion' => function (ParseNode $n) use ($o) { $o->setLowestVersion($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'highestVersion' => fn(ParseNode $n) => $o->setHighestVersion($n->getStringValue()),
+            'lowestVersion' => fn(ParseNode $n) => $o->setLowestVersion($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

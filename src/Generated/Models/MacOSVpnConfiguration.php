@@ -37,7 +37,7 @@ class MacOSVpnConfiguration extends AppleVpnConfiguration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'identityCertificate' => function (ParseNode $n) use ($o) { $o->setIdentityCertificate($n->getObjectValue(array(MacOSCertificateProfileBase::class, 'createFromDiscriminatorValue'))); },
+            'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([MacOSCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

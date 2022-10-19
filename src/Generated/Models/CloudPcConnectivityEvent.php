@@ -109,12 +109,12 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'eventDateTime' => function (ParseNode $n) use ($o) { $o->setEventDateTime($n->getDateTimeValue()); },
-            'eventName' => function (ParseNode $n) use ($o) { $o->setEventName($n->getStringValue()); },
-            'eventResult' => function (ParseNode $n) use ($o) { $o->setEventResult($n->getEnumValue(CloudPcConnectivityEventResult::class)); },
-            'eventType' => function (ParseNode $n) use ($o) { $o->setEventType($n->getEnumValue(CloudPcConnectivityEventType::class)); },
-            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'eventDateTime' => fn(ParseNode $n) => $o->setEventDateTime($n->getDateTimeValue()),
+            'eventName' => fn(ParseNode $n) => $o->setEventName($n->getStringValue()),
+            'eventResult' => fn(ParseNode $n) => $o->setEventResult($n->getEnumValue(CloudPcConnectivityEventResult::class)),
+            'eventType' => fn(ParseNode $n) => $o->setEventType($n->getEnumValue(CloudPcConnectivityEventType::class)),
+            'message' => fn(ParseNode $n) => $o->setMessage($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

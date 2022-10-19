@@ -37,7 +37,7 @@ class InformationProtectionPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'labels' => function (ParseNode $n) use ($o) { $o->setLabels($n->getCollectionOfObjectValues(array(InformationProtectionLabel::class, 'createFromDiscriminatorValue'))); },
+            'labels' => fn(ParseNode $n) => $o->setLabels($n->getCollectionOfObjectValues([InformationProtectionLabel::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

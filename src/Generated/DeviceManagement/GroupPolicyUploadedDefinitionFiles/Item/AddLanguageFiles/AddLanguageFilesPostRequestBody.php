@@ -51,7 +51,7 @@ class AddLanguageFilesPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'groupPolicyUploadedLanguageFiles' => function (ParseNode $n) use ($o) { $o->setGroupPolicyUploadedLanguageFiles($n->getCollectionOfObjectValues(array(GroupPolicyUploadedLanguageFile::class, 'createFromDiscriminatorValue'))); },
+            'groupPolicyUploadedLanguageFiles' => fn(ParseNode $n) => $o->setGroupPolicyUploadedLanguageFiles($n->getCollectionOfObjectValues([GroupPolicyUploadedLanguageFile::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

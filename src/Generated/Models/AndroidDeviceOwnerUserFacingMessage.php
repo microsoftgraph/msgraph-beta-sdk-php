@@ -69,9 +69,9 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'defaultMessage' => function (ParseNode $n) use ($o) { $o->setDefaultMessage($n->getStringValue()); },
-            'localizedMessages' => function (ParseNode $n) use ($o) { $o->setLocalizedMessages($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'defaultMessage' => fn(ParseNode $n) => $o->setDefaultMessage($n->getStringValue()),
+            'localizedMessages' => fn(ParseNode $n) => $o->setLocalizedMessages($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

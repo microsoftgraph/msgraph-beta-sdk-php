@@ -102,15 +102,15 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'failedUpdateCount' => function (ParseNode $n) use ($o) { $o->setFailedUpdateCount($n->getIntegerValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'successfulUpdateCount' => function (ParseNode $n) use ($o) { $o->setSuccessfulUpdateCount($n->getIntegerValue()); },
-            'totalUpdateCount' => function (ParseNode $n) use ($o) { $o->setTotalUpdateCount($n->getIntegerValue()); },
-            'updateCategory' => function (ParseNode $n) use ($o) { $o->setUpdateCategory($n->getEnumValue(MacOSSoftwareUpdateCategory::class)); },
-            'updateStateSummaries' => function (ParseNode $n) use ($o) { $o->setUpdateStateSummaries($n->getCollectionOfObjectValues(array(MacOSSoftwareUpdateStateSummary::class, 'createFromDiscriminatorValue'))); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'failedUpdateCount' => fn(ParseNode $n) => $o->setFailedUpdateCount($n->getIntegerValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            'successfulUpdateCount' => fn(ParseNode $n) => $o->setSuccessfulUpdateCount($n->getIntegerValue()),
+            'totalUpdateCount' => fn(ParseNode $n) => $o->setTotalUpdateCount($n->getIntegerValue()),
+            'updateCategory' => fn(ParseNode $n) => $o->setUpdateCategory($n->getEnumValue(MacOSSoftwareUpdateCategory::class)),
+            'updateStateSummaries' => fn(ParseNode $n) => $o->setUpdateStateSummaries($n->getCollectionOfObjectValues([MacOSSoftwareUpdateStateSummary::class, 'createFromDiscriminatorValue'])),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 

@@ -136,17 +136,17 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResources' => function (ParseNode $n) use ($o) { $o->setAccessPackageResources($n->getCollectionOfObjectValues(array(AccessPackageResource::class, 'createFromDiscriminatorValue'))); },
-            'connectionInfo' => function (ParseNode $n) use ($o) { $o->setConnectionInfo($n->getObjectValue(array(ConnectionInfo::class, 'createFromDiscriminatorValue'))); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isDefaultEnvironment' => function (ParseNode $n) use ($o) { $o->setIsDefaultEnvironment($n->getBooleanValue()); },
-            'modifiedBy' => function (ParseNode $n) use ($o) { $o->setModifiedBy($n->getStringValue()); },
-            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
-            'originId' => function (ParseNode $n) use ($o) { $o->setOriginId($n->getStringValue()); },
-            'originSystem' => function (ParseNode $n) use ($o) { $o->setOriginSystem($n->getStringValue()); },
+            'accessPackageResources' => fn(ParseNode $n) => $o->setAccessPackageResources($n->getCollectionOfObjectValues([AccessPackageResource::class, 'createFromDiscriminatorValue'])),
+            'connectionInfo' => fn(ParseNode $n) => $o->setConnectionInfo($n->getObjectValue([ConnectionInfo::class, 'createFromDiscriminatorValue'])),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isDefaultEnvironment' => fn(ParseNode $n) => $o->setIsDefaultEnvironment($n->getBooleanValue()),
+            'modifiedBy' => fn(ParseNode $n) => $o->setModifiedBy($n->getStringValue()),
+            'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
+            'originId' => fn(ParseNode $n) => $o->setOriginId($n->getStringValue()),
+            'originSystem' => fn(ParseNode $n) => $o->setOriginSystem($n->getStringValue()),
         ]);
     }
 

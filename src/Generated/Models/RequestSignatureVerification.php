@@ -69,9 +69,9 @@ class RequestSignatureVerification implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedWeakAlgorithms' => function (ParseNode $n) use ($o) { $o->setAllowedWeakAlgorithms($n->getEnumValue(WeakAlgorithms::class)); },
-            'isSignedRequestRequired' => function (ParseNode $n) use ($o) { $o->setIsSignedRequestRequired($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'allowedWeakAlgorithms' => fn(ParseNode $n) => $o->setAllowedWeakAlgorithms($n->getEnumValue(WeakAlgorithms::class)),
+            'isSignedRequestRequired' => fn(ParseNode $n) => $o->setIsSignedRequestRequired($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

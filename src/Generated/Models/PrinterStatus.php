@@ -97,13 +97,13 @@ class PrinterStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getCollectionOfEnumValues(PrinterProcessingStateDetail::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'processingState' => function (ParseNode $n) use ($o) { $o->setProcessingState($n->getEnumValue(PrinterProcessingState::class)); },
-            'processingStateDescription' => function (ParseNode $n) use ($o) { $o->setProcessingStateDescription($n->getStringValue()); },
-            'processingStateReasons' => function (ParseNode $n) use ($o) { $o->setProcessingStateReasons($n->getCollectionOfEnumValues(PrinterProcessingStateReason::class)); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(PrinterProcessingState::class)); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'details' => fn(ParseNode $n) => $o->setDetails($n->getCollectionOfEnumValues(PrinterProcessingStateDetail::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'processingState' => fn(ParseNode $n) => $o->setProcessingState($n->getEnumValue(PrinterProcessingState::class)),
+            'processingStateDescription' => fn(ParseNode $n) => $o->setProcessingStateDescription($n->getStringValue()),
+            'processingStateReasons' => fn(ParseNode $n) => $o->setProcessingStateReasons($n->getCollectionOfEnumValues(PrinterProcessingStateReason::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(PrinterProcessingState::class)),
         ];
     }
 

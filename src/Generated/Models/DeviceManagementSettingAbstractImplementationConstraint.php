@@ -45,7 +45,7 @@ class DeviceManagementSettingAbstractImplementationConstraint extends DeviceMana
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedAbstractImplementationDefinitionIds' => function (ParseNode $n) use ($o) { $o->setAllowedAbstractImplementationDefinitionIds($n->getCollectionOfPrimitiveValues()); },
+            'allowedAbstractImplementationDefinitionIds' => fn(ParseNode $n) => $o->setAllowedAbstractImplementationDefinitionIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

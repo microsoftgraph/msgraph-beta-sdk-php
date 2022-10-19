@@ -162,19 +162,19 @@ class AccessPackageResource extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResourceEnvironment' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceEnvironment($n->getObjectValue(array(AccessPackageResourceEnvironment::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceRoles' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRoles($n->getCollectionOfObjectValues(array(AccessPackageResourceRole::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceScopes' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceScopes($n->getCollectionOfObjectValues(array(AccessPackageResourceScope::class, 'createFromDiscriminatorValue'))); },
-            'addedBy' => function (ParseNode $n) use ($o) { $o->setAddedBy($n->getStringValue()); },
-            'addedOn' => function (ParseNode $n) use ($o) { $o->setAddedOn($n->getDateTimeValue()); },
-            'attributes' => function (ParseNode $n) use ($o) { $o->setAttributes($n->getCollectionOfObjectValues(array(AccessPackageResourceAttribute::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isPendingOnboarding' => function (ParseNode $n) use ($o) { $o->setIsPendingOnboarding($n->getBooleanValue()); },
-            'originId' => function (ParseNode $n) use ($o) { $o->setOriginId($n->getStringValue()); },
-            'originSystem' => function (ParseNode $n) use ($o) { $o->setOriginSystem($n->getStringValue()); },
-            'resourceType' => function (ParseNode $n) use ($o) { $o->setResourceType($n->getStringValue()); },
-            'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
+            'accessPackageResourceEnvironment' => fn(ParseNode $n) => $o->setAccessPackageResourceEnvironment($n->getObjectValue([AccessPackageResourceEnvironment::class, 'createFromDiscriminatorValue'])),
+            'accessPackageResourceRoles' => fn(ParseNode $n) => $o->setAccessPackageResourceRoles($n->getCollectionOfObjectValues([AccessPackageResourceRole::class, 'createFromDiscriminatorValue'])),
+            'accessPackageResourceScopes' => fn(ParseNode $n) => $o->setAccessPackageResourceScopes($n->getCollectionOfObjectValues([AccessPackageResourceScope::class, 'createFromDiscriminatorValue'])),
+            'addedBy' => fn(ParseNode $n) => $o->setAddedBy($n->getStringValue()),
+            'addedOn' => fn(ParseNode $n) => $o->setAddedOn($n->getDateTimeValue()),
+            'attributes' => fn(ParseNode $n) => $o->setAttributes($n->getCollectionOfObjectValues([AccessPackageResourceAttribute::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isPendingOnboarding' => fn(ParseNode $n) => $o->setIsPendingOnboarding($n->getBooleanValue()),
+            'originId' => fn(ParseNode $n) => $o->setOriginId($n->getStringValue()),
+            'originSystem' => fn(ParseNode $n) => $o->setOriginSystem($n->getStringValue()),
+            'resourceType' => fn(ParseNode $n) => $o->setResourceType($n->getStringValue()),
+            'url' => fn(ParseNode $n) => $o->setUrl($n->getStringValue()),
         ]);
     }
 

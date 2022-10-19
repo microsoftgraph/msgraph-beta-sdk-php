@@ -106,7 +106,7 @@ class DeviceHealthScript extends Entity implements Parsable
     private ?string $version = null;
     
     /**
-     * Instantiates a new DeviceHealthScript and sets the default values.
+     * Instantiates a new deviceHealthScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -193,25 +193,25 @@ class DeviceHealthScript extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(DeviceHealthScriptAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'detectionScriptContent' => function (ParseNode $n) use ($o) { $o->setDetectionScriptContent($n->getBinaryContent()); },
-            'detectionScriptParameters' => function (ParseNode $n) use ($o) { $o->setDetectionScriptParameters($n->getCollectionOfObjectValues(array(DeviceHealthScriptParameter::class, 'createFromDiscriminatorValue'))); },
-            'deviceRunStates' => function (ParseNode $n) use ($o) { $o->setDeviceRunStates($n->getCollectionOfObjectValues(array(DeviceHealthScriptDeviceState::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enforceSignatureCheck' => function (ParseNode $n) use ($o) { $o->setEnforceSignatureCheck($n->getBooleanValue()); },
-            'highestAvailableVersion' => function (ParseNode $n) use ($o) { $o->setHighestAvailableVersion($n->getStringValue()); },
-            'isGlobalScript' => function (ParseNode $n) use ($o) { $o->setIsGlobalScript($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'remediationScriptContent' => function (ParseNode $n) use ($o) { $o->setRemediationScriptContent($n->getBinaryContent()); },
-            'remediationScriptParameters' => function (ParseNode $n) use ($o) { $o->setRemediationScriptParameters($n->getCollectionOfObjectValues(array(DeviceHealthScriptParameter::class, 'createFromDiscriminatorValue'))); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'runAs32Bit' => function (ParseNode $n) use ($o) { $o->setRunAs32Bit($n->getBooleanValue()); },
-            'runAsAccount' => function (ParseNode $n) use ($o) { $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)); },
-            'runSummary' => function (ParseNode $n) use ($o) { $o->setRunSummary($n->getObjectValue(array(DeviceHealthScriptRunSummary::class, 'createFromDiscriminatorValue'))); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([DeviceHealthScriptAssignment::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'detectionScriptContent' => fn(ParseNode $n) => $o->setDetectionScriptContent($n->getBinaryContent()),
+            'detectionScriptParameters' => fn(ParseNode $n) => $o->setDetectionScriptParameters($n->getCollectionOfObjectValues([DeviceHealthScriptParameter::class, 'createFromDiscriminatorValue'])),
+            'deviceRunStates' => fn(ParseNode $n) => $o->setDeviceRunStates($n->getCollectionOfObjectValues([DeviceHealthScriptDeviceState::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'enforceSignatureCheck' => fn(ParseNode $n) => $o->setEnforceSignatureCheck($n->getBooleanValue()),
+            'highestAvailableVersion' => fn(ParseNode $n) => $o->setHighestAvailableVersion($n->getStringValue()),
+            'isGlobalScript' => fn(ParseNode $n) => $o->setIsGlobalScript($n->getBooleanValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
+            'remediationScriptContent' => fn(ParseNode $n) => $o->setRemediationScriptContent($n->getBinaryContent()),
+            'remediationScriptParameters' => fn(ParseNode $n) => $o->setRemediationScriptParameters($n->getCollectionOfObjectValues([DeviceHealthScriptParameter::class, 'createFromDiscriminatorValue'])),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'runAs32Bit' => fn(ParseNode $n) => $o->setRunAs32Bit($n->getBooleanValue()),
+            'runAsAccount' => fn(ParseNode $n) => $o->setRunAsAccount($n->getEnumValue(RunAsAccountType::class)),
+            'runSummary' => fn(ParseNode $n) => $o->setRunSummary($n->getObjectValue([DeviceHealthScriptRunSummary::class, 'createFromDiscriminatorValue'])),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
 

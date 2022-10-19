@@ -79,12 +79,12 @@ class PersonAward extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'issuedDate' => function (ParseNode $n) use ($o) { $o->setIssuedDate($n->getDateValue()); },
-            'issuingAuthority' => function (ParseNode $n) use ($o) { $o->setIssuingAuthority($n->getStringValue()); },
-            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'issuedDate' => fn(ParseNode $n) => $o->setIssuedDate($n->getDateValue()),
+            'issuingAuthority' => fn(ParseNode $n) => $o->setIssuingAuthority($n->getStringValue()),
+            'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
+            'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
     }
 

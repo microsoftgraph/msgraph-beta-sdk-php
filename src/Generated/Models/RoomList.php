@@ -55,9 +55,9 @@ class RoomList extends Place implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'emailAddress' => function (ParseNode $n) use ($o) { $o->setEmailAddress($n->getStringValue()); },
-            'rooms' => function (ParseNode $n) use ($o) { $o->setRooms($n->getCollectionOfObjectValues(array(Room::class, 'createFromDiscriminatorValue'))); },
-            'workspaces' => function (ParseNode $n) use ($o) { $o->setWorkspaces($n->getCollectionOfObjectValues(array(Workspace::class, 'createFromDiscriminatorValue'))); },
+            'emailAddress' => fn(ParseNode $n) => $o->setEmailAddress($n->getStringValue()),
+            'rooms' => fn(ParseNode $n) => $o->setRooms($n->getCollectionOfObjectValues([Room::class, 'createFromDiscriminatorValue'])),
+            'workspaces' => fn(ParseNode $n) => $o->setWorkspaces($n->getCollectionOfObjectValues([Workspace::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

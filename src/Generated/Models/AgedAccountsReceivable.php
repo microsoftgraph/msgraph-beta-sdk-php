@@ -123,16 +123,16 @@ class AgedAccountsReceivable extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'agedAsOfDate' => function (ParseNode $n) use ($o) { $o->setAgedAsOfDate($n->getDateValue()); },
-            'balanceDue' => function (ParseNode $n) use ($o) { $o->setBalanceDue($n->getStringValue()); },
-            'currencyCode' => function (ParseNode $n) use ($o) { $o->setCurrencyCode($n->getStringValue()); },
-            'currentAmount' => function (ParseNode $n) use ($o) { $o->setCurrentAmount($n->getStringValue()); },
-            'customerNumber' => function (ParseNode $n) use ($o) { $o->setCustomerNumber($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'period1Amount' => function (ParseNode $n) use ($o) { $o->setPeriod1Amount($n->getStringValue()); },
-            'period2Amount' => function (ParseNode $n) use ($o) { $o->setPeriod2Amount($n->getStringValue()); },
-            'period3Amount' => function (ParseNode $n) use ($o) { $o->setPeriod3Amount($n->getStringValue()); },
-            'periodLengthFilter' => function (ParseNode $n) use ($o) { $o->setPeriodLengthFilter($n->getStringValue()); },
+            'agedAsOfDate' => fn(ParseNode $n) => $o->setAgedAsOfDate($n->getDateValue()),
+            'balanceDue' => fn(ParseNode $n) => $o->setBalanceDue($n->getStringValue()),
+            'currencyCode' => fn(ParseNode $n) => $o->setCurrencyCode($n->getStringValue()),
+            'currentAmount' => fn(ParseNode $n) => $o->setCurrentAmount($n->getStringValue()),
+            'customerNumber' => fn(ParseNode $n) => $o->setCustomerNumber($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'period1Amount' => fn(ParseNode $n) => $o->setPeriod1Amount($n->getStringValue()),
+            'period2Amount' => fn(ParseNode $n) => $o->setPeriod2Amount($n->getStringValue()),
+            'period3Amount' => fn(ParseNode $n) => $o->setPeriod3Amount($n->getStringValue()),
+            'periodLengthFilter' => fn(ParseNode $n) => $o->setPeriodLengthFilter($n->getStringValue()),
         ]);
     }
 

@@ -92,12 +92,12 @@ class SensitiveContentLocation implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
-            'evidences' => function (ParseNode $n) use ($o) { $o->setEvidences($n->getCollectionOfObjectValues(array(SensitiveContentEvidence::class, 'createFromDiscriminatorValue'))); },
-            'idMatch' => function (ParseNode $n) use ($o) { $o->setIdMatch($n->getStringValue()); },
-            'length' => function (ParseNode $n) use ($o) { $o->setLength($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'offset' => function (ParseNode $n) use ($o) { $o->setOffset($n->getIntegerValue()); },
+            'confidence' => fn(ParseNode $n) => $o->setConfidence($n->getIntegerValue()),
+            'evidences' => fn(ParseNode $n) => $o->setEvidences($n->getCollectionOfObjectValues([SensitiveContentEvidence::class, 'createFromDiscriminatorValue'])),
+            'idMatch' => fn(ParseNode $n) => $o->setIdMatch($n->getStringValue()),
+            'length' => fn(ParseNode $n) => $o->setLength($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'offset' => fn(ParseNode $n) => $o->setOffset($n->getIntegerValue()),
         ];
     }
 

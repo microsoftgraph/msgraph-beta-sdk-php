@@ -113,16 +113,16 @@ class AssignmentReviewSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accessReviewTimeoutBehavior' => function (ParseNode $n) use ($o) { $o->setAccessReviewTimeoutBehavior($n->getEnumValue(AccessReviewTimeoutBehavior::class)); },
-            'durationInDays' => function (ParseNode $n) use ($o) { $o->setDurationInDays($n->getIntegerValue()); },
-            'isAccessRecommendationEnabled' => function (ParseNode $n) use ($o) { $o->setIsAccessRecommendationEnabled($n->getBooleanValue()); },
-            'isApprovalJustificationRequired' => function (ParseNode $n) use ($o) { $o->setIsApprovalJustificationRequired($n->getBooleanValue()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recurrenceType' => function (ParseNode $n) use ($o) { $o->setRecurrenceType($n->getStringValue()); },
-            'reviewers' => function (ParseNode $n) use ($o) { $o->setReviewers($n->getCollectionOfObjectValues(array(UserSet::class, 'createFromDiscriminatorValue'))); },
-            'reviewerType' => function (ParseNode $n) use ($o) { $o->setReviewerType($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'accessReviewTimeoutBehavior' => fn(ParseNode $n) => $o->setAccessReviewTimeoutBehavior($n->getEnumValue(AccessReviewTimeoutBehavior::class)),
+            'durationInDays' => fn(ParseNode $n) => $o->setDurationInDays($n->getIntegerValue()),
+            'isAccessRecommendationEnabled' => fn(ParseNode $n) => $o->setIsAccessRecommendationEnabled($n->getBooleanValue()),
+            'isApprovalJustificationRequired' => fn(ParseNode $n) => $o->setIsApprovalJustificationRequired($n->getBooleanValue()),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recurrenceType' => fn(ParseNode $n) => $o->setRecurrenceType($n->getStringValue()),
+            'reviewers' => fn(ParseNode $n) => $o->setReviewers($n->getCollectionOfObjectValues([UserSet::class, 'createFromDiscriminatorValue'])),
+            'reviewerType' => fn(ParseNode $n) => $o->setReviewerType($n->getStringValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
         ];
     }
 

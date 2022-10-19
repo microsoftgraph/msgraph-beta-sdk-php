@@ -81,11 +81,11 @@ class IosCredentialSingleSignOnExtension extends IosSingleSignOnExtension implem
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurations' => function (ParseNode $n) use ($o) { $o->setConfigurations($n->getCollectionOfObjectValues(array(KeyTypedValuePair::class, 'createFromDiscriminatorValue'))); },
-            'domains' => function (ParseNode $n) use ($o) { $o->setDomains($n->getCollectionOfPrimitiveValues()); },
-            'extensionIdentifier' => function (ParseNode $n) use ($o) { $o->setExtensionIdentifier($n->getStringValue()); },
-            'realm' => function (ParseNode $n) use ($o) { $o->setRealm($n->getStringValue()); },
-            'teamIdentifier' => function (ParseNode $n) use ($o) { $o->setTeamIdentifier($n->getStringValue()); },
+            'configurations' => fn(ParseNode $n) => $o->setConfigurations($n->getCollectionOfObjectValues([KeyTypedValuePair::class, 'createFromDiscriminatorValue'])),
+            'domains' => fn(ParseNode $n) => $o->setDomains($n->getCollectionOfPrimitiveValues()),
+            'extensionIdentifier' => fn(ParseNode $n) => $o->setExtensionIdentifier($n->getStringValue()),
+            'realm' => fn(ParseNode $n) => $o->setRealm($n->getStringValue()),
+            'teamIdentifier' => fn(ParseNode $n) => $o->setTeamIdentifier($n->getStringValue()),
         ]);
     }
 

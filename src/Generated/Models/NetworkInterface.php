@@ -84,12 +84,12 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'ipV4Address' => function (ParseNode $n) use ($o) { $o->setIpV4Address($n->getStringValue()); },
-            'ipV6Address' => function (ParseNode $n) use ($o) { $o->setIpV6Address($n->getStringValue()); },
-            'localIpV6Address' => function (ParseNode $n) use ($o) { $o->setLocalIpV6Address($n->getStringValue()); },
-            'macAddress' => function (ParseNode $n) use ($o) { $o->setMacAddress($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'ipV4Address' => fn(ParseNode $n) => $o->setIpV4Address($n->getStringValue()),
+            'ipV6Address' => fn(ParseNode $n) => $o->setIpV6Address($n->getStringValue()),
+            'localIpV6Address' => fn(ParseNode $n) => $o->setLocalIpV6Address($n->getStringValue()),
+            'macAddress' => fn(ParseNode $n) => $o->setMacAddress($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

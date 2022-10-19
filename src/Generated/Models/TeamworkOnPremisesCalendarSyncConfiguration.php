@@ -82,10 +82,10 @@ class TeamworkOnPremisesCalendarSyncConfiguration implements AdditionalDataHolde
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'domain' => function (ParseNode $n) use ($o) { $o->setDomain($n->getStringValue()); },
-            'domainUserName' => function (ParseNode $n) use ($o) { $o->setDomainUserName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'smtpAddress' => function (ParseNode $n) use ($o) { $o->setSmtpAddress($n->getStringValue()); },
+            'domain' => fn(ParseNode $n) => $o->setDomain($n->getStringValue()),
+            'domainUserName' => fn(ParseNode $n) => $o->setDomainUserName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'smtpAddress' => fn(ParseNode $n) => $o->setSmtpAddress($n->getStringValue()),
         ];
     }
 

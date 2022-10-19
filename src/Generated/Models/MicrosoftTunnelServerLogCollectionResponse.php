@@ -84,13 +84,13 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'expiryDateTime' => function (ParseNode $n) use ($o) { $o->setExpiryDateTime($n->getDateTimeValue()); },
-            'requestDateTime' => function (ParseNode $n) use ($o) { $o->setRequestDateTime($n->getDateTimeValue()); },
-            'serverId' => function (ParseNode $n) use ($o) { $o->setServerId($n->getStringValue()); },
-            'sizeInBytes' => function (ParseNode $n) use ($o) { $o->setSizeInBytes($n->getIntegerValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(MicrosoftTunnelLogCollectionStatus::class)); },
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'expiryDateTime' => fn(ParseNode $n) => $o->setExpiryDateTime($n->getDateTimeValue()),
+            'requestDateTime' => fn(ParseNode $n) => $o->setRequestDateTime($n->getDateTimeValue()),
+            'serverId' => fn(ParseNode $n) => $o->setServerId($n->getStringValue()),
+            'sizeInBytes' => fn(ParseNode $n) => $o->setSizeInBytes($n->getIntegerValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(MicrosoftTunnelLogCollectionStatus::class)),
         ]);
     }
 

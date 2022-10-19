@@ -82,11 +82,11 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'aggregatedEventDateTime' => function (ParseNode $n) use ($o) { $o->setAggregatedEventDateTime($n->getDateTimeValue()); },
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'signInCount' => function (ParseNode $n) use ($o) { $o->setSignInCount($n->getIntegerValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getObjectValue(array(SignInStatus::class, 'createFromDiscriminatorValue'))); },
+            'aggregatedEventDateTime' => fn(ParseNode $n) => $o->setAggregatedEventDateTime($n->getDateTimeValue()),
+            'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'signInCount' => fn(ParseNode $n) => $o->setSignInCount($n->getIntegerValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SignInStatus::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

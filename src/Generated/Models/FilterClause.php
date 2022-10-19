@@ -66,10 +66,10 @@ class FilterClause implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'operatorName' => function (ParseNode $n) use ($o) { $o->setOperatorName($n->getStringValue()); },
-            'sourceOperandName' => function (ParseNode $n) use ($o) { $o->setSourceOperandName($n->getStringValue()); },
-            'targetOperand' => function (ParseNode $n) use ($o) { $o->setTargetOperand($n->getObjectValue(array(FilterOperand::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'operatorName' => fn(ParseNode $n) => $o->setOperatorName($n->getStringValue()),
+            'sourceOperandName' => fn(ParseNode $n) => $o->setSourceOperandName($n->getStringValue()),
+            'targetOperand' => fn(ParseNode $n) => $o->setTargetOperand($n->getObjectValue([FilterOperand::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

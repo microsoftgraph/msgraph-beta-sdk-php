@@ -58,8 +58,8 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowDeletedIdentitiesDataRemoval' => function (ParseNode $n) use ($o) { $o->setAllowDeletedIdentitiesDataRemoval($n->getBooleanValue()); },
-            'allowExternalIdentitiesToLeave' => function (ParseNode $n) use ($o) { $o->setAllowExternalIdentitiesToLeave($n->getBooleanValue()); },
+            'allowDeletedIdentitiesDataRemoval' => fn(ParseNode $n) => $o->setAllowDeletedIdentitiesDataRemoval($n->getBooleanValue()),
+            'allowExternalIdentitiesToLeave' => fn(ParseNode $n) => $o->setAllowExternalIdentitiesToLeave($n->getBooleanValue()),
         ]);
     }
 

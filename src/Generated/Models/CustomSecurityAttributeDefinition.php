@@ -101,15 +101,15 @@ class CustomSecurityAttributeDefinition extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedValues' => function (ParseNode $n) use ($o) { $o->setAllowedValues($n->getCollectionOfObjectValues(array(AllowedValue::class, 'createFromDiscriminatorValue'))); },
-            'attributeSet' => function (ParseNode $n) use ($o) { $o->setAttributeSet($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'isCollection' => function (ParseNode $n) use ($o) { $o->setIsCollection($n->getBooleanValue()); },
-            'isSearchable' => function (ParseNode $n) use ($o) { $o->setIsSearchable($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
-            'usePreDefinedValuesOnly' => function (ParseNode $n) use ($o) { $o->setUsePreDefinedValuesOnly($n->getBooleanValue()); },
+            'allowedValues' => fn(ParseNode $n) => $o->setAllowedValues($n->getCollectionOfObjectValues([AllowedValue::class, 'createFromDiscriminatorValue'])),
+            'attributeSet' => fn(ParseNode $n) => $o->setAttributeSet($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'isCollection' => fn(ParseNode $n) => $o->setIsCollection($n->getBooleanValue()),
+            'isSearchable' => fn(ParseNode $n) => $o->setIsSearchable($n->getBooleanValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
+            'usePreDefinedValuesOnly' => fn(ParseNode $n) => $o->setUsePreDefinedValuesOnly($n->getBooleanValue()),
         ]);
     }
 

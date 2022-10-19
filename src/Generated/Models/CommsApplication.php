@@ -69,9 +69,9 @@ class CommsApplication implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'calls' => function (ParseNode $n) use ($o) { $o->setCalls($n->getCollectionOfObjectValues(array(Call::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'onlineMeetings' => function (ParseNode $n) use ($o) { $o->setOnlineMeetings($n->getCollectionOfObjectValues(array(OnlineMeeting::class, 'createFromDiscriminatorValue'))); },
+            'calls' => fn(ParseNode $n) => $o->setCalls($n->getCollectionOfObjectValues([Call::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'onlineMeetings' => fn(ParseNode $n) => $o->setOnlineMeetings($n->getCollectionOfObjectValues([OnlineMeeting::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

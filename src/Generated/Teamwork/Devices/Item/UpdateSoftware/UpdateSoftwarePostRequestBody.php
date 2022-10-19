@@ -56,8 +56,8 @@ class UpdateSoftwarePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'softwareType' => function (ParseNode $n) use ($o) { $o->setSoftwareType($n->getEnumValue(TeamworkSoftwareType::class)); },
-            'softwareVersion' => function (ParseNode $n) use ($o) { $o->setSoftwareVersion($n->getStringValue()); },
+            'softwareType' => fn(ParseNode $n) => $o->setSoftwareType($n->getEnumValue(TeamworkSoftwareType::class)),
+            'softwareVersion' => fn(ParseNode $n) => $o->setSoftwareVersion($n->getStringValue()),
         ];
     }
 

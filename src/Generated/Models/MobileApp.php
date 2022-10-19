@@ -135,7 +135,7 @@ class MobileApp extends Entity implements Parsable
     private ?array $userStatuses = null;
     
     /**
-     * Instantiates a new MobileApp and sets the default values.
+     * Instantiates a new mobileApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -265,31 +265,31 @@ class MobileApp extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(MobileAppAssignment::class, 'createFromDiscriminatorValue'))); },
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfObjectValues(array(MobileAppCategory::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'dependentAppCount' => function (ParseNode $n) use ($o) { $o->setDependentAppCount($n->getIntegerValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'developer' => function (ParseNode $n) use ($o) { $o->setDeveloper($n->getStringValue()); },
-            'deviceStatuses' => function (ParseNode $n) use ($o) { $o->setDeviceStatuses($n->getCollectionOfObjectValues(array(MobileAppInstallStatus::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'informationUrl' => function (ParseNode $n) use ($o) { $o->setInformationUrl($n->getStringValue()); },
-            'installSummary' => function (ParseNode $n) use ($o) { $o->setInstallSummary($n->getObjectValue(array(MobileAppInstallSummary::class, 'createFromDiscriminatorValue'))); },
-            'isAssigned' => function (ParseNode $n) use ($o) { $o->setIsAssigned($n->getBooleanValue()); },
-            'isFeatured' => function (ParseNode $n) use ($o) { $o->setIsFeatured($n->getBooleanValue()); },
-            'largeIcon' => function (ParseNode $n) use ($o) { $o->setLargeIcon($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getStringValue()); },
-            'owner' => function (ParseNode $n) use ($o) { $o->setOwner($n->getStringValue()); },
-            'privacyInformationUrl' => function (ParseNode $n) use ($o) { $o->setPrivacyInformationUrl($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'publishingState' => function (ParseNode $n) use ($o) { $o->setPublishingState($n->getEnumValue(MobileAppPublishingState::class)); },
-            'relationships' => function (ParseNode $n) use ($o) { $o->setRelationships($n->getCollectionOfObjectValues(array(MobileAppRelationship::class, 'createFromDiscriminatorValue'))); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'supersededAppCount' => function (ParseNode $n) use ($o) { $o->setSupersededAppCount($n->getIntegerValue()); },
-            'supersedingAppCount' => function (ParseNode $n) use ($o) { $o->setSupersedingAppCount($n->getIntegerValue()); },
-            'uploadState' => function (ParseNode $n) use ($o) { $o->setUploadState($n->getIntegerValue()); },
-            'userStatuses' => function (ParseNode $n) use ($o) { $o->setUserStatuses($n->getCollectionOfObjectValues(array(UserAppInstallStatus::class, 'createFromDiscriminatorValue'))); },
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([MobileAppAssignment::class, 'createFromDiscriminatorValue'])),
+            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfObjectValues([MobileAppCategory::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'dependentAppCount' => fn(ParseNode $n) => $o->setDependentAppCount($n->getIntegerValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'developer' => fn(ParseNode $n) => $o->setDeveloper($n->getStringValue()),
+            'deviceStatuses' => fn(ParseNode $n) => $o->setDeviceStatuses($n->getCollectionOfObjectValues([MobileAppInstallStatus::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'informationUrl' => fn(ParseNode $n) => $o->setInformationUrl($n->getStringValue()),
+            'installSummary' => fn(ParseNode $n) => $o->setInstallSummary($n->getObjectValue([MobileAppInstallSummary::class, 'createFromDiscriminatorValue'])),
+            'isAssigned' => fn(ParseNode $n) => $o->setIsAssigned($n->getBooleanValue()),
+            'isFeatured' => fn(ParseNode $n) => $o->setIsFeatured($n->getBooleanValue()),
+            'largeIcon' => fn(ParseNode $n) => $o->setLargeIcon($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'notes' => fn(ParseNode $n) => $o->setNotes($n->getStringValue()),
+            'owner' => fn(ParseNode $n) => $o->setOwner($n->getStringValue()),
+            'privacyInformationUrl' => fn(ParseNode $n) => $o->setPrivacyInformationUrl($n->getStringValue()),
+            'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
+            'publishingState' => fn(ParseNode $n) => $o->setPublishingState($n->getEnumValue(MobileAppPublishingState::class)),
+            'relationships' => fn(ParseNode $n) => $o->setRelationships($n->getCollectionOfObjectValues([MobileAppRelationship::class, 'createFromDiscriminatorValue'])),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'supersededAppCount' => fn(ParseNode $n) => $o->setSupersededAppCount($n->getIntegerValue()),
+            'supersedingAppCount' => fn(ParseNode $n) => $o->setSupersedingAppCount($n->getIntegerValue()),
+            'uploadState' => fn(ParseNode $n) => $o->setUploadState($n->getIntegerValue()),
+            'userStatuses' => fn(ParseNode $n) => $o->setUserStatuses($n->getCollectionOfObjectValues([UserAppInstallStatus::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
