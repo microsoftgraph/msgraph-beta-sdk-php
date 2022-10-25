@@ -55,7 +55,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
     private ?int $utcTimeOffsetInMinutes = null;
     
     /**
-     * Instantiates a new IosUpdateConfiguration and sets the default values.
+     * Instantiates a new iosUpdateConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -54,7 +54,7 @@ class VirtualEndpoint extends Entity implements Parsable
     private ?array $provisioningPolicies = null;
     
     /**
-     * @var CloudPcReports|null $reports The reports property
+     * @var CloudPcReports|null $reports Cloud PC related reports.
     */
     private ?CloudPcReports $reports = null;
     
@@ -192,7 +192,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Gets the reports property value. The reports property
+     * Gets the reports property value. Cloud PC related reports.
      * @return CloudPcReports|null
     */
     public function getReports(): ?CloudPcReports {
@@ -326,7 +326,7 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
-     * Sets the reports property value. The reports property
+     * Sets the reports property value. Cloud PC related reports.
      *  @param CloudPcReports|null $value Value to set for the reports property.
     */
     public function setReports(?CloudPcReports $value ): void {

@@ -35,7 +35,7 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
     private ?SignInStatus $status = null;
     
     /**
-     * Instantiates a new ApplicationSignInDetailedSummary and sets the default values.
+     * Instantiates a new applicationSignInDetailedSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
