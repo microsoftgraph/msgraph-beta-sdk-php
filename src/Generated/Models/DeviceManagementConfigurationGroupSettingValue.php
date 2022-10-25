@@ -14,7 +14,7 @@ class DeviceManagementConfigurationGroupSettingValue extends DeviceManagementCon
     private ?array $children = null;
     
     /**
-     * Instantiates a new DeviceManagementConfigurationGroupSettingValue and sets the default values.
+     * Instantiates a new deviceManagementConfigurationGroupSettingValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();
