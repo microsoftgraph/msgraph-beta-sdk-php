@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcReports extends Entity implements Parsable 
 {
     /**
-     * @var array<CloudPcExportJob>|null $exportJobs The exportJobs property
+     * @var array<CloudPcExportJob>|null $exportJobs The export jobs created for downloading reports.
     */
     private ?array $exportJobs = null;
     
@@ -31,7 +31,7 @@ class CloudPcReports extends Entity implements Parsable
     }
 
     /**
-     * Gets the exportJobs property value. The exportJobs property
+     * Gets the exportJobs property value. The export jobs created for downloading reports.
      * @return array<CloudPcExportJob>|null
     */
     public function getExportJobs(): ?array {
@@ -59,7 +59,7 @@ class CloudPcReports extends Entity implements Parsable
     }
 
     /**
-     * Sets the exportJobs property value. The exportJobs property
+     * Sets the exportJobs property value. The export jobs created for downloading reports.
      *  @param array<CloudPcExportJob>|null $value Value to set for the exportJobs property.
     */
     public function setExportJobs(?array $value ): void {

@@ -27,6 +27,20 @@ use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedDev
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedDeviceCompliances\ManagedDeviceCompliancesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedDeviceComplianceTrends\Item\ManagedDeviceComplianceTrendItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedDeviceComplianceTrends\ManagedDeviceComplianceTrendsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlertLogs\Item\ManagedTenantAlertLogItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlertLogs\ManagedTenantAlertLogsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlertRuleDefinitions\Item\ManagedTenantAlertRuleDefinitionItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlertRuleDefinitions\ManagedTenantAlertRuleDefinitionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlertRules\Item\ManagedTenantAlertRuleItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlertRules\ManagedTenantAlertRulesRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\Item\ManagedTenantAlertItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantAlerts\ManagedTenantAlertsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantApiNotifications\Item\ManagedTenantApiNotificationItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantApiNotifications\ManagedTenantApiNotificationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantEmailNotifications\Item\ManagedTenantEmailNotificationItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantEmailNotifications\ManagedTenantEmailNotificationsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantTicketingEndpoints\Item\ManagedTenantTicketingEndpointItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagedTenantTicketingEndpoints\ManagedTenantTicketingEndpointsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActions\Item\ManagementActionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActions\ManagementActionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementActionTenantDeploymentStatuses\Item\ManagementActionTenantDeploymentStatusItemRequestBuilder;
@@ -135,6 +149,55 @@ class ManagedTenantsRequestBuilder
     */
     public function managedDeviceComplianceTrends(): ManagedDeviceComplianceTrendsRequestBuilder {
         return new ManagedDeviceComplianceTrendsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The managedTenantAlertLogs property
+    */
+    public function managedTenantAlertLogs(): ManagedTenantAlertLogsRequestBuilder {
+        return new ManagedTenantAlertLogsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The managedTenantAlertRuleDefinitions property
+    */
+    public function managedTenantAlertRuleDefinitions(): ManagedTenantAlertRuleDefinitionsRequestBuilder {
+        return new ManagedTenantAlertRuleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The managedTenantAlertRules property
+    */
+    public function managedTenantAlertRules(): ManagedTenantAlertRulesRequestBuilder {
+        return new ManagedTenantAlertRulesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The managedTenantAlerts property
+    */
+    public function managedTenantAlerts(): ManagedTenantAlertsRequestBuilder {
+        return new ManagedTenantAlertsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The managedTenantApiNotifications property
+    */
+    public function managedTenantApiNotifications(): ManagedTenantApiNotificationsRequestBuilder {
+        return new ManagedTenantApiNotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The managedTenantEmailNotifications property
+    */
+    public function managedTenantEmailNotifications(): ManagedTenantEmailNotificationsRequestBuilder {
+        return new ManagedTenantEmailNotificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The managedTenantTicketingEndpoints property
+    */
+    public function managedTenantTicketingEndpoints(): ManagedTenantTicketingEndpointsRequestBuilder {
+        return new ManagedTenantTicketingEndpointsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -484,6 +547,83 @@ class ManagedTenantsRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managedDeviceComplianceTrend%2Did'] = $id;
         return new ManagedDeviceComplianceTrendItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlertLogs.item collection
+     * @param string $id Unique identifier of the item
+     * @return ManagedTenantAlertLogItemRequestBuilder
+    */
+    public function managedTenantAlertLogsById(string $id): ManagedTenantAlertLogItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedTenantAlertLog%2Did'] = $id;
+        return new ManagedTenantAlertLogItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlertRuleDefinitions.item collection
+     * @param string $id Unique identifier of the item
+     * @return ManagedTenantAlertRuleDefinitionItemRequestBuilder
+    */
+    public function managedTenantAlertRuleDefinitionsById(string $id): ManagedTenantAlertRuleDefinitionItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedTenantAlertRuleDefinition%2Did'] = $id;
+        return new ManagedTenantAlertRuleDefinitionItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlertRules.item collection
+     * @param string $id Unique identifier of the item
+     * @return ManagedTenantAlertRuleItemRequestBuilder
+    */
+    public function managedTenantAlertRulesById(string $id): ManagedTenantAlertRuleItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedTenantAlertRule%2Did'] = $id;
+        return new ManagedTenantAlertRuleItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlerts.item collection
+     * @param string $id Unique identifier of the item
+     * @return ManagedTenantAlertItemRequestBuilder
+    */
+    public function managedTenantAlertsById(string $id): ManagedTenantAlertItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedTenantAlert%2Did'] = $id;
+        return new ManagedTenantAlertItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantApiNotifications.item collection
+     * @param string $id Unique identifier of the item
+     * @return ManagedTenantApiNotificationItemRequestBuilder
+    */
+    public function managedTenantApiNotificationsById(string $id): ManagedTenantApiNotificationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedTenantApiNotification%2Did'] = $id;
+        return new ManagedTenantApiNotificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantEmailNotifications.item collection
+     * @param string $id Unique identifier of the item
+     * @return ManagedTenantEmailNotificationItemRequestBuilder
+    */
+    public function managedTenantEmailNotificationsById(string $id): ManagedTenantEmailNotificationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedTenantEmailNotification%2Did'] = $id;
+        return new ManagedTenantEmailNotificationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantTicketingEndpoints.item collection
+     * @param string $id Unique identifier of the item
+     * @return ManagedTenantTicketingEndpointItemRequestBuilder
+    */
+    public function managedTenantTicketingEndpointsById(string $id): ManagedTenantTicketingEndpointItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managedTenantTicketingEndpoint%2Did'] = $id;
+        return new ManagedTenantTicketingEndpointItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

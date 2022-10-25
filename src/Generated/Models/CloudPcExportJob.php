@@ -10,42 +10,42 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcExportJob extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $expirationDateTime The expirationDateTime property
+     * @var DateTime|null $expirationDateTime The date time when the export job expires.
     */
     private ?DateTime $expirationDateTime = null;
     
     /**
-     * @var CloudPcExportJobStatus|null $exportJobStatus The exportJobStatus property
+     * @var CloudPcExportJobStatus|null $exportJobStatus The status of the export job.The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
     */
     private ?CloudPcExportJobStatus $exportJobStatus = null;
     
     /**
-     * @var string|null $exportUrl The exportUrl property
+     * @var string|null $exportUrl The storage account url of the exported report, it can be used to download the file.
     */
     private ?string $exportUrl = null;
     
     /**
-     * @var string|null $filter The filter property
+     * @var string|null $filter The filter applied on the report.
     */
     private ?string $filter = null;
     
     /**
-     * @var string|null $format The format property
+     * @var string|null $format The format of the exported report.
     */
     private ?string $format = null;
     
     /**
-     * @var CloudPcReportName|null $reportName The reportName property
+     * @var CloudPcReportName|null $reportName The report name.The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, unknownFutureValue.
     */
     private ?CloudPcReportName $reportName = null;
     
     /**
-     * @var DateTime|null $requestDateTime The requestDateTime property
+     * @var DateTime|null $requestDateTime The date time when the export job was requested.
     */
     private ?DateTime $requestDateTime = null;
     
     /**
-     * @var array<string>|null $select The select property
+     * @var array<string>|null $select The selected columns of the report.
     */
     private ?array $select = null;
     
@@ -67,7 +67,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the expirationDateTime property value. The expirationDateTime property
+     * Gets the expirationDateTime property value. The date time when the export job expires.
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
@@ -75,7 +75,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the exportJobStatus property value. The exportJobStatus property
+     * Gets the exportJobStatus property value. The status of the export job.The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
      * @return CloudPcExportJobStatus|null
     */
     public function getExportJobStatus(): ?CloudPcExportJobStatus {
@@ -83,7 +83,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the exportUrl property value. The exportUrl property
+     * Gets the exportUrl property value. The storage account url of the exported report, it can be used to download the file.
      * @return string|null
     */
     public function getExportUrl(): ?string {
@@ -109,7 +109,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the filter property value. The filter property
+     * Gets the filter property value. The filter applied on the report.
      * @return string|null
     */
     public function getFilter(): ?string {
@@ -117,7 +117,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the format property value. The format property
+     * Gets the format property value. The format of the exported report.
      * @return string|null
     */
     public function getFormat(): ?string {
@@ -125,7 +125,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the reportName property value. The reportName property
+     * Gets the reportName property value. The report name.The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, unknownFutureValue.
      * @return CloudPcReportName|null
     */
     public function getReportName(): ?CloudPcReportName {
@@ -133,7 +133,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestDateTime property value. The requestDateTime property
+     * Gets the requestDateTime property value. The date time when the export job was requested.
      * @return DateTime|null
     */
     public function getRequestDateTime(): ?DateTime {
@@ -141,7 +141,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Gets the select property value. The select property
+     * Gets the select property value. The selected columns of the report.
      * @return array<string>|null
     */
     public function getSelect(): ?array {
@@ -165,7 +165,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the expirationDateTime property value. The expirationDateTime property
+     * Sets the expirationDateTime property value. The date time when the export job expires.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
     public function setExpirationDateTime(?DateTime $value ): void {
@@ -173,7 +173,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the exportJobStatus property value. The exportJobStatus property
+     * Sets the exportJobStatus property value. The status of the export job.The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
      *  @param CloudPcExportJobStatus|null $value Value to set for the exportJobStatus property.
     */
     public function setExportJobStatus(?CloudPcExportJobStatus $value ): void {
@@ -181,7 +181,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the exportUrl property value. The exportUrl property
+     * Sets the exportUrl property value. The storage account url of the exported report, it can be used to download the file.
      *  @param string|null $value Value to set for the exportUrl property.
     */
     public function setExportUrl(?string $value ): void {
@@ -189,7 +189,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the filter property value. The filter property
+     * Sets the filter property value. The filter applied on the report.
      *  @param string|null $value Value to set for the filter property.
     */
     public function setFilter(?string $value ): void {
@@ -197,7 +197,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the format property value. The format property
+     * Sets the format property value. The format of the exported report.
      *  @param string|null $value Value to set for the format property.
     */
     public function setFormat(?string $value ): void {
@@ -205,7 +205,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the reportName property value. The reportName property
+     * Sets the reportName property value. The report name.The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, unknownFutureValue.
      *  @param CloudPcReportName|null $value Value to set for the reportName property.
     */
     public function setReportName(?CloudPcReportName $value ): void {
@@ -213,7 +213,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestDateTime property value. The requestDateTime property
+     * Sets the requestDateTime property value. The date time when the export job was requested.
      *  @param DateTime|null $value Value to set for the requestDateTime property.
     */
     public function setRequestDateTime(?DateTime $value ): void {
@@ -221,7 +221,7 @@ class CloudPcExportJob extends Entity implements Parsable
     }
 
     /**
-     * Sets the select property value. The select property
+     * Sets the select property value. The selected columns of the report.
      *  @param array<string>|null $value Value to set for the select property.
     */
     public function setSelect(?array $value ): void {

@@ -24,7 +24,7 @@ class UserSource extends DataSource implements Parsable
     private ?string $siteWebUrl = null;
     
     /**
-     * Instantiates a new UserSource and sets the default values.
+     * Instantiates a new userSource and sets the default values.
     */
     public function __construct() {
         parent::__construct();

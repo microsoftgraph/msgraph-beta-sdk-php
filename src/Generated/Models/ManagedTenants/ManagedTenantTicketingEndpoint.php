@@ -46,7 +46,7 @@ class ManagedTenantTicketingEndpoint extends Entity implements Parsable
     private ?string $phoneNumber = null;
     
     /**
-     * Instantiates a new ManagedTenantTicketingEndpoint and sets the default values.
+     * Instantiates a new managedTenantTicketingEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

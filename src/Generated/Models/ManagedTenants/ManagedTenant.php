@@ -60,6 +60,41 @@ class ManagedTenant extends Entity implements Parsable
     private ?array $managedDeviceComplianceTrends = null;
     
     /**
+     * @var array<ManagedTenantAlertLog>|null $managedTenantAlertLogs The managedTenantAlertLogs property
+    */
+    private ?array $managedTenantAlertLogs = null;
+    
+    /**
+     * @var array<ManagedTenantAlertRuleDefinition>|null $managedTenantAlertRuleDefinitions The managedTenantAlertRuleDefinitions property
+    */
+    private ?array $managedTenantAlertRuleDefinitions = null;
+    
+    /**
+     * @var array<ManagedTenantAlertRule>|null $managedTenantAlertRules The managedTenantAlertRules property
+    */
+    private ?array $managedTenantAlertRules = null;
+    
+    /**
+     * @var array<ManagedTenantAlert>|null $managedTenantAlerts The managedTenantAlerts property
+    */
+    private ?array $managedTenantAlerts = null;
+    
+    /**
+     * @var array<ManagedTenantApiNotification>|null $managedTenantApiNotifications The managedTenantApiNotifications property
+    */
+    private ?array $managedTenantApiNotifications = null;
+    
+    /**
+     * @var array<ManagedTenantEmailNotification>|null $managedTenantEmailNotifications The managedTenantEmailNotifications property
+    */
+    private ?array $managedTenantEmailNotifications = null;
+    
+    /**
+     * @var array<ManagedTenantTicketingEndpoint>|null $managedTenantTicketingEndpoints The managedTenantTicketingEndpoints property
+    */
+    private ?array $managedTenantTicketingEndpoints = null;
+    
+    /**
      * @var array<ManagementAction>|null $managementActions The collection of baseline management actions across managed tenants.
     */
     private ?array $managementActions = null;
@@ -232,6 +267,13 @@ class ManagedTenant extends Entity implements Parsable
             'deviceCompliancePolicySettingStateSummaries' => fn(ParseNode $n) => $o->setDeviceCompliancePolicySettingStateSummaries($n->getCollectionOfObjectValues([DeviceCompliancePolicySettingStateSummary::class, 'createFromDiscriminatorValue'])),
             'managedDeviceCompliances' => fn(ParseNode $n) => $o->setManagedDeviceCompliances($n->getCollectionOfObjectValues([ManagedDeviceCompliance::class, 'createFromDiscriminatorValue'])),
             'managedDeviceComplianceTrends' => fn(ParseNode $n) => $o->setManagedDeviceComplianceTrends($n->getCollectionOfObjectValues([ManagedDeviceComplianceTrend::class, 'createFromDiscriminatorValue'])),
+            'managedTenantAlertLogs' => fn(ParseNode $n) => $o->setManagedTenantAlertLogs($n->getCollectionOfObjectValues([ManagedTenantAlertLog::class, 'createFromDiscriminatorValue'])),
+            'managedTenantAlertRuleDefinitions' => fn(ParseNode $n) => $o->setManagedTenantAlertRuleDefinitions($n->getCollectionOfObjectValues([ManagedTenantAlertRuleDefinition::class, 'createFromDiscriminatorValue'])),
+            'managedTenantAlertRules' => fn(ParseNode $n) => $o->setManagedTenantAlertRules($n->getCollectionOfObjectValues([ManagedTenantAlertRule::class, 'createFromDiscriminatorValue'])),
+            'managedTenantAlerts' => fn(ParseNode $n) => $o->setManagedTenantAlerts($n->getCollectionOfObjectValues([ManagedTenantAlert::class, 'createFromDiscriminatorValue'])),
+            'managedTenantApiNotifications' => fn(ParseNode $n) => $o->setManagedTenantApiNotifications($n->getCollectionOfObjectValues([ManagedTenantApiNotification::class, 'createFromDiscriminatorValue'])),
+            'managedTenantEmailNotifications' => fn(ParseNode $n) => $o->setManagedTenantEmailNotifications($n->getCollectionOfObjectValues([ManagedTenantEmailNotification::class, 'createFromDiscriminatorValue'])),
+            'managedTenantTicketingEndpoints' => fn(ParseNode $n) => $o->setManagedTenantTicketingEndpoints($n->getCollectionOfObjectValues([ManagedTenantTicketingEndpoint::class, 'createFromDiscriminatorValue'])),
             'managementActions' => fn(ParseNode $n) => $o->setManagementActions($n->getCollectionOfObjectValues([ManagementAction::class, 'createFromDiscriminatorValue'])),
             'managementActionTenantDeploymentStatuses' => fn(ParseNode $n) => $o->setManagementActionTenantDeploymentStatuses($n->getCollectionOfObjectValues([ManagementActionTenantDeploymentStatus::class, 'createFromDiscriminatorValue'])),
             'managementIntents' => fn(ParseNode $n) => $o->setManagementIntents($n->getCollectionOfObjectValues([ManagementIntent::class, 'createFromDiscriminatorValue'])),
@@ -264,6 +306,62 @@ class ManagedTenant extends Entity implements Parsable
     */
     public function getManagedDeviceComplianceTrends(): ?array {
         return $this->managedDeviceComplianceTrends;
+    }
+
+    /**
+     * Gets the managedTenantAlertLogs property value. The managedTenantAlertLogs property
+     * @return array<ManagedTenantAlertLog>|null
+    */
+    public function getManagedTenantAlertLogs(): ?array {
+        return $this->managedTenantAlertLogs;
+    }
+
+    /**
+     * Gets the managedTenantAlertRuleDefinitions property value. The managedTenantAlertRuleDefinitions property
+     * @return array<ManagedTenantAlertRuleDefinition>|null
+    */
+    public function getManagedTenantAlertRuleDefinitions(): ?array {
+        return $this->managedTenantAlertRuleDefinitions;
+    }
+
+    /**
+     * Gets the managedTenantAlertRules property value. The managedTenantAlertRules property
+     * @return array<ManagedTenantAlertRule>|null
+    */
+    public function getManagedTenantAlertRules(): ?array {
+        return $this->managedTenantAlertRules;
+    }
+
+    /**
+     * Gets the managedTenantAlerts property value. The managedTenantAlerts property
+     * @return array<ManagedTenantAlert>|null
+    */
+    public function getManagedTenantAlerts(): ?array {
+        return $this->managedTenantAlerts;
+    }
+
+    /**
+     * Gets the managedTenantApiNotifications property value. The managedTenantApiNotifications property
+     * @return array<ManagedTenantApiNotification>|null
+    */
+    public function getManagedTenantApiNotifications(): ?array {
+        return $this->managedTenantApiNotifications;
+    }
+
+    /**
+     * Gets the managedTenantEmailNotifications property value. The managedTenantEmailNotifications property
+     * @return array<ManagedTenantEmailNotification>|null
+    */
+    public function getManagedTenantEmailNotifications(): ?array {
+        return $this->managedTenantEmailNotifications;
+    }
+
+    /**
+     * Gets the managedTenantTicketingEndpoints property value. The managedTenantTicketingEndpoints property
+     * @return array<ManagedTenantTicketingEndpoint>|null
+    */
+    public function getManagedTenantTicketingEndpoints(): ?array {
+        return $this->managedTenantTicketingEndpoints;
     }
 
     /**
@@ -402,6 +500,13 @@ class ManagedTenant extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceCompliancePolicySettingStateSummaries', $this->deviceCompliancePolicySettingStateSummaries);
         $writer->writeCollectionOfObjectValues('managedDeviceCompliances', $this->managedDeviceCompliances);
         $writer->writeCollectionOfObjectValues('managedDeviceComplianceTrends', $this->managedDeviceComplianceTrends);
+        $writer->writeCollectionOfObjectValues('managedTenantAlertLogs', $this->managedTenantAlertLogs);
+        $writer->writeCollectionOfObjectValues('managedTenantAlertRuleDefinitions', $this->managedTenantAlertRuleDefinitions);
+        $writer->writeCollectionOfObjectValues('managedTenantAlertRules', $this->managedTenantAlertRules);
+        $writer->writeCollectionOfObjectValues('managedTenantAlerts', $this->managedTenantAlerts);
+        $writer->writeCollectionOfObjectValues('managedTenantApiNotifications', $this->managedTenantApiNotifications);
+        $writer->writeCollectionOfObjectValues('managedTenantEmailNotifications', $this->managedTenantEmailNotifications);
+        $writer->writeCollectionOfObjectValues('managedTenantTicketingEndpoints', $this->managedTenantTicketingEndpoints);
         $writer->writeCollectionOfObjectValues('managementActions', $this->managementActions);
         $writer->writeCollectionOfObjectValues('managementActionTenantDeploymentStatuses', $this->managementActionTenantDeploymentStatuses);
         $writer->writeCollectionOfObjectValues('managementIntents', $this->managementIntents);
@@ -497,6 +602,62 @@ class ManagedTenant extends Entity implements Parsable
     */
     public function setManagedDeviceComplianceTrends(?array $value ): void {
         $this->managedDeviceComplianceTrends = $value;
+    }
+
+    /**
+     * Sets the managedTenantAlertLogs property value. The managedTenantAlertLogs property
+     *  @param array<ManagedTenantAlertLog>|null $value Value to set for the managedTenantAlertLogs property.
+    */
+    public function setManagedTenantAlertLogs(?array $value ): void {
+        $this->managedTenantAlertLogs = $value;
+    }
+
+    /**
+     * Sets the managedTenantAlertRuleDefinitions property value. The managedTenantAlertRuleDefinitions property
+     *  @param array<ManagedTenantAlertRuleDefinition>|null $value Value to set for the managedTenantAlertRuleDefinitions property.
+    */
+    public function setManagedTenantAlertRuleDefinitions(?array $value ): void {
+        $this->managedTenantAlertRuleDefinitions = $value;
+    }
+
+    /**
+     * Sets the managedTenantAlertRules property value. The managedTenantAlertRules property
+     *  @param array<ManagedTenantAlertRule>|null $value Value to set for the managedTenantAlertRules property.
+    */
+    public function setManagedTenantAlertRules(?array $value ): void {
+        $this->managedTenantAlertRules = $value;
+    }
+
+    /**
+     * Sets the managedTenantAlerts property value. The managedTenantAlerts property
+     *  @param array<ManagedTenantAlert>|null $value Value to set for the managedTenantAlerts property.
+    */
+    public function setManagedTenantAlerts(?array $value ): void {
+        $this->managedTenantAlerts = $value;
+    }
+
+    /**
+     * Sets the managedTenantApiNotifications property value. The managedTenantApiNotifications property
+     *  @param array<ManagedTenantApiNotification>|null $value Value to set for the managedTenantApiNotifications property.
+    */
+    public function setManagedTenantApiNotifications(?array $value ): void {
+        $this->managedTenantApiNotifications = $value;
+    }
+
+    /**
+     * Sets the managedTenantEmailNotifications property value. The managedTenantEmailNotifications property
+     *  @param array<ManagedTenantEmailNotification>|null $value Value to set for the managedTenantEmailNotifications property.
+    */
+    public function setManagedTenantEmailNotifications(?array $value ): void {
+        $this->managedTenantEmailNotifications = $value;
+    }
+
+    /**
+     * Sets the managedTenantTicketingEndpoints property value. The managedTenantTicketingEndpoints property
+     *  @param array<ManagedTenantTicketingEndpoint>|null $value Value to set for the managedTenantTicketingEndpoints property.
+    */
+    public function setManagedTenantTicketingEndpoints(?array $value ): void {
+        $this->managedTenantTicketingEndpoints = $value;
     }
 
     /**

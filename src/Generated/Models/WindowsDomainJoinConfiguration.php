@@ -34,7 +34,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
     private ?string $organizationalUnit = null;
     
     /**
-     * Instantiates a new WindowsDomainJoinConfiguration and sets the default values.
+     * Instantiates a new windowsDomainJoinConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -20,7 +20,7 @@ class OrganizationalMessagePlacementDetail implements AdditionalDataHolder, Pars
     private ?string $odataType = null;
     
     /**
-     * @var OrganizationalMessagePlacement|null $placement Indicates the name of the placement. Possible values are: default, card0, card1, card2, card3, unknownFutureValue.
+     * @var OrganizationalMessagePlacement|null $placement Indicates the name of the placement
     */
     private ?OrganizationalMessagePlacement $placement = null;
     
@@ -76,7 +76,7 @@ class OrganizationalMessagePlacementDetail implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Gets the placement property value. Indicates the name of the placement. Possible values are: default, card0, card1, card2, card3, unknownFutureValue.
+     * Gets the placement property value. Indicates the name of the placement
      * @return OrganizationalMessagePlacement|null
     */
     public function getPlacement(): ?OrganizationalMessagePlacement {
@@ -119,7 +119,7 @@ class OrganizationalMessagePlacementDetail implements AdditionalDataHolder, Pars
     }
 
     /**
-     * Sets the placement property value. Indicates the name of the placement. Possible values are: default, card0, card1, card2, card3, unknownFutureValue.
+     * Sets the placement property value. Indicates the name of the placement
      *  @param OrganizationalMessagePlacement|null $value Value to set for the placement property.
     */
     public function setPlacement(?OrganizationalMessagePlacement $value ): void {
